@@ -71,14 +71,12 @@ def rimuovi_emoji(testo):
     ).strip()
 
 
-def traduci(testo):
-    testo = rimuovi_emoji(testo)
-    if not testo.strip():
-        return testo
+def _traduci_blocco(blocco):
+    """Traduce un singolo blocco di max 490 caratteri."""
     try:
         resp = requests.get(
             "https://api.mymemory.translated.net/get",
-            params={"q": testo[:500], "langpair": "ru|it"},
+            params={"q": blocco, "langpair": "ru|it"},
             headers=HEADERS,
             timeout=15,
         )
@@ -87,7 +85,48 @@ def traduci(testo):
             return data["responseData"]["translatedText"]
     except Exception:
         pass
-    return testo  # fallback: testo originale
+    return blocco  # fallback: testo originale
+
+
+def traduci(testo):
+    testo = rimuovi_emoji(testo)
+    if not testo.strip():
+        return testo
+
+    LIMITE = 490  # MyMemory accetta max 500 caratteri per richiesta
+
+    # Se il testo è corto, traducilo direttamente
+    if len(testo) <= LIMITE:
+        return _traduci_blocco(testo)
+
+    # Altrimenti spezza per frasi mantenendo il senso
+    frasi = re.split(r'(?<=[.!?])\s+', testo)
+    blocchi = []
+    blocco_corrente = ""
+
+    for frase in frasi:
+        if len(blocco_corrente) + len(frase) + 1 <= LIMITE:
+            blocco_corrente += (" " if blocco_corrente else "") + frase
+        else:
+            if blocco_corrente:
+                blocchi.append(blocco_corrente)
+            # Se la frase singola è troppo lunga, tagliala brutalmente
+            while len(frase) > LIMITE:
+                blocchi.append(frase[:LIMITE])
+                frase = frase[LIMITE:]
+            blocco_corrente = frase
+
+    if blocco_corrente:
+        blocchi.append(blocco_corrente)
+
+    # Traduci ogni blocco con pausa per evitare rate limiting
+    risultati = []
+    for i, b in enumerate(blocchi):
+        risultati.append(_traduci_blocco(b))
+        if i < len(blocchi) - 1:
+            time.sleep(0.4)
+
+    return " ".join(risultati)
 
 
 def traduci_lista(posts):
