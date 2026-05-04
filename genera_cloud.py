@@ -256,10 +256,9 @@ def _spezza_script(testo, limite=7000):
 
 
 def _cartesia_chunk(testo):
-    """Chiama l'endpoint SSE di Cartesia e restituisce (audio_bytes, [(parola, secondi)])."""
-    import base64 as _b64, json as _json
+    """Chiama Cartesia /tts/bytes e restituisce (audio_bytes, [])."""
     resp = requests.post(
-        "https://api.cartesia.ai/tts/sse",
+        "https://api.cartesia.ai/tts/bytes",
         headers={
             "X-API-Key": CARTESIA_API_KEY,
             "Cartesia-Version": "2024-06-10",
@@ -271,32 +270,11 @@ def _cartesia_chunk(testo):
             "voice": {"mode": "id", "id": CARTESIA_VOICE_ID},
             "output_format": {"container": "mp3", "encoding": "mp3", "sample_rate": 44100},
             "language": "it",
-            "add_timestamps": True,
         },
-        stream=True,
         timeout=300,
     )
     resp.raise_for_status()
-    audio = bytearray()
-    parole = []
-    for line in resp.iter_lines():
-        if not line:
-            continue
-        if isinstance(line, bytes):
-            line = line.decode("utf-8")
-        if not line.startswith("data: "):
-            continue
-        try:
-            data = _json.loads(line[6:])
-        except Exception:
-            continue
-        if data.get("type") == "chunk" and data.get("data"):
-            audio.extend(_b64.b64decode(data["data"]))
-        elif data.get("type") == "timestamps":
-            wt = data.get("word_timestamps", {})
-            for w, s in zip(wt.get("words", []), wt.get("start", [])):
-                parole.append((w, float(s)))
-    return bytes(audio), parole
+    return resp.content, []
 
 
 def _cartesia(testo, path, num_articoli):
@@ -337,12 +315,16 @@ def _cartesia(testo, path, num_articoli):
 
 def genera_audio(testo, path, num_articoli=0):
     if CARTESIA_API_KEY and CARTESIA_VOICE_ID:
-        log("Uso Cartesia (voce clonata)...")
-        return _cartesia(testo, path, num_articoli)
-    else:
-        log("Uso edge-tts (voce standard)...")
-        sb = asyncio.run(_edge_tts_stream(testo, path, VOCE, VELOCITA))
-        return _trova_tempi(sb, num_articoli) if num_articoli > 0 else {}
+        try:
+            log("Uso Cartesia (voce clonata)...")
+            return _cartesia(testo, path, num_articoli)
+        except requests.exceptions.HTTPError as e:
+            log(f"Cartesia non disponibile ({e.response.status_code}), uso edge-tts...")
+        except Exception as e:
+            log(f"Errore Cartesia ({e}), uso edge-tts...")
+    log("Uso edge-tts (voce standard)...")
+    sb = asyncio.run(_edge_tts_stream(testo, path, VOCE, VELOCITA))
+    return _trova_tempi(sb, num_articoli) if num_articoli > 0 else {}
 
 
 # ── HTML ────────────────────────────────────────────────────
