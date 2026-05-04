@@ -17,9 +17,11 @@ import edge_tts
 # ── Configurazione ──────────────────────────────────────────
 TELEGRAM_URL = "https://t.me/s/evropar"
 MAX_POST = 15
-VOCE = "it-IT-ElsaNeural"
+VOCE = "it-IT-ElsaNeural"   # usata solo se Cartesia non è configurata
 VELOCITA = "+5%"
 OUTPUT_DIR = "docs"
+CARTESIA_API_KEY  = os.environ.get("CARTESIA_API_KEY", "")
+CARTESIA_VOICE_ID = os.environ.get("CARTESIA_VOICE_ID", "")
 # ────────────────────────────────────────────────────────────
 
 HEADERS = {
@@ -206,7 +208,7 @@ def costruisci_script(posts, data_str):
     return "\n\n".join(parti)
 
 
-async def _genera_audio(testo, path, voce, velocita):
+async def _edge_tts_stream(testo, path, voce, velocita):
     communicate = edge_tts.Communicate(testo, voce, rate=velocita)
     sentence_boundaries = []
     with open(path, "wb") as f:
@@ -232,9 +234,38 @@ def _trova_tempi(sentence_boundaries, num_articoli):
     return tempi
 
 
+def _cartesia(testo, path):
+    """Genera audio con la voce clonata via Cartesia API."""
+    resp = requests.post(
+        "https://api.cartesia.ai/tts/bytes",
+        headers={
+            "X-API-Key": CARTESIA_API_KEY,
+            "Cartesia-Version": "2024-06-10",
+            "Content-Type": "application/json",
+        },
+        json={
+            "model_id": "sonic-2",
+            "transcript": testo,
+            "voice": {"mode": "id", "id": CARTESIA_VOICE_ID},
+            "output_format": {"container": "mp3", "encoding": "mp3", "sample_rate": 44100},
+            "language": "it",
+        },
+        timeout=180,
+    )
+    resp.raise_for_status()
+    with open(path, "wb") as f:
+        f.write(resp.content)
+
+
 def genera_audio(testo, path, num_articoli=0):
-    sb = asyncio.run(_genera_audio(testo, path, VOCE, VELOCITA))
-    return _trova_tempi(sb, num_articoli) if num_articoli > 0 else {}
+    if CARTESIA_API_KEY and CARTESIA_VOICE_ID:
+        log("Uso Cartesia (voce clonata)...")
+        _cartesia(testo, path)
+        return {}   # timing non disponibile con Cartesia, seek disabilitato
+    else:
+        log("Uso edge-tts (voce standard)...")
+        sb = asyncio.run(_edge_tts_stream(testo, path, VOCE, VELOCITA))
+        return _trova_tempi(sb, num_articoli) if num_articoli > 0 else {}
 
 
 # ── HTML ────────────────────────────────────────────────────
