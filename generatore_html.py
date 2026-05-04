@@ -15,9 +15,17 @@ def genera_html(posts_tradotti, data_str, nome_audio, tempi_articoli=None):
     tempi_js = json.dumps({str(k): v for k, v in tempi_articoli.items()})
     ha_timing = "true" if tempi_articoli else "false"
 
+    def _rimuovi_tag(testo):
+        import re as _re
+        righe = testo.split("\n")
+        pulite = [r for r in righe if not (r.strip().split() and all(
+            p.startswith("#") or p.startswith("@") for p in r.strip().split()))]
+        testo = "\n".join(pulite)
+        return _re.sub(r"\s+([@#]\S+\s*)+$", "", testo).strip()
+
     notizie_html = ""
     for i, post in enumerate(posts_tradotti, 1):
-        testo = post.get("testo_tradotto") or post["testo"]
+        testo = _rimuovi_tag(post.get("testo_tradotto") or post["testo"])
         data_post = post.get("data", "")
         testo_html = testo.replace("\n", "<br>")
         clic_attr = f' onclick="seekToArticle({i})" title="Tocca per ascoltare"' if i in tempi_articoli else ""

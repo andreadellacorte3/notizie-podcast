@@ -173,8 +173,24 @@ def traduci_lista(posts):
 
 # ── Audio ───────────────────────────────────────────────────
 
+def rimuovi_tag(testo):
+    """Rimuove righe di soli #hashtag/@menzioni e tag in coda al testo."""
+    righe = testo.split("\n")
+    pulite = []
+    for riga in righe:
+        parole = riga.strip().split()
+        if parole and all(p.startswith("#") or p.startswith("@") for p in parole):
+            continue
+        pulite.append(riga)
+    testo = "\n".join(pulite)
+    # rimuovi anche tag/menzioni in coda sulla stessa riga
+    testo = re.sub(r"\s+([@#]\S+\s*)+$", "", testo)
+    return testo.strip()
+
+
 def pulisci_tts(testo):
     testo = rimuovi_emoji(testo)
+    testo = rimuovi_tag(testo)
     testo = re.sub(r"https?://\S+", "", testo)
     testo = re.sub(r"\n{3,}", "\n\n", testo)
     return re.sub(r" {2,}", " ", testo).strip()
@@ -233,7 +249,7 @@ def genera_html(posts, data_str, nome_audio, tempi_articoli=None):
 
     notizie = ""
     for i, p in enumerate(posts, 1):
-        testo = (p.get("testo_tradotto") or p["testo"]).replace("\n", "<br>")
+        testo = rimuovi_tag(p.get("testo_tradotto") or p["testo"]).replace("\n", "<br>")
         data_p = p.get("data", "")
         clic_attr = f' onclick="seekToArticle({i})" title="Tocca per ascoltare"' if i in tempi_articoli else ""
         notizie += f"""

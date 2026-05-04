@@ -4,7 +4,21 @@ import re
 import edge_tts
 
 
+def _rimuovi_tag(testo):
+    righe = testo.split("\n")
+    pulite = []
+    for riga in righe:
+        parole = riga.strip().split()
+        if parole and all(p.startswith("#") or p.startswith("@") for p in parole):
+            continue
+        pulite.append(riga)
+    testo = "\n".join(pulite)
+    testo = re.sub(r"\s+([@#]\S+\s*)+$", "", testo)
+    return testo.strip()
+
+
 def pulisci_per_tts(testo):
+    testo = _rimuovi_tag(testo)
     testo = re.sub(r"https?://\S+", "", testo)
     testo = re.sub(r"[^\x00-\x7FÀ-ɏЀ-ӿ]", "", testo)
     testo = re.sub(r"\n{3,}", "\n\n", testo)
