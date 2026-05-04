@@ -71,8 +71,38 @@ def rimuovi_emoji(testo):
     ).strip()
 
 
-def _chiama_google(testo, retries=3):
-    """Chiama Google Translate (gratuito, max ~4500 caratteri per blocco)."""
+EMAIL = "andreadellacorte3@gmail.com"  # aumenta quota MyMemory a 50k parole/giorno
+
+
+def _ha_cirillico(testo):
+    cirillici = sum(1 for c in testo if 'Ѐ' <= c <= 'ӿ')
+    return cirillici > len(testo) * 0.15
+
+
+def _mymemory(blocco, retries=4):
+    """MyMemory con email: 50k parole/giorno, blocchi max 490 caratteri."""
+    for attempt in range(retries):
+        try:
+            resp = requests.get(
+                "https://api.mymemory.translated.net/get",
+                params={"q": blocco, "langpair": "ru|it", "de": EMAIL},
+                headers=HEADERS,
+                timeout=15,
+            )
+            data = resp.json()
+            if data.get("responseStatus") == 200:
+                t = data["responseData"]["translatedText"]
+                if t and t.strip() and not _ha_cirillico(t):
+                    return t
+        except Exception:
+            pass
+        if attempt < retries - 1:
+            time.sleep(2 * (attempt + 1))
+    return None
+
+
+def _google(testo, retries=2):
+    """Google Translate come backup (può essere bloccato da alcuni ambienti CI)."""
     url = "https://translate.googleapis.com/translate_a/single"
     data = {"client": "gtx", "sl": "auto", "tl": "it", "dt": "t", "q": testo}
     for attempt in range(retries):
@@ -80,20 +110,34 @@ def _chiama_google(testo, retries=3):
             resp = requests.post(url, data=data, headers=HEADERS, timeout=15)
             resp.raise_for_status()
             result = resp.json()
-            tradotto = "".join(part[0] for part in result[0] if part[0])
-            if tradotto.strip():
-                return tradotto
+            t = "".join(part[0] for part in result[0] if part[0])
+            if t.strip() and not _ha_cirillico(t):
+                return t
         except Exception:
             pass
         if attempt < retries - 1:
-            time.sleep(1.5 * (attempt + 1))
-    return testo  # fallback: testo originale
+            time.sleep(2)
+    return None
 
 
-def _ha_cirillico(testo):
-    """Restituisce True se il testo contiene ancora molta scrittura cirillica."""
-    cirillici = sum(1 for c in testo if 'Ѐ' <= c <= 'ӿ')
-    return cirillici > len(testo) * 0.15
+def _spezza_in_blocchi(testo, limite=480):
+    """Spezza il testo in blocchi da max `limite` caratteri senza tagliare le frasi."""
+    frasi = re.split(r'(?<=[.!?])\s+', testo)
+    blocchi, corrente = [], ""
+    for frase in frasi:
+        if len(corrente) + len(frase) + 1 <= limite:
+            corrente += (" " if corrente else "") + frase
+        else:
+            if corrente:
+                blocchi.append(corrente)
+            # frase singola più lunga del limite: spezza per parole
+            while len(frase) > limite:
+                blocchi.append(frase[:limite])
+                frase = frase[limite:]
+            corrente = frase
+    if corrente:
+        blocchi.append(corrente)
+    return blocchi
 
 
 def traduci(testo):
@@ -101,36 +145,16 @@ def traduci(testo):
     if not testo.strip():
         return testo
 
-    LIMITE = 4500  # Google Translate gestisce testi molto più lunghi
-
-    if len(testo) <= LIMITE:
-        risultato = _chiama_google(testo)
-        # Se ancora in russo, riprova dopo una pausa
-        if _ha_cirillico(risultato):
-            time.sleep(3)
-            risultato = _chiama_google(testo)
-        return risultato
-
-    # Testo molto lungo: spezza per paragrafi
-    paragrafi = testo.split("\n")
-    blocchi, blocco_corrente = [], ""
-    for p in paragrafi:
-        if len(blocco_corrente) + len(p) + 1 <= LIMITE:
-            blocco_corrente += p + "\n"
-        else:
-            if blocco_corrente.strip():
-                blocchi.append(blocco_corrente.strip())
-            blocco_corrente = p + "\n"
-    if blocco_corrente.strip():
-        blocchi.append(blocco_corrente.strip())
-
+    blocchi = _spezza_in_blocchi(testo)
     risultati = []
     for i, b in enumerate(blocchi):
-        t = _chiama_google(b)
-        if _ha_cirillico(t):
-            time.sleep(3)
-            t = _chiama_google(b)
-        risultati.append(t)
+        # Prova MyMemory prima (più affidabile in CI)
+        t = _mymemory(b)
+        # Fallback a Google se MyMemory fallisce
+        if t is None:
+            t = _google(b)
+        # Ultimo fallback: testo originale
+        risultati.append(t if t is not None else b)
         if i < len(blocchi) - 1:
             time.sleep(0.5)
 
