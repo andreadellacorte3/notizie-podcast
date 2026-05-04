@@ -234,10 +234,29 @@ def _trova_tempi(sentence_boundaries, num_articoli):
     return tempi
 
 
-def _cartesia(testo, path):
-    """Genera audio con la voce clonata via Cartesia API."""
+def _spezza_script(testo, limite=7000):
+    """Spezza il testo per articolo mantenendo ogni blocco sotto il limite di caratteri."""
+    if len(testo) <= limite:
+        return [testo]
+    paragrafi = testo.split("\n\n")
+    chunks, corrente = [], ""
+    for p in paragrafi:
+        if len(corrente) + len(p) + 2 <= limite:
+            corrente += p + "\n\n"
+        else:
+            if corrente.strip():
+                chunks.append(corrente.strip())
+            corrente = p + "\n\n"
+    if corrente.strip():
+        chunks.append(corrente.strip())
+    return chunks
+
+
+def _cartesia_chunk(testo):
+    """Chiama l'endpoint SSE di Cartesia e restituisce (audio_bytes, [(parola, secondi)])."""
+    import base64 as _b64, json as _json
     resp = requests.post(
-        "https://api.cartesia.ai/tts/bytes",
+        "https://api.cartesia.ai/tts/sse",
         headers={
             "X-API-Key": CARTESIA_API_KEY,
             "Cartesia-Version": "2024-06-10",
@@ -249,19 +268,74 @@ def _cartesia(testo, path):
             "voice": {"mode": "id", "id": CARTESIA_VOICE_ID},
             "output_format": {"container": "mp3", "encoding": "mp3", "sample_rate": 44100},
             "language": "it",
+            "add_timestamps": True,
         },
-        timeout=180,
+        stream=True,
+        timeout=300,
     )
     resp.raise_for_status()
+    audio = bytearray()
+    parole = []
+    for line in resp.iter_lines():
+        if not line:
+            continue
+        if isinstance(line, bytes):
+            line = line.decode("utf-8")
+        if not line.startswith("data: "):
+            continue
+        try:
+            data = _json.loads(line[6:])
+        except Exception:
+            continue
+        if data.get("type") == "chunk" and data.get("data"):
+            audio.extend(_b64.b64decode(data["data"]))
+        elif data.get("type") == "timestamps":
+            wt = data.get("word_timestamps", {})
+            for w, s in zip(wt.get("words", []), wt.get("start", [])):
+                parole.append((w, float(s)))
+    return bytes(audio), parole
+
+
+def _cartesia(testo, path, num_articoli):
+    """Genera il podcast con Cartesia, gestisce testi lunghi e recupera i timestamp."""
+    chunks = _spezza_script(testo)
+    tutto_audio = bytearray()
+    tutte_parole = []
+    offset = 0.0
+
+    for i, chunk in enumerate(chunks):
+        log(f"  Cartesia chunk {i+1}/{len(chunks)}...")
+        audio, parole = _cartesia_chunk(chunk)
+        for w, t in parole:
+            tutte_parole.append((w, round(t + offset, 2)))
+        # offset successivo = fine ultima parola + margine
+        offset += (parole[-1][1] + 1.0) if parole else (len(audio) / 16000.0)
+        tutto_audio.extend(audio)
+        if i < len(chunks) - 1:
+            time.sleep(0.5)
+
     with open(path, "wb") as f:
-        f.write(resp.content)
+        f.write(tutto_audio)
+
+    # Trova i tempi di inizio di ogni articolo ("Notizia N")
+    tempi = {}
+    for i, (w, t) in enumerate(tutte_parole):
+        if w.lower() == "notizia":
+            for w2, _ in tutte_parole[i+1:i+3]:
+                try:
+                    num = int(w2.rstrip(".,"))
+                    if 1 <= num <= num_articoli and num not in tempi:
+                        tempi[num] = t
+                    break
+                except ValueError:
+                    pass
+    return tempi if num_articoli > 0 else {}
 
 
 def genera_audio(testo, path, num_articoli=0):
     if CARTESIA_API_KEY and CARTESIA_VOICE_ID:
         log("Uso Cartesia (voce clonata)...")
-        _cartesia(testo, path)
-        return {}   # timing non disponibile con Cartesia, seek disabilitato
+        return _cartesia(testo, path, num_articoli)
     else:
         log("Uso edge-tts (voce standard)...")
         sb = asyncio.run(_edge_tts_stream(testo, path, VOCE, VELOCITA))
