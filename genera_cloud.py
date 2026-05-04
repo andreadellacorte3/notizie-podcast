@@ -71,21 +71,29 @@ def rimuovi_emoji(testo):
     ).strip()
 
 
-def _traduci_blocco(blocco):
-    """Traduce un singolo blocco di max 490 caratteri."""
-    try:
-        resp = requests.get(
-            "https://api.mymemory.translated.net/get",
-            params={"q": blocco, "langpair": "ru|it"},
-            headers=HEADERS,
-            timeout=15,
-        )
-        data = resp.json()
-        if data.get("responseStatus") == 200:
-            return data["responseData"]["translatedText"]
-    except Exception:
-        pass
-    return blocco  # fallback: testo originale
+def _chiama_google(testo, retries=3):
+    """Chiama Google Translate (gratuito, max ~4500 caratteri per blocco)."""
+    url = "https://translate.googleapis.com/translate_a/single"
+    data = {"client": "gtx", "sl": "auto", "tl": "it", "dt": "t", "q": testo}
+    for attempt in range(retries):
+        try:
+            resp = requests.post(url, data=data, headers=HEADERS, timeout=15)
+            resp.raise_for_status()
+            result = resp.json()
+            tradotto = "".join(part[0] for part in result[0] if part[0])
+            if tradotto.strip():
+                return tradotto
+        except Exception:
+            pass
+        if attempt < retries - 1:
+            time.sleep(1.5 * (attempt + 1))
+    return testo  # fallback: testo originale
+
+
+def _ha_cirillico(testo):
+    """Restituisce True se il testo contiene ancora molta scrittura cirillica."""
+    cirillici = sum(1 for c in testo if 'Ѐ' <= c <= 'ӿ')
+    return cirillici > len(testo) * 0.15
 
 
 def traduci(testo):
@@ -93,40 +101,40 @@ def traduci(testo):
     if not testo.strip():
         return testo
 
-    LIMITE = 490  # MyMemory accetta max 500 caratteri per richiesta
+    LIMITE = 4500  # Google Translate gestisce testi molto più lunghi
 
-    # Se il testo è corto, traducilo direttamente
     if len(testo) <= LIMITE:
-        return _traduci_blocco(testo)
+        risultato = _chiama_google(testo)
+        # Se ancora in russo, riprova dopo una pausa
+        if _ha_cirillico(risultato):
+            time.sleep(3)
+            risultato = _chiama_google(testo)
+        return risultato
 
-    # Altrimenti spezza per frasi mantenendo il senso
-    frasi = re.split(r'(?<=[.!?])\s+', testo)
-    blocchi = []
-    blocco_corrente = ""
-
-    for frase in frasi:
-        if len(blocco_corrente) + len(frase) + 1 <= LIMITE:
-            blocco_corrente += (" " if blocco_corrente else "") + frase
+    # Testo molto lungo: spezza per paragrafi
+    paragrafi = testo.split("\n")
+    blocchi, blocco_corrente = [], ""
+    for p in paragrafi:
+        if len(blocco_corrente) + len(p) + 1 <= LIMITE:
+            blocco_corrente += p + "\n"
         else:
-            if blocco_corrente:
-                blocchi.append(blocco_corrente)
-            # Se la frase singola è troppo lunga, tagliala brutalmente
-            while len(frase) > LIMITE:
-                blocchi.append(frase[:LIMITE])
-                frase = frase[LIMITE:]
-            blocco_corrente = frase
+            if blocco_corrente.strip():
+                blocchi.append(blocco_corrente.strip())
+            blocco_corrente = p + "\n"
+    if blocco_corrente.strip():
+        blocchi.append(blocco_corrente.strip())
 
-    if blocco_corrente:
-        blocchi.append(blocco_corrente)
-
-    # Traduci ogni blocco con pausa per evitare rate limiting
     risultati = []
     for i, b in enumerate(blocchi):
-        risultati.append(_traduci_blocco(b))
+        t = _chiama_google(b)
+        if _ha_cirillico(t):
+            time.sleep(3)
+            t = _chiama_google(b)
+        risultati.append(t)
         if i < len(blocchi) - 1:
-            time.sleep(0.4)
+            time.sleep(0.5)
 
-    return " ".join(risultati)
+    return "\n".join(risultati)
 
 
 def traduci_lista(posts):
@@ -159,25 +167,56 @@ def costruisci_script(posts, data_str):
 
 
 async def _genera_audio(testo, path, voce, velocita):
-    await edge_tts.Communicate(testo, voce, rate=velocita).save(path)
+    communicate = edge_tts.Communicate(testo, voce, rate=velocita)
+    sentence_boundaries = []
+    with open(path, "wb") as f:
+        async for chunk in communicate.stream():
+            if chunk["type"] == "audio":
+                f.write(chunk["data"])
+            elif chunk["type"] == "SentenceBoundary":
+                sentence_boundaries.append({
+                    "text": chunk["text"],
+                    "offset_s": round(chunk["offset"] / 10_000_000, 2),
+                })
+    return sentence_boundaries
 
 
-def genera_audio(testo, path):
-    asyncio.run(_genera_audio(testo, path, VOCE, VELOCITA))
+def _trova_tempi(sentence_boundaries, num_articoli):
+    tempi = {}
+    for sb in sentence_boundaries:
+        m = re.match(r"^Notizia\s+(\d+)", sb["text"])
+        if m:
+            num = int(m.group(1))
+            if 1 <= num <= num_articoli and num not in tempi:
+                tempi[num] = sb["offset_s"]
+    return tempi
+
+
+def genera_audio(testo, path, num_articoli=0):
+    sb = asyncio.run(_genera_audio(testo, path, VOCE, VELOCITA))
+    return _trova_tempi(sb, num_articoli) if num_articoli > 0 else {}
 
 
 # ── HTML ────────────────────────────────────────────────────
 
-def genera_html(posts, data_str, nome_audio):
+def genera_html(posts, data_str, nome_audio, tempi_articoli=None):
+    import json as _json
+    if tempi_articoli is None:
+        tempi_articoli = {}
+
+    tempi_js = _json.dumps({str(k): v for k, v in tempi_articoli.items()})
+    ha_timing = "true" if tempi_articoli else "false"
+
     notizie = ""
     for i, p in enumerate(posts, 1):
         testo = (p.get("testo_tradotto") or p["testo"]).replace("\n", "<br>")
         data_p = p.get("data", "")
+        clic_attr = f' onclick="seekToArticle({i})" title="Tocca per ascoltare"' if i in tempi_articoli else ""
         notizie += f"""
-        <article>
-            <div class="num">#{i}{f' <span class="data">{data_p}</span>' if data_p else ''}</div>
-            <p>{testo}</p>
-        </article>"""
+    <article id="art-{i}" data-num="{i}"{clic_attr}>
+        <div class="num">#{i}{f' <span class="data-post">{data_p}</span>' if data_p else ''}</div>
+        <p>{testo}</p>
+    </article>"""
 
     return f"""<!DOCTYPE html>
 <html lang="it">
@@ -191,13 +230,27 @@ body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgro
 header{{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}}
 h1{{font-size:1.1rem;color:#aaa;font-weight:400}}
 h2{{font-size:1.5rem;color:#fff;margin-top:4px}}
+#banner-ripresa{{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}}
+#banner-ripresa:active{{background:#173050}}
 .player{{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}}
-.player p{{font-size:.85rem;color:#888;margin-bottom:10px}}
-audio{{width:100%;border-radius:8px}}
-article{{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px}}
-.num{{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px}}
-.data{{color:#666;font-weight:400}}
+.player-label{{font-size:.82rem;color:#888;margin-bottom:10px}}
+audio{{width:100%;border-radius:8px;margin-bottom:12px}}
+.skip-row{{display:flex;gap:10px;justify-content:center}}
+.skip-btn{{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}}
+.skip-btn:active{{background:#333}}
+.prima-notizia-btn{{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}}
+article{{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}}
+article.seekable{{cursor:pointer}}
+article.seekable:active{{background:#222}}
+article.in-corso{{border-left-color:#4a9eff;background:#141c2a}}
+article.ascoltato{{opacity:.45}}
+article.prossima{{border-left-color:#4caf50}}
+.num{{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}}
+.data-post{{color:#555;font-weight:400}}
+.badge-inCorso{{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}}
+.badge-prossima{{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}}
 article p{{font-size:.95rem;line-height:1.65;color:#ddd}}
+article.ascoltato p{{color:#888}}
 footer{{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}}
 </style>
 </head>
@@ -206,12 +259,75 @@ footer{{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}}
   <h1>Canale Europea — traduzione automatica</h1>
   <h2>{data_str}</h2>
 </header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
 <div class="player">
-  <p>Ascolta (funziona in background con schermo spento)</p>
-  <audio controls><source src="{nome_audio}" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="{nome_audio}" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
 </div>
 {notizie}
 <footer>Aggiornato automaticamente ogni mattina · {len(posts)} notizie</footer>
+<script>
+const TIMES={tempi_js};
+const HA_TIMING={ha_timing};
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){{
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\\'ultimo punto ('+formatTime(savedPos)+')';
+}}
+function riprendi(){{audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}}
+function salta(d){{audio.currentTime=Math.max(0,audio.currentTime+d);}}
+function seekToArticle(n){{const t=TIMES[String(n)];if(t!==undefined){{audio.currentTime=t;audio.play();}}}}
+audio.addEventListener('timeupdate',()=>{{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){{
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){{const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}}
+    }}else if(t>=end){{
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }}else{{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }}
+  }});
+  nums.forEach(num=>{{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){{
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){{const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}}
+    }}else{{el.classList.remove('prossima');}}
+  }});
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+}});
+function sallaAllaProximaNotizia(){{
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){{if(TIMES[String(num)]>t+1){{seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({{behavior:'smooth',block:'start'}});return;}}}}
+}}
+function formatTime(s){{const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}}
+if(HA_TIMING){{Object.keys(TIMES).forEach(num=>{{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');}});}}
+</script>
 </body>
 </html>"""
 
@@ -239,12 +355,16 @@ def main():
 
     nome_audio = f"notizie_{prefisso}.mp3"
     log("Genero audio...")
-    genera_audio(costruisci_script(posts, data_str), f"{OUTPUT_DIR}/{nome_audio}")
-    log("Audio generato.")
+    tempi_articoli = genera_audio(
+        costruisci_script(posts, data_str),
+        f"{OUTPUT_DIR}/{nome_audio}",
+        len(posts),
+    )
+    log(f"Audio generato. Timing per {len(tempi_articoli)} articoli.")
 
     nome_html = f"notizie_{prefisso}.html"
     with open(f"{OUTPUT_DIR}/{nome_html}", "w", encoding="utf-8") as f:
-        f.write(genera_html(posts, data_str, nome_audio))
+        f.write(genera_html(posts, data_str, nome_audio, tempi_articoli))
     log("HTML generato.")
 
     # index.html → reindirizza all'ultimo aggiornamento

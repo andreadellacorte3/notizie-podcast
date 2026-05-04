@@ -23,7 +23,7 @@ def _rimuovi_emoji(testo):
     return emoji_pattern.sub(" ", testo).strip()
 
 
-def _chiama_google(testo, target="it"):
+def _chiama_google(testo, target="it", retries=3):
     """Chiama l'endpoint pubblico di Google Translate senza API key."""
     testo = _rimuovi_emoji(testo)
     if not testo.strip():
@@ -45,10 +45,20 @@ def _chiama_google(testo, target="it"):
         "dt": "t",
         "q": testo,
     }
-    resp = requests.post(url, data=data, headers=headers, timeout=15)
-    resp.raise_for_status()
-    result = resp.json()
-    return "".join(part[0] for part in result[0] if part[0])
+    for attempt in range(retries):
+        try:
+            resp = requests.post(url, data=data, headers=headers, timeout=15)
+            resp.raise_for_status()
+            result = resp.json()
+            tradotto = "".join(part[0] for part in result[0] if part[0])
+            if tradotto.strip():
+                return tradotto
+        except Exception as e:
+            if attempt < retries - 1:
+                time.sleep(1.5 * (attempt + 1))
+            else:
+                print(f"\n  [AVVISO] Traduzione fallita dopo {retries} tentativi: {e}")
+    return testo  # fallback: testo originale
 
 
 def traduci(testo, sorgente="auto", target="it"):
