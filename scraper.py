@@ -1,3 +1,4 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
@@ -32,7 +33,12 @@ def fetch_posts(url, max_post):
         if not testo_el:
             continue
 
-        testo = testo_el.get_text(separator="\n").strip()
+        # Sostituisce <br> con newline, poi estrae il testo senza separatori
+        # (evita di aggiungere \n tra elementi inline come <a> e <b>)
+        for br in testo_el.find_all("br"):
+            br.replace_with("\n")
+        testo = testo_el.get_text(separator="").strip()
+        testo = re.sub(r"\n{3,}", "\n\n", testo)
         if not testo or len(testo) < 20:
             continue
 

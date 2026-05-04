@@ -49,7 +49,10 @@ def fetch_posts():
         el = msg.select_one(".tgme_widget_message_text")
         if not el:
             continue
-        testo = el.get_text(separator="\n").strip()
+        for br in el.find_all("br"):
+            br.replace_with("\n")
+        testo = el.get_text(separator="").strip()
+        testo = re.sub(r"\n{3,}", "\n\n", testo)
         if len(testo) < 20:
             continue
         data_el = msg.select_one("time")
