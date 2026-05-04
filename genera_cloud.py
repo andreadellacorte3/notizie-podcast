@@ -50,9 +50,10 @@ def fetch_posts():
         if not el:
             continue
         for br in el.find_all("br"):
-            br.replace_with("\n")
-        testo = el.get_text(separator="").strip()
-        testo = re.sub(r"\n{3,}", "\n\n", testo)
+            br.replace_with(" ")
+        testo = el.get_text(separator=" ").strip()
+        testo = re.sub(r"[»«]", "", testo)
+        testo = re.sub(r" {2,}", " ", testo)
         if len(testo) < 20:
             continue
         data_el = msg.select_one("time")

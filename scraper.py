@@ -33,12 +33,11 @@ def fetch_posts(url, max_post):
         if not testo_el:
             continue
 
-        # Sostituisce <br> con newline, poi estrae il testo senza separatori
-        # (evita di aggiungere \n tra elementi inline come <a> e <b>)
         for br in testo_el.find_all("br"):
-            br.replace_with("\n")
-        testo = testo_el.get_text(separator="").strip()
-        testo = re.sub(r"\n{3,}", "\n\n", testo)
+            br.replace_with(" ")
+        testo = testo_el.get_text(separator=" ").strip()
+        testo = re.sub(r"[»«]", "", testo)   # rimuove decoratori link Telegram
+        testo = re.sub(r" {2,}", " ", testo)
         if not testo or len(testo) < 20:
             continue
 
