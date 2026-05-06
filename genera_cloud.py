@@ -107,10 +107,10 @@ def _mymemory(blocco, retries=4):
     return None
 
 
-def _google(testo, retries=2):
-    """Google Translate come backup (può essere bloccato da alcuni ambienti CI)."""
+def _google(testo, retries=2, source="auto"):
+    """Google Translate. `source` può essere 'auto', 'en', 'ru', ecc."""
     url = "https://translate.googleapis.com/translate_a/single"
-    data = {"client": "gtx", "sl": "auto", "tl": "it", "dt": "t", "q": testo}
+    data = {"client": "gtx", "sl": source, "tl": "it", "dt": "t", "q": testo}
     for attempt in range(retries):
         try:
             resp = requests.post(url, data=data, headers=HEADERS, timeout=15)
@@ -124,6 +124,27 @@ def _google(testo, retries=2):
         if attempt < retries - 1:
             time.sleep(2)
     return None
+
+
+# Parole funzione comuni in italiano: se troppo poche → testo non in italiano
+_PAROLE_IT = {
+    "il", "la", "lo", "gli", "le", "i", "un", "una", "uno", "di", "del",
+    "della", "dello", "delle", "degli", "dei", "che", "per", "con",
+    "nel", "nella", "nello", "nei", "negli", "nelle", "sul", "sulla",
+    "sui", "sugli", "sulle", "al", "alla", "allo", "ai", "agli", "alle",
+    "dal", "dalla", "dallo", "dai", "dagli", "dalle", "è", "sono", "ha",
+    "hanno", "era", "erano", "ma", "anche", "come", "più", "questo",
+    "questa", "quello", "quella", "non", "si", "ci", "tra", "fra", "se",
+}
+
+
+def _e_italiano(testo):
+    """True se almeno il 5% delle parole sono articoli/preposizioni italiane."""
+    parole = re.findall(r"\b[a-zA-ZàèéìòùÀÈÉÌÒÙ']+\b", testo.lower())
+    if len(parole) < 8:
+        return True   # troppo corto per giudicare, assumiamo ok
+    matches = sum(1 for p in parole if p in _PAROLE_IT)
+    return matches / len(parole) >= 0.05
 
 
 def _spezza_in_blocchi(testo, limite=480):
@@ -173,8 +194,13 @@ def traduci(testo):
     risultati = []
     google_ok = True
     for i, b in enumerate(blocchi_grandi):
-        t = _google(b)
-        if t is None or _ha_cirillico(t):
+        t = _google(b, source="auto")
+        # Se è ancora russo o NON è italiano (es. inglese), riprova forzando "en"
+        if t and not _ha_cirillico(t) and not _e_italiano(t):
+            t2 = _google(t, source="en")
+            if t2 and _e_italiano(t2):
+                t = t2
+        if t is None or _ha_cirillico(t) or not _e_italiano(t):
             google_ok = False
             break
         risultati.append(t)
