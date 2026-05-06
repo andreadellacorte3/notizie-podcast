@@ -127,7 +127,7 @@ def _google(testo, retries=2):
 
 
 def _spezza_in_blocchi(testo, limite=480):
-    """Spezza il testo in blocchi da max `limite` caratteri senza tagliare le frasi."""
+    """Spezza per MyMemory (limite 500 chars), preserva le frasi."""
     frasi = re.split(r'(?<=[.!?])\s+', testo)
     blocchi, corrente = [], ""
     for frase in frasi:
@@ -136,7 +136,6 @@ def _spezza_in_blocchi(testo, limite=480):
         else:
             if corrente:
                 blocchi.append(corrente)
-            # frase singola più lunga del limite: spezza per parole
             while len(frase) > limite:
                 blocchi.append(frase[:limite])
                 frase = frase[limite:]
@@ -146,24 +145,53 @@ def _spezza_in_blocchi(testo, limite=480):
     return blocchi
 
 
+def _spezza_grande(testo, limite=4500):
+    """Spezza per Google Translate (limite ~4500 chars), per paragrafi."""
+    if len(testo) <= limite:
+        return [testo]
+    paragrafi = testo.split("\n")
+    blocchi, corrente = [], ""
+    for p in paragrafi:
+        if len(corrente) + len(p) + 1 <= limite:
+            corrente += p + "\n"
+        else:
+            if corrente.strip():
+                blocchi.append(corrente.strip())
+            corrente = p + "\n"
+    if corrente.strip():
+        blocchi.append(corrente.strip())
+    return blocchi
+
+
 def traduci(testo):
     testo = rimuovi_emoji(testo)
     if not testo.strip():
         return testo
 
+    # 1. Google prima: blocchi grandi (più contesto = traduzione migliore)
+    blocchi_grandi = _spezza_grande(testo)
+    risultati = []
+    google_ok = True
+    for i, b in enumerate(blocchi_grandi):
+        t = _google(b)
+        if t is None or _ha_cirillico(t):
+            google_ok = False
+            break
+        risultati.append(t)
+        if i < len(blocchi_grandi) - 1:
+            time.sleep(0.3)
+
+    if google_ok:
+        return "\n".join(risultati)
+
+    # 2. Fallback MyMemory: blocchi piccoli (qualità inferiore ma più affidabile in CI)
     blocchi = _spezza_in_blocchi(testo)
     risultati = []
     for i, b in enumerate(blocchi):
-        # Prova MyMemory prima (più affidabile in CI)
-        t = _mymemory(b)
-        # Fallback a Google se MyMemory fallisce
-        if t is None:
-            t = _google(b)
-        # Ultimo fallback: testo originale
-        risultati.append(t if t is not None else b)
+        t = _mymemory(b) or _google(b) or b
+        risultati.append(t)
         if i < len(blocchi) - 1:
             time.sleep(0.5)
-
     return "\n".join(risultati)
 
 

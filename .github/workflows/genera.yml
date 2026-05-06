@@ -2,8 +2,8 @@ name: Genera Podcast Notizie
 
 on:
   schedule:
-    # Ogni giorno alle 6:00 UTC = 7:00 ora italiana (8:00 in estate)
-    - cron: "0 6 * * *"
+    # Ogni giorno alle 4:00 UTC = 5:00 ora italiana invernale, 6:00 in estate
+    - cron: "0 4 * * *"
   workflow_dispatch: # permette di avviare manualmente dal sito
 
 jobs:
