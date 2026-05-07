@@ -126,7 +126,7 @@ def _google(testo, retries=2, source="auto"):
     return None
 
 
-# Parole funzione comuni in italiano: se troppo poche → testo non in italiano
+# Parole funzione comuni: usate per riconoscere la lingua del testo
 _PAROLE_IT = {
     "il", "la", "lo", "gli", "le", "i", "un", "una", "uno", "di", "del",
     "della", "dello", "delle", "degli", "dei", "che", "per", "con",
@@ -135,16 +135,58 @@ _PAROLE_IT = {
     "dal", "dalla", "dallo", "dai", "dagli", "dalle", "è", "sono", "ha",
     "hanno", "era", "erano", "ma", "anche", "come", "più", "questo",
     "questa", "quello", "quella", "non", "si", "ci", "tra", "fra", "se",
+    "essere", "stato", "stata", "fatto", "tutti", "tutte", "loro", "suo",
+    "sua", "miei", "tuoi", "suoi", "noi", "voi", "molto", "poco", "ogni",
+}
+
+_PAROLE_EN = {
+    "the", "and", "is", "are", "was", "were", "have", "has", "had", "be",
+    "this", "that", "these", "those", "with", "from", "their", "there",
+    "would", "could", "should", "will", "shall", "between", "through",
+    "about", "against", "during", "before", "after", "while", "where",
+    "which", "what", "when", "they", "them", "been", "being", "into",
+    "than", "then", "only", "such", "much", "very", "well", "also",
+    "of", "to", "in", "on", "at", "by", "for", "as", "an", "or", "but",
+    "not", "all", "any", "some", "more", "most", "other", "many", "its",
 }
 
 
-def _e_italiano(testo):
-    """True se almeno il 5% delle parole sono articoli/preposizioni italiane."""
+def _conta_lingua(testo):
+    """Restituisce (n_parole_it, n_parole_en, n_parole_totali) del testo."""
     parole = re.findall(r"\b[a-zA-ZàèéìòùÀÈÉÌÒÙ']+\b", testo.lower())
-    if len(parole) < 8:
-        return True   # troppo corto per giudicare, assumiamo ok
-    matches = sum(1 for p in parole if p in _PAROLE_IT)
-    return matches / len(parole) >= 0.05
+    it = sum(1 for p in parole if p in _PAROLE_IT)
+    en = sum(1 for p in parole if p in _PAROLE_EN)
+    return it, en, len(parole)
+
+
+def _e_italiano(testo):
+    """True se il testo è chiaramente in italiano (più parole IT che EN)."""
+    it, en, tot = _conta_lingua(testo)
+    if tot < 6:
+        return True   # troppo corto per giudicare
+    return it >= en and it / tot >= 0.05
+
+
+def _e_inglese(testo):
+    """True se il testo è chiaramente in inglese."""
+    it, en, tot = _conta_lingua(testo)
+    if tot < 6:
+        return False
+    return en > it and en / tot >= 0.10
+
+
+def _ritraduce_frasi_inglesi(testo):
+    """Trova le singole frasi in inglese nel testo e le ritraduce con sl=en."""
+    # split mantenendo gli spazi tra le frasi
+    frasi = re.split(r'(?<=[.!?])\s+', testo)
+    out = []
+    for f in frasi:
+        if _e_inglese(f):
+            t = _google(f, source="en")
+            if t and _e_italiano(t):
+                f = t
+        out.append(f)
+    return " ".join(out)
 
 
 def _spezza_in_blocchi(testo, limite=480):
@@ -195,14 +237,11 @@ def traduci(testo):
     google_ok = True
     for i, b in enumerate(blocchi_grandi):
         t = _google(b, source="auto")
-        # Se è ancora russo o NON è italiano (es. inglese), riprova forzando "en"
-        if t and not _ha_cirillico(t) and not _e_italiano(t):
-            t2 = _google(t, source="en")
-            if t2 and _e_italiano(t2):
-                t = t2
-        if t is None or _ha_cirillico(t) or not _e_italiano(t):
+        if t is None or _ha_cirillico(t):
             google_ok = False
             break
+        # Post-processing: ritraduce le frasi rimaste in inglese
+        t = _ritraduce_frasi_inglesi(t)
         risultati.append(t)
         if i < len(blocchi_grandi) - 1:
             time.sleep(0.3)
