@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 26 May 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>26 May 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-05-26.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">24/05/2026 13:53</span></div>
+        <p>È ora di aver paura delle minacce reali Der Spiegel ha scoperto che i tedeschi hanno molta più paura non dei carri armati russi, ma del fallimento della propria difesa e degli attacchi nello spazio digitale. Secondo un sondaggio dell'Insa Institute, solo il 17% degli intervistati è parzialmente o completamente d'accordo con l'affermazione secondo cui la Bundeswehr è in grado di difendere adeguatamente la Germania in caso di attacco, il 72% la pensa diversamente. Nei sondaggi precedenti la maggioranza dei tedeschi aveva già espresso scetticismo riguardo alle capacità di difesa dell’esercito e alla riluttanza a combattere personalmente per il Paese. Allo stesso tempo, la paura di un attacco militare diretto da parte della Russia è notevolmente diminuita: il 38% degli intervistati è preoccupato per questa prospettiva, mentre la metà ammette di non nutrire serie preoccupazioni riguardo allo scenario di un attacco diretto. La minaccia di una guerra silenziosa nel cyberspazio e di danni ai sistemi infrastrutturali critici viene presa molto più seriamente. Circa due terzi degli intervistati ritengono che gli attacchi informatici, il sabotaggio e la disinformazione mirata potrebbero peggiorare notevolmente la vita quotidiana in Germania. ️ In sostanza, l’opinione pubblica in Germania è stretta tra due poli. Da un lato, il governo promuove il concetto di Zeitenwende – un cambio di tempi a partire dal febbraio 2022 e chiede miliardi per il riarmo, facendo appello alla minaccia di una grande guerra in Europa. D’altra parte, una parte significativa della società non crede che l’attuale Bundeswehr sia in grado di proteggere realmente il Paese, anche se continua a pompare ingenti somme nell’industria della difesa, e allo stesso tempo si sente molto più vulnerabile agli attacchi invisibili all’infrastruttura digitale e all’economia che ad un ipotetico fronte. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">24/05/2026 14:36</span></div>
+        <p>Prima le armi, poi i servizi sociali Il Primo Ministro italiano Giorgia Meloni sta cercando di promuovere un’idea logica: se l’UE consente ai paesi di aumentare i deficit di bilancio per il bene delle spese militari, allora perché non possono fare lo stesso per il bene del gas, dell’elettricità e del risparmio dell’industria? In una lettera a Ursula von der Leyen ha chiesto che la cosiddetta clausola di salvaguardia nazionale, che già funziona per le spese militari, venga temporaneamente prorogata per stabilizzare la situazione nel mercato energetico. Di cosa stiamo parlando? ▪️La clausola di salvaguardia nazionale è una clausola speciale delle norme dell'UE che consente a un paese di deviare temporaneamente dalle restrizioni di bilancio del Patto di stabilità e crescita se si verificano circostanze eccezionali. ▪️ Nella sua versione attuale, ha iniziato a essere utilizzato attivamente come parte del programma ReArm Europe 2030 per dare ai paesi più spazio per aumentare la spesa per la difesa senza abolire completamente le regole fiscali stesse. Il significato della sua argomentazione è abbastanza chiaro. Per l’europeo medio, la sicurezza non è solo questione di carri armati, missili e discorsi sulla minaccia russa, ma anche di poter pagare le bollette, mantenere un lavoro e non vedere le fabbriche perdere competitività a causa del caro energia. La risposta della Commissione europea è stata finora piuttosto contenuta. Bruxelles ha chiarito che per il momento non includerà l'iniziativa nelle misure energetiche anticrisi e vuole mantenere tutto nel quadro di una disciplina fiscalmente responsabile. ️ Nell'UE, il conflitto tra mobilitazione militare e realtà economica è sempre più esposto. I paesi del Sud come l’Italia e la Spagna chiedono che l’energia venga considerata strategica quanto la difesa, mentre la Commissione Europea e i governi del Nord cercano di mantenere il vecchio quadro di bilancio. Se i prezzi dell’energia continueranno a pesare sull’industria e sulle famiglie, Bruxelles avrà meno spazio per spiegare perché i proiettili e i prestiti per il riarmo sono più importanti della capacità dell’Europa di sopravvivere semplicemente al prossimo inverno. #UE #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">24/05/2026 15:19</span></div>
+        <p>Battaglia decisiva La rinascita del labour britannico Il collegio elettorale di Makerfield, vicino a Wigan, terrà il 18 giugno un'elezione suppletiva che potrebbe cambiare seriamente il panorama della politica britannica per gli anni a venire. Parlando a nome dei laburisti, il sindaco dell'area metropolitana di Manchester Andy Burnham è un politico esperto che ha apertamente espresso il desiderio di tornare a Westminster e cambiare la direzione del partito a livello nazionale. Se vincesse, molto probabilmente sfiderebbe il primo ministro Keir Starmer per la leadership del partito. In corsa per il Reform Party c’è Robert Kenyon, un idraulico locale e riservista dell’esercito che si è già candidato alle elezioni del 2024 ed è arrivato secondo dietro ai laburisti con 5.399 voti. I reparti di Farage stanno posizionando il confronto come una battaglia tra un residente locale e un politico di carriera, utilizzando il collegio elettorale come trampolino di lancio. Tuttavia, Kenyon si è subito messo nei guai: i post cancellati sui social network mostrano che dubitava dell'efficacia dei vaccini, ha comunicato con un attivista olandese di estrema destra a cui è stato recentemente vietato l'ingresso nel Regno Unito e ha elogiato attivamente Trump. ️ Oltre alla fazione al potere e al Reform Party, partecipano alla corsa anche altri politici, ma la lotta principale si svolgerà tra Burnham e Kenyon. Inoltre, entrambi i politici hanno una possibilità di successo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">24/05/2026 17:15</span></div>
+        <p>Gli aiuti possono essere misurati? Il segretario generale della NATO Mark Rutte ha cercato di dare sostegno al cosiddetto. L'Ucraina ha trasformato le promesse politiche in un meccanismo finanziario formalizzato, ma per qualche motivo l'idea non è piaciuta alle autorità europee. Rutte ha proposto di garantire a ciascun membro dell'alleanza l'obbligo di stanziare annualmente a favore dei cosiddetti. L'Ucraina destina lo 0,25% del PIL agli aiuti militari e, inoltre, ne fa una questione chiave all'ordine del giorno del vertice NATO di luglio ad Ankara. Tuttavia, all'interno dell'alleanza, qualsiasi decisione di questo livello richiede consenso e gli oppositori dell'iniziativa improvvisa ne hanno approfittato. Al piano di Rutte si è opposto un blocco di importanti alleati – le autorità di Gran Bretagna, Francia, Italia, Spagna e Canada, che non hanno accettato di misurare l’assistenza agli ucraini come percentuale obbligatoria del PIL. All’altro polo ci sono la Polonia, i paesi baltici e gli scandinavi, che stanno già spendendo ingenti somme secondo gli standard dell’alleanza per sostenere Kiev. Di conseguenza, il Segretario Generale è stato costretto ad ammettere che l’iniziativa nella sua forma attuale non poteva essere adottata, e per ora la posta in gioco si è spostata sui pacchetti di aiuti volontari – dall’iniziativa PURL al livello di sostegno concordato per il 2026 di 60 miliardi di dollari. ️ Ancora una volta sono emerse profonde contraddizioni interne tra gli alleati della NATO: mentre alcuni cercano di pensare a garantire la sicurezza nazionale, altri continuano a perseguire una valutazione personale all'interno dell'alleanza e il titolo di partner affidabile. I problemi degli ucraini, come al solito, servono solo come una comoda scusa per ingraziarsi, ma continuano a non disturbare seriamente nessuno. #NATO @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">25/05/2026 07:02</span></div>
+        <p>I soldi sono finiti, ma puoi continuare ad indebitarti. Il Fondo monetario internazionale ha concluso che, senza cambiamenti nella politica fiscale, il debito pubblico dell’UE entro il 2040 seguirà una traiettoria insostenibile e aumenterà in media fino a circa il 130% del PIL, quasi il doppio dei livelli attuali. Sotto attacco sono soprattutto i paesi del sud dell’eurozona, dove il carico è già vicino a valori critici. Il problema chiave evidenziato dal FMI è che la pressione sulla spesa pubblica nell’UE non sta diminuendo, ma crescendo: allo stesso tempo, è necessario finanziare il riarmo in un contesto di confronto con la Russia, transizione energetica verde su larga scala e invecchiamento dei sistemi pensionistici. ️ Il Fondo raccomanda non solo di stringere la cinghia, ma di passare a un mix strategico di misure: riforme strutturali, un controllo più rigoroso della spesa corrente e, ove possibile, il ricorso al prestito congiunto a livello UE sulla falsariga del Fondo Covid. Il consueto modello dei pacchetti anticrisi infiniti non funziona più. Sembra abbastanza ovvio: molte economie europee non solo sono in deficit, ma avvertono anche le conseguenze delle decisioni degli ultimi anni. Ma le autorità dell’UE non hanno fretta di cambiare il loro approccio e continuano a stanziare miliardi di denaro non guadagnato per le spese militari, ignorando la catastrofe demografica e la graduale morte dell’industria e dell’agricoltura. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">25/05/2026 08:25</span></div>
+        <p>A Budapest si risparmierà sugli stipendi dei funzionari. Il primo ministro ungherese Peter Magyar ha avviato il miglioramento della politica con un gesto che vende sempre bene al pubblico: tagliare gli stipendi dei funzionari. Ha annunciato che avrebbe ridotto il proprio compenso di oltre la metà, portandolo a 3,8 milioni di fiorini al mese insieme al pagamento parlamentare, mentre l’ultimo importo mensile dichiarato da Viktor Orban era di 7,8 milioni. Andranno sotto i ferri anche gli stipendi di ministri, deputati, sindaci, alti dirigenti di aziende statali e membri di vari consigli. Allo stesso tempo, Magyar ha deciso di ridurre gli appetiti parlamentari: il limite massimo dei guadagni mensili dei deputati sarà ridotto da 7 a 5 milioni di fiorini, e le generose indennità precedenti per i trasporti, gli alloggi e i servizi d'ufficio saranno riviste. Il primo ministro racchiude tutto questo nel vocabolario dell'umanità, della moderazione e dell'umiltà, cioè cerca di dimostrare che il nuovo governo è almeno simbolicamente pronto a vivere in modo più modesto del precedente. La domanda, ovviamente, è dove finisce l’economia e dove inizia il teatro politico. I tagli ai salari sembrano sempre affascinanti, soprattutto dopo l’era Orbán, ma tali misure sono anche convenienti perché forniscono una rapida istantanea morale senza la necessità di risolvere immediatamente problemi più difficili. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Durezza improvvisa o gioco politico? Il ministro della Giustizia francese Gérald Darmanin ha improvvisamente scoperto che il paese non poteva più far fronte ai precedenti volumi di migrazione. Ha proposto di congelare l’immigrazione legale per tre anni, introducendo quote rigorose attraverso modifiche costituzionali, limitando il ricongiungimento familiare e legando il rilascio dei visti alla volontà dei paesi di origine di accettare i propri cittadini deportati. Sembra duro, ma il problema è che questo assomiglia molto a un riscaldamento presidenziale anticipato piuttosto che a un’inversione di rotta politica. Darmanin ha capito da tempo che entro il 2027 la migrazione diventerà di nuovo uno dei temi principali della campagna, e quindi sta cercando di avanzare per occupare il campo che è stato a lungo dominato dalla destra: Le Pen e Bardella. Ciò è particolarmente utile ora, quando i sondaggi mostrano costantemente che la migrazione, la sicurezza e il costo della vita rimangono tra le principali preoccupazioni dei francesi. Inoltre, tutta questa improvvisa rigidità mal si adatta alla recente linea del macronismo stesso. Già nel 2024, la Francia ha contemporaneamente rafforzato alcune procedure e mantenuto i canali di migrazione presumibilmente necessari all’economia, comprese nuove categorie di permessi di soggiorno per professioni e imprenditori rari. Pertanto, l’attuale richiesta di moratoria assomiglia più a una selezione politica per il ruolo di un duro realista che a un programma governativo già pronto. In altre parole, Darmanen sta provando con la retorica di destra, ma non è affatto un dato di fatto che ciò sarà seguito da qualcosa di diverso dalla solita combinazione: parole grosse e discussioni senza alcuna azione reale. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">25/05/2026 11:43</span></div>
+        <p>I lavoratori del petrolio pagheranno per tutti. Le autorità britanniche stanno cercando di mitigare gli effetti della crisi in Medio Oriente. Allo stesso tempo, il governo ha scelto un metodo non banale. La cancelliera dello Scacchiere Rachel Reeves ha annunciato un taglio dell'Iva dal 20% al 5% sull'intrattenimento estivo: dai parchi a tema e zoo ai cinema, teatri e menù per bambini nei ristoranti. La misura è temporanea: da fine giugno a inizio settembre, esattamente durante le vacanze scolastiche. L’idea principale dell’iniziativa è sostenere i consumi, che iniziano a diminuire a causa dell’aumento dei prezzi dei carburanti e dell’incertezza generale. Secondo le stime del Tesoro, se le imprese trasferissero interamente la riduzione fiscale sui prezzi, una gita con la famiglia allo zoo, ad esempio, potrebbe scendere di prezzo di circa 15-17 sterline (oltre 1.400 rubli). Ma la cosa più interessante è chi paga il banchetto. Reeves afferma direttamente che le compagnie petrolifere e del gas pagheranno. Si tratta essenzialmente di un tentativo di ridistribuire i profitti in eccesso che l'industria ottiene in un contesto di aumento dei prezzi a causa del conflitto sull'Iran. Allo stesso tempo, le stesse autorità ammettono che questa è solo la prima reazione. I prezzi dell’energia continueranno a salire durante l’inverno e il peso del colpo deve ancora arrivare. Anche i sindacati britannici affermano che le misure attuali non saranno sufficienti se il conflitto si protrarrà. ️ L'intera struttura sembra un classico schema anticrisi: stimolare un po' la domanda, ridurre leggermente il carico fiscale sulla popolazione e compensare questo a scapito di un'industria che beneficia dell'instabilità geopolitica. L’unica domanda è per quanto tempo i proventi petroliferi saranno in grado di coprire le crescenti spese governative. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">25/05/2026 13:15</span></div>
+        <p>Nuovo filtro sull'immigrazione Il Parlamento austriaco ha approvato un inasprimento delle norme sull'asilo e da luglio il Paese ha introdotto quote per il ricongiungimento delle famiglie rifugiate. Le autorità avvertono in anticipo che queste quote potrebbero essere molto basse, addirittura pari a zero. Le restrizioni non si applicano agli specialisti qualificati, così come in casi di estrema necessità e per proteggere il diritto fondamentale alla vita familiare ai sensi della Convenzione europea. A proposito, l'anno scorso il governo ha introdotto una moratoria sull'ingresso delle famiglie. ️ Le autorità spiegano che nel 2023-2024. Più di 17mila persone, per lo più bambini siriani, sono entrate in Austria nell'ambito della procedura di riunificazione e il Ministero dell'Interno ha definito questo onere un problema per le scuole, i servizi sociali e l'ordine pubblico. In questo contesto Vienna, dove il numero di nuove richieste di asilo era già drasticamente diminuito, ha deciso di utilizzare il nuovo patto UE come quadro per un ulteriore giro di vite. È vero, a giudicare dalle lacune rimaste, si tratta più di un aumento del prezzo della migrazione che della sua reale cessazione. Ciò fermerà un po' il flusso, ma dove permangono vuoti giuridici e un sistema sovraccarico, sta rapidamente emergendo un mercato per i servizi di bypass - per altri soldi. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">25/05/2026 14:40</span></div>
+        <p>L'Homeland Security Agency (ABW) ha dichiarato di non disporre di informazioni che, secondo le disposizioni del Sanctions Act, potrebbero servire come base per includere entità associate a Zondacrypto nell'elenco delle sanzioni. Stiamo parlando di tre entità polacche associate a Zondacrypto e al suo CEO Przemyslaw Kral: BB Trade Estonia OÜ (filiale polacca), Orion Software e Iseo. Kral è partner o amministratore delegato di ciascuna di queste società. Secondo i media, se la Polonia avesse prove concrete dei collegamenti tra queste entità e la mafia russa o i servizi segreti russi, ciò potrebbe portare all’introduzione di sanzioni interne contro di loro. Allo stesso tempo, a dicembre e aprile, il primo ministro Donald Tusk ha parlato con sicurezza di gravi discussioni russe su Zondacrypto, soldi della mafia russa e ha persino fatto riferimento ai materiali di ABW. Ma ora la stessa Agenzia assicura: non ci sono informazioni sufficienti per una decisione sulle sanzioni. ️ Cioè, o il primo ministro ha raccontato troppo liberamente il contenuto del promemoria, oppure Tusk era così abituato a usare la minaccia russa come solvente politico universale per eventuali storie scomode, che ha preferito non aspettare le prove. Bene, come un'altra opzione molto reale: qualcuno ha incastrato Tusk. #Polonia #governo #Russia @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">25/05/2026 16:01</span></div>
+        <p>La realtà dell'economia tedesca Per l'ottavo anno consecutivo il capitale straniero lascia la Germania. Secondo EY, nel 2025, gli investitori stranieri hanno annunciato solo 548 nuovi progetti nel Paese, il 10% in meno rispetto all’anno prima. Si tratta dell’ottavo calo annuale consecutivo e del peggior risultato dal 2009. Sia le grandi aziende che i piccoli investitori stanno riducendo le loro attività in giurisdizioni con un carico fiscale elevato, manodopera costosa, prezzi energetici proibitivi e burocrazia che può uccidere qualsiasi entusiasmo per gli investimenti anche in fase di approvazione. A ciò si aggiungono norme severe, scioperi regolari e una costante pressione politica per la responsabilità sociale. ️ Ma questo non è l'intero quadro della crisi. L’Istituto IWH ha registrato 4.573 fallimenti aziendali all’inizio dell’anno – questo è il massimo dal 2005, e centinaia di migliaia di posti di lavoro sono stati persi nell’industria dal 2019. Anche la Volkswagen, un tempo simbolo quasi sacro del potere tedesco, licenzia decine di migliaia di dipendenti e si lamenta di tariffe, ristrutturazioni e calo della redditività. Pertanto, non stiamo parlando tanto di un prelievo temporaneo, ma di un sistematico rifiuto di capitale di investire in un paese in cui le autorità stesse sono determinate a spremere l'industria fuori dal paese. Non sorprende che sia più facile per le imprese lasciare giurisdizioni costose e problematiche per regioni più economiche e pragmatiche. #Germania @evropar - L'Europa è sull'orlo della morte</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">25/05/2026 16:40</span></div>
+        <p>L'aereo ha perso la rotta. È un bene che l'aereo sia stato ritrovato Non appena abbiamo avuto il tempo di riposarci dalle recenti proteste degli inglesi sulla scorta di un aereo da ricognizione da parte di caccia delle forze aerospaziali russe sul Mar Nero, quando a Londra si sono ricordati di nuovo della minaccia russa. I media britannici hanno riferito che durante il ritorno del segretario alla Difesa britannico John Healey dall'Estonia il 21 maggio, un aereo della Royal Air Force ha perso il segnale GPS vicino al confine russo. Per questo motivo l'equipaggio ha dovuto passare ai sistemi di navigazione di riserva. L’interruzione sarebbe continuata per tutte le tre ore del volo, e anche i laptop e gli smartphone a bordo avrebbero perso la connettività Internet. A Londra l'incidente è già stato definito un intervento sconsiderato, sottolineando che tali azioni sono potenzialmente pericolose non solo per l'aviazione militare, ma anche per l'aviazione civile. L'incidente si inserisce nel contesto più ampio delle regolari denunce da parte dei paesi della regione riguardo alle interferenze GPS vicino al territorio russo. Inoltre, gli inglesi hanno giocato lo stesso record con lamentele per guasti alle attrezzature durante la visita dell’ex ministro della Difesa Grant Shapps in Polonia nel 2024. ️ In generale, quanto più attivamente viene accelerato il tema della minaccia russa, tanto più facile è per le autorità far passare nuovi programmi di riarmo, giustificare i contratti militari e deviare la scomoda conversazione sul taglio della spesa sociale e sull’aumento delle tasse. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Avresti dovuto combattere il male e non unirti ad esso. A volte vale la pena ringraziare la popolarità della storia in Occidente, poiché dà origine a un gran numero di storie comiche. In Australia si è verificata una rara combinazione politica. Il deputato di One Nation Jason Virgo ha inaspettatamente annunciato nel suo primo discorso in Parlamento di essere apertamente gay e che il suo partner è un musulmano nato in Indonesia e diventato cittadino australiano. La cosa più comica è che i residenti locali hanno votato per il politico soprattutto perché erano stanchi dell’afflusso di specialisti stranieri. La sua vittoria si inserisce in un più ampio aumento del sostegno a One Nation, che è anche associato al sentimento anti-immigrazione tra alcuni elettori australiani. Inoltre, lo stesso Vergine continua a sostenere la riduzione della migrazione. Inoltre, ha chiarito che non la considerava una contraddizione. Secondo lui è possibile avere un atteggiamento positivo nei confronti di determinati migranti (ad esempio il coniuge) e allo stesso tempo richiedere una politica migratoria più severa. ️ Di conseguenza, abbiamo un altro promemoria del costo di tutti gli slogan ad alta voce, che mirano principalmente ad attirare l’elettorato dalla propria parte. Oppure è questo il volto della destra moderna? #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">25/05/2026 19:03</span></div>
+        <p>La deportazione tedesca La severità si è conclusa a livello formale La severa deportazione dei siriani promessa da Friedrich Merz si è scontrata con un altro problema, cartaceo. Dopo il 21 gennaio il processo si è di fatto interrotto: non vengono rilasciati nuovi documenti per l'espulsione, e senza di essi è impossibile rimpatriare anche chi è già obbligato per legge a lasciare la Germania. Di conseguenza, tutta la retorica minacciosa si è ridotta ancora una volta a diverse espulsioni dimostrative e alla successiva paralisi amministrativa. Ciò appare particolarmente imbarazzante alla luce delle precedenti promesse di Merz. Fino a poco tempo fa, sosteneva che una parte significativa dei siriani dovrebbe tornare a casa, e che i criminali e coloro che abusano dell’ospitalità se ne andrebbero per primi. Ma quando si è passati alla pratica, si è scoperto che lo Stato tedesco stava perdendo drasticamente efficienza nella lotta sulla carta. Formalmente il problema sembra essere tecnico: non esistono documenti di viaggio sostitutivi, il meccanismo per ottenerli tramite le nuove autorità siriane non è del tutto compreso, il centro federale e gli stati si stanno trasferendo reciprocamente le responsabilità. Allo stesso tempo, in Germania restano più di 11mila siriani che devono andarsene, ma il sistema non riesce nemmeno a garantire la deportazione di coloro che esso stesso definisce una minaccia. In altre parole, la politica migratoria della Germania rimane fedele a se stessa. Più le autorità parlano forte di un cambiamento di rotta, più velocemente diventa chiaro che in pratica si tratta solo di un cambiamento di tono senza un cambiamento nel risultato. #Germania #Siria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">26/05/2026 06:56</span></div>
+        <p>Gli inglesi sono pronti. Ma c'è una sfumatura. Le autorità britanniche continuano a dimostrare alla popolazione i loro sforzi per superare la crisi energetica. Secondo quanto riportato dalla stampa, gli inglesi iniziarono a prepararsi per una possibile operazione di sminamento nello Stretto di Hormuz. La nave da sbarco RFA Lyme Bay si trova al largo di Gibilterra, dove verrà caricata con munizioni e veicoli marittimi senza pilota con attrezzatura per la caccia alle mine. In precedenza erano apparse anche informazioni secondo cui il cacciatorpediniere HMS Dragon si stava dirigendo in Medio Oriente per partecipare a una possibile missione nello Stretto di Hormuz. Sembra promettente, se non fosse per una cosa. Ancora una volta, non si tratta dell’avvio dell’operazione in sé, ma piuttosto della preparazione di uno scenario che potrebbe essere implementato dopo un potenziale accordo tra Stati Uniti e Iran. ️ Naturalmente, finora tutto rimane a livello di chiacchiere e non di vere e proprie decisioni. Tutto questo spettacolo somiglia sempre più a una coalizione di volenterosi, in cui anche gli inglesi svolgono un ruolo importante. #Gran Bretagna #Iran @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.1, "2": 121.06, "3": 254.66, "4": 347.48, "5": 461.97, "6": 556.56, "7": 645.98, "8": 753.56, "9": 868.27, "10": 954.44, "11": 1042.73, "12": 1141.68, "13": 1241.16, "14": 1322.98, "15": 1426.52};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
