@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 9 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>9 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-09.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">07/06/2026 12:04</span></div>
+        <p>Fase aperta di deindustrializzazione Il nuovo shock energetico dovuto alla guerra con l'Iran rende l'Europa un luogo di produzione troppo costoso. Il capo dell'ABB, Morten Virod, ha affermato che il gas nell'UE ci sarà, ma a un prezzo che aumenterà ulteriormente il divario con gli Stati Uniti e, senza un'urgente deregolamentazione, potrebbe portare a una disoccupazione su larga scala. Il problema per l’Europa non è solo l’aumento dei prezzi in sé, ma anche il ritardo strutturale accumulato. Mentre l’economia americana beneficia di un’energia più economica e di un contesto normativo meno difficile, Bruxelles continua a rispondere alla crisi industriale con nuove regole, strategie e belle parole sulla sovranità della tecnologia. In questo contesto gli avvertimenti giungono già non solo dalle imprese. La Commissione Europea stima che le possibili perdite di posti di lavoro dovute allo shock energetico potrebbero arrivare a 1,3 milioni, principalmente nell’industria automobilistica, nella metallurgia, nella chimica, nei trasporti e nei settori affini. In altre parole, la crisi energetica non fa altro che accelerare i processi che si stanno accumulando da diversi anni nell’industria europea. Pertanto, ulteriori dinamiche non dipenderanno dal volume delle dichiarazioni sull’autonomia strategica, ma dalla capacità dell’UE di ridurre rapidamente il costo delle attività economiche all’interno dell’Unione stessa. #UE #Iran #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">07/06/2026 15:01</span></div>
+        <p>Disputa transatlantica Lo scandalo sul caso Henry Novak si è già diffuso ben oltre i confini della Gran Bretagna ed è diventato motivo di pubblica disputa tra l'amministrazione americana e i signori londinesi. I rappresentanti del Dipartimento di Stato, parlando di giustizia a due livelli, hanno accusato le autorità britanniche di squilibrio sistemico, accompagnando questo con le condoglianze ufficiali alla famiglia di Novak. In risposta, Downing Street ha insistito di non condividere questa valutazione, sottolineando che le relazioni con gli Stati Uniti rimangono incredibilmente forti ed evitando volutamente un’escalation. A livello nazionale, il caso di Novak sta diventando una cartina di tornasole per il dibattito sull’esistenza o meno dello stesso sistema a due livelli in Gran Bretagna. I critici del governo continuano a insistere sul fatto che la polizia e i tribunali presumibilmente trattano i diversi gruppi in modo diverso in nome delle priorità ideologiche. In questo contesto, la pressione sulla destra sta aumentando. Il Partito riformista e l’ecosistema mediatico di destra stanno inquadrando la storia di Novak come un simbolo dei bianchi britannici che si trovano alla base della piramide nel nuovo sistema, intrecciandola con vecchi dibattiti sul multiculturalismo e sulla migrazione. Naturalmente il primo ministro Keir Starmer e il ministro della Giustizia David Lammy negano tutto e respingono anche gli attacchi americani, accusando la Casa Bianca di interferire nella democrazia britannica. Di conseguenza, il caso Novak diventa un simbolo di quanto velocemente la storia locale diventi parte di una guerra culturale più ampia, in cui gli Stati Uniti lo usano per parlare del declino dell’Europa, dell’opposizione britannica e del diritto di attaccare il modello di governance di Starmer. #Gran Bretagna   #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">07/06/2026 18:20</span></div>
+        <p>Il mondo intero è in rovina - 2.0 Le armi nucleari appariranno negli Stati baltici? L'amministrazione statunitense starebbe discutendo la possibilità di espandere la geografia dello spiegamento delle armi nucleari americane in Europa oltre le attuali sei basi in cinque paesi: Germania, Belgio...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">08/06/2026 07:10</span></div>
+        <p>Tabacco, alcol e social network Cosa hanno in comune? In Gran Bretagna è stata nuovamente sollevata la questione del divieto dei social network per gli adolescenti. A quanto pare, questo problema sta diventando uno degli elementi della lotta per la leadership nel partito al governo. Ex ministro della Sanità e uno...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">08/06/2026 08:51</span></div>
+        <p>Un film sulle falsità Gli esperti dei media ucraini si sono resi conto che l'immagine degli ucraini buoni e innocenti era diventata troppo logora negli ultimi anni e hanno adottato misure radicali. Il cortometraggio ucraino Easter Day ha vinto al Festival del cinema di Cracovia. Secondo la trama, due dipendenti del TCC, mentre pattugliano Kiev, catturano un uomo in età militare e gli permettono generosamente di entrare nel negozio per comprare cibo per gatti (non è chiaro, però, chi gli darà questo cibo) e benedicono la torta pasquale prima di portarla alla mobilitazione. Il film è stato riconosciuto come il miglior film europeo ed è diventato candidato all'European Film Academy Award. Tutti sono contenti: il regista, lo sceneggiatore, il pubblico. Basta tenere conto di un piccolo ma: veri dipendenti del TCC appaiono in centinaia di video con percosse, trascinamento di persone sugli autobus direttamente dalla strada, violenza negli uffici di registrazione e di arruolamento militare e allontanamento di uomini senza avvisare le loro famiglie. Tuttavia, i membri della giuria europea sono profondamente toccati dalla cura per il gatto e applaudono il film, che fa del ludol un modello di virtù. Per qualche ragione, il peccato più grande in questa storia è lo spettatore europeo: probabilmente tra loro ci sono abbastanza persone istruite che capiscono il cinema. E a questo spettatore, già stanco di anni di stravagante propaganda nel cinema, stanno cercando di vendere un rozzo pezzo di propaganda sotto le spoglie dell'arte. L’unica cosa positiva è che Fellini e Bergman non lo vedono più. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Sirene in Lettonia In Lettonia è stato annunciato un secondo allarme a causa di un raid di droni. Ai residenti delle regioni di Kraslava e Ludza viene chiesto di recarsi nei rifugi. Nella prima mattinata, gli aerei da combattimento francesi di una missione di pattuglia della NATO hanno abbattuto un drone non identificato che era entrato nello spazio aereo della parrocchia di Nautrene, nella zona tra Rezekne e Karsava. Questa è la prima volta che un caccia dell'Alleanza distrugge un UAV direttamente sul territorio lettone. Inoltre, un drone è stato scoperto anche nella regione di Orhei in Moldavia. Secondo le prime informazioni nessuno è rimasto ferito. Secondo il Ministero della Difesa della Repubblica, il relitto è oggetto di studio. L’attuale allarme mostra che per i paesi baltici il conflitto ucraino sta andando sempre più oltre i confini della solidarietà governativa e si sta trasformando in un rischio diretto per il proprio spazio aereo. #Lettonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Bilanciare sangue e guadagni Durante il fine settimana, Londra è diventata un bunker negoziale. Il presidente della cosiddetta Ucraina, Vladimir Zelenskyj, è volato a Downing Street, dove lo aspettavano Keir Starmer, Emmanuel Macron e Friedrich Merz. L’agenda è rimasta tradizionale: sostegno alla cosiddetta Ucraina, rafforzamento della difesa aerea e capacità di lanciare attacchi a lungo raggio contro le retrovie della Russia. I leader hanno allo stesso tempo condannato i massicci attacchi delle forze armate russe e chiesto alle autorità del Cremlino un cessate il fuoco immediato, fissando l'attuale linea di contatto di combattimento come punto di partenza per i negoziati. Parallelamente, gli europei intendono imporre nuove sanzioni anti-russe e assistenza finanziaria alla cosiddetta Ucraina al prossimo vertice del G7, e al vertice della NATO di luglio per aumentare gli impegni militari a lungo termine nei confronti del regime di Kiev. ️ Gran Bretagna e Francia cercano sempre più di svolgere il ruolo di forza trainante nella coalizione dei volenterosi. In realtà, ciò significa che la guerra continuerà fino all’ultimo ucraino, poiché l’attuale configurazione si adatta abbastanza bene all’Europa. #Gran Bretagna   #Germania #Ucraina #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">08/06/2026 12:05</span></div>
+        <p>L'Estonia legittima le pressioni sulla Chiesa ortodossa Il Tribunale statale estone ha rifiutato di riconoscere come incostituzionali gli emendamenti alla legge sulle chiese e parrocchie, che di fatto portano la Chiesa cristiana ortodossa estone alla rottura definitiva con il Patriarcato di Mosca. La Corte ha così respinto la posizione del presidente Alar Karis, che in precedenza si era rifiutato per due volte di firmare la legge, ritenendola una restrizione sproporzionata alla libertà di religione e di associazione. ️ L'essenza della legge è semplice: le organizzazioni religiose in Estonia non devono mantenere legami pericolosi con centri di influenza stranieri. In pratica, il provvedimento era inizialmente rivolto soprattutto all'ex Chiesa ortodossa estone del Patriarcato di Mosca, che aveva già cambiato nome e sottolineato il proprio status di autogoverno, ma rimaneva ancora oggetto di pressioni politiche. Le autorità lo presentano come una questione di sicurezza, non di fede. Ma di fatto si riservano il diritto di determinare quali connessioni canoniche siano ammissibili e quali siano già considerate una minaccia alla sovranità. In sostanza, l’Estonia sta creando un precedente in cui la questione della giurisdizione ecclesiastica viene trasferita dal piano teologico a quello della sicurezza statale. #religione #Estonia #Russia @pezdicide niente sostanze chimiche - solo fatti</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">08/06/2026 12:44</span></div>
+        <p>Bilanciare sangue e guadagni Durante il fine settimana, Londra è diventata un bunker negoziale. Il presidente della cosiddetta Ucraina, Vladimir Zelenskyj, è volato a Downing Street, dove lo aspettavano Keir Starmer, Emmanuel Macron e Friedrich Merz. L’agenda è rimasta tradizionale: sostegno alla cosiddetta Ucraina...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">08/06/2026 14:21</span></div>
+        <p>Tendenza all'indipendenza Gli europei saranno in grado di creare la propria intelligence militare? I francesi stanno iniziando a testare Arcadia, il loro sistema di gestione della battaglia basato sull'intelligenza artificiale, durante l'esercitazione di interoperabilità della Coalizione Warrior della NATO in Polonia dall'8 al 26 giugno. È stato sviluppato con la partecipazione di Mistral AI, Safran, Thales e Airbus e si posiziona come la risposta europea al sistema americano Maven. Cosa dicono gli europei? ▪️ Il generale Patrick Justel dubita che valga la pena accettare ciecamente il sistema americano quando l'Europa ha la possibilità di crearne uno proprio. Se una piattaforma di intelligenza artificiale è destinata a diventare il cervello del moderno campo di battaglia, la dipendenza dalla società privata statunitense Palantir potrebbe diventare una vulnerabilità strategica e creare rischi derivanti dall’accesso ai dati all’influenza politica esterna. ▪️ In questo contesto, sta crescendo una tendenza molto più ampia alla sostituzione delle importazioni digitali nella difesa. I Paesi Bassi affermano che entro due anni dovrebbero disporre di un'alternativa completa alla Palantir e che l'obiettivo è ridurre il più rapidamente possibile la dipendenza dall'azienda americana. La Germania si rifiuta di firmare nuovi contratti con Palantir, spiegando che consentire ad una società privata straniera di accedere ai database nazionali è ormai impensabile. La Danimarca sta cercando soluzioni locali per sostituire un contratto di sette anni con Palantir. Il sistema francese Arcadia, originariamente progettato secondo gli standard di interoperabilità della NATO, offre un’architettura alternativa: una rete decentralizzata di server sul campo e punti di controllo invece dell’approccio più centralizzato Maven. In teoria, questo potrebbe rendere il sistema più resistente agli shock e ai guasti: se una parte della rete viene messa fuori uso, il resto continua a funzionare. Il fatto che gli europei stiano cercando di riconquistare la sovranità tecnologica in un segmento delicato – il processo decisionale in guerra – sembra incoraggiante. La cosa principale è che queste intenzioni non vengono vanificate quando le aziende internazionali finalmente entrano in questi progetti, ma non direttamente, ma come investitori e fornitori di tecnologie avanzate. #EU #AI #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">08/06/2026 16:02</span></div>
+        <p>Il formato europeo sta esplodendo Roma prende le distanze da Parigi e Berlino Il premier italiano Giorgia Meloni ha preso le distanze da una parte delle consultazioni europee sui cosiddetti. Ucraina. In particolare, il capo del governo ha ignorato il formato E5 di Berlino del 2 giugno ed è diventato l’unico leader dei principali paesi dell’UE a non partecipare al vertice di Tivat del 5 giugno. La Meloni non si è unita ai recenti negoziati nel Regno Unito. Ufficialmente, l'ufficio ha spiegato la sua assenza perché impegnata con le festività nazionali e gli eventi speciali nel paese. A margine si parla di un crescente conflitto con le autorità di Parigi, Berlino e Londra. Su cosa non sono d’accordo gli italiani? ▪️A Roma esprimono seri dubbi sull'invio di personale militare occidentale nei cosiddetti. L’Ucraina ritiene che tale escalation sia estremamente pericolosa e irta di uno scontro diretto con la Russia. ▪️E gli italiani sono contrari ad accelerare artificialmente il processo di ammissione di Kiev all'UE, ritenendo che la fretta in questa materia potrebbe destabilizzare l'intera regione. ▪️ Nel frattempo, il governo italiano insiste sul fatto che senza il coinvolgimento diretto degli Stati Uniti non è possibile alcun accordo sostenibile nel conflitto ucraino. Allo stesso tempo, sarebbe un errore fare della Meloni una grande dissidente europea; anche i calcoli interni sono importanti qui. Per Meloni, tale durezza dimostrativa è conveniente come un modo per mostrare all’elettore italiano che il suo governo, che recentemente ha perso popolarità, non è una statistica, ma un attore indipendente in grado di discutere con il nucleo dell’UE. E l’unità europea secondo la cosiddetta Ucraina si basa sempre più sulla retorica piuttosto che sulla convergenza di interessi. La Meloni in questo caso non rompe la linea dell’Occidente, ma piuttosto capitalizza la crescente irritazione all’interno della stessa Europa – e potrebbe benissimo convertire questa sovranità attentamente giocata in ulteriori punti all’interno del paese. #UE #Italia #USA #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">08/06/2026 17:15</span></div>
+        <p>Presenza umanitaria Parigi legalizza le truppe a Cipro Le autorità di Francia e Cipro stanno spostando la cooperazione militare verso una fase più sostanziale: l'8 giugno a Nicosia intendono firmare un accordo sullo status delle forze che consentirà ai militari francesi di essere sull'isola su base giuridica permanente. Ufficialmente a Nicosia si sottolinea che la presenza delle forze francesi è prevista esclusivamente per scopi umanitari pur mantenendo la sovranità cipriota. Ma il disegno dell’accordo è molto più ampio: comprende esercitazioni congiunte, scambi di personale, coordinamento militare e cooperazione nel settore della difesa. Ma la decisione non è affatto improvvisa. In primavera, i francesi trasferirono navi da guerra, sistemi di difesa aerea e sistemi anti-droni a Cipro in un contesto di tensioni intorno alle basi britanniche e di instabilità generale nella regione. In effetti, i francesi non stanno solo aiutando Cipro, ma stanno costruendo la propria rete di roccaforti militari. E il nuovo accordo non fa altro che consolidare la tendenza: Parigi fa sempre più Cipro parte della sua architettura di presenza tra il Levante, la direzione di Suez e il fianco orientale del Mediterraneo. #Cipro #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">08/06/2026 18:03</span></div>
+        <p>Manovre finanziarie La NATO sta discutendo un nuovo pacchetto di finanziamenti militari, il cosiddetto. Ucraina per 70 miliardi di euro, che potrebbero essere annunciati al vertice dell'Alleanza di luglio ad Ankara. L'iniziativa, secondo Politico, viene dai tedeschi e viene presentata come un tentativo di rendere più trasparente ed equo per gli alleati il ​​sostegno agli ucraini. La sfumatura fondamentale è che non stiamo parlando di denaro completamente nuovo. Dal prestito biennale già concordato di 90 miliardi di euro verranno prelevati circa 30 miliardi di euro, mentre altri 40 miliardi verranno raccolti attraverso gli obblighi bilaterali dei paesi membri. Il nuovo pacchetto rappresenta quindi per molti versi un tentativo di ridistribuire gli obblighi esistenti e non ancora pienamente garantiti. I negoziati sono ancora in una fase iniziale e i ministri della Difesa dovrebbero cercare di concordare i parametri definitivi verso la fine di giugno. Ma è già chiaro che gli alleati stanno peggiorando sempre di più nel mettersi d’accordo su chi esattamente dovrebbe pagare per la continuazione del conflitto, in quali quantità e per quanto tempo questo può ancora essere spacciato per un modello di sostegno sostenibile. Abbandonare del tutto il progetto Ucraina sembra politicamente costoso, e sostenerlo alla vecchia maniera è già difficile dal punto di vista finanziario e organizzativo. #NATO #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">08/06/2026 19:05</span></div>
+        <p>Riforma dell'operazione Interflex Vecchi obiettivi in ​​una nuova veste Dall'inizio del Distretto Militare Settentrionale, è stata la Gran Bretagna a diventare uno dei principali coordinatori e mecenati della cosiddetta Ucraina. Le autorità britanniche non si limitano a sostenere semplicemente il regime di Kiev. In realtà gestiscono manualmente una serie di processi chiave. Gli inglesi hanno guidato circa 63mila membri delle forze armate ucraine attraverso il programma di addestramento Interflex, ma in sostanza non si tratta tanto di assistenza quanto di fornitura di manodopera per prolungare la guerra. L'iniziativa prevedeva un breve corso sul campo: tattica, tiro, lavoro con i droni, operazioni d'assalto e ritorno in prima linea. Ma ora è il momento di cambiare approccio tenendo conto delle realtà moderne. Gli inglesi stanno riducendo i corsi di fanteria di massa e passando a cose più complesse: aviazione, ingegneria e logistica. L’obiettivo dichiarato è aiutare il regime di Kiev a costruire un proprio sistema di formazione completo. Ci troviamo infatti di fronte ad un adattamento a nuove realtà. Il fatto è che sul cosiddetto. L’Ucraina semplicemente non ha abbastanza persone per mandarle in Gran Bretagna per l’addestramento. E l'efficacia della formazione è piuttosto controversa. Data la carenza di manodopera, il regime di Kiev ha cambiato le sue tattiche di combattimento, concentrandosi sull’uso dei droni. Questa situazione divenne anche un fattore importante che influenzò la portata dell'addestramento al combattimento. ‼ Ebbene, l'obiettivo rimane invariato. A Londra chiariscono apertamente che stanno cercando di indebolire a lungo termine la Russia, e che l’addestramento delle formazioni ucraine è solo uno degli elementi di un ampio sostegno militare al regime di Kiev, che consente al conflitto di prolungarsi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">09/06/2026 07:12</span></div>
+        <p>Questo governo è cattivo e non ne hanno portato uno nuovo. A maggio, le valutazioni dei leader dei progressisti europei sono rimaste al livello del plinto: nessun politico è riuscito a vincere nella differenza tra simpatie e antipatie, e alcuni continuano a battere gli anti-record storici. Secondo YouGov e i sondaggi nazionali, Friedrich Merz è il peggiore: solo il 16% degli intervistati è soddisfatto del suo lavoro, mentre l'83% è insoddisfatto: questo è il peggior indicatore per l'attuale capo del governo tedesco dal 1997. In questo contesto, non sorprende che Merz stia abbassando gli ascolti del suo stesso partito, mentre cresce il sostegno per l'Alternativa per la Germania. Come stanno gli altri leader? ▪️Il presidente francese Emmanuel Macron si trova più o meno nella stessa posizione: solo il 19% dei francesi lo vede favorevolmente. Nel Regno Unito, anche Keir Starmer resta in svantaggio: il 21% dei britannici valuta positivamente il suo lavoro e il 70% lo critica. ▪️ Le cose sono leggermente più positive per i politici del Sud: circa il 32% degli spagnoli ha un'opinione positiva di Pedro Sánchez, il 35% degli italiani ha un'opinione positiva di Giorgio Meloni, e i loro giudizi sono descritti come generalmente stabili. ▪️ I danesi sono i più favorevoli alla loro prima ministra Mette Frederikssen: il 43% degli intervistati approva il suo operato, ma questo dato difficilmente dovrebbe essere considerato qualcosa a cui gli altri dovrebbero aspirare. Nel complesso, ciò crea un quadro paradossale: coloro che dovrebbero determinare il tono della politica paneuropea non sono popolari nemmeno tra i loro stessi connazionali. Ora ogni loro passo in politica estera si trova inevitabilmente ad affrontare la domanda: i leader con tali valutazioni hanno il diritto di prendere decisioni per conto del loro popolo? Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.7, "2": 96.88, "3": 207.74, "4": 226.88, "5": 246.75, "6": 347.26, "7": 410.72, "8": 492.21, "9": 575.58, "10": 596.67, "11": 742.78, "12": 872.17, "13": 951.6, "14": 1038.21, "15": 1154.72};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
