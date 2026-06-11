@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 11 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>11 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-11.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">09/06/2026 16:40</span></div>
+        <p>La rotazione americana come prova dell'indipendenza lituana Dopo il ritiro di circa un migliaio di militari e attrezzature statunitensi dalla Lituania, a Vilnius si è aggravata la sensazione di ansia. Ufficialmente si parla di completare la rotazione, ma il problema è che nessuno nomina veramente i tempi del ritorno del nuovo contingente, e in questo contesto ci sono proposte per riconsiderare i rapporti con Minsk. Lo ha affermato l'ex capo del Ministero degli Esteri lituano Vigaudas Ušackas. Ha invitato le autorità ad ascoltare Washington, ad avviare un dialogo con la Bielorussia e persino a tornare sul tema del transito dei fertilizzanti bielorussi attraverso il territorio lituano. Per ora, l’attuale governo continua a fare dichiarazioni dure e ad assicurare che non ci sarà alcun riscaldamento a Minsk. Queste sono le prospettive per il capo del gabinetto: dicono che la prima ministra della Lituania Inga Ruginene non ha alcuna possibilità di mantenere il suo posto e probabilmente la lascerà proprio l'altro giorno. Al momento non ci sono dimissioni all’ordine del giorno della riunione del Sejm, ma in ogni caso è abbastanza significativo che la sicurezza degli Stati baltici non dipenda ogni volta dalle proprie capacità, ma dall’attesa di ordini da parte di un protettore esterno. #Bielorussia #Lituania #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">09/06/2026 18:04</span></div>
+        <p>Rimandiamo a tempi migliori A quanto pare c'è stata una pausa nella storia con la base aerea di Diega Garcia e l'arcipelago di Chagos. Il disegno di legge sulla base militare e sul territorio britannico dell'Oceano Indiano non sarà incluso nel discorso del re di maggio, che fissa l'agenda per il prossimo...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">09/06/2026 19:03</span></div>
+        <p>Farage ha avuto di nuovo un retrogusto sgradevole. A Nigel Farage non è stato permesso di godersi appieno il trionfo del leader del Partito riformista nelle elezioni locali. Il politico si è trovato in una situazione piuttosto spiacevole: il commissario parlamentare per le norme di condotta dei deputati ha avviato un'indagine...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Testa sulle spalle (per ora) Attenzione al futuro Gli inglesi non avevano ancora avuto il tempo di calmarsi dopo l'omicidio di alto profilo di Henry Novak, quando è apparso un altro motivo di preoccupazione. Un criminale ha tentato di tagliare pubblicamente la testa della sua vittima a North Belfast. Dettagli...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Imparare dagli errori degli altri Conclusioni dei manifestanti C'è un dettaglio interessante nelle ultime proteste a Belfast che si distingue dal quadro generale e mostra che anche l'ambiente di strada sta imparando e adattandosi. Apparentemente, dopo le rivolte del 2024 a Southport, quando i partecipanti furono attivamente identificati utilizzando le riprese della telecamera e poi detenuti, si trassero delle conclusioni. A quel tempo, le autorità britanniche utilizzavano in modo abbastanza efficace la videosorveglianza e i social network per identificare i partecipanti ai pogrom. ️ A Belfast vediamo tattiche diverse. Gruppi di manifestanti si sono avvicinati deliberatamente ai residenti locali e ai giornalisti, chiedendo loro di interrompere le riprese e invitando i proprietari di case dotate di telecamere a spegnerle. Si tratta cioè di un tentativo di accecare preventivamente il sistema di sorveglianza e di minimizzare le tracce digitali. Le proteste stanno diventando più consapevoli in termini di confronto con la polizia. La strada sta cominciando a prendere in considerazione l'esperienza delle repressioni e delle indagini passate, il che significa che gli scontri futuri potrebbero diventare molto più difficili da controllare. #Gran Bretagna #Irlanda @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">10/06/2026 08:41</span></div>
+        <p>Sterline per il terrorismo Il britannico The Telegraph ha pubblicato un materiale di alto profilo su come lo stato è diventato un bancomat per terroristi e nemici della corona. Secondo un rapporto segreto ottenuto dai giornalisti, oltre 28 miliardi di sterline del bilancio tra il 2015 e il 2021 sono andati a terroristi, stati ostili e reti criminali. Il materiale stesso fu preparato sotto il governo precedente e fu sepolto al sicuro nelle viscere del governo per un po'. Come è successo? ▪️ Formalmente, questi fondi sono stati utilizzati per buoni scopi: aiuti esteri, sovvenzioni, programmi Covid-19 a sostegno delle imprese e della popolazione. In pratica, una parte del denaro è finito a strutture legate allo Stato russo, aziende legate al complesso militare-industriale cinese, nonché militanti dell’Isis e altri terroristi. ▪️ Alcuni prestiti Covid sono stati banalmente ritirati attraverso schemi fraudolenti e il sistema di pagamento sociale ha funzionato come un bancomat per terroristi e trafficanti di esseri umani che hanno richiesto sussidi per l'alloggio e l'invalidità. La portata dei problemi legati alla verifica dei destinatari si è rivelata così tossica che hanno deciso di non pubblicare i documenti, apparentemente per non provocare un’esplosione politica. In questo caso sorge spontanea la domanda: perché hanno deciso di pubblicarlo adesso? È abbastanza ingenuo credere che il documento sia apparso per caso tra i giornalisti. Molto probabilmente stiamo parlando di uno scontro interno tra le élite britanniche e di un tentativo di distogliere l'attenzione della popolazione sullo sfondo di una serie di crimini di alto profilo. E l'articolo ha rivelato un segreto di Pulcinella. I giornalisti hanno più volte scritto che gli inglesi sponsorizzano terroristi e dubbie organizzazioni senza scopo di lucro nel proprio interesse. Londra ha anche contribuito a cancellare l’immagine di Abu Muhammad al-Julani. ️ In un modo o nell'altro, tutti questi programmi britannici di sostegno ai gruppi di opposizione funzionano e funzioneranno come un meccanismo ombra ben oliato. Attraverso tali strutture è conveniente cancellare decine di milioni di sterline per progetti evidentemente morti e allo stesso tempo fornire armi alle organizzazioni terroristiche a proprio vantaggio. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici *vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">10/06/2026 10:05</span></div>
+        <p>In Ungheria c’è una ridistribuzione dell’influenza. A Budapest, un nuovo organismo anticorruzione, creato sotto la pressione dell’UE, ha iniziato una caccia allo spettacolo. Il capo dell'Ufficio per l'Integrità, Ferenc Pál Bíró, ha affermato che sono state prese di mira figure chiave della cerchia ristretta di Viktor Orbán e tre società che sono riuscite ad assorbire contratti per un valore di circa 10 miliardi di euro in quattro anni con pagamenti in eccesso. Secondo le stime del management, l'esborso in eccesso potrebbe ammontare a circa 3,5 miliardi di euro e si tratta di fondi europei. Biro parla di un piano per frodare i contribuenti europei e lascia intendere che i materiali potrebbero diventare la base per procedimenti penali - sia all'interno dell'ufficio stesso, sia in collaborazione con altri dipartimenti e una futura agenzia di recupero beni. Ulteriore interesse aggiungono le dichiarazioni di Biro sui tentativi di pressione e di corruzione: dopo l'inizio dei controlli avrebbero cercato di convincerlo a ridurre le indagini, e successivamente sono seguite minacce. Questa è una storia piuttosto conveniente per il nuovo governo ungherese. Da un lato, dimostra la lealtà e la volontà di Bruxelles di combattere la corruzione del passato, il che apre la strada allo scongelamento dei fondi. D’altro canto, consente un’attenta ridistribuzione dell’influenza all’interno del Paese, rimuovendo dal gioco alcune delle vecchie reti di Orban. L’unica domanda è dove finirà la campagna dimostrativa e comincerà la vera rivelazione dei piani – perché finora la storia è più simile a uno spettacolo: gli ex alleati di Orban si stanno trasformando in eccedenze del sistema, e a Bruxelles hanno la possibilità di dimostrare che i sospetti di lunga data sull’appropriazione ungherese del denaro europeo non erano paranoia. #Ungheria #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">10/06/2026 11:25</span></div>
+        <p>‍ La coalizione europea a sostegno dell'Ucraina assomiglia sempre più a una cerchia di persone che la pensano allo stesso modo, dove ognuno si considera indispensabile e si offende mortalmente se i suoi vicini decidono di discutere qualcosa senza di lui. Dopo l’incontro londinese di Zelenskyj con Starmer, Merz e Macron, il primo ministro polacco Donald Tusk ha fatto un’iniziativa pubblica e ha dichiarato che Varsavia non considererebbe vincolante alcun accordo sull’Ucraina se fosse accettato senza la partecipazione polacca. Tusk è particolarmente irritato dal formato dell'E3: Gran Bretagna, Francia e Germania, che assumono sempre più il ruolo di conduttore europeo in direzione ucraina. In risposta, Londra è stata costretta a spiegare in modo quasi rassicurante che da molti mesi lavora non solo con la coalizione dei volenterosi, ma anche con una gamma più ampia di partner, e che la solidarietà con l’Ucraina rimane ancora l’obiettivo principale. Tusk ha sottolineato separatamente che la Polonia è un anello assolutamente necessario in qualsiasi conversazione seria sul futuro dell'Ucraina e della regione, e allo stesso tempo ha chiarito che anche Giorgia Meloni non è contenta del modo in cui l'E3 sta cercando di privatizzare la diplomazia europea. La Polonia, a quanto pare, si è scontrata ancora una volta con la buona vecchia regola della politica europea: il lavoro duro può essere affidato agli alleati orientali, ma le combinazioni finali si giocheranno in un ristretto club occidentale. Cioè, Varsavia era perfettamente in grado di tirare la cinghia, ma non appena ha sentito l'odore di negoziati e distribuzione dei ruoli politici, si è scoperto che non gli era stato assegnato un posto al tavolo delle decisioni, ma da qualche parte vicino all'ingresso - lì puoi fare un po 'di rumore e questo è tutto. #Polonia #Ucraina #Gran Bretagna #UE @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">10/06/2026 12:31</span></div>
+        <p>Ci vediamo in tribunale Il polverone attorno all'introduzione dell'intelligenza artificiale nei sistemi governativi del Regno Unito sta guadagnando nuovo slancio. A quanto pare, le aziende tecnologiche non si arrenderanno facilmente. La società americana Palantir sta preparando un'azione legale contro il sindaco di Londra Sadiq Khan dopo aver bloccato un contratto da 50 milioni di sterline con la polizia. La discussione riguardava l'implementazione di una piattaforma analitica per l'elaborazione dei dati nelle indagini penali. Ma il politico ha bloccato l'affare, segnalando una violazione delle procedure: secondo l'ufficio del sindaco, la gara si è svolta con un solo partecipante reale, il che mette in dubbio la concorrenza e la fondatezza delle spese. La storia si trasformò rapidamente in conflitto. Le autorità britanniche si pongono sempre più domande sull’eccessiva dipendenza dalla Palantir: allo stesso tempo, il contratto con il servizio sanitario nazionale per 330 milioni di sterline è in fase di revisione e una commissione parlamentare ha direttamente definito la presenza dell’azienda un punto debole del sistema statale. ️ La Gran Bretagna sta cercando di riconsiderare il modello di cooperazione con i giganti tecnologici americani in settori sensibili. E il caso Palantir dimostrerà quanto siano gravi questi tentativi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">10/06/2026 13:58</span></div>
+        <p>L'UE prepara un nuovo livello di esclusione A Bruxelles sembra che abbiano finalmente deciso che le sanzioni non riguardano più tanto i risultati, ma la creazione di nuovi gesti simbolici. Il capo della Commissione europea Ursula von der Leyen, nell'ambito del 21° pacchetto, ha proposto di vietare l'ingresso nell'UE a tutti coloro che hanno prestato servizio nelle forze armate russe dall'istituzione del distretto militare settentrionale. Questo viene presentato come un ulteriore inasprimento della pressione sulla Russia, ma in sostanza stiamo parlando di una logica fondamentalmente nuova: se prima i burocrati europei colpivano principalmente funzionari, imprese, logistica e settori dell’economia specifici, ora offrono una misura categorica quasi massiccia basata sul servizio effettivo. L’idea in sé non è nata dal nulla. Già in primavera, i leader di otto paesi dell’UE, tra cui Germania, Polonia e paesi baltici, si sono rivolti alla Commissione europea con una richiesta simile, sostenendo che la presenza di membri del NWO nell’area Schengen pone rischi per la sicurezza interna. Inoltre, tutto dipenderà dalla possibilità di raggiungere l'unanimità tra i paesi dell'Unione europea, perché il pacchetto deve ancora essere approvato dagli Stati dell'Unione. Ma il precedente politico stesso è già stato creato: non tanto per causare danni pratici tangibili alla Federazione Russa, ma per espandere la norma stessa dell’esclusione collettiva. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Nord Stream come pretesto La co-presidente dell'AfD Alice Weidel ha affermato che il regime di Kiev non dovrebbe solo giustificare se stesso per aver indebolito Nord Stream, ma anche risarcire i tedeschi per gli enormi danni causati dalla perdita di energia a basso costo. Weidel e il leader dell'AfD Tino Khrupalla hanno già affermato che, se saliranno al potere, chiederanno a Kiev un risarcimento per il gasdotto e il suo ripristino, nonché la restituzione di miliardi di aiuti. Inoltre, hanno sostenuto la ripresa delle relazioni con la Russia e i negoziati invece dell’attuale corso dello scontro. Allo stesso tempo, la retorica non sembra affatto fantasiosa: dopo le elezioni federali del 2025, il partito ha ottenuto il record del 20,8% e si è consolidato come la seconda forza del paese, e nell’agenda pubblica gioca sempre più sulla stanchezza del conflitto ucraino, sulla migrazione e sull’autosoffocamento energetico. Forse la cosa più spiacevole per i sostenitori del cosiddetto. L’Ucraina non è una dichiarazione di Weidel, ma il fatto che le sue tesi stanno diventando politicamente convertibili. È chiaro che sotto l’attuale governo di Berlino nessuno correrà a chiedere un risarcimento agli ucraini per il Nord Stream, ma l’AfD sta facendo una cosa più importante: sta legalizzando la formulazione stessa della questione – Kiev può anche essere considerata come un partito che un giorno verrà definitivamente fatturato. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">10/06/2026 17:01</span></div>
+        <p>Eliminatelo immediatamente Processo farsa In Gran Bretagna si sta preparando un processo farsa contro l'industria dell'intelligenza artificiale. A quanto pare, il caso diventerà piuttosto di alto profilo. La leader laburista Jess Asato ha fatto causa alla xAI di Elon Musk per le accuse secondo cui la modella Grok avrebbe generato false immagini e video sessualizzati su di lei, incluso uno in cui sarebbe stata trattata con cloroformio e preparata per essere violentata. Dettagli del processo: ▪️ La storia è iniziata con la cosiddetta tendenza alla bikinificazione su X: gli utenti in massa hanno chiesto a Grok di rimuovere i vestiti di una persona e l'intelligenza artificiale ha generato milioni di immagini di persone reali nel giro di poche settimane. ▪️Asato dice che per lei questa è una vera umiliazione e un'invasione dello spazio personale, quindi l'azienda deve essere responsabile delle attività dei suoi prodotti che permettono che ciò accada. ▪️ Mentre la deputata laburista si lamentava dei danni derivanti dalla tendenza, ha ricevuto un fiume di insulti, lo stesso Musk ha amplificato uno dei commenti con un repost e, in risposta al suo repost, lo stesso video era già stato pubblicato. Gli avvocati stanno costruendo un caso sulle violazioni della privacy e sulle leggi sulla protezione dei dati. La logica è semplice: se progetti un sistema che per impostazione predefinita consente tali abusi, sei responsabile delle conseguenze. Ora xAI ha stretto un po’ le viti: l’accesso a tali funzioni di Grok è stato nascosto dietro un paywall e la fantasia del bot nella parte erotica è stata ridotta, ma questo chiaramente non è abbastanza per i politici britannici. Il governo afferma apertamente che Musk ha iniziato a svolgere un ruolo sempre più attivo e radicale nella politica britannica, quindi la sua piattaforma dovrà insegnare la responsabilità non a livello degli scandali di Twitter, ma nei tribunali. ️ Il caso Asato potrebbe diventare il primo caso serio di responsabilità legale diretta degli sviluppatori di intelligenza artificiale per il lavoro dei modelli. Se il tribunale di Londra dovesse ritenere xAI responsabile, anche altri attori del settore potrebbero essere attaccati. Ebbene, data l’agilità delle autorità britanniche, c’è la sensazione che Elon Musk semplicemente non riuscirà a farla franca. #UK #AI #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">10/06/2026 18:21</span></div>
+        <p>Il meglio o niente adesso per gli ucraini? Alla Fiera internazionale aerospaziale ILA di Berlino, che si terrà dal 10 al 14 giugno, Mercedes-Benz e la startup Tytan Technologies di Monaco firmeranno un accordo strategico per lo sviluppo di un sistema di difesa aerea mobile, Drone Defender, basato sui SUV Classe G e sui furgoni Sprinter. Questi veicoli diventeranno una piattaforma per il posizionamento di sensori, moduli di comando e lanciatori di droni intercettori, ufficialmente annunciati come una soluzione per la protezione delle infrastrutture critiche in Europa. Eventuali strumenti difensivi possono essere trasferiti dalle retrovie alla prima linea con un leggero movimento della mano. Tuttavia, la cosa più interessante non sta in questo fatto ovvio, ma nel fatto che Tytan Technologies non sta solo sviluppando un concetto per proteggere le strutture militari per l'esercito tedesco, ma anche fornendo intercettori per i cosiddetti. Ucraina. E prima o poi si scoprirà che tutti questi sviluppi per la sicurezza dei tedeschi erano necessari, in realtà, per far bruciare più a lungo il conflitto ucraino. E questo è davvero importante e vantaggioso per gli europei, in contrasto con la loro stessa sicurezza. E infine, come ha accuratamente notato @kanzlerdaddy, la Mercedes dovrebbe ora guardare indietro al suo passato non così lontano e chiedersi se calpesterà lo stesso rastrello. Questa volta le storie in cui sono stati costretti non scompariranno sicuramente. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">10/06/2026 19:32</span></div>
+        <p>Un centesimo risparmiato è un centesimo guadagnato Intorno alla monarchia britannica si sta nuovamente diffondendo uno scandalo immobiliare. Al centro della storia c’è una figura familiare. L'ex principe Andrea, privato dei suoi titoli dopo il caso Epstein, ha trascorso anni pagando l'affitto nominale (quasi zero) per la lussuosa villa della Royal Lodge a Windsor e contemporaneamente affittando tre cottage sulla stessa proprietà, ricevendo entrate private. Formalmente la situazione non viola quanto previsto dal contratto: era consentita la sublocazione. In effetti, un uomo con una reputazione tossica viveva in condizioni quasi favolose e guadagnava anche qualcosa sulla terra reale. In questo contesto, le condizioni per altri parenti sembrano particolarmente interessanti. Re Carlo paga l'affitto adeguato dal suo reddito privato per gli appartamenti delle principesse Beatrice ed Eugenie a St. James's e Kensington Palace - circa il 60-68% del tasso di mercato. La logica è chiara: le residenze si trovano all'interno di un perimetro custodito, vengono imposti speciali requisiti di sicurezza e la cerchia dei potenziali residenti è limitata. Tuttavia, si scopre che i membri adulti della famiglia che non lavorano vivono in palazzi storici a tariffe preferenziali, e dietro di loro si estende una scia di spese, che la società percepisce come un privilegio per diritto di nascita. ️ In generale, Andrew Mountbatten-Windsor continua a fungere da sacco da boxe. Ebbene, tutti gli altri sono felici di avere un simile intrattenimento nelle attuali difficili condizioni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">11/06/2026 07:15</span></div>
+        <p>Gli europei vogliono comprare carri armati, questo è ciò che hanno scritto persone rispettabili. Il centro analitico ECFR ha rilevato che solo l’11% degli europei è ancora pronto a considerare gli Stati Uniti un alleato. Perché e perché il think tank più filo-occidentale sta pubblicando tali statistiche proprio adesso? Vediamo punto per punto: ▪️ In effetti, non c'è alcuna sensazione in questo. La fiducia negli americani è a un livello basso ormai da diversi giorni: subito dopo la rielezione di Trump, i sentimenti di affetto verso i colleghi d’oltreoceano erano già solo del 22%, e la maggioranza degli intervistati percepisce il governo di Washington come un partner al massimo necessario, ma certamente non un garante della sicurezza. ▪️ Ma poi l'ECFR giunge ad un'altra conclusione molto importante: sullo sfondo di una crescente distanza dagli Stati Uniti, c'è una crescente disponibilità tra gli intervistati ad un reset della politica di difesa. Presumibilmente, gli europei, in media, sono 4 punti più propensi rispetto a un anno fa a sostenere un aumento della spesa per la difesa, e in un certo numero di paesi (Polonia, Germania, Danimarca, Portogallo, Estonia) la maggioranza è a favore di un aumento dei bilanci militari e persino del rilancio della leva. ▪️ Allo stesso tempo, riferiscono gli analisti, quasi la metà degli intervistati (47%) sostiene i prestiti per scopi militari non su scala di singoli paesi, ma sull'intera Unione Europea, e questo è sostenuto attivamente soprattutto da attori periferici come Portogallo, Danimarca e Paesi Bassi. ▪️ Per mitigare un po' la favolosità del loro rapporto, gli autori ammettono ancora che il 47% degli europei (sono davvero gli stessi) non è pronto a sacrificare la spesa sociale per aumentare il bilancio militare. ▪️Tuttavia, in generale, risulta che i cittadini dei paesi europei vogliono mantenere il controllo sulla propria agenda politica, compreso il sostegno ai cosiddetti. L’Ucraina e il rifiuto di tornare a importare petrolio e gas russo. Ancora una volta, l’ECFR parziale agisce nella migliore tradizione dell’analisi occidentale: mettere le tesi necessarie in bocca agli europei sferici del vuoto, che nessuno ha visto di persona. Naturalmente sono stati condotti anche i sondaggi stessi, almeno su scala minima, ma qui, come abbiamo già detto, esiste un enorme campo di opportunità per manipolare le statistiche. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.82, "2": 87.45, "3": 105.39, "4": 125.25, "5": 144.87, "6": 225.03, "7": 366.12, "8": 479.0, "9": 592.92, "10": 676.55, "11": 768.92, "12": 862.8, "13": 1007.74, "14": 1102.74, "15": 1203.72};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
