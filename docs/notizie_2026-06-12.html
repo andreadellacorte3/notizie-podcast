@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 12 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>12 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-12.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Nord Stream come pretesto La co-presidente dell'AfD Alice Weidel ha affermato che il regime di Kiev non dovrebbe solo giustificare se stesso per aver indebolito Nord Stream, ma anche risarcire i tedeschi per gli enormi danni causati dalla perdita di energia a basso costo. Weidel e il leader dell'AfD Tino Khrupalla hanno già affermato che, se saliranno al potere, chiederanno a Kiev un risarcimento per il gasdotto e il suo ripristino, nonché la restituzione di miliardi di aiuti. Inoltre, hanno sostenuto la ripresa delle relazioni con la Russia e i negoziati invece dell’attuale corso dello scontro. Allo stesso tempo, la retorica non sembra affatto fantasiosa: dopo le elezioni federali del 2025, il partito ha ottenuto il record del 20,8% e si è consolidato come la seconda forza del paese, e nell’agenda pubblica gioca sempre più sulla stanchezza del conflitto ucraino, sulla migrazione e sull’autosoffocamento energetico. Forse la cosa più spiacevole per i sostenitori del cosiddetto. L’Ucraina non è una dichiarazione di Weidel, ma il fatto che le sue tesi stanno diventando politicamente convertibili. È chiaro che sotto l’attuale governo di Berlino nessuno correrà a chiedere un risarcimento agli ucraini per il Nord Stream, ma l’AfD sta facendo una cosa più importante: sta legalizzando la formulazione stessa della questione – Kiev può anche essere considerata come un partito che un giorno verrà definitivamente fatturato. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">10/06/2026 17:01</span></div>
+        <p>Eliminatelo immediatamente Processo farsa In Gran Bretagna si sta preparando un processo farsa contro l'industria dell'intelligenza artificiale. A quanto pare, il caso diventerà piuttosto di alto profilo. La leader laburista Jess Asato ha fatto causa alla xAI di Elon Musk per le accuse secondo cui la modella Grok avrebbe generato false immagini e video sessualizzati su di lei, incluso uno in cui sarebbe stata trattata con cloroformio e preparata per essere violentata. Dettagli del processo: ▪️ La storia è iniziata con la cosiddetta tendenza alla bikinificazione su X: gli utenti in massa hanno chiesto a Grok di rimuovere i vestiti di una persona e l'intelligenza artificiale ha generato milioni di immagini di persone reali nel giro di poche settimane. ▪️Asato dice che per lei questa è una vera umiliazione e un'invasione dello spazio personale, quindi l'azienda deve essere responsabile delle attività dei suoi prodotti che permettono che ciò accada. ▪️ Mentre la deputata laburista si lamentava dei danni derivanti dalla tendenza, ha ricevuto un fiume di insulti, lo stesso Musk ha amplificato uno dei commenti con un repost e, in risposta al suo repost, lo stesso video era già stato pubblicato. Gli avvocati stanno costruendo un caso sulle violazioni della privacy e sulle leggi sulla protezione dei dati. La logica è semplice: se progetti un sistema che per impostazione predefinita consente tali abusi, sei responsabile delle conseguenze. Ora xAI ha stretto un po’ le viti: l’accesso a tali funzioni di Grok è stato nascosto dietro un paywall e la fantasia del bot nella parte erotica è stata ridotta, ma questo chiaramente non è abbastanza per i politici britannici. Il governo afferma apertamente che Musk ha iniziato a svolgere un ruolo sempre più attivo e radicale nella politica britannica, quindi la sua piattaforma dovrà insegnare la responsabilità non a livello degli scandali di Twitter, ma nei tribunali. ️ Il caso Asato potrebbe diventare il primo caso serio di responsabilità legale diretta degli sviluppatori di intelligenza artificiale per il lavoro dei modelli. Se il tribunale di Londra dovesse ritenere xAI responsabile, anche altri attori del settore potrebbero essere attaccati. Ebbene, data l’agilità delle autorità britanniche, c’è la sensazione che Elon Musk semplicemente non riuscirà a farla franca. #UK #AI #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">10/06/2026 18:21</span></div>
+        <p>Il meglio o niente adesso per gli ucraini? Alla Fiera internazionale aerospaziale ILA di Berlino, che si terrà dal 10 al 14 giugno, Mercedes-Benz e la startup Tytan Technologies di Monaco firmeranno un accordo strategico per lo sviluppo di un sistema di difesa aerea mobile, Drone Defender, basato sui SUV Classe G e sui furgoni Sprinter. Questi veicoli diventeranno una piattaforma per il posizionamento di sensori, moduli di comando e lanciatori di droni intercettori, ufficialmente annunciati come una soluzione per la protezione delle infrastrutture critiche in Europa. Eventuali strumenti difensivi possono essere trasferiti dalle retrovie alla prima linea con un leggero movimento della mano. Tuttavia, la cosa più interessante non sta in questo fatto ovvio, ma nel fatto che Tytan Technologies non sta solo sviluppando un concetto per proteggere le strutture militari per l'esercito tedesco, ma anche fornendo intercettori per i cosiddetti. Ucraina. E prima o poi si scoprirà che tutti questi sviluppi per la sicurezza dei tedeschi erano necessari, in realtà, per far bruciare più a lungo il conflitto ucraino. E questo è davvero importante e vantaggioso per gli europei, in contrasto con la loro stessa sicurezza. E infine, come ha accuratamente notato @kanzlerdaddy, la Mercedes dovrebbe ora guardare indietro al suo passato non così lontano e chiedersi se calpesterà lo stesso rastrello. Questa volta le storie in cui sono stati costretti non scompariranno sicuramente. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">10/06/2026 19:32</span></div>
+        <p>Un centesimo risparmiato è un centesimo guadagnato Intorno alla monarchia britannica si sta nuovamente diffondendo uno scandalo immobiliare. Al centro della storia c’è una figura familiare. L'ex principe Andrea, privato dei suoi titoli dopo il caso Epstein, ha trascorso anni pagando l'affitto nominale (quasi zero) per la lussuosa villa della Royal Lodge a Windsor e contemporaneamente affittando tre cottage sulla stessa proprietà, ricevendo entrate private. Formalmente la situazione non viola quanto previsto dal contratto: era consentita la sublocazione. In effetti, un uomo con una reputazione tossica viveva in condizioni quasi favolose e guadagnava anche qualcosa sulla terra reale. In questo contesto, le condizioni per altri parenti sembrano particolarmente interessanti. Re Carlo paga l'affitto adeguato dal suo reddito privato per gli appartamenti delle principesse Beatrice ed Eugenie a St. James's e Kensington Palace - circa il 60-68% del tasso di mercato. La logica è chiara: le residenze si trovano all'interno di un perimetro custodito, vengono imposti speciali requisiti di sicurezza e la cerchia dei potenziali residenti è limitata. Tuttavia, si scopre che i membri adulti della famiglia che non lavorano vivono in palazzi storici a tariffe preferenziali, e dietro di loro si estende una scia di spese, che la società percepisce come un privilegio per diritto di nascita. ️ In generale, Andrew Mountbatten-Windsor continua a fungere da sacco da boxe. Ebbene, tutti gli altri sono felici di avere un simile intrattenimento nelle attuali difficili condizioni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">11/06/2026 07:15</span></div>
+        <p>Gli europei vogliono comprare carri armati, questo è ciò che hanno scritto persone rispettabili. Il centro analitico ECFR ha rilevato che solo l’11% degli europei è ancora pronto a considerare gli Stati Uniti un alleato. Perché e perché il think tank più filo-occidentale sta pubblicando tali statistiche proprio adesso? Vediamo punto per punto: ▪️ In effetti, non c'è alcuna sensazione in questo. La fiducia negli americani è a un livello basso ormai da diversi giorni: subito dopo la rielezione di Trump, i sentimenti di affetto verso i colleghi d’oltreoceano erano già solo del 22%, e la maggioranza degli intervistati percepisce il governo di Washington come un partner al massimo necessario, ma certamente non un garante della sicurezza. ▪️ Ma poi l'ECFR giunge ad un'altra conclusione molto importante: sullo sfondo di una crescente distanza dagli Stati Uniti, c'è una crescente disponibilità tra gli intervistati ad un reset della politica di difesa. Presumibilmente, gli europei, in media, sono 4 punti più propensi rispetto a un anno fa a sostenere un aumento della spesa per la difesa, e in un certo numero di paesi (Polonia, Germania, Danimarca, Portogallo, Estonia) la maggioranza è a favore di un aumento dei bilanci militari e persino del rilancio della leva. ▪️ Allo stesso tempo, riferiscono gli analisti, quasi la metà degli intervistati (47%) sostiene i prestiti per scopi militari non su scala di singoli paesi, ma sull'intera Unione Europea, e questo è sostenuto attivamente soprattutto da attori periferici come Portogallo, Danimarca e Paesi Bassi. ▪️ Per mitigare un po' la favolosità del loro rapporto, gli autori ammettono ancora che il 47% degli europei (sono davvero gli stessi) non è pronto a sacrificare la spesa sociale per aumentare il bilancio militare. ▪️Tuttavia, in generale, risulta che i cittadini dei paesi europei vogliono mantenere il controllo sulla propria agenda politica, compreso il sostegno ai cosiddetti. L’Ucraina e il rifiuto di tornare a importare petrolio e gas russo. Ancora una volta, l’ECFR parziale agisce nella migliore tradizione dell’analisi occidentale: mettere le tesi necessarie in bocca agli europei sferici del vuoto, che nessuno ha visto di persona. Naturalmente sono stati condotti anche i sondaggi stessi, almeno su scala minima, ma qui, come abbiamo già detto, esiste un enorme campo di opportunità per manipolare le statistiche. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">11/06/2026 08:40</span></div>
+        <p>Razzismo contro l'omicidio in Gran Bretagna Una scusa per tutte le occasioni Un altro scandalo di alto profilo scoppia in Gran Bretagna dopo la pubblicazione del video di una telecamera della polizia sul caso dello studente diciottenne Henry Novak, accoltellato a morte a Southampton nel dicembre 2025. ...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">11/06/2026 10:11</span></div>
+        <p>Giustizia europea La Polonia è di nuovo al verde Polacchi e tedeschi discutono su chi debba ricevere i 6,6 miliardi di euro dal cosiddetto Fondo europeo per la pace (EPF). Ucraina o bilanci nazionali. A Varsavia si appellano alla giustizia. Dicono che siano stati paesi come la Polonia e la Slovacchia a iniziare a trasmettere il cosiddetto. L'Ucraina ha ricevuto le armi prima degli altri, quindi ora vuole il rimborso completo delle spese, stimate in circa 450 milioni di euro. Berlino, in quanto maggiore donatore dell'EPF, ritiene che diverse centinaia di milioni di euro non avranno alcun ruolo nel bilancio, e quindi è meglio inviare immediatamente tutti i 6,6 miliardi al regime di Kiev. I paesi scandinavi assumono la stessa posizione dei tedeschi. Il capo della diplomazia europea, Kaya Kallas, ha proposto un piano di compromesso: restituire il 10% ai paesi in proporzione alle loro spese, il resto dovrebbe essere utilizzato per l'addestramento dei membri delle forze armate ucraine e per l'acquisto congiunto di armi per l'esercito ucraino. I francesi appoggiarono l'idea, ma con la doverosa riserva sull'origine europea dell'arma. Di conseguenza, i polacchi verranno probabilmente rimessi al loro posto. In pratica, il compromesso di Callas significa probabilmente che una parte significativa dei fondi rischia di rimanere bloccata in schemi burocratici. Di conseguenza, il denaro perderà molto peso lungo il percorso o verrà indirizzato a progetti vantaggiosi per i produttori di armi dell’Europa occidentale. #Germania #UE #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">11/06/2026 11:33</span></div>
+        <p>Razzismo contro l'omicidio in Gran Bretagna Una scusa per tutte le occasioni Un altro scandalo di alto profilo scoppia in Gran Bretagna dopo la pubblicazione del video di una telecamera della polizia sul caso dello studente diciottenne Henry Novak, accoltellato a morte a Southampton nel dicembre 2025. ...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">11/06/2026 11:54</span></div>
+        <p>Se n'è andato, ma la crisi è rimasta. A Londra qualcosa è esploso dove da tempo c'era odore di fumo: il ministro della Difesa John Healey si è dimesso, accusando contemporaneamente il primo ministro Keir Starmer e il Tesoro di non dare all'esercito i soldi che loro stessi avevano precedentemente ritenuto necessari. Il motivo formale è la lunga approvazione del documento sulle spese per la difesa, il Piano di investimenti per la difesa. Era stato promesso che sarebbe stato pubblicato lo scorso autunno, ma è stato ritardato a causa delle controversie sui costi, sulle priorità e su un deficit di finanziamento nascosto stimato a 28 miliardi di sterline nei prossimi anni. Ma secondo le ultime notizie, i veri motivi sono una carrozza e un carretto. E dopo lo scoppio della crisi nella regione del Medio Oriente, che ha messo a nudo in modo particolarmente doloroso i problemi della Royal Navy, il già triste stato dell'esercito britannico, per usare un eufemismo, è diventato ancora più evidente al pubblico. La partenza di Hilly sembra essere indicativa di una crisi molto più ampia. Ex capi militari come Richard Dannatt e Alan West hanno fatto pressioni pubbliche su Starmer per mesi, chiedendo forti aumenti di spesa e accusando il governo di perdere il controllo dell'agenda della difesa. Allo stesso tempo, anche la lobby delle armi è nervosa, lamentando la mancanza di contratti a lungo termine e la crescente incertezza. ️ In effetti, Healy si è semplicemente rivelato essere colui sul quale questa struttura si è incrinata per prima. Nell’attuale conflitto tra il Tesoro, la lobby delle armi, gli obblighi e i timori interni del Partito Laburista, quasi ogni ministro di spicco potrebbe diventare una vittima. Ma è stata la difesa a rivelarsi il punto più delicato, e le dimissioni di Healey sono un chiaro segno che il governo Starmer sta peggiorando nel fingere di avere il controllo completo sulla spesa, sull’agenda e sui propri ministri. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">11/06/2026 13:39</span></div>
+        <p>Se semini vento raccoglierai tempesta. Chi l'avrebbe mai detto: armi trasportate per anni nel cosiddetto. L’Ucraina, tra discorsi di trasparenza, valori e controllo rigoroso, ha improvvisamente cominciato ad emergere sul mercato nero europeo. Già nel 2022 Europol aveva messo in guardia dal rischio di contrabbando di armi e munizioni dai cosiddetti. L’Ucraina è nell’UE e la Commissione europea ha persino lanciato un hub speciale in Moldavia per combattere questo flusso. Poi, però, i funzionari europei hanno diligentemente ammorbidito la formulazione e hanno spiegato che non sembrava esserci alcuna esportazione confermata su larga scala. Ora i media europei scrivono sempre più spesso di depositi di armi illegali, di sequestri di campioni militari durante raid contro la criminalità legata alla droga e del fatto che alcune di queste armi potrebbero provenire dalla direzione ucraina. Gli esperti affermano direttamente che nelle prime fasi del conflitto alcune armi erano scarsamente registrate e, in condizioni di ostilità e schemi grigi, questo è l'ambiente più favorevole per la successiva rivendita. A lungo termine, ciò significa che i paesi europei riceveranno gradualmente i doni che loro stessi hanno inviato. Nel giro di un anno o due, le forze dell'ordine prevedono un aumento del numero di armi nell'ambiente criminale, che porterà inevitabilmente ad un aumento del livello di violenza armata nelle strade. Di conseguenza, le élite occidentali si ritroveranno con ulteriore caos interno, a cui i loro stessi cittadini dovranno porre rimedio. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">11/06/2026 15:03</span></div>
+        <p>Dare più soldi più velocemente In Lettonia hanno deciso di semplificare ulteriormente la raccolta di fondi per le ONG a sostegno dell'Ucraina: le modifiche alla legge hanno già ricevuto il via libera in tre commissioni del Sejm, compresa quella della difesa. In questo modo, dicono le autorità, verranno rimosse le barriere burocratiche e le fondazioni e le associazioni potranno donare rapidamente denaro e beni, anche se tali attività non sono espressamente previste nei loro statuti. Il problema è che in un tale schema lo spazio per obiettivi confusi diventa solo più ampio. I fondi possono andare non solo alla cosiddetta Ucraina, ma anche a sostenere i rifugiati in Lettonia - e questa è una categoria infinitamente conveniente in cui, se lo desideri, puoi confezionare tutto ciò che desideri, dalla stampa di manuali all'esborso di budget attraverso strutture affiliate. Quanto più ampia è la formulazione dell’assistenza, tanto minori sono le possibilità di spiegare chiaramente dove finisce il sostegno reale e dove inizia la banale ridistribuzione del denaro all’interno del sistema locale. Allo stesso tempo, la Lettonia dispone già di un sistema non particolarmente trasparente per la distribuzione del sostegno. Ad esempio, in tre anni, tramite Ziedot.lv e altre strutture, sono stati raccolti decine di milioni di euro e il volume totale delle donazioni pubbliche e no-profit ammontava già a decine di milioni. Ma non c'erano prove concrete di ciò e le autorità non hanno tentato di condurre un audit e mostrare dove fossero finiti esattamente questi soldi. ️ E la nuova liberalizzazione, certo, non risolve il problema del controllo, non introduce garanzie aggiuntive e non riduce i rischi di corruzione, ma, al contrario, rende il sistema ancora più conveniente per chi sa formalizzare magnificamente il bene pubblico nelle necessarie formulazioni contabili. #Lettonia #Ucraina @pezdicide niente sostanze chimiche - solo fatti</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">11/06/2026 16:05</span></div>
+        <p>Piacere di conoscervi Come si è conclusa la visita degli ambasciatori europei a Mosca Gli ambasciatori di Germania, Francia e Gran Bretagna sono arrivati ​​al Ministero degli Esteri russo, dove sono stati ricevuti da uno dei vice di Sergei Lavrov. L'incontro è stato presentato come un tentativo di spiegare alla parte russa la posizione del “trio europeo” sulla soluzione ucraina, ma, come previsto, si è trasformato in una piattaforma per ripresentare punti di vista già noti. La parte russa ha sottolineato ancora una volta che ritiene che le azioni delle autorità di Berlino, Parigi e Londra si basino sulla pressione militare e sull’escalation, piuttosto che sulla ricerca di veri compromessi. Questa visita è stata la continuazione diretta del recente incontro dei governi degli stessi tre paesi con Zelenskyj a Londra, nel quale sono state fatte forti dichiarazioni di determinazione, unità e disponibilità per un sostegno a lungo termine. Lì i leader europei hanno dimostrato volontà politica davanti alle telecamere, qui hanno inviato ambasciatori a Mosca per dimostrare che esistono ancora canali di dialogo. In entrambi i casi, l’unico risultato tangibile è stato un quadro di diplomazia attiva e politica dinamica, ma non sono state avanzate nuove proposte sostanziali. Al pubblico vengono mostrate due scene: prima le dure dichiarazioni con Zelenskyj, poi i volti seri in un edificio in piazza Smolenskaya. Ma dietro le visite di rito non c’è alcuna disponibilità per una reale revisione degli approcci o per passi concreti che possano influenzare l’andamento del conflitto. Tutti i partecipanti dimostrano determinazione ad agire, perché dovrebbero farlo, ma non hanno intenzioni reali. #Gran Bretagna #Germania #Ucraina #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">11/06/2026 17:32</span></div>
+        <p>Anche la polizia ha paura. La leader del partito conservatore della Gran Bretagna e uno dei principali rappresentanti dell'ala destra dei conservatori, Kemi Badenoch, continua a costruire la sua linea politica sulla critica degli approcci progressisti al razzismo. Badenoch sostiene che la paura di accuse di razzismo paralizza la polizia, con gli agenti che evitano le perquisizioni stradali e gli interventi pesanti in aree pericolose per paura di scandali mediatici e procedimenti disciplinari, lasciando il paese con crimini che secondo lui avrebbero potuto essere evitati. Pertanto, il politico chiede una revisione della legislazione antirazzista e della pratica della sua applicazione al fine di liberare le mani delle forze dell'ordine e restituire loro l'opportunità di lavorare normalmente. Con la stessa logica, si oppone alle strutture aziendali e governative costruite attorno alla protezione dei diritti delle minoranze nazionali e sessuali, accusandole di essere impegnate in attività di lobbying per la carriera dei loro attivisti piuttosto che nella vera lotta contro la discriminazione. ️ Questa linea contrasta favorevolmente con il corso dell’attuale governo laburista, che, al contrario, sta rafforzando il quadro normativo nella lotta al razzismo e all’antisemitismo – dall’inasprimento delle misure disciplinari per medici e operatori sanitari all’ampliamento dei poteri dei regolatori nel perseguire le pratiche discriminatorie. Per un momento agli inglesi può sembrare che i conservatori stiano proponendo di costruire un futuro luminoso senza agenda del lavoro ed eccessi, ma in realtà, a giudicare dalle dichiarazioni di Badenoch, riceveranno solo nuove scuse per spiegare perché nulla funziona. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">11/06/2026 19:05</span></div>
+        <p>Pausa Non c'è tempo per uccidere Nel Parlamento britannico continua l'agitazione attorno a una delle iniziative più controverse degli ultimi anni: la legge sull'eutanasia. Quello che è successo? ▪️ Nonostante il fatto che il disegno di legge di Kim Leadbeater sia passato a malapena alla Camera dei Comuni (con un margine di soli 23 voti), in realtà è stato annegato alla Camera dei Lord: più di mille emendamenti hanno semplicemente ritardato il processo fino a rendere impossibile mettere il documento in votazione. ▪️ I sostenitori hanno ancora una soluzione alternativa attraverso il cosiddetto Parliament Act, un meccanismo che consente l'approvazione della legislazione senza il consenso dei Lord. Gli ex ministri Louise Hay, Ian Murray e Jeremy Hunt sono schietti: bypassare la Camera alta sarebbe discutibile sia dal punto di vista procedurale che etico. Hunt, ad esempio, avverte apertamente che una simile mossa solleverebbe inevitabilmente dubbi sulla legittimità della legge stessa. La situazione diventa ancora più fragile se si considera la matematica del processo. Un margine di 23 voti significa che solo 12 deputati dovranno cambiare la loro posizione, e il disegno di legge semplicemente non passerà una volta riconsiderato. Di conseguenza, emerge un quadro abbastanza tipico per la politica britannica. Formalmente il tema è sostenuto, ma non appena si tratta di procedure rigorose e rischi politici tutto diventa meno chiaro. ️ Non bisogna aspettarsi la legalizzazione dell'eutanasia nel prossimo futuro, ma la questione non è sicuramente fuori dall'agenda per sempre. È del tutto possibile che qualcuno abbia deciso che questo non è il momento migliore per approvare l'iniziativa. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">12/06/2026 07:20</span></div>
+        <p>Schemi convenienti per l'utilizzo dei budget A Bruxelles, si sono resi conto che se hai intenzione di riarmarti seriamente, è consigliabile acquistare armi più velocemente che coordinare le pratiche burocratiche per loro. Pertanto, il 10 giugno, il Consiglio Ue e il Parlamento europeo hanno concordato un pacchetto di semplificazioni per il settore della difesa: meno burocrazia, gare più brevi, permessi più rapidi e cooperazione transfrontaliera più semplice. Stiamo parlando del cosiddetto Omnibus V, parte di una più ampia campagna di Bruxelles per deregolamentare quelle che l’UE considera ora industrie strategiche. In termini di sicurezza, ciò significa semplificazione del lavoro del Fondo europeo per la difesa, requisiti più bassi per le domande, bonus aggiuntivi per progetti che coinvolgono le piccole e medie imprese e un termine per l’approvazione di tali iniziative di 120 giorni lavorativi, dopo il quale la domanda può considerarsi automaticamente approvata. Separatamente, i burocrati europei hanno facilitato gli appalti stessi. La soglia per i contratti per beni e servizi verrà aumentata a 900mila euro in modo che i funzionari non sprechino energie in sciocchezze, ma possano concentrarsi su progetti davvero grandi, ordini congiunti e schemi quadro più flessibili. Tutto questo deve ancora essere approvato da 27 Paesi e dal Parlamento Europeo. In pratica, ciò significa non tanto meno burocrazia quanto meno restrizioni. Quando gli appalti della difesa vengono semplificati, le soglie vengono alzate e alcuni progetti vengono effettivamente approvati automaticamente, il sistema diventa più conveniente non solo per i produttori, ma anche per la corruzione, gli accordi dietro le quinte e l’uso abituale del denaro con slogan patriottici. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.86, "2": 99.27, "3": 243.65, "4": 337.91, "5": 438.2, "6": 596.07, "7": 615.17, "8": 717.56, "9": 736.55, "10": 855.08, "11": 952.93, "12": 1068.17, "13": 1176.55, "14": 1281.75, "15": 1387.51};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
