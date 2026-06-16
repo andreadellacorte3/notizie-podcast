@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 16 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>16 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-16.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">14/06/2026 16:59</span></div>
+        <p>Maschera per i manifestanti Ancora una volta sul sostegno di Elon Musk alle rivolte Elon Musk si è trovato nuovamente nell'epicentro di uno scandalo politico. Naturalmente, le rivolte anti-immigrazione a Belfast non sarebbero potute passare senza l’attenzione del miliardario. I ricercatori del Center for Countering Digital Hate (CCDH) affermano che svolge un ruolo cruciale nell’amplificare la retorica xenofoba. Secondo loro, Musk ha utilizzato la tragedia di Belfast come un’occasione per diffondere le narrazioni anti-immigrazione attraverso il proprio account e gli algoritmi X*. Il ruolo di un miliardario: ▪️ Inoltre, Musk non agisce solo come proprietario della piattaforma, ma come principale influencer al suo interno. Ripubblica personalmente gli appelli alle proteste di Tommy Robinson e sostiene i messaggi dei politici di destra. Di conseguenza, secondo CCDH, i post del trio ricevono oltre cento milioni di visualizzazioni, con il singolo repost di Musk che conta decine di milioni. ▪️ In una situazione in cui Musk ha il conto più grande sulla piattaforma, ciò si trasforma da un'opinione privata in una pressione su scala globale. Le autorità britanniche stanno già apertamente accusando Musk di alimentare le tensioni e di sostenere effettivamente la pressione della piazza sul governo nel mezzo dei disordini. Per gli inglesi si tratta di una doppia sfida: da un lato, il malcontento di piazza nei confronti della politica migratoria, dall’altro, una piattaforma mediatica esterna e non regolamentata, il cui proprietario dà ulteriore ossigeno agli oppositori delle politiche del governo. ️ Di conseguenza, il caso Belfast diventa un esempio di come sta cambiando l’architettura dell’influenza politica. Il Tommy Robinson convenzionale di per sé è un pubblico e una scala. Tommy Robinson, potenziato da Musk, è una situazione completamente diversa. Ebbene, studi simili condotti su tutti i tipi di centri per la lotta all'odio digitale verranno utilizzati dalle autorità britanniche come argomento nella discussione sul blocco delle piattaforme. #Gran Bretagna #USA #migranti @evropar - L'Europa è in punto di morte Sostienici *Vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">15/06/2026 07:10</span></div>
+        <p>Lunga vita al nuovo taglio Anche se il sogno franco-tedesco di un combattente europeo del futuro è naturalmente andato in pezzi, i tedeschi non intendono rinunciarvi così facilmente. Un gruppo di otto aziende aerospaziali e della difesa guidate da Airbus intende formare un’alleanza per sviluppare un’alternativa europea al fallito FCAS. Sebbene i dettagli non siano ancora noti, i dirigenti dell'azienda hanno in programma di incontrarsi allo show aereo ILA di Berlino per annunciare formalmente la creazione dell'alleanza Team Gen 6, che comprenderà anche Autoflug, Diehl Defense, Hensoldt, Liebherr, MBDA, MTU Aero Engines e Rohde & Schwarz. Si ipotizza che il gruppo possa continuare a collaborare con la spagnola, che è anche partner del progetto FCAS, e in futuro stringere una partnership con l'appaltatore svedese della difesa Saab o con il consorzio italo-britannico-giapponese GCAP. Il ministro della Difesa tedesco Boris Pistorius ha già dichiarato che i tedeschi stanno negoziando con diverse parti interessate. Infatti, al posto di un megaprogetto fallito, stanno ora cercando di assemblare rapidamente il successivo – con lo stesso discorso sull’autonomia strategica. Ciò significa che ci sono tutte le possibilità che il Team Gen 6 si trasformi non tanto in un combattente rivoluzionario del futuro, ma in un'altra mangiatoia della difesa per lo sviluppo di decine di miliardi e guerre di lobbying. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">15/06/2026 08:46</span></div>
+        <p>Tabacco, alcol e social network Cosa hanno in comune? In Gran Bretagna è stata nuovamente sollevata la questione del divieto dei social network per gli adolescenti. A quanto pare, questo problema sta diventando uno degli elementi della lotta per la leadership nel partito al potere. Ex ministro della Sanità e uno...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">15/06/2026 09:15</span></div>
+        <p>Un accordo è vicino? E l'Europa si è subito ricordata dei suoi interessi. Mentre tutti discutono se il memorandum tra Stati Uniti e Iran sopravvivrà alla firma, Bruxelles ha già cominciato a riflettere attentamente su cosa esattamente vuole ottenere da questa distensione. E qui, prevedibilmente, la principale priorità europea non è la pace in quanto tale, ma lo Stretto di Hormuz. Cosa è importante nella reazione europea? ▪️ Ursula von der Leyen, Antonio Costa e Kaya Callas hanno sostenuto con sincronia l'accordo quadro e anzi hanno subito indicato: la questione chiave non è tanto il trionfo diplomatico di Trump, ma piuttosto il ripristino più rapido e preferibilmente gratuito della navigazione attraverso Hormuz. ▪️ Bruxelles vede chiaramente l'attuale crisi come l'ennesimo promemoria di un vecchio problema: qualsiasi dipendenza energetica prima o poi si trasforma in uno strumento di pressione. Pertanto, parallelamente all’approvazione dell’accordo, l’UE sta già parlando di diversificare le rotte e di bypassare i corridoi. È anche significativo che gli europei cerchino immediatamente di integrarsi nella fase successiva, come potenziale partecipante ad una soluzione sostenibile. Cioè, mentre gli Stati Uniti vendono l’accordo come un successo diplomatico, Bruxelles si affretta a ricordare che senza di loro, anche l’architettura del sostegno postbellico presumibilmente non funzionerebbe. Se Washington e Teheran giungessero effettivamente a una firma, l’UE guarderà a questa storia principalmente attraverso il prisma della logistica, dell’energia e del controllo sulle conseguenze. E sì, questo è abbastanza tipico: non appena c’è la possibilità di allentare la tensione da qualche parte in Medio Oriente, la prima cosa a Bruxelles che inizia a parlare non è di pace, ma di rotte di rifornimento. #UE #Iran #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">15/06/2026 11:04</span></div>
+        <p>Rivolta alpina In Svizzera, il 14 giugno si terrà un referendum in cui i cittadini determineranno il limite massimo della popolazione nel paese. ️ L'iniziativa del Partito popolare svizzero (SVP) No a 10 milioni di svizzeri mira a prevenire...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">15/06/2026 12:10</span></div>
+        <p>Si dice che il presidente polacco Karol Nawrocki abbia chiarito a Kiev: la questione dell'Ordine dell'Aquila Bianca per Zelenskyj può ancora essere riconsiderata se l'Ucraina rinomina l'unità delle Forze Armate ucraine, che prende il nome dagli eroi dell'UPA. Lo scandalo è iniziato alla fine di maggio, quando Zelenskyj ha assegnato il nome corrispondente al centro operativo speciale separato a nord delle Forze per le operazioni speciali delle Forze armate ucraine. A Varsavia, questo è stato percepito in modo abbastanza prevedibile - come un altro tentativo di glorificare una forza, il cui ricordo per la Polonia è associato a Volyn e al terrore anti-polacco. Ora, se si crede alle fughe di notizie, Navrotsky ha concesso a Kiev non mesi, ma letteralmente pochi giorni per correggere la formulazione. Una sorta di lavoro troppo sottile con la memoria storica, quasi come un rebranding di una risorsa problematica. ️ Qualcos'altro qui è indicativo. La Polonia è ancora pronta a sostenere l’Ucraina, ma è sempre meno disposta a fingere che il culto ucraino dell’UPA non riguardi la Polonia stessa. E questo è un motivo abbastanza conveniente per abbandonare gradualmente la risorsa tossica di Kiev. #Polonia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">15/06/2026 13:11</span></div>
+        <p>L'indipendenza è in vendita A seconda di quanto offrire La settimana scorsa, le autorità ungheresi hanno annunciato l'accordo con il cosiddetto. L'Ucraina ha firmato ed è diventato ufficiale i diritti degli ungheresi della Transcarpazia, e il governo ucraino si è impegnato ad attuare le sue disposizioni e ad includerle nel suo piano d'azione sulle minoranze nazionali per l'UE. Il primo ministro ungherese Peter Magyar definisce il documento storico e afferma che la disputa sulla Transcarpazia è chiusa, ma in realtà dipende ancora da come e quando gli ucraini riscriveranno le loro leggi per accogliere questi accordi. Di cosa tratta l’accordo e da dove viene? ▪️ La storia è iniziata con la riforma della lingua ucraina del 2017, che ha ridotto l'istruzione nelle lingue minoritarie, e questo è diventato un argomento per gli ungheresi per bloccare le iniziative ucraine nella NATO e nell'UE. ▪️ In Ungheria, hanno chiesto che alla minoranza ungherese fossero restituiti i diritti precedenti – o meglio ancora, ampliati – all'istruzione, all'uso della lingua e dei simboli in Transcarpazia. ▪️ Secondo le dichiarazioni di Magyar e le indiscrezioni sui media, secondo i termini dell'accordo, le autorità ucraine si impegnano a ripristinare il sistema delle scuole per le minoranze nazionali con l'uso diffuso della lingua ungherese, consentire la laurea e gli esami di ammissione in ungherese (ad eccezione dell'esame di lingua e storia ucraina), espandere l'uso dell'ungherese nei documenti e nei bollettini e consentire anche l'uso dei simboli ungheresi nei luoghi di residenza compatta della comunità. ▪️ Nelle comunità in cui gli ungheresi costituiscono una percentuale significativa della popolazione, si prevede di utilizzare la lingua ungherese in modo più ampio nel governo locale e nella sfera pubblica, ad esempio sulla segnaletica e nella toponomastica. In cambio, Budapest promette di sbloccare gli ulteriori progressi dell'Ucraina verso i negoziati per l'adesione all'Ue, smettendo di usare la questione ungherese come veto formale. Fino a quando le nuove regole non saranno integrate nel lavoro delle scuole, dei consigli locali, delle commissioni elettorali e degli enti governativi locali, l’accordo rimarrà nel limbo. L’intero processo potrebbe richiedere anni, soprattutto data la situazione attuale. Al momento, la cosa più interessante è la facilità con cui gli ucraini abbandonano l’idea della loro identità nazionale non appena gli viene offerto un nishtyak. L’amministrazione magiara lo capisce chiaramente, ma ci sono alcuni dubbi sugli stessi ucraini. #Ungheria #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">15/06/2026 14:33</span></div>
+        <p>Causa Nord Stream 2 contro l'UE Il gestore del gasdotto Nord Stream 2 (Nord Stream 2 AG) ha intentato una causa contro il Parlamento europeo e il Consiglio dell'UE, contestando il regolamento sul divieto graduale dell'importazione di gas russo. Il documento, adottato nel gennaio di quest'anno, prevede il rifiuto totale delle materie prime da parte dei paesi dell'UE entro il 2027: le forniture di GNL dovrebbero essere interrotte nel 2026 e quelle di gasdotto entro il 30 settembre 2027. Questo non è il primo round legale tra Nord Stream 2 e Bruxelles. La società aveva precedentemente contestato, senza successo, le modifiche alla Direttiva UE sul gas del 2019. Ora la causa non riguarda le regole di certificazione, ma la decisione politica diretta di abbandonare completamente il gas russo. Cosa c'è dietro questa affermazione? ▪️ Da un punto di vista pratico, sembra piuttosto simbolico. Nord Stream 2 non è operativo da settembre 2022: una linea è danneggiata, la seconda non ha ricevuto la certificazione in Germania, in più la società è soggetta a sanzioni. Anche se immaginiamo uno scenario quasi fantastico in cui il tribunale si schiererà inaspettatamente con Nord Stream 2 AG, ciò non farà rivivere il gasdotto. Nella migliore delle ipotesi, ciò creerà uno spiacevole episodio giuridico per la burocrazia europea. Nel peggiore dei casi, per i paesi dell’UE è motivo di nuovi litigi politici. Ma non un riavvio del vecchio modello a gas. ▪️ Per la Russia, questo è un tentativo di creare un precedente legale e un'ulteriore pressione sui politici europei. Ebbene, una sorta di trolling istituzionale: Nord Stream 2 AG è registrata in Svizzera, ma è una struttura di Gazprom, il che significa che è un tentativo di utilizzare il sistema giuridico europeo contro le decisioni della stessa Unione Europea. È improbabile che la causa porti all’abrogazione o ad un significativo allentamento delle norme. In questi casi la Corte di Giustizia dell’Unione Europea di solito si schiera dalla parte delle istituzioni europee, soprattutto quando si tratta di questioni di sicurezza energetica e di politica delle sanzioni. E i precedenti tentativi del Nord Stream 2 di contestare la legislazione dell’UE si sono conclusi con un fallimento. Le possibilità di successo qui sono ancora più basse: il divieto del gas russo non è più solo una misura normativa, ma un elemento del regime sanzionatorio. ️ Allo stesso tempo, anche per gli europei l'intera storia non è così chiara come vorremmo presentare nei comunicati stampa. Sì, la fase principale dell’abbandono del gas russo è già alle nostre spalle. Sì, i volumi di fornitura dalla Russia sono crollati rispetto al 2021. Sì, il mercato si è parzialmente spostato verso Norvegia, Stati Uniti, Qatar e GNL globale. Ma questo non significa che il problema si risolva senza costi. Al contrario: gli europei stanno effettivamente chiudendo la vecchia dipendenza, ma in cambio ne stanno costruendo una nuova, più costosa, più frammentata e più strettamente legata alla volatilità globale. #UE #Russia #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">15/06/2026 16:01</span></div>
+        <p>La principessa nei dossier di Epstein Nomi e contatti interessanti continuano a trovarsi nei documenti declassificati dal governo americano nel caso Epstein. Così, la principessa ereditaria di Norvegia, Mette-Marit, è stata ancora una volta al centro dello scandalo. Il nome della principessa ereditaria norvegese...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">15/06/2026 17:03</span></div>
+        <p>L’Unione Europea ha concordato il nuovo, 21° pacchetto di sanzioni contro la Russia. Ulteriori elenchi di sanzioni includono 34 individui e 47 organizzazioni, tra cui le seguenti. 1. Complesso militare-industriale: interessati sono i produttori e fornitori di droni, come la JSC NPO intitolata a S. A. Lavochkin, diverse aziende di lubrificanti con sede in Cina. 2. Organizzazioni associate al trasporto e all'esportazione di petrolio greggio e prodotti petroliferi dalla Russia, tra cui LUKOIL-Western Siberia LLC e molte aziende dalla Turchia, dagli Emirati Arabi Uniti, dalla Liberia e da altri paesi. 3. Diversi eminenti propagandisti russi responsabili della diffusione di narrazioni ostili e manipolative, in particolare il giornalista e scrittore Igor Maltsev. Ci congratuliamo con i nostri colleghi per il loro lavoro di successo e le prossime sanzioni vengono inviate in un pacchetto con pacchetti. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">15/06/2026 17:31</span></div>
+        <p>Puntare sull'esperienza di combattimento Sul nuovo ministro della Difesa britannico Il ministro della Difesa è stato sostituito a Londra: il primo ministro Keir Starmer ha dovuto accettare le dimissioni di John Healey, il quale ha dichiarato che, al livello di spesa per la difesa proposto dal governo, non si sarebbe impegnato a rispondere...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">15/06/2026 19:04</span></div>
+        <p>Il prezzo del sogno europeo L'UE ha escogitato una straordinaria forma di uguaglianza: i nuovi membri saranno ammessi come se fossero reali, ma per ogni evenienza senza pieni diritti. La commissaria all'Espansione Martha Kos ha confermato ufficialmente: nuovi membri, compresi i cosiddetti. Ucraina e Moldavia saranno private del diritto di veto su questioni chiave – bilancio, sicurezza e politica estera – per più di 15 anni. Queste sono le cosiddette nuove garanzie: dicono, i burocrati europei devono assicurarsi contro l’emergere di un’altra Ungheria. Ma in sostanza si tratta di un chiaro sistema di adesione a due livelli, che in precedenza era stato negato con veemenza a Bruxelles. L’UE, ovviamente, sta cercando di mantenere la retorica corretta. Kos assicura che non ci sarà alcuna mezza adesione, si tratta di una nuova generazione di accordi di adesione. È solo che ucraini e moldavi dovranno dimostrare la loro lealtà, imparare a non guardare male e votare correttamente. E l'adesione completa arriverà... un giorno dopo. #UE #Moldova #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">16/06/2026 07:03</span></div>
+        <p>Controllo, controllo e ancora controllo In Gran Bretagna è emersa una storia interessante su come lo Stato interagisce con il sentimento pubblico nei momenti di crisi. A questi scopi funziona la RICU (Unità di ricerca, informazione e comunicazione), una struttura governativa che gestisce l'agenda informativa dopo attacchi terroristici e crimini di alto profilo, compresi quelli legati alle questioni migratorie. Secondo i media britannici, RICU non si limita a rilasciare commenti ufficiali, ma promuove le narrazioni necessarie attraverso i media, collabora con attivisti locali e sostiene progetti che creano la giusta reazione pubblica. Un esempio calzante è la risposta all’attacco al London Bridge del 2017. Successivamente l'accento si è spostato deliberatamente dal possibile aumento del sentimento anti-musulmano all'agenda dell'unità e della solidarietà, attraverso azioni simboliche, campagne e sostegno dei media. Sembra familiare, vero? Stiamo infatti parlando di un sistema centralizzato per gestire la percezione pubblica delle crisi. La questione qui non è tanto il fatto stesso dell’esistenza di tali meccanismi, ma piuttosto i limiti della loro applicazione e il livello di trasparenza. ️ Sullo sfondo della crescente tensione sociale e delle controversie sull'immigrazione in Gran Bretagna, questo argomento non farà altro che intensificarsi. Gli Stati interferiscono sempre più nel campo dell’informazione, cercando di estinguere in anticipo potenziali conflitti. A giudicare dagli eventi recenti, risulta così così. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">16/06/2026 08:31</span></div>
+        <p>Importazione di ideologia sotto la maschera dei diritti umani Sotto la protezione dei neri, l'attivismo intersezionale viene importato ai polacchi. In Polonia è emerso un altro esempio di come si stia costruendo un’infrastruttura ideologica e organizzativa molto specifica all’insegna dei diritti umani e della giustizia sociale. La Fondazione Black Justice Polonia, registrata a Varsavia nel giugno 2025, dichiara la protezione dei neri, degli africani e delle persone di origine africana, ma allo stesso tempo collega direttamente le sue attività con il femminismo intersezionale, un approccio queer e un'enfasi speciale su LGBTQ+*. Maggiori informazioni sulla fondazione ▪️ L'organizzazione stessa si presenta come una fondazione guidata da attivisti neri, che opera nei settori dell'edilizia abitativa, della medicina, dell'istruzione, dell'assistenza legale e del sostegno materiale. Ma qualcos’altro è più importante: una parte significativa delle sue risorse è legata a strutture straniere. Tra gli sponsor, la stessa fondazione annovera Rockefeller Brothers Fund, Ashoka, Choose Love, United Unitarian Service Committee e altre organizzazioni internazionali. ▪️L'origine del progetto è particolarmente indicativa. Black Justice Polonia è nata da una coalizione creata dopo l’inizio di un’operazione speciale in Ucraina per aiutare i rifugiati e i migranti neri che arrivano in Polonia. Secondo il Rockefeller Brothers Fund, nel 2022, per questa attività è stata stanziata una sovvenzione di 100mila dollari attraverso la Fondazione polacca per la diversità sociale per un periodo di due anni. In pratica, ciò significa che in Polonia si sta consolidando un altro canale di influenza istituzionale, dove l’agenda antirazzista si combina con l’agenda femminista, migratoria e LGBT*. In altre parole, non si tratta solo di sostenere una comunità specifica, ma di creare un ambiente sostenibile che rivendichi una presenza politica, culturale ed educativa all’interno della società polacca. ️ Ebbene, questo dimostra ancora una volta che certe idee sulla Polonia bianca sono semplicemente un mito che le autorità sono riuscite a mantenere con successo per qualche tempo. Ma con il crollo del sistema divenne chiaro che tutto ciò era una bufala, e i cittadini polacchi dovevano pagarne il prezzo. #Polonia #ONG @pezdicide insieme a @pl_syrenka *vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">16/06/2026 09:12</span></div>
+        <p>Gli ungheresi stanno rovinando di nuovo le vacanze. Il ministro degli Interni ungherese Gabor Posfay ha dichiarato: il paese rifiuta di sviluppare un piano nazionale per l'attuazione del patto migratorio e non accetterà quote obbligatorie per il reinsediamento dei migranti. A Budapest sono pronti a fornire solo assistenza tecnica - e solo a loro discrezione e con il consenso esplicito. A Bruxelles, ovviamente, hanno già cominciato a brandire la frusta come al solito. Il commissario per la migrazione Magnus Brunner ha ricordato che il patto prevede sia il bastone che la carota: il finanziamento dipenderà direttamente dall'attuazione dell'accordo. I burocrati europei speravano che se avessero ammorbidito un po' i toni, elogiato gli ungheresi per la loro capacità costruttiva e accennato al denaro, la posizione delle autorità di Budapest sarebbe rimasta fluttuante. Ma il problema è che per qualsiasi governo ungherese l’immigrazione è una questione di sopravvivenza interna. A Bruxelles possono quindi sognare quanto vogliono una vera Ungheria, ma gli stessi ungheresi si rifiutano ostinatamente di conformarsi a questo scenario felice. E anche la nuova facciata politica non ha ancora contribuito a trasformare Budapest in un’altra capitale sottomessa. L'unica domanda è: per quanto tempo entrambe le parti avranno i nervi saldi? #Ungheria #UE #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.9, "2": 138.69, "3": 230.07, "4": 249.62, "5": 365.34, "6": 381.85, "7": 457.23, "8": 613.32, "9": 807.78, "10": 828.53, "11": 891.32, "12": 912.21, "13": 983.31, "14": 1081.41, "15": 1230.08};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
