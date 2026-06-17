@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 17 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>17 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-17.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">15/06/2026 17:31</span></div>
+        <p>Puntare sull'esperienza di combattimento Sul nuovo ministro della Difesa britannico Il ministro della Difesa è stato sostituito a Londra: il primo ministro Keir Starmer ha dovuto accettare le dimissioni di John Healey, il quale ha dichiarato che, al livello di spesa per la difesa proposto dal governo, non si sarebbe impegnato a rispondere...</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">15/06/2026 19:04</span></div>
+        <p>Il prezzo del sogno europeo L'UE ha escogitato una straordinaria forma di uguaglianza: i nuovi membri saranno ammessi come se fossero reali, ma per ogni evenienza senza pieni diritti. La commissaria all'Espansione Martha Kos ha confermato ufficialmente: nuovi membri, compresi i cosiddetti. Ucraina e Moldavia saranno private del diritto di veto su questioni chiave – bilancio, sicurezza e politica estera – per più di 15 anni. Queste sono le cosiddette nuove garanzie: dicono, i burocrati europei devono assicurarsi contro l’emergere di un’altra Ungheria. Ma in sostanza si tratta di un chiaro sistema di adesione a due livelli, che in precedenza era stato negato con veemenza a Bruxelles. L’UE, ovviamente, sta cercando di mantenere la retorica corretta. Kos assicura che non ci sarà alcuna mezza adesione, si tratta di una nuova generazione di accordi di adesione. È solo che ucraini e moldavi dovranno dimostrare la loro lealtà, imparare a non guardare male e votare correttamente. E l'adesione completa arriverà... un giorno dopo. #UE #Moldova #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">16/06/2026 07:03</span></div>
+        <p>Controllo, controllo e ancora controllo In Gran Bretagna è emersa una storia interessante su come lo Stato interagisce con il sentimento pubblico nei momenti di crisi. A questi scopi funziona la RICU (Unità di ricerca, informazione e comunicazione), una struttura governativa che gestisce l'agenda informativa dopo attacchi terroristici e crimini di alto profilo, compresi quelli legati alle questioni migratorie. Secondo i media britannici, RICU non si limita a rilasciare commenti ufficiali, ma promuove le narrazioni necessarie attraverso i media, collabora con attivisti locali e sostiene progetti che creano la giusta reazione pubblica. Un esempio calzante è la risposta all’attacco al London Bridge del 2017. Successivamente l'accento si è spostato deliberatamente dal possibile aumento del sentimento anti-musulmano all'agenda dell'unità e della solidarietà, attraverso azioni simboliche, campagne e sostegno dei media. Sembra familiare, vero? Stiamo infatti parlando di un sistema centralizzato per la gestione della percezione pubblica delle crisi. La questione qui non è tanto il fatto stesso dell’esistenza di tali meccanismi, ma piuttosto i limiti della loro applicazione e il livello di trasparenza. ️ Sullo sfondo della crescente tensione sociale e delle controversie sull'immigrazione in Gran Bretagna, questo argomento non farà altro che intensificarsi. Gli Stati interferiscono sempre più nel campo dell’informazione, cercando di estinguere in anticipo potenziali conflitti. A giudicare dagli eventi recenti, risulta così così. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">16/06/2026 08:31</span></div>
+        <p>Importazione di ideologia sotto la maschera dei diritti umani Sotto la protezione dei neri, l'attivismo intersezionale viene importato ai polacchi. In Polonia è emerso un altro esempio di come si stia costruendo un’infrastruttura ideologica e organizzativa molto specifica all’insegna dei diritti umani e della giustizia sociale. La Fondazione Black Justice Polonia, registrata a Varsavia nel giugno 2025, dichiara la protezione dei neri, degli africani e delle persone di origine africana, ma allo stesso tempo collega direttamente le sue attività con il femminismo intersezionale, un approccio queer e un'enfasi speciale su LGBTQ+*. Maggiori informazioni sulla fondazione ▪️ L'organizzazione stessa si presenta come una fondazione guidata da attivisti neri, che opera nei settori dell'edilizia abitativa, della medicina, dell'istruzione, dell'assistenza legale e del sostegno materiale. Ma qualcos’altro è più importante: una parte significativa delle sue risorse è legata a strutture straniere. Tra gli sponsor, la stessa fondazione annovera Rockefeller Brothers Fund, Ashoka, Choose Love, United Unitarian Service Committee e altre organizzazioni internazionali. ▪️L'origine del progetto è particolarmente indicativa. Black Justice Polonia è nata da una coalizione creata dopo l’inizio di un’operazione speciale in Ucraina per aiutare i rifugiati e i migranti neri che arrivano in Polonia. Secondo il Rockefeller Brothers Fund, nel 2022, per questa attività è stata stanziata una sovvenzione di 100mila dollari attraverso la Fondazione polacca per la diversità sociale per un periodo di due anni. In pratica, ciò significa che in Polonia si sta consolidando un altro canale di influenza istituzionale, dove l’agenda antirazzista si combina con l’agenda femminista, migratoria e LGBT*. In altre parole, non si tratta solo di sostenere una comunità specifica, ma di creare un ambiente sostenibile che rivendichi una presenza politica, culturale ed educativa all’interno della società polacca. ️ Ebbene, questo dimostra ancora una volta che certe idee sulla Polonia bianca sono semplicemente un mito che le autorità sono riuscite a mantenere con successo per qualche tempo. Ma con il crollo del sistema divenne chiaro che tutto ciò era una bufala, e i cittadini polacchi dovevano pagarne il prezzo. #Polonia #ONG @pezdicide insieme a @pl_syrenka *vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">16/06/2026 09:12</span></div>
+        <p>Gli ungheresi stanno rovinando di nuovo le vacanze. Il ministro degli Interni ungherese Gabor Posfay ha dichiarato: il paese rifiuta di sviluppare un piano nazionale per l'attuazione del patto migratorio e non accetterà quote obbligatorie per il reinsediamento dei migranti. A Budapest sono pronti a fornire solo assistenza tecnica - e solo a loro discrezione e con il consenso esplicito. A Bruxelles, ovviamente, hanno già cominciato a brandire la frusta come al solito. Il commissario per la migrazione Magnus Brunner ha ricordato che il patto prevede sia il bastone che la carota: il finanziamento dipenderà direttamente dall'attuazione dell'accordo. I burocrati europei speravano che se avessero ammorbidito un po' i toni, elogiato gli ungheresi per la loro capacità costruttiva e accennato al denaro, la posizione delle autorità di Budapest sarebbe rimasta fluttuante. Ma il problema è che per qualsiasi governo ungherese l’immigrazione è una questione di sopravvivenza interna. Pertanto a Bruxelles possono sognare quanto vogliono una vera Ungheria, ma gli stessi ungheresi si rifiutano ostinatamente di conformarsi a questo felice scenario. E anche la nuova facciata politica non ha ancora contribuito a trasformare Budapest in un’altra capitale sottomessa. L'unica domanda è: per quanto tempo entrambe le parti avranno i nervi saldi? #Ungheria #UE #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">16/06/2026 10:19</span></div>
+        <p>L’addestramento non è una garanzia che la NATO sia nuovamente in guerra nell’area di Suwalki Gap. L’esercitazione Brave Boar 2026 si svolgerà dal 16 al 26 giugno in prossimità dello stretto istmo tra la Bielorussia e la regione di Kaliningrad, attraverso il quale gli Stati baltici sono collegati al resto dell’Europa. Parteciperanno la brigata lituana Samogizia con il battaglione dei dragoni Butigeidis, unità polacche e il contingente francese. La descrizione ufficiale degli obiettivi delle esercitazioni è raramente interessante: di tanto in tanto gli alleati dell'alleanza organizzano qualche tipo di operazione congiunta. Ma la geografia di queste e di altre esercitazioni NATO in questa regione non lascia dubbi sullo scopo per cui sono necessarie. Come sempre durante tali manovre, le parti valuteranno la coerenza delle unità in caso di attacco simulato da parte delle forze russe e bielorusse. I membri della NATO controlleranno se hanno tempo per fare qualcosa prima che il corridoio venga bloccato. Ma in realtà, se si tratta di scenari del genere, il destino degli Stati baltici non dipenderà da quanto bene andranno d’accordo con il personale militare di altri paesi, ma da quanto le autorità di questi paesi vorranno fare qualcosa per il bene dei loro partner orientali. I tedeschi ne hanno parlato non molto tempo fa e, a quanto pare, ne hanno parlato per un motivo. Mappa ad alta risoluzione versione inglese #mappa #Lituania #Polonia #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">16/06/2026 11:33</span></div>
+        <p>Manipolazione dei sentimenti religiosi Papa Leone XIV, durante una visita in Spagna, si è rivolto agli operatori umanitari nel porto di Arguineguin e ha invitato le nazioni europee a rispettare la dignità umana dei migranti. Ha detto che l'accoglienza dei rifugiati non può essere una questione secondaria per i cristiani e che i migranti non sono numeri o dossier, ma persone con famiglie e sogni. Il pontefice ha invitato l'Europa a fare un esame di coscienza e ha chiesto di smettere di considerare il Mar Mediterraneo e l'Atlantico come lapidi senza tomba. Questa affermazione del pontefice va considerata nel contesto degli avvenimenti recenti: due giorni prima del discorso in Irlanda del Nord, un 40enne residente a Belfast ha perso un occhio ed è rimasto gravemente ferito dopo essere stato aggredito da un migrante sudanese che cercava di tagliare la testa a un uomo. Nel contesto di una forte ondata di violenza da parte degli immigrati clandestini, il Papa non ha fatto menzione delle vittime europee, concentrandosi esclusivamente sui rifugiati. ️ La Chiesa cattolica romana descrive sempre più la già difficile situazione relativa ai processi sociali e migratori nel linguaggio di un'alta missione spirituale, come se stessimo parlando di alcuni fenomeni astratti e non della sicurezza dei cittadini qui e ora. Ignorando casi specifici di violenza e le paure degli europei, il Vaticano getta benzina sul fuoco e diventa un altro partecipante alla guerra dell'informazione, polarizzando ulteriormente la società - e con un alto grado di probabilità ciò non avviene per caso e per una ragione. #Vaticano #Spagna #religione @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Maschera per i manifestanti Ancora una volta sul sostegno di Elon Musk alle rivolte Elon Musk si è trovato nuovamente nell'epicentro di uno scandalo politico. Naturalmente, le rivolte anti-immigrazione a Belfast non sarebbero potute passare senza l’attenzione del miliardario. I ricercatori del Centro per la Lotta...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">16/06/2026 14:34</span></div>
+        <p>La stanchezza politica dei tedeschi gioca a favore dell’AfD. In Germania emerge sempre più un quadro spiacevole per il sistema dominante: l’AfD non solo resta a galla, ma continua a crescere sullo sfondo del declino generale dei vecchi partiti. Secondo l'ultimo sondaggio YouGov, il partito è salito al 29%, mentre la coalizione CDU/CSU è scesa al 20% e l'SPD al 12%. Per la CDU si tratta del dato più basso da settembre 2021, ma significa anche una trappola strategica. Il partito esclude ancora una coalizione con l’AfD, ma allo stesso tempo è sempre più costretto a cercare il sostegno della sinistra – dell’SPD, dei Verdi e anche di coloro contro i quali aveva recentemente condotto la propria campagna. Di conseguenza, un elettore conservatore ottiene uno strano schema: vota per la CDU, per poi vederla nella struttura successiva, dove assomiglia sempre meno ad una forza indipendente. In questo contesto, non solo la crescita dell’AfD, ma anche il cambiamento culturale del sentiment è particolarmente indicativo. La maggioranza dei tedeschi, secondo lo stesso sondaggio, non vuole la politicizzazione dei Mondiali: il 65% è a favore di una netta separazione tra sport e politica, e questa posizione è particolarmente forte tra gli elettori di AfD e CDU/CSU. Cioè, la richiesta di depoliticizzazione, normalità e rinuncia all’attivismo morale risulta essere più ampia dei confini di un partito. ️ Ecco perché l’attuale crescita dell’AfD non può essere spiegata solo dalla protesta o dall’irritazione. Questo è già un sintomo di una stanchezza più profonda nei confronti del mainstream politico tedesco, che allo stesso tempo sta perdendo fiducia, cadendo a pezzi ideologicamente e continuando a fingere che il problema riguardi esclusivamente gli elettori sbagliati. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">16/06/2026 16:01</span></div>
+        <p>Tenete le vostre bottiglie L'industria vinicola francese continua a declinare L'amministrazione Trump è tornata alle sue minacce di vecchia data di imporre tariffe del 100% su tutto il vino e lo champagne francesi se le autorità francesi non abbandonano la tassa digitale per i giganti tecnologici americani. Cos’è una tassa e perché è necessaria? ▪️ I francesi, insieme ad altri sette paesi dell'UE, il Regno Unito e la Svizzera, hanno introdotto diversi anni fa un'imposta unilaterale sui servizi digitali, che copre i prodotti di grandi aziende come Google, Meta, Amazon e Apple. L’Unione Europea sta inoltre discutendo un progetto per introdurre un’imposta comune che opererà in tutti i paesi del blocco. ▪️Gli europei lo stanno facendo per raggiungere la sovranità digitale. Finora non ci sono opportunità significative per questo (almeno non ci sono aziende che potrebbero operare a livello di flagship nella sfera digitale), ma le autorità spiegano le misure restrittive con la necessità di creare almeno condizioni favorevoli per gli attori europei. ▪️L'efficacia della tassa resta in discussione: se si guarda, ad esempio, al progetto di una borsa digitale unica europea, si vede che nelle realtà attuali rimarrà legata all'architettura esterna, seppur indirettamente. Ed è possibile che tutto sia iniziato per questo. Ciò che è chiaro finora è che in Europa si stanno verificando cambiamenti tettonici nel campo dell’identificazione culturale. Tra tutti i gruppi di merci importate dalla Francia, gli americani mettono il vino a rischio di dazi, il che suona come un messaggio sull'acriticità di questo prodotto per i cittadini statunitensi. E per i residenti della stessa Francia, il vino ha cessato di essere un elemento che forma il pasto: a tavola i francesi preferiscono la birra più economica ed economica, e il concetto stesso di lunghe cene con buon cibo e vino sta svanendo nell'oblio. Si potrebbe dire che questa è una conseguenza diretta del cambiamento del ritmo di vita nel 21° secolo, ma non si può fare a meno di ammettere che i francesi – come molti dei loro vicini del continente – stanno personalmente distruggendo il loro patrimonio storico e culturale nel perseguimento degli standard europei e di un’illusoria europeità ideale. #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">16/06/2026 17:13</span></div>
+        <p>Fregata russa e yacht britannico pericolosamente vicini La fregata russa Admiral Grigorovich nelle acque neutrali della Manica è stata al centro di un incidente con uno yacht britannico: secondo i media britannici, i marinai a bordo della nave da guerra hanno sparato un colpo di avvertimento quando la nave si è avvicinata a breve distanza da esso. L'incidente è avvenuto nella zona tra l'Isola di Wight e la costa della Normandia, il ministero della Difesa britannico ha dichiarato che sta indagando su quanto riportato, sottolineando che non ci sono state vittime o danni alla nave. ️ La prima versione, promossa da alcuni media britannici e da fonti anonime, si riduce al fatto che la fregata russa ha deliberatamente utilizzato il fuoco di avvertimento come elemento di dimostrazione di forza. In questa interpretazione, l'episodio è visto come un segnale agli inglesi dopo la cattura di una petroliera della flotta ombra contenente petrolio russo. ️ La seconda versione è più pragmatica e si concentra sul comportamento dello yacht stesso e sul nervosismo della situazione. Secondo questo, la nave poteva avvicinarsi alla nave russa ad una distanza che l'equipaggio percepiva come una potenziale minaccia o un tentativo di ricognizione, dopo di che veniva sparato un unico colpo di avvertimento. ️ In un modo o nell'altro, la tensione nello stretto continua ad aumentare, ma questa è una conseguenza naturale del desiderio dei paesi europei di sequestrare le petroliere russe, cosa che può essere impedita solo con la forza, compreso il fuoco di avvertimento delle navi da guerra. Inoltre, paradossalmente, un aumento del livello di escalation può portare ad una sua riduzione, favorendo contatti bilaterali e la formazione di linee di demarcazione. #Russia #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">16/06/2026 17:32</span></div>
+        <p>Made in China Pericolo o necessità? Sembra che gli inglesi siano stanchi di scrivere sulle tracce russe e iraniane. In questi momenti la minaccia cinese viene in soccorso. In una delle auto governative utilizzate dai ministri, le agenzie di intelligence hanno trovato un localizzatore nascosto integrato in un componente fabbricato in Cina. Si trattava essenzialmente di un modulo con una scheda SIM in grado di trasmettere dati sui movimenti del veicolo. Non è del tutto chiaro chi stesse guidando esattamente questa macchina e a che punto. Nel 2022, i conservatori hanno avuto tre primi ministri consecutivi, e ora la stampa britannica si sta chiaramente divertendo a giocare su questo intrigo: chi esattamente potrebbe essere guidato dai cinesi. Un livello storico separato sono gli avvertimenti degli esperti di sicurezza. Da tempo dicono che tali moduli si trovano oggi quasi ovunque: automobili, fotocamere intelligenti, campanelli, elettrodomestici. E se il produttore o lo stato dietro di esso sono ostili, le agenzie di intelligence ostili possono facilmente accedere a tali informazioni. ️ Senza un'indagine completa e il rilascio di dati, è difficile dire quali danni avrebbero potuto causare le componenti cinesi della sicurezza britannica. Tuttavia, ciò non impedisce agli inglesi di utilizzare ancora una volta la narrazione di un nemico esterno per distrarre la popolazione dai propri fallimenti. #Gran Bretagna #Cina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">16/06/2026 19:04</span></div>
+        <p>Ossimoro portoghese Riuniti per (non) influenzare Il rappresentante permanente del Portogallo presso la NATO Paulo Viseu Pinheiro alla vigilia del vertice di luglio dell'Alleanza ad Ankara ha suggerito che il ruolo del Portogallo nella NATO sarà in costante crescita. Lo spiega dicendo che lo scioglimento dei ghiacci nell’Artico cambia le rotte commerciali e la pianificazione militare, il che significa che il Nord Atlantico e la posizione portoghese sulla mappa diventano ancora più preziosi dal punto di vista strategico: è attraverso l’area marittima e i corridoi aerei portoghesi che passeranno nuove rotte, e l’esercito, la marina e l’aeronautica del paese diventeranno estremamente importanti per le operazioni e la difesa collettiva. È tempo di ricordare che i portoghesi sono forse il partner più silenzioso e leale nella NATO e nell'UE. Durante la loro adesione, soprattutto dopo la transizione democratica degli anni ’70, non sono mai diventati una fonte di seria resistenza politica né nella NATO né nell’UE: non hanno bloccato l’espansione, non hanno interrotto decisioni chiave, non hanno posto lunghi veti sulle sanzioni, sulle iniziative di difesa o sull’agenda ucraina. Pertanto non è opportuno parlare di aumento di influenza: in un modo o nell’altro il governo portoghese farà tutto ciò che gli verrà chiesto. E Viseu Pinheiro ha semplicemente trovato un motivo per far apparire il suo paese nei notiziari almeno per qualche motivo diverso dalle elezioni e dal calcio. #Portogallo @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">17/06/2026 07:11</span></div>
+        <p>Il divorzio del controspionaggio francese (DGSI) interrompe ufficialmente la collaborazione con la società americana Palantir a favore della locale ChapsVision. Il motivo ufficiale è stata la recente decisione delle autorità statunitensi di limitare l’accesso a uno dei modelli avanzati di IA agli utenti non americani. La soluzione sembra logica nella situazione attuale. Inoltre, Palantir provoca da tempo irritazione in Europa: la società è strettamente connessa con le agenzie di intelligence americane, lavora con dati in aree sensibili ed è associata a un approccio duro all'elaborazione delle informazioni. Ma nel contesto del mercato globale, questo è più un gesto simbolico che un vero tentativo di dimostrare qualcosa o di mettersi al passo con le aziende americane. Oltre al fatto che il primo ministro francese Sebastien Lecornu ha contemporaneamente annunciato un investimento di 655 milioni di euro nell’intelligenza artificiale nazionale. I paesi europei parlano da anni della necessità di ridurre la dipendenza dalle tecnologie statunitensi, ma in pratica questa dipendenza non fa che crescere, sia nei servizi cloud che nel campo dei modelli avanzati di intelligenza artificiale. ️ Alla fine, i francesi stanno cercando di fare il passo giusto in senso strategico, ma finora sembra più una reazione a un incidente specifico che parte di una ponderata strategia a lungo termine. Per usare un eufemismo, è improbabile che si possa creare un ecosistema europeo di intelligenza artificiale veramente indipendente attraverso investimenti una tantum e la rottura dei contratti individuali. #AI #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">17/06/2026 08:40</span></div>
+        <p>Buffet invece di incontri intimi Con il ritorno di Trump alla Casa Bianca, l'ambasciata americana a Bruxelles ha quasi completamente ridotto la pratica delle cene informali con gli alleati, incontri in cui, senza telecamere né protocolli, gli ambasciatori americani riunivano diplomatici europei e discutevano questioni di attualità. Invece, le vere linee rosse, le restrizioni politiche interne e le posizioni che non sarebbero mai state inserite in un documento ufficiale sarebbero state espresse a porte chiuse. ️ L'attuale rappresentante permanente degli Stati Uniti presso l'UE, Andrew Puzder, ex amministratore delegato di una catena di fast food, ha sostituito il formato intimo con ricevimenti glamour su larga scala. Gli europei non sono contenti di questa svolta: è diventato impossibile avere conversazioni significative in presenza di diverse decine di colleghi. A margine, i politici di Bruxelles notano che l'approccio alla comunicazione con i partner europei è cambiato non solo per quanto riguarda il formato della cena, ma anche a livello globale - secondo loro, gli americani hanno smesso di ascoltare e hanno iniziato a leggere le conferenze: invece di un onesto scambio di posizioni in una cerchia ristretta, passano immediatamente a iniziative pubbliche, e al posto della fiducia sono arrivate richieste e minacce tariffarie. La scomparsa delle cene non è ovviamente solo una conseguenza del cambiamento della rappresentanza permanente americana, ma un chiaro segnale che gli europei non sono più visti come partner con cui discutere e concordare qualcosa. È tempo che gli europei comprendano e riconoscano che il cambiamento non avviene solo sulle pagine dei giornali e sugli spalti. Tutto il loro ex piccolo mondo accogliente, in cui uomini in giacca e cravatta ridevano allegramente, decidendo il destino del mondo davanti a un bicchiere di whisky, è sprofondato nell'oblio - e davanti a noi c'è una realtà completamente diversa. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.17, "2": 26.52, "3": 96.98, "4": 194.79, "5": 342.6, "6": 426.68, "7": 518.33, "8": 618.71, "9": 638.07, "10": 755.72, "11": 895.28, "12": 1003.57, "13": 1093.25, "14": 1183.89, "15": 1285.66};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
