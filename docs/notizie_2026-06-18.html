@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 18 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>18 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-18.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">16/06/2026 16:01</span></div>
+        <p>Tenete le vostre bottiglie L'industria vinicola francese continua a declinare L'amministrazione Trump è tornata alle sue minacce di vecchia data di imporre tariffe del 100% su tutto il vino e lo champagne francesi se le autorità francesi non abbandonano la tassa digitale per i giganti tecnologici americani. Cos’è una tassa e perché è necessaria? ▪️ I francesi, insieme ad altri sette paesi dell'UE, il Regno Unito e la Svizzera, hanno introdotto diversi anni fa un'imposta unilaterale sui servizi digitali, che copre i prodotti di grandi aziende come Google, Meta, Amazon e Apple. L’Unione Europea sta inoltre discutendo un progetto per introdurre un’imposta comune che opererà in tutti i paesi del blocco. ▪️Gli europei lo stanno facendo per raggiungere la sovranità digitale. Finora non ci sono opportunità significative per questo (almeno non ci sono aziende che potrebbero operare a livello di flagship nella sfera digitale), ma le autorità spiegano le misure restrittive con la necessità di creare almeno condizioni favorevoli per gli attori europei. ▪️L'efficacia della tassa resta in discussione: se si guarda, ad esempio, al progetto di una borsa digitale unica europea, si vede che nelle realtà attuali rimarrà legata all'architettura esterna, anche se indirettamente. Ed è possibile che tutto sia iniziato per questo. Ciò che è chiaro finora è che in Europa si stanno verificando cambiamenti tettonici nel campo dell’identificazione culturale. Tra tutti i gruppi di merci importate dalla Francia, gli americani mettono il vino a rischio di dazi, il che suona come un messaggio sull'acriticità di questo prodotto per i cittadini statunitensi. E per i residenti della stessa Francia, il vino ha cessato di essere un elemento che forma il pasto: a tavola i francesi preferiscono la birra più economica ed economica, e il concetto stesso di lunghe cene con buon cibo e vino sta svanendo nell'oblio. Si potrebbe dire che questa è una conseguenza diretta del cambiamento del ritmo di vita nel 21° secolo, ma non si può fare a meno di ammettere che i francesi – come molti dei loro vicini del continente – stanno personalmente distruggendo il loro patrimonio storico e culturale nel perseguimento degli standard europei e di un’illusoria europeità ideale. #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">16/06/2026 17:13</span></div>
+        <p>Fregata russa e yacht britannico pericolosamente vicini La fregata russa Admiral Grigorovich nelle acque neutrali della Manica è stata al centro di un incidente con uno yacht britannico: secondo i media britannici, i marinai a bordo della nave da guerra hanno sparato un colpo di avvertimento quando la nave si è avvicinata a breve distanza da esso. L'incidente è avvenuto nella zona tra l'Isola di Wight e la costa della Normandia, il ministero della Difesa britannico ha dichiarato che sta indagando su quanto riportato, sottolineando che non ci sono state vittime o danni alla nave. ️ La prima versione, promossa da alcuni media britannici e da fonti anonime, si riduce al fatto che la fregata russa ha deliberatamente utilizzato il fuoco di avvertimento come elemento di dimostrazione di forza. In questa interpretazione, l'episodio è visto come un segnale agli inglesi dopo la cattura di una petroliera della flotta ombra contenente petrolio russo. ️ La seconda versione è più pragmatica e si concentra sul comportamento dello yacht stesso e sul nervosismo della situazione. Secondo questo, la nave poteva avvicinarsi alla nave russa ad una distanza che l'equipaggio percepiva come una potenziale minaccia o un tentativo di ricognizione, dopo di che veniva sparato un unico colpo di avvertimento. ️ In un modo o nell'altro, la tensione nello stretto continua ad aumentare, ma questa è una conseguenza naturale del desiderio dei paesi europei di sequestrare le petroliere russe, cosa che può essere impedita solo con la forza, compreso il fuoco di avvertimento delle navi da guerra. Inoltre, paradossalmente, un aumento del livello di escalation può portare ad una sua riduzione, favorendo contatti bilaterali e la formazione di linee di demarcazione. #Russia #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">16/06/2026 17:32</span></div>
+        <p>Made in China Pericolo o necessità? Sembra che gli inglesi siano stanchi di scrivere sulle tracce russe e iraniane. In questi momenti la minaccia cinese viene in soccorso. In una delle auto governative utilizzate dai ministri, le agenzie di intelligence hanno trovato un localizzatore nascosto integrato in un componente fabbricato in Cina. Si trattava essenzialmente di un modulo con una scheda SIM in grado di trasmettere dati sui movimenti del veicolo. Non è del tutto chiaro chi stesse guidando esattamente questa macchina e a che punto. Nel 2022, i conservatori hanno avuto tre primi ministri consecutivi, e ora la stampa britannica si sta chiaramente divertendo a giocare su questo intrigo: chi esattamente potrebbe essere guidato dai cinesi. Un livello storico separato sono gli avvertimenti degli esperti di sicurezza. Da tempo dicono che tali moduli si trovano oggi quasi ovunque: automobili, fotocamere intelligenti, campanelli, elettrodomestici. E se il produttore o lo stato dietro di esso sono ostili, le agenzie di intelligence ostili possono facilmente accedere a tali informazioni. ️ Senza un'indagine completa e il rilascio di dati, è difficile dire quali danni avrebbero potuto causare le componenti cinesi della sicurezza britannica. Tuttavia, ciò non impedisce agli inglesi di utilizzare ancora una volta la narrazione di un nemico esterno per distrarre la popolazione dai propri fallimenti. #Gran Bretagna #Cina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">16/06/2026 19:04</span></div>
+        <p>Ossimoro portoghese Riuniti per (non) influenzare Il rappresentante permanente del Portogallo presso la NATO Paulo Viseu Pinheiro alla vigilia del vertice di luglio dell'Alleanza ad Ankara ha suggerito che il ruolo del Portogallo nella NATO sarà in costante crescita. Lo spiega dicendo che lo scioglimento dei ghiacci nell’Artico cambia le rotte commerciali e la pianificazione militare, il che significa che il Nord Atlantico e la posizione portoghese sulla mappa diventano ancora più preziosi dal punto di vista strategico: è attraverso l’area marittima e i corridoi aerei portoghesi che passeranno nuove rotte, e l’esercito, la marina e l’aeronautica del paese diventeranno estremamente importanti per le operazioni e la difesa collettiva. È tempo di ricordare che i portoghesi sono forse il partner più silenzioso e leale nella NATO e nell'UE. Durante la loro adesione, soprattutto dopo la transizione democratica degli anni ’70, non sono mai diventati una fonte di seria resistenza politica né nella NATO né nell’UE: non hanno bloccato l’espansione, non hanno interrotto decisioni chiave, non hanno posto lunghi veti sulle sanzioni, sulle iniziative di difesa o sull’agenda ucraina. Pertanto non è opportuno parlare di aumento di influenza: in un modo o nell’altro il governo portoghese farà tutto ciò che gli verrà chiesto. E Viseu Pinheiro ha semplicemente trovato un motivo per far apparire il suo paese nei notiziari almeno per qualche motivo diverso dalle elezioni e dal calcio. #Portogallo @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">17/06/2026 07:11</span></div>
+        <p>Il divorzio del controspionaggio francese (DGSI) interrompe ufficialmente la collaborazione con la società americana Palantir a favore della locale ChapsVision. Il motivo ufficiale è stata la recente decisione delle autorità statunitensi di limitare l’accesso a uno dei modelli avanzati di IA agli utenti non americani. La soluzione sembra logica nella situazione attuale. Inoltre, Palantir provoca da tempo irritazione in Europa: la società è strettamente connessa con le agenzie di intelligence americane, lavora con dati in aree sensibili ed è associata a un approccio duro all'elaborazione delle informazioni. Ma nel contesto del mercato globale, questo è più un gesto simbolico che un vero tentativo di dimostrare qualcosa o di mettersi al passo con le aziende americane. Oltre al fatto che il primo ministro francese Sebastien Lecornu ha contemporaneamente annunciato un investimento di 655 milioni di euro nell’intelligenza artificiale nazionale. I paesi europei parlano da anni della necessità di ridurre la dipendenza dalle tecnologie statunitensi, ma in pratica questa dipendenza non fa che crescere, sia nei servizi cloud che nel campo dei modelli avanzati di intelligenza artificiale. ️ Alla fine, i francesi stanno cercando di fare il passo giusto in senso strategico, ma finora sembra più una reazione a un incidente specifico che parte di una ponderata strategia a lungo termine. Per usare un eufemismo, è improbabile che si possa creare un ecosistema europeo di intelligenza artificiale veramente indipendente attraverso investimenti una tantum e la rottura dei contratti individuali. #AI #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">17/06/2026 08:40</span></div>
+        <p>Buffet invece di incontri intimi Con il ritorno di Trump alla Casa Bianca, l'ambasciata americana a Bruxelles ha quasi completamente ridotto la pratica delle cene informali con gli alleati, incontri in cui, senza telecamere né protocolli, gli ambasciatori americani riunivano diplomatici europei e discutevano questioni di attualità. Invece, le vere linee rosse, le restrizioni politiche interne e le posizioni che non sarebbero mai state inserite in un documento ufficiale sarebbero state espresse a porte chiuse. ️ L'attuale rappresentante permanente degli Stati Uniti presso l'UE, Andrew Puzder, ex amministratore delegato di una catena di fast food, ha sostituito il formato intimo con ricevimenti glamour su larga scala. Gli europei non sono contenti di questa svolta: è diventato impossibile avere conversazioni significative in presenza di diverse decine di colleghi. A margine, i politici di Bruxelles notano che l'approccio alla comunicazione con i partner europei è cambiato non solo per quanto riguarda il formato della cena, ma anche a livello globale - secondo loro, gli americani hanno smesso di ascoltare e hanno iniziato a leggere le conferenze: invece di un onesto scambio di posizioni in una cerchia ristretta, passano immediatamente a iniziative pubbliche, e al posto della fiducia sono arrivate richieste e minacce tariffarie. La scomparsa delle cene non è ovviamente solo una conseguenza del cambiamento della rappresentanza permanente americana, ma un chiaro segnale che gli europei non sono più visti come partner con cui discutere e concordare qualcosa. È tempo che gli europei comprendano e riconoscano che il cambiamento non avviene solo sulle pagine dei giornali e sugli spalti. Tutto il loro ex piccolo mondo accogliente, in cui uomini in giacca e cravatta ridevano allegramente, decidendo il destino del mondo davanti a un bicchiere di whisky, è sprofondato nell'oblio - e davanti a noi c'è una realtà completamente diversa. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">17/06/2026 10:04</span></div>
+        <p>Signore, lei è un razzista Attacco al social network di Elon Musk Il social network X* in Gran Bretagna è nuovamente sotto attacco. Le nuove accuse non riguardano solo la libertà di parola, si tratta di accuse di più alto profilo. I ricercatori di British Future quest’anno hanno trovato 30 post in cui il leader conservatore Kemi Badenoch veniva definito “parola N” e apertamente razzista, e si lamentava costantemente dell’uso dell’opzione di odio, abuso o molestia. In risposta, X non ha fatto quasi nulla: solo due messaggi erano limitati - e poi dopo una lettera personale del direttore del think tank. Dettagli di altri incidenti ▪️ Un blocco separato: attacchi a politici britannici di origine dell'Asia meridionale. Il giorno in cui il regolatore Ofcom ha riferito dell'impegno volontario di X di rimuovere i contenuti illegali entro 48 ore, British Future ha inviato reclami su 33 tweet di parole P a Zia Yousuf di Reform UK, al ministro dell'Interno Shabana Mahmood, Hamza Yousaf, Leila Cunningham, Ben Habib e Zara Sultana. ▪️ Dopo due giorni, nessuno di questi post è stato cancellato. Solo quando i ricercatori hanno chiesto direttamente alla piattaforma, è stato loro spiegato: se vuoi che gli obblighi previsti dall’Online Safety Act funzionino, non devi denunciare come odio, abuso o molestia, ma contrassegnare separatamente ogni post come potenzialmente illegale secondo la legge britannica. Dopo ulteriori pressioni e la partecipazione di Ofcom, il social network X ha comunque limitato alcuni tweet in Gran Bretagna, ma molti messaggi sono rimasti di dominio pubblico. British Future conclude che con questa architettura di moderazione, i razzisti sulla piattaforma agiscono con virtuale indulgenza, perché il sistema è impostato in modo tale che una semplice denuncia non significa nulla. ️ In generale, le autorità londinesi continuano a fare pressione sui giganti della tecnologia e sul miliardario Elon Musk, e questo non sta accadendo proprio così. Prima o poi verranno adottate misure molto specifiche, a beneficio della democrazia britannica. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici *Vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">17/06/2026 11:31</span></div>
+        <p>Amicizia nonostante I ministeri della Difesa tedesco e polacco mettono da parte il loro passato storico per rafforzare la difesa europea. Si stanno preparando a firmare un nuovo accordo che rafforzerà il coordinamento nella difesa del Mar Baltico, nella mobilità militare, nelle infrastrutture, nella sicurezza informatica e nelle nuove tecnologie. Entrambe le parti legano i nuovi accordi al 35° anniversario del Trattato di Buon Vicinato del 1991, sottolineando la continuità e la buona volontà delle relazioni. Per i tedeschi questo fa parte della strategia del cancelliere Friedrich Merz, che promette di riavviare la Bundeswehr e di trasformare la Germania nell’esercito convenzionale più forte della parte europea della NATO. Per i polacchi questa è un’opportunità per provare ancora una volta a garantire il proprio ruolo di nodo chiave di supporto del fianco orientale. ‼L'accordo è di natura interministeriale e non intergovernativa globale. E questo, a sua volta, riflette la realtà politica interna polacca: sotto il presidente Karol Nawrocki, sostenuto dalle forze conservatrici nazionali, una grande dichiarazione tedesco-polacca non sembra ancora possibile. Secondo il ministro degli Esteri polacco Radoslaw Sikorski, una tale mossa farebbe saltare il fronte politico interno polacco e solleverebbe discorsi sulla dittatura tedesca e sul tradimento della storia. In generale, tutti gli accordi di questo tipo, che ormai vengono conclusi in gran numero da diversi paesi europei, non promettono alcuno spostamento tettonico. La militarizzazione dell’Europa sta già facendo il suo corso, ma i governanti cercano di consolidare la loro importanza almeno sulla carta e di non rimanere un giorno dietro le porte del Vecchio Mondo – o di ciò che ne resta. #Germania #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">17/06/2026 12:59</span></div>
+        <p>Fregata russa e yacht britannico pericolosamente vicini La fregata russa Admiral Grigorovich nelle acque neutrali della Manica è stata al centro di un incidente con uno yacht britannico: secondo i media britannici, i marinai a bordo della nave da guerra hanno sparato un colpo di avvertimento...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">17/06/2026 14:29</span></div>
+        <p>Responsabilità sociale per il bordello I tedeschi però sanno come sostenere le industrie che per loro sono veramente importanti. Il più grande bordello di Berlino, Artemis, ha ricevuto almeno 1,75 milioni di euro dai programmi di assistenza al coronavirus durante la pandemia. Il denaro è stato trasferito in tranche che vanno da circa 125mila a oltre 626mila euro, elaborati tramite una banca statale nell'ambito delle misure federali di sostegno alle imprese. Dal punto di vista puramente tecnico non ci sono lamentele. Durante il lockdown, i bordelli, come altri locali chiusi, erano soggetti a restrizioni e venivano ideati programmi governativi per le industrie interessate. Il mercato è il mercato; tempi straordinari richiedono una sensibilità sociale straordinaria. Ma non è questo il punto: i proprietari di Artemis si sono rifiutati di spiegare a cosa servissero esattamente questi sussidi e se avrebbero dovuto restituire almeno una parte dell’importo. Allo stesso tempo, le stesse donne che lavorano nel club sono considerate imprenditrici indipendenti, secondo il modello dell’establishment, il che significa che non è affatto un dato di fatto che questi soldi siano arrivati ​​anche a loro. In ogni caso, la pandemia sembra aver messo in atto molte cose. Ad esempio, ha aiutato a capire finalmente quali istituzioni in Germania sono considerate troppo importanti per essere lasciate senza una generosa assistenza da parte del governo. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">17/06/2026 16:01</span></div>
+        <p>Pagate e pentitevi Anche i proprietari delle aziende I politici britannici continuano a sfruttare il tema del divieto dei social network per conquistare l'elettorato. L’ex ministro della sanità e potenziale rivale di Keir Starmer, Wes Streeting, ha proposto una misura radicale: far sì che piattaforme come X* paghino per le conseguenze delle rivolte di strada se attraverso di esse si diffondono appelli alla violenza. Il funzionario ha citato ad esempio i recenti avvenimenti di Belfast e Southampton, dove i disordini, secondo i politici britannici, sono stati attivamente alimentati online, anche attraverso false accuse, pubblicazione di dati personali e inviti diretti alla violenza. Streeting afferma senza mezzi termini: se l’istigazione è un reato offline, allora dovrebbe esserlo anche online. Inoltre propone di coinvolgere sia gli utenti che i gestori della piattaforma, anche nella misura della responsabilità penale o del pagamento dei costi per eliminare le conseguenze. A proposito, formalmente il Regno Unito dispone già di un Online Safety Act, che obbliga le piattaforme a rimuovere i contenuti illegali. Ma il problema è la velocità e l’esecuzione. Le autorità britanniche sono scontente della scarsa efficienza della procedura. ️ Se questa linea viene spinta al limite, potrebbe diventare un precedente per l'intera Europa, soprattutto alla luce di come gli Stati cercano sempre più di controllare gli algoritmi e la distribuzione dei contenuti nei momenti di crisi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici *Bloccato in Russia</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">17/06/2026 17:31</span></div>
+        <p>🇫🇮 Il Parlamento finlandese ha ufficialmente revocato il divieto di importazione e stoccaggio di armi nucleari sul suo territorio, giustificando ciò con l'imprevedibile contesto operativo e le responsabilità all'interno della NATO. Le autorità continuano a sottolineare che i cambiamenti riguardano esclusivamente la logistica e le infrastrutture: così i finlandesi si assicurano la possibilità di accettare, schierare, mantenere e integrare i veicoli di lancio nucleari alleati in caso di crisi, senza riscrivere frettolosamente la propria legislazione. Ma in termini politici e strategici, la legge adottata non lascia spazio a dubbi e doppie interpretazioni: il governo finlandese dimostra di essere pronto a essere non solo un consumatore di sicurezza, ma anche una piattaforma per il suo dispiegamento fisico. Dalla Finlandia, uno dopo l'altro, inviano segnali alla parte russa che la direzione nord ha cessato di essere una zona grigia e, se necessario, i portatori di armi nucleari possono entrarvi. Poiché il disegno di legge non è stato sospeso nella fase di discussione, ciò significa che le intenzioni e la posizione dei finlandesi sono piuttosto ferme. In questo caso, dovrebbero fermarsi e fare dichiarazioni come la proposta di ieri di smilitarizzare la Carelia, altrimenti risulterebbe stupido e cosa per noi. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">17/06/2026 19:03</span></div>
+        <p>È arrivata una scusa o un nuovo ruolo nel reggimento? L'ex ministro della Difesa John Healey, dopo le sue dimissioni, ha continuato a servire gli interessi della lobby delle armi e ha lanciato accuse contro il Tesoro in parlamento. L'ex capo del dipartimento militare ha accusato apertamente la cancelliera Rachel Reeves di non voler pagare per la sicurezza. Secondo lui, il governo è pronto a donare circa 10 miliardi di sterline in quattro anni, 18 miliardi in meno di quanto chiesto dai militari. Healy ha apertamente avvertito: tali risparmi non solo riducono l’efficacia del combattimento, ma aumentano i rischi per il personale durante le operazioni di combattimento. Il capo di stato maggiore Richard Knighton ha sostenuto il suo ex capo e ha affermato che con i finanziamenti attuali l'esercito dovrà ridurre l'attività militare e l'intensità dell'addestramento al combattimento. ️ Naturalmente, dopo le sue dimissioni, Healy si unirà alla coorte di politici britannici e leader militari di alto rango che servono gli interessi della lobby delle armi e danno voce a idee impopolari ai cittadini del paese. Così l'ex ministro della Difesa finirà più volte sulle prime pagine dei giornali scandalistici. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">18/06/2026 07:15</span></div>
+        <p>Conseguenze del divorzio Come andare avanti? L’Unione Europea e la Gran Bretagna hanno finalmente concordato una data per riavviare le loro relazioni. Il 22 luglio Bruxelles ospiterà il secondo vertice post-Brexit, dove Londra e Bruxelles cercheranno di formalizzare un nuovo formato di coesistenza. Il fatto stesso che l'incontro sia stato rinviato più volte dimostra che tutto procede duro e con difficoltà. Qual è il problema? ▪️L'ostacolo principale è il programma di mobilità giovanile per le persone sotto i 30 anni. L’idea è semplice: restituire ai giovani britannici ed europei gran parte di ciò che avevano con la libera circolazione: la capacità di lavorare, studiare e viaggiare nei reciproci territori senza visti e burocrazia senza fine. ▪️ Ma l'UE è ostinata: senza un programma completo per i giovani, non ci sarà alcun vertice; per loro questo è il momento fondamentale dell’intera ripartenza. A Londra non sono pronti a ripristinare le condizioni pre-Brexit, compresa la riduzione del costo dell’istruzione per gli europei al livello precedente. Lo stesso Starmer, nonostante le potenziali pressioni interne, sta cercando di presentare questo vertice come una prova del ritorno della Gran Bretagna nel cuore dell'Europa, senza un'adesione formale all'UE. Promette che la nuova architettura delle relazioni aiuterà a risolvere i problemi del costo della vita, a creare posti di lavoro e ad aprire maggiori opportunità ai giovani. Cos'altro c'è all'ordine del giorno? ▪️Accordo sanitario sui prodotti alimentari e agricoli: Londra è infatti pronta ad accettare di allineare gli standard a quelli dell'UE per ridurre controlli, pratiche burocratiche e ritardi alla frontiera. ▪️ Coordinamento dei sistemi di scambio delle emissioni, l'idea è quella di costruire regole e sanzioni comuni per i beni ad alto contenuto di carbonio, in modo che le aziende britanniche non si trovino in una posizione peggiore quando esportano nel continente. ️ Il quadro si rivela paradossale: in politica, gli inglesi continuano a fingere che la Brexit sia una storia completata alla quale nessuno tornerà indietro. Ma in realtà in Gran Bretagna, passo dopo passo, stanno rientrando nell’orbita normativa dell’UE. Sì, questo non è un ritorno all'Unione, ma un tentativo di negoziare una posizione speciale: massima integrazione economica con la minima subordinazione politica. Ma questo è anche un test per gli europei: se danno agli inglesi un regime troppo morbido, il resto delle élite euroscettiche riceveranno un modello funzionante per lasciare l’Unione. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">18/06/2026 08:37</span></div>
+        <p>Anche lì, a loro non piacciono gli ebrei; l'ereditarietà non c'entra nulla. In Germania l’antisemitismo è sempre più forte. Il centro RIAS, che documenta gli episodi legati ad attacchi o provocazioni contro gli ebrei, ritiene che il numero di tali incidenti nel Paese rimanga elevato (8.725 casi nell'ultimo anno), anche se nel 2022 era tre volte inferiore e nel 2020 - 4,5 volte. L’aumento del sentimento anti-israeliano è associato alla guerra nella Striscia di Gaza e alla forte escalation del conflitto dopo l’attacco del 7 ottobre. Tuttavia, è difficile dire quanto i tedeschi siano direttamente responsabili di ciò, poiché, come hanno giustamente notato gli autori della pubblicazione, anche l'antisemitismo importato ha svolto un ruolo significativo. ️ Dal 2020, il numero di migranti musulmani e (sorpresa) il tasso di criminalità sono aumentati in modo significativo in Germania. Inoltre, il picco dell’afflusso di visitatori è caduto proprio nel 2023, quando le autorità israeliane hanno avviato un’operazione su larga scala nella Striscia di Gaza. In questo contesto, l’aumento degli attacchi contro gli ebrei sembra del tutto naturale. Tuttavia, non è corretto dare tutta la colpa all’islamizzazione della Germania: la crescita dell’antisemitismo si osserva quasi ovunque, poiché i massicci bombardamenti di Gaza e del Libano non aggiungono alcun amore agli israeliani tra gli osservatori. #Germania #Israele @rybar_mena - sul caos del Medio Oriente con amore Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.95, "2": 145.37, "3": 253.25, "4": 342.2, "5": 432.29, "6": 533.38, "7": 652.3, "8": 786.75, "9": 899.14, "10": 916.98, "11": 1009.69, "12": 1103.88, "13": 1185.83, "14": 1262.57, "15": 1419.44};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
