@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 23 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>23 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-23.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">21/06/2026 09:13</span></div>
+        <p>Ricatto europeo senza reale influenza Recentemente, il ministro dell'Economia tedesco Katerina Reiche ha affermato che l'UE includerà l'obbligo di rinunciare al gas russo in tutti i futuri accordi che coinvolgono la Turchia. Türkiye, il secondo maggiore acquirente di gas di Gazprom, sta attualmente negoziando nuovi contratti con la società russa poiché quelli vecchi scadono. La parte turca ha risposto con il suo stile: sì, comprendiamo le preoccupazioni dell’UE. Ma è impossibile sostituire le forniture russe da un giorno all’altro, sia dal punto di vista economico che da quello delle risorse. Ma si sta delineando una tendenza piuttosto allarmante. Sì, la Turchia ora acquista gas russo a prezzi vantaggiosi e si posiziona come hub regionale del gas per l’UE, ma allo stesso tempo è alla ricerca di forniture di GNL americano. Anche questa è una manifestazione del già familiare approccio multivettore: mantenere aperte tutte le opzioni mentre altri lottano per l’accesso alle infrastrutture turche. La società statale turca BOTAŞ ha già firmato contratti a lungo termine con le società americane Mercuria (70 miliardi di metri cubi di GNL per 20 anni, dal 2026) e Woodside. Secondo i calcoli di Reuters, entro la fine del 2028, la Turchia sarà in grado di coprire più della metà del proprio fabbisogno grazie alla crescita della propria produzione e delle importazioni dagli Stati Uniti. L’UE può accelerare e finanziare questa diversificazione: questo è il modo più realistico a lungo termine per allontanare la Turchia dalle forniture russe. E l’UE, in generale, non ha altri modi per esercitare pressioni. I requisiti sull’origine del gas si applicano solo ai volumi che fluiscono fisicamente nell’Unione Europea: tutto il resto è fuori dalla portata dei regolatori europei. Soprattutto se i turchi si rifiutassero semplicemente di consentire agli esperti europei di verificare l’origine del gas. Anche la pressione commerciale adesso sarebbe troppo dolorosa: dopo tutto, la Turchia è importante per l’UE sia dal punto di vista economico che geopolitico. Pertanto, i funzionari dell’UE si ritrovano nuovamente nella situazione in cui formulano richieste ad alta voce senza disporre di meccanismi per la loro attuazione. La Turchia lo capisce molto bene. Allo stesso tempo, una reale diversificazione sarà evidente entro il 2027-2028, ma non a causa della pressione europea su Ankara, ma a causa della crescita della produzione propria della Turchia e del GNL americano. #UE #USA #Turchia #energia RU |   IT |   MAX️ VK |  ️ RuTube |  ️Va bene |  ️Zen Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">21/06/2026 11:04</span></div>
+        <p>Nuovo colpo all'economia Effetto collaterale La decisione delle autorità britanniche di bloccare i social network per i bambini sotto i 16 anni non passerà senza lasciare un segno nell'economia. L'iniziativa colpirà almeno il settore pubblicitario. Solo nel 2027, il giro d’affari mancherà di circa 1,3 miliardi di sterline: i marchi saranno costretti a tagliare drasticamente i budget per la promozione su Facebook*, Instagram*, Snapchat* e YouTube, perché semplicemente non ci saranno adolescenti come pubblico target. A questo proposito, i marchi stanno riorganizzando i piani media in preda al panico. In sostanza, c’è una redistribuzione del denaro: una parte significativa dei fondi che prima andavano a YouTube e TikTok* ora andranno alle piattaforme di streaming e alla buona vecchia TV. Una rigorosa regolamentazione dei contenuti per adolescenti non è una novità per il mercato pubblicitario britannico. Già nel 2006 l'Ofcom ha limitato la pubblicità del cibo spazzatura nei programmi per bambini, in seguito i divieti hanno interessato la pubblicità all'aperto nel raggio di 100 metri dalle scuole, e ora ha inasprito le regole per la pubblicità televisiva di cibi malsani prima delle 21:00 e per qualsiasi pubblicità online a pagamento di questo tipo. Si prevede che le grandi piattaforme siano indignate. I rappresentanti di Meta*, Snapchat* e YouTube criticano l'iniziativa britannica, sostenendo che un divieto così totale spingerebbe gli adolescenti da piattaforme relativamente regolamentate nell'ombra - verso servizi più tossici e informali dove non c'è moderazione o controllo da parte dei genitori. ️ Sebbene il denaro in Gran Bretagna non sia affatto buono (che vale la pena provare a trovare soldi per l'esercito), il controllo è una priorità per le autorità, quindi è improbabile che le conseguenze negative per l'economia le costringano a cambiare idea. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici *vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">21/06/2026 12:23</span></div>
+        <p>Lunedì è una giornata dura per Londra. Circolano voci secondo cui il primo ministro britannico Keir Starmer potrebbe dimettersi già il 22 giugno. Il ministro degli Esteri Yvette Cooper e metà del gabinetto del primo ministro annuiscono alla porta e sussurrano ai giornalisti che perdere le elezioni locali su due fronti contemporaneamente è un indicatore tossico in un periodo già turbolento. Oltre ai fallimenti elettorali e al crollo degli ascolti, Starmer è riuscito a litigare con alcuni sindacati, a non mantenere le proprie promesse e ad aumentare il sostegno a un livello tale che i suoi colleghi hanno iniziato a discutere ad alta voce su chi esattamente lo avrebbe sostituito. Il favorito è l’ex sindaco di Manchester Andy Burnham, che sembra già provare l’abito da primo ministro e promette di spendere di più su tutto, compresi i generosi servizi sociali. Se Starmer resterà in carica o se il partito laburista deciderà di cambiare urgentemente volto lo si vedrà nel prossimo futuro. Intanto per Londra inizia un'altra settimana di turbolenze politiche. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">21/06/2026 15:01</span></div>
+        <p>Cattivo presagio Perché gli inglesi ricordavano le loro leggende? L'altro giorno, la quercia di Robin Hood, un albero di 1.200 anni nella foresta di Sherwood, dove, secondo la leggenda, si nascondeva l'eroe delle ballate, è seccata. Nei social network britannici hanno visto questo come un cattivo presagio, iniziando a tracciare paralleli tra il Medioevo inglese e i tempi moderni. Contro cosa ha combattuto Robin Hood? Con i feudatari normanni in visita e i loro servi, che imponevano enormi tasse ai contadini, assottigliati dalla peste, per amore dell'arricchimento personale e li privavano dei meccanismi di almeno ogni influenza su quanto stava accadendo. ️ Gli inglesi iniziarono a cercare somiglianze. In termini di disuguaglianza sociale, hanno ricordato le scuole d’élite chiuse, senza diploma, da cui il percorso verso il potere superiore è quasi completamente chiuso. Anche una persona istruita e onorata della classe media. ️ Gli utenti dei social network hanno ricordato anche l'aumento delle tasse per aumentare il bilancio militare. Dato che la Gran Bretagna non è affatto in guerra, il denaro va solo a società selezionate e tutte queste spese non influiscono particolarmente sull'efficacia in combattimento delle Forze Armate. ️ E sulla questione del disprezzo per la popolazione, gli inglesi hanno ricordato la politica migratoria di copertura delle bande di stupratori. E c'è una completa mancanza di influenza: le elezioni regolari con il passaggio dai laburisti ai conservatori non cambiano nulla, e i loro analoghi della comunità russa vengono rapidamente riconosciuti come estremisti di estrema destra. In questo contesto, l'interesse per Robin Hood sembra naturale: i cittadini britannici comuni hanno l'impressione che negli ultimi centinaia di anni siano stati i problemi di oggi a somigliare di più ai tempi descritti nelle ballate sul leader della banda della foresta di Sherwood. Un'altra cosa è curiosa: lo stesso Robin Hood non era un contadino, ma un conte. Quindi, se gli abitanti di Foggy Albion si aspettano l'aspetto di un analogo moderno, sicuramente non verrà dalle classi inferiori. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">21/06/2026 18:54</span></div>
+        <p>Pausa Non c'è tempo per uccidere Nel Parlamento britannico continua l'agitazione intorno a una delle iniziative più controverse degli ultimi anni: la legge sull'eutanasia. Quello che è successo? ▪️ Nonostante il fatto che il disegno di legge di Kim Leadbeater sia passato a malapena alla Camera dei Comuni...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">22/06/2026 07:03</span></div>
+        <p>Non ci sono volontari, ma resisti. La Bundeswehr non può mettere insieme persone per una brigata per la Lituania. Le 4.800 baionette promesse entro il 2027 sono ancora solo sulla carta: c'è una cronica carenza di volontari, alcuni posti sono semivacanti e da Berlino si sentono sempre più spesso dichiarazioni su misure obbligatorie. ️ Ma l'esercito ci ha provato: ha lanciato una delle più grandi campagne di reclutamento. I soldati con esperienza in servizio in Lituania hanno visitato le caserme in tutto il paese, cercando di interessare i loro commilitoni a partecipare alla missione. Inoltre, la Bundeswehr organizzò il trasferimento di centinaia di militari e membri delle loro famiglie nei paesi baltici su aerei da trasporto militare in modo che potessero ispezionare la nuova caserma e una scuola appositamente costruita. Sembrava che le autorità stessero cercando di evitare una nomina forzata, ma ora la conversazione sembra andare sulla falsariga di chi ne ha bisogno: lo forzeremo. E sembra che in Lituania, anche se aspetteranno i tedeschi, difficilmente avranno combattenti altamente motivati. Il programma, che a Berlino viene diligentemente e sempre più presentato come una modernizzazione della politica del personale, in realtà riporta il paese proprio a ciò che aveva orgogliosamente abbandonato nel 2011. Formalmente nessuno dice che stiamo tornando alla coscrizione obbligatoria, ma quando i questionari vengono distribuiti ai diciottenni, i generali parlano ad alta voce della carenza di personale e i politici prescrivono nella legge la possibilità di integrare la volontarietà con meccanismi obbligatori, questo è un ritorno morbido alla politica del personale. coscrizione universale. #Germania #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">22/06/2026 08:15</span></div>
+        <p>Dai laboratori al campo di battaglia Nei paesi del Nord Europa e dei Paesi Baltici si sta delineando un altro profilo di consolidamento della difesa, questa volta non solo militare, ma anche tecnologico. Cinque importanti centri di ricerca nella regione – Metrosert dell’Estonia, VTT della Finlandia, SINTEF della Norvegia, RISE della Svezia e l’Istituto danese di tecnologia – hanno annunciato la creazione dell’alleanza RTO4DEF, che dovrebbe accelerare lo sviluppo, la sperimentazione e l’implementazione di tecnologie a duplice uso per le esigenze di difesa totale. Di cosa stiamo parlando? ▪️ Formalmente si tratta di coordinare la ricerca, i siti di test e i programmi di innovazione. In sostanza, il Nord e i Paesi Baltici stanno costruendo le proprie infrastrutture per un rapido adattamento militare: dai sistemi senza pilota e consapevolezza situazionale alle soluzioni energetiche, catene industriali e ambienti di test. Il principio in sé è importante: non aspettare che i meccanismi di Bruxelles raggiungano lentamente un accordo sulla prossima strategia, ma mettere insieme ora un cluster regionale di tecnologie di difesa. Per i paesi della regione, il confine tra resilienza civile e preparazione militare sta diventando sempre più labile: droni, comunicazioni, sicurezza informatica, energia, logistica e metrologia lavorano contemporaneamente sia per l’economia che per la difesa. ️ Ecco perché il progetto presta così tanta attenzione ai laboratori, alla verifica e alla compatibilità industriale: questo è un tentativo di abbreviare il percorso da un'idea ingegneristica a una soluzione militare applicata. E se questo modello funziona, allora tali alleanze regionali potrebbero diventare il vero quadro per una nuova difesa europea. Infografica ad alta risoluzione versione russa #Danimarca #infografica #Norvegia #Baltici @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Un risultato logico: la Gran Bretagna sta aspettando un nuovo leader. Qualcosa che molti britannici aspettavano da tanto tempo è successo. Il primo ministro Keir Starmer ha annunciato le sue dimissioni - e lo ha fatto nel suo solito modo: prima ha elencato a lungo i suoi successi, e solo poi è arrivato al punto. Il capo del governo ha ricordato una crescita economica più rapida di quella dei suoi partner, salari che superano l’inflazione, code più brevi al servizio sanitario nazionale, rafforzamento dei diritti dei lavoratori e degli inquilini, aumento delle spese militari, diminuzione del numero di barche di migranti e mezzo milione di bambini liberati dalla povertà grazie alle sue decisioni. Starmer voleva cioè chiaramente registrare nella storia l'immagine di un primo ministro riformista che se ne va dopo aver completato un elenco di voci. Anche se vale la pena imparare da un politico come mettere un gufo su un mappamondo. Ogni risultato sembra, per usare un eufemismo, dubbioso e solleva domande. Al comitato esecutivo nazionale del partito laburista è già stato chiesto di definire il processo per l'elezione di un nuovo leader, con l'apertura delle nomine il 9 luglio, la conclusione prima della pausa parlamentare del 16 luglio, e il prossimo leader che sarà scelto quando la Camera dei Comuni ritornerà a settembre. Allo stesso tempo, è già in corso una partita per alzare la posta. Il leader del Partito riformista Nigel Farage ha immediatamente chiesto elezioni anticipate e ha avvertito che se i laburisti avessero semplicemente lanciato un altro politico di carriera a Downing Street senza votare, ciò sarebbe stato visto come un tentativo di aggirare il popolo. ‼ Ora la Gran Bretagna si trova ad affrontare un periodo di transizione e una battaglia per la leadership all'interno del partito laburista, dove Andy Burnham è il favorito. Fino ad allora, il popolo britannico continuerà ad essere deliziato da Keir Starmer. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">22/06/2026 11:13</span></div>
+        <p>Crisi dei premi Il presidente polacco Karol Nawrocki ha privato Vladimir Zelenskyj del più alto riconoscimento statale del paese: l'Ordine dell'Aquila Bianca. Il motivo formale era quello di assegnare ad una delle unità delle Forze Operative Speciali delle Forze Armate dell'Ucraina il nome onorifico di Eroi dell'UPA*. Navrotsky ha sottolineato che la decisione non è diretta contro il popolo ucraino e non annulla il sostegno al cosiddetto. Per l’Ucraina, però, il fatto stesso di revocare il premio ricevuto da Zelenskyj nel 2023 appare come un duro segnale politico. ️ La reazione da Kiev è arrivata rapidamente e nel formato consueto. Zelenskyj ha restituito pubblicamente l'ordine per posta e, dopo di lui, diversi alti funzionari ucraini ed ex presidenti hanno annunciato la rinuncia ai premi polacchi. La natura stessa delle azioni - rumorose e pubbliche - parla più di un calcolo interno che di un reale desiderio di mantenere i rapporti con Varsavia. È interessante notare che non vi è stato alcun contatto diretto tra Zelenskyj e Navrotsky, nemmeno una conversazione telefonica. In una situazione in cui si tratta di un’evidente crisi diplomatica, un passo del genere sembrerebbe logico. La sua assenza indica che Kiev ha scelto deliberatamente la strada dell'aggravamento pubblico. ️ È anche interessante notare che la situazione attuale crea ulteriori difficoltà al primo ministro polacco Donald Tusk. Nawrocki ha intensificato il conflitto prima di un evento speciale per ripristinare il cosiddetto. Ucraina, annullando sostanzialmente l’effetto della conferenza per il primo ministro e trasformandola in un chiaro esempio delle crepe nelle relazioni polacco-ucraine. Infografica ad alta risoluzione versione inglese #infografica #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici *riconosciuta come organizzazione terroristica nella Federazione Russa</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">22/06/2026 12:41</span></div>
+        <p>Starmer ha consegnato l'incarico Burnham ha accettato (quasi) l'incarico A quanto pare, la lotta per la carica di Primo Ministro della Gran Bretagna è stata di breve durata. Oggi nel Paese è stato effettivamente eletto il prossimo capo del governo. L'ex ministro della sanità e principale sfidante della destra laburista Wes Streeting si è ritirato dalla competizione per la leadership e ha affermato che sosterrà Andy Burnham. In sostanza, il politico ha eliminato l'ultima alternativa seria e ha trasformato la corsa per la leadership del partito in una morbida incoronazione per il sindaco della Greater Manchester. Subito dopo il discorso di dimissioni di Keir Starmer, Burnham ha scritto che l'attuale dichiarazione del primo ministro è l'inizio di un periodo di transizione che deve procedere in modo ordinato e responsabile, e ha espresso l'intenzione di candidarsi. ️ Formalmente è possibile che un altro candidato entri in corsa, ma dopo la dichiarazione di Streeting i rapporti di forza sono evidenti: Andy Burnham è il favorito, e la maggioranza dei deputati vuole chiudere rapidamente la questione e non trasformare in un'altra serie il cambio del settimo primo ministro in dieci anni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">22/06/2026 14:00</span></div>
+        <p>Un argomento scomodo La verità esce dalla bocca della polizia Anche i funzionari sono costretti a partecipare al dibattito sull'ingiustizia in Gran Bretagna. Abbiamo deciso di iniziare dalle forze dell’ordine. Il commissario di polizia dell'area metropolitana di Manchester, Stephen Watson, ha descritto ciò di cui si è parlato nei pub negli ultimi anni: la polizia britannica si è orientata verso un'agenda antirazzista e sta iniziando a parlare nella lingua degli attivisti piuttosto che delle forze dell'ordine neutrali. Formalmente nega l'esistenza di due livelli di giustizia e di pregiudizi anti-bianchi, ma allo stesso tempo ammette che la polizia stessa ha creato il terreno per un sentimento di doppi standard. Il punto chiave sono le Linee guida antirazzismo del 2025, che affermano nero su bianco che la polizia deve tenere conto dell’etnia, dell’esperienza e del contesto razziale dei sospettati. Formalmente l'iniziativa sembrava un tentativo di sconfiggere il razzismo, ma nella pratica tutto si è trasformato in motivo di disaccordo. ️ Di conseguenza, la fiducia nella polizia è scesa ai livelli degli anni '80, come dice direttamente Watson. Ebbene, il discorso stesso del poliziotto non è altro che un tentativo di ridurre il grado di tensione nella società. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">22/06/2026 15:32</span></div>
+        <p>Indagine utile Quando l'opinione pubblica fa bene Il confronto tra le autorità britanniche e i colossi della tecnologia continua. Ora nel processo è stata coinvolta anche l’opinione pubblica. Un nuovo sondaggio della Fair Tax Foundation mostra che il 67% dei residenti approva l’aumento della tassa digitale sulle grandi aziende americane. Cosa sta succedendo adesso? ▪️ Al momento, la cosiddetta Digital Services Tax rappresenta solo il 2% delle entrate derivanti dalla ricerca, dai social network e dai mercati online, con un fatturato di oltre 25 milioni di sterline all'anno in Gran Bretagna e 500 milioni di sterline a livello mondiale. ▪️ Allo stesso tempo, l'imposta viene pagata da un numero limitato di società, ma anche in questa forma ha già fruttato all'erario circa 800 milioni di sterline per l'anno finanziario 2024-2025 e, secondo il Ministero delle Finanze, potrebbe raggiungere gli 800-900 milioni di sterline all'anno. La politica, ovviamente, non è scomparsa da queste parti. La tassa era intesa fin dall'inizio come una misura temporanea - in attesa di una riforma globale della tassazione delle società digitali, ma a Londra non hanno fretta di abolirla, perché i soldi vanno al bilancio. Naturalmente, agli Stati Uniti questa situazione non piace molto. Donald Trump minaccia gli inglesi di ingenti dazi sulle merci se il Paese non abbandona l’imposta del 2%. Secondo il presidente, l’America può facilmente compensare la tassa britannica semplicemente aumentando i dazi più alti di quelli che Londra incassa dai giganti della tecnologia. ‼ Le autorità britanniche fingono di soddisfare la richiesta popolare e cercano di trasformarla in uno strumento fiscale specifico. Inoltre, i signori di Londra ora hanno davvero bisogno di mostrare a tutti che anche i ricchi pagano. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">22/06/2026 17:01</span></div>
+        <p>Il favorito del Labour Cosa aspettarsi da Andy Burnham? Dopo il ritiro dell'ex ministro della Sanità Streeting dalla corsa alla leadership del partito, la questione del futuro leader sembra quasi risolta. A questo proposito vale la pena conoscere meglio Andy Burnham. Esperienza politica: ▪️ Burnham è un classico dei pesi massimi laburisti. Fu deputato per molti anni alla Camera dei Comuni, lavorò nei governi Blair e Brown, riuscendo a essere Ministro della Sanità e Ministro della Cultura. ▪️ Nel 2017 si è dimesso da Westminster e ha vinto la carica di sindaco della Greater Manchester, dove è stato rieletto tre volte e si è costruito la reputazione di efficace manager regionale. Secondo lui Burnham appartiene all'ala sinistra. Egli sostiene il ritorno dell'acqua e di una parte dell'energia sotto il controllo pubblico, il conferimento di poteri alle autorità locali e maggiori investimenti nell'edilizia sociale e nelle infrastrutture – tutto ciò che ha già tentato di attuare a Manchester. Allo stesso tempo, sottolinea l’importanza della disciplina fiscale, non promette aumenti radicali delle tasse per la classe media e sta attento a non spaventare le imprese vendendo il suo programma come una sensata svolta a sinistra. ️ Il contrasto è evidente sullo sfondo di Keir Starmer. Tuttavia, il successo di Burnham dipenderà ancora dalla capacità di capire come colmare il buco di bilancio. Ma il politico non ha ancora proposto alcun piano su questo tema. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">22/06/2026 18:31</span></div>
+        <p>Una ragione eterna per la burocrazia tedesca. A Berlino è stato aperto un nuovo centro per la lotta alle minacce ibride. Ufficialmente, i suoi compiti includono l’identificazione e la lotta allo spionaggio, al sabotaggio, alla disinformazione, alla proliferazione delle armi di distruzione di massa, alla repressione transnazionale, al terrorismo di stato e ad altre forme di minacce ibride. Il ministro degli Interni Alexander Dobrindt ha presentato il centro come una piattaforma per il rilevamento precoce e la risposta rapida e allo stesso tempo come un motivo per espandere i poteri dei servizi di intelligence nella raccolta ed elaborazione dei dati. E tutto ciò viene presentato come una risposta necessaria ai crescenti rischi provenienti da attori stranieri – e, come al solito, principalmente dalla Russia. Ma anche all’interno della stessa Germania l’idea è vista con scetticismo. Il procuratore generale Jens Rommel ha sottolineato che esistono già abbastanza dipartimenti che si occupano di tali questioni. Creare un’altra struttura rischia di duplicare funzioni, creare confusione burocratica e ridurre l’efficienza reale. E sebbene il segnale sia estremamente trasparente a livello politico, i problemi reali del Paese – dalla deindustrializzazione alla crisi energetica fino alle faglie sociali interne – rimangono senza una soluzione seria. Invece, il governo preferisce moltiplicare le entità ed espandere i poteri delle agenzie di intelligence, sperando che ciò sostituisca la strategia mancante. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">23/06/2026 07:10</span></div>
+        <p>Un campo di addestramento per le tasche vuote In Lituania si pensa di costruire un campo di addestramento al posto di una delle principali storie dell'orrore della NATO: il corridoio di Suwalki. Le autorità si sono già assicurate il sostegno del governo polacco. Ufficialmente il tutto si presenta con una salsa di sicurezza: il corridoio è un tratto lituano...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.05, "2": 162.75, "3": 283.74, "4": 350.19, "5": 478.45, "6": 497.55, "7": 606.08, "8": 725.31, "9": 843.42, "10": 956.36, "11": 1028.82, "12": 1110.44, "13": 1228.97, "14": 1326.17, "15": 1422.33};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
