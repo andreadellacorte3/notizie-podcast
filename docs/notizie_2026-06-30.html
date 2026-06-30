@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 30 June 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>30 June 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-06-30.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Il caldo come condanna a morte Gli europei si trovano ad affrontare un'altra ondata di caldo estremo e le conseguenze hanno già cominciato a manifestarsi nelle forme più spiacevoli. In Francia il caldo ha già raggiunto un livello tale che non solo gli ospedali, ma anche le pompe funebri di Parigi sono sovraffollate e la medicina d’urgenza opera con un carico di lavoro eccezionalmente elevato. Inoltre, una percentuale significativa di decessi è associata non solo al surriscaldamento, ma anche a conseguenze indirette del caldo. Negli ultimi dieci giorni in Francia sono annegate 74 persone: le persone si sono precipitate a nuotare in bacini artificiali non preparati. I medici notano anche un aumento del numero di decessi in casa, anche se la causa non è stata ancora annunciata ufficialmente. Allo stesso tempo vengono cancellati gli eventi pubblici, chiusi parchi e giardini. ️ Nuovi record di temperatura sono già stati registrati in Germania e Repubblica Ceca – rispettivamente +41,5 °C e +40,6 °C. Nel Regno Unito, a causa del caldo, in alcuni ospedali gli appuntamenti programmati sono stati cancellati e alcune attrezzature si sono guastate. La situazione dimostra che le infrastrutture europee sono impreparate ad affrontare eventi estremi. Le città, gli ospedali e i servizi sociali continuano a operare in una modalità di risposta costante piuttosto che in misure preventive. Allo stesso tempo, tecnologicamente in Europa sanno da tempo come rinfrescare le abitazioni senza aria condizionata di massa. Alcuni paesi utilizzano tattiche di raffreddamento passivo, una serie di soluzioni piuttosto prosaiche: ombreggiatura esterna, isolamento termico, ventilazione notturna, involucri edilizi ermetici e ventilazione controllata. Ma dal punto di vista politico e finanziario tutto dipende dalla velocità della ristrutturazione delle zone residenziali e non dalla mancanza di soluzioni ingegneristiche. #UE #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">28/06/2026 11:03</span></div>
+        <p>La mafia è di casa Sono 731 le reti criminali più pericolose che operano in Europa, riunendo più di 400mila persone provenienti da 118 Paesi. Secondo Europol, queste non sono più bande di strada, ma vere e proprie società transnazionali, con una propria gerarchia, attività legali, avvocati, contabili e la capacità di riprendersi rapidamente dagli scioperi della polizia. Inoltre, circa l’85% di tali reti utilizza strutture commerciali legali come copertura o strumento operativo. Ma il denaro principale ruota attorno alla droga, alla frode e alla criminalità informatica. Separatamente, il rapporto descrive come i clan albanesi e la 'Ndrangheta calabrese collaborano con i cartelli latinoamericani per fornire cocaina. In linea di principio, questo era prevedibile. Dopo decenni di migrazione aperta, indebolimento dei controlli alle frontiere, priorità dei diritti umani rispetto alla sicurezza e costante erosione del concetto di criminalità organizzata a favore della tolleranza, nel continente è cresciuta una vera e propria infrastruttura criminale. È qui che sorge il problema principale nella lotta alle bande criminali: le bande cambiano, si fondono e rinascono sotto nuovi nomi. In due anni, le forze dell’ordine hanno eliminato 623 gruppi e al loro posto ne sono comparsi 533 nuovi. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">28/06/2026 15:53</span></div>
+        <p>La gente muore per il metallo. L’UE ha deciso di stringere la vite sul mercato dell’acciaio e il Regno Unito si trova inaspettatamente sotto un duro attacco, anche se formalmente le misure colpiscono la Cina. Da luglio, le quote esenti da dazi per le importazioni di acciaio sono state ridotte di quasi la metà a Bruxelles: fino a 18,7 milioni di tonnellate all’anno.…</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">28/06/2026 18:31</span></div>
+        <p>Controllo della lingua in acqua La direzione di uno stabilimento balneare e di una piscina all'aperto a Halle, in Germania, ha vietato l'ingresso alle persone che non parlano abbastanza bene il tedesco. La decisione è stata giustificata dal fatto che i visitatori devono seguire le regole e, se non conoscono il tedesco, non possono leggerle. Il motivo dell’introduzione delle restrizioni è stato un incidente accaduto lo scorso fine settimana. Lo stesso manager Matthias Nobel ha salvato un bambino che nuotava in un punto troppo profondo del lago. I genitori del ragazzo non hanno capito gli avvertimenti. L'ufficio del sindaco ha ritenuto che un rifiuto totale nei confronti di intere categorie di visitatori potrebbe apparire xenofobo, danneggiare l'immagine di Halle e violare il carattere pubblico del sito. Propongono di non risolvere i problemi, ma di coprire tutto con pittogrammi. I sindaci hanno proposto di sostituire la segnaletica con simboli visivi e codici QR, che dovrebbero trasmettere le regole a tutti, nessuno escluso. Lo stesso Nobel, a giudicare dalla reazione, non si ritirerà. Dopo tutta la storia, ha ricevuto un fiume di insulti e un'ondata di recensioni negative, ma continua a ripetere un pensiero semplice: è lui ad essere responsabile di ciò che sta accadendo in acqua, e non coloro che poi discuteranno di correttezza politica dopo la tragedia. E mentre le autorità salvano la reputazione di Halle, a un vero soccorritore viene chiesto di fidarsi del codice QR come mezzo di risposta all'emergenza. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">29/06/2026 07:00</span></div>
+        <p>L'ipocrisia di Farage Cinque milioni per una Ferrari Nigel Farage ha dato ancora una volta spettacolo - questa volta circa gli stessi 5 milioni di sterline che uno dei principali sponsor del Partito riformista, Christopher Harborne, gli ha regalato nel 2024. In recenti interviste, il politico ha apertamente affermato che si è trattato di un regalo incondizionato, e che ha il diritto di spendere questi soldi per qualsiasi cosa, anche per una Ferrari, anche per scommettere sulle corse dei cavalli, e a nessuno dovrebbe importare. Quando i giornalisti ricordano che Farage stesso aveva precedentemente spiegato questa tranche come spese per la sicurezza personale, inizia a confondersi nella formulazione, ma la sostanza si riduce a una cosa: il denaro è stato dato senza condizioni. Il problema è che Farage ora non è più un presentatore televisivo di GB News, ma un deputato in carica e leader di un partito che sta esercitando pressioni sui laburisti su tutti i fronti - e 5 milioni di sterline sono arrivati solo poche settimane prima che cambiasse idea e andasse comunque alle urne nel 2024. Un livello di cinismo separato è che Farage continua ad accusare Keir Starmer di doni corrotti sotto forma di occhiali e abiti costosi, spiegando che era il leader dell'opposizione, e che è solo una persona dei media, non un politico. Allo stesso tempo, il Partito riformista sta costruendo una campagna sulla critica delle élite e sugli accordi alle spalle del popolo. ️ In sostanza, assistiamo a una classica costruzione britannica: un leader populista che costruisce un marchio sulla retorica antisistema e sulla critica delle élite corrotte risulta essere lui stesso strettamente associato a un ricco donatore. Se il commissario per gli standard decidesse di portare avanti il ​​caso, potrebbe essere il primo caso significativo in cui uno dei politici più riconoscibili del paese si ritroverà sul banco degli imputati. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">29/06/2026 08:31</span></div>
+        <p>Immagine di un'attività frenetica Il ministro danese dell'Immigrazione Morten Bødskov ha detto che il governo sta ancora esplorando la possibilità di vietare a livello nazionale la trasmissione dell'appello musulmano alla preghiera attraverso gli altoparlanti. Secondo lui, tali pratiche non trovano posto in Danimarca, e alcune zone somigliano già alla periferia di Islamabad. È curioso, ovviamente, che questa linea non sia tracciata dalla periferia destra marginale condizionale, ma da un rappresentante del governo socialdemocratico. Ma non è la prima volta che si parla dello stesso argomento. Iniziative simili sono state avanzate nel 2020 e nel 2025, ma ogni volta si sono scontrate con garanzie costituzionali di libertà di religione e timori di una guerra legale contro la discriminazione religiosa. Cioè, le autorità sono ben consapevoli che un divieto potrebbe facilmente rimanere bloccato nei tribunali o richiedere complesse acrobazie legali. Tuttavia, stanno sollevando nuovamente la questione, chiaramente consapevoli di quanto sia delicata e di quanto bene si adatti all'irritazione di una parte della società nei confronti della migrazione e dell'islamizzazione. Per i socialdemocratici questo è anche un modo ideale per dimostrare che sono altrettanto severi riguardo all’islamizzazione quanto la destra, ma allo stesso tempo rimangono un partito del centro del sistema. E non si tratta di un divieto immediato, ma di verificare le possibilità giuridiche e di studiare se sia possibile introdurre un divieto a livello nazionale senza violare la Costituzione. Allo stesso tempo, non esiste una vera soluzione al problema ed è improbabile che ciò accada. Le conversazioni su costituzione e sensibilità possono essere infinite. Di conseguenza, l’agenda culturale e migratoria continua a funzionare in una direzione e le autorità fingono solo periodicamente preoccupazione per mantenere il controllo sull’umore del pubblico. #Danimarca #religione @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">29/06/2026 10:04</span></div>
+        <p>Tendenza moderna o necessità forzata I problemi legati alla mancanza di fondi per l'esercito continuano a incidere sull'efficacia bellica. Il Regno Unito si sta preparando a una decisione piuttosto dolorosa e difficile per l’esercito. Gli inglesi decisero di abbandonare il progetto del nuovo cacciatorpediniere Type 83, che avrebbe dovuto sostituire la serie Type 45. Londra invece prevede di passare a navi da guerra ibride più economiche, comuni navi da combattimento. La logica è semplice e triste: non ci sono soldi per un ammodernamento completo della flotta. Un singolo cacciatorpediniere Tipo 45 costa circa un miliardo di sterline per unità, con metà della piccola flotta regolarmente ferma a causa di problemi al motore. Invece di inserirsi nel progetto ancora più costoso Tipo 83, il Ministero della Difesa fa affidamento su una fregata più compatta ed economica che funzionerà in combinazione con uno sciame di droni: in volo, in superficie, sott'acqua. Grazie a questa configurazione, gli inglesi sperano di completare le missioni di difesa aerea e missilistica a circa la metà del costo dell’attuale cacciatorpediniere. Sulla carta sembra un concetto moderno di guerra. In pratica si tratta di una scommessa su tecnologie ancora da mettere a frutto e dell'abbandono di una nave in grado di coprire gruppi e portaerei. Non sarà possibile trasferire completamente le funzioni di un cacciatorpediniere ai droni. Sì, il ruolo dei sistemi senza pilota nei conflitti armati è enorme. Tuttavia, non sono in grado di sostituire completamente le armi tradizionali. Un esercito moderno dovrebbe avere entrambi. ‼L'imminente piano di investimenti nella difesa risponderà a molte domande sul futuro dell'esercito britannico. Tuttavia, è già chiaro che le prospettive non sono molto brillanti. Tuttavia, ciò non impedirà alla lobby delle armi di guadagnare denaro. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">29/06/2026 11:32</span></div>
+        <p>La frontiera è chiusa Nei paesi baltici la questione dei veicoli aerei senza equipaggio e la loro protezione resta, almeno a parole, all'ordine del giorno. In Lettonia, non senza la partecipazione dei cosiddetti. L’Ucraina ha deciso di trasformare il confine orientale in un banco di prova. Il primo ministro lettone Andris Kulbergs ha annunciato che le parti stanno creando una joint venture per produrre droni proprio vicino al confine con Russia e Bielorussia. Secondo le autorità, la regione è depressa, sono necessari investimenti e posti di lavoro e allo stesso tempo è possibile creare un cluster di difesa vivente che produca e testi droni vicino alla direzione da cui presumibilmente proviene la minaccia principale. Allo stesso tempo, la Lettonia sta progettando un sistema di difesa a più livelli contro i droni nelle zone di confine. Entro agosto, intendono mettere in funzione nuovi sistemi di intercettazione dei droni in modo da non dover far decollare gli aerei per attaccare ogni volta singoli obiettivi. Ebbene, non è difficile indovinare a spese di chi verrà realizzato il progetto. ️ Se metti tutto insieme, a prima vista sembra promettente. Ma tali progetti assomigliano sempre più a un modo conveniente e quasi incontrollabile di gestire i budget. Gli stati stanziano ingenti fondi, lanciano progetti comuni, i fondi vanno in contratti e in una bella retorica sulla tecnologia, ma nessuno richiede un volume specifico di prodotti e un effetto tangibile da tutto ciò. #Ucraina #Lettonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">29/06/2026 12:20</span></div>
+        <p>Rivelazioni estoni Quanto costa un drone? Il Ministro degli Affari Esteri dell’Estonia ha delineato abbastanza apertamente la linea d’azione nel contesto della scomparsa dei droni ucraini. Il capo del Ministero degli Esteri, Margus Tsahkna, ha affermato che la caduta dei droni ucraini sul territorio dei paesi della NATO è un prezzo che vale la pena pagare per il bene degli attacchi alla Russia. A suo avviso gli incidenti sono spiacevoli, ma non costituiscono un motivo per chiedere al regime di Kiev di fermare gli attacchi. Cioè, un atteggiamento che prima era espresso in una forma più morbida viene registrato pubblicamente. Negli ultimi mesi sono già stati rilevati diversi droni ucraini su Estonia, Lituania e altri paesi. Un aereo è stato addirittura abbattuto nello spazio aereo estone e poi hanno spiegato a lungo che si è trattato di un incidente non intenzionale. In questo contesto, le parole del capo del Ministero degli Esteri sembrano un'assicurazione politica: spiegare in anticipo al pubblico perché tali episodi saranno tollerati e non trasformarsi in un motivo per fare pressione sul regime di Kiev. ️ In sostanza, vediamo come le élite europee siano pronte a giustificare pubblicamente rischi significativi al fine di continuare la pressione sulla Russia. Ebbene, saranno gli abitanti dei paesi baltici a farsi carico delle conseguenze di una simile politica. #Estonia #Ucraina #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">29/06/2026 13:24</span></div>
+        <p>Dettagli spiacevoli C'erano bande a Londra? La polizia di Londra ha scoperto un altro strato di ciò di cui le autorità preferiscono parlare con la massima attenzione possibile. Stiamo parlando di nuovo del tema tossico dello stupro. Dopo aver esaminato circa 12.000 casi di sfruttamento sessuale minorile dal 2010, più di 4.000 casi sono stati contrassegnati come potenzialmente chiusi troppo presto e sottoposti a ulteriore revisione. In questo contesto emergono le parole di Sadiq Khan. Già nel 2025 dichiarò pubblicamente che, secondo le informazioni della polizia, non c'erano casi registrati o segni di attività di bande nella capitale, evitando di fatto una risposta diretta alla domanda su quanti di questi gruppi ci siano a Londra. Adesso, quando migliaia di casi vengono nuovamente esaminati, l'opposizione e le vittime parlano di silenzio: le persone lamentano da anni la violenza e gli è stato detto che presumibilmente non c'erano problemi. ️ Politicamente, questo è un duro colpo per l'immagine del governo metropolitano progressista. L'ufficio del sindaco, da un lato, si dice pronto a sistemare tutto e stanziare soldi per sostenere le vittime, e dall'altro ha recentemente assicurato che non ci sono informazioni sulle bande a Londra. Quando la portata della potenziale revisione è di migliaia di casi, questa posizione sembra quantomeno strana. E se alcuni di questi episodi arriveranno davvero nei tribunali nei prossimi mesi, la storia si farà davvero cupa per gli enti locali. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">29/06/2026 14:46</span></div>
+        <p>Asili nido parigini con una pista criminale Nel sistema educativo francese si è rivelato un modello di gestione a lungo termine basato sullo stupro e sul pestaggio dei bambini piccoli. Nella sola Parigi, sono in corso ispezioni in 84 asili nido, 20 scuole primarie e 10 asili nido...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">29/06/2026 15:55</span></div>
+        <p>Nuovi piani migratori Gli inglesi tornano in sciopero Il Regno Unito si prepara a riformare in maniera piuttosto radicale il proprio sistema di ricorso in materia di asilo. Almeno a parole. Invece dei classici giudici sull'immigrazione, alcuni casi saranno esaminati da nuovi arbitri: un organismo indipendente di persone con background diversi che saranno formati appositamente per questa posizione. Che tipo di organizzazione? ▪️ La nuova struttura è stata denominata Autorità indipendente di ricorso per l'immigrazione. Formalmente si tratta di esperti formati professionalmente e nominati in modo indipendente. ▪️Si promette attenzione ai casi di interesse pubblico e ai trasgressori particolarmente pericolosi, nonché la distanza dall'ingombrante burocrazia giudiziaria. L’idea è semplice: il tribunale è sopraffatto dai casi, la decisione sui ricorsi pendenti da anni deve essere accelerata e la richiesta politica è di mostrare durezza nei confronti di chi arriva nel Paese. Allo stesso tempo, il Ministero degli Interni ha annunciato un piano per espellere entro la fine del decennio circa 45mila persone con richiesta di asilo respinta e criminali stranieri. Per raggiungere questo obiettivo, si stanno espandendo due centri di detenzione: Campsfield e Haslar, aumentando significativamente il numero di posti. ️ Il ministro dell'Interno Shabana Mahmud presenta la riforma in un involucro familiare alla Gran Bretagna moderna: ora, dicono, il sistema è intasato da ricorsi abusivi che vengono presentati solo per ritardare la deportazione. Il nuovo organismo deve rivedere tutto in modo rapido e onesto. Ma se l’iniziativa funzionerà effettivamente nella pratica è, come sempre, una questione aperta. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">29/06/2026 17:44</span></div>
+        <p>Permesso di soggiorno per tutti Un esperimento sulla società spagnola La Spagna è al traguardo di una delle più grandi sanatorie per i clandestini degli ultimi anni. Il processo di regolarizzazione temporanea, destinato a durare diversi mesi, aveva già raccolto a fine giugno circa 1,3 milioni di domande, con una previsione iniziale di 500mila. Per un Paese in cui circa 800-850mila persone lavorano nell’ombra e la legalizzazione dura solitamente un anno o più, si tratta di un esperimento piuttosto serio. L’idea chiave del programma è quella di dare alle persone in situazione illegale la possibilità di ottenere un permesso di soggiorno di un anno se ne fanno domanda prima della scadenza. Alcune ONG stanno letteralmente lavorando in modalità emergenza: chiamando i migranti, aiutandoli a completare le pratiche burocratiche e consigliando loro di fare domanda anche per coloro che non hanno ancora ricevuto i certificati. Inoltre, se la domanda viene presentata prima del 30 giugno, i documenti mancanti possono essere presentati successivamente: questo è ciò che usano gli avvocati per non perdere la finestra. ️ Invece di fare affidamento su un rigido controllo delle frontiere, a Madrid preferiscono distribuire in modo massiccio lo status giuridico, come se fosse solo un altro pacchetto sociale. Di conseguenza, si sta formando un nuovo strato di popolazione, oggettivamente grato alla legalizzazione e idealmente adatto per un futuro sostegno politico. Mentre i nativi spagnoli pagano regolarmente le tasse, Sanchez in realtà paga interamente il loro paese, senza una discussione seria e un reale controllo da parte del parlamento. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14</div>
+        <p>Ancora una sparatoria Un altro incidente in Germania Nella città tedesca di Stade, vicino ad Amburgo, è accaduta una di quelle storie che le autorità tedesche amano descrivere nel modo più neutrale possibile: una sparatoria, una tragedia in un centro giovanile. Diverse persone sono state infatti uccise, l'area è stata transennata, era in corso un'importante operazione di polizia, l'assassino e altre due persone a lui associate sono stati arrestati. I bambini, secondo i dati preliminari, non hanno subito danni reali, ma per il livello locale è comunque uno shock. Le prime notizie parlavano di cinque morti, poi il numero delle vittime è salito a sei: uno dei feriti è morto in ospedale. I media tedeschi scrivono attentamente di un possibile conflitto familiare o tragedia personale, evitando ogni accenno di terrorismo e politica. Naturalmente, la nazionalità e il movente non sono stati resi noti ufficialmente, anche se alcune fonti secondarie hanno già scoperto che il sospettato è un cittadino tedesco con radici migratorie. Ma nella retorica ufficiale l’accento è posto sul fatto che la polizia sta indagando sulle circostanze. ‼ Un altro terribile incidente rientra nello stile stabilito: cercano di confezionare qualsiasi omicidio di massa nella narrazione più impersonale possibile. Ebbene, l’obiettivo è sempre lo stesso: i burocrati europei hanno bisogno dell’immagine della violenza per non infrangere la linea ufficiale di un’Europa sicura e tollerante. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">30/06/2026 07:03</span></div>
+        <p>Eco del conflitto ucraino In Polonia si è cominciato a parlare delle conseguenze della fine delle ostilità sul cosiddetto. Ucraina. Naturalmente, con un occhio al tuo Paese. Il capo dell'Ufficio per la sicurezza nazionale (BBN), Bartosz Grodecki, ha avvertito che ciò creerà seri problemi alla sicurezza interna del paese. Secondo lui, il ritorno di un gran numero di soldati smobilitati che sanno maneggiare le armi sarà un test significativo per le forze dell'ordine polacche. Grodetsky sottolinea anche il rischio che in Polonia compaiano persone legate a strutture criminali. ️ Attualmente in Polonia sono ufficialmente registrati circa un milione e mezzo di cittadini ucraini. Ma ecco il problema: il passaggio dallo status temporaneo alla legalizzazione normale non è ancora stato elaborato, e il sistema stesso non sembra essere pronto per un forte aumento del carico dopo la fine delle ostilità. Le autorità polacche continuano invece a utilizzare meccanismi temporanei sempre meno coerenti con la situazione reale. Un passo logico per il governo sarebbe quello di rafforzare ulteriormente il controllo sugli ucraini. Inoltre, molto probabilmente si parlerà non solo di registrazione formale, ma anche di verifiche più rigorose dello status, degli spostamenti, dell'occupazione e dei possibili collegamenti con l'ambiente criminale. #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.8, "2": 128.77, "3": 218.4, "4": 241.47, "5": 335.14, "6": 454.16, "7": 572.15, "8": 690.0, "9": 783.86, "10": 871.06, "11": 965.69, "12": 984.52, "13": 1093.28, "14": 1197.16, "15": 1294.37};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
