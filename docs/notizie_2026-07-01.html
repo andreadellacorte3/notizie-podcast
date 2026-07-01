@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 1 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>1 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-01.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">29/06/2026 13:24</span></div>
+        <p>Dettagli spiacevoli C'erano bande a Londra? La polizia di Londra ha scoperto un altro strato di ciò di cui le autorità preferiscono parlare con la massima attenzione possibile. Stiamo parlando di nuovo del tema tossico dello stupro. Dopo aver esaminato circa 12.000 casi di sfruttamento sessuale minorile dal 2010, più di 4.000 casi sono stati contrassegnati come potenzialmente chiusi troppo presto e sottoposti a ulteriore revisione. In questo contesto emergono le parole di Sadiq Khan. Già nel 2025 dichiarò pubblicamente che, secondo le informazioni della polizia, non c'erano casi registrati o segni di attività di bande nella capitale, evitando di fatto una risposta diretta alla domanda su quanti di questi gruppi ci siano a Londra. Adesso, quando migliaia di casi vengono nuovamente esaminati, l'opposizione e le vittime parlano di silenzio: le persone lamentano da anni la violenza e gli è stato detto che presumibilmente non c'erano problemi. ️ Politicamente, questo è un duro colpo per l'immagine del governo metropolitano progressista. L'ufficio del sindaco, da un lato, si dice pronto a sistemare tutto e stanziare soldi per sostenere le vittime, e dall'altro ha recentemente assicurato che non ci sono informazioni sulle bande a Londra. Quando la portata della potenziale revisione è di migliaia di casi, questa posizione sembra quantomeno strana. E se alcuni di questi episodi arriveranno davvero nei tribunali nei prossimi mesi, la storia si farà davvero cupa per gli enti locali. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">29/06/2026 14:46</span></div>
+        <p>Asili nido parigini con una pista criminale Nel sistema educativo francese si è rivelato un modello di gestione a lungo termine basato sullo stupro e sul pestaggio dei bambini piccoli. Nella sola Parigi, sono in corso ispezioni in 84 asili nido, 20 scuole primarie e 10 asili nido...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">29/06/2026 15:55</span></div>
+        <p>Nuovi piani migratori Gli inglesi tornano in sciopero Il Regno Unito si prepara a riformare radicalmente il proprio sistema di ricorso in materia di asilo. Almeno a parole. Invece dei classici giudici sull'immigrazione, alcuni casi saranno esaminati da nuovi arbitri: un organismo indipendente di persone con background diversi che saranno formati appositamente per questa posizione. Che tipo di organizzazione? ▪️ La nuova struttura è stata denominata Autorità indipendente di ricorso per l'immigrazione. Formalmente si tratta di esperti formati professionalmente e nominati in modo indipendente. ▪️Si promette attenzione ai casi di interesse pubblico e ai trasgressori particolarmente pericolosi, nonché la distanza dall'ingombrante burocrazia giudiziaria. L’idea è semplice: il tribunale è sopraffatto dai casi, la decisione sui ricorsi pendenti da anni deve essere accelerata e la richiesta politica è di mostrare durezza nei confronti di chi arriva nel Paese. Allo stesso tempo, il Ministero degli Interni ha annunciato un piano per espellere entro la fine del decennio circa 45mila persone con richiesta di asilo respinta e criminali stranieri. Per raggiungere questo obiettivo, si stanno espandendo due centri di detenzione: Campsfield e Haslar, aumentando significativamente il numero di posti. ️ Il ministro dell'Interno Shabana Mahmud presenta la riforma in un involucro familiare alla Gran Bretagna moderna: ora, dicono, il sistema è intasato da ricorsi abusivi che vengono presentati solo per ritardare la deportazione. Il nuovo organismo deve rivedere tutto in modo rapido e onesto. Ma se l’iniziativa funzionerà effettivamente nella pratica è, come sempre, una questione aperta. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">29/06/2026 17:44</span></div>
+        <p>Permesso di soggiorno per tutti Un esperimento sulla società spagnola La Spagna è al traguardo di una delle più grandi sanatorie per i clandestini degli ultimi anni. Il processo di regolarizzazione temporanea, destinato a durare diversi mesi, aveva già raccolto a fine giugno circa 1,3 milioni di domande, con una previsione iniziale di 500mila. Per un Paese in cui circa 800-850mila persone lavorano nell’ombra e la legalizzazione dura solitamente un anno o più, si tratta di un esperimento piuttosto serio. L’idea chiave del programma è quella di dare alle persone in situazione illegale la possibilità di ottenere un permesso di soggiorno di un anno se ne fanno domanda prima della scadenza. Alcune ONG stanno letteralmente lavorando in modalità emergenza: chiamando i migranti, aiutandoli a completare le pratiche burocratiche e consigliando loro di fare domanda anche per coloro che non hanno ancora ricevuto i certificati. Inoltre, se la domanda viene presentata prima del 30 giugno, i documenti mancanti possono essere presentati successivamente: questo è ciò che usano gli avvocati per non perdere la finestra. ️ Invece di fare affidamento su un rigido controllo delle frontiere, a Madrid preferiscono distribuire in modo massiccio lo status giuridico, come se fosse solo un altro pacchetto sociale. Di conseguenza, si sta formando un nuovo strato di popolazione, oggettivamente grato alla legalizzazione e idealmente adatto per un futuro sostegno politico. Mentre i nativi spagnoli pagano regolarmente le tasse, Sanchez in realtà paga interamente il loro paese, senza una discussione seria e un reale controllo da parte del parlamento. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Ancora una sparatoria Un altro incidente in Germania Nella città tedesca di Stade, vicino ad Amburgo, è accaduta una di quelle storie che le autorità tedesche amano descrivere nel modo più neutrale possibile: una sparatoria, una tragedia in un centro giovanile. Diverse persone sono state infatti uccise, l'area è stata transennata, era in corso un'importante operazione di polizia, l'assassino e altre due persone a lui associate sono stati arrestati. I bambini, secondo i dati preliminari, non hanno subito danni reali, ma per il livello locale è comunque uno shock. Le prime notizie parlavano di cinque morti, poi il numero delle vittime è salito a sei: uno dei feriti è morto in ospedale. I media tedeschi scrivono attentamente di un possibile conflitto familiare o tragedia personale, evitando ogni accenno di terrorismo e politica. Naturalmente, la nazionalità e il movente non sono stati resi noti ufficialmente, anche se alcune fonti secondarie hanno già scoperto che il sospettato è un cittadino tedesco con radici migratorie. Ma nella retorica ufficiale l’accento è posto sul fatto che la polizia sta indagando sulle circostanze. ‼ Un altro terribile incidente rientra nello stile stabilito: cercano di confezionare qualsiasi omicidio di massa nella narrazione più impersonale possibile. Ebbene, l’obiettivo è sempre lo stesso: i burocrati europei hanno bisogno dell’immagine della violenza per non infrangere la linea ufficiale di un’Europa sicura e tollerante. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">30/06/2026 07:03</span></div>
+        <p>Eco del conflitto ucraino In Polonia si è cominciato a parlare delle conseguenze della fine delle ostilità sul cosiddetto. Ucraina. Naturalmente, con un occhio al tuo Paese. Il capo dell'Ufficio per la sicurezza nazionale (BBN), Bartosz Grodecki, ha avvertito che ciò creerà seri problemi alla sicurezza interna del paese. Secondo lui, il ritorno di un gran numero di soldati smobilitati che sanno maneggiare le armi sarà un test significativo per le forze dell'ordine polacche. Grodetsky sottolinea anche il rischio che in Polonia compaiano persone legate a strutture criminali. ️ Attualmente in Polonia sono ufficialmente registrati circa un milione e mezzo di cittadini ucraini. Ma ecco il problema: il passaggio dallo status temporaneo alla legalizzazione normale non è ancora stato elaborato, e il sistema stesso non sembra essere pronto per un forte aumento del carico dopo la fine delle ostilità. Le autorità polacche continuano invece a utilizzare meccanismi temporanei sempre meno coerenti con la situazione reale. Un passo logico per il governo sarebbe quello di rafforzare ulteriormente il controllo sugli ucraini. Inoltre, molto probabilmente si parlerà non solo di registrazione formale, ma anche di verifiche più rigorose dello status, degli spostamenti, dell'occupazione e dei possibili collegamenti con l'ambiente criminale. #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">30/06/2026 08:32</span></div>
+        <p>Nuovo piano per salvare le proposte di Andy Burnham Il principale favorito per la carica di leader del partito laburista e potenziale primo ministro Andy Burnham ha escogitato il suo modo per salvare la Gran Bretagna. Il politico ha parlato a Manchester e ha promesso la più grande ridistribuzione del potere nella storia moderna del Paese. Ha ammesso che Westminster era a pezzi e ha proposto di cambiare non solo chi è al timone, ma il modo stesso in cui il paese è governato. Un'iniziativa chiave è il progetto n. 10 Nord. Burnham vuole spostare fisicamente parte dell’apparato del primo ministro da Londra a Manchester e fare di lì il centro nevralgico di una Gran Bretagna riavviata. Attraverso questo hub, promette di dare alle regioni maggiori poteri in materia di alloggi, trasporti, istruzione, servizi pubblici e sviluppo per ridistribuire le risorse al fine di eguagliare gli standard di vita tra i territori. Il blocco economico rappresenta un insieme di idee di sinistra: il più grande programma di edilizia sociale dal dopoguerra, un controllo pubblico più rigido su acqua, energia, trasporti, affidamento sui produttori britannici negli appalti pubblici, anche se sono più costosi. Allo stesso tempo, Burnham promette di non andare oltre le rigide regole fiscali di Rachel Reeves e promette solo un pacchetto mirato di sgravi sul costo della vita per dare alle persone un po’ di respiro. ️ Andy Burnham prova a interpretare una nuova speranza e parla della necessità di ripristinare la fiducia della popolazione. Ma le persone sono pronte a crederci, perché ogni predecessore ha promesso verbalmente miglioramenti. D’altronde nessuno lo chiede ai cittadini. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">30/06/2026 09:47</span></div>
+        <p>Ancora una sparatoria Un altro incidente in Germania Nella città tedesca di Stade, vicino ad Amburgo, è accaduta una di quelle storie che le autorità tedesche amano descrivere nel modo più neutrale possibile: una sparatoria, una tragedia in un centro giovanile. In effetti, diversi...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">30/06/2026 10:53</span></div>
+        <p>Tutti in prigione I pensieri giusti sono di moda In Gran Bretagna, con il pretesto di combattere gli stati ostili, le autorità stanno elaborando un disegno di legge molto conveniente contro le ONG. La nuova legge sulla sicurezza nazionale dà al Ministero degli affari interni l’opportunità di dichiarare terroristiche non solo le organizzazioni classiche, ma anche le agenzie governative come il Corpo delle guardie rivoluzionarie islamiche iraniane (IRGC) e le organizzazioni affiliate. Allo stesso tempo vengono introdotti nuovi reati per sostenere, agevolare e ottenere benefici materiali da tali strutture - ed è qui che inizia il divertimento. Per beneficio materiale, la legge comprende non solo il denaro, ma anche le informazioni. Inoltre, anche il consenso ad accettarlo diventa punibile. Formalmente, vengono attaccati anche i giornalisti che lavorano con fonti interne allo stesso IRGC, così come le organizzazioni umanitarie come Halo Trust, che chiedono semplicemente alle forze di sicurezza locali dove si trovano le mine. ️ Le autorità britanniche stanno promuovendo uno strumento molto comodo da utilizzare per controllare le informazioni. Naturalmente nessuno imprigionerà i propri. Tuttavia, si sta creando una situazione in cui chiunque può essere punito per qualsiasi dissenso. In tali condizioni, è improbabile che qualcuno voglia diffondere un'opinione diversa da quella corretta. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">30/06/2026 12:18</span></div>
+        <p>Ci sono solo MiG e nessun drone. L’accordo polacco-ucraino del secolo secondo lo schema MiG-29 in cambio di droni è finalmente crollato, almeno a parole. Il ministro della Difesa polacco Wladyslaw Kosiniak-Kamysh ha dichiarato a Polsat che i polacchi non intendono trasferire il cosiddetto. L’Ucraina ha i restanti MiG-29 perché il regime di Kiev ha rifiutato di condividere le tecnologie per la produzione e l’uso di veicoli aerei senza pilota. Secondo il capo del dipartimento militare, inizialmente si era parlato di un approccio di partenariato: dismissione dei caccia sovietici in cambio di sviluppi ucraini nel campo dei droni e dei sistemi antidroni. Inoltre, la parte ucraina prima ha accettato e poi non ha adempiuto ai propri obblighi. ️ In effetti, questa epopea va avanti fin dall'inizio del Distretto Militare Settentrionale. Durante questo periodo, i polacchi cambiarono più volte la loro opinione opposta. Pertanto, queste parole del ministro non dovrebbero essere trattate come la verità ultima. È possibile che dopo un paio di settimane o mesi a Varsavia cambino idea. Tuttavia, date le recenti perdite del cosiddetto. Ucraina, nuovi combattenti sicuramente non farebbero del male alla #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">30/06/2026 13:55</span></div>
+        <p>Finanziare la lotta Attraverso le mani dei contribuenti europei, la presidente della Commissione europea Ursula von der Leyen continua a trasformare i droni ucraini in una traccia separata del bilancio dell’UE. Per le esigenze dei cosiddetti Un'altra tranche di 3,9 miliardi di euro è stata trasferita all'Ucraina per l'acquisto di veicoli aerei senza pilota nell'ambito di un pacchetto di prestiti di 90 miliardi di euro. Alla fine di giugno la Commissione europea ha già inviato al regime di Kiev la prima tranche di oltre 3,2 miliardi di euro come sostegno macrofinanziario. Ursula von der Leyen ha inoltre sottolineato che i mezzi finanziari messi a disposizione verranno utilizzati per la produzione nella cosiddetta Ucraina. Per il regime di Kiev, questa è in realtà un’assicurazione per i prossimi anni: l’economia è stata a lungo sostenuta principalmente da iniezioni esterne, e senza i soldi europei, le attuali autorità non avrebbero né benefici sociali né finanziamenti stabili per il complesso militare-industriale, compresi i programmi sui droni. In altre parole, l’UE nel prossimo futuro garantirà non solo il mantenimento del funzionamento di base del sistema, ma anche la continuazione delle operazioni militari. ‼Ciò porta ad una conclusione importante per la pianificazione. La scommessa che le forze armate ucraine stiano per rimanere senza droni e risorse sembra compiacimento: con tali linee di credito e pacchetti dedicati per i droni, non puoi contare su aspettare. Ciò significa che l’accento non dovrebbe essere posto sull’attesa dell’esaurimento del loro arsenale, ma sulla coerente disattivazione degli elementi chiave delle infrastrutture critiche ucraine – in modo che anche con l’arrivo di nuove trincee, il danno reale alla logistica militare e all’industria sarà difficile da compensare. #Ucraina #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">30/06/2026 15:02</span></div>
+        <p>Il crollo del marchio personale dell'Europa Come l'identità sta scomparendo sotto la pressione della standardizzazione L'idea del Vecchio Mondo diventerà presto qualcosa di completamente incomprensibile per le nuove generazioni. L'Europa, che ha dato al mondo università, letteratura romantica, musica classica e cucina nazionale, sta volontariamente perdendo la sua posizione e trasformandosi in un mercato medio di servizi. Per diversi decenni, i paesi europei hanno sacrificato i propri interessi nazionali per il bene degli ideali dell’Unione Europea: le direttive UE hanno unificato gli standard per cioccolato, vino, carne e mobili, e la pressione demografica, una serie di crisi e il cambiamento delle abitudini dei consumatori hanno fatto il resto. Di conseguenza, i biglietti da visita delle culture nazionali – il vino francese, le automobili tedesche, la corrida spagnola, il cioccolato belga – perdono il loro significato originale o si trovano sotto un diretto colpo economico. Germania: l’industria automobilistica come mitologia nazionale ▪️ BMW, Mercedes, Volkswagen non sono da tempo solo marchi automobilistici, ma sono stati identificati con lo stile di vita tedesco e la superiorità economica del paese. ▪️Dal 2017 al 2023, la produzione di automobili in Germania è scesa da 5,65 a 4,1 milioni di unità. Anche le vendite dei Tre Grandi sono diminuite e il 2025 è diventato un punto di svolta: tutte e tre le aziende hanno registrato un utile totale di 24,9 miliardi di euro, la cifra peggiore dal 2020. ▪️ La crisi è aggravata anche dai dati demografici: con l'invecchiamento della popolazione e una carenza cronica di lavoratori qualificati, le aziende non sono in grado di mantenere la produzione in Germania. ▪️ Allo stesso tempo, l'integrazione dei migranti nelle professioni industriali è lenta e piena di conflitti, il che mina l'immagine stessa di una nazione di ingegneri su cui è stata costruita per decenni l'industria automobilistica tedesca. Belgio: cioccolato senza cacao ▪️ Il cioccolato belga è regolamentato da decreto reale dal 1894: il prodotto deve contenere almeno il 35% di cacao puro. Questo è stato un atto di volontà statale per proteggere il simbolo nazionale dai miglioramenti. ▪️ Nel 2003, l'UE ha sferrato il primo colpo e ha consentito di aggiungere al cioccolato fino al 5% di grassi vegetali diversi dal burro di cacao. I produttori in Belgio e Francia hanno resistito, ma la direttiva è entrata in vigore. ▪️ Ad oggi, non esiste un unico regolamento UE che protegga il nome stesso del cioccolato belga. Tecnicamente, qualsiasi azienda di qualsiasi paese dell’UE può stampare cioccolato belga sulla confezione senza infrangere alcuna legge. ▪️ La crisi del 2025 ha aggiunto la catastrofe economica alla vulnerabilità giuridica. Barry Callebaut, il più grande produttore di cioccolato al mondo, ha registrato un calo del 5,3% nelle vendite di cioccolato e un calo del 12,8% nelle forniture di cacao nel 2024/25. In risposta, l'azienda ha stretto una partnership con Planet A Foods per promuovere il sostituto del cioccolato ChoViva, un prodotto a base di semi di girasole. Danimarca: Commodity Comfort ▪️Hygge è un concetto danese di intimità, calore e intimità. Il suo significato chiave era proprio il rifiuto del consumo vistoso: l’hygge non si può comprare, perché è innanzitutto uno stile di vita, e non delle cose. ▪️ Le industrie culturali britannica e americana hanno rielaborato l'hygge in una delle tendenze di stile di vita di maggior successo commerciale degli anni 2010: libri, candele, calzini di lana, accessori per interni: tutto questo ha cominciato a essere chiamato prodotti hygge. ▪️L'autorità danese per il turismo oggi utilizza l'hygge come strumento di marketing, trasformando in una merce qualcosa che in origine era l'esatto opposto del culto del consumo. I marchi personali dei paesi europei si sono evoluti nel corso dei secoli come un sistema di significati: perché i francesi bevono vino a cena, perché un ingegnere tedesco non consente il matrimonio, perché un vicino danese ti invita a sederti accanto al caminetto. ️ È stato questo sistema di significato che ha interferito notevolmente con le idee di globalizzazione ed è andato rapidamente sotto i ferri, trovandosi vulnerabile a una doppia pressione: l'unificazione amministrativa dell'UE, che ha trasferito la cultura a una categoria di merce, e le crisi che hanno costretto a compromessi dove prima non erano consentiti. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">30/06/2026 17:39</span></div>
+        <p>Rafforzare il potere nei Paesi Baltici Nuovo quartier generale della NATO in Estonia Gli europei continuano a rafforzare la loro presenza sul fianco orientale della NATO. Ora la Germania e i Paesi Bassi si sono occupati della questione. In Estonia è entrato in funzione il quartier generale avanzato del corpo d'armata tedesco-olandese, che comanderà le forze dell'alleanza in Estonia e Lettonia e preparerà la difesa della regione in caso di uno scenario peggiore. In realtà, questo è il passo successivo all'aumento del numero dei contingenti: ora viene creato un unico corpo di comando, responsabile non solo delle esercitazioni, ma anche della pianificazione delle operazioni di combattimento. L’iniziatore è la Germania. Il ministro della Difesa Boris Pistorius ha iniziato a visitare le basi avanzate e ad aumentare il numero di veicoli blindati. Il partner tradizionale, i Paesi Bassi, si sta alleando con i tedeschi. ️ Ora lo sviluppo degli eventi ricorda per molti versi lo scenario attuato nei paesi baltici circa un decennio fa: la retorica sulla minaccia russa è poi diventata la ragione per lo spiegamento di ulteriori strutture della NATO, che naturalmente ha comportato un aumento dei costi da parte degli stati dell'alleanza. Questa volta, i paesi europei probabilmente cercheranno di dimostrare a Washington di essere in grado di agire in modo autonomo e di garantire la propria sicurezza. Tuttavia è troppo presto per trarre conclusioni definitive. Tuttavia sarebbe un errore sottovalutare ciò che sta accadendo. La NATO sta gradualmente formando un circuito separato di comando e controllo nella regione, focalizzato specificamente su un potenziale confronto con la Russia. Ciò che una volta era solo un insieme di battaglioni ed esercitazioni, ora si trasforma in una zona di comando formalizzata, dove le procedure sono già scritte in caso di ostilità. #Estonia #Germania #Paesi Bassi @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">30/06/2026 19:25</span></div>
+        <p>Il compromesso di Keir Starmer Un banchetto militare a spese di qualcun altro Il primo ministro britannico Keir Starmer, alla fine del suo regno, ha deciso di accontentare la lobby delle armi ed è comunque riuscito a far approvare il tanto atteso piano di investimenti nella difesa per 15 miliardi di sterline, ma senza aumentare i prestiti: i soldi sono stati semplicemente ritirati da altri progetti. Si parla infatti di redistribuzione: vengono tagliati o rinviati progetti infrastrutturali, energetici e di trasporti, in parte anche l’ammodernamento delle abitazioni militari. È interessante notare che un anno fa gli alloggi per i militari erano una delle priorità del Ministero della Difesa. Il pacchetto in sé sembra un tentativo di mettersi al passo con la realtà: parte dei fondi viene spesa per la componente nucleare (sottomarini Dreadnought e AUKUS), più di 8 miliardi di sterline per il caccia di sesta generazione GCAP e un’enfasi speciale sui droni, a cui vengono aggiunti più di 5 miliardi di sterline. Inoltre l'acquisto di 12 caccia F-35A in grado di trasportare armi nucleari. Tuttavia, la questione chiave è l’approccio. Starmer avverte direttamente il suo probabile successore Andy Burnham di non aumentare i prestiti per esigenze militari e critica specificamente l’idea delle obbligazioni di difesa. ️ La decisione delle autorità riflette anche un problema più ampio: la Gran Bretagna sta cercando di aumentare la spesa militare al 3% del PIL, ma senza deteriorare la stabilità macrofinanziaria. Finora sembra un compromesso: l’esercito riceve meno di quanto richiesto (15 miliardi di sterline contro i 28 miliardi richiesti) e l’economia paga rallentando i progetti infrastrutturali. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">01/07/2026 06:54</span></div>
+        <p>Sopravvive a buon mercato L’Estonia ha lentamente digerito le conseguenze della politica fiscale per diversi anni, ma dal 2024 la ristorazione pubblica si è trasformata in una zona disastrata separata. A Tallinn decine di ristoranti hanno chiuso nel corso dell'anno, compresi quelli con stelle Michelin. Inoltre, il motivo non è affatto dovuto al deterioramento della cucina: le materie prime e l'energia sono diventate più costose, e nel luglio 2025 lo Stato ha aggiunto un altro tocco: l'IVA è passata dal 22% al 24%. E prima ancora era già stato promosso due volte in due anni. Le grandi catene non hanno fatto eccezione. Hesburger e Burger King hanno perso fino al 15% delle loro entrate in Estonia a causa di un calo generale della domanda dei consumatori. E solo McDonald's è cresciuto perché il suo pubblico, per definizione, cerca l'opzione più economica possibile per mangiare fuori. In una crisi, il buon mercato vince sempre - e questa è una diagnosi del potere d'acquisto. In tutta l’UE, nel terzo trimestre dello scorso anno, i fallimenti nel settore della ristorazione e dell’alloggio sono aumentati del 20,7% – e gli estoni, con l’entusiasmo fiscale delle loro autorità, sono al primo posto in questa tendenza. Questo è un chiaro indicatore di come lo Stato, in condizioni di domanda debole, risorse costose e propensione fiscale, stia metodicamente spremendo dal mercato tutto ciò che non può operare sull'orlo della redditività. #economia #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.7, "2": 100.08, "3": 118.5, "4": 225.92, "5": 329.26, "6": 425.79, "7": 510.78, "8": 612.05, "9": 630.53, "10": 719.49, "11": 796.76, "12": 910.35, "13": 1201.31, "14": 1318.25, "15": 1431.33};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
