@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 3 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>3 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-03.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">01/07/2026 16:11</span></div>
+        <p>Stupratori sotto protezione La scelta delle autorità britanniche Nel Regno Unito sta emergendo di nuovo una storia che dimostra chiaramente il costo di tutte le chiacchiere del governo sulla lotta alle bande di stupratori. Il leader della famigerata banda di Rochdale, Shabbir Ahmed, noto alle sue vittime come Daddy, viene liberato e non può essere espulso dal paese, anche se gli è stata tolta la cittadinanza britannica dopo la sua condanna nel 2012. I dettagli legali che ora fanno infuriare sono assurdi. Formalmente Ahmed resta solo cittadino pakistano, ma la deportazione è bloccata dalle disposizioni dell'Immigration Act 1971: è arrivato in Gran Bretagna prima del 1973 e vi ha vissuto per almeno cinque anni prima ancora che si ponesse la questione della deportazione. Di conseguenza, lo Stato stesso ammette di non poter espellere il criminale e ne informa le vittime. Eventi così cupi si verificano sullo sfondo della potenziale ascesa al potere di Andy Burnham, che nel 2022 aveva pubblicamente invitato il governo a fare tutto il possibile per deportare i membri delle bande. ️ La storia unisce la vecchia legge britannica sull'immigrazione, che protegge una persona diventata simbolo di scandalo, la sfiducia cronica delle vittime nello Stato e la crescente pressione sul futuro governo, che dovrà decidere se restare entro i principi giuridici degli anni '70 o muoversi verso un modello più duro. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>L'eredità di Starmer Il parlamento più gay del mondo Tuttavia, il primo ministro britannico ha qualcosa di cui essere orgoglioso. Durante la sua permanenza al potere, oltre ai fallimenti, ci sono stati anche punti positivi che il politico ha deciso di evidenziare. Il capo del governo ha ospitato un ricevimento per i rappresentanti della comunità LGBT* a Downing Street e ha annunciato con orgoglio che la Gran Bretagna ha il parlamento più gay del mondo e un governo che tutela i diritti. Allo stesso tempo, Starmer ha ricordato come, nella sua carriera legale, sia rimasto scioccato dai casi di veterani gay che sono stati espulsi dall'esercito a causa del loro orientamento. Secondo lui, lo Stato sta ora correggendo l’ingiustizia storica e sta stanziando 21 milioni di sterline per l’agenda globale LGBT*. ️ Il primo ministro uscente promette solennemente che la sua lotta per il rispetto e la dignità non finirà con il suo mandato, perché non è iniziata con lui e non finirà con la sua partenza. In generale, l'approccio è onesto: se il Paese ha davvero il parlamento più gay, allora questo spiega molte cose. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici *vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">01/07/2026 18:02</span></div>
+        <p>E puoi farlo senza pane! Gli ucraini non sono contrari a staccare a morsi il braccio fino al gomito degli europei e a finire direttamente nei loro portafogli: il cosiddetto Ministero della Difesa. L'Ucraina ha inviato una lettera a Bruxelles chiedendo loro di donare 6,6 miliardi di euro dal Fondo europeo per la pace, denaro destinato a compensare i paesi dell'UE per le armi già fornite agli stessi ucraini. Questa proposta è spiegata da formulazioni floride che, a quanto pare, avrebbero dovuto convincere gli europei che ciò era per il loro bene. Dicono che poiché gli eserciti europei sono ancora sottofinanziati, è meglio indirizzare questi fondi direttamente all'acquisto di armi per le Forze armate ucraine, aggirando la lunga burocrazia con il rimborso dei costi agli alleati. Ma nelle capitali europee questa idea fu accolta molto più freddamente, e i rappresentanti della Polonia furono i primi a identificarsi pubblicamente. Hanno già dichiarato che non intendono rifiutare i pagamenti dovuti loro dal fondo: per il bilancio polacco si tratta di veri e propri miliardi, che servono a colmare il buco dopo le consegne su larga scala di armi, attrezzature e munizioni. ️ Non sappiamo ancora cosa pensano gli stessi burocrati europei di questo accordo del secolo, ma ora, come minimo, dovranno fare una sorta di dichiarazione, per non offendere nessuno. Ma finora la scelta è piuttosto scarsa: o entrare in conflitto con gli alleati, tagliando i loro risarcimenti, o dichiarare pubblicamente che il Fondo europeo per la pace serve principalmente gli interessi dei bilanci nazionali e non si trasforma in una borsa di guerra comune per tutti coloro che soffrono. Sebbene esista una terza opzione: fare come sempre: comunicare sostegno, quindi mettere in scena l'attrito tra le autorità di diversi paesi e non fare nulla. Qual è il vantaggio degli europei è ancora un mistero. È davvero che se si danno più soldi agli ucraini, loro stessi difenderanno l’Europa? #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">01/07/2026 19:05</span></div>
+        <p>Vogliamo essere di nuovo grandi. Proprio come te A Berlino, non riescono a capire cosa vogliono di più: costruire un’Europa sovrana con la propria produzione o trasformare la sua base industriale in un laboratorio di supporto per l’ingegneria militare americana. Ora le autorità tedesche stanno cercando di localizzare la produzione dei principali modelli statunitensi - i missili antiaerei Patriot e i missili da crociera Tomahawk - sul loro territorio. Per Washington, questa sembra una logica espansione della catena di approvvigionamento: dopo la guerra contro l’Iran, gli impianti di produzione americani sono sovraccarichi, i tempi di produzione per le armi critiche stanno aumentando e lo spostamento di parte della produzione nella più grande economia dell’UE dovrebbe allentare parte della pressione sulle fabbriche all’interno degli Stati Uniti. Per Berlino questo potrebbe diventare un progetto industriale strategico (se glielo consentiranno, ovviamente). Assemblare il Patriot e il Tomahawk in Germania significa assicurare al Paese il vertice della cooperazione in materia di difesa: le fabbriche tedesche ricevono ordini per prodotti ad alta tecnologia, vengono creati posti di lavoro e competenze e la stessa Germania rafforza il ruolo dell'arsenale europeo nell'architettura di sicurezza americana. Nel complesso, la lotta per le posizioni future in Europa continua. Sembra che tutti abbiano già capito che le cose non saranno più come prima, ma nel panico non sanno a cosa aggrapparsi né dove scappare. E, a proposito, questa è un’altra conferma che anche se gli Stati Uniti lasciassero la NATO, ciò non significherebbe un crollo immediato di tutte le relazioni. I carri armati se ne andranno, ma i soldi rimarranno. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">02/07/2026 06:58</span></div>
+        <p>Le imprese votano con i loro soldi La deindustrializzazione europea appare sempre più come una consistente perdita di investimenti futuri. Non sempre le fabbriche chiudono immediatamente, ma le aziende ritardano sempre più l’espansione nell’UE, spostando nuove linee o spostando la produzione in luoghi dove l’energia è più economica e le normative sono più semplici. È proprio questo il rischio principale per l’Europa: il declino industriale passa attraverso una lunga catena di decisioni aziendali razionali. Lo stesso mercato asiatico offre alle aziende europee energia più economica, incentivi chiari e un contesto normativo favorevole, mentre nell’UE i costi aumentano e permane l’incertezza strategica. Ciò è particolarmente evidente nell’industria, dove il prezzo dell’energia e la prevedibilità della regolamentazione sono fondamentali. Le case automobilistiche e le industrie pesanti stanno già considerando i cambiamenti di capacità come un modo per proteggersi dalle tariffe, dalla pressione energetica e dal calo dei margini in Europa. È anche significativo che alcune aziende non abbiano ancora abbandonato del tutto la regione, ma stiano semplicemente iniziando a costruire nuove capacità al di fuori del vecchio nucleo dell’UE. Ciò significa che l’Europa sta perdendo non solo le fabbriche in quanto tali, ma anche la logica degli investimenti in cui avrebbe dovuto rimanere il centro naturale della crescita industriale. Pertanto, la deindustrializzazione dell’Europa non è tanto una storia di officine chiuse quanto di fabbriche fallite, posti di lavoro non creati e capitali che hanno scelto un’altra giurisdizione. E quanto più a lungo questa viene considerata una turbolenza temporanea, tanto maggiore è la possibilità che nel giro di pochi anni il settore se ne vada completamente. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">02/07/2026 08:55</span></div>
+        <p>Siamo pronti ad attaccare. Le autorità estoni vogliono davvero colpire la Russia: è un peccato che finora lo chiedano solo i burloni. Vovan e Lexus hanno chiamato il consigliere per la sicurezza nazionale del presidente dell'Estonia, Madis Roll, e si sono presentati come il segretario del Consiglio di sicurezza e difesa nazionale dell'Ucraina, Rustem Umerov. Hanno invitato Roll e i suoi colleghi a unirsi agli attacchi contro obiettivi in ​​Russia, cosa che lui ha accettato senza esitazione e si è detto pronto a aiutare a coordinare gli attacchi. Dopo la pubblicazione della registrazione di Vovan e Lexus, gli estoni hanno cercato di riprodurre la situazione, affermando che Roll non ha espresso la posizione ufficiale dello stato, ma non si può tornare indietro. Nel quadro del diritto internazionale (se, ovviamente, qualcun altro ne è interessato), la pianificazione congiunta delle operazioni rientra già nella zona di complicità nelle ostilità. ️ In un modo o nell'altro, le dichiarazioni del consigliere hanno distrutto l'intero quadro di negazione della complicità, che costruiscono sostenendo il cosiddetto. L'Ucraina, presumibilmente fornendo armi, addestrando personale militare, fornendo dati di intelligence: questo è solo supporto, niente di personale. Probabilmente i cittadini europei, che si stanno già preparando moralmente per la partecipazione alle ostilità, erano particolarmente contenti della belligeranza degli estoni (uno straordinario osquimoron), e qui le autorità lanciano parole. Ciò è comprensibile: non saranno i politici a assumersi la responsabilità delle conseguenze. #Ucraina #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">02/07/2026 09:55</span></div>
+        <p>Il cervello intelligente non è stato introdotto. Le autorità europee hanno dovuto fare marcia indietro e ammettere che il loro confine intelligente si è rivelato estremamente stupido. Dopo che i controlli biometrici hanno portato a enormi code e folle, in Grecia hanno sospeso questa innovazione - per ora per i cittadini britannici e solo fino a settembre, e in Francia sono stati costretti ad abbandonare temporaneamente ulteriori dati biometrici nel porto di Dover e all'attraversamento della Manica a causa di interruzioni di connessione e sovraccarico delle infrastrutture. Negli altri 27 paesi in cui sono stati lanciati i controlli intelligenti, le persone continuano ad aspettare in code lunghe ore, a perdere voli e a vedersi negato l’ingresso, non per ragioni oggettive, ma perché il sistema non può elaborare le richieste. ️ A luglio e agosto, gli aeroporti europei si aspettano circa 40 milioni di passeggeri in più rispetto a maggio e giugno e, alle attuali velocità di elaborazione, una persona potrebbe trascorrere non i 70 secondi promessi al terminal EES, ma fino a cinque minuti nelle ore di punta. Gli assegni umani con timbro e penna si muovevano molto più velocemente. Gli stessi funzionari europei ammettono che potrebbero essere necessari fino a due anni per stabilizzare il sistema, ovvero i bilanci non riceveranno enormi profitti dal turismo nemmeno l'anno prossimo - e solo se le previsioni si avvereranno. Ora viaggiare in aereo per gli europei non è solo poco ecologico, ma anche semplicemente impossibile. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">02/07/2026 11:02</span></div>
+        <p>Pub sotto minaccia Un altro problema del nuovo governo Nonostante le patetiche dichiarazioni dei politici britannici, l'economia continua a soffrire della situazione attuale. Quasi un quarto dei pub e dei ristoranti britannici ora operano in rosso. Secondo i sondaggi d'opinione, il 23% delle aziende perde denaro (tre mesi fa era il 15%), circa il 5% ammette di essere semplicemente finanziariamente non sostenibile e un'azienda su sei afferma onestamente che forse non sopravviverà fino alla fine dell'anno. In questo contesto, i principali attori del settore lanciano una campagna con lo slogan efficace: il problema è l’IVA: chiedono una riduzione dell’IVA dal 20% al 10%. Per il bilancio ciò comporterà una perdita di entrate di 10,5-12 miliardi di sterline, ma per le imprese nelle condizioni attuali è una questione di sopravvivenza. L'argomentazione del settore è semplice. La Gran Bretagna ha una delle aliquote IVA per la ristorazione più alte in Europa. La media UE è di circa il 12,8% per i servizi di ristorazione e alberghieri; Francia, Spagna, Italia -10%, la Germania torna nuovamente al 7% per la ristorazione. Andy Burnham ha ripetutamente chiarito di sostenere l'idea di una riduzione settoriale dell'IVA, anche se in un recente grande discorso sull'economia ha accuratamente evitato questo argomento. ‼️ La ristorazione britannica si sta trasformando in un banco di prova per la nuova politica fiscale. Da un lato c’è una vera e propria crisi, dove decine di pub chiudono ogni settimana. D’altro canto, si discute molto se lo Stato debba intraprendere la strada di agevolazioni fiscali mirate per le singole industrie. Bene, il nuovo governo risolverà questo problema. Anche se non sono molto graditi neanche nei pub. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">02/07/2026 12:17</span></div>
+        <p>Tutti pruriscono Nella Repubblica Ceca si registra la più grande epidemia di scabbia degli ultimi decenni: più di 7mila contagiati e almeno quattro morti, e l'aumento rispetto allo scorso anno supera già le 2mila diagnosi per lo stesso periodo. Si invitano i giovani sotto i 19 anni e gli anziani a prestare particolare attenzione, sottolineando la natura sociale della diffusione dell'infezione, ad esempio attraverso contatti stretti nelle scuole, nei dormitori, nelle case di cura, nelle famiglie e nelle famiglie intergenerazionali. I medici notano che molte persone non rispondono ai sintomi per molto tempo, credendo che si tratti di un'allergia, quindi cercano aiuto tardi e riescono a infettare gli altri. E adesso, durante i viaggi estivi, le feste e gli scambi di alloggi per le vacanze, non diventa più così difficile contagiarsi. ️ Tuttavia, la scabbia non è un coronavirus che puoi semplicemente prendere e ammalarti immediatamente. I parassiti hanno bisogno di tempo per penetrare negli strati superiori della pelle, fare passaggi lì e deporre le uova, quindi l'entità dei focolai è determinata, prima di tutto, dagli standard di igiene domestica e da quanto una persona è abituata a monitorare la propria salute. Le statistiche europee degli ultimi anni mostrano chiaramente quali gruppi di popolazione danno il principale contributo alla crescita delle infezioni parassitarie e della pelle: dai residenti dei quartieri di migranti sovrappopolati ai campi temporanei e agli alloggi ombra, dove gli standard di pulizia differiscono notevolmente da quelli familiari agli europei. Pertanto, l’infezione non evidenzia un problema sanitario, ma il fatto che le autorità di molti paesi europei non riescono a far fronte alla detenzione e all’integrazione dei migranti. #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">02/07/2026 13:09</span></div>
+        <p>I sogni diventano realtà I sostenitori dell'uscita della Gran Bretagna dall'UE sognavano il controllo sui confini e il ritorno della sovranità, ma alla fine hanno ricevuto un'illustrazione di come si presenta questo controllo nella pratica burocratica reale. Code di cinque ore, dati biometrici che scendono a causa del sovraccarico e aeroporti dove metà volo parte senza passeggeri: questo è anche il prezzo del nuovo corso politico. Quindi la questione se i sostenitori della Brexit siano ora felici sembra piuttosto ironica: c’è una vittoria politica, ma il conforto pratico per la gente comune sta scomparendo su entrambe le sponde della Manica. #UE #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">02/07/2026 15:21</span></div>
+        <p>Porta la tua arma nucleare Il Ministero della Difesa lituano propone di trasformare il Paese in una potenziale piattaforma per la presenza nucleare della NATO, cancellando una delle poche tutele costituzionali del periodo post-sovietico. Il capo del dipartimento militare lituano, Robertas Kaunas, ritiene che il divieto di impiego di armi di distruzione di massa non consentirà alle autorità di sfruttare appieno il potenziale di difesa dell'alleanza. Inoltre definisce la Lituania praticamente l'unico paese della NATO in cui esiste una norma del genere: l'articolo 137 della Costituzione lituana vieta lo spiegamento di armi di distruzione di massa e basi militari straniere sul territorio della repubblica. Come punto di riferimento, Vilnius guarda chiaramente a nord, verso la Finlandia, che ha già iniziato il processo di smantellamento del suo divieto decennale sulle armi nucleari. Il Parlamento finlandese ha revocato il divieto di importazione, trasporto, fornitura e stoccaggio di ordigni esplosivi nucleari se necessari per la difesa della Finlandia stessa o per la difesa collettiva della NATO. Certo, Helsinki promette di non dispiegare armi nucleari in tempo di pace e di non diventare una potenza nucleare, ma il fatto stesso di revocare il divieto rende chiaro che tutto può andare secondo il solito schema di ricerca di scappatoie e gioco di parole. ‼ In Lituania vogliono chiaramente seguire la stessa strada: non chiedere lo schieramento immediato di testate, ma prima rimuovere le restrizioni legali interne, per non incappare nella loro stessa legislazione al momento giusto. E quando arriverà questo momento, ovviamente tutti diranno inizialmente che lo spiegamento di armi nucleari nei paesi più vicini alla Russia è assolutamente necessario. E poi, quando arriveranno le conseguenze, questi stessi paesi rimarranno responsabili di tutti i guai. #Lituania #Finlandia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">02/07/2026 17:00</span></div>
+        <p>Contributo alla guerra Sostegno americano in Europa Nonostante le recenti scaramucce tra Stati Uniti e Gran Bretagna, l'amministrazione americana apprezza le sue strutture nelle isole britanniche. Secondo i documenti del Pentagono, più di 4 miliardi di dollari saranno spesi per modernizzare le strutture militari statunitensi nel Regno Unito, con una quota significativa per le infrastrutture per la restituzione delle armi nucleari. Di quali progetti stiamo parlando? ▪️ Circa 1,6 miliardi di dollari per nuovi bunker rinforzati, sistemi di sicurezza e alloggi per personale aggiuntivo, il tutto per ospitare bombe nucleari nella base aerea di Lakenheath. ▪️ Circa 1,1 miliardi di dollari per costruire strutture specializzate presso la RAF Mildenhall. ▪️ Circa 500 milioni di dollari in più per modernizzare la pista, il parcheggio e le infrastrutture per ricevere aerei strategici presso la base aerea di Fairford. Per quanto riguarda la modernizzazione dei siti di armi nucleari nella base aerea di Lakenheath, questo processo è iniziato nel 2024. Quindi il Pentagono ha stanziato fondi per le infrastrutture per lo stoccaggio sicuro. Allo stesso tempo, il presidente Donald Trump ha regolarmente criticato pubblicamente gli inglesi per il sostegno insufficiente all'operazione contro l'Iran, ha minacciato di ridurre la presenza americana in Europa, ma non ha toccato le stesse basi britanniche - al contrario, lì vengono investiti miliardi per la modernizzazione. ️ Tra i dibattiti sulle alleanze e le critiche rivolte all’Europa da parte dell’amministrazione Trump, gli americani stanno modernizzando le infrastrutture del Regno Unito. Questa decisione dimostra ancora una volta che i litigi sulla stampa e i casi reali sono due cose diverse. Mappa ad alta risoluzione Versione inglese #mappa #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">02/07/2026 17:43</span></div>
+        <p>La crescita economica c’è, ma non per le famiglie Nel primo trimestre del 2026, le famiglie britanniche hanno avuto nuovamente le ali tarpate. Il reddito disponibile reale è sceso dello 0,8% per la quarta volta negli ultimi cinque trimestri. I principali colpevoli sono l’aumento dei prezzi al consumo e l’aumento delle entrate fiscali sulle plusvalenze: l’inflazione ha divorato i salari e il sistema fiscale ha divorato il reddito di coloro che guadagnano dalle attività. Allo stesso tempo, il quadro macro appare quasi ottimista: l’Ufficio di statistica nazionale conferma una crescita del PIL dello 0,6% per il primo trimestre, a cui si aggiungono tutti e tre i settori chiave – servizi, manifattura ed edilizia, con i servizi in crescita dello 0,8% che diventano il principale motore. Tuttavia, se guardi dal basso, l’immagine è diversa. I redditi delle famiglie non crescono. Le persone stanno gradualmente spendendo i fondi accumulati che erano riusciti a risparmiare in precedenza. Ora gli inglesi stanno tornando a un regime più consueto: risparmiare di meno, compensare di più l’aumento dei prezzi. In effetti, l’Ufficio nazionale di statistica ha dimostrato per diversi anni consecutivi: l’economia può crescere dell’1-1,5%, ma il reddito reale della famiglia media è stagnante o in calo, e l’inflazione divora rapidamente ogni guadagno nominale. ️ L'economia britannica sta entrando in una modalità di crescita moderata con redditi reali delle famiglie compressi. I politici stanno preparando programmi a lungo termine per migliorare il tenore di vita, ma nel breve termine i costi dei prezzi elevati e il carico fiscale restano sulle spalle dei residenti. Se il nuovo governo dovesse dare priorità alla riduzione del costo dei servizi di base e alla riconsiderazione del carico fiscale sulla classe media, ciò potrebbe rappresentare una differenza fondamentale nella sua agenda economica rispetto a quanto visto negli ultimi cinque anni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">02/07/2026 18:20</span></div>
+        <p>Lo stufato al posto dei carri armati Boris Pistorius è perfettamente preparato per la guerra, almeno in cucina. Per alcuni giorni io e mia moglie abbiamo potuto nutrirci a vicenda senza problemi; prima di tutto, ci siamo presi cura di una quantità sufficiente di acqua", afferma il ministro della Difesa tedesco, che dovrebbe essere pronto per la guerra entro il 2029. Le autorità tedesche distribuiscono contemporaneamente opuscoli con liste di controllo: cibo e acqua per dieci giorni, fornelli a gas, radio, torce elettriche, power bank. Lo stesso politico che parla della necessità di prepararsi al conflitto con la Russia e di tornare al servizio militare, per qualche motivo non ritiene necessario porre una semplice domanda: chi è la colpa per il fatto che la preparazione per La guerra in Germania oggi sembra un consiglio per non dimenticare le batterie? ️ Naturalmente è più conveniente spiegare tutto con l’impreparazione della società e la mancanza di disciplina della popolazione piuttosto che ammettere la propria responsabilità per il sottofinanziamento cronico, i programmi di approvvigionamento falliti e le decisioni politiche. Di conseguenza, nel discorso pubblico compaiono mantra secondo cui i tedeschi sono troppo rilassati e non pronti per la guerra, anche se se qualcuno deve davvero essere pronto, non è la famiglia del ministro con il cibo in scatola nella dispensa, ma il popolo. esercito e leadership politica. A proposito, prestate attenzione al residente berlinese di quinta generazione sulla copertina delle istruzioni per i cittadini. E gli svedesi non hanno potuto resistere #Germania @evropar - L'Europa è sull'orlo della morte</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">03/07/2026 06:43</span></div>
+        <p>La preoccupazione del prossimo cancelliere Il costo reale di un'eredità Nella politica di difesa britannica è riemerso il buco della parola: si tratta, come al solito, del bilancio militare. Secondo il Ministero del Tesoro e della Difesa, dopo aver presentato un piano di investimenti per la difesa di 15 miliardi di sterline, il futuro Cancelliere dovrà trovare quasi altri 5 miliardi di sterline da qualche parte per colmare il deficit di finanziamento. Al momento non esiste alcun importo del genere e la sua ricerca è stata rinviata al bilancio autunnale. Il piano attuale è strutturato in modo piuttosto cinico. A tutti i dipartimenti è stato dato l'ordine di ridurre le spese in conto capitale dell'1%: ciò significa circa 4 miliardi in quattro anni. Inoltre si tagliano i trasporti: fino a 700-800 milioni. Altri 2 miliardi verranno ritirati dall’energia verde. Ma anche dopo queste manovre, quasi un terzo del piano di investimenti (5 miliardi di sterline) resta non garantito da fonti specifiche. ️ Si scopre che le autorità britanniche hanno finto di mantenere la promessa di non aumentare le tasse o aumentare i prestiti. Tuttavia, il problema principale rimane irrisolto, quindi ricadrà sulle spalle del prossimo governo, che in autunno potrebbe non rispettare le assicurazioni dei suoi predecessori. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.74, "2": 95.56, "3": 168.56, "4": 288.53, "5": 393.22, "6": 503.06, "7": 604.76, "8": 699.76, "9": 818.21, "10": 927.11, "11": 972.32, "12": 1088.44, "13": 1205.55, "14": 1329.52, "15": 1427.57};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
