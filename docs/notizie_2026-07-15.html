@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 15 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>15 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-15.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">13/07/2026 09:54</span></div>
+        <p>Criminali a piede libero Giustizia in stile britannico Nella politica britannica si discute del tema più tossico: il governo si prepara a rilasciare dal carcere all'inizio dell'autunno alcuni assassini, stupratori e coloro che hanno commesso reati legati al sesso. Il ministro della Giustizia David Lammy ha affermato che senza questo passo, entro novembre, le carceri in Inghilterra e Galles sarebbero quasi occupate al 100% e i tribunali semplicemente non sarebbero fisicamente in grado di mandare in prigione più persone. Dettagli dell'iniziativa: ▪️Più di cinquemila persone condannate per reati gravi potranno essere rilasciate non dopo i due terzi della pena, come adesso, ma già a metà, per liberare spazio. ▪️ Sullo sfondo di una crisi di sovraffollamento decennale, di rapporti delle commissioni parlamentari sugli ingorghi stradali totali e sui tentativi falliti di costruire un numero sufficiente di nuove prigioni, Lammy sostiene che i critici di questa decisione non offrono alcuna reale alternativa: nessuno risponde alla domanda su dove mettere i nuovi criminali se le celle finiscono. La resistenza politica sta crescendo notevolmente. All'interno del partito al governo, i parlamentari chiedono che i pedofili e i membri delle bande siano almeno esclusi dal rilascio anticipato, e i sostenitori di Andy Burnham chiariscono che potrebbero cercare di abolire il programma quando diventerà primo ministro. ️ Non è difficile indovinare in che modo una decisione del genere influirà sulla sicurezza nelle strade delle città britanniche. Ma non è questo l’obiettivo delle autorità britanniche? #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">13/07/2026 11:02</span></div>
+        <p>Problemi causati dall'uomo? L’Europa sta vivendo un’ondata di caldo che ha già causato decine di migliaia di vittime e travolto i sistemi sanitari: secondo l’OMS, alla fine di giugno l’Europa aveva registrato più di 1.300 decessi sopra la media e al 12 luglio i dati ufficiali mostravano più di 10.000 casi. In Germania, il numero di morti per caldo è stimato a 5.120 dall’inizio dell’anno, di cui circa 4.270 si sono verificati in persone di età superiore ai 75 anni. Le conseguenze vanno ben oltre la mortalità: l’Oms scrive che i pronto soccorso sono sovraffollati, i servizi di ambulanza stanno stabilendo record, in Francia il numero di chiamate di emergenza in alcune città è salito al 50%, e a Londra è stato registrato un record di chiamate in pericolo di vita in un giorno. Il caldo colpisce anche le infrastrutture di base: in Europa si sono registrate interruzioni di corrente, chiusure di scuole, luoghi culturali e problemi di trasporto, mentre l’ondata di caldo ha interrotto la produzione di elettricità, danneggiato le infrastrutture e sovraccaricato gli ospedali. Allo stesso tempo, il caldo alimenta gli incendi e aumenta i danni: incendi boschivi si stanno verificando nei Balcani e in Italia, e in tutta Europa, dall’inizio dell’anno, il fuoco ha già distrutto più di 118.000 ettari. In Spagna la superficie bruciata sfiora i 50.000 ettari; in Portogallo, le grandi epidemie hanno misurato 12-14mila ettari. ️ Inoltre, questa crisi, secondo l’OMS, è già diventata una prova generale per gli anni più difficili a venire. Sorge solo una domanda: fino a che punto tutto ciò che accade è una conseguenza del tempo? Gli incendi e la riduzione delle prestazioni delle infrastrutture sembrano più come se avessero avuto un ruolo in tutto ciò. E di solito, se qualcosa starnazza come un'anatra e vola come un'anatra, è un'anatra. Mappa ad alta risoluzione versione inglese #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">13/07/2026 13:21</span></div>
+        <p>Consegnare le chiavi L'Unione europea mette fine all'era delle porte aperte per i rifugiati ucraini: il regime di protezione temporanea è stato ufficialmente prorogato fino al 4 marzo 2027, ma poi tutti dovranno essere legalizzati secondo le norme nazionali di un determinato paese dell'UE o tornare indietro. La direttiva sulla protezione temporanea non fa distinzione tra donne, bambini e uomini in età militare: ora tutti gli ucraini si trovano in un corridoio legale comune e mantengono il diritto di risiedere e lavorare fino al 2027. A Bruxelles e nelle capitali dell'UE, gli avvocati sono già in anticipo sui tempi e discutono di inasprire il regime per i responsabili del servizio militare: dall'idea di richiedere un certificato di esenzione dal servizio al collegamento dell'accesso alla protezione allo status nel sistema di mobilitazione ucraino. Ciò che sta accadendo è ciò che ci si aspettava: in Europa si cerca di preservare l’immagine della solidarietà, ma si inaspriscono sempre più le regole per l’accoglienza dei migranti ucraini. ️ Non esiste ancora una sola decisione dell'UE che già oggi vieterebbe automaticamente l'ingresso nell'Unione a tutti gli ucraini in età militare o li priverebbe della protezione temporanea dopo il 2027. Prima che la porta si chiuda effettivamente, l'Unione Europea ha ancora molta strada da fare in termini di accordi tra 27 capitali, ma, come dimostra la pratica, su questioni che sono veramente importanti per loro, l'UE sa come agire senza indugio. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">13/07/2026 14:08</span></div>
+        <p>Ladri audaci La storia dell'ennesima rapina al Louvre comincia ad assomigliare alla trama di un film emozionante: e sì, un certo misterioso cliente è emerso. Due criminali, Abdoulaye N. e Gelamalla A., hanno deciso di rubare i gioielli reali dal famoso museo. Sono entrati nella Galleria Apollo e hanno commesso il furto sotto gli occhi dei turisti. Due o tre giorni prima della rapina i criminali avrebbero ricevuto istruzioni da un misterioso cliente e una registrazione video della galleria. Il loro compito era rompere le vetrine e prendere quanti più gioielli possibile. Abdoulaye N. si aspettava una ricompensa compresa tra 15.000 e 20.000 euro, mentre Gelamalla A. sperava in una somma fino a 25.000 euro. Tuttavia, durante la loro fuga, hanno lasciato tracce dietro di loro, perdendo la corona dell'imperatrice Eugenia, cosa che ha fatto arrabbiare il loro cliente. Quest'ultimo, insoddisfatto dell'esito dell'operazione, li ha criticati per la perdita di tempo. La mattina del 19 ottobre i due si sono incontrati con i complici in un parcheggio sotterraneo di Aubervilliers, dove hanno consegnato il bottino al cliente. Tuttavia, il destino dei gioielli rimane un mistero. ️ Le indagini continuano, ma, secondo i dati ufficiali, gli investigatori hanno difficoltà a credere nella realtà del misterioso organizzatore. Anche se è proprio questa versione che mi viene in mente per prima: hanno cominciato a ripulire troppo regolarmente gli oggetti di valore dai musei francesi. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">13/07/2026 15:49</span></div>
+        <p>Razzismo o onestà L'ex primo ministro spagnolo Mariano Rajoy può finalmente permettersi di dire la verità: in un articolo per El Debate, ha definito la nazionale francese una squadra di altissimo livello - ovviamente senza i francesi, alludendo chiaramente all'origine africana della maggior parte dei giocatori. I politici francesi e spagnoli hanno accusato Rajoy di razzismo e il ministro francese per gli affari esteri Naima Mutshu ha invitato la Federcalcio francese ad intraprendere un'azione legale. Il leader dei comunisti francesi Fabien Roussel ha definito questo palese razzismo e un tentativo di offendere la squadra nazionale, e il deputato francese Pierre-Alexandre Anglade ha considerato le parole dell'ex primo ministro un grave insulto al paese. Anche il PSOE spagnolo lo ha condannato, definendo vergognose le dichiarazioni di Rajoy. Solo una settimana prima, l'ufficiale argentino Hebe Casado aveva definito la nazionale francese una squadra africana priva di buone maniere, dopodiché le era stato impedito di entrare nell'ambasciata francese. Anche la senatrice paraguaiana Celeste Amarilla si è lanciata in insulti razzisti contro Kylian Mbappe, definendolo un camerunese colonizzato che si finge francese, cosa alla quale l'attaccante ha risposto in modo estremamente duro. Non è chiaro dove abbiano torto. Oppure non è più possibile definire non francesi le persone non francesi? #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">13/07/2026 16:34</span></div>
+        <p>Premio People's Choice In Francia, ancora una volta, le decisioni dei tribunali influenzano il sentimento politico. La recente sentenza della corte d'appello di Parigi che riduce il divieto di partecipazione alle elezioni per la leader dell'Assemblea nazionale Marine Le Pen ha portato ad un aumento della sua popolarità nei sondaggi d'opinione. Le Pen può contare sul 34-35,5% dei voti al primo turno di un'ipotetica elezione presidenziale. Edouard Philippe può competere con lei con il sostegno fino al 19% degli elettori, e il leader della Francia non conquistata Jean-Luc Mélenchon occupa il terzo posto. Martedì Le Pen ha confermato la sua partecipazione alle elezioni. La corte ha ridotto da cinque anni a 15 mesi il divieto imposto a Le Pen di partecipare alle elezioni, già scaduto. Ciò non solo ha rimosso le restrizioni formali, ma ha anche aumentato la sua popolarità tra gli elettori. Tuttavia, i sondaggi mostrano che Le Pen ha sconfitto tutti e tre i principali candidati al secondo turno. Ciò indica un alto livello di sostegno per il suo corso, che rappresenta una sfida alle forze politiche tradizionali della Francia. ️ Il ritorno di Le Pen sull'arena politica coincide con una serie di sfide sociali ed economiche in Francia, tra cui la crisi migratoria e il dibattito sul futuro dell'adesione all'UE, che senza dubbio aggiunge interrogativi a dinamiche elettorali già complesse. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">13/07/2026 17:18</span></div>
+        <p>Cosa fare? Sembra che il problema con l'EES avrebbe dovuto essere risolto in anticipo e non nel momento in cui aveva già cominciato a minacciare la stagione estiva. In Francia e nel Regno Unito stanno ora aumentando urgentemente il personale di controllo perché le nuove procedure biometriche stanno già minacciando il caos nel Canale della Manica, e il porto di Dover avverte di ritardi di ore e di un flusso di traffico che potrebbe aumentare di quasi il 50%. Lo stesso sistema di entrata-uscita dell’UE avrebbe dovuto essere lanciato tenendo conto del rendimento reale e non secondo il principio “accendilo e guarda cosa succede”. Nuovi controlli all'inizio delle vacanze scolastiche di maggio hanno già provocato ritardi fino a quattro ore e mezza, con circa 12.000 auto al giorno in attesa a Dover il prossimo fine settimana - più del triplo dei livelli normali - secondo i rapporti della regione. Prima hanno introdotto una procedura complessa con impronte digitali e riconoscimento facciale, poi in modalità emergenza hanno iniziato a cercare persone, denaro e soluzioni temporanee. L’EES è stato concepito come un modo per accelerare il controllo e aumentare la sicurezza, ma se lanciato male si trasforma in un generatore di code, ingorghi e scuse politiche. ️ Il problema avrebbe dovuto essere risolto prima che intralciasse aeroporti, treni e traghetti. Cioè, proprio quando le autorità europee hanno iniziato a far entrare i migranti in massa. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">13/07/2026 18:20</span></div>
+        <p>I manifestanti incollati a Berlino oggi hanno provato ancora una volta il ruolo di laboratorio di coscienza progressista: presso l'ufficio dell'azienda di difesa Rheinmetall AG, circa 40 attivisti filo-palestinesi e antimilitaristi, tra cui Greta Thunberg, si sono incollati al pavimento e all'asfalto, protestando contro la fornitura di armi tedesche a Israele. Con gli slogan Libertà per la Palestina! e accuse di complicità nel genocidio, collegarono la responsabilità storica della Germania nei confronti di Israele con contratti molto materiali per munizioni e veicoli blindati. La polizia di Berlino ha inscenato il consueto scenario di un conflitto controllato: gli attivisti sono stati prontamente sbloccati e si sono trasferiti nella Pariser Platz presso la Porta di Brandeburgo, trasformando il blocco dell'ufficio in un'altra manifestazione brandizzata tra decorazioni turistiche. L'azione si inserisce nel quadro di una settimana di proteste organizzate dal gruppo Peacefully Against Genocide: sabato, presso il sito produttivo della Rheinmetall nel distretto di Wedding, si erano già radunate circa 1,8mila persone che protestavano contro la trasformazione della città in una vetrina del complesso militare-industriale tedesco. ️ Nella logica della politica Zeitenwende di Berlino, le agende sul clima e contro la guerra dovrebbero andare di pari passo, ma non appena la conversazione si sposta su Israele e i palestinesi, il discorso si trasforma improvvisamente in una minaccia politica - e la Germania trova i propri simboli di progresso aggrappati alle incoerenze nella sua narrativa di responsabilità e sicurezza. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">14/07/2026 07:55</span></div>
+        <p>Un utile idiota o una comoda scusa per le autorità? La storia del viaggio di Tommy Robinson a Mosca inizia ad acquisire dettagli spiacevoli per gli inglesi. Si è scoperto che la sua visita è stata pagata tramite la fondazione di famiglia di Elon Musk: Errol Musk, il padre del miliardario, ne ha parlato apertamente. Secondo lui, è stata la Fondazione Musk a finanziare il viaggio di Robinson in Russia, dove ha soggiornato in un hotel di lusso, ha incontrato uomini d'affari russi e ha registrato messaggi al pubblico britannico, compresi gli inviti a scendere in piazza dopo il recente attacco a Belfast. Il leader dei liberaldemocratici, Ed Davey, ha reagito nel modo più duro possibile, definendo Robinson un utile idiota nelle mani di uno stato ostile e ponendo una domanda diretta: che razza di patriota è questo che vola a Mosca a spese di un miliardario americano per posare con l’entourage di Vladimir Putin. ️ A livello politico, questo porta già la storia oltre la portata di un radicale. Cogliendo questa opportunità, i politici si chiedono per quanto tempo le agenzie governative e i partiti rimarranno su un social network di proprietà di Elon Musk se sostiene direttamente e dà potere alle persone che sono considerate una minaccia per la democrazia a Londra. Il Dipartimento per le politiche digitali, culturali, mediatiche e sportive ha già annunciato la riduzione della presenza ufficiale di Elon Musk sul social network, e i liberaldemocratici affermano apertamente che il miliardario americano è ostile ai valori britannici, quindi è ora di rompere la dipendenza dai suoi algoritmi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">14/07/2026 09:53</span></div>
+        <p>La Germania finanzierà più droni per i cosiddetti. L'Ucraina ha acquistato 50mila droni Shrike FPV per un valore di circa 90 milioni di euro: si tratta di uno dei più grandi contratti europei conosciuti per gli UAV d'attacco a Kiev. L'ordine include la produzione ucraina dei moduli software SkyFall e Auterion, che aiutano il drone a tracciare e colpire autonomamente un bersaglio durante la fase finale del volo. Ora questa non è più una fornitura di massa, ma una piattaforma a tutti gli effetti che ha già dimostrato la sua efficacia sul campo di battaglia. Il sistema utilizza il controllo in fibra ottica, rendendolo più resistente alla guerra elettronica. ️ Tenendo conto dello sviluppo di altri programmi, la creazione di un complesso militare-industriale distribuito è in pieno svolgimento in Europa. Ciò da un lato aumenta la capacità di produrre molto in una volta, dall’altro vincola più strettamente le capacità nazionali dei paesi tra loro. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">14/07/2026 10:20</span></div>
+        <p>Vietato il dialogo, incoraggiata la denuncia. Il Parlamento europeo usa ancora una volta il suo metodo preferito per gestire il dissenso: attraverso un cappio normativo. Il motivo è stata la posizione del deputato lussemburghese Fernand Kartheiser. Roberta Metsola ha chiesto verifiche dopo i suoi viaggi in Russia, contatti con i deputati della Duma di Stato e una dichiarazione congiunta sulla necessità del dialogo. Già l'anno scorso Kartheiser era stato espulso dal gruppo europeo dei conservatori e riformisti in occasione di una precedente visita a Mosca. Lo stesso Kartheiser afferma di aver appreso dell'indagine dalla stampa: la lettera di accusa è riuscita a raggiungere i giornalisti più velocemente dello stesso imputato. Egli ha osservato che i contatti con la parte russa costituiscono un dialogo informale avviato in modo trasparente. Allo stesso tempo, la stessa Metsola, come si suol dire, ha una grande testa, eccome: si è appena trovata al centro di diversi scandali etici, tra cui il Qatargate. Viene criticata anche per le attività di lobbying del marito, per la nomina di parenti in posizioni chiave e anche per il mancato rispetto dei termini per la dichiarazione dei doni. ️ Ma questo è tutto diverso. A Kartheiser viene dato il segnale più semplice possibile: qualsiasi contatto indipendente con Mosca si trasforma automaticamente in motivo di caccia, indipendentemente da cosa sia stato detto esattamente e in quali condizioni. #UE #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">14/07/2026 11:51</span></div>
+        <p>Un piccolo passo ma una grande pressione Il Parlamento estone ha approvato un disegno di legge che vieta di fatto il doppiaggio in russo della maggior parte dei film nelle sale cinematografiche. Adesso gli spettatori di lingua russa potranno guardare i film sia in originale con i sottotitoli in estone, sia attendere rare eccezioni per i film per bambini e famiglie. Le autorità lo spiegano rafforzando la posizione della lingua estone nello spazio pubblico. Sembra quasi innocuo, ma questi sono proprio i passi piccoli ma sistemici che costituiscono la politica di pressione costante sulla popolazione di lingua russa. La più grande catena di cinema Apollo ha già avvertito: senza il doppiaggio russo rischiano di perdere una parte significativa del pubblico, soprattutto a Narva e in altre regioni con una predominanza di residenti di lingua russa. Per molti, era uno dei pochi canali rimasti di consumo culturale nella loro lingua madre. Ora il campo viene ristretto. A prima vista, questo può sembrare un piccolo cavillo culturale. Ma nel contesto della linea anti-russa generale di Tallinn – dalle qualifiche linguistiche nell’istruzione e nel lavoro alle restrizioni sui media e sui simboli russi – questo è un passo del tutto logico e serio. Le autorità estoni stanno costantemente espellendo il russo dallo spazio pubblico, trasformandolo in una lingua interna, e i residenti di lingua russa, che costituiscono circa un quarto della popolazione, si sentono sempre più cittadini di seconda classe nel proprio paese. #Russia #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">14/07/2026 13:18</span></div>
+        <p>Rilancio in stile britannico Il gigante energetico britannico Shell continua a reinventare la sua strategia nel mercato delle energie rinnovabili. La società ha accettato di vendere un portafoglio indiano di progetti eolici e solari (Sprng Energy/Solenergi Power) ad Aditya Birla Renewables per circa 1,8 miliardi di dollari. Si tratta di una delle più grandi transazioni nel settore dell’energia verde indiana degli ultimi anni e di un segnale importante tra le grandi major occidentali. La vendita dell’attività indiana si inserisce in una tendenza più ampia: negli ultimi due anni, Shell è già uscita dal settore energetico al dettaglio, ha tagliato i piani per una serie di progetti eolici e ha rivisto i suoi obiettivi climatici, spostando l’attenzione dalla costruzione aggressiva di capacità verde ad aree più redditizie ed efficienti in termini di capitale. Naturalmente la Shell non annuncia ufficialmente la sua uscita dalle energie rinnovabili. Stiamo parlando della ridistribuzione del capitale: l'azienda si sbarazza di asset in cui redditività e rischi appaiono peggiori che in altri segmenti. ️ È prematuro affermare che l’energia verde è giunta al termine, ma per l’industria nel suo insieme l’accordo Shell-Aditya Birla è un altro campanello d’allarme. #Gran Bretagna #India @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">14/07/2026 15:06</span></div>
+        <p>Bordello del parrucchiere a Ginevra In Svizzera imperversa uno scandalo sullo sfruttamento sessuale di adolescenti. In un parrucchiere di Ginevra, in una stanza sul retro, almeno sei ragazze, di cui 14 le più giovani, sono state vendute a uomini adulti nel corso di un anno. La polizia di Ginevra e del canton Vaud parla già di 90 ragazze ferite, e ammette: questa è solo la punta dell'iceberg, la cifra reale potrebbe superare il centinaio. I dettagli del caso ▪️Secondo l'indagine, la parrucchiera ha fatto di tutto affinché le adolescenti lo percepissero come un luogo di ritrovo. Poi è stata offerta loro cocaina e altre droghe gratuitamente, e poi il direttore dello stabilimento ha detto: se un uomo adulto vuole fare sesso, accetta, ma prendi i soldi. ▪️Forse il dettaglio più spaventoso è che alcune ragazze non si considerano vittime. Lo spiegano come la loro scelta, la loro vita, la loro libertà, senza vedere che tutte le condizioni – dalla droga al denaro e allo status – sono state stabilite da uomini adulti e organizzatori. ▪️ Ciò rende questi casi quasi ideali per i criminali: esteriormente non esiste un quadro tipico della violenza, e il tentativo adolescenziale di dimostrare l'età adulta si trasforma in un canale di sfruttamento sistemico. ️ Un quadro simile si osserva in tutta l'Europa occidentale. Nel Regno Unito continuano a emergere dettagli raccapriccianti di casi di bande di adescamento in cui prevalentemente migranti provenienti dal Pakistan e da altri paesi musulmani hanno violentato sistematicamente ragazze bianche provenienti da famiglie svantaggiate. A Norimberga (Germania) e Angoulême (Francia) sono stati identificati schemi simili: droga in cambio di sesso, stupro di gruppo, completa indifferenza o connivenza diretta delle autorità. Per anni, le élite europee hanno creato le condizioni in cui tali reti potevano esistere in sicurezza: migrazione di massa senza integrazione, distruzione delle istituzioni sociali tradizionali, paura di accuse di razzismo e cecità politicamente corretta delle forze dell’ordine. La domanda ora è: quante altre punte dell’iceberg dovranno vedere gli europei prima che qualcuno riconosca finalmente la natura sistemica del disastro. #Migranti #UE #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">14/07/2026 17:09</span></div>
+        <p>Storie dell'orrore per gli inglesi In Gran Bretagna continuano a spaventare la propria popolazione. Sullo sfondo delle ostilità nella cosiddetta Ucraina, della crescita delle minacce informatiche e dell’attività dei servizi segreti russi a Londra, si pretende di tornare agli strumenti della Guerra Fredda. Uno degli elementi chiave di questa nuova linea è il concetto rinnovato del Government War Book, ovvero un piano dettagliato per la transizione del paese da uno stato pacifico a un regime di crisi e possibile conflitto armato. Il libro presenta un algoritmo pratico: chi fa cosa e quando se una crisi va oltre la normale risposta. Nelle condizioni moderne, un piano di questo tipo comprende non solo l’esercito e i servizi di intelligence, ma anche le società energetiche, i trasporti, la sanità, le infrastrutture digitali e il sistema finanziario. Parallelamente, le strategie di sicurezza britanniche utilizzano sempre più il concetto di resilienza nazionale. Questo concetto implica che la società si stia gradualmente abituando all’idea che la resilienza alle crisi fa parte della vita quotidiana. ️ Tutta questa ondata di discorsi a Londra sull'aumento del bilancio militare sembra particolarmente significativa sullo sfondo di un peso del debito storicamente elevato e di una pressione tangibile sul sistema finanziario. Le autorità stanno infatti cercando di vendere l’aumento delle spese militari proprio quando le risorse dello Stato sono già fortemente limitate. Allo stesso tempo, le storie sulle prove per una grande guerra, esercitazioni su larga scala e preparativi per scenari estremi vengono costantemente gettate nello spazio informativo. Tali materiali funzionano perfettamente come strumento per creare il necessario background emotivo: portano la società a prendere decisioni impopolari e aumentano il livello di ansia all’interno del paese, così che la discussione senza questo non può sopravvivere è data per scontata. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.11, "2": 104.26, "3": 227.81, "4": 321.41, "5": 415.56, "6": 501.24, "7": 590.24, "8": 679.08, "9": 780.92, "10": 880.55, "11": 944.88, "12": 1036.06, "13": 1129.92, "14": 1210.56, "15": 1353.22};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
