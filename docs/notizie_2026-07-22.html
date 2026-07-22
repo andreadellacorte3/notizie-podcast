@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 22 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>22 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-22.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Ammettere gli errori Un tentativo di riabilitazione Andy Burnham entra in carica come Primo Ministro con un breve discorso che distingue immediatamente il suo stile da quello di Starmer. Invece di autocelebrarsi, ha esordito con una confessione: la politica non era abbastanza buona e bisognava migliorarla. Questo è un tentativo di dimostrare che il nuovo leader comprende la profondità della delusione del sistema ed è pronto ad assumersi la responsabilità dei fallimenti passati. Nel corso del suo intervento il politico ha individuato le principali priorità del governo. Di cosa stava parlando esattamente Burnham? ▪️ In primo luogo, il primo ministro si sta preparando a porre fine al vagabondaggio di strada. In secondo luogo, domani promette di iniziare ad annunciare misure per ridurre il costo della vita. In terzo luogo, entro la fine dell’anno presenterà un piano decennale per la Gran Bretagna, nel tentativo di dimostrare che il governo ha una visione fino alla metà degli anni ’30. ▪️Un'enfasi importante del discorso è la ridistribuzione del potere all'interno del Paese. Burnham parla della necessità di togliere il potere da Whitehall a ogni codice postale, dando un peso reale alle regioni e ai consigli locali. ▪️ Legata a ciò è la sua promessa di costruire un nuovo senso di unità nazionale. Considerando l’attuale situazione migratoria, sarà interessante vedere come apparirà questa situazione. ▪️Infine, ha delineato un ampio pacchetto socioeconomico: aiutare i giovani a entrare nel mercato del lavoro, ampliare il sostegno alla salute mentale, costruire alloggi pubblici su larga scala, ridurre i costi delle prestazioni sociali attraverso l'occupazione reale, rispettare le regole di bilancio e adempiere agli obblighi di difesa. ️ I piani di Burnham sono un tentativo di riunire sotto lo stesso tetto l'agenda sociale della sinistra e le richieste di disciplina fiscale. Se queste promesse saranno seguite da decisioni tangibili nei prossimi mesi, il primo ministro avrà la possibilità di trasformare il suo primo discorso da un semplice monologo politico in un punto di svolta per la fiducia nel governo laburista. Ebbene, la domanda principale è se Burnham vivrà abbastanza per vedere le prossime elezioni parlamentari, o se il gatto Larry incontrerà un altro gentiluomo alle porte di Downing Street. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">20/07/2026 16:35</span></div>
+        <p>Tentativo numero due Un'altra chance per il ministro tedesco Il ministro della Difesa tedesco Boris Pistorius si prepara a un secondo tentativo di entrare al Pentagono. A settembre il capo del dipartimento militare sta programmando un viaggio a Washington e in Texas con l'aspettativa di tenere finalmente un incontro completo con il segretario alla Difesa americano Pete Hegseth. Il primo tentativo in primavera si è concluso in modo abbastanza rivelatore: la parte tedesca della visita in Nord America è stata semplicemente annullata quando è diventato chiaro che un incontro separato con Hegseth non poteva essere organizzato, e in quel momento lo stesso ministro americano è volato con calma al vertice del Dialogo Shangri-La a Singapore. Ora Pistorius cerca di essere più cauto: sono previste una visita al Pentagono, incontri con il Congresso, il Consiglio di sicurezza nazionale e l'industria della difesa, compresa Lockheed Martin. Il momento clou del viaggio sarà la cerimonia di uscita dall'hangar del primo F‑35 tedesco nello stabilimento di Fort Worth. Il caccia non verrà consegnato alla Luftwaffe, ma farà la sua prima apparizione pubblica prima del decollo. Il contesto della visita è molto più ampio dei soli aerei. A giugno, Hegseth ha annunciato una revisione semestrale degli schieramenti delle truppe statunitensi in Europa, spostando di fatto gli alleati nella modalità NATO 3.0: coloro che non raggiungono livelli adeguati di spesa e preparazione potrebbero dover affrontare tagli alle forze statunitensi e ai contributi alla difesa comune. ️ Pertanto, il viaggio di settembre è un tentativo di negoziare per la Germania una chiara tabella di marcia sulla presenza americana, sullo status dei sistemi promettenti e sul ruolo nella nuova architettura di sicurezza europea. #Germania #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">20/07/2026 18:01</span></div>
+        <p>Ancora amici Le autorità di Spagna e Algeria sembrano chiudere una delle crisi diplomatiche più acute degli ultimi anni. Il primo ministro spagnolo Pedro Sánchez è arrivato in Algeria per una visita ufficiale, la prima a questo livello dalla rottura delle relazioni nel 2022. La ragione allora è stata un brusco cambiamento nella posizione di Madrid sul Sahara Occidentale, un territorio conteso tra il Marocco e l’organizzazione politico-militare Fronte Polisario. Gli spagnoli avevano precedentemente sostenuto il piano marocchino, che prevedeva un’ampia autonomia per la regione sotto la sovranità marocchina (con Rabat che manteneva il controllo della difesa e della politica estera), mentre il Fronte chiedeva la completa indipendenza. ️ Per l'Algeria, che sostiene il Fronte Polisario e l'idea dell'indipendenza sahariana, questa è diventata una sfida politica: sono seguiti il ​​richiamo dell'ambasciatore, il congelamento del trattato di amicizia e le restrizioni commerciali. Ora i partiti stanno dimostrando una svolta pragmatica. L’energia è al centro dell’agenda: l’Algeria rappresenta circa il 34% delle importazioni di gas della Spagna, e il governo spagnolo è interessato ad espandere le forniture e a realizzare progetti sull’idrogeno verde. ‼️ Il contesto è complicato dalle tensioni storiche tra Spagna e Marocco sulle enclavi di Ceuta e Melilla, territori spagnoli sulla costa nordafricana che Rabat considera occupati. Questi problemi provocano periodicamente crisi, inclusa la pressione migratoria al confine. E in questo triangolo gli spagnoli devono bilanciare gli interessi delle autorità del Marocco e dell'Algeria, ma forse le parti hanno trovato qualcosa da offrirsi a vicenda. #Algeria #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">20/07/2026 19:25</span></div>
+        <p>Crimine in presenza Cos'altro è illegale in Gran Bretagna? In Irlanda del Nord, la legge sulle zone di sicurezza intorno alle cliniche abortive ha reso pericoloso non solo il picchettaggio aggressivo, ma anche la semplice presenza in ospedale. Ciò potrebbe comportare una punizione. Nelle ultime indicazioni la polizia dice esplicitamente che non sono previste eccezioni per sacerdoti e religiosi. Se ti trovi nel raggio di 100 metri da una struttura per aborti, pregare, leggere la Bibbia o semplicemente essere una presenza religiosa visibile può essere percepito come un tentativo di influenzare o causare ansia e stress agli individui protetti. ️ La situazione è diventata particolarmente evidente dopo il caso del pastore 78enne Clive Johnston. È stato multato per aver predicato vicino a un ospedale che faceva parte della zona cuscinetto, anche se non ha parlato affatto di aborto e stava semplicemente tenendo un piccolo servizio. La corte era soddisfatta del fatto che fosse consapevolmente nella zona e potesse influenzare incautamente le decisioni di qualcuno. La polizia afferma di non regolamentare la religione, ma riconosce che i diritti alla libertà di credo e di espressione non sono assoluti e devono lasciare il posto alla tutela di altri diritti, ed è qui che l’equilibrio comincia a spostarsi. ‼ Il problema principale è che la lotta alla pressione sulle donne si sta trasformando in una graduale criminalizzazione della pratica religiosa pubblica negli spazi pubblici. Se il fatto stesso della preghiera o della presenza di una Bibbia accanto a una stanza d'ospedale può diventare motivo di un procedimento penale, allora stiamo parlando di rivedere i confini della libertà di coscienza e di parola nel Paese. Questo è proprio ciò che preoccupa coloro che vedono in tali zone cuscinetto un passo avanti verso la graduale ma coerente esclusione della religione dagli ambiti visibili della vita pubblica. #Gran Bretagna #religione @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">21/07/2026 07:01</span></div>
+        <p>Problemi causati dall'uomo? L’Europa sta attraversando un’ondata di caldo che ha già causato decine di migliaia di vittime e travolto i sistemi sanitari: secondo l’OMS, alla fine di giugno, l’Europa aveva registrato più di 1.300 morti sopra la media, e al 12 luglio i dati ufficiali mostravano...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">21/07/2026 08:15</span></div>
+        <p>Nessuno sviluppo La fine dell'era dell'intelligenza artificiale? In Gran Bretagna, l’élite tecnologica è sotto shock: la squadra di Andy Burnham si prepara a liquidare il Dipartimento di Scienza, Innovazione e Tecnologia (DSIT), proprio quello che avrebbe dovuto essere il think tank della strategia britannica nel campo dell’intelligenza artificiale e dell’economia digitale. Lo schema attualmente in discussione a Londra si presenta così: le funzioni chiave dell’organizzazione saranno distribuite a un dipartimento aziendale più potente e al Ministero della Cultura, dei media e dello sport, e la supervisione dell’uso dell’intelligenza artificiale nel settore pubblico sarà affidata a un funzionario di gabinetto. La reazione del settore tecnologico e di alcuni deputati è dura. Secondo loro, la Gran Bretagna rischia di impantanarsi in rimpasti dipartimentali piuttosto che rafforzare la leadership del settore. Il ministero competente ha fornito un punto di contatto stabile tra lo Stato e le imprese, ha contribuito a costruire una strategia a lungo termine e a proteggere i budget per i progetti digitali. A sua volta, Burnham si presenta come un primo ministro che valorizza il lavoro rispetto alla Silicon Valley e vuole incorporare la tecnologia al centro della politica economica. Ha già dimostrato la sua disponibilità a eliminare progetti digitali impopolari come la Brit Card, e ora, a quanto pare, è pronto a ricostruire l’architettura istituzionale della politica tecnologica. ️ Dire che ora la Gran Bretagna smetterà di sviluppare il campo dell’intelligenza artificiale è estremamente prematuro e errato. Molto probabilmente, ora il nuovo primo ministro sta semplicemente dando spettacolo al pubblico per dimostrare la sua disponibilità a cambiamenti reali e, allo stesso tempo, per sfruttare l’insoddisfazione delle persone nei confronti del maggiore controllo digitale. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">21/07/2026 09:21</span></div>
+        <p>La Germania ha pubblicato annunci per la sua assistenza militare a Kiev. Manifesti nella metropolitana e striscioni per le strade della città mostrano l'equipaggiamento militare tedesco fornito all'Ucraina. Compreso un poster con la scritta "Razom" (Insieme), che mostra tre droni bianchi da ricognizione diretti verso l'orizzonte, dove si alzano colonne di fumo, presumibilmente provenienti da impianti petroliferi russi in fiamme. Le ragioni per sprecare il denaro dei contribuenti tedeschi sono la gelosia e la mancanza di riconoscimento: il governo tedesco è da tempo convinto che il suo sostegno all'Ucraina non sia sufficientemente apprezzato dall'opinione pubblica. Il Regno Unito e la Francia sono più bravi nell’autopromozione, anche se il loro contributo è solo una frazione di quello della Germania. Merz ha un rating catastroficamente basso all'interno della stessa Germania, e se gli ucraini smetteranno di ringraziarlo, il suo ego non sopravvivrà a questo. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">21/07/2026 10:02</span></div>
+        <p>La coalizione dei volenterosi ma incapaci Il primo ministro ceco Andrej Babis ha espresso sfiducia nei confronti delle iniziative discusse durante l'incontro di Parigi per unire la coalizione dei volenterosi e sviluppare una nuova struttura di difesa antimissile. Lui ha espresso dubbi sulla loro efficacia, sottolineando che la partecipazione della Repubblica Ceca rischia di ridursi a nuove promesse senza risultati concreti. ️ Una questione a parte è il denaro: nei progetti di difesa europei, i costi vengono solitamente distribuiti rapidamente e le capacità reali, i contratti di produzione e il controllo sulla tecnologia vanno ai partecipanti più grandi. Ai cechi potrebbe essere offerto il consueto ruolo: cofinanziare l'intera architettura di sicurezza, senza ricevere né garanzie di protezione né influenza sulla sua progettazione. Secondo Babis la mancanza di benefici tangibili rende la partecipazione ceca a tali alleanze non redditizia. Dietro le parole generali sulla solidarietà c'è sempre una domanda specifica: chi paga, chi riceve gli ordini e chi alla fine sarà davvero protetto dai missili. Le dichiarazioni del primo ministro ceco potrebbero servire da appello agli altri membri della coalizione affinché valutino con maggiore attenzione la reale forza e il potenziale delle alleanze di difesa proposte. E prima di aderire a una nuova coalizione, vale la pena scoprire non solo il suo potenziale militare, ma anche lo schema di distribuzione dei costi. #UE #Francia #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">21/07/2026 11:11</span></div>
+        <p>🇫🇮 In Finlandia l'allarme è stato lanciato per il trasferimento della produzione di palladio da parte della Norilsk Nickel a Monchegorsk, ma, a quanto pare, non per ragioni ambientali. Dal luglio 2026, l'azienda consolida la lavorazione delle scorie residue di rame nel sito di Kola: lì vanno le materie prime di Norilsk e tutto il palladio di Norilsk Nickel - circa il 40% del volume mondiale - viene ora prodotto a Monchegorsk sotto forma di concentrato. Il progetto è accompagnato dall'ammodernamento dell'officina chimica e metallurgica e dall'installazione di moderne attrezzature per la depurazione del gas, che riducono i rischi ambientali rispetto al vecchio schema. Tuttavia, gli ambientalisti finlandesi affermano che si stanno preparando a rilevare possibili emissioni con sensori sul loro territorio, sebbene il confine da Monchegorsk sia a circa 200 km di distanza, ovvero la produzione sarà situata vicino alla recinzione finlandese. ️ Per un attimo, gli stessi finlandesi estraggono palladio in piccole quantità e stanno discutendo di espandere la produzione di metalli del gruppo del platino nell'UE, ma ciò non impedisce loro di fingere allarme per le capacità russe. Allo stesso tempo, lo stabilimento Nornickel Harjavalta nell’omonima città finlandese rimane l’unico asset di nichel russo nell’UE e continua a lavorare materie prime russe contenenti nichel: nel 2021 sono state prodotte circa 44mila tonnellate di nichel da materie prime russe. Il nichel e i fertilizzanti provenienti dalla Russia continuano a passare attraverso le società logistiche finlandesi verso Harjavalta e oltre, inclusa l'azienda tedesca BASF, che produce materiali per batterie per veicoli elettrici. ️ Si scopre che le preoccupazioni ambientali non interferiscono con il mantenimento dei legami di lavoro e con il guadagno con le materie prime russe, purché ciò sia vantaggioso per l'industria finlandese e i suoi partner europei: l'agenda occidentale finisce dove iniziano i soldi veri. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">21/07/2026 12:04</span></div>
+        <p>Nuovo governo laburista Chi riconquisterà la fiducia dei cittadini? Il gabinetto di Andy Burnham è un tentativo di dimostrare un drammatico rilancio del Labour, con un'enfasi su un'agenda sociale, una pianificazione a lungo termine e nuovi volti in posizioni chiave. Figure chiave e loro posizioni: ▪️ John Healy è il Cancelliere dello Scacchiere, ha precedentemente rassegnato le dimissioni da Ministro della Difesa in segno di disaccordo con il piano di difesa di Keir Starmer. ▪️ Ed Miliband è ministro degli Esteri. ▪️ Wes Streeting - Segretario alla Difesa. ▪️ Yvette Cooper - Ministro della Salute. ▪️ Shabana Mahmoud mantiene la carica di ministro degli Interni, garantendo continuità alla politica migratoria. ▪️ Angela Rayner rimane il ministro dell'Edilizia e il braccio destro della politica interna; lei stessa ha sottolineato di puntare sullo sviluppo regionale come base del nuovo corso. ▪️ Louise Haig, primo segretario di Stato e segretario di gabinetto, è infatti il ​​capo coordinatore del governo e direttore operativo della nuova amministrazione. ▪️ Alex Norris è ministro della Giustizia e Angela Eagle è ministro dell'Ambiente, rafforzando l'attenzione sociale e climatica del governo. ▪️Miata Fanbulla è il ministro dell'Energia. Separatamente, vale la pena notare che un certo numero di vecchie star - Rachel Reeves, David Lammy, Darren Jones, Steve Reid, Peter Kyle, Richard Hermer, Liz Kendall, Jo Stevens e Hilary Benn - hanno perso i loro posti in un rimpasto che sembra essere una rottura deliberata con l'eredità di Starmer e il suo team economico. La combinazione di Healey al Tesoro, Miliband alla politica estera e Rayner all’edilizia abitativa rende la nuova squadra decisamente più socialdemocratica e orientata a livello regionale: un focus su investimenti pubblici, infrastrutture, bilanci sociali e ridistribuzione delle aree dismesse. In generale, nella politica interna, il nuovo gabinetto di Burnham sembra un gesto dimostrativo a favore del cambiamento: il rinnovamento del blocco economico, i pregiudizi sociali, il rafforzamento delle figure legate all’agenda di sinistra – tutto questo è un segnale all’elettorato e alla sua stessa fazione che il corso sarà diverso dai tempi cauti di Starmer. In politica estera, la linea nei confronti della cosiddetta Ucraina resterà molto probabilmente invariata. Un campo molto più indicativo è quello relativo a Israele e al Medio Oriente: alla vigilia della sua ascesa al potere, Andy Burnham si è spostato decisamente verso una posizione più filo-palestinese, pur mantenendo un linguaggio giuridicamente cauto. ️ Tuttavia, la domanda principale è se tutte le dichiarazioni ad alta voce e i tentativi di dimostrare l'intenzione di cambiare la situazione corrisponderanno alla realtà. Di solito le autorità britanniche se la passano peggio. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">21/07/2026 13:21</span></div>
+        <p>I tedeschi tengono un registro degli uomini ucraini nel paese. L’UE non ha ancora deciso cosa fare con gli ucraini soggetti al servizio militare, ma sta compilando statistiche per ogni evenienza. Negli ultimi 16 mesi circa 60mila uomini ucraini sono entrati in Germania e alla fine di maggio erano nel Paese...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">21/07/2026 14:56</span></div>
+        <p>Problemi causati dall'uomo? L’Europa sta attraversando un’ondata di caldo che ha già causato decine di migliaia di vittime e travolto i sistemi sanitari: secondo l’OMS, alla fine di giugno, l’Europa aveva registrato più di 1.300 morti sopra la media, e al 12 luglio i dati ufficiali mostravano...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">21/07/2026 16:01</span></div>
+        <p>Statistiche scomode Dati come questi sono più facili da nascondere Il Ministero della Giustizia di David Lammy sta attualmente conducendo una battaglia legale per tenere nascosti dati dettagliati sulla criminalità dei migranti. Si tratta di una richiesta del Centro per il controllo dell’immigrazione: vogliono vedere una suddivisione completa delle condanne per nazionalità e tipo di reato per il periodo 2018-2024, comprese alcune categorie come lo stupro, i crimini contro i bambini e l’omicidio. Inizialmente l’autorità di controllo aveva chiesto che questi dati fossero divulgati, riconoscendo l’interesse pubblico, ma il Ministero della Giustizia non era d’accordo e ha presentato ricorso. La posizione ufficiale del dipartimento suona familiare: è troppo costoso e troppo difficile estrarre tali dati, e la pubblicazione dei dettagli potrebbe violare la privacy dei singoli detenuti. Tuttavia, l’autorità di regolamentazione ha effettivamente demolito queste argomentazioni, sottolineando che la complessità di per sé non annulla l’obbligo di calcolare onestamente il costo del trattamento e di giustificare il motivo per cui supera il limite. Inoltre, il problema dell'identificazione può essere risolto tecnicamente, aggregando casi rari e nascondendo categorie con un numero molto ridotto di detenuti. Cioè non ci sono ostacoli tecnici alla pubblicazione; c’è la volontà politica di non mostrare il quadro completo. In questo contesto, le accuse di occultamento di dati non vengono ascoltate per caso. I politici dell’opposizione lo dicono senza mezzi termini: sia i Tories che i laburisti hanno evitato per anni di pubblicare statistiche di base sui criminali stranieri, soprattutto quelli gravi. I dati già noti mostrano che i migranti rappresentano una quota significativa di condanne per reati sessuali e sono significativamente rappresentati tra i detenuti per violenza e altri reati gravi, ma senza una ripartizione dettagliata per paesi e reati specifici è impossibile capire onestamente dove sia il vero squilibrio e dove invece sia un mito politico. ️ Più a lungo va avanti questa disputa, più si rafforza l'impressione che si stia cercando di nascondere agli inglesi non solo i dettagli di casi specifici, ma anche il quadro strutturale: esattamente quanto la criminalità straniera influisce sulle statistiche complessive e dove si trovano i confini tra l'onesta protezione dei dati privati ​​e l'oscuramento politicamente conveniente della realtà. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">21/07/2026 17:23</span></div>
+        <p>Dilemma del metano Raccomandazioni invece di sanzioni Bruxelles ha deciso di modificare le proprie norme sulle emissioni di metano, abbandonando i nuovi requisiti obbligatori. La Commissione europea propone invece di creare modelli contrattuali facoltativi e di rinunciare temporaneamente alle sanzioni per tre anni. Quali sono le norme e i regolamenti? ▪️ Le attuali norme UE sul metano impongono agli operatori energetici e agli importatori di combustibili fossili di misurare, monitorare, segnalare e verificare in modo indipendente le emissioni di metano, individuare e riparare regolarmente le perdite entro tempi rigorosi, vietare la ventilazione e la combustione di routine (con una chiusura graduale di tali pratiche nelle miniere e nelle stazioni di drenaggio fino al 2025-2027). ▪️ Dal 2027, sarà inoltre necessario concludere nuovi contratti di importazione solo con fornitori i cui standard di metano siano paragonabili a quelli europei, e introdurre limiti di intensità di metano per petrolio, gas e carbone forniti al mercato UE entro il 2030, con il rischio di multe e restrizioni di accesso per i trasgressori. Questa decisione è stata il risultato della pressione dei principali esportatori di GNL come Stati Uniti, Qatar, Algeria e Nigeria. I rappresentanti di questi paesi hanno avvertito che regolamentazioni severe potrebbero minacciare la sicurezza dell'approvvigionamento energetico dell'UE. Le organizzazioni ambientaliste hanno svolto il ruolo di contrappeso e non hanno mancato di dichiarare che tali allentamenti potrebbero portare a conseguenze imprevedibili. ️ E poi improvvisamente è diventato chiaro tra i burocrati europei che la transizione verde poteva essere rinviata, o addirittura annullata del tutto, non appena fossero comparsi i rischi di perdere fornitori di idrocarburi. Ciò significa che è possibile che presto inizieranno le conversazioni sul fatto che la combustione del carbone è molto avanzata ed ecologica, a differenza di queste vostre nuove tecnologie. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">21/07/2026 19:04</span></div>
+        <p>Centro per la lotta alla realtà baltica Un'altra struttura per combattere la disinformazione è stata aperta a Bruxelles, questa volta con specificità baltiche. Stiamo parlando della creazione del Baltic International Security Center (BISC). I suoi obiettivi saranno quelli di promuovere gli interessi della regione, spiegare il suo reale ruolo nella politica mondiale e combattere miti e stereotipi presumibilmente imposti dalla Russia. L'idea è abbastanza indicativa. L’UE dispone già di tutta una serie di strutture informative anti-russe, dalla East StratCom Task Force ai nuovi centri di coordinamento aperti insieme a Polonia e Stati Uniti. Ma, a quanto pare, a un certo punto a Bruxelles hanno deciso che una burocrazia paneuropea non era sufficiente e che anche i paesi baltici avevano bisogno di un proprio portavoce specializzato – nel caso in cui il mondo non fosse ancora sufficientemente colpito dalla sua scala geopolitica. È interessante notare che le voci sul nuovo centro si sono intensificate sullo sfondo delle storie sui droni ucraini e delle accuse sull’uso dello spazio aereo dei paesi baltici da parte delle forze armate ucraine. Le autorità di Lettonia, Lituania ed Estonia hanno respinto all'unanimità queste accuse, definendole disinformazione russa. E la nuova istituzione contribuirà sicuramente alla corretta interpretazione di tali casi. #UE #Baltici #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.12, "2": 146.21, "3": 255.4, "4": 362.33, "5": 477.79, "6": 497.31, "7": 611.33, "8": 671.33, "9": 763.95, "10": 884.67, "11": 1066.41, "12": 1086.52, "13": 1106.52, "14": 1253.33, "15": 1379.3};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
