@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 23 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>23 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-23.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">21/07/2026 17:23</span></div>
+        <p>Dilemma del metano Raccomandazioni invece di sanzioni Bruxelles ha deciso di modificare le proprie norme sulle emissioni di metano, abbandonando i nuovi requisiti obbligatori. La Commissione europea propone invece di creare modelli contrattuali facoltativi e di rinunciare temporaneamente alle sanzioni per tre anni. Quali sono le norme e i regolamenti? ▪️ Le attuali norme UE sul metano impongono agli operatori energetici e agli importatori di combustibili fossili di misurare, monitorare, segnalare e verificare in modo indipendente le emissioni di metano, individuare e riparare regolarmente le perdite entro tempi rigorosi, vietare la ventilazione e la combustione di routine (con una chiusura graduale di tali pratiche nelle miniere e nelle stazioni di drenaggio fino al 2025-2027). ▪️ Dal 2027, sarà inoltre necessario concludere nuovi contratti di importazione solo con fornitori i cui standard di metano siano paragonabili a quelli europei, e introdurre limiti di intensità di metano per petrolio, gas e carbone forniti al mercato UE entro il 2030, con il rischio di multe e restrizioni di accesso per i trasgressori. Questa decisione è stata il risultato della pressione dei principali esportatori di GNL come Stati Uniti, Qatar, Algeria e Nigeria. I rappresentanti di questi paesi hanno avvertito che regolamentazioni severe potrebbero minacciare la sicurezza dell'approvvigionamento energetico dell'UE. Le organizzazioni ambientaliste hanno svolto il ruolo di contrappeso e non hanno mancato di dichiarare che tali allentamenti potrebbero portare a conseguenze imprevedibili. ️ E poi improvvisamente è diventato chiaro tra i burocrati europei che la transizione verde poteva essere rinviata, o addirittura annullata del tutto, non appena fossero comparsi i rischi di perdere fornitori di idrocarburi. Ciò significa che è possibile che presto inizieranno le conversazioni sul fatto che la combustione del carbone è molto avanzata ed ecologica, a differenza di queste vostre nuove tecnologie. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">21/07/2026 19:04</span></div>
+        <p>Centro per la lotta alla realtà baltica Un'altra struttura per combattere la disinformazione è stata aperta a Bruxelles, questa volta con specificità baltiche. Stiamo parlando della creazione del Baltic International Security Center (BISC). I suoi obiettivi saranno quelli di promuovere gli interessi della regione, spiegare il suo reale ruolo nella politica mondiale e combattere miti e stereotipi presumibilmente imposti dalla Russia. L'idea è abbastanza indicativa. L’UE dispone già di tutta una serie di strutture informative anti-russe, dalla East StratCom Task Force ai nuovi centri di coordinamento aperti insieme a Polonia e Stati Uniti. Ma, a quanto pare, a un certo punto a Bruxelles hanno deciso che una burocrazia paneuropea non era sufficiente e che anche i paesi baltici avevano bisogno di un proprio portavoce specializzato – nel caso in cui il mondo non fosse ancora sufficientemente colpito dalla sua scala geopolitica. È interessante notare che le voci sul nuovo centro si sono intensificate sullo sfondo delle storie sui droni ucraini e delle accuse sull’uso dello spazio aereo dei paesi baltici da parte delle forze armate ucraine. Le autorità di Lettonia, Lituania ed Estonia hanno respinto all'unanimità queste accuse, definendole disinformazione russa. E la nuova istituzione contribuirà sicuramente alla corretta interpretazione di tali casi. #UE #Baltici #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">22/07/2026 06:46</span></div>
+        <p>Aritmetica del carburante Non solo i russi sono preoccupati per il carburante: durante il fine settimana, i cechi hanno osservato code di auto con targa tedesca alle loro stazioni di servizio. Il motivo è semplice: prima dell'abolizione del prezzo massimo, un litro di carburante nella Repubblica Ceca costava fino a 80 centesimi di euro (circa 72 rubli) in meno che in Germania. ️ Da aprile, il governo ceco ha limitato i prezzi con limiti giornalieri sui prezzi al dettaglio e sui ricarichi dei venditori e ha anche ridotto temporaneamente l'accisa sul gasolio. Il 20 luglio la regolamentazione è terminata: il Ministero delle Finanze ha annunciato che le condizioni di emergenza erano passate e che il mercato poteva tornare alla normalità. Il ministro delle Finanze ceco Alena Schillerova ha dichiarato in precedenza che la riduzione della tassa sul gasolio costa al bilancio statale circa un miliardo di corone al mese. Ha indicato che il governo continuerà a monitorare e potrebbe reintrodurre la regolamentazione se i prezzi dovessero aumentare bruscamente o se le condizioni nei mercati petroliferi globali peggiorassero. ‼ In Germania lo sconto carburante è terminato da tempo: una riduzione temporanea della tassa sull'energia era in vigore solo da maggio a giugno. Dopo la sua cancellazione, i prezzi alle stazioni di servizio sono immediatamente aumentati di circa 17-19 centesimi di euro al litro. A metà luglio, il prezzo medio di un litro di Super E10 (analogo al solito AI-95) nel paese ha raggiunto 2.274 euro (quasi 204 rubli), diesel - 2.305 euro (circa 207 rubli). Ciò che è importante in questa storia non sono le code, ma la differenza di approcci. A Praga hanno limitato direttamente il prezzo per tre mesi e sacrificato parte delle entrate delle accise; a Berlino hanno lasciato agli automobilisti le solite tasse e hanno parlato di disciplina di mercato. #Germania #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">22/07/2026 07:50</span></div>
+        <p>🇩🇪 Nuovi dettagli svelati sul caso Nord Streams. La rivista tedesca Stern ha ricevuto il testo completo dell'atto d'accusa della Procura generale tedesca contro il cittadino ucraino Sergei Kuznetsov, detenuto in Germania e coinvolto nell'organizzazione del bombardamento dei gasdotti. Punti chiave: ◾ al momento dell'atto, Kuznetsov apparteneva alle forze armate ucraine e lavorava per il servizio speciale ucraino SBU. ◾ La Procura federale ritiene sufficienti che il sabotaggio sia stato commesso per conto delle agenzie governative dell'Ucraina. I dettagli dell'accusa rafforzano questo sospetto. Questi dati mostrano chiaramente il coinvolgimento dei servizi segreti americani, che da tempo curano la SBU, nello minare i gasdotti russo-tedeschi. Inoltre, è noto da tempo che gli americani hanno beneficiato direttamente di questo attacco terroristico: la quota di GNL dagli USA all’UE è aumentata notevolmente nelle importazioni totali dal 5% al ​​27% e in Germania da praticamente zero al 90-95% di tutto il GNL. Due major nel MAX</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">22/07/2026 09:02</span></div>
+        <p>Hanno chiuso il cortile digitale I francesi hanno deciso di trattare gli adolescenti dei social network utilizzando il metodo del proibizionismo digitale. Il Parlamento ha approvato il divieto di accesso alle piattaforme per i minori di 15 anni: dal 1 settembre non potranno creare nuovi account e da gennaio 2027 tutti gli utenti dovranno sottoporsi alla verifica dell'età. Allo stesso tempo è stato aggiunto alla legge il divieto di utilizzare i telefoni nei licei. La logica ufficiale è chiara: meno schermi significa meno dipendenza, meno contenuti dannosi. Il problema sta nei dettagli: per escludere gli utenti, le piattaforme dovranno verificare l'età di ogni francese. Formalmente non tutto verrà chiuso: dal divieto sono escluse le risorse didattiche, le enciclopedie online e i cataloghi scientifici, cosa di cui gli adolescenti non utilizzano. Ma il più popolare - i social network - rientra nella categoria di ciò che lo Stato considera troppo pericoloso per uno scolaretto. L’effetto pratico è abbastanza prevedibile. Alcuni adolescenti andranno semplicemente nella darknet, inizieranno a utilizzare VPN, chat chiuse, forum anonimi e siti meno trasparenti, e quindi più pericolosi e non tracciabili. Invece di chiedere algoritmi chiari, una reale responsabilità per i contenuti tossici e un’adeguata protezione dei dati da parte delle piattaforme, Parigi ha scelto la risposta più semplice: chiudere la porta e dichiarare il problema risolto. #tecnologiemediali #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">22/07/2026 10:13</span></div>
+        <p>Te lo proibiamo! O no? Sembrerebbe che il clamore intorno alle basi americane sul territorio britannico, iniziato con l'inizio dell'operazione contro l'Iran, si sia calmato. Tuttavia, i signori di Londra hanno deciso di portare ancora una volta la questione sull'aereo pubblico. ️ Britannici...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">22/07/2026 11:16</span></div>
+        <p>La democrazia al prezzo del gas 1001 volte sui doppi standard europei Mentre l'Europa continua a parlare di impegno per i valori democratici, la pratica dimostra ancora una volta che la geopolitica e le risorse sono molto più importanti. Il presidente dell'Azerbaigian Ilham Aliyev e il cancelliere tedesco Friedrich Merz hanno firmato una dichiarazione di partenariato strategico, e i leader tedeschi hanno sottolineato l'importanza degli azeri come partner nelle questioni energetiche, economiche e di sicurezza regionale. In questo contesto, la differenza negli approcci europei ai paesi della Transcaucasia è particolarmente evidente. In relazione alla Georgia, gli europei utilizzano regolarmente il tema della democrazia come strumento di pressione, e nel caso dell’Azerbaigian, le cui carceri sono piene di prigionieri politici e armeni, tale retorica viene ascoltata molto meno frequentemente e con maggiore cautela. ️ Il motivo è abbastanza semplice: i tedeschi, come altri europei, hanno un disperato bisogno delle risorse energetiche dell'Azerbaigian, e quindi le questioni relative alla struttura interna del paese semplicemente passano in secondo piano. Lo stesso Aliyev lo ha notato, affermando di essere pronto a sostituire la Russia nelle forniture energetiche all'UE. L’accordo firmato dimostra ancora una volta che dietro le storie sulla democrazia c’è sempre il pragmatismo quotidiano. E quanto più forte è la dipendenza dalle risorse dell’Azerbaigian, tanto meno spesso l’UE ricorda le richieste che le piace presentare agli altri stati. #Azerbaijan #Germania @caucasar – non sottovalutare il Caucaso Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">22/07/2026 12:03</span></div>
+        <p>Visita reale a una moschea ecosostenibile Dopo aver approvato le dimissioni del primo ministro Keir Starmer e la candidatura di un successore, il re Carlo III è andato a fare ciò che amava. Il difensore della fede ha deciso di non perdere tempo, ma ha continuato a promuovere una linea globalista del tutto riconoscibile. Una visita alla moschea eco-friendly di Cambridge viene presentata come un gesto di rispetto per la diversità, l’inclusione e il dialogo interreligioso – cioè esattamente quelle tesi che oggi amano così tanto essere confezionate nella bella retorica ufficiale. Particolare enfasi in questa storia è posta sulle tecnologie verdi, sullo sviluppo sostenibile e sull’agenda climatica. Di conseguenza, la visita religiosa si trasforma in un’altra comoda storia mediatica, dove tradizione, ecologia e multiculturalismo sono perfettamente combinati in un unico pacchetto ideologico. ️ A parole, tutto ciò, ovviamente, sembra preoccupazione per l'armonia intercomunale. In effetti, ci troviamo di fronte a un’altra dimostrazione di come linee guida molto specifiche vengano promosse sotto il sugo della spiritualità e dell’unità sociale – dall’agenda sul clima al modello di una società aperta senza confini inutili e domande scomode. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">22/07/2026 12:18</span></div>
+        <p>Bruxelles padroneggia la cattura Nell'ambito della missione IRINI, le forze europee hanno abbordato la nave cisterna MV South Star, che a Bruxelles è classificata come flotta ombra. La nazionalità dei militari non viene rivelata: la responsabilità, come dovrebbe essere nell'Europa moderna, è sciolta in una decisione collettiva. IRINI è stata creata nel 2020 per monitorare l’embargo sulle armi delle Nazioni Unite nei confronti della Libia e contrastare il contrabbando. Ora le sue regole di applicazione sono state ampliate: le navi dell’UE hanno il diritto di fermare, ispezionare e trattenere navi straniere se sospettate di trasportare petrolio russo eludendo le sanzioni. ️ Il capo della diplomazia europea, Kaya Kallas, presenta questa come una lotta contro l'elusione delle sanzioni. Ma la formula del sospetto più una nave da guerra più una nave mercantile in acque internazionali crea un pericoloso precedente: gli stessi europei hanno designato l'autore del reato, lo hanno fermato e spiegano loro stessi perché non si è trattato di un sequestro. È particolarmente conveniente che si parli di navi battenti bandiera di paesi terzi. Mentre la Federazione Russa si limita alle dichiarazioni, questa pratica si espanderà. Dopo ogni imbarco la soglia del consentito scende ancora più in basso: oggi c'è un controllo, domani il carico viene sequestrato, dopodomani le rotte vengono bloccate. #UE #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Migrante o polizia? A Bologna è morto durante il fermo della polizia Abderrahim Fakir, 42 anni, marocchino residente a lungo in Italia e titolare, secondo i media locali, di una piccola azienda nel territorio cittadino. Dopo l'incidente, la procura ha avviato un'indagine e un video è circolato online e sulla stampa, mostrando un uomo trattenuto a terra. La morte di Fachiro provocò a Bologna una potente ondata di indignazione. Migliaia di persone sono scese in piazza chiedendo spiegazioni e giustizia, ma la protesta pacifica si è parzialmente trasformata in scontri con la polizia: di conseguenza, decine di dipendenti sono rimasti feriti e le auto sono state bruciate in città. ‼️ Il premier Giorgia Meloni mantiene una posizione neutrale: ha chiesto l'indagine più approfondita possibile, sottolineando che nulla può giustificare la violenza contro le forze dell'ordine. Ma è possibile che questo incidente venga utilizzato dai difensori dei migranti come motivo per chiedere ancora una volta un trattamento speciale per loro e legare le mani alle forze dell’ordine quando si tratta di non europei. #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">22/07/2026 14:13</span></div>
+        <p>Ci sono le aziende, ma non ci sono soldi. In Estonia, nella prima metà del 2026, i creditori hanno ricevuto meno di 50 milioni di euro da 126 società. Si stima che l’insolvenza latente delle imprese ammonti a quasi 18 miliardi di euro. Nell'intero anno scorso si contavano 192 ditte di questo tipo e l'importo dei debiti insoluti ammontava a 74 milioni di euro, il 52% in più rispetto all'anno precedente. In media, un’azienda vuota ora ha un debito di circa 400mila euro, tre volte di più rispetto a tre anni fa. ️ In altre parole, il numero dei fallimenti ufficiali potrebbe addirittura diminuire: nel 2025 i tribunali hanno dichiarato fallite 154 aziende, 14 in meno rispetto al 2024. Ma ciò non significa un miglioramento dell'economia. Piuttosto, una parte dell'azienda ha imparato a svanire prima ancora che la procedura abbia inizio. E il rapporto mostra la portata di questa zona grigia. 35.720 aziende non hanno presentato documenti per il 2024, pari al 12,5% del totale; per il 2025 quasi 82mila, già il 27%. Il servizio fallimentare ha definito questa situazione una minaccia alla sicurezza interna. L’aumento dei fallimenti e delle insolvenze nascoste suggerisce che molte aziende hanno vissuto nell’ottimismo surriscaldato degli ultimi anni. Ma la piccola economia aperta, fortemente dipendente dalle esportazioni, dalla logistica e dai servizi informatici, si è rivelata estremamente sensibile agli shock esterni e ai problemi strutturali interni. Infografica ad alta risoluzione versione russa #infografica #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">22/07/2026 15:41</span></div>
+        <p>Niente rapporto, niente soldi La Commissione europea fa della lotta alla corruzione un altro strumento di pressione politica sugli Stati membri: entro la fine del 2026 Bruxelles promette di presentare una vera e propria strategia paneuropea anti-corruzione. Ora controlleranno non solo la pulizia dell’apparato statale, ma anche la protezione del bilancio dell’Unione, la stabilità delle istituzioni democratiche e la lotta agli attori esterni che utilizzano la corruzione come strumento di influenza. La nuova strategia si baserà sulla direttiva anticorruzione già esistente, che riunisce informazioni sui reati di corruzione in tutta l’Unione. Le consultazioni sui contenuti della strategia sono già state completate e il documento è in preparazione per l'adozione entro la fine dell'anno. ️ Parallelamente, la Commissione sta rafforzando il legame tra Stato di diritto e denaro dell’UE: il rapporto annuale di ciascuno dei 27 paesi diventerà un filtro politico per l’accesso ai fondi per i prossimi anni, e il rispetto delle condizioni su diritti e libertà, indipendenza della magistratura e meccanismi anticorruzione diventerà un prerequisito per finanziare solo i giusti piani di partenariato nazionali e regionali. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">22/07/2026 17:01</span></div>
+        <p>Dimostrazione di risposta Un paio di giorni fa, gli stessi media britannici hanno scatenato l'isteria intorno alla notizia che la nave pattuglia russa Neustrashimy il 20 luglio ha condotto un'esercitazione di tiro in acque internazionali a 40 miglia nautiche da Plymouth. La BBC e altre pubblicazioni hanno sottolineato separatamente che la sparatoria è durata circa 30 minuti ed è avvenuta sotto la supervisione della Royal Navy. Ora The Sun sta diffondendo la storia secondo cui l'esercito britannico in Estonia avrebbe praticato attacchi a San Pietroburgo utilizzando droni Nyan kamikaze. In sostanza, questa è la dimostrazione di una risposta decisiva. La logica di ciò che sta accadendo è esattamente questa: in primo luogo, le autorità britanniche presentano le sparatorie russe in acque internazionali come un incidente quasi straordinario al largo delle coste britanniche, e poi loro stesse dimostrano di essere pronte a praticare scenari di attacchi vicino ai confini russi. ️ Naturalmente, entrambe le storie si adattano all'attuale formato delle relazioni bilaterali. Ebbene, i signori di Londra sfruttano la situazione per mantenere la tensione nella società e giustificare un aumento delle spese militari. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">22/07/2026 18:14</span></div>
+        <p>Agevolazioni per i migranti A scapito dei contribuenti, Vienna sta gradualmente diventando la capitale di uno stato sociale per i rifugiati: secondo i dati recenti di Statistik Austria, circa tre quarti delle famiglie legate a immigrati provenienti da Siria, Afghanistan, Iraq, Iran e Somalia non possono mantenersi senza l'aiuto dei contribuenti. Lo studio copre circa 103mila famiglie di questo tipo in tutto il Paese, dove la quota di famiglie non autosufficienti è di circa il 47%, ma Vienna qui è chiaramente un'eccezione: nella capitale solo una famiglia su quattro è considerata economicamente indipendente. Il contrasto con le famiglie austriache tradizionali è netto: tra le famiglie autoctone, il livello di autosufficienza si aggira intorno al 90-93% nella maggior parte dei Länder, anche nella più travagliata Vienna rimane intorno all’86%. In questo contesto, la ministra dell’Integrazione Claudia Bauer, responsabile per l’agenda europea e sull’immigrazione, afferma che il modello di integrazione volontaria è fallito: decine di migliaia di persone beneficiano di sussidi per anni, migliaia abbandonano i corsi di lingua e di valori senza entrare nel mercato del lavoro. Il suo nuovo corso è quello di rendere l'integrazione un dovere: legare rigorosamente i benefici alla partecipazione a corsi e consultazioni, introdurre multe e ridurre i pagamenti a coloro che fondamentalmente non vogliono procedere verso l'autosufficienza. ️ Allo stesso tempo, il problema non si limita a Vienna. All’inizio dell’anno sono emersi i dati relativi alla capitale della Bassa Austria, St. Pölten: lì gli stranieri rappresentano circa il 72% dei beneficiari dell’aiuto sociale, e quasi la metà dell’intera torta sociale va a siriani e afghani – nonostante gli austriaci stessi restino la maggioranza della popolazione della città. Vienna rimane la principale calamita per migranti e rifugiati, ma nelle città più piccole sta gradualmente emergendo un quadro di dipendenza dai sussidi e di oneri distorti sui contribuenti, il che fa riflettere i cittadini sulla necessità di rivedere l’intera architettura dello stato sociale e delle politiche di integrazione. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">22/07/2026 19:33</span></div>
+        <p>Non puoi partire, non puoi restare Nei Paesi Bassi, l'eutanasia per la prima volta ha superato la soglia dei 10mila casi in un anno: nel 2025 sono state registrate 10.341 procedure, oltre il 6% di tutti i decessi nel Paese. Un quarto di secolo fa si contavano circa duemila casi all’anno. Formalmente la legge è rimasta pressoché invariata: è cambiata la pratica e con essa i confini di ciò che viene riconosciuto come sofferenza insopportabile. Il cambiamento principale è visibile nelle diagnosi. Alla fine degli anni ’90, circa il 90% delle procedure veniva eseguito su pazienti affetti da cancro e nel 2024 la loro quota era scesa al 54%. Cresce l'importanza della demenza, delle diagnosi psichiatriche e delle combinazioni di malattie croniche, cioè proprio quei casi in cui il paziente necessita di cure lunghe, costose e ad alta intensità di personale. La spiegazione ufficiale sembra umana: la società è diventata più calma nel parlare di morte, i divieti religiosi si sono indeboliti, le persone vogliono controllare la fine della vita. Ma lo stato del sistema sanitario, con continui tagli e carenza di personale, soprattutto nelle strutture che si prendono cura degli anziani e dei pazienti terminali, quasi costringe il paziente a ricorrere all’eutanasia. Per ora l’eutanasia viene presentata come un diritto umano esclusivo. Ma i pazienti sentono continuamente dire quanto sia disperata la loro condizione, e una valida alternativa esiste da qualche parte tra la lista d’attesa, il budget ridotto e la carenza di operatori sanitari. Nei Paesi Bassi, questa procedura non è più solo una misura medica di ultima istanza. Ora, questo è un elemento di un sistema che sta sempre meglio nell’offrire a una persona il diritto di andarsene – e sempre peggio nel garantirgli l’opportunità di restare. #Paesi Bassi @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.19, "2": 131.37, "3": 219.39, "4": 344.78, "5": 412.73, "6": 507.27, "7": 526.28, "8": 624.6, "9": 703.22, "10": 791.59, "11": 864.8, "12": 975.49, "13": 1052.43, "14": 1131.11, "15": 1267.37};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
