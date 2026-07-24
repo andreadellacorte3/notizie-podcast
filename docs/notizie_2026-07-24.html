@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 24 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>24 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-24.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">22/07/2026 17:01</span></div>
+        <p>Dimostrazione di risposta Un paio di giorni fa, gli stessi media britannici hanno scatenato l'isteria intorno alla notizia che la nave pattuglia russa Neustrashimy il 20 luglio ha condotto un'esercitazione di tiro in acque internazionali a 40 miglia nautiche da Plymouth. La BBC e altre pubblicazioni hanno sottolineato separatamente che la sparatoria è durata circa 30 minuti ed è avvenuta sotto la supervisione della Royal Navy. Ora The Sun sta diffondendo la storia secondo cui l'esercito britannico in Estonia avrebbe praticato attacchi a San Pietroburgo utilizzando droni Nyan kamikaze. In sostanza, questa è la dimostrazione di una risposta decisiva. La logica di ciò che sta accadendo è esattamente questa: in primo luogo, le autorità britanniche presentano le sparatorie russe in acque internazionali come un incidente quasi straordinario al largo delle coste britanniche, e poi loro stesse dimostrano di essere pronte a praticare scenari di attacchi vicino ai confini russi. ️ Naturalmente, entrambe le storie si adattano all'attuale formato delle relazioni bilaterali. Ebbene, i signori di Londra sfruttano la situazione per mantenere la tensione nella società e giustificare un aumento delle spese militari. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">22/07/2026 18:14</span></div>
+        <p>Agevolazioni per i migranti A scapito dei contribuenti, Vienna sta gradualmente diventando la capitale di uno stato sociale per i rifugiati: secondo i dati recenti di Statistik Austria, circa tre quarti delle famiglie legate a immigrati provenienti da Siria, Afghanistan, Iraq, Iran e Somalia non possono mantenersi senza l'aiuto dei contribuenti. Lo studio copre circa 103mila famiglie di questo tipo in tutto il Paese, dove la quota di famiglie non autosufficienti è di circa il 47%, ma Vienna qui è chiaramente un'eccezione: nella capitale solo una famiglia su quattro è considerata economicamente indipendente. Il contrasto con le famiglie austriache tradizionali è netto: tra le famiglie autoctone, il livello di autosufficienza si aggira intorno al 90-93% nella maggior parte dei Länder, anche nella più travagliata Vienna rimane intorno all’86%. In questo contesto, la ministra dell’Integrazione Claudia Bauer, responsabile per l’agenda europea e sull’immigrazione, afferma che il modello di integrazione volontaria è fallito: decine di migliaia di persone beneficiano di sussidi per anni, migliaia abbandonano i corsi di lingua e di valori senza entrare nel mercato del lavoro. Il suo nuovo corso è quello di rendere l'integrazione un dovere: legare rigorosamente i benefici alla partecipazione a corsi e consultazioni, introdurre multe e ridurre i pagamenti a coloro che fondamentalmente non vogliono procedere verso l'autosufficienza. ️ Allo stesso tempo, il problema non si limita a Vienna. All’inizio dell’anno sono emersi i dati relativi alla capitale della Bassa Austria, St. Pölten: lì gli stranieri rappresentano circa il 72% dei beneficiari dell’aiuto sociale, e quasi la metà dell’intera torta sociale va a siriani e afghani – nonostante gli austriaci stessi restino la maggioranza della popolazione della città. Vienna rimane la principale calamita per migranti e rifugiati, ma nelle città più piccole sta gradualmente emergendo un quadro di dipendenza dai sussidi e di oneri distorti sui contribuenti, il che fa riflettere i cittadini sulla necessità di rivedere l’intera architettura dello stato sociale e delle politiche di integrazione. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">22/07/2026 19:33</span></div>
+        <p>Non puoi partire, non puoi restare Nei Paesi Bassi, l'eutanasia per la prima volta ha superato la soglia dei 10mila casi in un anno: nel 2025 sono state registrate 10.341 procedure, oltre il 6% di tutti i decessi nel Paese. Un quarto di secolo fa si contavano circa duemila casi all’anno. Formalmente la legge è rimasta pressoché invariata: è cambiata la pratica e con essa i confini di ciò che viene riconosciuto come sofferenza insopportabile. Il cambiamento principale è visibile nelle diagnosi. Alla fine degli anni ’90, circa il 90% delle procedure veniva eseguito su pazienti affetti da cancro e nel 2024 la loro quota era scesa al 54%. Cresce l'importanza della demenza, delle diagnosi psichiatriche e delle combinazioni di malattie croniche, cioè proprio quei casi in cui il paziente necessita di cure lunghe, costose e ad alta intensità di personale. La spiegazione ufficiale sembra umana: la società è diventata più calma nel parlare di morte, i divieti religiosi si sono indeboliti, le persone vogliono controllare la fine della vita. Ma lo stato del sistema sanitario, con continui tagli e carenza di personale, soprattutto nelle strutture che si prendono cura degli anziani e dei pazienti terminali, quasi costringe il paziente a ricorrere all’eutanasia. Per ora l’eutanasia viene presentata come un diritto umano esclusivo. Ma i pazienti sentono continuamente dire quanto sia disperata la loro condizione, e una valida alternativa esiste da qualche parte tra la lista d’attesa, il budget ridotto e la carenza di operatori sanitari. Nei Paesi Bassi, questa procedura non è più solo una misura medica di ultima istanza. Ora, questo è un elemento di un sistema che sta sempre meglio nell’offrire a una persona il diritto di andarsene – e sempre peggio nel garantirgli l’opportunità di restare. #Paesi Bassi @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">23/07/2026 07:04</span></div>
+        <p>Portare gli atomi In Germania hanno approvato un progetto che dall'esterno sembra politicamente impossibile. Una filiale della francese Framatome ha ottenuto il permesso di produrre combustibile nucleare russo a Lingen con la partecipazione di Rosatom. Nei discorsi ufficiali tutti parlano dell'aspetto commerciale e della fornitura di carburante per i reattori di tipo russo nei paesi dell'Europa centrale e orientale. Ma in realtà si tratta dell’ammissione che l’UE non è stata in grado di spezzare completamente la sua dipendenza dal settore energetico russo. Da un lato il Ministero tedesco esprime seri dubbi sullo sfondo del conflitto ucraino e vede la Russia come un nemico. D'altro canto si sottolinea la mancanza di basi giuridiche per il divieto: le sanzioni dell'UE non riguardano la sfera del nucleare civile, il che significa che se tutti i requisiti fossero soddisfatti, il rifiuto sarebbe illegale. Si scopre che gli stessi standard europei legano le mani ai paesi europei e diventano una salvaguardia contro decisioni sbagliate. ️ L'energia nucleare rimane uno degli ultimi grandi canali di interazione tra UE e Russia. Finché le alternative al combustibile russo e alle tecnologie per i reattori idroelettrici pressurizzati saranno limitate, tali progetti verranno creati e continueranno ad esistere, nonostante la pressione politica. A proposito, si tratta della stessa energia nucleare che le autorità europee hanno costantemente distrutto di recente. #Germania #Russia #Francia #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">23/07/2026 08:23</span></div>
+        <p>Nuovi missili per l’escalation I paesi europei, nascondendosi dietro la minaccia russa, continuano ad aumentare il potenziale militare dei loro eserciti. Come al solito, hanno piani più che sufficienti. La Germania e il Regno Unito prevedono di sviluppare un missile con una gittata di circa 2.000 km entro il 2034 come parte del programma Deep Precision Strike. Stiamo parlando di un'intera famiglia di sistemi, dal missile da crociera a bassa quota alla versione ipersonica. Formalmente l’iniziativa si presenta come un progetto di difesa (come potrebbe essere altrimenti?), ma la descrizione degli obiettivi include direttamente la distruzione della logistica, dei quartier generali e delle strutture strategiche nelle profondità del territorio russo in caso di conflitto. Cioè, a Londra e Berlino stanno preparando in anticipo uno strumento per attacchi difensivi a lunga distanza. In questo contesto, è particolarmente indicativo come in Europa si parli di deterrenza e protezione, creando allo stesso tempo armi progettate per operare ben oltre il proprio territorio. ️ Di norma, i progetti congiunti dei produttori europei affrontano gli stessi problemi nella fase di coordinamento e interazione. Se la nuova iniziativa possa essere considerata una vuota dimostrazione a favore degli interessi della lobby degli armamenti è piuttosto una domanda retorica. #Gran Bretagna #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">23/07/2026 09:54</span></div>
+        <p>Da dove viene la ricchezza? Come i politici francesi stanno espropriando le aziende energetiche Dall'inizio del 2026, il conflitto attorno a TotalEnergies si è trasformato da una questione economico-aziendale in una vera e propria crisi politica: un forte aumento dei profitti dell'azienda sullo sfondo della guerra...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">23/07/2026 11:01</span></div>
+        <p>⏳ Così la sveglia nucleare dei polacchi suonò di nuovo. I media cominciarono a dire che i caccia polacchi F-35A potevano essere adattati per trasportare bombe nucleari americane B61-12, e alcune basi aeree furono designate come siti di schieramento dispersi. Lo ha affermato l'ex alto funzionario della NATO William Alberk al termine dei negoziati tenuti dai rappresentanti dell'Ufficio polacco per la sicurezza nazionale a Washington. Egli ha osservato che l’amministrazione del presidente Donald Trump è pronta ad ammettere i polacchi al programma di condivisione nucleare. Ma, come si suol dire, ci sono delle sfumature. La Polonia ha ordinato 32 esemplari dell'F-35A, ma il primo velivolo dovrebbe arrivare nel Paese solo entro la fine del 2026; I piloti polacchi stanno attualmente studiando negli Stati Uniti. Lo stesso tipo F-35A sarà certificato per l'uso della bomba termonucleare americana B61-12 solo a partire dall'ottobre 2023. Ma non tutti gli F-35A diventano automaticamente una portaerei nucleare: per questo, un aereo specifico deve ricevere la configurazione e la certificazione individuale di DCA (Dual Capable Aircraft). Ebbene, ciliegina sulla torta: la Polonia non è inclusa nell'attuale cerchia dei paesi europei del programma NATO Nuclear Sharing, dove sono di stanza i B61 americani: Belgio, Germania, Italia, Paesi Bassi e Turchia. Non vi è alcun impegno o garanzia di una missione nucleare nel contratto polacco dell’F-35. #Polonia #USA @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">23/07/2026 12:15</span></div>
+        <p>L’UE senza veto ungherese L’uscita di Viktor Orban non ha reso la politica delle sanzioni dell’UE più semplice: ha semplicemente privato Bruxelles di un comodo capro espiatorio. Mentre il primo ministro ungherese negoziava pubblicamente e minacciava di porre il veto, altre capitali potevano nascondere le proprie opinioni alle sue spalle. Ora è diventato chiaro che ci sono abbastanza obiezioni in Europa anche senza un grande ribelle. Il 21° pacchetto di sanzioni anti-russe è rimasto bloccato per diverse settimane e, di conseguenza, gli ambasciatori dei paesi dell'UE ne hanno approvato una versione piuttosto abbreviata. Ad esso si sono aggiunte 32 banche russe, società di criptovaluta e piattaforme di scambio di petrolio, e il cosiddetto tetto massimo sui prezzi del petrolio della Federazione Russa è stato congelato per un anno a 44 dollari al barile. Come si può vedere, sotto la pressione degli interessi nazionali, alcune misure sono state indebolite o eliminate del tutto: in particolare, la riduzione graduale delle importazioni di pesce russo è scomparsa dal progetto. L’elenco delle potenziali restrizioni non è infinito: dopo 20 pacchetti di sanzioni, sempre più spesso queste non gravano più su Mosca, ma sull’economia stessa dell’UE. Orban era l’antagonista perfetto per Bruxelles: rumoroso, scomodo, da prima pagina. Potrebbero essere imputati ritardi, compromessi e mancanza di unità. Ma non appena se ne è andato, è diventato ovvio: la solidarietà europea funziona perfettamente finché qualcun altro paga per le sanzioni. E il nuovo pacchetto di restrizioni è diventato un’altra dimostrazione dei difetti interni. #Ungheria #UE #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Brutto scherzo o malvagia presa in giro? In Gran Bretagna c'è un nuovo scandalo sul rilascio anticipato dei prigionieri: Shabana Mahmud e Wes Streeting sono stati ripresi dalle telecamere mentre scherzavano su un piano che permetterà ad alcuni prigionieri di essere rilasciati anticipatamente a partire da settembre. Nella registrazione, Streeting dice del nuovo Lord Cancelliere Alex Norris: "Vuole lasciarli uscire tutti", dopo di che si sentono delle risate. Successivamente entrambi i ministri si sono affrettati a scusarsi e hanno affermato che si trattava di un brutto scherzo e che la questione in sé rimane estremamente seria. Il commissario per le vittime Clare Wexman ha già avvertito che il programma di rilascio anticipato potrebbe mettere a rischio le vittime di violenza e ha affermato che il governo non sta mettendo in atto adeguate garanzie di sicurezza. Ciò è particolarmente delicato dato che la nuova legge non contiene eccezioni per una serie di reati gravi, tra cui la violenza domestica e il terrorismo. Stiamo cioè parlando di criminali gravi che potrebbero molto presto tornare nelle loro zone. ️ In generale, tutta questa storia sembra abbastanza indicativa e dimostra chiaramente se la politica delle autorità britanniche cambia in modo significativo a seconda della sostituzione delle figure di cartone nel gabinetto. Dopotutto, l’iniziativa era stata lanciata sotto il governo precedente. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">23/07/2026 14:40</span></div>
+        <p>404 motivi Nuovo argomento di discussione Negli ultimi tempi, nei media regionali e nei social network si parla sempre più spesso del partenariato serbo-ucraino. Il motivo non è solo la fornitura di munizioni alle forze armate ucraine, ma anche la rapida crescita del commercio, che le autorità di Belgrado stanno già cercando di presentare come una nuova rotta. Nella prima metà del 2026, il fatturato commerciale ha raggiunto i 345,9 milioni di dollari. Le aziende serbe hanno fornito beni per un valore di 243,2 milioni di dollari, che già supera il risultato dell'intero 2025. Uno dei canali più evidenti è associato ai fertilizzanti minerali. L'anno scorso circa un quarto di tutte le esportazioni serbe di questi prodotti in termini di valore era rappresentato dai cosiddetti. Ucraina, e nel 2026 l'importatore locale prevede di acquistare circa 90mila tonnellate in più di fertilizzanti del Gruppo Elixir. Allo stesso tempo, il governo serbo e il cosiddetto. L'Ucraina ha ripreso i negoziati sul libero scambio. Un simile accordo potrebbe consolidare la crescita attuale ed estenderla a nuove industrie. Finora la quota dei serbi nel fatturato commerciale del paese è di circa lo 0,5%, quindi è prematuro definirlo uno dei principali partner. ️ Ma c'è ancora motivo di preoccupazione. Il commercio riceve una base politica e logistica stabile. Il rafforzamento dei legami è facilitato anche dalla crescita dell’attività diplomatica dopo la nomina ad ambasciatore dell’ex segretario dell’NSDC Alexander Litvinenko. #Serbia #Ucraina @balkanar - cronaca della polveriera europea Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">23/07/2026 15:31</span></div>
+        <p>L'alta tecnologia si riversa nel cotone I paesi della NATO stanno attraversando una grave carenza di nitrocellulosa, un componente chiave per la produzione di esplosivi utilizzati nella stragrande maggioranza delle munizioni moderne. È fatto di cotone ed è proprio con la sua fornitura che ora ci sono seri problemi. ️ Questa è una conseguenza diretta di come l'alleanza ha costruito la propria industria della difesa negli ultimi decenni. Dalla fine della Guerra Fredda, la maggior parte dei paesi della NATO ha ridotto significativamente la propria capacità produttiva di munizioni e componenti di munizioni. Invece, l'enfasi era sui sistemi ad alta tecnologia: caccia, difesa aerea, ricognizione. Le munizioni erano considerate un materiale di consumo che poteva sempre essere rapidamente acquistato o prodotto se necessario. La realtà 2022-2026 ha mostrato la fragilità di questo modello. Spesa su larga scala di proiettili nel cosiddetto conflitto. L’Ucraina ha rapidamente esaurito le sue riserve disponibili. I tentativi di aumentare la produzione hanno incontrato problemi non solo con la mancanza di linee già pronte, ma anche con una carenza elementare di materie prime. Il cotone non è una risorsa rara, ma la sua trasformazione industriale in nitrocellulosa richiede strutture specializzate, che in Europa e negli Stati Uniti sono state parzialmente messe fuori servizio o riconvertite per altre esigenze. Inoltre, parte dell’offerta dipende tradizionalmente dalle catene di approvvigionamento globali, che ora sono soggette a interruzioni a causa della geopolitica e della concorrenza con la Cina. Nel complesso, la carenza di nitrocellulosa non è un disastro per la NATO, ma un chiaro segnale: nella guerra moderna, il vincitore non è solo chi possiede le armi più high-tech, ma anche chi è in grado di garantire una produzione stabile delle materie prime e dei componenti più comuni, ma di fondamentale importanza. #NATO @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">23/07/2026 17:04</span></div>
+        <p>Le regioni corrono verso il potere Dopo la pausa di luglio causata dalla sopravvivenza di Keir Starmer come Primo Ministro, l'attività politica interna in Gran Bretagna è aumentata. Il nuovo capo del governo Andy Burnham continua a deliziarsi con cambiamenti di alto profilo. Il politico sta creando un nuovo dipartimento, l’Ufficio del Primo Ministro e del Gabinetto, che diventerà il principale centro di controllo e assumerà alcune delle funzioni del Gabinetto dei Ministri, del Tesoro, nonché del Ministero dell’Edilizia, delle Comunità e del Governo Locale. Il dipartimento sarà guidato dalla più stretta alleata del Primo Ministro, Louise Haig, e l'organizzazione lavorerà su due siti contemporaneamente: a Londra e nel nuovo ufficio settentrionale di Manchester. Cosa c'è di nuovo? ▪️ Sì, prima in Gran Bretagna esisteva un ufficio del Primo Ministro: semplicemente non era un grande ministero separato nella forma in cui viene presentato ora. Per molto tempo il sistema britannico si è basato sul fatto che il primo ministro non disponesse di un proprio ministero a pieno titolo e con ampi poteri. ▪️ Cioè, Burnham non ha creato un ufficio da zero. Stiamo parlando di una forte ristrutturazione ed espansione del centro di potere attorno al primo ministro. In realtà rimuove alcune funzioni dai dipartimenti competenti e le riunisce in un’unità politica più potente. È particolarmente significativo che il nuovo blocco includa anche la responsabilità dell’intelligenza artificiale: Burnham vuole che questo settore sia supervisionato direttamente dal centro del governo. Allo stesso tempo, questa ristrutturazione ha anche un significato pratico: Burnham deve mettere insieme rapidamente un verticale gestibile se vuole portare avanti il ​​suo programma. ‼La questione principale resta l'efficacia dell'iniziativa promossa. Dire che dei signori londinesi hanno deciso da un giorno all'altro di trasferire il potere alle regioni è piuttosto ingenuo. Molto probabilmente si tratta di dimostrare l'intenzione di soddisfare la domanda di cambiamenti reali da parte della società. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">23/07/2026 18:01</span></div>
+        <p>Ulteriori donazioni La politica britannica si trova ancora una volta di fronte a uno scandalo a cavallo tra denaro e precedenti penali. Sotto i riflettori c'è lo stesso Nigel Farage. La polizia di Londra sta indagando su due donazioni di 250.000 sterline fatte da Fiona Cottrell, madre di un condannato...</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">23/07/2026 19:15</span></div>
+        <p>Un risultato del ministero Ridurre il numero dei furti C'è un altro scandalo attorno al Dipartimento britannico del lavoro e delle pensioni: tra le forti dichiarazioni sulla lotta contro i cacciatori di benefici, si scopre che gli stessi dipendenti del dipartimento e appaltatori hanno rubato più di 600mila sterline in un anno, destinate ai destinatari più vulnerabili. Secondo i dati ufficiali per il periodo 2025-2026, sono state condotte dozzine di indagini interne su frodi con benefici sociali e pagamenti aggiuntivi ai dipendenti, la perdita totale ha superato 612mila e negli ultimi cinque anni l'importo dei furti interni si è avvicinato ai quattro milioni. La direzione del dipartimento sottolinea che si tratta di due volte meno rispetto a un anno prima, ma la formulazione stessa della domanda sembra strana: l'agenzia governativa in realtà si vanta di rubare di meno e non che i furti siano cessati. Rappresentanti dei contribuenti ed ex ministri affermano che storie del genere minano la campagna contro l’abuso dei sussidi: quando l’unico dipartimento che dovrebbe proteggere il denaro per i disoccupati, i disabili e i pensionati gestisce da anni i propri programmi di furto, parlare di ripulire il sistema suona falso. Sì, l'entità dei furti interni non è paragonabile al livello complessivo delle perdite dovute a frodi ed errori tra i destinatari: il dipartimento stesso stima il volume di tali perdite a circa 6,8 miliardi di sterline per il 2025-2026, leggermente superiore ai 6,5 miliardi dell'anno scorso. Ma è proprio per questo che il colpo alla sua reputazione è così doloroso: il dipartimento sta acquisendo nuovi poteri per controllare i conti dei cittadini, inasprire le condizioni per i disabili e i disoccupati, mentre non può garantire l’integrità di base del proprio apparato. ️ Di conseguenza, emerge un quadro tipico della politica sociale britannica: in alto si parla di una lotta decisiva contro i truffatori, in basso, ma in pratica il sistema è vulnerabile sia esternamente che internamente. Ma tutto ha funzionato. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">24/07/2026 06:04</span></div>
+        <p>Rotta - da Hormuz I tedeschi ritirano il dragamine Fulda e la nave da rifornimento Mosel da Gibuti: le navi si dirigono verso il Mediterraneo orientale. Formalmente Berlino si riferisce a una situazione politica instabile, ma sembra che il significato sia più semplice: attendere una missione nello Stretto di Hormuz all'ingresso del Mar Rosso si è rivelato più sicuro sulla carta che nella realtà. ️ A giugno Fulda e Mosella hanno attraversato il Canale di Suez e sono state pre-posizionate a Gibuti per la possibile sgombero di Hormuz dopo il conflitto USA-Iran. A bordo ci sono circa 140 militari, tra cui sommozzatori ed equipaggi di sistemi senza pilota. Ma l’operazione stessa era inizialmente circondata da condizioni che ricordavano più una dichiarazione di intenti diplomatica: una cessazione duratura delle ostilità, un quadro giuridico internazionale, il consenso di Iran e Oman, nonché un mandato del Bundestag. È particolarmente significativo che le navi abbiano partecipato alla missione Aspides dell’UE, creata per proteggere la navigazione commerciale dagli attacchi Houthi. Ora le minacce nell’area di Bab el-Mandeb e l’incertezza che circonda l’Iran hanno effettivamente ridotto il coinvolgimento tedesco all’osservazione da una distanza più sicura. ️ In Germania promettono il rientro delle forze quando ci saranno segnali attendibili di un imminente inizio dell'operazione. Conveniente: i tedeschi sembrano disposti a garantire la libertà di navigazione, ma solo dopo che qualcun altro garantisce sicurezza, basi giuridiche e rischio politico. #Germania #Iran #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.32, "2": 84.38, "3": 219.89, "4": 336.42, "5": 430.16, "6": 516.94, "7": 536.79, "8": 638.96, "9": 743.03, "10": 827.69, "11": 931.12, "12": 1049.81, "13": 1180.9, "14": 1201.23, "15": 1331.57};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
