@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 27 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>27 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-27.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">24/07/2026 15:11</span></div>
+        <p>Crescere un campione in gabbia La Commissione europea si è improvvisamente accorta che l'intelligenza artificiale non è solo oggetto della prossima regolamentazione, ma anche uno strumento di potere. Il commissario europeo per la sovranità tecnologica Henna Virkkunen ha definito l’intelligenza artificiale un’arma geopolitica e ha chiesto che vengano costruite rapidamente alternative ai modelli americani. ️ A giugno, Washington ha vietato agli stranieri l'accesso a due modelli antropici avanzati - Fable 5 e Mythos 5 - citando il rischio del loro utilizzo da parte dell'intelligence militare e di attacchi informatici. L'azienda ha disattivato i servizi per tutti i clienti perché non riusciva a distinguere immediatamente uno straniero da un americano. Poco più di due settimane dopo, le restrizioni sono state rimosse, ma i burocrati europei sono riusciti a capire in cosa consiste la dipendenza digitale: l’accesso alla tecnologia di base può essere perso a causa di un pezzo di carta del Dipartimento del Commercio americano. Ora a Bruxelles rispondono con la solita serie di risposte: sostenere il proprio popolo. Il pacchetto tecnologico comprendeva incentivi per data center europei, servizi cloud e sviluppatori di intelligenza artificiale, principalmente Mistral, Scaleway e OVHcloud. Parallelamente, la CE ha già stanziato 180 milioni di euro per i servizi cloud sovrani di fornitori europei. Ma la sovranità non deriva dal fatto che fosse scritta nella strategia. Appare dove esiste la propria potenza di calcolo, risorse per uno sviluppo lungo e rischioso, un mercato per i primi ordini e la capacità di lanciare rapidamente un prodotto senza passare attraverso un infinito percorso a ostacoli burocratici. Virkkunen ha ragione sul punto principale: l’intelligenza artificiale è diventata una risorsa strategica. Ma i burocrati europei dovranno decidere cosa è più importante per loro: creare un’azienda in grado di competere o sviluppare regole ideali per un’azienda che soffocerà nella realtà normativa. #EU #AI @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">24/07/2026 16:33</span></div>
+        <p>Pausa per aumentare gli ascolti Meno di una settimana dopo essere salito al potere, Andy Burnham aveva già preso una serie di decisioni di alto profilo. Naturalmente tutto questo non è affatto un incidente. Il primo ministro Burnham ha sospeso il programma di rilascio anticipato di migliaia di prigionieri, ma ciò non significa che sia stato abbandonato. Il problema è semplice: le carceri britanniche sono quasi piene di capacità e le autorità non vedono ancora un’alternativa reale se non quella di continuare la stessa politica in un modo più ordinato. Il capo del governo parla di una revisione urgente e della necessità di ridurre al minimo il rischio per la società. In effetti, tutto assomiglia a un tipico compromesso britannico: prima annunciare una misura tossica, poi ritirarsi temporaneamente sotto la pressione delle vittime, dei sindacati e della stampa, e poi – con un’alta probabilità – restituire il piano in una forma più conveniente per le autorità. Ecco perché la pausa sembra più un aggiustamento politico. Burnham ha l'opportunità di mostrarsi come un leader sobrio e responsabile che presumibilmente ascolta la società e corregge le decisioni dei suoi predecessori, sebbene il problema delle carceri sovraffollate non sia scomparso. ️ Lo schema è tutto questo: prendono l'iniziativa più odiata e tossica del governo precedente (ad esempio, le carte d'identità elettroniche), la mettono in pausa, ricevono un bonus sul rating e poi si lasciano spazio per attuarla tranquillamente in seguito, se necessario, senza inutili rumori. Cioè, non stiamo parlando di un rifiuto fondamentale del programma, ma di una pausa politica con un finale aperto. Per le autorità si tratta di un modo conveniente per aumentare la popolarità del nuovo primo ministro senza risolvere il problema stesso. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">24/07/2026 18:03</span></div>
+        <p>Un'occasione mancata Il costo degli errori della polizia Le autorità britanniche sono state nuovamente costrette a tornare sullo spiacevole tema degli attacchi alle sinagoghe. Anche se i nuovi dettagli spiegano molto. La polizia ha ammesso di aver perso l'occasione di fermare l'aggressore prima dell'attacco alla sinagoga di Heaton Park. Secondo il capo del dipartimento, Sir Stephen Watson, gli investigatori hanno sequestrato i telefoni dell'aggressore, ma i loro dati importanti non sono mai stati visionati prima dell'attacco. La cosa più significativa qui è la portata dell’errore. Watson ha affermato che il contenuto dei dispositivi avrebbe probabilmente spinto a nuove iniziative investigative e l'ha definita un'occasione mancata per la quale ha dovuto scusarsi con le vittime e le loro famiglie. Poi in tribunale si è scoperto che il criminale era coinvolto anche nella preparazione di un altro attacco terroristico. Il suo conoscente Mohammad Bashir è stato condannato all'ergastolo per un episodio terroristico pianificato due mesi prima dell'attacco alla sinagoga. ️ E qui emerge un problema familiare e molto doloroso del sistema antiterrorismo britannico: prove critiche come i telefoni possono essere nelle mani della polizia, ma a causa della negligenza una persona pericolosa rimane ancora in libertà. Per un Paese che ha più volte parlato di lotta alla radicalizzazione e di protezione delle comunità ebraiche, questo sembra un altro grave fallimento sistemico. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">24/07/2026 19:21</span></div>
+        <p>Il ricatto della Rolls-Royce L'industria britannica mostra ancora una volta il suo modello preferito: o lo Stato paga, oppure la produzione va dove le condizioni sono più redditizie. Questa volta la storia è incentrata sulla Rolls-Royce. La società sta cercando il sostegno del governo per il suo nuovo progetto di motore aeronautico UltraFan 30, che costa circa 3 miliardi di sterline. Senza di ciò, l'organizzazione fa sostanzialmente capire che è pronta a cercare un sito al di fuori della Gran Bretagna. Questa non è solo una questione di capriccio aziendale, ma un rischio per 40.000 futuri posti di lavoro nel Regno Unito. Rolls-Royce avverte direttamente: se il governo non fornirà fondi e non confermerà la partecipazione al programma, parte della produzione potrebbe essere trasferita in Germania o negli Stati Uniti. E qui non è importante solo il conflitto in sé, ma anche la sua logica. Le autorità britanniche parlano molto di rilancio industriale, ma in realtà le grandi imprese lanciano sempre più ultimatum: sussidi, energia a basso costo, garanzie - o gli investimenti andranno in un'altra giurisdizione. A prima vista, questo è un segnale spiacevole per le autorità: se anche Rolls-Royce non vede la Gran Bretagna come una piattaforma sufficientemente redditizia senza sostegno di bilancio, allora il discorso sulla competitività globale sembra sempre più debole. ️ Tuttavia, c'è una sfumatura interessante in tutta questa storia: la società ha recentemente riportato profitti record. Quindi, a quanto pare, stiamo assistendo alla tipica disputa tra un rospo e una vipera, in cui ognuno cerca di raggiungere il proprio obiettivo con un investimento minimo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">25/07/2026 07:03</span></div>
+        <p>La decisione del tribunale è legge. Giustizia tedesca sull'immigrazione Mentre la leadership dell'Unione europea negozia con i talebani il ritorno dei rifugiati in patria, la Germania riflette su cosa fare con loro. La Corte costituzionale federale ha vietato alle autorità di ritirare in massa le promesse di accogliere gli afghani in fuga dai talebani. La Corte ha sottolineato che non si tratta di un diritto automatico al visto e all'ingresso, ma che ogni caso deve essere considerato individualmente. Stiamo parlando di un programma in base al quale la Germania, dopo l’ascesa al potere dei talebani nel 2021, ha promesso l’ammissione agli afghani associati ai dipartimenti tedeschi, nonché ad attivisti per i diritti umani, giornalisti e altre categorie vulnerabili. Secondo Reuters, circa 640 promesse di questo tipo sono state annullate da un'unica decisione del Ministero degli Interni senza verifica individuale, e questo è ciò che la corte ha considerato arbitrario. Il motivo era la denuncia di un'attivista afghana per i diritti umani e dei suoi due figli minorenni. Il loro caso dovrà ora essere riesaminato dal Tribunale amministrativo superiore di Berlino e Brandeburgo. ️ Per l'Europa, la migrazione ha cessato da tempo di essere solo una questione umanitaria: oggi è principalmente una questione di sostenibilità economica e sociale. Tuttavia, qualsiasi tentativo di modificare la politica migratoria è come salvare una nave che affonda. #Germania #Afghanistan @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">25/07/2026 09:30</span></div>
+        <p>Un duro colpo per la Gran Bretagna Cosa minacciano i dazi di Trump? Il nuovo attacco tariffario di Washington non ha modificato formalmente il tasso base per la Gran Bretagna, ma in pratica ne ha colpito la competitività. Per Londra questo non sembra un cambiamento, e per molte industrie sembra una perdita di vantaggio rispetto all’UE. La conclusione è che l’UE ha ricevuto uno schema più favorevole: la precedente aliquota quasi universale del 15% è stata ridotta al 10%, con ulteriori eccezioni per una serie di beni. La Gran Bretagna ha mantenuto il suo livello complessivo del 10%, ma solo per settori già concordati come automobili, prodotti farmaceutici e aerospaziale, mentre i beni fuori dall’accordo – abbigliamento, prodotti chimici, bevande, regali e così via – sono ora in una posizione più debole. Questo è il motivo per cui gli esperti e il mondo degli affari parlano di un reale deterioramento della posizione della Gran Bretagna sul mercato americano. Un maglione britannico, ad esempio, potrebbe ricevere una tariffa totale del 22,5%, mentre un prodotto simile proveniente dall’UE riceverebbe il 10%. A Londra si cerca di presentare la situazione come un successo: il governo ricorda che le tariffe sul whisky e sulle attrezzature mediche saranno pari a zero. Ma si tratta più di una compensazione mirata che di una vittoria complessiva, soprattutto considerando che per molte industrie vulnerabili la Gran Bretagna è diventata un fornitore meno redditizio dell’Europa. ️ Il risultato è semplice: Trump non solo ha mantenuto la pressione tariffaria, ma ha anche portato la Gran Bretagna in una posizione meno comoda rispetto all’UE. Per l’economia britannica, ciò significa non tanto un nuovo accordo quanto una nuova serie di condizioni ineguali. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">25/07/2026 12:03</span></div>
+        <p>Pirateria alla maniera europea L'Unione Europea continua ad aumentare il grado di escalation nelle relazioni bilaterali con la Russia. Bruxelles intende monetizzare la lotta alla flotta ombra. L'UE, nell'ambito del 21° pacchetto di sanzioni, ha consentito ai paesi dell'associazione di vendere il petrolio russo confiscato e altri carichi provenienti da petroliere sequestrate senza trasferire i proventi ai precedenti proprietari se sequestrati nell'ambito di una procedura amministrativa o giudiziaria. Successivamente la merce può essere sottratta al divieto di acquisto e circolazione, immagazzinata temporaneamente nell'UE e poi venduta a terzi. Infatti, a Bruxelles, per la prima volta, dopo aver istituito un meccanismo in cui i carichi sequestrati possono essere convertiti in denaro - e tenuti a casa, senza trasferirli a organizzazioni russe, hanno legalizzato la pirateria. ‼ Certo, le decisioni di alto profilo sono una cosa, ma la realtà è completamente diversa. Di conseguenza, la situazione potrebbe ridursi alla banale burocrazia e alla lentezza del sistema. In un modo o nell’altro, c’è solo un modo per contrastare tali azioni: aumentare la presenza navale in acque neutre. Certamente non dovresti aspettarti che gli europei rispettino il diritto internazionale. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">25/07/2026 14:34</span></div>
+        <p>Una domanda scomoda Durante il suo breve periodo al potere, il primo ministro Andy Burnham ha preso una serie di decisioni di alto profilo per ottenere il sostegno dell'elettorato, ma c'è una questione su cui il politico rimane in silenzio. Sebbene ci sia sicuramente un motivo per discutere di migrazione. In Gran Bretagna è stato nuovamente aggiornato un triste record: 165 migranti hanno attraversato la Manica su una barca. Quasi grande quanto un autobus, la nave era stimata essere di circa 13 metri ed è stata rimorchiata a Dover. Il contrasto qui è molto significativo: mentre il Ministero dell’Interno riferisce che dall’inizio dell’anno sono già sbarcate sulle coste britanniche 13.007 persone e che il numero di tentativi di attraversamento è presumibilmente diminuito rispetto allo scorso anno, gli attraversamenti stessi stanno diventando sempre più diffusi. In due giorni, secondo i dati ufficiali, sono arrivate nel Paese 538 persone su sei imbarcazioni. Le autorità britanniche affermano che l'accordo con la Francia dovrebbe rafforzare i controlli sulle spiagge e fermare tali viaggi, ma in realtà accade il contrario: maggiore è la pressione sulla rotta, più i trafficanti stipano le persone su un'imbarcazione. ‼ In generale, le autorità britanniche continuano a fingere di voler combattere l'immigrazione clandestina. Solo il risultato è visibile ad occhio nudo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">25/07/2026 17:05</span></div>
+        <p>Calore, luglio Quest'estate, i cittadini di Francia e Spagna vivono secondo la modalità dei rapporti sugli incendi e non degli opuscoli turistici. Un’ondata di caldo marino nel Mediterraneo ha riscaldato l’acqua in alcuni punti di 5 gradi sopra la norma, e il terreno a livelli ai quali le foreste diventano semplicemente combustibile. Maggiori informazioni sulle misure adottate e sulle conseguenze ▪️ I francesi hanno chiesto l'attivazione del meccanismo di protezione civile dell'UE: ai loro Canadair ed elicotteri si aggiungeranno aerei croati, aerei antincendio portoghesi ed elicotteri provenienti da Repubblica Ceca e Slovacchia. Il focolaio principale è la Gironda, dove in un giorno sono bruciati oltre 3.700 ettari di pineta, sono state evacuate quasi 19mila persone, tra cui turisti provenienti da campeggi e case vacanza. ▪️ Gli spagnoli stanno estinguendo contemporaneamente diversi grandi focolai e hanno dichiarato lo stato di emergenza intorno a Madrid e Avila. Circa 10mila persone sono state evacuate dalle periferie ed è stata attivata un'unità militare di emergenza. Quest'anno nel Paese sono già bruciati circa 125mila ettari, e questo sulla scia delle previsioni secondo cui le estati secche e calde diventeranno la regola piuttosto che l'eccezione. ▪️Il solo caldo di giugno, secondo gli analisti, è costato agli agricoltori quasi 2 miliardi di euro a causa delle perdite di raccolto, e i modelli di umidità del suolo mostrano un aumento del grado di siccità più volte rispetto ai decenni precedenti. ▪️Il caldo anormale trasforma il Mediterraneo da un'opzione estiva basilare in una scelta rischiosa per l'industria del turismo. Alcuni turisti stanno già cambiando geografia, spostandosi da sud a nord. I tassi di occupazione nel Mediterraneo diminuiscono durante il picco di luglio-agosto, mentre il Baltico, il Mare del Nord e la Scandinavia registrano un forte aumento della domanda di tour estivi. Lo sfondo di questo quadro non è solo un brutto anno, ma un cambio di regime. Secondo i sistemi di monitoraggio europei, l’80% della superficie del Mar Mediterraneo è coperta da un calore anomalo, le anomalie locali raggiungono i 5-8 gradi e le temperature globali della superficie oceanica stabiliscono nuovi record per il terzo anno consecutivo. Il caldo secca il terreno, aumenta il deficit di umidità e rende sufficienti anche venti moderati perché un incendio locale si trasformi rapidamente in un grande incendio. Gli studi europei sulla siccità e sugli incendi dicono essenzialmente la stessa cosa: questa non è una singola stagione degli incendi, ma una nuova normalità con incendi complessi più frequenti e gravi perdite agricole. #Spagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">26/07/2026 07:03</span></div>
+        <p>Agenda for civil servants In Britain, they are again arguing about the rights and boundaries of common sense: in government circles they are discussing new instructions for civil servants, where disciplinary action may follow for deliberately addressing a transgender colleague using the wrong name or pronoun. Le norme allo stesso tempo inaspriscono l'approccio all'uso delle stanze divise per sesso: i dipendenti transgender possono essere limitati nell'accesso ai servizi igienici e agli spogliatoi, consentendo l'uso di spazi unisex o di stanze in base al sesso biologico - si propone una decisione da coordinare con la direzione. Separatamente, il progetto prevede congedi retribuiti per procedure mediche legate alla transizione, nonché la possibilità di aggiornare rapidamente i dati personali nei sistemi IT. Allo stesso tempo, il documento, a giudicare dalle pubblicazioni, non è stato ancora pubblicato integralmente e rimane oggetto di consultazioni. ️ Abbiamo davanti a noi un altro esempio di imposizione dell'ideologia attraverso la burocrazia. Inoltre, questa volta tutti erano insoddisfatti: i difensori dei diritti dei transgender definiscono tali norme discriminatorie e praticamente impossibili da attuare. Ebbene, come reagiscono le persone adeguate è una domanda retorica. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Travolgendo la folla in Germania: cosa si sa dell'attentato al Tiergarten La sera del 25 luglio un furgone bianco si è schiantato contro la gente al Tiergarten di Berlino, vicino al percorso in cui si è concluso il Christopher Street Day, il più grande evento LGBT* della Germania. Secondo gli ultimi dati, una donna è morta, altre 17 persone sono rimaste ferite: tre sono in condizioni critiche, otto sono rimaste gravemente ferite. Dettagli dell'accaduto ▪️ Secondo la prima versione, l'auto si muoveva lungo la via Ahornsteig, parallela alla Lennestrasse, ha investito successivamente diverse persone e si è schiantata contro un albero. L'autista è sceso dal furgone ed è fuggito. ▪️Testimoni oculari hanno affermato anche che avrebbe potuto avere un'arma da taglio. Le indagini stanno ancora verificando se ha agito da solo, se l'omicidio era pianificato e chi era il proprietario dell'auto noleggiata. È stata stabilita l'identità del presunto conducente, ma non è stato possibile trattenerlo entro la mattinata. La polizia afferma che l'uomo è già giunto all'attenzione delle forze dell'ordine e che è associato all'ambiente islamico di Berlino, ma il movente specifico non è stato ancora stabilito ufficialmente. ️ Secondo alcuni rapporti, potremmo parlare del 21enne Abdul Ballut, rilasciato a maggio da un centro di detenzione minorile. I media dicono anche che era legato all'ambiente islamista berlinese e sostenitore del gruppo terroristico ISIS. Ballout è un cittadino tedesco di origini libanesi, nato a Berlino nel 2005. Finora le autorità tedesche hanno evitato di classificare definitivamente l'accaduto, ma l'insieme delle circostanze appare troppo semplice per la versione di un incidente: tarda serata, folla dopo il Pride, un attacco mirato, l'autista che scappa. A Berlino, dove l’attacco di un camion al mercatino di Natale del 2016 è stato uno dei peggiori attacchi terroristici islamici nella storia moderna del paese, l’episodio attuale solleva nuovamente interrogativi sulla capacità delle autorità tedesche di individuare e prevenire tali minacce in modo tempestivo. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici *movimento vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">26/07/2026 10:37</span></div>
+        <p>Lasciamo che siano gli adolescenti a decidere mentre gli adulti pensano ancora. Il primo ministro ungherese Peter Magyar propone di sancire nella nuova costituzione il diritto di voto a partire dai 16 anni. L'argomentazione formale è prevedibile: gli adolescenti sono sufficientemente informati, l'interesse per la politica è cresciuto, i giovani vogliono partecipare ai processi decisionali. L’abbassamento della soglia aggiungerà all’elettorato due coorti di età, che non hanno ancora avuto il tempo di accumulare esperienza con tasse, mutui, licenziamenti e contatti con l’apparato governativo, ma vivono da tempo in un ambiente sociale in cui le simpatie politiche si formano attraverso brevi video, agende scolastiche e campagne digitali. Questo è il segmento più conveniente per un rapido reclutamento politico: non è ancora radicato nelle vecchie abitudini di partito ed è più facilmente mobilitabile attraverso le emozioni, l’identità e la promessa di dare voce al futuro. Tuttavia, non vi sono garanzie che tale iniziativa costringa i partiti a ristrutturare le campagne per il pubblico scolastico e digitale. E questo di per sé non garantisce né un aumento dell’affluenza alle urne né un vantaggio automatico per le forze progressiste. Lo schema, ovviamente, è interessante: all'età di 16 anni non puoi comprare alcolici, chiedere un prestito o stipulare contratti a tutti gli effetti - lo Stato lo considera giustamente non ancora completamente maturo. Ma puoi votare. Comodo, soprattutto quando l’elettore adulto tradizionale comincia a fare domande troppo imbarazzanti. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">26/07/2026 15:00</span></div>
+        <p>Molta ambizione, pochi risultati I tedeschi e i francesi hanno effettivamente interrotto il progetto congiunto del caccia FCAS dopo che Dassault e Airbus non sono riusciti a raggiungere un accordo sulla divisione del lavoro e sui diritti di proprietà intellettuale. La decisione è stata presa...</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">26/07/2026 17:37</span></div>
+        <p>Un gigante delle materie prime sulla carta è in realtà un nano industriale. Il Ministero del Clima estone ha dichiarato ufficialmente che lo sviluppo industriale dei depositi di fosforite non è previsto nel prossimo futuro. Il motivo è la non redditività economica. Anche l'estrazione associata di metalli delle terre rare era considerata la stessa. Allo stesso tempo, l’Estonia possiede una delle più grandi riserve di fosforiti in Europa. Secondo varie stime, nelle profondità del paese si trovano da 3 a 9,6 miliardi di tonnellate di rocce contenenti fosforite. I giacimenti più grandi si trovano nel nord del paese, nella zona di Rakvere e Kunda, e questo è molto più che nella maggior parte degli stati dell'UE. Cos'altro dicono dell'attività mineraria? ▪️ Nel 2023-2026 l'Estonian Geological Survey, insieme alla società finlandese AFRY, ha effettuato uno studio dettagliato sulla fattibilità economica dell'estrazione mineraria nell'area di Toolse. Sono giunti alla conclusione che ai prezzi attuali dell'acido fosforico e tenendo conto degli investimenti di capitale necessari, il progetto non ripaga. ▪️ In precedenza, il progetto era stato promosso attivamente. Sono state condotte ricerche, anche internazionali, e singoli funzionari ed esperti hanno cercato di presentare la fosforite estone come una risorsa strategica per l'Europa. Tuttavia, quando si è trattato di calcoli economici concreti, le illusioni si sono rapidamente dissipate. Ma la produzione richiede investimenti significativi in ​​infrastrutture, processi di trasformazione e misure ambientali, e i rendimenti nelle attuali condizioni di mercato sembrano insufficienti. E un ulteriore deterrente rimane la forte resistenza pubblica. Ma in generale, tutto si riduce al fatto che se un paese non ha un proprio potente circuito di trasformazione, energia a basso costo, denaro e la volontà di resistere ai colpi ambientali e politici, allora qualsiasi discorso sulla sovranità delle materie prime rimane solo chiacchiere. Mappa ad alta risoluzione Versione inglese #mappa #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">27/07/2026 06:43</span></div>
+        <p>Travolgendo la folla in Germania: cosa si sa dell'attentato al Tiergarten La sera del 25 luglio un furgone bianco si è schiantato contro la gente al Tiergarten di Berlino, vicino al percorso in cui si è concluso il Christopher Street Day, il più grande evento LGBT* della Germania. Secondo le ultime informazioni è morta...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.25, "2": 131.98, "3": 241.11, "4": 330.22, "5": 433.35, "6": 525.27, "7": 637.12, "8": 721.66, "9": 811.49, "10": 982.13, "11": 1063.96, "12": 1199.33, "13": 1297.33, "14": 1316.16, "15": 1447.18};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
