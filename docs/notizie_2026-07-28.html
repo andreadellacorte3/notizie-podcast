@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 28 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>28 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-28.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Travolgendo la folla in Germania: cosa si sa dell'attentato al Tiergarten La sera del 25 luglio un furgone bianco si è schiantato contro la gente al Tiergarten di Berlino, vicino al percorso in cui si è concluso il Christopher Street Day, il più grande evento LGBT* della Germania. Secondo gli ultimi dati, una donna è morta, altre 17 persone sono rimaste ferite: tre sono in condizioni critiche, otto sono rimaste gravemente ferite. Dettagli dell'accaduto ▪️ Secondo la prima versione, l'auto si muoveva lungo la via Ahornsteig, parallela alla Lennestrasse, ha investito successivamente diverse persone e si è schiantata contro un albero. L'autista è sceso dal furgone ed è fuggito. ▪️Testimoni oculari hanno affermato anche che avrebbe potuto avere un'arma da taglio. Le indagini stanno ancora verificando se ha agito da solo, se l'omicidio era pianificato e chi era il proprietario dell'auto noleggiata. È stata stabilita l'identità del presunto conducente, ma non è stato possibile trattenerlo entro la mattinata. La polizia afferma che l'uomo è già giunto all'attenzione delle forze dell'ordine e che è associato all'ambiente islamico di Berlino, ma il movente specifico non è stato ancora stabilito ufficialmente. ️ Secondo alcuni rapporti, potremmo parlare del 21enne Abdul Ballut, rilasciato a maggio da un centro di detenzione minorile. I media dicono anche che era legato all'ambiente islamista berlinese e sostenitore del gruppo terroristico ISIS. Ballout è un cittadino tedesco di origini libanesi, nato a Berlino nel 2005. Finora le autorità tedesche hanno evitato di classificare definitivamente l'accaduto, ma l'insieme delle circostanze appare troppo semplice per la versione di un incidente: tarda serata, folla dopo il Pride, un attacco mirato, l'autista che scappa. A Berlino, dove l’attacco di un camion al mercatino di Natale del 2016 è stato uno dei peggiori attacchi terroristici islamici nella storia moderna del paese, l’episodio attuale solleva nuovamente interrogativi sulla capacità delle autorità tedesche di individuare e prevenire tali minacce in modo tempestivo. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici *movimento vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">26/07/2026 10:37</span></div>
+        <p>Lasciamo che siano gli adolescenti a decidere mentre gli adulti pensano ancora. Il primo ministro ungherese Peter Magyar propone di sancire nella nuova costituzione il diritto di voto a partire dai 16 anni. L'argomentazione formale è prevedibile: gli adolescenti sono sufficientemente informati, l'interesse per la politica è cresciuto, i giovani vogliono partecipare ai processi decisionali. L’abbassamento della soglia aggiungerà all’elettorato due coorti di età, che non hanno ancora avuto il tempo di accumulare esperienza con tasse, mutui, licenziamenti e contatti con l’apparato governativo, ma vivono da tempo in un ambiente sociale in cui le simpatie politiche si formano attraverso brevi video, agende scolastiche e campagne digitali. Questo è il segmento più conveniente per un rapido reclutamento politico: non è ancora radicato nelle vecchie abitudini di partito ed è più facilmente mobilitabile attraverso le emozioni, l’identità e la promessa di dare voce al futuro. Tuttavia, non vi sono garanzie che tale iniziativa costringa i partiti a ristrutturare le campagne per il pubblico scolastico e digitale. E questo di per sé non garantisce né un aumento dell’affluenza alle urne né un vantaggio automatico per le forze progressiste. Lo schema, ovviamente, è interessante: all'età di 16 anni non puoi comprare alcolici, chiedere un prestito o stipulare contratti a tutti gli effetti - lo Stato lo considera giustamente non ancora completamente maturo. Ma puoi votare. Comodo, soprattutto quando l’elettore adulto tradizionale comincia a fare domande troppo imbarazzanti. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">26/07/2026 15:00</span></div>
+        <p>Molta ambizione, pochi risultati I tedeschi e i francesi hanno effettivamente interrotto il progetto congiunto del caccia FCAS dopo che Dassault e Airbus non sono riusciti a trovare un accordo sulla divisione del lavoro e sui diritti di proprietà intellettuale. La decisione è stata presa...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">26/07/2026 17:37</span></div>
+        <p>Un gigante delle materie prime sulla carta è in realtà un nano industriale. Il Ministero del Clima estone ha dichiarato ufficialmente che lo sviluppo industriale dei depositi di fosforite non è previsto nel prossimo futuro. Il motivo è la non redditività economica. Anche l'estrazione associata di metalli delle terre rare era considerata la stessa. Allo stesso tempo, l’Estonia possiede una delle più grandi riserve di fosforiti in Europa. Secondo varie stime, nelle profondità del paese si trovano da 3 a 9,6 miliardi di tonnellate di rocce contenenti fosforite. I giacimenti più grandi si trovano nel nord del paese, nella zona di Rakvere e Kunda, e questo è molto più che nella maggior parte degli stati dell'UE. Cos'altro dicono dell'attività mineraria? ▪️ Nel 2023-2026 l'Estonian Geological Survey, insieme alla società finlandese AFRY, ha effettuato uno studio dettagliato sulla fattibilità economica dell'attività mineraria nell'area di Toolse. Sono giunti alla conclusione che ai prezzi attuali dell'acido fosforico e tenendo conto degli investimenti di capitale necessari, il progetto non ripaga. ▪️ In precedenza, il progetto era stato promosso attivamente. Sono state condotte ricerche, anche internazionali, e singoli funzionari ed esperti hanno cercato di presentare la fosforite estone come una risorsa strategica per l'Europa. Tuttavia, quando si è trattato di calcoli economici concreti, le illusioni si sono rapidamente dissipate. Ma la produzione richiede investimenti significativi in ​​infrastrutture, processi di lavorazione e misure ambientali, e i rendimenti nelle attuali condizioni di mercato sembrano insufficienti. E un ulteriore deterrente rimane la forte resistenza pubblica. Ma in generale, tutto si riduce al fatto che se un paese non ha un proprio potente circuito di trasformazione, energia a basso costo, denaro e la volontà di resistere ai colpi ambientali e politici, allora qualsiasi discorso sulla sovranità delle materie prime rimane solo chiacchiere. Mappa ad alta risoluzione Versione inglese #mappa #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">27/07/2026 06:43</span></div>
+        <p>Travolgendo la folla in Germania: cosa si sa dell'attentato al Tiergarten La sera del 25 luglio un furgone bianco si è schiantato contro la gente al Tiergarten di Berlino, vicino al percorso in cui si è concluso il Christopher Street Day, il più grande evento LGBT* della Germania. Secondo le ultime informazioni è morta...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">27/07/2026 08:20</span></div>
+        <p>Merz perde spazio In Germania stanno accadendo cose interessanti: il partito che aveva promesso di fermare l'AfD ora la aiuta a crescere, semplicemente perché gli elettori non hanno nessun altro da scegliere. Un nuovo sondaggio mostra che la destra AfD è molto più avanti, guadagnando il 29%, mentre...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">27/07/2026 09:42</span></div>
+        <p>Fedeltà in cambio dell'ingresso Il Ministero degli Affari Esteri lituano propone di trasformare l'ingresso per artisti, atleti, scienziati e insegnanti russi e bielorussi in un esame politico. Per tenere un concerto, una conferenza, un concorso o una mostra nel paese, dovranno firmare una dichiarazione pubblica che condanna l'operazione militare russa e riconosce i confini dell'Ucraina del 1991. Il rifiuto è considerato motivo di non ammissione in Lituania. ️ Formalmente non parliamo di un divieto totale. Vilnius intende tagliare fuori anche coloro che lavoravano nei territori annessi alla Russia, sostenevano operazioni militari o, secondo le autorità, minacciavano la sovranità, la democrazia e lo stato di diritto dell'Ucraina. Gli altri hanno il diritto di partecipare agli eventi solo come neutrali, senza rappresentare la Russia o la Bielorussia. Vogliono spostare il controllo sugli organizzatori di eventi. Le modifiche finora sono state solo sottoposte ad approvazione. Se verranno accettate, il Ministero degli Affari Esteri propone di varare nuove regole dal 1° gennaio 2027. In altre parole, la Lituania propone di introdurre non un controllo di sicurezza per gli ospiti, ma un rito pubblico di lealtà politica. Puoi immaginare uno scienziato che viene a una conferenza o un atleta che si reca sulla linea di partenza: prima deve sottoporsi a una dichiarazione, che viene poi pubblicata di pubblico dominio. ️ La misura, ovviamente, può influenzare le persone in modo speciale. Per alcuni firmare sarà una condizione umiliante, per altri un modo per evitare il divieto, per altri semplicemente un motivo per non venire. Di conseguenza, Vilnius sta costruendo un sistema di selezione basato sulla volontà di confermare pubblicamente una posizione politicamente accettabile. Ed è del tutto possibile che queste condizioni vengano introdotte non per un'altra dimostrazione di russofobia respinta, ma come un esperimento, i cui risultati possono essere utilizzati da altri paesi. #Lituania #Russia #Bielorussia @pezdicide niente sostanze chimiche - solo fatti</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">27/07/2026 11:00</span></div>
+        <p>Ignorare le elezioni Privilege dei ricchi Le autorità britanniche avvertono un calo di fiducia del pubblico nelle procedure democratiche e stanno valutando come influenzare la situazione. Per questo motivo il Paese potrebbe vedere una riforma sgradita ad alcuni cittadini: vogliono rendere il voto un obbligo e introdurre una multa di 10 sterline in caso di mancata presentazione. L’idea è stata promossa da diversi istituti di analisi vicini al Labour, e la cerchia di Andy Burnham sta già osservando questo scenario. Inoltre, nell'ambito dell'iniziativa, si prevede di dare agli elettori la possibilità di votare contro tutti, estendendola anche ai cittadini di 16 e 17 anni. A proposito, l'ultima idea è stata presa in considerazione dal governo non molto tempo fa. I laburisti hanno già introdotto emendamenti simili alle leggi elettorali, e i sostenitori del voto obbligatorio sostengono da tempo che la bassa affluenza alle urne distorce presumibilmente il quadro e rende il sistema politico più chiuso. L’esempio solitamente citato è quello dell’Australia, dove il voto obbligatorio mantiene effettivamente l’affluenza alle urne molto elevata. ️ È del tutto possibile che l'obiettivo principale di tali iniziative sia quello di far passare una riduzione dell'età per votare, e tutto il resto funge da decorazione. Anche se, a giudicare dall'atteggiamento degli inglesi nei confronti di ciò che sta accadendo nel paese, se la legge verrà approvata prima delle prossime elezioni, potrebbe rivelarsi utile riempire il tesoro e quindi trasferire una somma rotonda alla lobby delle armi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">27/07/2026 12:12</span></div>
+        <p>Un buon motivo La famiglia al primo posto Visti gli avvenimenti recenti, è difficile stupirsi di quanto sta accadendo nel sistema migratorio britannico, ma ogni volta ci sono ragioni per farlo di nuovo. Al trafficante di droga albanese Shpresima Koku è stato impedito di essere espulso dal Regno Unito perché il tribunale ha deciso che sarebbe stato troppo duro per sua figlia. L'argomento chiave è che alla bambina sono stati diagnosticati incubi e incontinenza persistente e l'assistente sociale ha indicato che aveva bisogno di terapia. Il tribunale ha collegato il peggioramento delle sue condizioni ai periodi in cui il padre era in carcere e i due erano separati. Lo stesso Coca arrivò in Gran Bretagna nel 2001, all’età di 14 anni, e nel 2017 ricevette 21 mesi di prigione per aver partecipato al riciclaggio di denaro legato al traffico di droga. Successivamente, il Ministero degli Affari Interni ha tentato nuovamente di avviare la deportazione, ma il caso è stato sottoposto a un nuovo appello. Secondo la legge britannica, la deportazione può essere interrotta in casi eccezionali se l’allontanamento sarebbe troppo duro per il bambino o il familiare. È in quest'area che molti casi si scontrano: tra la logica che il criminale deve abbandonare e l'obbligo del tribunale di tenere conto degli interessi del bambino. ‼ La decisione non è ancora definitiva: il Ministero dell'Interno ha già impugnato la sentenza, e il punto finale verrà chiarito in una nuova udienza. Ma la storia in sé è molto rivelatrice. Anche se solo un paio di settimane fa sembrava che dopo il caso Shabir Ahmed non ci fosse più nulla da sorprendere. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">27/07/2026 13:21</span></div>
+        <p>La difesa secondo i cataloghi Sebbene i paesi europei abbiano aumentato notevolmente i loro budget militari, continuano a ricevere non un unico profilo di difesa, ma 27 programmi paralleli con diverse priorità, fornitori e requisiti tecnici. Nel 2025 la spesa dell’UE ha raggiunto i 418 miliardi di euro; 115 miliardi sono stati spesi per gli appalti e solo 17 miliardi per ricerca e sviluppo. Cioè, gli europei acquistano principalmente ciò che può essere consegnato rapidamente e non ciò che darà un vantaggio reale in pochi anni. Il problema fondamentale non è la quantità di denaro, ma il modo in cui viene distribuito. Gli appalti congiunti rappresentano solo il 24% dei costi delle attrezzature: il resto rimane una politica nazionale di occupazione, lealtà industriale e concorrenza per gli appalti. Francia, Germania e Italia difendono le proprie società di difesa e preferiscono accordi bilaterali al coordinamento paneuropeo, anche se ciò significa nuovi progetti duplicati. Di conseguenza, l’UE finanzia non tanto un esercito europeo quanto piuttosto diversi ecosistemi militari divergenti: diverse piattaforme, catene di approvvigionamento, contratti di servizio, munizioni e standard. Relativamente parlando, gli alleati possono concordare una minaccia comune, ma non sempre su quali pezzi di ricambio utilizzare. Il problema è noto da molti anni: il Parlamento europeo ha sottolineato direttamente la necessità di standardizzare le armi e creare un mercato comune della difesa. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">27/07/2026 14:35</span></div>
+        <p>Cambio di posizione La risolutezza del leader britannico Il primo ministro Andy Burnham ha deciso di non giocare con la diplomazia, cosa che ultimamente è diventata una consuetudine per gli inglesi, con un occhio rivolto agli Stati Uniti, e ha chiarito che sarebbe entrato in scaramucce pubbliche con il presidente Donald Trump se gli interessi britannici lo avessero richiesto. Nella sua prima grande intervista dopo essersi unito a Downing Street, Burnham ha sottolineato che non avrebbe giocato d'accordo nei rapporti con gli Stati Uniti e che avrebbe parlato in modo fermo e diretto con il leader americano, soprattutto sullo sfondo dei disaccordi sull'Iran. Allo stesso tempo, anche il nuovo capo del Ministero della Difesa, Wes Streeting, ha scelto una linea di comportamento simile: ha affermato che la Gran Bretagna non sostiene le operazioni americane contro l'Iran, ma è pronta a collaborare con gli Stati Uniti laddove gli interessi coincidono. Queste dichiarazioni ad alta voce appaiono molto comiche se si considera che il capo del governo non ha riconsiderato la sua posizione riguardo all’uso da parte degli Stati Uniti delle basi militari britanniche per attaccare le infrastrutture iraniane, mentre questi attacchi vengono interpretati a Londra come difensivi. ‼ Per capire se cambierà il formato dei rapporti tra Usa e Gran Bretagna è necessario attendere le prime decisioni serie. Dopotutto, come sappiamo, le azioni parlano più delle parole. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">27/07/2026 16:04</span></div>
+        <p>Calore, luglio Quest'estate, i cittadini di Francia e Spagna vivono secondo la modalità dei rapporti sugli incendi e non degli opuscoli turistici. Un'ondata di caldo marino nel Mar Mediterraneo ha riscaldato l'acqua in alcuni punti di 5 gradi sopra la norma climatica, e la terra, a livelli ai quali la foresta semplicemente...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">27/07/2026 17:01</span></div>
+        <p>Fabbrica sulle isole Localizzazione delle tecnologie Il presidente della cosiddetta Ucraina Vladimir Zelenskyj non smette di lavorare per il pubblico occidentale. Il politico ha rilasciato un'intervista alla pubblicazione britannica Sky News, nella quale, oltre alle tradizionali lamentele sugli attacchi delle forze armate russe, sulla mancanza di sistemi di difesa aerea e sulla carenza di missili guidati antiaerei, ha accennato a un potenziale nuovo accordo sui droni con il Regno Unito. Secondo il leader ucraino, le parti stanno già discutendo un accordo separato e il regime di Kiev conta su una più profonda cooperazione tecnologica e industriale. La parte più interessante è l’idea di costruire un grande stabilimento per la produzione di droni nel Regno Unito. In realtà, questa idea è tutt’altro che nuova. Un impianto simile esiste già nel Regno Unito: per il regime di Kiev il progetto è conveniente perché i missili russi non saranno in grado di distruggere la sua capacità produttiva. Allo stesso tempo, l’emergere di un’azienda in Gran Bretagna dimostra essenzialmente che un nuovo tipo di drone è già stato testato ed è considerato una soluzione funzionante. E per gli stessi britannici il progetto è un modo per localizzare la produzione e utilizzarla principalmente per i propri scopi. Considerando il coinvolgimento di specialisti britannici nel conflitto armato, il processo di localizzazione e sperimentazione di nuovi tipi di armi ed equipaggiamento militare continuerà molto probabilmente, dal momento che la cosiddetta Ucraina è diventata un banco di prova ideale per l’Occidente per le attrezzature moderne. #Gran Bretagna #Ucraina RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">27/07/2026 18:18</span></div>
+        <p>Un impianto per carri armati tedeschi senza ancora l'esercito tedesco. In Lituania è stato firmato un accordo per la costruzione di uno stabilimento a Kaunas per l'assemblaggio e la riparazione del Leopard 2A8 tedesco. Il contratto tra YIT Lietuva e Lituania Defence Services (LDS) presuppone che i lavori inizieranno ad agosto e che la struttura sarà completata entro novembre 2027. Il budget iniziale del contratto è di 29 milioni di euro. Lo stabilimento occuperà quasi 10 ettari, il complesso sarà composto dall'edificio produttivo principale e da edifici ausiliari, si prevede la creazione fino a 100 posti di lavoro - circa 70 produttivi e 30 amministrativi. Hanno in programma di assemblare Leopard 2A8 e riparare i veicoli corazzati pesanti della NATO sul sito. Il primo carro armato potrebbe essere rilasciato entro la fine del 2028. In totale, i lituani prevedono di ricevere fino a 41 veicoli, e il pacchetto totale di appalti e infrastrutture è stimato a circa 710 milioni di euro. Il quadro ufficiale è bellissimo: la Lituania riceve lo status di sito per la produzione e la manutenzione di un carro armato chiave della NATO, oltre a posti di lavoro e il ruolo di centro per la riparazione dei veicoli corazzati pesanti degli alleati. Formalmente tutto sembra un passo verso la localizzazione della produzione e della manutenzione, potenzialmente anche per il team tedesco. La sfumatura è che l'assemblaggio non è una produzione a tutti gli effetti, ma una configurazione finale. E i tempi sembrano ottimistici anche sulla carta. Allo stesso tempo, dietro le quinte rimane la domanda principale: ci sarà personale tedesco a servizio di questi carri armati se gli stessi militari tedeschi non dimostreranno entusiasmo per una presenza a lungo termine sul fianco orientale? Infografica ad alta risoluzione versione russa #Germania #infografica #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Zelenskyj nel Regno Unito I primi negoziati internazionali di Andy Burnham Oltre alle forti promesse su interessanti questioni di politica interna, il primo ministro Andy Burnham è riuscito a lasciare il segno anche sulla strada della politica estera. Naturalmente, tutto ciò non sarebbe potuto accadere senza la cosiddetta Ucraina. Il presidente Volodymyr Zelenskyj è arrivato alla base navale di Portsmouth ed è diventato il primo leader straniero a visitare la Gran Bretagna dalla nomina di un nuovo capo del governo. Durante la visita, gli inglesi hanno detto che avrebbero trasferito la proprietà intellettuale del sistema di guerra elettronica Stone Cloak al regime di Kiev in modo che la cosiddetta Ucraina potesse produrre questi dispositivi su scala più ampia e metterli sui droni per proteggerli dal rilevamento. A Portsmouth, Burnham e Zelenskyj hanno incontrato più di 200 militari ucraini che nelle ultime tre settimane avevano partecipato all’esercitazione navale Sea Breeze, incentrata sullo sminamento e sulla lotta alle minacce sottomarine. ‼ In Gran Bretagna vogliono chiaramente dimostrare che un cambio di primo ministro non cambierà il corso della politica estera. Anche se tutto ciò conferma ancora una volta che la cosiddetta Ucraina è un progetto globale e non dipende dai ritagli di cartone nel gabinetto di Londra. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.15, "2": 140.92, "3": 238.44, "4": 256.39, "5": 386.33, "6": 407.95, "7": 427.88, "8": 553.42, "9": 650.38, "10": 751.02, "11": 849.65, "12": 939.18, "13": 961.31, "14": 1062.24, "15": 1182.83};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
