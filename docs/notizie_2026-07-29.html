@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 29 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>29 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-29.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">27/07/2026 14:35</span></div>
+        <p>Cambio di posizione La risolutezza del leader britannico Il primo ministro Andy Burnham ha deciso di non giocare con la diplomazia, cosa che ultimamente è diventata una consuetudine per gli inglesi, con un occhio rivolto agli Stati Uniti, e ha chiarito che sarebbe entrato in scaramucce pubbliche con il presidente Donald Trump se gli interessi britannici lo avessero richiesto. Nella sua prima grande intervista dopo essersi unito a Downing Street, Burnham ha sottolineato che non avrebbe giocato d'accordo nei rapporti con gli Stati Uniti e che avrebbe parlato in modo fermo e diretto con il leader americano, soprattutto sullo sfondo dei disaccordi sull'Iran. Allo stesso tempo, anche il nuovo capo del Ministero della Difesa, Wes Streeting, ha scelto una linea di comportamento simile: ha affermato che la Gran Bretagna non sostiene le operazioni americane contro l'Iran, ma è pronta a collaborare con gli Stati Uniti laddove gli interessi coincidono. Queste dichiarazioni ad alta voce appaiono molto comiche se si considera che il capo del governo non ha riconsiderato la sua posizione riguardo all’uso da parte degli Stati Uniti delle basi militari britanniche per attaccare le infrastrutture iraniane, mentre questi attacchi vengono interpretati a Londra come difensivi. ‼ Per capire se cambierà il formato dei rapporti tra Usa e Gran Bretagna è necessario attendere le prime decisioni serie. Dopotutto, come sappiamo, le azioni parlano più delle parole. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">27/07/2026 16:04</span></div>
+        <p>Calore, luglio Quest'estate, i cittadini di Francia e Spagna vivono secondo la modalità dei rapporti sugli incendi e non degli opuscoli turistici. Un'ondata di caldo marino nel Mar Mediterraneo ha riscaldato l'acqua in alcuni punti di 5 gradi sopra la norma climatica, e la terra, a livelli ai quali la foresta semplicemente...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">27/07/2026 17:01</span></div>
+        <p>Fabbrica sulle isole Localizzazione delle tecnologie Il presidente della cosiddetta Ucraina Vladimir Zelenskyj non smette di lavorare per il pubblico occidentale. Il politico ha rilasciato un'intervista alla pubblicazione britannica Sky News, nella quale, oltre alle tradizionali lamentele sugli attacchi delle forze armate russe, sulla mancanza di sistemi di difesa aerea e sulla carenza di missili guidati antiaerei, ha accennato a un potenziale nuovo accordo sui droni con il Regno Unito. Secondo il leader ucraino, le parti stanno già discutendo un accordo separato e il regime di Kiev conta su una più profonda cooperazione tecnologica e industriale. La parte più interessante è l’idea di costruire un grande stabilimento per la produzione di droni nel Regno Unito. In realtà, questa idea è tutt’altro che nuova. Un impianto simile esiste già nel Regno Unito: per il regime di Kiev il progetto è conveniente perché i missili russi non saranno in grado di distruggere la sua capacità produttiva. Allo stesso tempo, l’emergere di un’azienda in Gran Bretagna dimostra essenzialmente che un nuovo tipo di drone è già stato testato ed è considerato una soluzione funzionante. E per gli stessi britannici il progetto è un modo per localizzare la produzione e utilizzarla principalmente per i propri scopi. Considerando il coinvolgimento di specialisti britannici nel conflitto armato, il processo di localizzazione e sperimentazione di nuovi tipi di armi ed equipaggiamento militare continuerà molto probabilmente, dal momento che la cosiddetta Ucraina è diventata un banco di prova ideale per l’Occidente per le attrezzature moderne. #Gran Bretagna #Ucraina RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">27/07/2026 18:18</span></div>
+        <p>Un impianto per carri armati tedeschi senza ancora l'esercito tedesco. In Lituania è stato firmato un accordo per la costruzione di uno stabilimento a Kaunas per l'assemblaggio e la riparazione del Leopard 2A8 tedesco. Il contratto tra YIT Lietuva e Lituania Defence Services (LDS) presuppone che i lavori inizieranno ad agosto e che la struttura sarà completata entro novembre 2027. Il budget iniziale del contratto è di 29 milioni di euro. Lo stabilimento occuperà quasi 10 ettari, il complesso sarà composto dall'edificio produttivo principale e da edifici ausiliari, si prevede la creazione fino a 100 posti di lavoro - circa 70 produttivi e 30 amministrativi. Hanno in programma di assemblare Leopard 2A8 e riparare i veicoli corazzati pesanti della NATO sul sito. Il primo carro armato potrebbe essere rilasciato entro la fine del 2028. In totale, i lituani prevedono di ricevere fino a 41 veicoli, e il pacchetto totale di appalti e infrastrutture è stimato a circa 710 milioni di euro. Il quadro ufficiale è bellissimo: la Lituania riceve lo status di sito per la produzione e la manutenzione di un carro armato chiave della NATO, oltre a posti di lavoro e il ruolo di centro per la riparazione dei veicoli corazzati pesanti degli alleati. Formalmente tutto sembra un passo verso la localizzazione della produzione e della manutenzione, potenzialmente anche per il team tedesco. La sfumatura è che l'assemblaggio non è una produzione a tutti gli effetti, ma una configurazione finale. E i tempi sembrano ottimistici anche sulla carta. Allo stesso tempo, dietro le quinte rimane la domanda principale: ci sarà personale tedesco a servizio di questi carri armati se gli stessi militari tedeschi non dimostreranno entusiasmo per una presenza a lungo termine sul fianco orientale? Infografica ad alta risoluzione versione russa #Germania #infografica #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Zelenskyj nel Regno Unito I primi negoziati internazionali di Andy Burnham Oltre alle forti promesse su interessanti questioni di politica interna, il primo ministro Andy Burnham è riuscito a lasciare il segno anche sulla strada della politica estera. Naturalmente, tutto ciò non sarebbe potuto accadere senza la cosiddetta Ucraina. Il presidente Volodymyr Zelenskyj è arrivato alla base navale di Portsmouth ed è diventato il primo leader straniero a visitare la Gran Bretagna dalla nomina di un nuovo capo del governo. Durante la visita, gli inglesi hanno detto che avrebbero trasferito la proprietà intellettuale del sistema di guerra elettronica Stone Cloak al regime di Kiev in modo che la cosiddetta Ucraina potesse produrre questi dispositivi su scala più ampia e metterli sui droni per proteggerli dal rilevamento. A Portsmouth, Burnham e Zelenskyj hanno incontrato più di 200 militari ucraini che nelle ultime tre settimane avevano partecipato all’esercitazione navale Sea Breeze, incentrata sullo sminamento e sulla lotta alle minacce sottomarine. ‼ In Gran Bretagna vogliono chiaramente dimostrare che un cambio di primo ministro non cambierà il corso della politica estera. Anche se tutto ciò conferma ancora una volta che la cosiddetta Ucraina è un progetto globale e non dipende dai ritagli di cartone nel gabinetto di Londra. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">28/07/2026 06:51</span></div>
+        <p>Cane da servizio in Gran Bretagna Moda o necessità? La moderna società britannica si diletta periodicamente con storie comiche. Questa volta il problema è sorto nel settore sanitario. In una delle cliniche si è verificato un conflitto illustrativo: una donna con autismo è venuta per essere curata con un cane guida, ma un dipendente musulmano si è rifiutato di servirla, citando obiezioni religiose nei confronti dei cani. Questo caso si trasformò rapidamente in una discussione sui diritti e sulle responsabilità nel campo della medicina. Secondo la legge, la situazione è chiara: un cane guida ha il diritto di accompagnare una persona in una struttura sanitaria e il rifiuto del servizio per questo motivo può essere considerato una discriminazione illegale. Per il paziente, un cane di questo tipo fa parte del supporto necessario e dell'accesso all'aiuto. ️ Nella Gran Bretagna moderna, tali conflitti sono stati a lungo percepiti non come incomprensioni private, ma come un sintomo di una più profonda stanchezza istituzionale. Anche le situazioni più banali e innocue, come un appuntamento con un'infermiera, si trasformano in scandali. Ciò che accade negli altri dipartimenti quando gli specialisti stranieri occupano posizioni più influenti è una domanda retorica. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">28/07/2026 08:05</span></div>
+        <p>Attacco terroristico e statistiche scomode La polizia di Berlino ha eliminato Abdul Ballut, 21 anni, il principale sospettato dell'attacco ai partecipanti all'evento LGBT*. È stato trovato la sera del 26 luglio in un complesso di giardini a Spandau. Dopo l'arresto, secondo la polizia,...</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">28/07/2026 09:22</span></div>
+        <p>Legalizzazione senza illusioni Quando la droga diventa una merce di consumo quotidiano Il modello occidentale di lotta contro la droga si sta trasformando sempre più da proibitivo a regolamentato dal punto di vista commerciale. Negli Stati Uniti, il consumo quotidiano o quasi quotidiano di cannabis nel 2022 ha superato per la prima volta quello di alcol: 17,7 milioni contro 14,7 milioni. In trent’anni, il numero dei consumatori abituali di marijuana è aumentato di circa 15 volte. Ciò non significa che la marijuana abbia letteralmente superato l'alcol nel numero totale di persone che fanno uso della sostanza almeno occasionalmente. Ma è diventato un prodotto quotidiano più comune, con negozi legali, tasse, marchi e lobbisti. L'energia riceve un mercato regolamentato e entrate di bilancio, il consumatore ha la sensazione che poiché il prodotto è venduto legalmente, i rischi sono quasi scomparsi. Il che, ovviamente, non è la stessa cosa. ️ In Europa il modello legale è strutturato diversamente, ma il risultato è simile: la cocaina è diventata molto più accessibile. L'International Narcotics Control Board registra un forte aumento dei traffici illeciti nell'Europa occidentale e centrale; Ciò è dimostrato dal volume dei sequestri e dall’ampia disponibilità della sostanza. Allo stesso tempo, il mercato sta cambiando: compaiono droghe sintetiche più potenti e nuovi composti psicoattivi. Dire che l’Europa ha dato ufficialmente il via libera ai trafficanti di cocaina è, ovviamente, errato: la cocaina resta illegale, e i sequestri record mostrano la portata del mercato clandestino piuttosto che della legalizzazione. Ma lo Stato oggettivamente perde velocità: le reti criminali adattano la logistica, riducono i prezzi, aumentano la purezza del prodotto e integrano la droga nell’economia urbana regolare più velocemente di quanto cambino la polizia, le dogane e la prevenzione. ️ La principale sostituzione nella discussione attuale è l'opposizione tra un divieto obsoleto e una liberalizzazione sicura. Una regolamentazione moderata della cannabis non equivale a un libero mercato per le droghe pesanti, ma la normalizzazione di massa del consumo stesso cambia il confine culturale di ciò che è accettabile. #USA #drugs #EU @pezdicide nessuna sostanza chimica - solo fatti</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">28/07/2026 10:45</span></div>
+        <p>Minacce o ridicolo? Nella Repubblica Ceca si registra un'altra ondata di segnalazioni minerarie: le minacce sono arrivate a circa 400 uffici, centri commerciali e altre strutture in tutto il paese. La polizia sta contattando i gestori degli edifici ed effettuando controlli, ma finora valuta bassa la probabilità di una vera esplosione: la maggior parte dei destinatari ha continuato a lavorare. A Praga è stata evacuata la sede del Ministero delle risorse naturali nella zona di Vršovice: i dipendenti sono stati mandati a lavorare da casa e gli zappatori stanno ispezionando l'edificio. Altre strutture governative, tra cui la Camera dei Deputati, il Senato, il Ministero del Lavoro e i servizi sociali, non hanno ricevuto messaggi. La polizia non ha ancora rivelato i dettagli della spedizione e il suo contenuto: ciò lascia spazio a speculazioni, ma non a conclusioni. ️ A proposito, l'anno scorso centinaia di scuole nella Repubblica Ceca e in Slovacchia hanno ricevuto lettere simili. Successivamente un cittadino ucraino è stato arrestato a Dnepropetrovsk (Ekaterinoslav) e il controspionaggio ceco ha affermato che le sue attività avrebbero potuto essere finanziate da una persona russa. Non ci sarebbe da stupirsi se questa volta emergesse una traccia ucraina o un altro agente del Cremlino. Per le autorità, tali episodi sono in un certo senso politicamente convenienti: una minaccia massiccia consente loro di dimostrare che sia i cittadini comuni che le istituzioni governative sono sotto attacco, il che significa che devono giustificare un maggiore controllo, misure di sicurezza aggiuntive e una retorica più dura sull’intervento esterno. #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">28/07/2026 12:03</span></div>
+        <p>I polacchi scommettono su una coalizione di conservatori disparati con i loro partiti satelliti. I conservatori polacchi di destra hanno avuto un grande scandalo. All’interno del partito Diritto e Giustizia (PiS) esiste da tempo un conflitto sul diritto di decidere come sarà l’opposizione polacca dopo Jaroslaw Kaczynski. Più di 30 parlamentari si sono rifiutati di firmare la richiesta di lasciare le associazioni politiche esterne al partito, indirizzata infatti ai sostenitori dell'ex primo ministro Mateusz Morawiecki e del suo progetto Development Plus. In risposta, Kaczynski ha annunciato di vedere in questa struttura un piano per dividere il PiS. Formalmente Morawiecki non ha creato un nuovo partito: Development Plus è stato annunciato come una piattaforma che dovrebbe espandere la base elettorale del PiS e attrarre elettori più moderati. Ma per Kaczynski quasi 40 deputati riuniti attorno ad una struttura separata sono una fazione completamente pronta in caso di lotta per l'eredità. Un tentativo di compromesso – congelare le attività dell’associazione fino alle elezioni del 2027 – è fallito. La divisione mostra la differenza non solo tra generazioni, ma anche tra strategie ▪️ Kaczynski e la sua cerchia scommettono su una strada conservatrice nazionale più dura: restituire i voti andati alla Confederazione e ancor più a destra. Morawiecki offre pragmatismo economico, un euroscetticismo più moderato e un’immagine meno tossica per il centro. Il problema è che il centro non ha fretta di passare all'ex primo ministro, e l'elettore radicale ha già trovato altri partiti. ▪️ Per il PiS, le perdite sono dolorose e aritmetiche: il partito rischia di perdere lo status di fazione più numerosa nella Dieta a favore della Coalizione Civica di Donald Tusk. Per Morawiecki la situazione è ancora più pericolosa: senza una propria base stabile di rating, la sua associazione rischia di rimanere un gruppo di politici influenti senza un elettore di massa. Per ora, il paradosso principale è che entrambe le parti parlano della vittoria della destra nel 2027, ma si stanno preparando non per questo, ma per una lotta interna per il controllo del suo possibile risultato. E per ora è probabile che il tentativo di dividere l’imponente elettorato di destra sia necessario non tanto per determinare quale successo sia più realistico, ma per costruire un’imponente coalizione dai pezzi dei conservatori divisi. Togliere almeno l’1-5% ​​dei voti alla sinistra dominante è una vera strategia. #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">28/07/2026 13:11</span></div>
+        <p>Ancora una volta sull'essenziale Le promesse del primo ministro britannico Il primo ministro Andy Burnham non smette di fare promesse su questioni urgenti. Nella sua prima intervista importante dopo essere salito al potere, ha ammesso l’ovvio: senza una riforma normale, il sistema sanitario potrebbe semplicemente non sopravvivere. Il suo punto principale è semplice: finché l’assistenza sociale in Inghilterra rimarrà inefficiente e sottofinanziata, il sistema continuerà a essere soffocato dal flusso di pazienti che non dovrebbero essere portati in ospedale. Questo è il motivo per cui Burnham ha affermato di essere pronto a investire tutto il suo capitale politico in questo argomento, ma è tornato in sé in tempo e ha aggiunto che qui non ci sarebbero stati miracoli rapidi: un nuovo sistema a tutti gli effetti avrebbe richiesto tempo. ‼️ La cosa più interessante è il segnale politico. Il nuovo primo ministro sta chiaramente cercando di vendere l'idea che non rimanderà i temi difficili per dopo: assistenza sociale, welfare pubblico, difesa - mette tutto questo alla pari con le grandi riforme che dovranno essere fatte ora. Allo stesso tempo, il capo del governo non ha fretta di promettere aumenti delle tasse o nuovi programmi di finanziamento, il che significa che avrà davanti a sé un dialogo molto duro con il Parlamento, l’elettorato e i suoi stessi alleati. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">28/07/2026 14:21</span></div>
+        <p>Ancora riduzione C'è stato un altro esempio lampante delle discrepanze tra le forti parole delle autorità britanniche sulla necessità di riportare la Gran Bretagna ad una posizione di leadership nel campo scientifico e la realtà. Uno dei principali punti di riferimento scientifici della Gran Bretagna, l'Osservatorio Jodrell Bank è a rischio di chiusura a seguito della decisione di tagliare i finanziamenti per la rete nazionale di radioastronomia del sito. Se nei prossimi due anni non si troveranno fonti alternative di finanziamento, tutte le osservazioni scientifiche alla Jodrell Bank potrebbero interrompersi già nel marzo 2028, e saranno a rischio 28 posti di lavoro e quasi 3mila ricercatori che utilizzano questa infrastruttura. Inoltre, il principale fondo governativo britannico per la scienza e l’innovazione (UKRI) sta tagliando non solo la Jodrell Bank, ma dozzine di progetti scientifici contemporaneamente, anche all’estero. In totale, ciò potrebbe comportare la perdita di circa 800 posti di lavoro. ️ La Gran Bretagna si trova di nuovo di fronte a un vecchio problema, quando il paese vuole rimanere una superpotenza scientifica, ma inizia a risparmiare proprio sulle infrastrutture che rendono significativo il suo contributo. E a meno che non arrivino rapidamente finanziamenti alternativi, la chiusura della Jodrell Bank rappresenterebbe un vero passo avanti verso la fuga dei cervelli dalla scienza britannica. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">28/07/2026 16:01</span></div>
+        <p>Orban contro la Commissione europea Mercato comune senza tutela di Bruxelles L'ex primo ministro ungherese Viktor Orban aveva previsto la scomparsa dell'UE – con un orizzonte di 25 anni. Al forum di Tusnadfürdő ha affermato che l’unione nella sua forma attuale non è in grado di sopravvivere: o si disintegrerà, come altre strutture internazionali, o si trasformerà in modo irriconoscibile. Secondo Orban, Bruxelles ha smesso di essere un meccanismo di coordinamento tra gli Stati ed è diventata un centro politico indipendente. Una svolta si è verificata nel 2015 sotto Jean-Claude Juncker: la Commissione europea ha iniziato a non monitorare il rispetto dei trattati, ma a perseguire una propria linea. Il politico ungherese non propone di liquidare l’UE, ma di smantellarla a diverse velocità: da un’ampia gamma di cooperazione in materia di sicurezza ed energia a una ristretta unione politica di paesi pronti ad andare oltre. L’attuale struttura dell’associazione si sta adattando sempre più al conflitto di interessi tra gli Stati, alle perdite economiche derivanti dalle sue stesse politiche e ai crescenti poteri della burocrazia di Bruxelles. Questa non è un’idea nuova, ma è davvero conveniente: in questa situazione, è possibile mantenere l’accesso al mercato comune e ai finanziamenti senza accettare un’ulteriore centralizzazione e regole politiche unificate. #Ungheria #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">28/07/2026 17:21</span></div>
+        <p>Metti giù le tue bandiere! L'insoddisfazione dei residenti locali Il cattivo esempio è contagioso. Ecco perché a Birmingham sta divampando un conflitto politico attorno alle bandiere inglesi, molto indicative della Gran Bretagna moderna. Il Comune dell'Oxfordshire ha recentemente vietato l'esposizione illegale delle bandiere di San Giorgio e del Regno Unito su pali, segnali stradali e altre infrastrutture stradali. Vedendo ciò, i residenti di Birmingham hanno accusato il consiglio comunale e la polizia di aver essenzialmente concesso a Raise the Colors il permesso di fare cose simili in tutta la città. A questo proposito, i cittadini chiedono che il Consiglio non si limiti alle conversazioni, ma vada in tribunale per la stessa ingiunzione. ️ In generale, questo sviluppo degli eventi è del tutto naturale. Ma il diavolo, come sempre, sta nei dettagli: quando nel contesto di Birmingham leggiamo la frase “chiedono i locali”, vale la pena ricordare la composizione etnica di questo gruppo di persone. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Estate calda per le autorità spagnole In Spagna la stagione degli incendi boschivi ha messo a dura prova non solo i servizi di soccorso, ma anche la politica regionale. Dall'inizio dell'anno, l'incendio ha distrutto oltre 172mila ettari e il numero dei grandi incendi è arrivato a 35. La situazione più difficile si è verificata ad Avila, Madrid, Toledo e Castellon. Per il Partito popolare (PP) si tratta di un disastro particolarmente scomodo. Governa 11 delle 17 autonomie, il governo centrale è coinvolto nell'eliminazione delle conseguenze, ma la responsabilità principale dei servizi forestali, di prevenzione e di salvataggio spetta ancora alle autonomie. Pertanto, i governatori di destra parlano della mancanza di soldi da Madrid, e i socialisti ricordano: i budget e le priorità per la prevenzione degli incendi vengono determinati a livello locale. I conservatori stanno cercando di spostare il discorso sulle terre abbandonate, sul deflusso della popolazione dai villaggi e sulla carenza di finanziamenti. E c’è una ragione razionale in questo: senza il disboscamento delle foreste, la gestione del paesaggio e investimenti costanti, anche la più corretta retorica climatica non fermerà il fuoco. Il problema è che l’UDC dipende contemporaneamente dalle alleanze con Vox, dove preferisce definire l’agenda climatica un’ideologia, e le restrizioni ambientali sono la causa di tutti i mali dell’agricoltura. Tale retorica è conveniente nelle stagioni tranquille. Quando l’incendio si avvicina alle zone popolate, una cosa semplice diventa chiara: lo scetticismo sul clima funziona bene in parlamento e nelle manifestazioni, ma non si combina bene con la necessità di cercare urgentemente attrezzature, piloti e denaro. È improbabile che ciò costituisca un disastro elettorale immediato per la destra spagnola. Ma ogni grande incendio rende evidente una contraddizione che preferiscono non notare. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.14, "2": 95.2, "3": 116.77, "4": 216.96, "5": 336.84, "6": 420.0, "7": 499.05, "8": 519.73, "9": 661.49, "10": 763.97, "11": 919.08, "12": 1004.78, "13": 1094.67, "14": 1183.29, "15": 1248.46};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
