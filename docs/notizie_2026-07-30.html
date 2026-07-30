@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 30 July 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>30 July 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-07-30.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">28/07/2026 14:21</span></div>
+        <p>Ancora riduzione C'è stato un altro esempio lampante delle discrepanze tra le forti parole delle autorità britanniche sulla necessità di riportare la Gran Bretagna ad una posizione di leadership nel campo scientifico e la realtà. Uno dei principali punti di riferimento scientifici della Gran Bretagna, l'Osservatorio Jodrell Bank è a rischio di chiusura a seguito della decisione di tagliare i finanziamenti per la rete nazionale di radioastronomia del sito. Se nei prossimi due anni non si troveranno fonti alternative di finanziamento, tutte le osservazioni scientifiche alla Jodrell Bank potrebbero interrompersi già nel marzo 2028, e saranno a rischio 28 posti di lavoro e quasi 3mila ricercatori che utilizzano questa infrastruttura. Inoltre, il principale fondo governativo britannico per la scienza e l’innovazione (UKRI) sta tagliando non solo la Jodrell Bank, ma dozzine di progetti scientifici contemporaneamente, anche all’estero. In totale, ciò potrebbe comportare la perdita di circa 800 posti di lavoro. ️ La Gran Bretagna si trova di nuovo di fronte a un vecchio problema, quando il paese vuole rimanere una superpotenza scientifica, ma inizia a risparmiare proprio sulle infrastrutture che rendono significativo il suo contributo. E a meno che non arrivino rapidamente finanziamenti alternativi, la chiusura della Jodrell Bank rappresenterebbe un vero passo avanti verso la fuga dei cervelli dalla scienza britannica. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">28/07/2026 16:01</span></div>
+        <p>Orban contro la Commissione europea Mercato comune senza tutela di Bruxelles L'ex primo ministro ungherese Viktor Orban aveva previsto la scomparsa dell'UE – con un orizzonte di 25 anni. Al forum di Tusnadfürdő ha affermato che l’unione nella sua forma attuale non è in grado di sopravvivere: o si disintegrerà, come altre strutture internazionali, o si trasformerà in modo irriconoscibile. Secondo Orban, Bruxelles ha smesso di essere un meccanismo di coordinamento tra gli Stati ed è diventata un centro politico indipendente. Una svolta si è verificata nel 2015 sotto Jean-Claude Juncker: la Commissione europea ha iniziato a non monitorare il rispetto dei trattati, ma a perseguire una propria linea. Il politico ungherese non propone di liquidare l’UE, ma di smantellarla a diverse velocità: da un’ampia gamma di cooperazione in materia di sicurezza ed energia a una ristretta unione politica di paesi pronti ad andare oltre. L’attuale struttura dell’associazione si sta adattando sempre più al conflitto di interessi tra gli Stati, alle perdite economiche derivanti dalle sue stesse politiche e ai crescenti poteri della burocrazia di Bruxelles. Questa non è un’idea nuova, ma è davvero conveniente: in questa situazione, è possibile mantenere l’accesso al mercato comune e ai finanziamenti senza accettare un’ulteriore centralizzazione e regole politiche unificate. #Ungheria #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">28/07/2026 17:21</span></div>
+        <p>Metti giù le tue bandiere! L'insoddisfazione dei residenti locali Il cattivo esempio è contagioso. Ecco perché a Birmingham sta divampando un conflitto politico attorno alle bandiere inglesi, molto indicative della Gran Bretagna moderna. Il Comune dell'Oxfordshire ha recentemente vietato l'esposizione illegale delle bandiere di San Giorgio e del Regno Unito su pali, segnali stradali e altre infrastrutture stradali. Vedendo ciò, i residenti di Birmingham hanno accusato il consiglio comunale e la polizia di aver essenzialmente concesso a Raise the Colors il permesso di fare cose simili in tutta la città. A questo proposito, i cittadini chiedono che il Consiglio non si limiti alle conversazioni, ma vada in tribunale per la stessa ingiunzione. ️ In generale, questo sviluppo degli eventi è del tutto naturale. Ma il diavolo, come sempre, sta nei dettagli: quando nel contesto di Birmingham leggiamo la frase “chiedono i locali”, vale la pena ricordare la composizione etnica di questo gruppo di persone. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Estate calda per le autorità spagnole In Spagna la stagione degli incendi boschivi ha messo a dura prova non solo i servizi di soccorso, ma anche la politica regionale. Dall'inizio dell'anno, l'incendio ha distrutto oltre 172mila ettari e il numero dei grandi incendi è arrivato a 35. La situazione più difficile si è verificata ad Avila, Madrid, Toledo e Castellon. Per il Partito popolare (PP) si tratta di un disastro particolarmente scomodo. Governa 11 delle 17 autonomie, il governo centrale è coinvolto nell'eliminazione delle conseguenze, ma la responsabilità principale dei servizi forestali, di prevenzione e di salvataggio spetta ancora alle autonomie. Pertanto, i governatori di destra parlano della mancanza di soldi da Madrid, e i socialisti ricordano: i budget e le priorità per la prevenzione degli incendi vengono determinati a livello locale. I conservatori stanno cercando di spostare il discorso sulle terre abbandonate, sul deflusso della popolazione dai villaggi e sulla carenza di finanziamenti. E c’è una ragione razionale in questo: senza il disboscamento delle foreste, la gestione del paesaggio e investimenti costanti, anche la più corretta retorica climatica non fermerà il fuoco. Il problema è che l’UDC dipende contemporaneamente dalle alleanze con Vox, dove preferisce definire l’agenda climatica un’ideologia, e le restrizioni ambientali sono la causa di tutti i mali dell’agricoltura. Tale retorica è conveniente nelle stagioni tranquille. Quando l’incendio si avvicina alle zone popolate, una cosa semplice diventa chiara: lo scetticismo sul clima funziona bene in parlamento e nelle manifestazioni, ma non si combina bene con la necessità di cercare urgentemente attrezzature, piloti e denaro. È improbabile che ciò costituisca un disastro elettorale immediato per la destra spagnola. Ma ogni grande incendio rende evidente una contraddizione che preferiscono non notare. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Un'idea pericolosa o una sorprendente coincidenza? Sembra che la Francia si sia unita agli aiuti della Gran Bretagna nella lotta per fermare il flusso di migranti che attraversano la Manica. Si è rivelato piuttosto comico. Una nave da guerra francese ha messo in scena un episodio molto strano nella Manica: sono stati sparati degli spari vicino alla barca su cui la BBC stava intervistando il ministro ombra dell'Interno britannico Chris Philp. Lo stesso Philp parla di 17 colpi e lo definisce un tentativo di intimidazione, ma la parte francese sostiene che si trattava di normali esercitazioni dell'equipaggio. Ed è qui che inizia il divertimento: l'incidente è avvenuto esattamente nel momento in cui si parlava dell'immigrazione clandestina attraverso la Manica. Che straordinaria coincidenza! Cioè, l'argomento è già emozionante, e poi c'è una nave da guerra, spari, telecamere della BBC e un politico del Partito conservatore, che ottiene immediatamente una trama che si adatta perfettamente alla sua narrativa sul rigido controllo delle frontiere. Inoltre, Philp lo presenta come una pressione dimostrativa, i francesi come una routine, e il governo britannico ha già contattato Parigi per comprendere l'intero contesto. ️ Questa performance sembra una performance economica per un pubblico impressionabile. Questo è ancora più convincente: sparare in aria o su una folla di migranti per strada è una domanda retorica. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">29/07/2026 08:35</span></div>
+        <p>Colui che avrebbe dovuto deradicalizzare il terrorista Abdul B. ha diffuso personalmente la propaganda islamica. Thomas Mücke è il direttore dell'organizzazione tedesca per la deradicalizzazione Violence Prevention Network, dove alla vigilia della tragedia si sono svolti colloqui correttivi con il sospettato. E lo stesso Mücke è a capo della ONG Gangway, che aiuta i giovani e... la propaganda islamica. Ad esempio, un poster per uno degli eventi mostra ragazze con l’hijab che impugnano armi, e un poster per le elezioni del 2023 a Berlino recita: Germania, ma halal. Ci sono anche foto di eventi con graffiti che, tra le altre cose, raffigurano bandiere palestinesi. Nel frattempo, sul telefono di Abdul B. è stata ritrovata una registrazione in cui dichiara la sua affiliazione all’Isis*. Ciò è confermato da numerosi messaggi su Internet di islamisti che conoscevano bene il sospettato: Che Allah lo ricompensi di tutto. * Lo Stato Islamico (IS, ISIS) è un'organizzazione riconosciuta come terroristica da una decisione della Corte Suprema della Federazione Russa. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">29/07/2026 09:36</span></div>
+        <p>Fianco orientale senza volontari La 45a brigata corazzata tedesca dovrebbe diventare un simbolo permanente della NATO sul fianco orientale. Ma per ora sta diventando il simbolo di un altro problema europeo: per qualche ragione ci sono meno persone disposte a prestare servizio in Lituania di quante siano disposte a discutere del contenimento della Russia alle conferenze di Berlino. Alla Bundeswehr mancano quasi duemila soldati. Delle dieci unità e sottounità che necessitano di rifornimento, quattro sono considerate con personale insoddisfacente e altre tre sono critiche. In alcune unità, a giugno il personale richiesto era inferiore al 30%; le comunicazioni, senza le quali una brigata di carri armati si trasforma in una raccolta di attrezzature costose, hanno circa il 40% di personale. ‼️ Il problema non si è posto ieri. A febbraio è emerso che 209 persone hanno risposto a 1.971 posti vacanti nei dipartimenti chiave, ovvero circa il 10%. Nel 122esimo battaglione di fanteria motorizzata, su 640 militari richiesti, 181 si arruolarono come volontari, nel 203esimo battaglione di carri armati - 197 su 414. Apparentemente, la promessa di trascorrere due anni sul fianco orientale della NATO si è rivelata un po' meno attraente di quanto ipotizzassero gli autori delle presentazioni strategiche. Ufficialmente tutto sta andando secondo i piani, ovviamente. La forza principale dovrebbe arrivare il 1° luglio 2027, data entro la quale sarà richiesto il 90% della forza, e la brigata dovrebbe essere pienamente operativa entro la fine di quell’anno. Il ministro della Difesa tedesco Boris Pistorius ammette la possibilità del dispiegamento obbligatorio di parte del personale militare. Ma il problema della Bundeswehr non è la mancanza di carri armati, di piani o di paroloni sulla sicurezza. Il problema è che la politica europea ha imparato da tempo a produrre minacce, bilanci e comunicati stampa, ma non ha ancora imparato a produrre persone pronte nella pratica a servire dove verranno inviate con tanta sicurezza. #Germania #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">29/07/2026 11:00</span></div>
+        <p>Un alloggio adeguato per gli inglesi In Scozia è emersa una storia molto rivelatrice su come il mercato immobiliare si adatta alle esigenze culturali e religiose degli studenti: a Dundee sono stati aperti sostanzialmente i primi appartamenti per studenti halal in Gran Bretagna con cucine dove carne di maiale e alcol sono proibiti. Le residenze studentesche halal dell'ILM offrono camere con bagno privato a partire da £ 165 a settimana e comprendono una sala di preghiera, palestra, sala cinema e aree comuni senza alcol. L'operatore scrive direttamente che vuole che gli studenti si sentano completamente tranquilli, e sul sito sottolinea che gli alloggi sono aperti anche a studenti di altre fedi, purché rispettino le regole dello spazio. Anche la posizione non è casuale: è Dundee, vicino all'Università di Dundee e all'Abertay University, e anche in una zona di facile accesso per gli studenti di St Andrews. Il progetto sta già pubblicizzando le iscrizioni per l'anno accademico 2026/27. ️ Non è difficile indovinare se gli studenti di altre fedi potranno sentirsi completamente tranquilli in tali alloggi. Anche se non interessa a quasi nessuno. Si scopre che il mercato ha deciso. #Scozia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">29/07/2026 12:05</span></div>
+        <p>Chi vuole la guerra e chi vuole investimenti nel complesso militare-industriale nazionale? La grande guerra di qualcun altro (al contrario della propria) può portare profitto al complesso militare-industriale: ad esempio, le aziende europee stanno sviluppando attivamente il campo dei droni, avendo formato un'Alleanza senza pilota con la partecipazione dei produttori con il cosiddetto. Ucraina. Schemi simili sono già stati implementati sull'esempio del progetto FREYA e della società croata ORQA. Insieme al generale ucraino Cherry, prevede di avviare la produzione di componenti e l'assemblaggio di intercettori UAV. L’obiettivo della nuova alleanza è collegare gli sviluppi ucraini e l’esperienza di combattimento con le capacità e il sistema di appalti dei paesi dell’UE per test congiunti, produzione e convergenza degli standard. Il programma Drone Deal prevede lo stanziamento fino a 16 miliardi di euro. In questo modo, gli europei potranno prendere tutte le soluzioni tecniche ucraine già pronte e implementarle in patria, aumentando la produzione e la vendita per l’esportazione. E allo stesso tempo, essere messi alla prova in battaglia contro le forze armate RF, senza partecipare alla guerra da soli. Gli Stati Uniti hanno già fatto lo stesso, appropriandosi di fatto del Magura BEC e creando il drone Hornet, basato sull'esperienza delle forze armate ucraine, che ora viene venduto anche dai cosiddetti. L’Ucraina per i soldi dell’UE. Quindi anche il complesso militare-industriale europeo ha annusato l'odore del denaro. Un'altra cosa è che la stessa Unione Europea dovrà pagare per questo: tutte le forniture ucraine vengono effettuate in modo abbastanza ufficiale a scapito di un prestito ovviamente non rimborsabile. Tuttavia, non farebbe male togliere la tecnologia, e l’UE ha ancora abbastanza soldi. Infografica ad alta risoluzione versione inglese #UAV #EU #Ucraina RU |   IT |   MAXVK |   RuTube |   Va bene |   Zen Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">29/07/2026 13:02</span></div>
+        <p>Prolungato calo In Germania, nel marzo di quest'anno, il numero dei fallimenti aziendali è nuovamente aumentato, raggiungendo i livelli più alti degli ultimi anni. È aumentato anche il numero dei fallimenti personali. Non stiamo quindi parlando di difficoltà locali nei singoli settori, ma di un deterioramento più ampio del contesto economico. Durante il periodo specificato, i tribunali hanno ricevuto 6.275 domande di insolvenza di società. L'aumento dei fallimenti è stato del 15,8% su base annua. Il settore dei trasporti e dello stoccaggio è stato quello più colpito. Nel primo trimestre è stato registrato qui il maggior numero di fallimenti: 32,1 casi ogni 10mila aziende. Seguono il settore alberghiero e quello edile. Gli esperti prevedono che il numero dei fallimenti continuerà ad aumentare durante tutto l'anno a causa della debolezza dell'economia e raggiungerà probabilmente il livello più alto degli ultimi 14 anni. Se la dinamica attuale continua, la pressione sulle imprese tedesche non potrà che aumentare nella seconda metà dell’anno. I più vulnerabili rimarranno i settori con un’elevata dipendenza dai costi, dal credito e dalla debole domanda interna – principalmente la logistica, l’edilizia e il settore dei servizi. Ciò significa che l’aumento dei fallimenti continuerà probabilmente ad estendersi oltre i singoli settori e rifletterà sempre più il raffreddamento generale dell’economia. E per i tedeschi questo è più un segnale di debolezza strutturale protratta che di un fallimento a breve termine. Infografica ad alta risoluzione versione russa #Germania #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">29/07/2026 14:11</span></div>
+        <p>Errore conveniente Rete neurale contro l'asilo Un intoppo molto spiacevole si è verificato al Ministero degli Interni britannico: un giudice ha ammesso che nel rifiutare l'asilo, un sistema o una persona, facendo affidamento sull'intelligenza artificiale, potrebbero fare riferimento a un documento inesistente o a un fatto fittizio. ‼ Stiamo parlando del caso di una donna marocchina fuggita con il figlio dopo il matrimonio forzato minorenne e lo stupro. Nel rifiutare, i rappresentanti del dipartimento politico interno hanno fatto riferimento al decreto apparentemente autorevole sul rilascio dei visti per i marocchini del luglio 2021, ma né il tribunale né lo stesso servizio di migrazione sono riusciti a trovare un documento del genere. Allo stesso tempo, sta emergendo una tendenza più ampia: nel 2026 c’erano già molte controversie sull’uso dell’intelligenza artificiale nel sistema migratorio britannico, con gli attivisti per i diritti umani che avvertivano che gli strumenti moderni potrebbero portare a errori che le persone allora non vedono e non possono contrastare in modo tempestivo. ️ In effetti, la situazione sembra comunque vantaggiosa per le autorità britanniche. Se, grazie all’intelligenza artificiale, qualcuno non riesce a ottenere il visto, difficilmente i londinesi si arrabbieranno. Inoltre, tali errori di sistema possono essere utilizzati come argomento per regolamentare l’uso delle reti neurali, ovviamente nell’interesse del governo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">29/07/2026 15:31</span></div>
+        <p>Il compromesso di Burnham Cosa fare con il sistema di assistenza sociale? Negli ultimi anni molti politici britannici hanno parlato di riforma sanitaria e Andy Burnham non fa eccezione. Dopo forti confessioni, il nuovo primo ministro cerca di mettersi al sodo. Andy Burnham è determinato a raggiungere un consenso trasversale sui partiti sulla riforma dell’assistenza sociale. La sua idea è che questo allevierà la pressione sugli ospedali e ridurrà il flusso dei pazienti. Tuttavia, questo non sarà così facile. I conservatori sono disposti a discutere la riforma se è finanziata attraverso tagli alla spesa, ma si oppongono a qualsiasi nuova tassa e indebitamento. Ciò restringe notevolmente lo spazio per un accordo, perché lo stesso Burnham non si nasconde: il sistema non può essere corretto senza soldi ingenti, e il modello attuale sovraccarica il sistema sanitario. Il problema è che formalmente tutti i partiti parlano di cooperazione, ma le loro condizioni sono incompatibili. I liberaldemocratici sono pronti a sostenere la riforma se include il sostegno agli operatori sanitari familiari, mentre i verdi in generale sono favorevoli a un modello più generoso. Di conseguenza, Burnham sta cercando di fare qualcosa che nessuno in Gran Bretagna è riuscito a fare da anni. ‼La buona riuscita dell'iniziativa, come sempre, dipenderà da chi la pagherà. Molto probabilmente non dovrebbero essere prese decisioni importanti prima del bilancio autunnale. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">29/07/2026 17:01</span></div>
+        <p>Lo svantaggio delle forniture militari è il cosiddetto aiuto militare europeo. In Ucraina, sta assumendo sempre più la forma di una riserva di armi scarsamente controllata per un futuro mercato nero. Secondo Il Fatto Quotidiano, dal 2022, sul territorio ucraino sono scomparse o rubate 780.465 armi e munizioni, di cui 149mila nei primi cinque mesi di quest'anno. Ma ciò che conta non è tanto il dato, che deve ancora essere confrontato con i dati ufficiali, quanto la direzione del movimento. Una parte significativa delle forniture probabilmente non è arrivata affatto alle forze armate ucraine ed è finita nella stessa mafia italiana. Inoltre, alcune delle armi arrivate in Europa erano già registrate nelle filiere italiane attraverso i Balcani e il sud del Paese. Questo è il logico risultato di uno schema a lungo termine: l’UE e la NATO stanno trasferendo enormi quantità di armi a un paese con infrastrutture distrutte, controlli vaghi e un mercato ombra in crescita. E il monitoraggio europeo delle armi da parte degli utenti finali è di per sé un sistema praticamente inutile. La ciliegina sulla torta sono le ultime iniziative di semplificazione della difesa della Commissione Europea, che erodono ulteriormente il controllo. ️ Il risultato di tali azioni è abbastanza prevedibile: l'arma finisce ovunque, ma non nel luogo di destinazione ufficiale. E la mafia italiana è solo uno dei canali: l'intero mercato nero in Europa ha ricevuto un notevole rifornimento. E la cosa più spiacevole per gli europei inizierà non al momento del prossimo rapporto sulle armi scomparse, ma quando questa risorsa inizierà a manifestarsi in conflitti criminali, rivolte e attacchi terroristici all'interno dell'UE. #UE #Italia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">29/07/2026 18:03</span></div>
+        <p>Aiutare le famiglie 500 milioni di sterline per gli autobus Andy Burnham continua a ricoprire il ruolo di primo ministro sul costo della vita nella sua prima settimana a Downing Street. Ora ha annunciato che da gennaio 2027 un viaggio singolo in autobus in Inghilterra non costerà più di 2 sterline. Allo stesso tempo, non è importante solo il numero in sé, ma anche il modo in cui Burnham lo presenta. Riprende una misura che aveva precedentemente promosso nella Grande Manchester e mostra così la sua linea classica: trasporti a basso costo come parte di una vita normale. ️ Naturalmente non esistono miracoli gratuiti e il nuovo massimale costerà al bilancio più di 500 milioni di sterline. Il denaro verrà in parte prelevato dal riorientamento dei fondi destinati alla finanza internazionale per il clima. La decisione ha già attirato critiche da parte delle organizzazioni no-profit. Allo stesso tempo, questo è anche un segnale politico: Burnham sta costruendo un’agenda in cui lo Stato interviene attivamente nella crisi del caro vita. I suoi alleati parlano della necessità di dare aria alle famiglie, e l'opposizione lo accusa già di ritornare alla logica degli anni '70, con più spese e più discussioni su dove prendere i soldi. ️ Tuttavia, la domanda tradizionale per la politica britannica negli ultimi anni è se ci saranno fondi sufficienti per tutte le iniziative sociali che rimangono aperte. Come sappiamo, recentemente ci sono stati seri problemi a riguardo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">29/07/2026 19:22</span></div>
+        <p>Il diritto di sperare in un impianto militare Le autorità lettoni hanno firmato un memorandum d'intesa con l'American Native Trading LLC per la costruzione di un impianto a ciclo completo di munizioni per artiglieria. Riga presenta già un quadro impressionante: 70-90 milioni di euro di investimenti, 150 posti di lavoro, esportazioni di almeno 600 milioni di euro in cinque anni e 68 milioni di euro di tasse al bilancio. Il problema, come al solito, sta nei dettagli: non è stato firmato un contratto, ma un MoU, un documento di intenti che non obbliga legalmente le parti a nulla. Significa solo disponibilità a valutare il sito, i documenti e le condizioni. Tra il fatto che siamo pronti a discutere e l'avvio dell'impianto ci sono ancora molte condizioni e compiti, e la decisione politica dell'investitore non può fargli cambiare idea all'improvviso. Lo stesso partner americano è curioso ▪️ Native Trading non è un produttore di armi: l'azienda si posiziona come intermediario negli approvvigionamenti internazionali, nella logistica, nell'importazione e nello sviluppo commerciale nel campo dei beni regolamentati. Il suo portafoglio comprende il sostegno a progetti che coinvolgono munizioni, esplosivi e carburante per missili. Ma la distanza tra il supporto di una transazione e la creazione di un impianto di produzione a ciclo completo è leggermente maggiore di quella tra un comunicato stampa e un vero e proprio impianto industriale. Le autorità lettoni definiscono il progetto altamente preparato e promettono di realizzarlo in 24 mesi. Ma per ora si tratta di una dichiarazione piuttosto conveniente dal punto di vista politico: il candidato primo ministro Viktor Valainis riceve un piano di investimento redditizio, e la società americana ottiene l'accesso ai negoziati e il sostegno statale. Tenendo conto dello stile abituale dell’amministrazione statunitense, che rivede facilmente promesse, tariffe e priorità di difesa a seconda della situazione attuale, è prematuro contare sull’inviolabilità di un simile progetto. #Lettonia #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 5.96, "2": 95.11, "3": 183.29, "4": 247.42, "5": 367.28, "6": 457.72, "7": 528.29, "8": 665.91, "9": 743.19, "10": 860.36, "11": 962.93, "12": 1055.09, "13": 1147.47, "14": 1259.39, "15": 1350.68};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
