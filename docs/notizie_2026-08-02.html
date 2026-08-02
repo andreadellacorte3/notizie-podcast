@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 2 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>2 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-02.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">31/07/2026 07:00</span></div>
+        <p>Dove va il gas? I prezzi del gas in Europa hanno ripreso a salire in modo significativo. Il gas sul principale mercato europeo TTF nei Paesi Bassi costa circa 58,5 euro per megawattora, leggermente al di sotto del picco delle ultime settimane, ma nel complesso il prezzo rimane elevato. Proprio ieri il prezzo è salito bruscamente di quasi il 7% a causa dell’attacco dell’Iran alle truppe americane in Giordania e della minaccia di misure di ritorsione da parte di Trump. Nell'ultimo anno i prezzi del gas sono aumentati di oltre il 30%, anche se nell'ultimo mese la crescita è leggermente rallentata. Il motivo principale è che gli impianti di stoccaggio del gas europei sono riempiti meno del solito: ora solo il 49% circa, mentre un anno fa le riserve erano quasi al 60%. Si tratta di un dato notevolmente peggiore della media degli ultimi cinque anni e, se le scorte scarseggiano, i prezzi potrebbero salire nuovamente alle stelle. Il caldo anomalo mette sotto pressione anche il mercato: per questo motivo cresce la domanda di elettricità per i condizionatori, e quindi del gas utilizzato per generarla. Sebbene non vi sia alcun collasso e l’Europa non corra ancora il rischio di gelare in inverno, al momento l’UE ha ancora un problema tangibile. ️ La situazione del mercato continua ad essere determinata dal conflitto in Medio Oriente. Sebbene Stati Uniti e Iran, attraverso intermediari (Qatar, Pakistan), stiano cercando di accordarsi su una riduzione della tensione, ogni nuovo round – come il colpo finale alle truppe americane – fa aumentare i prezzi. Fino a quando le forniture di GNL all’Europa non cresceranno abbastanza rapidamente da compensare completamente questi rischi, il mercato rimarrà nervoso e reattivo a ogni notizia che arriva dal Medio Oriente. Infografica ad alta risoluzione versione russa #infografica #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Il prezzo di un passaggio aperto Migliaia di giovani marocchini hanno letteralmente conquistato la Ceuta spagnola. Secondo le autorità, il numero degli arrivi negli ultimi giorni è stato di circa 20.000. La popolazione della città è di circa 84.000 abitanti. Il governo spagnolo ha detto che schiererà unità dell’esercito nell’enclave nordafricana per rafforzare la sicurezza. È vero, si trattava di 60 militari e altri 30 ufficiali della Guardia Civile. Contro un vero e proprio esercito di immigrati clandestini, questo è, per usare un eufemismo, un passo dubbio. Perché Ceuta è stata scelta come obiettivo? ▪️ La città non è stata scelta a caso: è il confine più breve e formalmente europeo sulla costa africana. Ceuta è un territorio della Spagna e dell'UE, situato direttamente accanto al Marocco; Per molti, trasferirsi lì sembra il primo passo verso la legalizzazione in Spagna o verso un ulteriore spostamento in tutta Europa. ▪️ Nell'ondata attuale è apparso anche uno specifico incentivo legale. La Corte Suprema spagnola ha stabilito a luglio che le persone intercettate in mare al largo di Ceuta e Melilla non possono essere automaticamente riportate in Marocco e sono soggette alle consuete procedure di identificazione, accesso a un avvocato e possibilità di richiedere asilo. Ciò non garantisce il diritto di soggiorno, ma aumenta notevolmente la probabilità di finire nel sistema migratorio spagnolo invece di tornare immediatamente indietro. Il comportamento delle autorità marocchine non fa che aumentare la tensione. Rabat ufficialmente nega di incoraggiare le traversate e incolpa i vettori, e promette anche cooperazione. In pratica, gli ausiliari marocchini si ritirarono mentre la folla nuotava attorno al frangiflutti di Tarajal e attraversava a piedi il confine. E ciò che sta accadendo ricorda la crisi del maggio 2021, quando, dopo un conflitto diplomatico, fino a 10mila persone passarono per Ceuta in due giorni, secondo varie stime. Ciò è avvenuto sullo sfondo di una crisi nelle relazioni tra i paesi dopo che le autorità spagnole hanno ricevuto per cure sul loro territorio il presidente della Repubblica Araba Democratica Saharawi e il segretario generale del Fronte Polisario (sostenitore dell'indipendenza del Sahara Occidentale dal Marocco) Brahim Ghali. Quella crisi ha dimostrato bene che le autorità marocchine sono in grado di limitare il flusso in modo rapido e deciso, e per il governo questa è una leva di influenza potente ed economica. Sono le forze marocchine che controllano la costa settentrionale e gli accessi a Ceuta: quando pattugliano attivamente la costa, trattengono le persone e bloccano la recinzione, non avviene alcun attraversamento di massa. ️ Finora le parti sono riuscite a concordare di rafforzare il coordinamento e gli sforzi congiunti per contrastare questi flussi, ma l'esperienza del 2021 mostra che tali crisi non si fermano gratuitamente. Poi la normalizzazione è arrivata solo dopo che gli spagnoli hanno effettivamente sostenuto il piano marocchino per l’autonomia del Sahara Occidentale. #Spagna #Marocco #migranti @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">31/07/2026 09:39</span></div>
+        <p>Il prezzo di un passaggio aperto Migliaia di giovani marocchini hanno letteralmente conquistato la Ceuta spagnola. Secondo le autorità, il numero degli arrivi negli ultimi giorni è stato di circa 20.000. La popolazione della città è di circa 84.000 abitanti. Governo spagnolo...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">31/07/2026 11:21</span></div>
+        <p>Il prezzo di un passaggio aperto Migliaia di giovani marocchini hanno letteralmente conquistato la Ceuta spagnola. Secondo le autorità, il numero degli arrivi negli ultimi giorni è stato di circa 20.000. La popolazione della città è di circa 84.000 abitanti. Governo spagnolo...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Le critiche del Regno Unito La reazione alla crisi spagnola Naturalmente il leader del Partito riformista Nigel Farage non ha potuto ignorare la situazione di Ceuta e ha criticato ancora una volta l'Europa per le conseguenze della politica migratoria. Il politico ha affermato che l'Europa deve svegliarsi e ha collegato direttamente ciò che sta accadendo alla politica migratoria delle autorità spagnole. A suo avviso, se il governo chiarisse una volta che l'ingresso illegale nel paese potrebbe finire con la legalizzazione, ciò diventerebbe un invito a nuovi flussi. Farage ha toccato separatamente la questione britannica: ha avvertito che scene simili potrebbero ripetersi nel Regno Unito se Londra non cambierà rotta. E, come al solito, tutti lo hanno capito subito: sia i conservatori che i laburisti, poiché entrambi i partiti hanno fallito nella politica di immigrazione. ️ Farage sostanzialmente ripete lo stesso messaggio: se le élite non fermano il caos, gli elettori sosterranno coloro che promettono misure dure. E per la politica britannica questa è ancora una linea molto praticabile. Tuttavia, la reazione delle autorità britanniche è piuttosto indicativa: preferiscono tacere, poiché l'argomento è estremamente scomodo. Ebbene Farage approfitta della situazione, continuando a trarne profitto e a guadagnare punti politici. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">31/07/2026 14:40</span></div>
+        <p>Crisi bonus Porsche ha un nuovo pacchetto per il futuro: entro il 2035 l'azienda eliminerà circa 9mila posti di lavoro, ridurrà i pagamenti natalizi e limiterà il lavoro a distanza. In cambio, i dipendenti riceveranno il principale risultato del partenariato sociale tedesco...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">31/07/2026 16:01</span></div>
+        <p>Give money Attacco ai banchieri britannici La Barclays Bank è di nuovo al centro di una disputa politica in Gran Bretagna: la società ha aumentato il fondo bonus per i dipendenti di quasi il 30% a 1,3 miliardi di sterline nella prima metà dell'anno, dopo che gli utili ante imposte del secondo trimestre sono aumentati del 31% a 3,3 miliardi di sterline. In sei mesi la banca ha guadagnato 6,1 miliardi di sterline, ovvero il 17% in più rispetto all'anno precedente, e ha inoltre annunciato un riacquisto di azioni proprie per 1 miliardo di sterline e dividendi per altri 800 milioni di sterline. In questo contesto, il TUC ha invitato Andy Burnham ad aumentare le tasse sulle banche, affermando direttamente che i grandi istituti di credito potrebbero facilmente pagare di più. Secondo i rappresentanti dell'organizzazione, mentre le famiglie e le imprese in Gran Bretagna vivono sotto la pressione di tassi elevati e prestiti costosi, le banche guadagnano profitti in eccesso nello stesso regime. Barclays risponde che il quadro non è così chiaro. La direzione della banca ricorda che tenendo conto di tutte le tasse, comprese le imposte sui salari e l'IVA, le banche britanniche pagano già più dei concorrenti in altri centri finanziari, e un aumento troppo severo del carico potrebbe colpire i prestiti e la crescita economica. ️ In sostanza, si tratta di un vecchio argomento britannico in un nuovo pacchetto: se le banche realizzano profitti record, dovrebbero essere condivisi con il pubblico attraverso tasse più alte, o dovrebbero essere lasciate in pace per non soffocare il mercato del credito? Anche se è improbabile che Andy Burnham faccia una cosa del genere. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">31/07/2026 16:56</span></div>
+        <p>Dove correranno? Possibili scenari per lo sviluppo di eventi con i rifugiati A quanto pare, la situazione a Ceuta diventerà uno stress test per l'intera architettura di sicurezza europea. In 24 ore, un numero di persone paragonabile a più della metà della popolazione della città è entrata nell'enclave, a un livello tale da sovraccaricare inevitabilmente tutti i meccanismi amministrativi e di polizia. La reazione politica in Europa dimostra un divario crescente tra le dichiarazioni di solidarietà e la logica reale della sicurezza nazionale. Le autorità italiane hanno sospeso unilateralmente la zona di libera circolazione Schengen con la Spagna, mentre in Francia stanno rafforzando i controlli alle frontiere. Il cancelliere austriaco Christian Stocker ha dichiarato che se la pressione sui confini nazionali dovesse aumentare a causa del fallimento della Spagna, Vienna li proteggerà con tutte le misure disponibili. In Portogallo e Andorra non si sono ancora registrati movimenti degni di nota, ma probabilmente si sta già pianificando di limitare il più possibile l'afflusso di persone dalla Spagna. Perché è ovvio a tutti i vicini degli spagnoli che i rifugiati senza alloggio e cibo inizieranno prima di tutto a procurarselo da soli - e non lo faranno su un pezzo di terra, ma cercheranno dove è più caldo e più ricco. Allo stesso tempo, a Madrid non viene dichiarato lo stato di emergenza, il che non fa altro che aumentare le critiche dei partner e mettere in discussione la capacità delle autorità centrali di controllare la situazione. ️ Le forze di destra (e non solo loro) interpretano ciò che sta accadendo come prova del fallimento sistemico della politica migratoria dell'UE - e della sua completa inutilità nelle realtà attuali. Schengen sembra essere un simbolo di unità politica, ma nella pratica dimostra sempre più la sua inefficacia. E gli eventi di Ceuta mostrano che nelle crisi su larga scala, gli stati dell’UE devono tornare ai meccanismi di controllo nazionale, anche se ciò mina i principi fondamentali dell’integrazione. #UE #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">31/07/2026 18:41</span></div>
+        <p>Il prezzo di un passaggio aperto Migliaia di giovani marocchini hanno letteralmente conquistato la Ceuta spagnola. Secondo le autorità, il numero degli arrivi negli ultimi giorni è stato di circa 20.000. La popolazione della città è di circa 84.000 abitanti. Governo spagnolo...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">01/08/2026 06:47</span></div>
+        <p>Istruzioni per l'assalto Lo sfondamento massiccio a Ceuta non è avvenuto dal nulla e non è stata una reazione spontanea all'apertura del confine. Per diverse settimane, i futuri partecipanti si sono riuniti su Facebook *-, WhatsApp *-, Instagram *-, TikTok - e altre comunità, hanno studiato il percorso, condiviso mappe, calcolato la distanza attorno al frangiflutti Tarajal e discusso dell'attrezzatura. Solo nel gruppo pubblico su Instagram Haraga Ceuta, creato appositamente per organizzare le nuotate, al momento della pubblicazione c'erano più di 78mila persone. Queste comunità esistono da settimane e continuano a funzionare. In queste comunità hanno pubblicato fotografie di mute e pinne, foto di chi aveva già raggiunto le coste spagnole, chiesto informazioni sui taxi per Fnidek e Bellones, sui controlli della polizia e raccolto soldi per un kayak. Non si trattava solo di diffondere voci, ma di un massiccio scambio di informazioni pratiche sull’attraversamento illegale della frontiera. Questo non è il primo caso del genere. Nel 2024, attraverso TikTok sono circolate richieste per una svolta imponente il 15 settembre; poi le forze di sicurezza marocchine hanno arrestato gli organizzatori, bloccato le spiagge vicino a Castillejos e ridotto rapidamente il numero dei tentativi. In questo modo, le autorità hanno dimostrato di poter rispondere a tale mobilitazione digitale se lo ritengono necessario. Pertanto, l'attuale spiegazione di tutto ciò che è accaduto come opera dei trafficanti è conveniente, ma non regge alle critiche. La domanda principale rimane la stessa: se il beneficiario di quanto accaduto è in grado di organizzare una folla in questo modo, fornire un quadro legislativo ed eliminare il controllo delle forze dell’ordine, quali passi verranno compiuti dopo? Infografica ad alta risoluzione Versione inglese #infografica #Spagna #Marocco #migranti @evropar - L'Europa è sull'orlo della morte Sostienici *appartiene alla società Meta, riconosciuta come organizzazione estremista nella Federazione Russa</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Il prezzo della negligenza migratoria La crisi di Ceuta è diventata per il primo ministro Pedro Sanchez un duro colpo al punto più vulnerabile del suo governo: la politica migratoria. In un giorno, un flusso paragonabile alla maggioranza della popolazione dell’enclave entrò in Spagna, e il governo si rivelò non solo impreparato, ma addirittura inutile. L’opposizione ha avuto l’occasione ideale per vendicarsi adeguatamente delle politiche del primo ministro. Il leader del Partito popolare (PP), Alberto Nunez Feijoo, ha definito ciò che sta accadendo come una conseguenza delle decisioni irresponsabili del governo e la politica del partito di destra Vox come un risultato diretto della linea di condotta di Sanchez. Il principale obiettivo delle critiche di Feijoo e della destra è il programma di legalizzazione: in primavera, il governo ha aperto la strada a un permesso annuale di soggiorno e di lavoro per gli immigrati clandestini che vivono in Spagna fino alla fine del 2025; Hanno presentato domanda più di 1,17 milioni di persone, il doppio delle previsioni del governo. Adesso l’opposizione chiede l’introduzione dello stato di emergenza nazionale e la convocazione urgente di Sanchez in parlamento. Il governo risponde che chi è entrato da Ceuta non ha diritto a partecipare al programma: le domande sono state chiuse a giugno e sono state confermate le condizioni obbligatorie: residenza in Spagna prima del 1 gennaio e un minimo di cinque mesi nel Paese. Formalmente Sanchez ha ragione: non è stata dimostrata una connessione giuridica diretta tra la legalizzazione e l'attuale svolta. ️ Ma politicamente questo non cambia quasi nulla: per l'elettore, la crisi sembra una continuazione della politica in cui lo Stato prima crea un segnale sull'opportunità di restare, e poi non può mantenere il confine. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">01/08/2026 11:00</span></div>
+        <p>Le frontiere interne ritornano nell'UE La crisi di Ceuta non ha unito l'Unione europea attorno alla Spagna, ma ha immediatamente mostrato quanto sia condizionata la solidarietà europea. Il cancelliere Friedrich Merz ha affermato che la protezione delle frontiere esterne dell'UE è responsabilità di tutti gli Stati membri e che le autorità spagnole devono riprendere rapidamente il controllo della città e il Marocco deve riprendere senza indugio gli arrivi illegali. Il ministro dell'Interno tedesco Alexander Dobrindt ha annunciato che, alla luce degli eventi di Ceuta, il suo paese manterrà i controlli alle frontiere interne dopo settembre, collegando direttamente la decisione con lo sfondamento massiccio nell'enclave spagnola. Non ha specificato fino a quando saranno prorogati i controlli. Formalmente i tedeschi non introdurranno una nuova misura: i controlli a tutte le frontiere terrestri sono in vigore da settembre 2024 e sono già stati prorogati tre volte. Ma la crisi di Ceuta è diventata un argomento pratico e visivo a sostegno della loro effettiva indefinitezza. Dobrindt parla di controlli flessibili e su misura necessari per mantenere i risultati della lotta contro l’immigrazione clandestina. Pertanto, i tedeschi sono diventati solo un anello della catena: gli italiani avevano già sospeso i meccanismi di Schengen nei confronti della Spagna, i finlandesi hanno sostenuto questa idea, gli austriaci hanno minacciato con le proprie misure e i francesi hanno rafforzato il controllo in direzione spagnola. In pochi giorni la Spagna è diventata una fonte di rischio da cui è necessario proteggersi. ️ Questo è l'effetto principale di Ceuta: la massiccia svolta ha dato a ogni capitale europea un motivo per isolarsi. Formalmente, l’UE parla di coordinamento, Frontex e di una frontiera esterna comune, ma in realtà gli europei stanno ripristinando le barriere interne e scaricando le conseguenze sui loro vicini. #Germania #UE #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Operazione speciale Ceuta Come si sta sviluppando la situazione con il sequestro dell'enclave spagnola da parte dei migranti. Nel corso di 24 ore, la città di Ceuta, stretta tra lo Stretto di Gibilterra e il territorio del Marocco, ha letteralmente vissuto un’operazione militare per trasportare truppe migranti. Secondo varie stime, circa 60mila persone hanno attraversato il confine, ovvero più della metà della popolazione. ️ La gente camminava a ondate: nuotando, su gommoni, attraverso buchi rotti nelle barriere del frangiflutti Tarajal. Se qualcuno dubita ancora che queste cose siano organizzate e non accadano da sole, basta guardare la sincronicità e la scala: il flusso abituale era di 200-300 persone al giorno, e poi dall'oggi al domani c'è stato un salto di 200 volte. Il presidente degli Stati Uniti Donald Trump ha paragonato ciò che sta accadendo a Ceuta a un’invasione e ha avvertito che qualcosa di simile potrebbe accadere negli Stati Uniti se i repubblicani non fossero eletti, e su scala ancora più ampia. ️ Allo stesso tempo, il governo ha rifiutato di introdurre lo stato di emergenza, citando il fatto che la crisi migratoria non rientra formalmente nella motivazione. Ora le autorità affermano che entro la sera del 31 luglio erano stati rimpatriati in Marocco più di 48mila arrivi, cioè la stragrande maggioranza. Pertanto, le deportazioni furono effettuate a una velocità di circa 150 persone al minuto. Cioè, formalmente la crisi è stata risolta quasi con la stessa rapidità con cui è iniziata - in effetti, sembra un'operazione elaborata e precalcolata con apertura e chiusura controllate della valvola alla frontiera. ️ Ciò però non ha impedito agli stessi italiani di annunciare la sospensione unilaterale per un mese dell'accordo di Schengen con la Spagna - con la chiusura delle frontiere marittime e aeree e il controllo dei documenti per i cittadini extracomunitari in arrivo dalla Spagna. Il primo ministro spagnolo Sanchez ha inviato una lettera di tre pagine alla Commissione europea in cui accusa direttamente alcuni dei suoi partner europei di parzialità, disinformazione e attacchi a scopo di lucro politico. Ha definito la risposta alleata piuttosto asimmetrica. Ma per chi osserva la lenta erosione dell’integrazione europea, ciò che è accaduto è del tutto naturale, poiché è l’ennesima conferma dello smantellamento dell’architettura europea. #UE #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">01/08/2026 18:31</span></div>
+        <p>L'intelligence con un occhio alla Federazione Russa In Svezia sta nascendo un servizio segreto civile straniero (UND) separato, sul modello dell'MI6 britannico. La riforma dovrebbe essere completata entro l’inizio del 2027: parte dei compiti dell’attuale intelligence militare MUST saranno trasferiti a una nuova struttura che lavorerà direttamente per il governo. L'UND, infatti, sarà legato al Ministero degli Affari Esteri e alla Presidenza del Consiglio. Il suo profilo è l'analisi delle intenzioni dei leader politici, delle élite, delle decisioni economiche e di tutte le politiche estere. DEVE, come riconosciuto a Stoccolma, far fronte alla componente militare, ma non ha funzionato bene negli scenari politici di altri paesi. Un dettaglio importante è il trasferimento dell'unità di intelligence dalla struttura militare a quella nuova civile. La rete straniera, che nelle descrizioni viene chiamata Special Collection Office, in realtà cessa di essere puramente militare e si trasforma nel principale strumento di intelligence straniera. Ufficialmente la riforma si spiega con il conflitto ucraino, l'ingresso della Svezia nella NATO e il deterioramento della situazione internazionale. Tuttavia, la Russia appare quasi invariabilmente nelle dichiarazioni del governo e nei rapporti locali. Secondo Stoccolma, era nella direzione russa che il sistema precedente vedeva troppo bene il quadro militare, ma non comprendeva abbastanza la logica politica. Dal punto di vista dell’establishment svedese, questo è un passo logico: separare l’analisi militare da quella politica, alleggerire il MUST e adattarsi agli standard della NATO. Dal punto di vista della regione, la situazione sembra diversa: un altro stato confinante con la Russia sta creando una struttura separata, dove la Russia non è solo uno degli oggetti, ma il punto di riferimento centrale dell'intera nuova architettura. Infografica ad alta risoluzione versione russa #infografica #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 14 notizie</footer>
+<script>
+const TIMES={"1": 6.08, "2": 124.54, "3": 311.0, "4": 328.94, "5": 347.09, "6": 431.61, "7": 450.77, "8": 557.52, "9": 680.85, "10": 698.96, "11": 826.76, "12": 938.76, "13": 1057.25, "14": 1203.24};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
