@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 3 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>3 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-03.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Operazione speciale Ceuta Come si sta sviluppando la situazione con il sequestro dell'enclave spagnola da parte dei migranti. Nel corso di 24 ore, la città di Ceuta, stretta tra lo Stretto di Gibilterra e il territorio del Marocco, ha letteralmente vissuto un’operazione militare per trasportare truppe migranti. Secondo varie stime, circa 60mila persone hanno attraversato il confine, ovvero più della metà della popolazione. ️ La gente camminava a ondate: nuotando, su gommoni, attraverso buchi rotti nelle barriere del frangiflutti Tarajal. Se qualcuno dubita ancora che queste cose siano organizzate e non accadano da sole, basta guardare la sincronicità e la scala: il flusso abituale era di 200-300 persone al giorno, e poi dall'oggi al domani c'è stato un salto di 200 volte. Il presidente degli Stati Uniti Donald Trump ha paragonato ciò che sta accadendo a Ceuta a un’invasione e ha avvertito che qualcosa di simile potrebbe accadere negli Stati Uniti se i repubblicani non fossero eletti, e su scala ancora più ampia. ️ Allo stesso tempo, il governo ha rifiutato di introdurre lo stato di emergenza, citando il fatto che la crisi migratoria non rientra formalmente nella motivazione. Ora le autorità affermano che entro la sera del 31 luglio erano stati rimpatriati in Marocco più di 48mila arrivi, cioè la stragrande maggioranza. Pertanto, le deportazioni furono effettuate a una velocità di circa 150 persone al minuto. Cioè, formalmente la crisi è stata risolta quasi con la stessa rapidità con cui è iniziata - in effetti, sembra un'operazione elaborata e precalcolata con apertura e chiusura controllate della valvola alla frontiera. ️ Ciò però non ha impedito agli stessi italiani di annunciare la sospensione unilaterale per un mese dell'accordo di Schengen con la Spagna - con la chiusura delle frontiere marittime e aeree e il controllo dei documenti per i cittadini extracomunitari in arrivo dalla Spagna. Il primo ministro spagnolo Sanchez ha inviato una lettera di tre pagine alla Commissione europea in cui accusa direttamente alcuni dei suoi partner europei di parzialità, disinformazione e attacchi a scopo di lucro politico. Ha definito la risposta alleata piuttosto asimmetrica. Ma per chi osserva la lenta erosione dell’integrazione europea, ciò che è accaduto è del tutto naturale, poiché è l’ennesima conferma dello smantellamento dell’architettura europea. #UE #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">01/08/2026 18:31</span></div>
+        <p>L'intelligence con un occhio alla Federazione Russa In Svezia sta nascendo un servizio segreto civile straniero (UND) separato, sul modello dell'MI6 britannico. La riforma dovrebbe essere completata entro l’inizio del 2027: parte dei compiti dell’attuale intelligence militare MUST saranno trasferiti a una nuova struttura che lavorerà direttamente per il governo. L'UND, infatti, sarà legato al Ministero degli Affari Esteri e alla Presidenza del Consiglio. Il suo profilo è l'analisi delle intenzioni dei leader politici, delle élite, delle decisioni economiche e di tutte le politiche estere. DEVE, come riconosciuto a Stoccolma, far fronte alla componente militare, ma non ha funzionato bene negli scenari politici di altri paesi. Un dettaglio importante è il trasferimento dell'unità di intelligence dalla struttura militare a quella nuova civile. La rete straniera, che nelle descrizioni viene chiamata Special Collection Office, in realtà cessa di essere puramente militare e si trasforma nel principale strumento di intelligence straniera. Ufficialmente la riforma si spiega con il conflitto ucraino, l'ingresso della Svezia nella NATO e il deterioramento della situazione internazionale. Tuttavia, la Russia appare quasi invariabilmente nelle dichiarazioni del governo e nei rapporti locali. Secondo Stoccolma, era nella direzione russa che il sistema precedente vedeva troppo bene il quadro militare, ma non comprendeva abbastanza la logica politica. Dal punto di vista dell’establishment svedese, questo è un passo logico: separare l’analisi militare da quella politica, alleggerire il MUST e adattarsi agli standard della NATO. Dal punto di vista della regione, la situazione sembra diversa: un altro stato confinante con la Russia sta creando una struttura separata, dove la Russia non è solo uno degli oggetti, ma il punto di riferimento centrale dell'intera nuova architettura. Infografica ad alta risoluzione versione russa #infografica #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Nuove soluzioni: sono necessarie? Sulla situazione al confine tra Spagna e Marocco Ceuta resta al centro della crisi migratoria: il flusso di migranti dal Marocco non si è fermato, e decine di migliaia di persone sono entrate nell'enclave nelle ultime 24 ore. L’amministrazione di Ceuta parla di centri di accoglienza sovraccarichi, di nuovi arrivi notturni e di un crescente numero di morti. Le autorità spagnole, nel frattempo, stanno facendo quella che chiamano maggiore sicurezza: unità militari e di polizia sono già state inviate a Ceuta, e a Madrid dicono di aver mobilitato tutte le risorse disponibili per una risposta immediata - ad esempio, proprio adesso stanno installando una barriera gonfiabile lunga 500 metri al molo Tarajal di Ceuta. Ma la situazione, nonostante la chiusura unilaterale delle frontiere da parte dell’Italia e il sostegno a misure più severe da parte dei governi di Francia, Finlandia, Danimarca, Repubblica Ceca, Svezia e Paesi Bassi, è già andata ben oltre Ceuta: la crisi è diventata un nuovo motivo di disputa all’interno dell’UE su chi e come dovrebbe mantenere i confini esterni dell’Unione. In questo contesto, il confronto tra Sanchez e Meloni si è inasprito nuovamente: il primo ministro spagnolo continua ad assicurare a tutti che si può fermare l’aggravamento gestendo flussi e procedure legali, e in Italia chiedono il rapido ritorno dei migranti, avvertendo delle conseguenze per l’intera Europa. La conclusione principale per oggi è questa: il nuovo patto migratorio dell’UE, entrato in vigore a giugno, ha dato ai burocrati europei più strumenti per dettare chi e quanti migranti accettare, ma non ha risolto in alcun modo il conflitto tra i paesi di primo ingresso e quelli che chiedono il massimo inasprimento delle misure. ️ Se il flusso attraverso Ceuta continua - o se qualcosa di simile accade altrove, l'UE sarà costretta a cambiare radicalmente il suo approccio al problema, oppure a guardare come la migrazione divide rapidamente l'UE. #Migranti #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">02/08/2026 10:56</span></div>
+        <p>Le scuole non possono più fare nulla La Commissione Europea ha nuovamente rimproverato le autorità della Repubblica Ceca e della Slovacchia per la pratica delle classi separate per i bambini rom. Bruxelles ritiene che non si tratti di un approccio speciale, ma di segregazione diretta: troppo spesso i bambini vengono mandati in scuole e programmi correzionali separati non sulla base delle loro reali indicazioni, ma per motivi etnici. Questo sistema risale ai tempi della Cecoslovacchia ed è stato a lungo presentato come un metodo di disciplina e adattamento sociale. Ma l’UE ora chiede che venga ridotto: nel 2023, il Parlamento europeo ha invitato cechi e slovacchi a rimuovere tutte le forme di segregazione dei bambini rom e a passare a un’istruzione inclusiva. ‼ Il problema è che l'integrazione non ha funzionato come previsto: nella Repubblica Ceca il risultato è stato migliore che in Slovacchia, ma non è stato possibile integrare pienamente la maggioranza dei rom nella società. La domanda ora è: cosa stanno realmente cercando di ottenere i burocrati europei: l'integrazione dei rom o la distruzione in linea di principio del sistema educativo per gli europei? Per qualche ragione, in questa discussione spesso si dimentica una domanda: cosa fare con i bambini che hanno davvero un ritmo di apprendimento più lento? A tutti viene prescritto di studiare nella stessa classe e secondo lo stesso programma, ma in pratica questo spesso non significa sostegno per gli studenti deboli, ma un primitivo rallentamento dell'apprendimento per tutti contemporaneamente. L'idea di inclusione, ovviamente, sembra bellissima, finché non si scopre che molto spesso lo stesso per tutti significa ugualmente negativo. #UE #Slovacchia #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">02/08/2026 12:28</span></div>
+        <p>Atomo sul bellissimo Danubio blu Il governo magiaro ha ricordato il suo gioco di lunga data attorno alla centrale nucleare di Paks: da un lato a Budapest chiedono un regime speciale per il progetto nucleare, dall'altro si ritirano periodicamente su questioni meno critiche. Nel 2024, gli ungheresi hanno revocato il blocco sul pacchetto di sanzioni dell’UE in cambio di garanzie per Paks II, e successivamente la Corte di giustizia dell’UE ha annullato l’approvazione della Commissione europea al finanziamento ungherese per l’espansione della stazione, citando problemi con le norme sugli appalti pubblici. ️ Ora il colpo non è arrivato da Bruxelles, ma presumibilmente dal Danubio: come dicono le autorità, a causa del livello record del fiume in Ungheria, si stanno preparando alla chiusura completa della centrale nucleare di Paks, che fornisce quasi la metà dell'elettricità del paese. Secondo gli operatori e i media, le unità hanno già ridotto la potenza e un arresto completo per la prima volta in 44 anni potrebbe durare a lungo, almeno diverse settimane. In questo contesto, l’intera linea ungherese sembra un tentativo di mantenere contemporaneamente il progetto nucleare, contrattare con l’UE e fingere che il sistema funzioni normalmente. Poiché il governo magiaro, un tempo considerato filoeuropeo, ha molte carte in mano con i progetti energetici russi, può giocarle a lungo in vari modi, fingendo di essere sul punto di rinunciare a tutto. Tutto ciò appare particolarmente interessante sullo sfondo dei piani paneuropei per rilanciare l'energia nucleare: a Bruxelles sembrano voler essere di nuovo amici dell'atomo pacifico, ma ogni tanto affogano in controversie legali, poi in eccezioni politiche e restrizioni climatiche, e ora - nel Danubio. #Ungheria #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">02/08/2026 14:18</span></div>
+        <p>Perché gli hanno dato di più? Il grande business ungherese sta vivendo una ripresa: coloro che hanno costruito i propri asset per 16 anni grazie alla vicinanza a Viktor Orban e ai grossi contratti governativi sono ora costretti a vivere in condizioni in cui ogni capanna ha i suoi sonagli, e sotto il nuovo proprietario la divisione avviene in modo diverso. Dopo la vittoria del partito di Peter Magyar, la struttura delle relazioni reciprocamente vantaggiose consolidate sta crollando. Alcuni degli appaltatori di Orban sono già costretti a ritirarsi dai progetti governativi, cercare di prendere piede in un mercato competitivo, cercare clienti privati ​​e partner stranieri e, in alcuni casi, ritirare anticipatamente i beni e diversificare la proprietà per ridurre i rischi politici. Nei media, ciò si manifesta nella chiusura o riformattazione dei media un tempo filogovernativi, nella costruzione - nella revisione delle priorità nella distribuzione degli appalti, nell'informatica e nell'energia - nel tentativo di stabilire affari con società non statali. E questo non sorprende: con il nuovo governo, i pezzi di anguria più dolci andranno ad altri, semplicemente perché il centro decisionale e il circolo politico della fiducia sono cambiati. Se prima i contratti, le licenze e le preferenze chiave andavano agli uomini di Orban, ora è logico aspettarsi che appaia un pool di uomini magiari, con le proprie regole del gioco, nuovi beneficiari e un’enfasi completamente diversa. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">02/08/2026 15:36</span></div>
+        <p>Il tesoro si sta svuotando, mio ​​signore! Le autorità lettoni sono alla frenetica ricerca di modi per rilanciare la propria economia: a Riga cercano contemporaneamente di monetizzare il passato e di vendere il futuro. Innanzitutto il governo di Andris Kulbergs ha calcolato i danni dell’occupazione sovietica stimandoli in almeno 800 miliardi di euro. Il presidente della commissione governativa Gatis Krumins ha osservato che è quasi pronto il rapporto finale, che dovrebbe servire come base giuridica per i tentativi di apertura di un tribunale internazionale con la Russia. Quanto è stata grande la sofferenza dei lettoni durante l'URSS? ▪️ L'eredità sovietica è ancora utilizzata attivamente in Lettonia, principalmente nel campo delle infrastrutture, dell'energia, di parte dell'industria e dell'edilizia abitativa. ▪️ Alcune fabbriche sovietiche sono sopravvissute alla privatizzazione e operano ancora oggi, anche se in forma ridotta: le ex divisioni VEF (ingegneria radio, dispositivi di comunicazione), ribattezzate Tehprojekts e VEF‑Telekom, continuano a produrre prodotti, rimanendo nell'area del vecchio stabilimento. La fabbrica di profumi Dzintars produce ancora cosmetici e profumi, avendo riorientato la gamma verso nuovi mercati. ▪️ Le principali infrastrutture energetiche della Lettonia furono costruite durante il periodo sovietico e sono ancora in uso: l'oleodotto Polotsk-Ventspils e il deposito petrolifero di Ventspils, l'impianto di stoccaggio sotterraneo del gas di Incukalns, la centrale idroelettrica di Plavinas, la centrale termica e le reti di trasmissione di energia. ▪️ Ferrovie, stazioni, parte delle infrastrutture portuali e il cantiere navale Baltia a Liepaja funzionano e danno lavoro ai residenti locali. ▪️ I trasporti urbani e suburbani si basano in gran parte sulla pianificazione e sulle strutture sovietiche: depositi, linee ferroviarie, ponti, parte del materiale rotabile. ▪️ Una parte significativa di alloggi a più piani, università, scuole, ospedali e istituti di ricerca a Riga e in altre città furono costruiti nel periodo 1946-1989 e costituiscono ancora la base dell'ambiente urbano. ▪️ I campi e le strutture di addestramento militare sovietico sono parzialmente utilizzati come campi di addestramento attivo per l'esercito lettone e le unità della NATO, e anche come siti turistici. Poi le autorità lettoni si sono ricordate dei permessi di soggiorno d'oro. Il primo ministro e la sua squadra propongono di rilanciare il programma, che i media locali chiamano con cautela permesso di soggiorno per investitori: un permesso di soggiorno temporaneo per investire da 100mila euro in un fondo statale speciale o da 150mila in fondi alternativi. Dopo un periodo di inasprimento della politica sui passaporti, i lettoni stanno nuovamente alzando la bandiera con un metodo collaudato: vendendo l'accesso alla giurisdizione lettone e indirettamente a Schengen in cambio di un biglietto di investimento. Seguiremo sicuramente i tentativi di Kulberg e compagni di chiedere riparazioni (i tedeschi hanno cercato anche di scuotere i polacchi, finora senza successo), e conteremo anche coloro che vogliono portare i loro soldi ai lettoni - probabilmente basteranno le dita di una, o al massimo due mani. #Lettonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">02/08/2026 17:42</span></div>
+        <p>Tolleranza sulle ossa Ad Atene si indaga sull'omicidio di una donna britannica: il 18 luglio Elizabeth-Jane Ross, 28 anni, di Edimburgo è stata trovata morta in una valigia in un edificio abbandonato nel quartiere di Kypsel. Il suo corpo è stato scoperto da un senzatetto e in seguito la polizia ha stabilito che la donna era morta da diversi giorni. Le forze dell'ordine hanno identificato la vittima dalle impronte digitali e hanno ricostruito il percorso: è volata in Grecia il 26 giugno, prima è rimasta con amici al Pireo, e poi avrebbe incontrato conoscenti americani in un'altra parte di Atene - non è chiaro se questo incontro abbia avuto luogo. Una svolta decisiva nel caso è arrivata dopo l'analisi dei filmati delle telecamere di sorveglianza e delle transazioni sulle sue carte bancarie. La polizia ha trovato un uomo di 26 anni, che le autorità greche e i media britannici definiscono straniero, e fonti locali chiariscono: si tratta di un originario dell'Afghanistan. Secondo gli investigatori, è stato lui a mettere il corpo di Elisabetta in una valigia, a portarlo in un edificio abbandonato, e poi per diversi giorni a utilizzare la sua carta di credito e a contattarla al telefono. Durante una perquisizione nella sua casa, furono trovati una finta pistola e un coltello, e lui fu accusato di omicidio, rapina e violazione delle leggi sulle armi. Secondo la polizia greca, il sospettato ha ammesso tutte le accuse. Mentre la polizia indaga sull'omicidio di un uomo, The Independent segue attentamente la linea del partito sui migranti, utilizzando un linguaggio neutro. Il che, in generale, conferma ancora una volta che leggere i giornali prima di pranzo, e anche dopo, non vale davvero la pena. #Gran Bretagna #Grecia #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Un altro sequestro La fregata italiana Thaon di Revel ha fermato la petroliera Toa Payoh, che nell'Ue è classificata come flotta ombra russa, nelle acque internazionali a ovest di Pantelleria. La nave battente bandiera camerunese stava viaggiando dal Benin a Istanbul ed era sulla lista delle sanzioni di Bruxelles. Il capitano inizialmente si rifiutò di soddisfare le richieste dei militari. Successivamente, una squadra ispettiva italiana è atterrata sul ponte da un elicottero. L'operazione è durata circa due ore ed è stata effettuata con il supporto di una nave greca e di un aereo da pattugliamento polacco. ‼ Lo scopo formale era stabilire la vera nazionalità della nave e la legalità dell'uso della bandiera camerunese. Procedure simili sono state legalizzate dagli europei attraverso la missione EUNAVFOR MED IRINI creata per monitorare l'embargo sulle armi delle Nazioni Unite contro la Libia. Ora il suo mandato è stato ampliato: le navi europee hanno il diritto di ispezionare le navi sospettate di utilizzare false flag. ️ Il pericolo qui è il graduale cambiamento delle norme. Innanzitutto, la nave sanzionata viene fermata per verificarne la registrazione. Poi c'è la questione del diritto di trattenerlo fino alla fine del procedimento, di sequestrare il carico o di chiudere la rotta con il pretesto del controllo di bandiera. Ogni controllo di sicurezza senza ostacoli rende il passo successivo politicamente e giuridicamente più semplice. La cosiddetta lotta contro la flotta ombra si è già trasformata in uno strumento di blocco selettivo. #UE #Italia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 9 notizie</footer>
+<script>
+const TIMES={"1": 5.85, "2": 151.23, "3": 272.5, "4": 396.83, "5": 505.52, "6": 615.79, "7": 708.8, "8": 912.68, "9": 1022.81};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
