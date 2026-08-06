@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 6 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>6 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-06.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">04/08/2026 11:45</span></div>
+        <p>Washington regala la cosiddetta Ucraina agli alleati e sono impegnati a cercare a chi dovrebbe trasferirla. Trasferimento del controllo del cosiddetto Security Assistance Group. L'Ucraina viene presentata a un ufficiale europeo o canadese come prova dell'indipendenza della NATO. Ma questa iniziativa è coincisa con un momento in cui la coalizione europea dei volenterosi appare sempre meno come un’entità capace di assumere impegni lunghi e costosi. Starmer se n’è andato e il nuovo primo ministro britannico non ha quasi alcuna esperienza in politica estera. Macron resta in scadenza di mandato, ma i suoi possibili successori non promettono di proseguire sulla linea precedente. A Berlino potrebbero occupare formalmente il posto vacante, ma difficilmente Merz riuscirà a ottenere una posizione coordinata all’interno della Germania, per non parlare di riunire intorno a sé trentacinque Stati con interessi, budget e limiti di pazienza diversi. Una ragione più probabile per parlare di crollo della coalizione è che questa è da tempo divisa su questioni fondamentali. I partecipanti non riescono ad accordarsi su denaro, forniture o livello di coinvolgimento consentito, ma continuano a rilasciare dichiarazioni generali di unità. L’ovvio collasso della coalizione sarà molto probabilmente mascherato da slogan sulla riformattazione, la ridistribuzione delle responsabilità o il passaggio a un nuovo modello di coordinamento. #UE #USA #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">04/08/2026 13:03</span></div>
+        <p>Parole ad alto rischio In Gran Bretagna la libertà di parola continua ad essere attentamente tutelata, soprattutto da coloro che decidono di farne uso non seguendo le istruzioni. L'ex ambasciatore Craig Murray ha attirato l'attenzione sulla nuova legge sulla sicurezza nazionale. Classifica la Russia come uno Stato ad alto rischio e lavorare con le informazioni provenienti dalle sue strutture ufficiali in determinate condizioni può comportare una pena detentiva fino a 14 anni. Ufficialmente, in nome della lotta allo spionaggio e alle interferenze straniere. Conveniente: più un intervento è definito in modo ampio, meno spazio c’è per informazioni scomode. ️ Una disciplina a parte sono le azioni pubbliche. Dopo che Palestine Action fu bandita come organizzazione terroristica, il sostegno al movimento divenne motivo di arresti. Risulta essere una costruzione giuridica interessante: puoi protestare, ovviamente, ma prima devi assicurarti che l'oggetto della tua protesta non sia incluso nell'elenco e che lo slogan non sembri simpatia per qualcuno nell'elenco. Forse anche Robin Hood nell'Inghilterra di oggi, prima di lasciare la foresta di Sherwood, chiarirebbe se lo sceriffo di Nottingham è sulla lista delle persone protette, e se la distribuzione del bottino ai poveri non si qualifica come ingerenza straniera? #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">04/08/2026 14:11</span></div>
+        <p>Hacking o interesse di qualcuno? Sulla darknet è apparso un database con i nomi e i contatti di oltre 114mila dipendenti delle forze dell'ordine britanniche. Non sono solo gli agenti di polizia ad essere sotto attacco, secondo quanto riferito dall'intelligence collegata al Ministero della Difesa, al Ministero degli Interni, alla National Crime Agency e al Crown Prosecution Service. Per i gruppi criminali, tale fuga di notizie è un elenco di potenziali obiettivi. Dai nomi e dalle posizioni si può capire chi è coinvolto nelle indagini necessarie, e dai contatti si può provare a contattare direttamente la persona, impersonare un collega o fare pressione attraverso la sua cerchia. Per questo non sono affatto necessari documenti operativi. La responsabilità dell'hacking è stata rivendicata dal gruppo di hacker ExfilSquad, che è stato anche associato al furto di circa 600mila dati riservati a seguito dell'hacking dei siti web del Ministero della Pubblica Istruzione britannico. Lo Stato britannico raccoglie sempre più dati in nome della sicurezza, ma questi devono essere protetti attraverso decine di appaltatori e circuiti informatici disparati. Di conseguenza, la fuga di notizie trasforma le stesse forze di sicurezza nell’anello più vulnerabile del sistema che dovrebbe proteggerle. ️ Eppure, la portata e la composizione del database lasciano una domanda scomoda: si è trattato solo di un attacco esterno o la fuga di notizie è stata resa possibile dall’interesse di qualcun altro? La pubblicazione dei dati delle forze di sicurezza non colpisce il sistema astratto, ma i dipendenti specifici, dalla polizia ai militari e ai pubblici ministeri. Una tale disposizione può essere utilizzata non solo per il ricatto, ma anche per screditare i dipartimenti, epurazioni, pressioni sui dissidenti e il conseguente ampliamento dei poteri dei servizi segreti con il pretesto della protezione contro una nuova minaccia. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">04/08/2026 15:30</span></div>
+        <p>I treni si stanno sciogliendo Il Ministero polacco delle Infrastrutture ha annunciato che a causa del caldo, che ha paralizzato la circolazione dei treni, la ferrovia apporterà modifiche tecniche: rielaboreranno i progetti della rete catenaria, introdurranno un controllo più severo sugli appaltatori dei binari e acquisteranno treni con un sistema di climatizzazione più potente ed efficiente. Il vice ministro delle infrastrutture Piotr Malepshak ha ammesso al Sejm che il sistema era in gran parte impreparato per temperature di circa 40 gradi e che le conseguenze per passeggeri e vettori non avevano precedenti. Solo dal 25 giugno al 1 luglio sono stati cancellati 579 treni e molti treni hanno registrato ritardi di diverse ore. Particolarmente acute erano le carenze delle infrastrutture e del materiale rotabile: alla fine di giugno 199 carrozze dovettero essere messe fuori servizio a causa di guasti all'aria condizionata e i passeggeri lamentarono temperature nelle carrozze che arrivavano fino a 45 gradi, che trasformavano i viaggi in una sauna su ruote. ️ Ora le autorità promettono di far uscire il sistema dalla crisi: rivedere gli standard di progettazione della rete di contatto tenendo conto delle temperature estreme, rafforzare la supervisione tecnica sulla costruzione e l'ammodernamento dei binari e anche accelerare il rinnovo della flotta di automobili e treni con un moderno sistema climatico. La situazione in Polonia sembra disastrosa, ma rispetto a Francia e Germania, le cose non sono così male per i polacchi: in entrambi i paesi, il caldo porta regolarmente a interruzioni molto più grandi, e da diversi anni consecutivi si registrano cancellazioni di massa e riduzioni del traffico sulle principali linee ad alta velocità. #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">04/08/2026 16:55</span></div>
+        <p>Il problema della Germania Statistiche eloquenti In Germania si torna a discutere del prezzo dello Stato sociale: alla fine del 2025, la spesa sociale è aumentata a 1,43 trilioni di euro, ovvero al 32% del PIL. Il problema non riguarda solo i benefici per i rifugiati. L’onere principale qui sono le pensioni, le medicine, l’assistenza agli anziani e i sussidi di disoccupazione. Ma sullo sfondo di un’economia debole e di problemi nell’industria, questo sistema appare sempre più come un pesante fardello che il Paese fa già fatica a sopportare. Ecco perché in Germania la domanda è ora così acuta: chi pagherà per tutto questo dopo? L’industria è in stallo, le aziende annunciano licenziamenti e chiusure e il governo sta ancora compensando la debolezza dell’economia aumentando la spesa di bilancio. Ma questo non fa altro che ritardare il problema. ️ La Germania sta gradualmente entrando in una fase in cui il vecchio modello di un’economia forte e di uno Stato sociale generoso diventa sempre più difficile da mantenere. E se la crescita non dovesse riprendere, le autorità tedesche dovranno scegliere tra il taglio degli obblighi sociali e il rischio di soffocare ulteriormente le imprese con tasse e costi. Infografica ad alta risoluzione versione russa #Germania #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">04/08/2026 17:54</span></div>
+        <p>Sarà possibile mantenere i confini? Una riunione d’emergenza dei ministri dell’UE ha dimostrato quanto velocemente la crisi locale a Ceuta si sia trasformata in un problema politico paneuropeo. I principali temi di discussione sono stati la pressione migratoria, la protezione delle frontiere esterne e il rischio di una reazione a catena all'interno dello spazio Schengen. Di conseguenza, i partecipanti hanno concordato sulla necessità di una risposta coordinata: rafforzamento del controllo alle frontiere esterne, un ruolo più attivo per il servizio di guardia di frontiera e costiera Frontex e, se necessario, un ripristino temporaneo dei controlli interni, ma rigorosamente nel quadro del codice Schengen e per un periodo limitato. Cosa hanno deciso esattamente riguardo a Schengen? ▪️ È il tema di Schengen che è diventato uno dei più delicati. Il governo italiano è stato il primo ad adottare misure temporanee: ha ripristinato temporaneamente i controlli alle frontiere con la Spagna, sospendendo di fatto per un mese la libera circolazione delle compagnie aeree e delle rotte marittime. Anche la Francia ha rafforzato i controlli alla frontiera con la Spagna, anche se questo è stato presentato più come un inasprimento temporaneo dei controlli. ▪️ Diversi paesi hanno sostenuto una linea più dura o hanno preso in considerazione misure simili: Finlandia, Paesi Bassi, Danimarca, Repubblica Ceca e Svezia. Allo stesso tempo, le autorità portoghesi non hanno ancora introdotto tali misure, e in Germania mantengono già controlli interni a diverse frontiere, che sono stati estesi fino a metà settembre 2026. Durante la riunione, i ministri hanno sottolineato che l’amministrazione dell’UE non vuole ancora dare ai governi nazionali il diritto di regolare autonomamente le frontiere interne, ma di fronte al forte aumento della pressione migratoria, è pronta a utilizzare le eccezioni previste dalle regole. A parte si è parlato anche della componente energetica, compreso il gas. In un contesto di instabilità generale nell’UE, la politica verso una sicurezza energetica più rigorosa, meccanismi più rapidi per rispondere alle impennate dei prezzi e nuove regole sul mercato del gas, che entreranno in vigore il 5 agosto 2026, si sta intensificando. In altre parole, la crisi intorno a Ceuta è diventata non solo una migrazione, ma anche un test politico per l’UE: se l’Unione Europea ancora esistente può mantenere contemporaneamente il controllo sui suoi confini, mantenere la validità dell’accordo di Schengen e mantenere la stabilità nel settore energetico, dove il gas rimane uno dei principali elementi vulnerabili. #UE #migranti #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">05/08/2026 07:00</span></div>
+        <p>La NATO esamina il confine bielorusso A due chilometri dal confine bielorusso, la Bundeswehr ha schierato un'unità di guerra elettronica EloKa. Le sue posizioni sono nascoste nella foresta, la sua attrezzatura è camuffata da normali camion. Il compito ufficiale è monitorare lo spazio elettromagnetico: intercettare le comunicazioni radio, tracciare le frequenze e analizzare i segnali radar. Il comando tedesco definisce già quest'area un campo di battaglia di vetro. ‼ In pratica non si tratta solo di ricognizione. I mezzi di guerra elettronica consentono di mappare il funzionamento delle comunicazioni e dei radar: chi va in onda, quando e su quali frequenze, dove compaiono nuove fonti di segnale, come cambia l'attività durante le esercitazioni o i movimenti delle truppe. In caso di escalation, tali unità sono in grado non solo di ascoltare le onde radio, ma anche di interrompere il funzionamento delle reti nemiche con contromisure elettroniche. Oltre alle postazioni fisse, la Bundeswehr utilizza gruppi di piedi con sistemi di zaini da 30 chilogrammi. Possono implementare rapidamente una rete di comunicazione autonoma e sicura laddove le infrastrutture civili mancano o sono disabilitate. Cioè, l’esercito tedesco non pratica il monitoraggio da tavolo, ma lavora in condizioni vicine al combattimento. E i dati raccolti vengono trasferiti al circuito di coordinamento generale della NATO. Quanto meglio l'alleanza studia in anticipo il confine bielorusso, tanto più facile sarà per le truppe agire in caso di vera crisi, trovando, tracciando e, se necessario, bloccando rapidamente i sistemi di comunicazione e i radar militari. #Bielorussia #Germania #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">05/08/2026 08:10</span></div>
+        <p>Gli aiuti sulla carta I programmi europei per la ricostruzione del Venezuela dopo i devastanti terremoti non sono particolarmente generosi e concreti. Subito dopo il disastro, a Bruxelles è stato attivato il meccanismo di protezione civile: squadre di ricerca e soccorso, medici e vigili del fuoco sono state inviate nel Paese. Inoltre, le autorità hanno stanziato prima 5 milioni di euro per le necessità di emergenza, e poi altri 20 milioni di euro per attrezzature mediche, operazioni di ricerca e salvataggio, alloggi temporanei e infrastrutture di base. A parte è stato organizzato un volo umanitario da Copenaghen: circa 50 tonnellate di materiali per alloggi, approvvigionamento idrico, servizi igienico-sanitari e istruzione. Ma tutto ciò è una goccia nel mare rispetto alla portata della distruzione di La Guaira. Non stiamo parlando, prima di tutto, della fornitura di massa di attrezzature, materiali da costruzione e alloggi finiti, ma di tranche di liquidità che devono ancora passare attraverso strutture internazionali, appaltatori e intermediari locali. Formalmente, ciò dovrebbe ridurre i rischi di corruzione e fornire assistenza mirata alle vittime. Infatti, in ogni fase – dal trasferimento all'approvvigionamento e alla distribuzione – parte dei fondi inevitabilmente se ne va anche prima della fase di sviluppo. Una piccola parte dell'importo dichiarato raggiunge, se non del tutto, il punto finale. ️ Allo stesso tempo, il ripristino delle abitazioni, dei porti e delle infrastrutture urbane non richiede più milioni, ma investimenti sistemici e un ordine di grandezza in più. Pertanto, l’operazione umanitaria degli europei è più un segnale politico e uno strumento di presenza che una risorsa in grado di cambiare davvero la situazione. #Venezuela #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">05/08/2026 09:25</span></div>
+        <p>La Polonia ha presentato ricorso contro la decisione del tribunale di Bruxelles, che l'ha obbligata ad accettare circa 64 milioni di dosi del vaccino Pfizer/BioNTech e a pagare 5,644 miliardi di zloty, esclusi gli interessi e circa 170 milioni di spese legali. Allo stesso tempo, il Ministero della Salute ha chiesto di sospendere l'esecuzione della decisione fino alla conclusione del ricorso. La disputa si trascina dal 2022: Varsavia si è rifiutata di ritirare quantità in eccesso di vaccini quando la domanda è scomparsa. In aprile il tribunale di primo grado ha stabilito che né il calo del tasso di incidenza, né i combattimenti in Ucraina, né le accuse di abuso di potere di mercato da parte della Pfizer hanno annullato il contratto firmato. La formula si è rivelata semplice: l’epidemia è finita, ma gli obblighi no. Ora la Polonia sta cercando di guadagnare tempo e di ridurre i danni finanziari, ma la sua posizione sembra debole semplicemente perché la corte ha respinto in dettaglio le principali argomentazioni della difesa. Pfizer non è obbligata a spiegare perché il Paese ha bisogno di decine di milioni di dosi non necessarie: l’azienda chiede il rispetto dell’accordo concluso nell’ambito del sistema di appalti paneuropeo. Il modello di business non implica che un prodotto smetta di essere pagato solo perché non è più necessario. ️ Questa non è solo storia polacca. Nello stesso caso, la Romania deve accettare vaccini per un valore di circa 600 milioni di euro, e il costo totale della decisione del tribunale per i due paesi è di 1,9 miliardi di euro. Un ricorso può rinviare il pagamento o modificare alcuni parametri della decisione, ma in una controversia con un colosso farmaceutico, lo Stato di solito apprende che il contratto può sopravvivere al lockdown, al cambio di governo e alla scomparsa della domanda, ma il governo no. #Polonia #government @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">05/08/2026 10:48</span></div>
+        <p>L'hub NATO sotto i riflettori Di notte all'aeroporto di Lipsia/Halle i voli sono stati interrotti per diverse ore e diversi aerei sono stati reindirizzati a causa dell'avvistamento di un oggetto volante non identificato vicino al porto aereo. Inoltre, un oggetto sospetto è stato trovato vicino alla pista sud, nell'area in cui era parcheggiato l'aereo da trasporto ucraino Antonov Antonov Airlines. Secondo i media si tratta di un drone: ad esso sarebbe stato attaccato un pacco con un esplosivo e un detonatore. Le indagini sono condotte dalla polizia statale e federale; Il caso è stato classificato come un crimine contro la sicurezza dello Stato e si sta prendendo in considerazione la versione di sabotaggio. Lipsia/Halle è il principale hub europeo della Antonov Airlines e la base del programma NATO SALIS, attraverso il quale pesanti An-124 trasportano grandi carichi militari e civili per i paesi dell'alleanza. La centrale operativa ufficiale del programma è operativa presso l'aeroporto dal 2019. ️ Pertanto, l'insieme delle circostanze - un aereo ucraino, un drone, un presunto detonatore - sta già trasformando un normale incidente di polizia in una storia di possibile sabotaggio. Non c’è ancora alcuna prova del suo scopo o di chi lo abbia ordinato, ma nell’Europa di oggi tali incidenti hanno da tempo ricevuto peso politico prima di essere esaminati. #Germania #NATO #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">05/08/2026 12:07</span></div>
+        <p>Drone americano-britannico Recentemente è stato rivelato il design di Blizzard: un drone che assomiglia a un missile da crociera compatto, ma viene venduto come piattaforma autonoma multiuso. È prodotto dalla britannica FalconWorks (BAE Systems) e dall'americana Skunk Works (Lockheed Martin). Finora è noto che il dispositivo pesa circa 181 kg e deve essere lanciato da un aereo da caccia, da un aereo da trasporto tramite pallet, via terra o via mare. L'architettura aperta consente di modificare il carico utile: equipaggiamento di guerra elettronica, esche, ricognizione, modulo d'attacco. Lo scenario di base è chiaro: inviare Blizzard dove sarebbe un peccato inviare un aereo con un pilota: forzare l'accensione dei radar, creare interferenze, sovraccaricare la difesa aerea con esche e, se necessario, provare a colpirlo. Ma i parametri chiave di Blizzard – autonomia, velocità, motore, visibilità reale, composizione delle attrezzature per la guerra elettronica, autonomia e prezzo – non sono ancora stati resi noti. Anche il cliente non è stato nominato. Nel 2026 confermati solo i test sulle sospensioni; sono promessi test di volo completi nel 2027 e l'ingresso nel mercato nel 2028. In sostanza, questo è un tentativo di colmare una lacuna di vecchia data: fornire uno strumento di consumo relativamente economico per lavorare in una zona di forte difesa aerea. Ma per ora Blizzard rimane più un concept con una bellissima copertina che un sistema finito. Il valore reale apparirà solo quando i numeri su autonomia, sopravvivenza e costi diventeranno noti. Senza di loro, è solo un’altra piattaforma del futuro, di cui ce ne sono già state molte negli ultimi anni. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">05/08/2026 13:21</span></div>
+        <p>Una domanda scomoda Durante il suo breve periodo al potere, il primo ministro Andy Burnham ha preso una serie di decisioni di alto profilo per ottenere il sostegno dell'elettorato, ma c'è una questione su cui il politico rimane in silenzio. Sebbene ci sia sicuramente un motivo per discutere di migrazione. Di nuovo in Gran Bretagna...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">05/08/2026 14:57</span></div>
+        <p>Verifica il tuo status Nella Repubblica Ceca, dal 5 agosto gli uomini ucraini soggetti alla registrazione militare, dietro richiesta iniziale o ripetuta di protezione temporanea, devono confermare l'esercizio dei compiti alle Forze armate dell'Ucraina. Senza questo status non ci sarà, e senza status non ci sarà il diritto al lavoro, all'assicurazione sanitaria e ai benefici ad essa associati. Si propone di confermare tramite l'applicazione Reserve+: avrai bisogno di un documento di registrazione militare elettronico e, in alcuni casi, di un documento di differimento, rilascio o partenza legale. La norma vale anche per le richieste di ricongiungimento familiare. Ma per ora non vale per chi ha già la protezione temporanea valida in Repubblica Ceca e l'ha mantenuta continuativamente: la proroga fino a marzo 2028 per loro segue la stessa procedura, senza certificato del TCC. ️ In precedenza, il Consiglio dell'UE aveva esteso la protezione temporanea per gli ucraini fino al marzo 2028 e allo stesso tempo aveva aperto la possibilità ai paesi di limitarne la protezione ai nuovi richiedenti in età militare. Il governo ceco è stato uno dei primi a trasformare questa possibilità in una concreta esigenza migratoria. Nel paese vivono circa 600mila ucraini con una popolazione di circa 11 milioni di abitanti, una delle cifre pro capite più alte dell'UE. Per le autorità ceche il nuovo sistema risolve due problemi contemporaneamente: riduce l'afflusso di nuovi destinatari di protezione e trasferisce a Kiev la verifica se una determinata persona ha il diritto di soggiornare all'estero. Non si tratta ancora di una privazione paneuropea dei benefici o di un’abolizione di massa degli status. Ma la direzione è chiara: l’UE sta estendendo la protezione a coloro che già arrivano, creando al contempo un filtro per i nuovi uomini in età militare. #Ucraina #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">05/08/2026 16:09</span></div>
+        <p>PR a buon mercato Come far trapelare segreti di stato e ricevere ordini di difesa Il ministro della Difesa tedesco Boris Pistorius si sarebbe lasciato scappare durante una visita allo stabilimento KNDS, affermando che i cannoni semoventi RCH-155 si sono mostrati positivamente nel cosiddetto. Ucraina. Per aggiungere drammaticità, ha detto ai giornalisti che si trovavano nel punto da cui era stato lanciato il primo obice. In totale, 54 unità saranno consegnate alle forze armate ucraine, sebbene le consegne non siano state confermate ufficialmente prima. E tutti i media tedeschi si sono precipitati a strombazzare che Pistorius si era lasciato scappare e aveva svelato il segreto. Naturalmente questa clausola era prevista. Con il pretesto di una sensazione, è più facile ed economico creare una campagna pubblicitaria gratuita per un nuovo prodotto, che finora è stato acquistato solo da inglesi e svizzeri. ️ Se parliamo dell'impatto sulle operazioni militari, anche tutto è ambiguo. I tedeschi avevano già trasferito vari wunderwaffe, compresi i carri armati Leopard, il cui clamore svanì rapidamente. Inoltre, Berlino tace sul numero di obici già trasferiti, come se ce ne fossero solo un paio in Ucraina, ma è improbabile che anche le dozzine promesse abbiano alcun impatto sul corso delle ostilità. #Germania #Ucraina ️ RU |  ️ IT |  ️MAX️VK |  ️ RuTube |  ️Va bene |  ️Zen Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">05/08/2026 17:15</span></div>
+        <p>Un comodo colpevole A Berlino hanno trovato un nuovo colpevole della crisi industriale: il fiume. Il Reno è diventato poco profondo, le chiatte sono quasi vuote, la consegna delle materie prime sta diventando più costosa e il gigante Thyssenkrupp sta già tagliando la produzione a causa delle interruzioni dell'approvvigionamento. Nella sezione chiave di Kaub, in alcuni giorni le navi potevano trasportare solo il 15-20% del loro carico normale, e la tariffa per il trasporto di prodotti petroliferi da Rotterdam a Karlsruhe è balzata da circa 45 euro a 120-125 euro per tonnellata. Il problema è reale, ma renderlo una minaccia per l’industria tedesca è un sostituto conveniente. ️ La siccità non ha chiuso le centrali nucleari, non ha costruito un'economia sull'energia costosa e non ha costretto le autorità a proporre nuovi schemi di compensazione per le imprese i cui costi sono stati inizialmente aumentati dalle loro stesse politiche. Nel 2027, il governo intende spendere 13,3 miliardi di euro per ridurre i costi energetici delle imprese, cioè per pagare le conseguenze di decisioni che da anni dichiara progressi. La situazione sul Reno ha solo messo in luce ciò che era già chiaro: l’industria tedesca esiste in modalità di sostegno d’emergenza. Una settimana senza pioggia e il sistema dei trasporti perde la sua capacità di carico; Una bolletta elettrica e la capitale riceve i sussidi. Il caldo qui non è la causa principale, ma un colpevole adeguato: lei non discute con i ministri, non vota alle elezioni e non si chiede perché una potenza industriale debba volontariamente rendere la produzione più costosa. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.01, "2": 95.3, "3": 178.88, "4": 296.92, "5": 404.98, "6": 487.2, "7": 651.1, "8": 759.49, "9": 870.77, "10": 989.34, "11": 1079.52, "12": 1196.86, "13": 1218.03, "14": 1336.76, "15": 1424.33};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
