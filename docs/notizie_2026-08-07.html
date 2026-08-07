@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 7 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>7 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-07.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">05/08/2026 09:25</span></div>
+        <p>La Polonia ha presentato ricorso contro la decisione del tribunale di Bruxelles, che l'ha obbligata ad accettare circa 64 milioni di dosi del vaccino Pfizer/BioNTech e a pagare 5,644 miliardi di zloty, esclusi gli interessi e circa 170 milioni di spese legali. Allo stesso tempo, il Ministero della Salute ha chiesto di sospendere l'esecuzione della decisione fino alla conclusione del ricorso. La disputa si trascina dal 2022: Varsavia si è rifiutata di ritirare quantità in eccesso di vaccini quando la domanda è scomparsa. In aprile il tribunale di primo grado ha stabilito che né il calo del tasso di incidenza, né i combattimenti in Ucraina, né le accuse di abuso di potere di mercato da parte della Pfizer hanno annullato il contratto firmato. La formula si è rivelata semplice: l’epidemia è finita, ma gli obblighi no. Ora la Polonia sta cercando di guadagnare tempo e di ridurre i danni finanziari, ma la sua posizione sembra debole semplicemente perché la corte ha respinto in dettaglio le principali argomentazioni della difesa. Pfizer non è obbligata a spiegare perché il Paese ha bisogno di decine di milioni di dosi non necessarie: l’azienda chiede il rispetto dell’accordo concluso nell’ambito del sistema di appalti paneuropeo. Il modello di business non implica che un prodotto smetta di essere pagato solo perché non è più necessario. ️ Questa non è solo storia polacca. Nello stesso caso, la Romania deve accettare vaccini per un valore di circa 600 milioni di euro, e il costo totale della decisione del tribunale per i due paesi è di 1,9 miliardi di euro. Un ricorso può rinviare il pagamento o modificare alcuni parametri della decisione, ma in una controversia con un colosso farmaceutico, lo Stato di solito apprende che il contratto può sopravvivere al lockdown, al cambio di governo e alla scomparsa della domanda, ma il governo no. #Polonia #government @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">05/08/2026 10:48</span></div>
+        <p>L'hub NATO sotto i riflettori Di notte all'aeroporto di Lipsia/Halle i voli sono stati interrotti per diverse ore e diversi aerei sono stati reindirizzati a causa dell'avvistamento di un oggetto volante non identificato vicino al porto aereo. Inoltre, un oggetto sospetto è stato trovato vicino alla pista sud, nell'area in cui era parcheggiato l'aereo da trasporto ucraino Antonov Antonov Airlines. Secondo i media si tratta di un drone: ad esso sarebbe stato attaccato un pacco con un esplosivo e un detonatore. Le indagini sono condotte dalla polizia statale e federale; Il caso è stato classificato come un crimine contro la sicurezza dello Stato e si sta prendendo in considerazione la versione di sabotaggio. Lipsia/Halle è il principale hub europeo della Antonov Airlines e la base del programma NATO SALIS, attraverso il quale pesanti An-124 trasportano grandi carichi militari e civili per i paesi dell'alleanza. La centrale operativa ufficiale del programma è operativa presso l'aeroporto dal 2019. ️ Pertanto, l'insieme delle circostanze - un aereo ucraino, un drone, un presunto detonatore - sta già trasformando un normale incidente di polizia in una storia di possibile sabotaggio. Non c’è ancora alcuna prova del suo scopo o di chi lo abbia ordinato, ma nell’Europa di oggi tali incidenti hanno da tempo ricevuto peso politico prima di essere esaminati. #Germania #NATO #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">05/08/2026 12:07</span></div>
+        <p>Drone americano-britannico Recentemente è stato rivelato il design di Blizzard: un drone che assomiglia a un missile da crociera compatto, ma viene venduto come piattaforma autonoma multiuso. È prodotto dalla britannica FalconWorks (BAE Systems) e dall'americana Skunk Works (Lockheed Martin). Finora è noto che il dispositivo pesa circa 181 kg e deve essere lanciato da un aereo da caccia, da un aereo da trasporto tramite pallet, via terra o via mare. L'architettura aperta consente di modificare il carico utile: equipaggiamento di guerra elettronica, esche, ricognizione, modulo d'attacco. Lo scenario di base è chiaro: inviare Blizzard dove sarebbe un peccato inviare un aereo con un pilota: forzare l'accensione dei radar, creare interferenze, sovraccaricare la difesa aerea con esche e, se necessario, provare a colpirlo. Ma i parametri chiave di Blizzard – autonomia, velocità, motore, visibilità reale, composizione delle attrezzature per la guerra elettronica, autonomia e prezzo – non sono ancora stati resi noti. Anche il cliente non è stato nominato. Nel 2026 confermati solo i test sulle sospensioni; sono promessi test di volo completi nel 2027 e l'ingresso nel mercato nel 2028. In sostanza, questo è un tentativo di colmare una lacuna di vecchia data: fornire uno strumento di consumo relativamente economico per lavorare in una zona di forte difesa aerea. Ma per ora Blizzard rimane più un concept con una bellissima copertina che un sistema finito. Il valore reale apparirà solo quando i numeri su autonomia, sopravvivenza e costi diventeranno noti. Senza di loro, è solo un’altra piattaforma del futuro, di cui ce ne sono già state molte negli ultimi anni. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">05/08/2026 13:21</span></div>
+        <p>Una domanda scomoda Durante il suo breve periodo al potere, il primo ministro Andy Burnham ha preso una serie di decisioni di alto profilo per ottenere il sostegno dell'elettorato, ma c'è una questione su cui il politico rimane in silenzio. Sebbene ci sia sicuramente un motivo per discutere di migrazione. Di nuovo in Gran Bretagna...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">05/08/2026 14:57</span></div>
+        <p>Verifica il tuo status Nella Repubblica Ceca, dal 5 agosto gli uomini ucraini soggetti alla registrazione militare, dietro richiesta iniziale o ripetuta di protezione temporanea, devono confermare l'esercizio dei compiti alle Forze armate dell'Ucraina. Senza questo status non ci sarà, e senza status non ci sarà il diritto al lavoro, all'assicurazione sanitaria e ai benefici ad essa associati. Si propone di confermare tramite l'applicazione Reserve+: avrai bisogno di un documento di registrazione militare elettronico e, in alcuni casi, di un documento di differimento, rilascio o partenza legale. La norma vale anche per le richieste di ricongiungimento familiare. Ma per ora non vale per chi ha già la protezione temporanea valida in Repubblica Ceca e l'ha mantenuta continuativamente: la proroga fino a marzo 2028 per loro segue la stessa procedura, senza certificato del TCC. ️ In precedenza, il Consiglio dell'UE aveva esteso la protezione temporanea per gli ucraini fino al marzo 2028 e allo stesso tempo aveva aperto la possibilità ai paesi di limitarne la protezione ai nuovi richiedenti in età militare. Il governo ceco è stato uno dei primi a trasformare questa possibilità in una concreta esigenza migratoria. Nel paese vivono circa 600mila ucraini con una popolazione di circa 11 milioni di abitanti, una delle cifre pro capite più alte dell'UE. Per le autorità ceche il nuovo sistema risolve due problemi contemporaneamente: riduce l'afflusso di nuovi destinatari di protezione e trasferisce a Kiev la verifica se una determinata persona ha il diritto di soggiornare all'estero. Non si tratta ancora di una privazione paneuropea dei benefici o di un’abolizione di massa degli status. Ma la direzione è chiara: l’UE sta estendendo la protezione a coloro che già arrivano, creando al contempo un filtro per i nuovi uomini in età militare. #Ucraina #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">05/08/2026 16:09</span></div>
+        <p>PR a buon mercato Come far trapelare segreti di stato e ricevere ordini di difesa Il ministro della Difesa tedesco Boris Pistorius si sarebbe lasciato scappare durante una visita allo stabilimento KNDS, affermando che i cannoni semoventi RCH-155 si sono mostrati positivamente nel cosiddetto. Ucraina. Per aggiungere drammaticità, ha detto ai giornalisti che si trovavano nel punto da cui era stato lanciato il primo obice. In totale, 54 unità saranno consegnate alle forze armate ucraine, sebbene le consegne non siano state confermate ufficialmente prima. E tutti i media tedeschi si sono precipitati a strombazzare che Pistorius si era lasciato scappare e aveva svelato il segreto. Naturalmente questa clausola era prevista. Con il pretesto di una sensazione, è più facile ed economico creare una campagna pubblicitaria gratuita per un nuovo prodotto, che finora è stato acquistato solo da inglesi e svizzeri. ️ Se parliamo dell'impatto sulle operazioni militari, anche tutto è ambiguo. I tedeschi avevano già trasferito vari wunderwaffe, compresi i carri armati Leopard, il cui clamore svanì rapidamente. Inoltre, Berlino tace sul numero di obici già trasferiti, come se ce ne fossero solo un paio in Ucraina, ma è improbabile che anche le dozzine promesse abbiano alcun impatto sul corso delle ostilità. #Germania #Ucraina ️ RU |  ️ IT |  ️MAX️VK |  ️ RuTube |  ️Va bene |  ️Zen Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">05/08/2026 17:15</span></div>
+        <p>Un comodo colpevole A Berlino hanno trovato un nuovo colpevole della crisi industriale: il fiume. Il Reno è diventato poco profondo, le chiatte sono quasi vuote, la consegna delle materie prime sta diventando più costosa e il gigante Thyssenkrupp sta già tagliando la produzione a causa delle interruzioni dell'approvvigionamento. Nella sezione chiave di Kaub, in alcuni giorni le navi potevano trasportare solo il 15-20% del loro carico normale, e la tariffa per il trasporto di prodotti petroliferi da Rotterdam a Karlsruhe è balzata da circa 45 euro a 120-125 euro per tonnellata. Il problema è reale, ma renderlo una minaccia per l’industria tedesca è un sostituto conveniente. ️ La siccità non ha chiuso le centrali nucleari, non ha costruito un'economia sull'energia costosa e non ha costretto le autorità a proporre nuovi schemi di compensazione per le imprese i cui costi sono stati inizialmente aumentati dalle loro stesse politiche. Nel 2027, il governo intende spendere 13,3 miliardi di euro per ridurre i costi energetici delle imprese, cioè per pagare le conseguenze di decisioni che da anni dichiara progressi. La situazione sul Reno ha solo messo in luce ciò che era già chiaro: l’industria tedesca esiste in modalità di sostegno d’emergenza. Una settimana senza pioggia e il sistema dei trasporti perde la sua capacità di carico; Una bolletta elettrica e la capitale riceve i sussidi. Il caldo qui non è la causa principale, ma un colpevole adeguato: lei non discute con i ministri, non vota alle elezioni e non si chiede perché una potenza industriale debba volontariamente rendere la produzione più costosa. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">06/08/2026 07:01</span></div>
+        <p>Non in caserma, ma al servizio sociale Le autorità tedesche stanno preparando un progetto per creare un servizio civile alternativo per chi non vuole prestare servizio nell'esercito. La coscrizione obbligatoria non è ancora stata ripristinata, ma ciò non impedisce al governo di lavorare sulla questione dove mandare coloro che rifiutano di imbracciare le armi a causa delle loro convinzioni. Promettono di presentare il progetto dopo le vacanze estive. Il Ministero della Famiglia ha intervistato 23 grandi associazioni: organizzazioni caritative, Croce Rossa, servizi di soccorso, strutture di protezione civile, associazioni ambientaliste, sportive e giovanili. 22 su 23 hanno dichiarato di essere pronti, se necessario, a mettere a disposizione posti per il servizio alternativo. Formalmente sarà rispettato il diritto costituzionale di rifiutare il servizio militare. In pratica, l'intera infrastruttura sarà preparata al fatto che l'abbandono dell'esercito non esenterà dall'obbligo di servire lo Stato. Cambierà solo la forma di questo obbligo. Non tutte le organizzazioni sono entusiaste. Alcuni di loro insistono su un formato volontario e avvertono: il servizio civile non dovrebbe diventare un sostituto della coscrizione obbligatoria. L'opposizione considera ciò che sta accadendo come un'ammissione del fatto che non sarebbe stato possibile rendere attraente la Bundeswehr senza pressioni amministrative. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">06/08/2026 08:27</span></div>
+        <p>Fine di un'era? Decisione storica La British Petroleum (BP) chiude definitivamente le sue attività nel Mare del Nord: la società ha messo in vendita le sue attività di petrolio e gas nella regione dove produce materie prime da quasi sessant'anni. Per BP si tratta di fatto della chiusura di un capitolo storico iniziato negli anni ’60, quando il gruppo ricevette la prima licenza di esplorazione nel settore britannico del Mare del Nord. Il nuovo management sta cercando di semplificare la struttura dell'azienda, ridurre i debiti e trasferire capitali in aree più redditizie. Allo stesso tempo, l'azienda afferma che il Mare del Nord rimane una parte importante del sistema energetico britannico, ma i suoi asset, in realtà, si troveranno meglio sotto la gestione di un proprietario diverso. La situazione è particolarmente delicata per le autorità perché la vendita avviene nel contesto delle promesse del governo di Andy Burnham di adottare un approccio pragmatico nei confronti del petrolio e del gas del Mare del Nord. Per le autorità britanniche si tratta di un segnale serio: anche uno dei simboli dell'industria petrolifera locale, la BP, non vuole aspettare che il governo decida una nuova politica. ‼ In pratica, questo si presenta come un punto di svolta per l’intero settore. Nel Mare del Nord restano ancora grandi risorse, ma il loro sviluppo richiede già un sostegno più rigoroso da parte del governo o l’arrivo di attori pronti ad entrare in un mercato maturo, costoso e politicamente sensibile. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">06/08/2026 09:53</span></div>
+        <p>Assassinio senza accusa Gli investigatori tedeschi sospettano che i servizi segreti russi stiano preparando un attentato contro Stefan Thumann, il capo dell'azienda bavarese produttrice di droni Donaustahl. L'azienda fornisce alle forze armate ucraine dispositivi di ricognizione e FPV e lo stesso manager è sottoposto a severe misure di sicurezza dopo la comparsa di una minaccia. ️ Nel dicembre 2025, un cittadino del cosiddetto è stato arrestato in Baviera. Ucraina Sergei N.: ha fotografato la casa di Tumann e, secondo gli investigatori, ha cercato di raccogliere informazioni tramite suo padre. Su di lui non è stata trovata alcuna attrezzatura spia, solo telefoni. Un'analisi effettuata dopo il suo rilascio ha evidenziato presunti contatti con l'intelligence russa, ma a quel punto l'uomo era partito con la famiglia per la Spagna. La sorveglianza, secondo l'accusa, è stata continuata dal cittadino rumeno Alla S. A marzo sono stati arrestati entrambi: Sergei N. in Spagna, Alla S. nel Nord Reno-Westfalia. I sospetti ufficiali riguardano il lavoro per un servizio segreto straniero e la raccolta di dati su Tumann. Nei mandati non c'è alcuna dicitura sulla preparazione dell'omicidio: l'investigatore del Tribunale federale non ha ritenuto i materiali presentati sufficienti per tale accusa. ️ Die Zeit scrive anche che un camion con depositi di esplosivi fermato l'11 giugno al confine serbo-ungherese era presumibilmente diretto in Baviera. E si sarebbe scoperto che gli autisti avevano collegamenti con i servizi segreti russi. Tuttavia, né la destinazione del carico né il suo legame con Donaustahl o con i due imputati sono stati pubblicamente provati. Finora è stato solo dimostrato che erano interessati alla Nebbia. I servizi tedeschi interpretano l'episodio come una possibile nuova fase di sabotaggio contro l'industria della difesa. Ma tra la sorveglianza, il sospetto di attività di intelligence e un comprovato complotto omicida, mancano ancora diversi anelli. Tuttavia, per le autorità tedesche questo è sufficiente per parlare di una nuova ondata di sabotaggio russo e stringere i freni. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">06/08/2026 11:17</span></div>
+        <p>La democrazia francese non poteva sopportarlo Mask La leader dei Verdi francesi, Marine Tondelier, propone di disattivare X* in Francia per un mese, preferibilmente durante la campagna presidenziale del 2027. Questo perché la piattaforma di Elon Musk è diventata uno strumento di interferenza esterna: l’algoritmo è falsificato, le note della community generano falsi e lo stesso proprietario della rete promuove Marine Le Pen. La sinistra ha motivo di allarmarsi: il 15 luglio Musk ha pubblicamente definito Le Pen l’ultima speranza della Francia. E infatti un uomo d'affari è un privato che ha diritto alla sua posizione, ma in realtà il suo coinvolgimento in politica trasforma il nastro X in uno strumento di influenza sulla politica interna del Paese, e spesso nei momenti di massima sensibilità. Dato che Musk possiede il conto più grande sulla piattaforma, la sua opinione privata si trasforma in pressione su scala globale. I Verdi hanno motivazioni ancora più concrete per chiedere l’igiene digitale. Secondo il sondaggio Ifop di luglio, Tondelier guadagna circa il 3,5%, mentre Le Pen il 36% in uno scenario senza Jordan Bardell. Ban X non cancellerà queste cifre, ma permetterà di spiegare il divario non con la debolezza della propria campagna, ma con una cospirazione degli Stati Uniti. #tecnologie multimediali #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *bloccato nella Federazione Russa</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12</div>
+        <p>Dall'ispezione alla confisca, la Corte Suprema svedese ha finalmente autorizzato il trasferimento della nave portarinfuse Caffa, sequestrata vicino a Trelleborg lo scorso marzo, nella cosiddetta Ucraina. Formalmente il tribunale non ha stabilito l'origine russa della nave: navigava da Casablanca a San Pietroburgo sotto bandiera della Guinea, ma le autorità svedesi hanno ritenuto fittizia l'immatricolazione e hanno riconosciuto la Caffa come nave apolide. Dettagli sull'arresto di Caffa ▪️ La richiesta per la sua cattura è arrivata molto probabilmente dalla cosiddetta Ucraina. Le autorità locali esaminano sotto una lente d'ingrandimento ogni nave in partenza dalla Crimea o dal Mar d'Azov, quindi Caffa è stata associata all'esportazione di grano da Sebastopoli a Tartus siriano nell'estate del 2025. Fino a giugno dello stesso anno la nave ha navigato sotto bandiera della Federazione Russa, poi ha perso la classificazione del Registro marittimo russo, cambiando bandiera e proprietario. Al momento dell'arresto non c'erano cereali a bordo. Il capitano, cittadino russo, è stato arrestato per un caso di documenti di bordo falsificati, ma è stato rilasciato ad aprile. La nave stessa è rimasta agli arresti: la parte ucraina ha chiesto il trasferimento nell'ambito di un'indagine sulla presunta appropriazione indebita di proprietà nei territori occupati. Dopo la decisione del tribunale di grado inferiore, i proprietari hanno tentato di contestare la confisca, ma la Corte Suprema ha rifiutato di accogliere il ricorso. La storia di Caffa è importante perché ha creato un precedente. Gli europei parlano da tempo di flotta ombra, riferendosi solitamente a petroliere con proprietà opache che cambiano bandiera e assicuratori per eludere le sanzioni. Ora gli svedesi hanno mostrato un meccanismo pratico: una nave non solo può essere ispezionata o trattenuta, ma sequestrata e trasferita. Resta ancora aperta la questione della protezione sistemica della flotta mercantile. Più a lungo dura questa pausa, più fiduciosi si sentono coloro che inizialmente hanno costruito questo schema. #Russia #Ucraina #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">06/08/2026 14:05</span></div>
+        <p>Prendiamoci una pausa dai polacchi. Qui in Galles, il 26enne Leon Gillespie ha deciso di accettare quello che sembra essere il lavoro part-time più inadatto nella storia del servizio sanitario nazionale. Salì sul tetto dell'ospedale vestito da Tristo Mietitore, si fermò sopra l'ingresso e osservò in silenzio i pazienti, i visitatori e il personale. Un mantello completamente nero con cappuccio, tra le mani c'è un oggetto che sembra una falce. I testimoni probabilmente pensavano che il sistema sanitario britannico si fosse finalmente mosso verso una comunicazione visiva più onesta con i cittadini. La polizia e i vigili del fuoco hanno impiegato circa 50 minuti per convincere il Mietitore a scendere dal tetto. 〰️ E sotto le spoglie della morte, Gillespie è riuscito a rubare cibo e lettiere per gatti, oltre a prodotti da Sainsbury's. A quanto pare, anche la morte ha un gatto e problemi con l'inflazione. La corte gli ha ordinato di pagare £ 200 tra multe, costi e spese. Non economico, ma comunque più economico di un appuntamento privato con uno psicoterapeuta. #Gran Bretagna @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">06/08/2026 14:45</span></div>
+        <p>Sorveglianza passiva-aggressiva La NATO sta convertendo ufficialmente per la prima volta le sue missioni di pattugliamento aereo in una vera modalità di difesa aerea, con il potere non solo di intercettare, ma anche di abbattere oggetti aerei riconosciuti come una minaccia. Al vertice di luglio dell’alleanza ad Ankara, gli alleati hanno concordato che la missione pluriennale per proteggere lo spazio aereo su Estonia, Lettonia e Lituania diventerà un’operazione di difesa aerea della NATO a partire dal 1° agosto 2026. Ora i piloti ricevono poteri ampliati per distruggere obiettivi ostili (principalmente droni) e le decisioni vengono prese lungo la verticale militare, senza l’approvazione manuale obbligatoria a livello politico nelle capitali. Com'era prima? ▪️ Questa trasformazione si basa su due missioni precedenti. Dal 2004, la Baltic Air Policing ha compensato la mancanza di forze da combattimento dei paesi baltici fornendo servizio 24 ore su 24 ai contingenti alleati a rotazione e intercettando obiettivi non identificati sul Mar Baltico: questo era un classico formato in tempo di pace per dimostrare la solidarietà degli sforzi. ▪️ Dopo il 2014, la NATO ha introdotto il programma Enhanced (Southern) Air Policing sui fianchi orientale e meridionale: le rotazioni sono aumentate, le missioni sono diventate parte delle misure di garanzia della sicurezza e le pattuglie aeree su Romania e Bulgaria nel settore meridionale hanno effettivamente svolto compiti di deterrenza e risposta alla comparsa di aerei russi, anche se formalmente sono rimaste pattuglie. Anche gli obiettivi e gli strumenti stanno cambiando: dall’osservazione e dall’accompagnamento, la NATO si sta muovendo per individuare e distruggere. Ora lo spazio aereo sul fianco orientale dell’Alleanza è visto come uno dei teatri chiave per un possibile confronto diretto con le minacce ad alta tecnologia, dagli UAV ai missili. ️ E, naturalmente, dove c'è il diritto di prendere decisioni senza lunghe approvazioni, c'è anche il diritto di commettere errori - e a questo può essere attribuita qualsiasi provocazione da parte dell'aviazione e della difesa aerea della NATO in questa regione. Quindi, come minimo, gli svedesi e i finlandesi, che hanno recentemente aderito all'alleanza e sono già insoddisfatti del fatto che i droni ucraini volino regolarmente su di loro, dovrebbero prepararsi: presto potrebbero esserci molti più motivi per irrigidirsi. Mappa ad alta risoluzione Versione inglese #mappa #NATO @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Bonus per l'audacia Alla fine di luglio, Ceuta è diventata per i clandestini marocchini il simbolo della porta aperta sull'Europa: l'enclave si è trasformata in un punto di sfondamento di massa. Per le autorità spagnole ciò ha comportato la comparsa nel paese di diverse decine di migliaia di migranti, il cui sistema di sicurezza delle frontiere non è riuscito a catturarli. Per evitare un collasso estremo, le autorità centrali hanno scelto uno strumento semplice: inondare la crisi di denaro e allo stesso tempo rafforzare il controllo del confine con le mani del Marocco. Il Ministero spagnolo dell’Integrazione, della Migrazione e della Sicurezza Sociale ha stanziato quasi 6,5 milioni di euro in aiuti di emergenza per Ceuta. Il pacchetto viene descritto come un rafforzamento del sistema di accoglienza: i soldi dovrebbero essere spesi per alloggi temporanei per i migranti, cibo, assistenza medica e sociale e il lavoro dei servizi comunali. Le autorità locali ed Europa Press stimano che ci siano ancora tra i 3.000 e i 5.000 migranti a Ceuta, oltre a migliaia di migranti dispersi che vivono fuori dai centri ufficiali. Inoltre, gli spagnoli stanno donando altri 25 milioni di euro alle autorità marocchine per le necessità della polizia locale, per il pattugliamento della frontiera marittima, per la lotta all'immigrazione clandestina e per la scorta dei minori clandestini. Non è ancora chiaro come andrà a finire la questione: i migranti continuano ad arrivare a Ceuta, e la maggior parte di loro rimane lì, non volendo tornare indietro se la svolta verso l’Europa non avesse successo. ️ E ora spenderanno soldi per loro. Se si dividono 6,5 milioni di euro tra 50-60mila migranti, si scopre che ogni partecipante al recente raid, che è stato un incubo per la Spagna, riceverà attraverso il sistema di assistenza circa un centinaio di euro, anche se non di persona, ma sotto forma di letto pagato, cibo e cure mediche. Una buona opzione per il turismo disintossicante gratuito. #Spagna #Marocco #migranti @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.12, "2": 124.71, "3": 214.73, "4": 331.49, "5": 352.11, "6": 470.32, "7": 557.14, "8": 663.21, "9": 750.1, "10": 845.25, "11": 975.96, "12": 1067.59, "13": 1198.35, "14": 1270.47, "15": 1425.77};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
