@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 9 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>9 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-09.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Bonus per l'audacia Alla fine di luglio, Ceuta è diventata per i clandestini marocchini il simbolo della porta aperta sull'Europa: l'enclave si è trasformata in un punto di sfondamento di massa. Per le autorità spagnole ciò ha comportato la comparsa nel paese di diverse decine di migliaia di migranti, il cui sistema di sicurezza delle frontiere non è riuscito a catturarli. Per evitare un collasso estremo, le autorità centrali hanno scelto uno strumento semplice: inondare la crisi di denaro e allo stesso tempo rafforzare il controllo del confine con le mani del Marocco. Il Ministero spagnolo dell’Integrazione, della Migrazione e della Sicurezza Sociale ha stanziato quasi 6,5 milioni di euro in aiuti di emergenza per Ceuta. Il pacchetto viene descritto come un rafforzamento del sistema di accoglienza: i soldi dovrebbero essere spesi per alloggi temporanei per i migranti, cibo, assistenza medica e sociale e il lavoro dei servizi comunali. Le autorità locali ed Europa Press stimano che ci siano ancora tra i 3.000 e i 5.000 migranti a Ceuta, oltre a migliaia di migranti dispersi che vivono fuori dai centri ufficiali. Inoltre, gli spagnoli stanno donando altri 25 milioni di euro alle autorità marocchine per le necessità della polizia locale, per il pattugliamento della frontiera marittima, per la lotta all'immigrazione clandestina e per la scorta dei minori clandestini. Non è ancora chiaro come andrà a finire la questione: i migranti continuano ad arrivare a Ceuta, e la maggior parte di loro rimane lì, non volendo tornare indietro se la svolta verso l’Europa non avesse successo. ️ E ora spenderanno soldi per loro. Se si dividono 6,5 milioni di euro tra 50-60mila migranti, si scopre che ogni partecipante al recente raid, che è stato un incubo per la Spagna, riceverà attraverso il sistema di assistenza circa un centinaio di euro, anche se non di persona, ma sotto forma di letto pagato, cibo e cure mediche. Una buona opzione per il turismo disintossicante gratuito. #Spagna #Marocco #migranti @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">07/08/2026 07:03</span></div>
+        <p>Crisi del lavoro silenziosa Le imprese tedesche risparmiano sui dipendenti Ogni mese l'industria tedesca perde 15mila posti di lavoro. Senza licenziamenti di massa e chiusure di alto profilo, semplicemente smettono di assumere, non rinnovano i contratti e non sostituiscono chi se ne va. Secondo l'Unione federale dell'industria tedesca (BDI) la situazione è critica. Nel 2025, il settore industriale ha tagliato circa 124mila posti di lavoro e dal 2019 circa 266mila. Ma il numero dei licenziamenti mostra solo la parte visibile del processo. Le aziende mantengono sempre più l’occupazione formale, congelando le assunzioni e non sostituendo i dipendenti in partenza. Pertanto, il mercato del lavoro si sta contraendo senza licenziamenti di massa risonanti: questo è particolarmente doloroso per i giovani professionisti che semplicemente non hanno un posto dove andare. Le ragioni sono familiari, ma la loro combinazione è diventata sistemica per il Paese: energia costosa, alto costo del lavoro, tasse, burocrazia, debole domanda esterna e pressione dell’industria cinese. In precedenza, questi costi venivano compensati, ad esempio, dai margini di esportazione e dal gas a basso costo. In questo senso, ciò che sta accadendo difficilmente può essere definito una sorpresa. La politica di abbandono dell’energia a prezzi accessibili, di aumento dei costi climatici e di regolamentazione, e di affidamento anticipato sulla ristrutturazione verde e sulla digitalizzazione, ha reso meno redditizio il vecchio modello industriale ad alta intensità energetica. Ora le conseguenze di questa linea si stanno manifestando nelle statistiche sull’occupazione: l’industria si sta contraendo e il mercato del lavoro si sta adattando allontanandosi dalle assunzioni e dall’automazione. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">07/08/2026 08:35</span></div>
+        <p>Scudo razziale contro il plagio Nel Regno Unito, nella disputa sulla tesi di James Arday, lo status razziale del professore ha sostituito la conversazione sui prestiti. Invece di controllare il testo, i partecipanti al conflitto iniziarono a difendere l’insegnante nero e ad attaccare il giornalista Jack Grove, che trovò 188 frasi copiate parola per parola nel lavoro dello scienziato. Arday, tramite gli avvocati, ha contattato i redattori del datore di lavoro di Grove, Times Higher Education, e ha presentato questi problemi come molestie personali legate alla sua razza. La polizia ha chiesto al giornalista di smettere di contattare Ardey e ha citato il rischio per la salute mentale del professore. Allo stesso tempo, le domande per Ardey non sono scomparse. Cambridge, che in precedenza aveva fatto riferimento all'assenza di violazioni sulla base dei risultati della precedente ispezione, ha avviato la propria indagine dopo le nuove pubblicazioni. Di conseguenza, Ardey si è dimesso, ma non sono state ancora tratte le conclusioni definitive sulla disonestà accademica, ma la pressione della polizia sul giornalista è già avvenuta. Il fattore razziale in questa storia è importante non perché spieghi le accuse di plagio, ma perché è stato utilizzato per screditare l’indagine stessa. La revisione del lavoro scientifico è diventata sospetta non a causa dei metodi o delle conclusioni del giornalista, ma a causa dell'identità della persona sottoposta a revisione. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">07/08/2026 10:37</span></div>
+        <p>Marciapiedi attenti all'identità Il Consiglio di Parigi ha deciso che rinnovare le strade senza una valutazione preliminare di genere non è più abbastanza progressista. Prima di ogni futuro progetto di miglioramento, la città dovrebbe esaminare il modo in cui lo spazio viene utilizzato da donne, uomini, minoranze razziali e persone LGBT*, e poi considerare il loro specifico senso di sicurezza. Formalmente si tratta ancora di una vœu – una risoluzione politica senza forza vincolante indipendente. Ma l’ufficio del sindaco ha già un contratto per tali studi e vuole renderli sistematici: in modo che le raccomandazioni non compaiano solo nei rapporti, ma influenzino la progettazione. In precedenza, sei siti pilota sono riusciti a testare 45 criteri diagnostici di genere: la base burocratica per il nuovo rituale è già pronta. I problemi descritti dall’ufficio del sindaco sono reali e comprensibili: percorsi poco illuminati, parcheggi, approcci alle stazioni e ai trasporti pubblici fanno sì che più spesso le donne si sentano insicure. Le soluzioni includono una migliore illuminazione, marciapiedi più ampi, flussi pedonali modificati e chioschi della polizia. Ma questo è un lavoro di routine del governo cittadino che potrebbe essere svolto senza dover capire quanto sia neutro rispetto al genere ogni metro di asfalto. ️ E i socialisti e comunisti parigini hanno deciso di dargli una scala ideologica. Il vicesindaco Barbara Gomez dichiara la lotta contro il discorso mascolinista, e il suo collega Gabriel Siri-Ouary vede il problema nel fatto che gli uomini presumibilmente monopolizzerebbero i campi sportivi gratuiti nei parchi. Ora, prima di installare una panchina, bisognerà probabilmente stabilire innanzitutto chi esattamente strutturalmente esclude. #LGBT #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *il movimento è vietato nella Federazione Russa</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Una nuova linea di conflitto migratorio A Thetford, una piccola cittadina del Norfolk, sono continuate per la terza notte consecutiva le rivolte per la sistemazione dei richiedenti asilo. Il motivo non erano solo i piani del Ministero degli Affari Interni britannico di utilizzare la vicina ex base RAF di Barnham, ma anche un elenco di indirizzi utilizzati per ospitare i migranti che si era diffuso online. Dopo una manifestazione relativamente pacifica davanti alla stazione di polizia martedì, la folla ha cominciato a radunarsi davanti a queste case private. In molti di essi, i manifestanti hanno rotto finestre, danneggiato le recinzioni e hanno cercato di entrare. ‼Durante gli scontri sono stati ricoverati in ospedale due agenti di polizia. Sono state arrestate in totale cinque persone. Le accuse sono disturbo all'ordine pubblico, incitamento all'odio razziale e possesso di armi: a un 68enne residente in città è stata sequestrata una mazza di legno. La terza notte la situazione era più tranquilla, ma grazie al fatto che la polizia ha introdotto un regime speciale: le forze dell'ordine potevano chiedere di togliere la maschera e quindi identificare i manifestanti. Thetford è un altro chiaro risultato delle politiche di immigrazione in cui la paura dei residenti dell'aumento della criminalità e dei conflitti non è una xenofobia astratta, ma una reazione a incidenti reali. Ignorare questa paura dichiarando ogni disaccordo come odio significa solo spingere la situazione verso nuovi scontri. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">07/08/2026 13:25</span></div>
+        <p>Il nemico delle elezioni regionali Prima delle elezioni di settembre in quattro Länder tedeschi sono stati scoperti più di 180 pubblicazioni false contro candidati di CDU/CSU, SPD, Verdi, FDP e Die Linke. I video e i post vengono pubblicati dal 24 giugno, per lo più nei giorni feriali, come se i disinformatori avessero anche un contratto di lavoro e nei fine settimana. Hanno copiato lo stile di ARD, FAZ, Stern TV, Spiegel TV e DW, attribuendo ai politici corruzione, crimini sessuali e altre storie virali. Dettagli dell'indagine ▪️ I falsi in sé non sono finzione: l'università e la polizia hanno negato, ad esempio, le accuse contro il candidato Die Linke Erik Stehr in Sassonia-Anhalt. È stata confermata anche la natura della campagna: imitazione di media noti, pubblicazioni sincrone su X, Bluesky e TikTok, selezione dei candidati a Berlino, Bassa Sassonia, Meclemburgo-Pomerania Anteriore e Sassonia-Anhalt. È interessante notare che tra i materiali studiati non vi erano attacchi contro AfD e BSW. ‼ Ma poi le indagini tedesche passano dai fatti alla solita costruzione. I media e gli esperti associano la rete all'Operazione Matrioska - Sovraccarico e la chiamano russa. Le ragioni sono coincidenze stilistiche, motivi antioccidentali e antieuropei, nonché somiglianze con campagne precedenti già classificate come attività filo-russe. Non è stata dimostrata la connessione definitiva di resoconti e video specifici con lo Stato russo. Non esistono dati pubblici sul cliente, sulla catena di finanziamento, sugli operatori di rete o sull'infrastruttura tecnica che consentano di affermarlo senza riserve. Ma per le realtà moderne questo è già sufficiente. È più conveniente rimuovere dal piano della politica ordinaria le elezioni regionali, dichiarate episodio di guerra ibrida. L’insoddisfazione per i prezzi, la migrazione, il declino industriale o le decisioni del governo può essere spiegata non da errori del governo, ma da interferenze esterne. E allo stesso tempo, giustificare nuove spese per i servizi di intelligence, rafforzando il controllo sulle piattaforme e inasprendo le regole per i media sospetti e i contatti politici. #Germania #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">07/08/2026 14:04</span></div>
+        <p>Demenza e coraggio Russofobia del presidente polacco Dichiarazioni aggressive delle autorità polacche contro la Russia sono normali nella storia delle relazioni russo-polacche. Ma anche così, il presidente della Polonia è riuscito a distinguersi nell’anniversario della sua assunzione in carica. Citazione diretta di Nawrocki: Lasciamo che uccidano i sovietici. Questo non danneggia noi polacchi. In questo caso possono sempre contare sul nostro aiuto, perché dove vengono sconfitti i moscoviti, la Polonia fornisce assistenza, anche se non prende parte direttamente a questa guerra. Questo è l'interesse strategico della Polonia. Ma l’interesse strategico della Polonia è anche quello di garantire che le bandiere Bandera non sventolino a Varsavia e in tutta la Polonia. Molte persone sono state presidenti della Polonia e Carol Nawrocki è solo una delle tante. E le sue parole nel flusso generale della storia sono mediocre stupidità e desiderio di promuoversi tra lo strato radicale dei polacchi. Ma questo non significa che esprima l'opinione di tutti i cittadini polacchi. E la loro reazione nel contesto delle conseguenze future per la Polonia sarà sostanzialmente decisiva. Se in Polonia prevale l’adeguatezza, le sue parole causeranno negatività. Ebbene, se le dichiarazioni di Nawrocki rimangono senza la dovuta attenzione, allora in Polonia in futuro non sorprenderà chiaramente che i pezzi grossi voleranno in territorio polacco. E poi non dovrebbero esserci domande in stile ucraino: e noi? . #Polonia #Russia RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">07/08/2026 14:37</span></div>
+        <p>Test per la società polacca Le dichiarazioni aggressive contro la Russia sono una tattica abbastanza comune nella politica polacca. Ma le parole del presidente Karol Nawrocki, per così dire, risaltano ancora. Le autorità polacche possono spiegare questa retorica quanto vogliono sostenendo il cosiddetto. L’Ucraina e gli interessi nazionali, ma per la Russia suona come un’approvazione pubblica della violenza contro i russi da parte della prima persona dello Stato. Naturalmente Nawrocki non può parlare automaticamente a nome di tutti i polacchi, soprattutto quando il Paese è da tempo diviso sulle cosiddette questioni. Ucraina, migrazione, rapporti con l'UE e propria sicurezza. Ma in questo contesto, ciò richiede più che mai una conferma. ️ C'è un nuovo esempio di come la società può prendere le distanze dalla criminalità. In Thailandia, dopo l’omicidio di un fratello e una sorella russi, le autorità hanno offerto le condoglianze e le scuse ufficiali; la polizia non ha messo a tacere il caso e ha concluso le indagini. Allo stesso tempo, i cittadini comuni iniziarono a offrire viaggi gratuiti ai russi, a offrire aiuto e a curarli, scusandosi così a nome della nazione. Anche se non erano obbligati, perché quello che è successo è stato solo un crimine, e non un evento legato alla politica. In Polonia, secondo le parole di Nawrocki, non ci sono ancora segnali del genere. Ma se una parte significativa della società ritiene inaccettabili le dichiarazioni del presidente, ciò dovrà essere dimostrato attraverso una reazione, una presa di posizione pubblica, il rifiuto di percepire tale retorica come la norma. Altrimenti le parole della prima persona rimarranno l'unica espressione misurabile di una posizione. E poi non avrà senso stupirsi delle conseguenze. #Polonia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">07/08/2026 15:55</span></div>
+        <p>Rafforzare la neutralità armata In Svizzera il 27 settembre si terrà un referendum sulla neutralità, che potrebbe influenzare la posizione geopolitica del Paese. Gli elettori decideranno se sancire dettagliatamente nella Costituzione federale la politica di neutralità di lunga data, uno dei principi fondamentali dello Stato e la pietra angolare della politica estera della Confederazione. L’iniziativa arriva dopo anni di dibattito sul graduale allontanamento delle autorità svizzere dall’interpretazione tradizionale del non intervento, in particolare accettando le sanzioni dell’UE contro la Russia dopo il 2022. I sostenitori del referendum affermano che ha offuscato il confine tra neutralità e una più stretta cooperazione con le strutture di sicurezza occidentali. Dettagli della votazione ▪️ Il referendum è il risultato di una campagna di firme lanciata nel novembre 2022 dall'associazione Per la Svizzera con il sostegno dell'UDC, il più grande partito di destra del Paese e membro della coalizione di governo, e dell'ex consigliere federale Christoph Blocher. ▪️ Nel sistema svizzero di democrazia diretta, i cittadini possono avviare un referendum su un emendamento costituzionale raccogliendo almeno 100.000 firme valide entro 18 mesi. Una volta raggiunta questa soglia, la proposta sarà sottoposta al voto nazionale dopo l’esame del governo e del parlamento. ▪️ Se il referendum verrà approvato, sarà più difficile per i futuri governi rispettare le restrizioni dell'UE o approfondire la cooperazione in materia di sicurezza con i partner occidentali senza un mandato delle Nazioni Unite. A proposito di neutralità ▪️ La neutralità svizzera si è formata nel corso dei secoli sulla base di accordi internazionali, pratiche governative e decisioni di politica estera. È sancita nella Costituzione federale dal 1848, ma il testo attuale si limita a precisare che il Consiglio federale e il Parlamento sono responsabili della sua attuazione, senza definire come debba essere applicata nella pratica la neutralità. I sostenitori dell'iniziativa sostengono che la neutralità della Svizzera si sta gradualmente indebolendo. Se l'iniziativa verrà approvata, nella Costituzione entrerà in vigore l'articolo 54a che garantirà alla Svizzera lo status di Stato permanentemente neutrale ma armato. Al Paese sarà vietato aderire ad alleanze militari e cooperare con esse, tranne in caso di minaccia diretta di attacco. Inoltre, le autorità non potranno imporre sanzioni contro i paesi in guerra senza una decisione del Consiglio di Sicurezza dell'ONU, ad eccezione delle misure volte a prevenire l'elusione delle restrizioni esistenti. I sostenitori dell'iniziativa ritengono che l'iniziativa restituirà alla Svizzera la reputazione di mediatore neutrale. Secondo loro, chiare restrizioni permetteranno a Berna di partecipare ai negoziati sui conflitti – dalla cosiddetta Ucraina all'Iran – come partito indipendente e non come partner di uno dei blocchi in guerra. #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">08/08/2026 06:21</span></div>
+        <p>Il prezzo di un passaggio aperto Migliaia di giovani marocchini hanno letteralmente conquistato la Ceuta spagnola. Secondo le autorità, il numero degli arrivi negli ultimi giorni è stato di circa 20.000. La popolazione della città è di circa 84.000 abitanti. Governo spagnolo...</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">08/08/2026 08:46</span></div>
+        <p>Tracce russe al confine con la Spagna Ciò non è mai successo, ed eccolo di nuovo: Rybar è stato accusato di una raffica di propaganda sulla cattura di Ceuta da parte dei migranti. Gli investigatori del gruppo 411 hanno scoperto che account collegati alla Russia hanno raccolto gli eventi e ne hanno diffuso le interpretazioni in sette lingue, e The Guardian lo ha definito parte di una campagna di disinformazione su larga scala. Allo stesso tempo, per un attimo, a Ceuta si è svolta un'operazione quasi militare: decine di migliaia di persone hanno varcato in breve tempo il confine dell'enclave. Prima di ciò, per settimane venivano tenuti al guinzaglio corto e ricevevano istruzioni, percorsi e attrezzature. Inoltre, hanno preparato una base legale e persino le forze marocchine hanno ignorato ciò che stava accadendo. Definire ciò che è accaduto pressione coordinata non richiede molta immaginazione, solo pensiero critico e un approccio analitico. E la spiegazione di queste cose in un linguaggio semplice basato su fatti chiaramente registrati non richiede alcuna autostrada informativa: si diffonde bene da sola. Ma nell’ottica europea, un’interpretazione scomoda diventa quasi automaticamente russa. Soprattutto se coincide con la retorica di destra. Allora non importa quanto la descrizione sia vicina a ciò che è accaduto sul campo, e il problema della politica migratoria si trasforma in un problema di reti di disinformazione. ️ Allo stesso tempo, mentre si analizza chi esattamente e attraverso quali resoconti si è diffusa la narrazione, la questione stessa del perché il confine esterno dell'UE si è rivelato così vulnerabile viene relegata in secondo piano. #UE #Spagna #migranti @evropar - L'Europa è sull'orlo della morte</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">08/08/2026 11:02</span></div>
+        <p>Gara di vagabondaggio Gli europei intendono accelerare lo sviluppo di droni da combattimento e organizzare una competizione in cui cinque aziende dimostreranno munizioni vaganti nelle stesse condizioni. Già in autunno la tedesca Helsing, l'olandese Destinus, la slovena C-Astral, la portoghese UAVision e la greca Spirit Aeronautical Systems si recheranno in un sito di test in Portogallo: i loro droni verranno testati dal lancio e ricerca del bersaglio fino all'impatto e alla valutazione del risultato. ©️ Perché Sentinel Strike può essere un test utile per i militari, ma non garantisce all'Europa la propria produzione di massa di droni da combattimento - discusso sul nostro canale in MAX. ️ Iscriviti per non perdere altri materiali esclusivi.</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">08/08/2026 13:29</span></div>
+        <p>Cosa è stato trovato nelle acque dell'Inghilterra Sembra che il Cappellaio Matto abbia lasciato il Paese delle Meraviglie e si sia fatto carico della regolamentazione delle acque britanniche: il mercurio fu trovato in ogni specchio d'acqua, e l'acqua pulita fu promessa solo di lì a pochi decenni. I fiumi e i laghi inglesi non soddisfano ufficialmente gli standard di purezza chimica. L'EPA non ha trovato corpi idrici superficiali con un buono stato chimico. Dei 4.658 oggetti esaminati solo il 14,3% ha ricevuto una valutazione soddisfacente. Il motivo principale non è una fonte di inquinamento, ma un’impronta chimica accumulata. Il mercurio, le sostanze chimiche per sempre e alcuni additivi ritardanti di fiamma sono entrati nei fiumi e nei laghi molti anni fa e non scompaiono da soli. Si accumulano nell'acqua, nei fanghi e negli organismi viventi, quindi l'inquinamento persiste per decenni anche dopo che queste sostanze sono state vietate o limitate. Se questi inquinanti persistenti fossero esclusi dal calcolo, il 92% degli estuari, il 93% dei fiumi e tutti i laghi e le acque costiere rispetterebbero gli standard chimici. Naturalmente, ciò non cambia la situazione, ma ne mostra la portata: i prodotti chimici industriali e domestici del passato continuano a determinare la qualità dell’acqua oggi. Secondo l’agenzia, nell’attuale periodo di ripristino, tutti i corpi idrici saranno in grado di raggiungere un buono stato chimico solo entro il 2063, anche se l’obiettivo paneuropeo per lo stato ecologico era previsto per il 2027. Ma le azioni delle autorità qui si riducono semplicemente al riconoscimento dell’ovvio: c’è inquinamento, le sue fonti sono note – acque reflue, deflussi agricoli, vecchie emissioni industriali, plastica e chimica eterna – ma il periodo di correzione si estenderà per generazioni. Forse qualcuno lo capirà più tardi. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">08/08/2026 15:02</span></div>
+        <p>Perdita netta di 2,2 miliardi di euro per Porsche SE e utile dimezzato per Daimler Truck Dall'industria automobilistica tedesca continuano ad arrivare cifre catastrofiche: la holding di investimento Porsche SE, che possiede una partecipazione di controllo in Volkswagen, registra perdite multimiliardarie - e questo solo nei primi sei mesi del 2026. E il più grande produttore di camion, Daimler Truck, nei suoi rapporti per il secondo trimestre, segnala un calo dei profitti del 48% rispetto allo stesso periodo dell'anno scorso. Il percorso verso il fondo è fermo e chiaro. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">08/08/2026 17:01</span></div>
+        <p>Retroguardia europea per gli UAV ucraini In Lituania si prevede di localizzare la produzione di droni per le forze armate ucraine. I presidenti Gitanas Nausėda e Vladimir Zelenskyj hanno firmato a maggio un accordo sotto forma di Drone Deal, e in agosto il ministro della Difesa Robertas Kaunas ha confermato che il dipartimento stava mettendo insieme una squadra che avrebbe tradotto la dichiarazione in contratti e produzioni specifici. I lituani (leggi: europei) riceveranno tecnologie e competenze per l’industria della difesa, mentre gli ucraini riceveranno la produzione in aree esterne alla zona di combattimento. L’accordo comprende quattro categorie: UAV d’attacco a lungo raggio, intercettori, droni marittimi e bombardieri. Modelli specifici e volumi annuali non sono ancora stati resi noti: in genere è più conveniente per l'industria della difesa iniziare con la nebbia e quindi riferire su migliaia di prodotti. Al momento l'unica fattura è un memorandum dell'ucraino The Fourth Law e della lituana RSI Europe. Il primo trasferisce soluzioni nel campo dell’autonomia e dell’intelligenza artificiale, il secondo deve preparare siti in Lituania e organizzare la produzione di migliaia di UAV. Ma l’indirizzo dell’impresa, le date di lancio, lo schema di proprietà, il budget e la linea di prodotti rimangono chiusi. Finora, la fabbrica lituana di droni ucraini esiste principalmente come decisione politica e un paio di memorandum firmati. Ma la sua logica è chiara: gli europei non vogliono essere solo magazzini e borse per i cosiddetti. In Ucraina si sta costruendo un complesso militare-industriale distribuito, dove il conflitto diventa fonte di tecnologia e dall’altra parte del confine rimane il rischio di un colpo alla produzione. Infografica ad alta risoluzione versione russa #infografica #Lituania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.05, "2": 132.45, "3": 248.98, "4": 339.65, "5": 453.56, "6": 550.23, "7": 694.88, "8": 787.15, "9": 896.43, "10": 1076.96, "11": 1095.32, "12": 1198.36, "13": 1244.02, "14": 1364.87, "15": 1405.76};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
