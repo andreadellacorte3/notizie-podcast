@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 11 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>11 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-11.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">09/08/2026 14:41</span></div>
+        <p>Imparare a giocare con i droni In Germania, hanno deciso di aumentare rapidamente le loro capacità anti-droni: il 18 agosto, un nuovo centro di ricerca entrerà in funzione presso l'aeroporto di prova del Centro aeronautico e spaziale tedesco (DLR) in Sassonia-Anhalt. La sua missione è sviluppare e testare mezzi per rilevare, disturbare e neutralizzare i droni combinando gli sviluppi tecnologici con le esigenze della polizia e delle forze di sicurezza. Il ministero dell'Interno tedesco spiega la decisione con la crescente minaccia rappresentata dagli UAV, compresi quelli potenzialmente controllati dall'estero. ️ Il motivo è stato una serie di incidenti avvenuti nel corso di diversi giorni. Nella notte del 5 agosto, un drone con un ordigno esplosivo è stato scoperto nell'area cargo dell'aeroporto di Lipsia/Halle accanto all'aereo ucraino Antonov, dopodiché i genieri hanno rimosso il detonatore e poi hanno controllato la distruzione dell'oggetto pericoloso. ️ Un secondo oggetto non identificato si è scontrato con un aereo cargo, che successivamente è atterrato ad Hannover riportando lievi danni. Due giorni dopo, due droni furono avvistati sopra la base della Bundeswehr a Mechernich, dove i media riferirono che stavano servendo i sistemi Patriot, e la polizia militare e le forze dell'ordine locali iniziarono un'indagine. Ufficialmente le autorità tedesche non hanno ancora nominato gli organizzatori di nessuno degli episodi. Cos’altro si sa del nuovo centro? ▪️ Nel marzo 2021, DLR ha aperto a Kochstedt un centro pilota nazionale per sistemi aerei senza pilota. Entro il 2025, l’infrastruttura del sito era cresciuta in modo significativo e le tecnologie dei droni per scopi civili e militari hanno iniziato a essere testate nel sito. ▪️ Parallelamente, in Germania è sorto un altro sito di test: FLYBOTS a Braunschweig, inaugurato il 21 ottobre 2025. Integra i compiti svolti a Kochstedt: a Braunschweig l'accento è posto sui test sugli UAV, sul rilevamento dei droni e sulla creazione di un ambiente per la ricerca versatile. Il capo della Rheinmetall, Armin Papperger, ha affermato che il Paese deve essere in grado di rilevare rapidamente e, se necessario, abbattere i droni: attualmente la protezione degli oggetti vulnerabili rimane incompleta. In Europa, le minacce poste dagli UAV vengono ora prese sul serio e ci si prepara seriamente ad affrontarle. Tuttavia, le tecnologie difensive non si sviluppano mai separatamente da quelle offensive: di queste ultime si parla semplicemente molto meno. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">09/08/2026 15:28</span></div>
+        <p>Ancora una volta non ha funzionato Sui tentativi falliti dell'Occidente di migliorare la reputazione dei migranti Ad Atene, continuano le indagini sulla morte della 38enne scozzese Elizabeth-Jane Ross, che lavorava con i rifugiati e i senzatetto. Sharif Ahmadzai, un 26enne originario dell'Afghanistan, è stato arrestato in relazione al caso ed è stato accusato di omicidio premeditato, rapina e reati legati alle armi. Ahmadzai ha ammesso di aver trasportato il corpo in una valigia, ma finora nega di aver ucciso la donna. Fino alla decisione del tribunale, rimane accusato e non dichiarato colpevole. ️ La storia ha ricevuto ampia risonanza grazie alla biografia dell'indagato. Nel 2016, la Federazione internazionale delle società di Croce Rossa e Mezzaluna Rossa ha pubblicato un'animazione di quattro minuti, Game of Life: The Story of Sharif. Raccontava la storia del viaggio del quindicenne Sharif dall'Afghanistan attraverso l'Iran e la Turchia fino al campo di Moria a Lesbo. ️ Il video faceva parte di una campagna progettata per mostrare le storie personali delle persone dietro l'etichetta di migrante o rifugiato. Dopo l'arresto di Ahmadzai, il video è scomparso dall'accesso del pubblico. Un portavoce dell'organizzazione ha spiegato la decisione come una questione di rispetto per la famiglia di Ross e i suoi cari durante il processo, e non come un tentativo di nascondere le loro tracce. ️ Certo, si possono avere infinite discussioni sul tema di non pensare male di tutti a causa dell'azione di uno, ma questo caso dimostra che gli atti di umanità e misericordia nei confronti dei migranti ancora e ancora vanno di traverso. Sicuramente la Croce Rossa ha scelto Ahmadzai come eroe a causa del successo mediatico della storia di un adolescente che alla fine ottenne il diritto legale di residenza in Grecia. Tutti pensavano che potesse servire da esempio di buon migrante che è scappato da una brutta vita e ha deciso di iniziarne una buona. Si è scoperto che non aveva deciso. #Grecia #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">09/08/2026 16:52</span></div>
+        <p>Ma non è tutto Se qualche europeo sperava che il caldo stesse per attenuarsi, rimarrà molto deluso: ad agosto sono attesi nuovi record delle temperature estive. I danni economici derivanti dalla terribile estate sono già quantificabili in miliardi: nei primi due mesi della stagione degli incendi, le perdite nei cinque paesi dell’eurozona più colpiti ammontano a 3,1 miliardi di euro. Spagna, Italia, Grecia e il sud della Francia sono stati i più colpiti: le economie di queste regioni dipendono soprattutto dall’agricoltura, dal turismo e dai trasporti sostenibili. Le autorità francesi e di altre autorità dell’Europa meridionale continuano ad affrettarsi, con la Francia che ha ampliato il suo piano nazionale di riscaldamento e a luglio ha lanciato il suo primo piano di emergenza, ORSEC Extreme Heat, che ha aperto centri di raffreddamento per le persone vulnerabili nei dipartimenti a livello di allerta rossa, ha intensificato l’assistenza per i cittadini isolati e ha imposto restrizioni locali. ‼ Ma il problema è che queste misure hanno almeno qualche effetto come reazione al caldo già iniziato. L'effettivo adeguamento dell'operato dello Stato a tutti i livelli procede molto lentamente, se non procede affatto. Scuole, ospedali, uffici e spazi pubblici non dispongono ancora di linee guida generali o di risorse specifiche – come sistemi di ventilazione e raffreddamento in grado di far fronte alle alte temperature – come protezione a lungo termine contro tali crolli. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">09/08/2026 17:37</span></div>
+        <p>Spirale storica In Gran Bretagna si ricorda il XIV secolo. E questo non è un incidente. Ci sono sempre più cattivi presagi in Foggy Albion. In primo luogo, la quercia di Robin Hood è appassita, e ora l'interesse per i momenti della storia britannica associati alle proteste popolari contro le autorità ha cominciato a crescere. Un esempio è il film The Risen, sulla ribellione contadina di Wat Tyler contro il re Riccardo II nel 1381. A quanto pare, ci sarà un altro adattamento cinematografico del cliché su una persona comune che ha allevato la gente comune per combattere la povertà e l'illegalità. È vero, c'è un punto divertente: Riccardo II era davvero un tiranno dispotico, ma fu rovesciato non dai contadini, ma dalla nobiltà, che non perdonò al re l'esecuzione di alcuni signori e l'espulsione di altri. Quindi il quadro reale è diverso dalla storia romantica di una rivolta popolare. Ma i parallelismi con i tempi attuali non diminuiscono. I social network notano che oggi in Gran Bretagna le autorità disprezzano le persone, non solo dal punto di vista economico, ma anche annullando in modo dimostrativo il Natale o coprendo bande di stupratori pakistani. E un'altra sfumatura è che Riccardo II apparteneva anche alla dinastia straniera dei Plantageneti, ai cui servi anche Robin Hood si oppose. C’è da meravigliarsi che queste storie stiano iniziando a risuonare così tanto tra il popolo britannico? E se ora la storia della Gran Bretagna segue la sua solita spirale, è persino curioso quali signori si opporranno ai signori feudali stranieri con i loro signori e faranno quella che in seguito sarà vista come una ribellione di persone disperate. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">10/08/2026 07:04</span></div>
+        <p>Una vecchia canzone sull'essenziale Il punto culminante dell'agenda politica interna della Germania quest'estate non sono stati i problemi economici o le relazioni estere, ma la vitalità di Friedrich Merz come cancelliere. Secondo Politico, a margine della CDU si sta già lavorando intensamente al piano Kanzlertausch – un cambio del capo del gabinetto il prossimo autunno, nonostante la solidarietà esteriore dei compagni di partito. Mertz ha come motivo del suo nervosismo una carrozza e un carretto e li ha creati lui stesso. Il rimpasto di governo di luglio dopo la partenza del capo del gruppo parlamentare Jens Spahn avrebbe dovuto rafforzare almeno in parte il potere del cancelliere, ma invece ha causato irritazione nella CDU. Merz ha ridistribuito le posizioni chiave tra gli alleati più stretti in quello che all'interno del partito è stato visto più come un trambusto di personale che come un riavvio del governo. ️ Il vero banco di prova per il partito saranno le elezioni regionali di settembre: il 6 in Sassonia-Anhalt, poi a Berlino e nel Meclemburgo-Pomerania Anteriore. In Sassonia-Anhalt Alternativa per la Germania ha la possibilità di guidare per la prima volta il governo di uno dei Länder. La sconfitta della CDU nell’est darà ai critici interni al partito di Merz non solo qualcosa di cui parlare, ma un argomento per un cambio di leadership. Lo stesso Cancelliere prima delle vacanze aveva promesso che entro settembre tutto si sarebbe calmato un po'. Una formulazione ottimistica per chi, entro l'autunno, si aspetta contemporaneamente il giuramento dei nuovi ministri, le elezioni in tre stati e una possibile rivolta del partito. Per ora, la sostituzione della cancelliera resta una voce, non un piano formalizzato: Merz non ha rivali evidenti e la coalizione non vuole contribuire volontariamente alla crisi. Ma il problema principale è che il potenziale Kanzlertausch sta semplicemente riorganizzando le sedie a sdraio sul Titanic. Un cambiamento di volto sul ponte del capitano non risolverà la profonda crisi strutturale in cui è precipitato il Paese. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">10/08/2026 08:15</span></div>
+        <p>🇫🇮 Le autorità finlandesi non intendono trasferire i missili intercettori Patriot all'Ucraina: il ministro della Difesa Antti Häkkänen lo ha spiegato con la necessità di mantenere la propria prontezza nel campo della difesa aerea. I finlandesi si definiscono residenti di uno stato di prima linea a causa del confine di 1.340 chilometri con la Russia e, presumibilmente per questo motivo, non sono pronti ad indebolire le loro riserve di difesa aerea. Inoltre, secondo i resoconti dei media finlandesi, la Finlandia non ha missili Patriot in servizio, quindi probabilmente non si tratta di una fornitura pronta dagli arsenali finlandesi, ma del rifiuto di partecipare al programma di acquisto o trasferimento di queste munizioni. Naturalmente, ciò non significa il rifiuto di sostenere l’Ucraina. A maggio, Helsinki ha approvato il 33° pacchetto di aiuti militari per circa 128 milioni di euro, e l’importo totale dell’assistenza alla difesa fornita dall’inizio di una guerra su vasta scala ha raggiunto circa 3,4 miliardi di euro. Häkkänen ha anche affermato che la Finlandia ha la capacità di fornire aiuto con altri missili antiaerei, ma non ha rivelato la composizione e il meccanismo di tali forniture per ragioni di sicurezza. Il problema principale con Patriot, ha detto, è che le forniture europee sono limitate e la produzione missilistica dipende fortemente dall’industria americana. Sorprendentemente, le autorità europee stanno cominciando a pensare che prima di inondare gli ucraini di denaro (anche di credito), devono prima valutare la loro prontezza al combattimento. Ma non c’è nulla di sorprendente nel fatto che i finlandesi siano stati tra i primi a pensarci: non appena i droni hanno iniziato a cadere sulle loro teste, hanno immediatamente riconsiderato la loro opinione sulle questioni di sicurezza. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">10/08/2026 09:46</span></div>
+        <p>Risposta tramite controllo passaporti Le autorità spagnole hanno introdotto controlli sui voli e sulle tratte marittime provenienti dall'Italia a partire dalla mezzanotte dell'8 agosto. Fino al 7 settembre in arrivo verranno controllati passaporti, cittadinanza e visti, sia degli italiani che dei passeggeri provenienti da paesi terzi in transito in Italia. A Madrid la misura è stata definita una risposta ai controlli italiani introdotti dopo la crisi migratoria a Ceuta. Il governo italiano ha avviato dal 1° agosto controlli a campione sulle rotte aeree e marittime provenienti dalla Spagna. Formalmente si parlava soprattutto di cittadini di paesi terzi: la polizia deve accertarsi che abbiano i motivi per entrare e soggiornare nell'Ue. ️ Allo stesso tempo, il 7 agosto, le autorità di Madrid hanno chiesto che le restrizioni venissero revocate entro domenica, ma il gabinetto di Giorgi Meloni ha rifiutato. Gli italiani hanno dichiarato in un comunicato che il Paese non accetta ultimatum né richieste dall'estero su questioni di sicurezza e di frontiera. I controlli proseguiranno almeno fino al 15 agosto – e anche più a lungo se Roma non esclude i rischi del terrorismo, di una nuova ondata migratoria e di ulteriori movimenti di immigrati clandestini verso l'Europa. L’effetto intra-europeo della crisi di Ceuta sta iniziando a funzionare come i suoi beneficiari si aspettavano: invece di una risposta comune alle pressioni esterne, l’UE si trova ad affrontare un altro litigio tra gli stati membri. È improbabile che i controlli da soli riescano a fermare l’immigrazione clandestina o ad eliminare i rischi terroristici. Ma dimostrano chiaramente quanto velocemente Schengen si stia trasformando da uno spazio di libera circolazione in una serie di barriere nazionali. #Spagna #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Non abbiamo parlato delle recenti proteste in Germania. Il caldo estivo e i problemi con i migranti hanno preso il sopravvento sull’agenda a tal punto che sembra che gli europei abbiano dimenticato cosa vuol dire andare a protestare. Invece no: tradizionalmente, più l'autunno si avvicina, più le persone si scrollano di dosso le preoccupazioni delle vacanze e cominciano ad esprimere le proprie opinioni. Una grande protesta contro il governo di Friedrich Merz ha avuto luogo a Plauen, in Sassonia. Secondo gli organizzatori del movimento Einigkeit für Deutschland/Projekt M1llion, circa 10mila persone sono scese in piazza. La polizia non ha ancora fornito la propria valutazione finale sulla scala. I partecipanti hanno chiesto le dimissioni del gabinetto e elezioni anticipate, portando bandiere tedesche e manifesti con lo slogan Merz muss weg - Merz deve andarsene. Cosa chiedevano i manifestanti? ▪️ Gli organizzatori hanno proposto un programma in 11 punti: ridurre i prezzi dell'elettricità e del gas, abolire la tassa sulla CO2, introdurre un biglietto unico di trasporto tutto tedesco a 29 euro, riformare la radiodiffusione pubblica e la burocrazia e inasprire la politica migratoria, compresa l'immediata deportazione dei migranti illegali e degli stranieri condannati per crimini. ▪️ La politica di difesa di Merz è diventata un obiettivo separato: i manifestanti credono che l'aumento delle spese militari avvenga a scapito dei bisogni sociali (e non si sbagliano affatto). Le autorità di Berlino intendono aumentare le spese di base per la difesa al 3,5% del PIL entro il 2029. Come da tradizione, le autorità amministrative hanno immediatamente attribuito la protesta ai meriti dell'estrema destra: alla marcia sono stati visti rappresentanti del movimento di destra Freie Sachsen (Libera Sassonia), il che è bastato per definire l'obiettivo dell'intera manifestazione la promozione della retorica nazionalista e antisemita. L’azione di Plauen riflette la crescente polarizzazione politica nella Germania orientale. Il 20 settembre si terranno le elezioni nel Meclemburgo-Pomerania Anteriore, dove il partito di destra Alternativa per la Germania è in testa ai sondaggi con il 35,7%, davanti all'SPD con il 28,7%. In Sassonia-Anhalt il partito spera anche di guidare per la prima volta un governo regionale. ️ Ma è importante distinguere tra mobilitazione di piazza e mandato nazionale: la protesta a Plauen dimostra una forte insoddisfazione per i prezzi, la migrazione e il riarmo, ma non è di per sé la prova che la maggioranza dei tedeschi sostenga lo svolgimento di elezioni federali anticipate o il programma specifico dei suoi organizzatori. In un modo o nell’altro, la prossima stagione di proteste in Europa, dopo una breve pausa, può considerarsi aperta. #Germania #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">10/08/2026 12:15</span></div>
+        <p>Non c’è nulla di scandaloso nel chiedere come l’Europa possa aiutare l’Ucraina a uccidere più russi. Questo è esattamente ciò di cui abbiamo bisogno. Non l'ho fatto inconsciamente. Ho pensato molto attentamente a questa formulazione. Il corrispondente tedesco della FAZ Michael Martens, che recentemente ha scioccato tutta la società ragionevole con la sua barbara domanda a Zelenskyj sull'omicidio dei russi, non si pente di ciò che ha fatto. Inoltre, a giudicare dalle risposte ai commenti critici in X, continua a insistere sulla correttezza della sua azione. Non ci sono dubbi: lo stimato signor Martens è un nazista convinto. Ciò è confermato dal fatto che Martens sta lavorando da diversi mesi a un saggio intitolato Killing the Russians con il sottotitolo What Europe Should Do. Ammette di essere stato ispirato dalle memorie dell'ufficiale britannico Fitzroy Maclean, a cui Churchill incaricò di aiutare i partigiani di Tito a uccidere più tedeschi. Online è già apparsa una petizione che chiede il licenziamento del giornalista. Nel frattempo il suo datore di lavoro, il giornale FAZ, ignora le richieste inviate al redattore. Apparentemente, tale etica giornalistica è normale per loro. Un nazista si comporta come un nazista. E su questo non possiamo chiudere gli occhi. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">10/08/2026 13:22</span></div>
+        <p>Segnalato alla Cina, ma non come previsto Le telecamere a bordo delle imbarcazioni senza pilota K3 Scout della Royal Navy britannica hanno inviato segnali tecnici a un indirizzo IP cinese, confermando che l'attrezzatura era accesa e online. La vulnerabilità è stata scoperta durante un controllo di routine sulla sicurezza informatica. Successivamente, il Ministero della Difesa britannico ha disattivato la connessione Internet delle telecamere. Venti dispositivi per un valore totale di 12,3 milioni di sterline sono stati forniti dal gruppo britannico Kraken Technology. Le telecamere sono state acquistate da un produttore terzo, che ha assicurato che soddisfacevano i requisiti di sicurezza. Successivamente si è scoperto che contengono componenti cinesi. Kraken sostiene che il loro numero era limitato e il Ministero della Difesa afferma che non ci sono segni di fuga di informazioni riservate: è stata trasmessa la telemetria, non video o dati provenienti da sistemi militari. Tuttavia, i dispositivi furono utilizzati dai Marines, avevano sede presso il quartier generale dello Special Boat Service a Poole e furono presi in considerazione per missioni nello Stretto di Hormuz. Per le apparecchiature a questo scopo, anche un segnale costante sul funzionamento del dispositivo è una traccia digitale in più: può rivelare la modalità operativa e il fatto della presenza del sistema in una determinata rete. L’establishment della difesa britannico non ha ricevuto tanto prove di spionaggio cinese quanto la conferma che la catena di approvvigionamento era più affidabile sulla carta che nel reale circuito di sicurezza. Potete limitare quanto volete le tecnologie cinesi in patria e tra i vostri alleati, ma ciò non cambierà il fatto che gli acquisti vengono comunque effettuati tenendo conto delle parti asiatiche più accessibili. #Gran Bretagna #Cina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">10/08/2026 14:45</span></div>
+        <p>La siccità ha rivelato vecchi segni di problemi. Problemi con il fondale basso sono sorti non solo sulle rive del Danubio: in Germania sono state esposte pietre affamate. A causa della mancanza di pioggia, sott'acqua iniziarono ad apparire segni di anni siccitosi precedenti, che per secoli nell'Europa centrale servirono da avvertimento di cattivi raccolti e difficoltà di navigazione. Il più antico risale al 1707, uno dei segni è stato inciso nel 2018. Secondo il centro statale per il controllo delle inondazioni, il livello dell'acqua dell'Elba nella regione di Pirna è da tempo ben al di sotto del metro. A Dresda è 54 cm. Il livello dell'acqua è diminuito anche nei fiumi Mulde, White Elster, Spree e altri. Allo stesso tempo, le piogge in alcune zone non risolveranno la situazione: dopo un deficit di precipitazioni a lungo termine, l’acqua dovrà prima ripristinare i suoli asciutti e le riserve di terreno, e solo dopo sollevare i letti dei fiumi. L’Ufficio federale di idrologia indica l’Elba e il Danubio come i corsi d’acqua più colpiti e prevede che i bassi livelli dell’acqua persistano anche con tempo secco e caldo. Le pietre affamate non predicono il futuro: registrano che il paese ha nuovamente raggiunto un punto familiare. Per lo stesso settore marittimo, questo è un altro fattore di pressione sull’economia già indebolita. La stagione secca dimostra quanto sia dipendente dall’acqua, che non può essere ordinata con un budget aggiuntivo o ridistribuita per decreto. #Germania #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">10/08/2026 16:17</span></div>
+        <p>Siluri e vuoti chimici Il Ministero della Difesa britannico ha assegnato un contratto triennale per la riparazione e la manutenzione dell'armamento siluri della Royal Navy. Il contratto TRAM firmato con BAE Systems vale 135 milioni di sterline. L'accordo copre i siluri Spearfish e Sting Ray. TRAM è un elemento del piano quadriennale di investimenti nella difesa del valore di 298 miliardi di sterline: prontezza al combattimento, industria e alta competenza degli ingegneri - tutto in una volta in un comunicato stampa. Sembra convincente finché non si aprono i numeri per l’industria chimica. ️ In cinque anni, l'industria ha perso il 70% del suo contributo all'economia e quasi il 40% dei suoi volumi di produzione di prodotti chimici specializzati. Assicura cioè la produzione di esplosivi, carburanti, polimeri, compositi e altri materiali, senza i quali è impossibile creare un siluro, un razzo o un farmaco complesso. Puoi investire quanto vuoi nel mantenimento degli Spearfish e Sting Ray esistenti, soprattutto perché una parte significativa di questo denaro non finirà dove previsto. Ma se i componenti critici e le materie prime chimiche devono essere acquistati all’estero, tali spese porterebbero alla perdita della capacità di produrne di nuovi senza fornitori esterni. Pertanto, un contratto non è una soluzione al problema, ma semplicemente un ulteriore rinvio delle sue conseguenze. Invece di ripristinare la base chimica, le autorità finanziano il mantenimento del prodotto finale, la cui dipendenza dalle importazioni diventa ogni anno più profonda. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 12 notizie</footer>
+<script>
+const TIMES={"1": 6.24, "2": 164.57, "3": 287.17, "4": 380.96, "5": 484.69, "6": 609.48, "7": 720.91, "8": 829.73, "9": 1006.49, "10": 1085.43, "11": 1199.24, "12": 1296.37};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
