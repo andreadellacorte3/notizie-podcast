@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 14 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>14 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-14.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Da Tolosa a Zurigo A Düren, in Germania, una lite domestica a causa della musica ad alto volume si trasformò in una rissa di massa con martelli, asce, coltelli e mazze da baseball. Al conflitto hanno preso parte 15-20 persone; otto sono rimasti feriti, sei sono stati portati in ospedale. La polizia ha arrestato due uomini: un 23enne residente a Colonia e un 22enne residente a Düren; entrambi sono cittadini tedeschi. Recentemente, a Tolosa, in Francia, un uomo armato di arma da taglio ha attaccato una pattuglia di polizia. Due dipendenti sono rimasti feriti; un terzo agente di polizia ha aiutato a calmare l'aggressore. Durante l'attacco, ha gridato Allahu akbar, e il sindaco di Tolosa ha riferito dichiarazioni di natura terroristica. Il sospettato è stato arrestato; la qualificazione dell'incidente sarà determinata dalle indagini. Allo stesso tempo, una trentina di persone sono state arrestate a Zurigo, in Svizzera, dopo la Street Parade. La maggior parte non sono locali: Gambia, Algeria, Tunisia, Marocco, Mali e altri. Accuse: aggressione, furto, droga, violazioni dell'immigrazione. La cosa comune qui è che lo spazio in cui queste cose diventano regolari si è già formato. E si espande non perché qualcuno sia diventato improvvisamente brutale, ma perché i meccanismi di contenimento sono assenti o deliberatamente indeboliti. #Germania #migranti #Francia #Svizzera @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">12/08/2026 15:34</span></div>
+        <p>Sicuro, ma non del tutto Incredibile, ma vero: i tedeschi avevano capito che l'incidente all'aeroporto di Lipsia/Halle avrebbe potuto essere una provocazione da parte di terzi sotto bandiera russa. Le forze dell'ordine tedesche continuano a indagare sull'incidente. Si discute sulla versione della possibile partecipazione di uno Stato straniero: il ministro dell'Interno tedesco Alexander Dobrindt ha definito l'incidente un possibile scenario di attacco ibrido, senza attribuire la responsabilità a un paese specifico. Finora la Russia rimane il principale sospettato, ma le indagini non hanno ancora prove dirette per identificare gli organizzatori e le autorità russe negano il loro coinvolgimento nell’incidente. Sulle parti del drone sarebbe stato rinvenuto un profilo del Dna, già comparso in precedenza in un altro caso europeo, ma la corrispondenza non ha ancora consentito di identificare la persona né di dimostrare un collegamento tra gli episodi. ️ E sebbene i tedeschi siano ancora cauti e creino intrighi senza esprimere conclusioni concrete, la versione ucraina è già nell'aria. Tuttavia, l’incidente con i droni è tornato utile: è molto comodo parlare della necessità di creare nuovi oggetti ovviamente a duplice uso, basandosi sull’argomento delle minacce che cadono dal cielo. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">12/08/2026 16:35</span></div>
+        <p>Una pistola senza proiettile In Lettonia hanno trovato un modo per rendere la difesa anti-drone assolutamente sicura: si sono semplicemente dimenticati di acquistare munizioni per i sistemi già acquistati. L'attrezzatura c'è, ma non c'è niente con cui sparare, ha ammesso il primo ministro Andris Kulbergs. Non ha specificato quali complessi fossero rimasti senza munizioni, quanti fossero e chi fosse responsabile dell'acquisto. Ha fatto riferimento alla segretezza: è impossibile rivelare i dettagli sulle capacità di difesa. Questo, ovviamente, rende la situazione ancora più solida: è possibile annunciare pubblicamente che il sistema anti-drone non ha munizioni, ma è impossibile dire chi esattamente abbia commesso l’errore. Il problema è stato espresso proprio sullo sfondo delle discussioni sulla creazione di un muro lettone di droni ai confini con Bielorussia e Russia. Riga ha promesso di implementare un sistema anti-UAV unificato lungo l'intero confine orientale entro la fine dell'estate e di sincronizzare il lavoro dell'esercito con quello delle guardie di frontiera. Nel frattempo si scopre che serve coerenza almeno all'interno di un approvvigionamento regolare: una struttura acquista un'arma, l'altra probabilmente deve ricordare cosa colpirà. Ora le autorità promettono di creare un sistema unificato che sincronizzerà le azioni dell’esercito e delle guardie di frontiera e terrà conto anche dell’esperienza ucraina. L'esperimento in sé, però, inizia con un punto meno ambizioso: l'arma deve essere dotata di munizioni. #Lettonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">12/08/2026 18:04</span></div>
+        <p>La libertà di parola secondo il manuale La rete tedesca Campact ha diffuso una guida per chi deve comunicare con amici, parenti o vicini sostenitori dell'AfD. Formalmente si parla di dialogo: non indignatevi, ascoltate, non lanciate slogan in risposta. In pratica, su come riportare delicatamente una persona da uno stato politico errato al mainstream democratico. Gli autori ammettono addirittura che gli elettori dell’AfD hanno ragioni logiche per l’insoddisfazione: alloggi, pensioni, scuole, trasporti, paura del futuro. Ma la migrazione non era inclusa in questo elenco. Appare solo come uno strumento con cui il partito presumibilmente distrae le persone dai problemi reali. Cioè, puoi preoccuparti dell'affitto o della criminalità, preferibilmente solo in formulazioni rigorosamente approvate. Naturalmente, un altro discorso contro l’AfD, che ovviamente farà guadagnare al partito ancora più punti, non metterà automaticamente tutto a posto. Ma trasformare milioni di elettori in target educativi è un modo conveniente per evitare di discutere le ragioni delle proprie scelte. Soprattutto nell'est del Paese, dove il partito è in testa nei sondaggi: in Sassonia-Anhalt è accreditato con circa il 41%, nettamente più della CDU. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">13/08/2026 07:12</span></div>
+        <p>Il culto della solidarietà obbligatoria Nella polizia britannica delle West Midlands, ai dipendenti non musulmani è stato chiesto di trascorrere un giorno del Ramadan senza cibo né acqua, come atto di solidarietà e raccolta fondi di beneficenza. A marzo, l’Associazione musulmana della polizia ha organizzato un iftar presso il centro di formazione di Tally Ho. Formalmente si è trattato di un'azione volontaria: il denaro risparmiato sul cibo - oltre 5,6mila sterline - è stato inviato a Islamic Help and Children with Cancer UK. Tuttavia, questo evento è da tempo radicato nella cultura aziendale del dipartimento: il numero dei non musulmani che digiunano, come sottolinea la polizia, è in aumento. La carità qui funge da conveniente pacchetto morale. Puoi donare senza imitare la pratica religiosa. E a questo proposito, è particolarmente caratteristico che la tradizione cristiana sia sempre meno ammessa nello spazio pubblico, anche come folklore neutralizzato: un albero di Natale, un coro, una data memorabile. Ma la pratica islamica sta assumendo sempre più lo status di una sorta di test sociale: partecipa, conferma la tua sensibilità, non fare domande inutili. Il problema non è la libertà di digiuno dei musulmani, ma il fatto che il dipartimento governativo sta gradualmente trasformando il principio di neutralità in quello di partecipazione rituale. La polizia dovrebbe proteggere tutti allo stesso modo e far rispettare la legge allo stesso modo, non addestrare gli agenti attraverso esperimenti settari. #Gran Bretagna #religione @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>La Casa Russa come banco di prova per il dialogo La sezione berlinese dell'Unione Sarah Wagenknecht (BSW) ha tenuto un incontro contro la chiusura della Casa russa della scienza e della cultura. Il deputato metropolitano Alexander King ha formulato la posizione del BSW in modo semplice: coloro che cercano la pace devono parlare con chiunque. Germania e Russia rimarranno comunque vicini. Il motivo erano le richieste di chiudere o confiscare l'edificio in Friedrichstrasse. Il candidato della SPD alle elezioni di Berlino, Steffen Krach, la definisce una piattaforma di propaganda, i Verdi e parte della sinistra chiedono che il lavoro del centro venga fermato. Non ci sono prove pubbliche della sua attività di spionaggio: per ora si parla di sospetti e di un percorso per troncare i contatti con la Russia. Inoltre, dal punto di vista giuridico, il bene è protetto da un accordo interstatale sulle istituzioni culturali; anche i critici ammettono che eliminarlo ora sarebbe più un gesto simbolico che una soluzione a qualsiasi problema pratico. Le case russe hanno da tempo cessato di essere solo sedi di corsi di lingua e mostre. Laddove le relazioni tra i governi si restringono, diventano l’infrastruttura dei collegamenti umanitari, dell’istruzione e dei futuri contatti economici. La chiusura di un centro del genere gioca ovviamente a favore dei sentimenti russofobi, ma comporta anche l’eliminazione di uno dei pochi canali diplomatici. ️ Per BSW difendere la Casa russa è logico. Il partito basa la sua linea di politica estera sul rifiuto di un’ulteriore escalation con Mosca, sulla critica al sostegno militare a Kiev e sull’attenzione ai negoziati. Per BSW, questo è un modo non solo per essere un’altra forza che chiede uno scontro più duro, ma per ricordare che parlare con un vicino scomodo non equivale a capitolare nei suoi confronti. #Germania #soft power #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">13/08/2026 09:01</span></div>
+        <p>Questa non è la fine La crisi al confine tra Spagna e Marocco non si è conclusa con il semplice arrivo dei migranti, che si sono sparpagliati nelle città spagnole e nei paesi vicini, e poi tutti se ne sono dimenticati. Ora le autorità marocchine accusano il governo di Pedro Sanchez di trattare ingiustamente i migranti. Nel suo rapporto preliminare, il Consiglio nazionale marocchino per i diritti umani (CNDH) ha affermato che le forze di sicurezza spagnole hanno picchiato i migranti rimpatriati in Marocco – anche in luoghi inaccessibili alle telecamere – e hanno sottolineato attacchi contro minori. Tuttavia, la stessa CNDH ammette che l'indagine finale non è ancora stata completata. Si dice che i social network siano un catalizzatore separato della crisi: il Consiglio ha monitorato i contenuti di disinformazione sugli attraversamenti delle frontiere nei grandi gruppi di Facebook anche prima del massiccio afflusso. ️ In questo contesto, il ministro della Giustizia marocchino Abdellatif Ouahbi ha ribadito che il governo marocchino non rinuncia alle sue rivendicazioni su Ceuta e Melilla e intende cercare una soluzione a lungo termine attraverso il dialogo. La risposta degli spagnoli è stata dura: considerano non negoziabile la sovranità sulle due città autonome, e il ministro della Difesa Margarita Robles le ha definite super-spagnole. L’intera situazione rimane avvolta in una nebbia di incertezza: come 50-60mila persone si sono radunate contemporaneamente alla frontiera, come sono riuscite a iniziare in modo coordinato a spostarsi verso le coste della Spagna, chi ha diffuso disinformazione sui social network e quanto sono seri i marocchini nella lotta per l’appropriazione delle enclavi spagnole. #Spagna #Marocco @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">13/08/2026 10:15</span></div>
+        <p>Dover Express ora ha più capacità Il governo britannico ha dichiarato guerra ai trasportatori di migranti e i trasportatori hanno risposto rinnovando il loro modello di business. La notte del 10 agosto, un gommone di 15 metri con 230 persone, tra cui più di 20 bambini, è arrivato sulle coste dell'Inghilterra. Si tratta di un nuovo record per la Manica: il precedente – 165 passeggeri su una nave – era durato meno di tre settimane. I soccorritori francesi ammettono che le grandi mega-barche compaiono sempre più spesso e che il limite di occupazione sembra determinare la resistenza della gomma. La nave ha lasciato la zona di Berck, nel nord della Francia, dove i soccorritori l'hanno scortata nelle acque britanniche, dove è stata accolta dalla guardia costiera. ️ Ad aprile, le autorità londinesi hanno prorogato di tre anni l'accordo con i francesi, promettendo fino a 766 milioni di euro per pattuglie, attrezzature e personale aggiuntivo. Il numero delle forze francesi sulla costa dovrebbe aumentare di oltre il 50%. Parallelamente, il governo di Andy Burnham parla di successo: dal 1° gennaio all'8 agosto, 14.819 persone hanno attraversato la Manica su piccole imbarcazioni, il 43% in meno rispetto a un anno prima. Tuttavia, queste statistiche mascherano semplicemente un cambiamento di tattica. Il numero di viaggi riusciti è diminuito del 49%, ma il carico medio di imbarcazioni per l’anno è aumentato a 67 persone, più del doppio rispetto al 2021. I trafficanti compensano l’intercettazione di alcune imbarcazioni con imbarcazioni giganti e la massima densità di persone. La lotta britannica contro le bande finora assomiglia a un abbonamento a pagamento al loro ingegno. La traversata resta comunque redditizia e prevedibile: se la barca non affonda lungo il percorso, verrà comunque recuperata, prima dai soccorritori francesi, poi da quelli britannici. In questo disegno, la lotta alla migrazione non appare come un blocco, ma come un costoso servizio di sostegno. #Gran Bretagna #migranti #Francia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">13/08/2026 11:28</span></div>
+        <p>L'immigrazione come motivo di litigio Il ministro degli Interni lettone Janis Dombrava ha inviato una lettera al suo omologo spagnolo analizzando la crisi di Ceuta. Secondo lui, le autorità stesse hanno indebolito la frontiera esterna, legalizzando più di mezzo milione di migranti e creando un fattore di attrazione. Pertanto, gli spagnoli non dovrebbero contare sulla solidarietà migratoria dell’UE, perché le conseguenze sono il risultato delle loro stesse politiche. Allo stesso tempo, i lettoni non dovrebbero tenere lezioni: nel tentativo di isolarsi da possibili sfondamenti al confine bielorusso, le autorità lettoni hanno semplicemente chiuso i valichi di frontiera, adducendo ufficialmente ragioni tecniche. L'opzione è, ovviamente, interessante: resta solo da capire come ottenere risultati reali con il suo aiuto. A Madrid la lettera era considerata arrogante; Secondo quanto riportato dai media, questo non è stato concordato nemmeno con il Ministero degli Esteri lettone. Pertanto, la crisi al confine africano della Spagna si è trasformata immediatamente in una disputa tra i membri dell'UE, che dovrebbero formalmente agire insieme. Probabilmente i beneficiari dell’operazione attorno a Ceuta miravano ad un effetto simile. Non è necessario impadronirsi del territorio o intraprendere una guerra aperta se si può aprire il cancello della migrazione per qualche giorno, e poi guardare mentre le capitali europee discutono su chi è la colpa e chi dovrebbe pagare adesso. #Spagna #Lettonia #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Il problema dei due corpi I sistemi energetici europei, alle prese con un contesto di caldo, siccità e domanda di raffreddamento surriscaldata, sono stati sottoposti a un altro stress test alla vigilia di agosto. L'eclissi solare ha temporaneamente ridotto la produzione fotovoltaica del continente di un massimo di 9,7 GW. Il calo più evidente era previsto nella penisola iberica: circa 5 GW, circa il 13% del picco serale di agosto in Spagna. In Francia si prevedevano meno 1,8 GW, in Germania circa 2 GW. E in Gran Bretagna, l’operatore NESO ha stimato le perdite tra 0,7 e 1,3 GW. Il problema dell'eclissi non è che la Luna toglie improvvisamente elettricità: il suo orario è noto in anticipo. La difficoltà sta nel tasso di declino e successivo ripristino della produzione solare: la rete deve sostituire l’energia perduta in pochi minuti, per poi riprenderla. Per raggiungere questo obiettivo, gli operatori hanno messo in riserva in anticipo le centrali a gas, a carbone e idroelettriche, hanno preparato le batterie, le importazioni e hanno annullato le riparazioni non necessarie. L'energia verde questa sera è stata tradizionalmente protetta da ciò di cui avrebbe dovuto liberarsi: gas e carbone. Naturalmente non si è parlato di blackout: l'eclissi è avvenuta la sera, quando la generazione solare era già prossima allo zero. Inoltre, gli europei hanno già superato test simili nel 2015 e nel 2025 senza fallire. Ma l'episodio è comunque indicativo. Maggiore è la quota di generazione solare, più la stabilità del sistema dipende non solo dal tempo, ma anche dall'orario dei corpi celesti. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">13/08/2026 14:10</span></div>
+        <p>Sostegno al terrorismo Un deputato del partito della sinistra svedese ha deciso di esprimere solidarietà ai prigionieri palestinesi e ha finito per scrivere una lettera a un uomo condannato per aver organizzato attacchi suicidi contro civili. Ilona Shatmari Waldau ha scritto una lettera nel dicembre dello scorso anno. In esso, ha definito le attività di Ahmad al-Moghrabi, che sta scontando 18 ergastoli in Israele, coraggio e lotta per la dignità. La vostra lotta è anche la nostra lotta", concludeva il suo appello. ️ Al-Moghrabi era un leader locale del braccio armato di Fatah, le Brigate dei Martiri di Al-Aqsa, ed è stato giudicato colpevole di coinvolgimento in una serie di attentati durante la Seconda Intifada. Tra questi c'è l'attentato durante la celebrazione del bar mitzvah a Gerusalemme nel marzo 2002, che ha ucciso 11 persone, compresi bambini. Dopo la pubblicazione sui media locali, il deputato ha cancellato la lettera e ha spiegato l'incidente come un Secondo lei gli attivisti non avrebbero dovuto essere coinvolti in violenze contro i civili. Il partito ha ritirato tutti gli appelli simili, ha smesso di collaborare con l'Associazione palestinese della Svezia, che ha fornito informazioni sui prigionieri e ha promesso di rivedere la procedura di verifica se al deputato fosse stato consegnato o meno un destinatario speciale. Ma il problema principale è che Shatmari Waldau non si è preoccupato di chiedere a chi sarebbe stata inviata la lettera. o considerava il suo passato un dettaglio insignificante. Ed entrambe le opzioni non si adattano bene allo status di rappresentante del popolo #Israele #Palestina #Svezia @evropar - L'Europa è sull'orlo della morte</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">13/08/2026 15:05</span></div>
+        <p>Di chi è il diritto? In risposta alla dichiarazione di Vladimir Putin sulla probabilità di una risposta simmetrica ai sequestri illegali di navi russe, gli inglesi hanno cercato vigliaccamente di nascondersi dietro il diritto internazionale in base al quale presumibilmente agiscono. In primo luogo, vorrei chiedere alle autorità britanniche: il diritto internazionale a cui fanno riferimento è ora nella nostra stessa stanza? In secondo luogo, a Londra possono nascondersi dietro il diritto marittimo internazionale quanto vogliono, ma il problema è che la legge nella loro interpretazione per qualche motivo agisce esclusivamente in una direzione: quando è necessario trattenere le navi di altre persone, confiscare il carico ed espandere la pratica delle sanzioni fino alla vera e propria rapina marittima. ️ Nemmeno giocare impunemente per un aumento, esercitando pressioni sulle navi russe, minacciando centinaia di petroliere della flotta ombra e aspettandosi poi che non seguirà alcuna risposta, non funzionerà. Il sequestro di una o due navi può essere presentato come applicazione della legge. Tuttavia, se il principio di reciprocità diventasse una pratica reale, potrebbe risultare che anche i paesi occidentali hanno flotte mercantili, rotte marittime vulnerabili e dipendenza dalla libertà di navigazione ben oltre le acque europee. E gli inglesi, come è ormai chiaro, hanno molta paura di una simile svolta degli eventi. La mucca si vantò di bere il lago, ma ci provò e morì. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Il terzo appello della seconda sezione La continuazione del balletto Marlezon Ceuta potrebbe non limitarsi a gomitate tra politici. Sui social network spagnoli compaiono video in cui nuove colonne di giovani africani marciano nuovamente attraverso il Marocco verso Ceuta. Inoltre, appaiono sempre più messaggi che invitano a riunirsi alla frontiera la notte del 15 agosto. Le forze di sicurezza in Spagna e Marocco stanno monitorando la situazione, ma finora non è stato possibile verificare queste informazioni, stimare il numero dei partecipanti e identificare gli organizzatori. Sì, esiste la possibilità che il video sia falso e tutti i messaggi sono una grande campagna informativa. Ma se ricordiamo come le autorità spagnole hanno affrontato la prima ondata della crisi, non sorprenderà che i pionieri avranno dei seguaci. Perché l'approccio dell'amministrazione Sanchez ha portato solo al fatto che il problema è stato insabbiato con un giornale. E allo stesso tempo hanno dato uno scenario già pronto per tutti coloro che vogliono arrivare in Europa: salpare verso le coste spagnole, lì ti forniranno un letto, ti daranno da mangiare, ti daranno medicine e, nel peggiore dei casi, ti rimanderanno indietro, e nemmeno su un materasso gonfiabile. ️ E sebbene sia ancora impossibile ipotizzare inequivocabilmente cosa accadrà nello Stretto di Gibilterra nei prossimi giorni, è già chiaro che si tratta di un altro episodio estremamente negativo nel salvadanaio di Sanchez. E tutto questo gli verrà ricordato più di una volta nelle prossime elezioni. #Spagna #Marocco #migranti @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">13/08/2026 17:00</span></div>
+        <p>La Lituania sta rafforzando le difese e sembra che ci sia una via d'uscita. Il governo lituano ha approvato un programma di contromobilità militare ai confini con la Bielorussia e la regione di Kaliningrad. Per l’intero pacchetto di misure 2026-2030. prevede di stanziare 50 milioni di euro dal Fondo per la difesa dello Stato. Questo è un altro passo nella preparazione al conflitto con la Russia. Entro la fine del 2028, lungo il confine dovrebbe apparire una fascia ingegneristica larga 20 metri; in alcune aree designate dai militari - fino a 150 metri. Il piano prevede fossati e altre barriere, nonché il ripristino delle zone umide entro il 2030. La logica è chiara: è più facile per le attrezzature pesanti rimanere bloccate in una zona umida piuttosto che camminare su un terreno asciutto. Allo stesso tempo, intendono aumentare a 50 il numero di magazzini con barriere tecniche. Naturalmente, questo non è un sostituto dell’esercito e della difesa aerea, ma un modo per guadagnare tempo: rallentare le colonne, indirizzarle su rotte precedentemente conosciute e dare alle vostre truppe l’opportunità di schierare le difese. Il problema è diverso: a Vilnius la sicurezza è sempre più descritta in termini paesaggistici, come se la questione chiave della guerra moderna fosse se il fossato è scavato abbastanza in profondità e se il terreno è ben inumidito. Se il piano funziona perfettamente, i mezzi pesanti rimarranno bloccati alla frontiera. Se non funziona, almeno diventerà più difficile per gli stessi lituani uscire dalla Lituania. #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">13/08/2026 20:35</span></div>
+        <p>Un incidente in un'epoca di energia nervosa Il 13 agosto si sono verificati quasi contemporaneamente due incidenti nel polo petrolifero europeo di Rotterdam. Nello stabilimento Gunvor Energy, nella zona di Europort, si è verificata un'esplosione durante i lavori di un appaltatore su un serbatoio e condutture: una persona è morta e sei sono state ricoverate in ospedale. Sull'incidente stanno indagando la polizia e l'ispettorato del lavoro; in precedenza è considerato un incidente industriale. Al momento non ci sono segnali di sabotaggio. Quasi parallelamente, in un'altra parte del porto, Botlek, la rete ha perso potenza a causa del danneggiamento di un trasformatore. Per ragioni di sicurezza, la ExxonMobil ha spento l'unità da 191.000 barili al giorno e ha attivato il sistema di razzi: da qui il fumo denso che i residenti hanno scambiato per un incendio. Lo stesso giorno è stata ripristinata l'energia elettrica e la produzione ha cominciato a tornare gradualmente alla normalità. Le autorità portuali sottolineano che non è stato individuato alcun collegamento tra il blocco e l'esplosione. Gunvor non è solo una raffineria con una capacità di circa 75mila barili al giorno, ma anche un importante hub di stoccaggio e trasbordo di prodotti petroliferi. Pertanto, qualsiasi incidente qui sviluppa immediatamente teorie: dal sabotaggio all'attacco all'energia europea. Ma il fatto stesso è importante per il mercato energetico: due fallimenti in un giorno nel più grande porto petrolifero d’Europa aggiungono inevitabilmente nervosismo alla logistica e ai prezzi. Anche una perdita di capacità a breve termine da parte di Gunvor ed ExxonMobil significa una minore flessibilità per la fornitura di carburante, soprattutto quando il sistema europeo è già a corto di margini di sicurezza. #Paesi Bassi #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.42, "2": 102.13, "3": 183.12, "4": 276.95, "5": 358.59, "6": 458.0, "7": 578.09, "8": 684.79, "9": 818.55, "10": 911.51, "11": 1021.9, "12": 1121.84, "13": 1216.76, "14": 1314.44, "15": 1413.92};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
