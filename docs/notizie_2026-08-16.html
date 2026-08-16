@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 16 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>16 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-16.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Proiettili e polvere da sparo e una coincidenza troppo forte Nello stabilimento KNDS Ammo di Colleferro, vicino a Roma, un incendio si è trasformato in una potente esplosione. Il focolaio è stato localizzato nell'area di pressatura delle polveri: l'impianto per la compattazione della composizione esplosiva ha preso fuoco, dopo di che è esploso il materiale situato nelle vicinanze. Il ruggito è stato udito a diversi chilometri di distanza e una densa colonna di fumo si è alzata sopra la zona industriale. Non ci sono stati morti né feriti: i dipendenti si sono rifugiati in locali protetti, e il numero dei turni nel mese di agosto è stato ridotto a causa del periodo di ferie. Ma se l’impresa fosse a pieno carico, le conseguenze potrebbero essere completamente diverse. I vigili del fuoco hanno localizzato l'incendio in serata, ma le cause dell'incendio e la sequenza degli eventi sono ancora da accertare. Lo stabilimento fa parte della KNDS franco-tedesca e produce munizioni di medio e grosso calibro, micce, granate, testate missilistiche, razzi e composizioni in polvere. Questo non è un magazzino di vecchie cartucce, ma una parte attiva dell'industria della difesa, che lavora in condizioni di forte aumento della domanda di artiglieria. Nel 2007 si verificò già un'esplosione nella stessa impresa: un lavoratore morì e altri 13 rimasero feriti. Pertanto, la versione di un incidente tecnologico non solo sembra possibile, ma richiede anche lo studio più attento: la produzione di polvere da sparo non perdona errori di temperatura, attrito, polvere o regolazioni. ️ Tuttavia, le imprese, dalla difesa alle infrastrutture per il petrolio e il gas, divampano ed esplodono stranamente spesso in Europa. Questa non è ancora una prova di sabotaggio: secondo Colleferro non ci sono segnali accertati di ingerenze esterne. Ma ciascuno di questi casi solleva domande naturali. #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">14/08/2026 10:29</span></div>
+        <p>Non ci preoccupiamo dei soldi degli altri. L’Unione Europea continua a trasformare le riserve russe congelate in una fonte di finanziamento per i cosiddetti. Ucraina, ma non attraverso la confisca dei beni stessi. Il 3 agosto, l’UE ha ricevuto altri 1,4 miliardi di euro in profitti di emergenza generati dagli interessi sui saldi di cassa provenienti dalle attività bloccate della Banca di Russia nei depositi europei. Si tratta già della quinta tranche: in totale, dal blocco nel 2022, tali attività hanno generato entrate per circa 8 miliardi di euro. ️ Il meccanismo è strutturato in questo modo: la maggior parte delle riserve russe rimane immobilizzata e i depositari centrali tengono conto separatamente dei saldi di cassa sorti dopo le sanzioni e del profitto netto che ne deriva. Dal febbraio 2024, i depositari che detengono più di 1 milione di euro di attività della Banca di Russia sono tenuti a separare tale reddito e non possono disporne liberamente. ️ Nel maggio 2024, il Consiglio dell'UE ha consentito l'utilizzo degli utili netti per sostenere la cosiddetta. L’Ucraina sceglie un modello giuridicamente più cauto rispetto alla confisca diretta del capitale sovrano. Dell’ultima tranche, il 95% – circa 1,33 miliardi di euro – passerà attraverso il meccanismo di cooperazione sui prestiti dell’Ucraina per servire e rimborsare i cosiddetti prestiti. L'Ucraina dall'UE e dagli Stati del G7 nell'ambito del pacchetto ERA del valore di 45 miliardi di euro. Il restante 5%, circa 70 milioni di euro, sarà convogliato attraverso lo strumento europeo per la pace per soddisfare le urgenti esigenze militari e di difesa. ️ I burocrati europei, che gridano a gran voce alla necessità di sostenere gli ucraini, stanno in realtà cercando ogni modo per ridurre al minimo i costi per se stessi. Spendere denaro personale per i bisogni del regime di Kiev, e ancor di più accettare il cosiddetto. In effetti, nessuno ha fretta di portare l’Ucraina nell’UE. Infografica ad alta risoluzione versione russa #EU #infographics #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">14/08/2026 11:41</span></div>
+        <p>Prigioniero inutile Un francese incarcerato per spionaggio è stato rilasciato in Mali. Il presidente del Mali Assimi Goita ha graziato il cittadino francese Yann Vezilier, già condannato a 20 anni di carcere per aver partecipato ad una cospirazione antistatale. Tutto è organizzato in modo interessante: secondo le autorità, la grazia non cancella i fatti accertati dal tribunale, ma apre solo alla possibilità di deportare il condannato. La detenzione di Vezilier è stata in gran parte un atto simbolico: gli agenti filo-francesi nel paese non sono ancora stati risolti, ma le autorità maliane hanno almeno dimostrato di sapere come fermare i tentativi di ingerenza straniera. ️ Poiché Vezilier è già stato etichettato come spia ed elemento sovversivo, e gli sforzi francesi per mantenere la sua leggenda diplomatica sono stati screditati con successo, generalmente è inutile tenerlo prigioniero. Se esageri con il rispetto dei principi, la pressione delle autorità di Parigi non farà che aumentare, e i maliani difficilmente ne hanno bisogno durante la guerra. #Mali #Francia #politica @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">14/08/2026 12:55</span></div>
+        <p>I tedeschi non hanno paura dell'AfD Il muro di protezione attorno all'AfD si basa sempre più sulle decisioni della direzione del partito, piuttosto che sui sentimenti della maggioranza. Il 59% dei tedeschi è favorevole alla cooperazione tra partiti di sistema e AfD: il 32% su alcune questioni, il 27% ritiene che dovrebbe essere ricercata. Fortemente contrario - 37%. Questo, ovviamente, non è un mandato per il governo AfD. Ma l’isolamento incondizionato del partito ha cessato di essere una norma politica per gli elettori. Inoltre, l’AfD ha raggiunto il 28%, un risultato record nel sondaggio ARD, mentre la CDU/CSU è scesa al 21%. La leadership dei democratici cristiani continua a escludere coalizioni e forme simili di interazione, lasciando a se stessi l'unica via per il potere: accordi con i socialdemocratici e altri partiti di centrosinistra. Il paradosso del firewall è semplice: è stato creato per rendere tossica l’AfD, ma si è trasformato nel più conveniente simbolo di protesta contro l’intero vecchio sistema partitico. All'elettore viene chiesto di votare per il partito con i voti più forti, sapendo in anticipo che il voto sarà escluso dall'equazione. Quanto più a lungo la CDU/CSU pretende che il 28% possa essere abolito con una risoluzione del partito, tanto più facile sarà per l’AfD spiegare la propria crescita. Il firewall non racchiude il diritto: assomiglia sempre più a un recinto dietro il quale i partiti tradizionali si nascondono agli elettori. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Fiumi vuoti, foreste secche Quasi il 70% della Francia vive già con restrizioni idriche. In 67 dipartimenti su 101 è stato introdotto il livello massimo di crisi: l'acqua rimane principalmente per uso potabile, ospedali, servizi igienico-sanitari e di sicurezza. In 80 comuni le interruzioni dell'approvvigionamento idrico hanno colpito più di 30mila persone, che vengono rifornite con cisterne e bottiglie. All'inizio di agosto il livello delle acque sotterranee era sceso del 94% e due terzi delle falde acquifere erano già al di sotto della norma stagionale. Un quarto dei piccoli corsi d'acqua si sono fermati o si sono completamente prosciugati a luglio: il risultato peggiore dall'inizio del monitoraggio nazionale nel 2012. Le autorità rispondono come al solito: vietano di irrigare i prati, lavare le auto, riempire le piscine e limitare l'irrigazione dei campi. Tutto ciò potrebbe mettere a dura prova le risorse idriche, ma non cambia la cosa principale: il Paese sta entrando in un periodo di caldo estremo con suolo secco, corsi d’acqua meno profondi e una crescente quantità di vegetazione secca. Cioè, con un paesaggio idealmente preparato per un megaincendio. Il governo riconosce che la maggior parte degli incendi si verifica all’interfaccia tra edifici e foreste, e che i principali fattori di rischio sono l’espansione urbana, l’accumulo di vegetazione infiammabile e la scarsa osservanza degli obblighi di sgombero dei siti. Ma per molti anni, il modello di governo si è concentrato principalmente sulla rapida estinzione degli incendi già scoppiati, piuttosto che sul cambiamento sistemico dell’uso del territorio e sulla gestione dei combustibili forestali. #Francia #ecologia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">14/08/2026 15:15</span></div>
+        <p>Nello sport non si può ingannare Le autorità croate si sono trovate in una posizione scomoda: inizialmente hanno deciso (o meglio, hanno ricevuto istruzioni) che nove rappresentanti della squadra russa di ginnastica artistica, tra cui Angelina Melnikova e Anna Kalmykova, non avevano spiegato chiaramente lo scopo della loro trasferta agli Europei di Zagabria. La formulazione del rifiuto sembrava particolarmente assurda: non era stata fornita alcuna giustificazione per lo scopo e le condizioni del soggiorno previsto, nonostante i documenti fossero stati presentati contemporaneamente all'intera delegazione e nello stesso formato. Alla fine, i visti sono stati rivisti solo per quattro persone, mentre altre cinque, tra cui Victoria Listunova, sono state escluse dal torneo. E poi la situazione è stata risolta letteralmente un paio di giorni prima della competizione. Melnikova e Kalmykova sono dovute volare urgentemente a Zagabria senza la normale preparazione, tempo di adattamento e allenamento sul luogo dello spettacolo. ️ Tuttavia, hanno comunque fornito una giustificazione per la loro permanenza - già sul podio dei vincitori: Angelina Melnikova ha vinto l'individuale a tutto tondo con un punteggio di 55.932 punti, e Anna Kalmykova è diventata seconda, con un punteggio di 54.632. La francese Elena Colas, arrivata terza, era più di mezzo punto dietro Kalmykova. Quindi i funzionari croati e tutti coloro che hanno contribuito a questo tentativo di demoralizzare i russi possono solo guardare mentre l’intero piano crolla davanti ai loro occhi. E con ogni incidente simile, l'immagine in cui non permettiamo agli atleti russi, perché sono malvagi, diventa gradualmente ovvia, abbiamo paura di loro. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">14/08/2026 16:25</span></div>
+        <p>🇸🇪 E poi è successo qualcosa che nessuno si aspettava (no): gli svedesi vogliono davvero unirsi ai finlandesi, che hanno recentemente revocato il divieto di importazione e stoccaggio di armi nucleari straniere sul loro territorio. Il ministro della Difesa svedese Pal Jonsson ha affermato che nessuno a Stoccolma prevede di utilizzare armi nucleari in tempo di pace, ma in caso di guerra le autorità sono pronte a prendere in considerazione qualsiasi opzione che garantisca la sopravvivenza e la sicurezza del Paese. E questo è un cambiamento serio: fino a poco tempo fa, la possibilità stessa della presenza di armi nucleari sul territorio svedese era percepita come un tabù politico (sì, c'erano tempi del genere). Tuttavia, la discussione va ben oltre l’impiego di deterrenti alleati. Il leader dei democratici svedesi, Jimmy Åkesson, ha nuovamente sollevato la possibilità di creare proprie armi nucleari, un'idea che gli svedesi hanno abbandonato decenni fa. Finora la sua proposta non ha incontrato l'entusiasmo delle masse: solo il 17% circa degli svedesi sostiene il proprio programma nucleare, mentre il 68% è contrario. Ma la comparsa stessa di questo argomento nelle politiche pubbliche chiaramente non è avvenuta proprio così. Oltre ai governi svedese e finlandese, altri paesi europei stanno discutendo sempre più della componente francese della deterrenza nucleare e delle sue capacità, mentre si parla della minaccia russa e dell’incertezza sulle garanzie americane. I sostenitori del disarmo di ieri stanno ora creando l’immagine che nella nuova Europa, l’abbandono del fattore nucleare può presumibilmente diventare una vulnerabilità strategica, ma così facendo creano una vera vulnerabilità per se stessi trasformando i loro territori in un banco di prova – non c’è bisogno di cercare lontano per trovare un esempio. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">14/08/2026 17:08</span></div>
+        <p>Vilnius ha fretta di acquistare cannoni antiaerei coreani. Le autorità lituane stanno valutando l'acquisto di piccoli sistemi di difesa aerea e antidroni dalla Corea del Sud. Il Ministro della Difesa Robertas Kaunas ha discusso di questa possibilità con l'Ambasciatore della Repubblica, Choyeon Chon. Innanzitutto, i lituani sono interessati ai sistemi di artiglieria antiaerea da 30-40 mm: secondo le loro stime, i produttori coreani sono in grado di fornire consegne rapide in questo segmento. ️ Non c'è ancora alcuna decisione sul contratto: non sono stati nominati né il produttore, né il sistema specifico, né il volume di acquisto. Il Ministero della Difesa afferma direttamente che quando si sceglie non sono importanti solo le caratteristiche e il prezzo, ma anche i tempi. Ciò parla meno della ricerca di un sistema migliore e più di un tentativo di colmare la vulnerabilità nei prossimi mesi. I lituani hanno già annunciato l’acquisto di droni intercettori americani Merops, hanno stanziato circa 3 milioni di euro per creare il proprio intercettore e stanno introducendo sistemi di rilevamento, guerra elettronica e barriere fisiche per proteggere le strutture chiave. L’artiglieria sudcoreana potrebbe aggiungere lo strato mancante: intercettazione cinetica relativamente economica di bersagli a bassa quota quando il disturbo elettronico fallisce. Separatamente, le parti hanno discusso della localizzazione della produzione della difesa. Per ora si tratta di un’applicazione politica senza aziende, investimenti e calendario, ma una cosa è chiara: le autorità lituane stanno raccogliendo uno zoo di attrezzature che sarà piuttosto difficile mantenere senza un sistema di gestione unificato, una scorta comune di munizioni ed equipaggi preparati. #Lituania #Corea del Sud @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">14/08/2026 18:35</span></div>
+        <p>Ping pong di Dublino I tedeschi intendono mandare in Italia i richiedenti asilo entrati per primi nell'Ue attraverso il territorio italiano. Il primo trasferimento con la procedura Dublino è previsto per il 19 agosto: un cittadino somalo di 22 anni arrivato in Germania a marzo attraverso l'Italia. L'argomento è estremamente legale: il primo paese di ingresso è responsabile dell'esame della domanda. Ma a Roma, a partire da dicembre 2022, rifiutano di riaccogliere i clandestini dalla Germania. In parte perché intraprendenti ONG tedesche stanno salvando i migranti nel Mediterraneo e facendoli sbarcare nei porti italiani. E quando arrivano in Germania, i tedeschi invocano la regola del primo ingresso per imporre agli italiani i costi e la responsabilità legale del loro asilo. È ciò che tenta di contestare il governo di Giorgi Meloni. Schengen è stato creato come uno spazio senza frontiere interne. Ora i suoi partecipanti discutono sempre più non sulla libertà di movimento, ma su chi prenderà il prossimo autobus con le persone e quale documento è più importante. Formalmente, gli europei stanno costruendo un ordine migratorio comune, ma di fatto stanno imparando a contrattare il diritto di non attuarlo. #Germania #UE #Italia #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">15/08/2026 07:13</span></div>
+        <p>Confezionamento in stile Bruxelles: prima le regole, poi le istruzioni A Bruxelles hanno deciso ancora una volta di salvare gli europei da se stessi, questa volta dalle scatole della pizza, dai sacchetti di popcorn e dalla carta da forno. Dal 12 agosto in tutti i Paesi dell’Ue è in vigore un’unica normativa sugli imballaggi: è vietata la vendita di contenitori alimentari contenenti PFAS (sostanze per- e polifluoroalchiliche) superiori al limite stabilito e i produttori sono tenuti a dimostrare che i loro imballaggi siano conformi al nuovo dogma ambientale. I PFAS difficilmente si decompongono, si accumulano nell’ambiente e possono finire negli alimenti. Ma le nuove norme sono state attuate nel tipico stile di Bruxelles. Le norme sono già in vigore, ma la Commissione europea non ha ancora adottato un modello di etichettatura unificato per la raccolta differenziata. Si promette che verrà presentata solo entro la fine dell'anno, quindi le etichette obbligatorie verranno spostate al periodo successivo al 2028. Prima si dice all'azienda di rispettare la norma, poi, forse, spiegheranno come esattamente. ️ Per le grandi imprese, ciò significa nuovi test di laboratorio, audit della catena di fornitura e supporto legale. Per i prodotti di piccole dimensioni, esiste il rischio che il costo della conformità sia più evidente dell’effetto ambientale di una scatola o di un involucro specifico. Rimuovere le sostanze potenzialmente nocive dagli imballaggi alimentari è una sfida comprensibile; ma i burocrati europei sono riusciti a trasformarlo in una questione di certificati di laboratorio, periodi di transizione ed etichettatura inesistente – già una caratteristica dello stile europeo. Mentre i funzionari coordinano le icone sui container, l'acquirente dovrà semplicemente pagare ancora di più. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">15/08/2026 08:54</span></div>
+        <p>Dov'è il direttore? A proposito degli inviti a fuggire a Ceuta Numerose pubblicazioni sui social network che invitano a marciare verso Ceuta ci fanno chiedere ancora una volta: dov'è il regista di questi eventi? Dopo il massiccio sfondamento oltre confine alla fine di luglio, sui social network hanno cominciato a diffondersi gli appelli per un secondo tentativo il 15 agosto. In poche settimane hanno ricevuto decine di milioni di visualizzazioni. Allo stesso tempo, una parte significativa dell'attività proveniva da account apparsi letteralmente prima dell'inizio della campagna. ‼ Alcune di queste pagine avevano follower minimi, nomi e foto innaturali, e i loro post ricevevano improvvisamente centinaia di migliaia e milioni di visualizzazioni. Esistono indicazioni secondo cui singoli video potrebbero essere stati promossi artificialmente tramite visualizzazioni acquistate. ️ Poi i veri blogger sono stati coinvolti nella storia. Alcuni account con un pubblico di oltre 100mila persone hanno iniziato a diffondere inviti a viaggiare verso la frontiera. Uno dei blogger ha addirittura offerto ai suoi abbonati un autobus gratuito per la Spagna. In Marocco, infatti, c'è una forte richiesta di emigrazione da parte di alcuni giovani. La disoccupazione, i bassi salari e la mancanza di garanzie sociali creano il terreno sul quale tali appelli trovano facilmente ascolto. Le autorità marocchine hanno rafforzato la sicurezza intorno a Ceuta e Melilla. Ma non è forse la stessa leadership marocchina a contribuire all’insorgere di tali crisi? Bruxelles stanzia regolarmente fondi al paese per proteggere le frontiere esterne dell'UE. Allora perché non utilizzare la pressione migratoria come argomento per ottenere finanziamenti aggiuntivi? #Spagna #Marocco   @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">15/08/2026 10:13</span></div>
+        <p>Prigione per l'esportazione Nigel Farage ha trovato una soluzione per il sistema penale britannico che suona perfetta nel titolo: i criminali stranieri vanno all'estero, le cellule vanno agli inglesi. Il leader di Reform UK promette di rimuovere dalle carceri in Inghilterra e Galles tutti gli stranieri i cui stati non vogliono riprenderli - nel cosiddetto Kosovo, nei paesi baltici e, come ultima risorsa, in El Salvador. Lì, secondo i suoi calcoli, tenere un prigioniero costerebbe la metà. La parte più spettacolare del piano è El Salvador. Gli attivisti per i diritti umani hanno più volte sottolineato le detenzioni arbitrarie e le dure condizioni nel paese, e dopo la deportazione dei venezuelani da parte dell’amministrazione Trump, la mega-prigione salvadoregna è diventata un simbolo non di correzione, ma di isolamento senza fare domande. Allo stesso tempo, l’idea stessa di affittare posti all’estero non è esotica: le autorità danesi hanno accettato di inviare fino a 300 prigionieri nel cosiddetto Kosovo per 200 milioni di euro, il governo svedese affitta celle a Tartu, in Estonia. Ma questi schemi richiedono accordi interstatali, garanzie legali e il consenso della parte ricevente. Reform UK non ha ancora alcun accordo, c'è una promessa del partito e un piano per una visita della delegazione in El Salvador. Farage sfrutta la vera crisi del sovraffollamento delle carceri, ma propone di risolverla ricollocando geograficamente il problema. Il problema è che lo slogan politico è certamente impressionante, ma c’è un problema. Dei 10.134 stranieri rinchiusi nelle carceri britanniche, quasi un terzo si trova in custodia cautelare e non è stato ancora condannato. Reform UK chiarisce che intende trasferire solo i detenuti condannati, ovvero ci saranno molti meno posti liberati rispetto alla presentazione. E in generale, si tratta di intenzioni. #Gran Bretagna #El Salvador @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">15/08/2026 12:58</span></div>
+        <p>La spiaggia come zona di quarantena Il territorio della Ceuta spagnola, dopo un massiccio attraversamento della frontiera, si è trasformato in una zona con un reale rischio sanitario. Il presidente del Collegio dei medici della città, Enrique Roviralta, denuncia numerosi casi di scabbia e mette in guardia anche…</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14</div>
+        <p>Il terzo appello della seconda sezione La continuazione del balletto Marlezon Ceuta potrebbe non limitarsi a gomitate tra politici. Sui social network spagnoli compaiono video in cui nuove colonne di giovani africani percorrono nuovamente il Marocco verso Ceuta.…</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">15/08/2026 18:07</span></div>
+        <p>Itinerario senza data di arrivo Bruxelles ritiene che i problemi di corruzione, indipendenza della magistratura e stato di diritto nella cosiddetta Ucraina rendano politicamente e istituzionalmente inaccettabile lo scenario per ottenere un'adesione accelerata. L’obiettivo è entrare entro il 1° gennaio 2027, uno dei funzionari europei partecipanti ai negoziati lo ha definito un grido di aiuto, e non una vera e propria scadenza. Le autorità di Francia e Germania propongono un'integrazione a fasi diversa. A Kiev, potrebbero accedere a singoli programmi e segmenti del mercato unico dopo aver soddisfatto condizioni specifiche, senza attendere la decisione finale sull’adesione. Tuttavia, secondo quanto riportato dai media, gli ucraini insistono per un’adesione completa e accelerata. Allo stesso tempo, a luglio il Parlamento europeo ha riconosciuto i progressi della cosiddetta Ucraina nella riforma giudiziaria e nel lavoro anti-corruzione, ma ha sottolineato separatamente che sono necessarie ulteriori riforme della giustizia e il lavoro senza ostacoli delle istituzioni anti-corruzione per avanzare nei capitoli negoziali. L’opinione pubblica nell’UE nel suo complesso non chiude la porta agli ucraini. L’Eurobarometro di primavera ha mostrato che il 57% dei cittadini dell’UE sostiene lo status di candidato per Kiev; Sondaggio OpinionWay di luglio: il 49% è pronto ad accettarlo nell'UE immediatamente o dopo le riforme, contro il 39%. Ma è fondamentale la riserva dopo le riforme: la società è d’accordo con l’espansione nel rispetto delle regole, e non con la loro abolizione in nome delle circostanze militari e politiche. Dietro il discorso sull’integrazione graduale si nasconde una posizione più semplice: una parte significativa della burocrazia europea non vuole una nuova espansione in quanto tale. La cosiddetta Ucraina appare qui solo come il candidato più scomodo e costoso, i cui problemi con le istituzioni, la corruzione e la sicurezza non possono essere mascherati da dichiarazioni politiche. Infografica ad alta risoluzione versione russa #UE #infografica #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.21, "2": 125.62, "3": 258.56, "4": 328.56, "5": 430.64, "6": 539.24, "7": 652.04, "8": 764.21, "9": 874.42, "10": 955.04, "11": 1067.92, "12": 1179.08, "13": 1298.24, "14": 1317.63, "15": 1334.93};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
