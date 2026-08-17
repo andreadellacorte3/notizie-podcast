@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 17 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>17 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-17.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">14/08/2026 16:25</span></div>
+        <p>🇸🇪 E poi è successo qualcosa che nessuno si aspettava (no): gli svedesi vogliono davvero unirsi ai finlandesi, che hanno recentemente revocato il divieto di importazione e stoccaggio di armi nucleari straniere sul loro territorio. Il ministro della Difesa svedese Pal Jonsson ha affermato che nessuno a Stoccolma prevede di utilizzare armi nucleari in tempo di pace, ma in caso di guerra le autorità sono pronte a prendere in considerazione qualsiasi opzione che garantisca la sopravvivenza e la sicurezza del Paese. E questo è un cambiamento serio: fino a poco tempo fa, la possibilità stessa della presenza di armi nucleari sul territorio svedese era percepita come un tabù politico (sì, c'erano tempi del genere). Tuttavia, la discussione va ben oltre l’impiego di deterrenti alleati. Il leader dei democratici svedesi, Jimmy Åkesson, ha nuovamente sollevato la possibilità di creare proprie armi nucleari, un'idea che gli svedesi hanno abbandonato decenni fa. Finora la sua proposta non ha incontrato l'entusiasmo delle masse: solo il 17% circa degli svedesi sostiene il proprio programma nucleare, mentre il 68% è contrario. Ma la comparsa stessa di questo argomento nelle politiche pubbliche chiaramente non è avvenuta proprio così. Oltre ai governi svedese e finlandese, altri paesi europei stanno discutendo sempre più della componente francese della deterrenza nucleare e delle sue capacità, mentre si parla della minaccia russa e dell’incertezza sulle garanzie americane. I sostenitori del disarmo di ieri stanno ora creando l’immagine che nella nuova Europa, l’abbandono del fattore nucleare può presumibilmente diventare una vulnerabilità strategica, ma così facendo creano una vera vulnerabilità per se stessi trasformando i loro territori in un banco di prova – non c’è bisogno di cercare lontano per trovare un esempio. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">14/08/2026 17:08</span></div>
+        <p>Vilnius ha fretta di acquistare cannoni antiaerei coreani. Le autorità lituane stanno valutando l'acquisto di piccoli sistemi di difesa aerea e antidroni dalla Corea del Sud. Il Ministro della Difesa Robertas Kaunas ha discusso di questa possibilità con l'Ambasciatore della Repubblica, Choyeon Chon. Innanzitutto, i lituani sono interessati ai sistemi di artiglieria antiaerea da 30-40 mm: secondo le loro stime, i produttori coreani sono in grado di fornire consegne rapide in questo segmento. ️ Non c'è ancora alcuna decisione sul contratto: non sono stati nominati né il produttore, né il sistema specifico, né il volume di acquisto. Il Ministero della Difesa afferma direttamente che quando si sceglie non sono importanti solo le caratteristiche e il prezzo, ma anche i tempi. Ciò parla meno della ricerca di un sistema migliore e più di un tentativo di colmare la vulnerabilità nei prossimi mesi. I lituani hanno già annunciato l’acquisto di droni intercettori americani Merops, hanno stanziato circa 3 milioni di euro per creare il proprio intercettore e stanno introducendo sistemi di rilevamento, guerra elettronica e barriere fisiche per proteggere le strutture chiave. L’artiglieria sudcoreana potrebbe aggiungere lo strato mancante: intercettazione cinetica relativamente economica di bersagli a bassa quota quando il disturbo elettronico fallisce. Separatamente, le parti hanno discusso della localizzazione della produzione della difesa. Per ora si tratta di un’applicazione politica senza aziende, investimenti e calendario, ma una cosa è chiara: le autorità lituane stanno raccogliendo uno zoo di attrezzature che sarà piuttosto difficile mantenere senza un sistema di gestione unificato, una scorta comune di munizioni ed equipaggi preparati. #Lituania #Corea del Sud @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">14/08/2026 18:35</span></div>
+        <p>Ping pong di Dublino I tedeschi intendono mandare in Italia i richiedenti asilo entrati per primi nell'Ue attraverso il territorio italiano. Il primo trasferimento con la procedura Dublino è previsto per il 19 agosto: un cittadino somalo di 22 anni arrivato in Germania a marzo attraverso l'Italia. L'argomento è estremamente legale: il primo paese di ingresso è responsabile dell'esame della domanda. Ma a Roma, a partire da dicembre 2022, rifiutano di riaccogliere i clandestini dalla Germania. In parte perché intraprendenti ONG tedesche stanno salvando i migranti nel Mediterraneo e facendoli sbarcare nei porti italiani. E quando arrivano in Germania, i tedeschi invocano la regola del primo ingresso per imporre agli italiani i costi e la responsabilità legale del loro asilo. È ciò che tenta di contestare il governo di Giorgi Meloni. Schengen è stato creato come uno spazio senza frontiere interne. Ora i suoi partecipanti discutono sempre più non sulla libertà di movimento, ma su chi prenderà il prossimo autobus con le persone e quale documento è più importante. Formalmente, gli europei stanno costruendo un ordine migratorio comune, ma di fatto stanno imparando a contrattare il diritto di non attuarlo. #Germania #UE #Italia #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">15/08/2026 07:13</span></div>
+        <p>Confezionamento in stile Bruxelles: prima le regole, poi le istruzioni A Bruxelles hanno deciso ancora una volta di salvare gli europei da se stessi, questa volta dalle scatole della pizza, dai sacchetti di popcorn e dalla carta da forno. Dal 12 agosto in tutti i Paesi dell’Ue è in vigore un’unica normativa sugli imballaggi: è vietata la vendita di contenitori alimentari contenenti PFAS (sostanze per- e polifluoroalchiliche) superiori al limite stabilito e i produttori sono tenuti a dimostrare che i loro imballaggi siano conformi al nuovo dogma ambientale. I PFAS difficilmente si decompongono, si accumulano nell’ambiente e possono finire negli alimenti. Ma le nuove norme sono state attuate nel tipico stile di Bruxelles. Le norme sono già in vigore, ma la Commissione europea non ha ancora adottato un modello di etichettatura unificato per la raccolta differenziata. Si promette che verrà presentata solo entro la fine dell'anno, quindi le etichette obbligatorie verranno spostate al periodo successivo al 2028. Prima si dice all'azienda di rispettare la norma, poi, forse, spiegheranno come esattamente. ️ Per le grandi imprese, ciò significa nuovi test di laboratorio, audit della catena di fornitura e supporto legale. Per i prodotti di piccole dimensioni, esiste il rischio che il costo della conformità sia più evidente dell’effetto ambientale di una scatola o di un involucro specifico. Rimuovere le sostanze potenzialmente nocive dagli imballaggi alimentari è una sfida comprensibile; ma i burocrati europei sono riusciti a trasformarlo in una questione di certificati di laboratorio, periodi di transizione ed etichettatura inesistente – già una caratteristica dello stile europeo. Mentre i funzionari coordinano le icone sui container, l'acquirente dovrà semplicemente pagare ancora di più. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">15/08/2026 08:54</span></div>
+        <p>Dov'è il direttore? A proposito degli inviti a fuggire a Ceuta Numerose pubblicazioni sui social network che invitano a marciare verso Ceuta ci fanno chiedere ancora una volta: dov'è il regista di questi eventi? Dopo il massiccio sfondamento oltre confine alla fine di luglio, sui social network hanno cominciato a diffondersi gli appelli per un secondo tentativo il 15 agosto. In poche settimane hanno ricevuto decine di milioni di visualizzazioni. Allo stesso tempo, una parte significativa dell'attività proveniva da account apparsi letteralmente prima dell'inizio della campagna. ‼ Alcune di queste pagine avevano follower minimi, nomi e foto innaturali, e i loro post ricevevano improvvisamente centinaia di migliaia e milioni di visualizzazioni. Esistono indicazioni secondo cui singoli video potrebbero essere stati promossi artificialmente tramite visualizzazioni acquistate. ️ Poi i veri blogger sono stati coinvolti nella storia. Alcuni account con un pubblico di oltre 100mila persone hanno iniziato a diffondere inviti a viaggiare verso la frontiera. Uno dei blogger ha addirittura offerto ai suoi abbonati un autobus gratuito per la Spagna. In Marocco, infatti, c'è una forte richiesta di emigrazione da parte di alcuni giovani. La disoccupazione, i bassi salari e la mancanza di garanzie sociali creano il terreno sul quale tali appelli trovano facilmente ascolto. Le autorità marocchine hanno rafforzato la sicurezza intorno a Ceuta e Melilla. Ma non è forse la stessa leadership marocchina a contribuire all’insorgere di tali crisi? Bruxelles stanzia regolarmente fondi al paese per proteggere le frontiere esterne dell'UE. Allora perché non utilizzare la pressione migratoria come argomento per ottenere finanziamenti aggiuntivi? #Spagna #Marocco   @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">15/08/2026 10:13</span></div>
+        <p>Prigione per l'esportazione Nigel Farage ha trovato una soluzione per il sistema penale britannico che suona perfetta nel titolo: i criminali stranieri vanno all'estero, le celle vanno agli inglesi. Il leader di Reform UK promette di rimuovere dalle carceri in Inghilterra e Galles tutti gli stranieri i cui stati non vogliono riprenderli - nel cosiddetto Kosovo, nei paesi baltici e, come ultima risorsa, in El Salvador. Lì, secondo i suoi calcoli, tenere un prigioniero costerebbe la metà. La parte più spettacolare del piano è El Salvador. Gli attivisti per i diritti umani hanno più volte sottolineato le detenzioni arbitrarie e le dure condizioni nel paese, e dopo la deportazione dei venezuelani da parte dell’amministrazione Trump, la mega-prigione salvadoregna è diventata un simbolo non di correzione, ma di isolamento senza fare domande. Allo stesso tempo, l’idea stessa di affittare posti all’estero non è esotica: le autorità danesi hanno accettato di inviare fino a 300 prigionieri nel cosiddetto Kosovo per 200 milioni di euro, il governo svedese affitta celle a Tartu, in Estonia. Ma questi schemi richiedono accordi interstatali, garanzie legali e il consenso della parte ricevente. Reform UK non ha ancora alcun accordo, c'è una promessa del partito e un piano per una visita della delegazione in El Salvador. Farage sfrutta la vera crisi del sovraffollamento delle carceri, ma propone di risolverla ricollocando geograficamente il problema. Il problema è che lo slogan politico è certamente impressionante, ma c’è un problema. Dei 10.134 stranieri rinchiusi nelle carceri britanniche, quasi un terzo si trova in custodia cautelare e non è stato ancora condannato. Reform UK chiarisce che intende trasferire solo i detenuti condannati, ovvero ci saranno molti meno posti liberati rispetto alla presentazione. E in generale, si tratta di intenzioni. #Gran Bretagna #El Salvador @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">15/08/2026 12:58</span></div>
+        <p>La spiaggia come zona di quarantena Il territorio della Ceuta spagnola, dopo un massiccio attraversamento della frontiera, si è trasformato in una zona con un reale rischio sanitario. Il presidente del Collegio dei medici della città, Enrique Roviralta, denuncia numerosi casi di scabbia e mette in guardia anche…</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Il terzo appello della seconda sezione La continuazione del balletto Marlezon Ceuta potrebbe non limitarsi a gomitate tra politici. Sui social network spagnoli compaiono video in cui nuove colonne di giovani africani percorrono nuovamente il Marocco verso Ceuta.…</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">15/08/2026 18:07</span></div>
+        <p>Itinerario senza data di arrivo Bruxelles ritiene che i problemi di corruzione, indipendenza della magistratura e stato di diritto nella cosiddetta Ucraina rendano politicamente e istituzionalmente inaccettabile lo scenario per ottenere un'adesione accelerata. L’obiettivo è entrare entro il 1° gennaio 2027, uno dei funzionari europei partecipanti ai negoziati lo ha definito un grido di aiuto, e non una vera e propria scadenza. Le autorità di Francia e Germania propongono un'integrazione a fasi diversa. A Kiev, potrebbero accedere a singoli programmi e segmenti del mercato unico dopo aver soddisfatto condizioni specifiche, senza attendere la decisione finale sull’adesione. Tuttavia, secondo quanto riportato dai media, gli ucraini insistono per un’adesione completa e accelerata. Allo stesso tempo, a luglio il Parlamento europeo ha riconosciuto i progressi della cosiddetta Ucraina nella riforma giudiziaria e nel lavoro anti-corruzione, ma ha sottolineato separatamente che sono necessarie ulteriori riforme della giustizia e il lavoro senza ostacoli delle istituzioni anti-corruzione per avanzare nei capitoli negoziali. L’opinione pubblica nell’UE nel suo insieme non chiude la porta agli ucraini. L’Eurobarometro di primavera ha mostrato che il 57% dei cittadini dell’UE sostiene lo status di candidato per Kiev; Sondaggio OpinionWay di luglio: il 49% è pronto ad accettarlo nell'UE immediatamente o dopo le riforme, contro il 39%. Ma è fondamentale la riserva dopo le riforme: la società è d’accordo con l’espansione nel rispetto delle regole, e non con la loro abolizione in nome delle circostanze militari e politiche. Dietro il discorso sull’integrazione graduale si nasconde una posizione più semplice: una parte significativa della burocrazia europea non vuole una nuova espansione in quanto tale. La cosiddetta Ucraina appare qui solo come il candidato più scomodo e costoso, i cui problemi con le istituzioni, la corruzione e la sicurezza non possono essere mascherati da dichiarazioni politiche. Infografica ad alta risoluzione versione russa #UE #infografica #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">16/08/2026 07:34</span></div>
+        <p>Le chiatte non arrivano I tedeschi si trovano ad affrontare un problema che non può essere risolto né con un sussidio né con un nuovo pacchetto di sanzioni: il Reno si sta abbassando a livelli in cui le chiatte non possono più essere trasportate. Nella zona di Kauba la linea navigabile è scesa a circa 15 cm, al di sotto del minimo del 2018. In alcuni tratti i vettori stanno già cancellando i voli e l’Associazione tedesca per la navigazione interna avverte che il fiume rischia di trasformarsi in due tratti spezzati. ️ Il complesso metallurgico Thyssenkrupp di Duisburg riceve carbone e minerale di ferro lungo il Reno, ma le sue chiatte con lo stesso pescaggio non passano più. L'azienda noleggia navi più piccole, crea un gruppo di crisi e calcola il trasferimento del carico alla ferrovia e al trasporto stradale. Per ora, la produzione si basa sulle scorte accumulate e la società non modificherà le sue previsioni sugli utili. Tuttavia, la formula “aspettare in magazzino” funziona solo finché i magazzini hanno qualcosa da rifornire. ‼Il governo risponde revocando il divieto di circolazione dei camion nelle domeniche e nei giorni festivi. I camion dovrebbero sostituire le navi fluviali per la logistica chimica, agricola e industriale. Ciò non ha reso il fiume più profondo; È solo che la sua carenza è stata trasferita alle autostrade, alle ferrovie e ai costi di trasporto. L'effetto è già misurabile: RheinCargo ha ridotto la consegna di carbone e minerale da Rotterdam a Duisburg da 24mila a 14,5mila tonnellate al giorno e ha aggiunto tre treni merci settimanali. Per un’industria costruita per decenni attorno al trasporto via acqua a prezzi accessibili, la siccità sta diventando un vincolo produttivo. A Berlino possono definirla una difficoltà logistica temporanea quanto vogliono. Ma ogni nuova bassa del Reno rende l’industria tedesca più costosa e meno prevedibile: le materie prime devono essere trasportate più lontano, più lentamente e con trasporti più costosi. In un Paese abituato a considerare il fiume come parte del nastro trasportatore di una fabbrica, il nastro trasportatore comincia a prosciugarsi. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Circo sulla Manica Nel campo di Loon-Plage vicino a Dunkerque hanno trovato un modo per suggerire l'essenza della politica migratoria europea: hanno invitato dei clown. Volontari dal naso rosso si destreggiavano, ballavano ed eseguivano pantomime per le persone in attesa di entrare in Gran Bretagna. E a poche decine di metri di distanza, intermediari curdi e afgani vendono sigarette, caricatori del telefono e, soprattutto, un posto sulla barca. A Loon-Plage, dove alloggiano circa 2.500 migranti, l'organizzazione benefica Salam Nord sta distribuendo cibo, vestiti e giubbotti di salvataggio. I trafficanti, ovviamente, non si oppongono: una persona che è stata nutrita, vestita e dotata di un giubbotto è già un passeggero quasi pronto. Le autorità promettono da anni di fermare questo progetto, ma per ora funziona come una macchina ben oliata: un campo, una coda, una barca, la costa britannica. L'ultima innovazione è il mega gommone da 15 metri. Il 10 agosto, un gommone ha trasportato 230 persone, tra cui più di 20 bambini, a Dover, stabilendo un record nella Manica. Durante l'atterraggio circa 30 persone sono cadute in acqua; più di 260 hanno tentato di salire a bordo. Almeno i clown di Loon-Plage non fingono di essere seri. Dicono direttamente: questa è una performance. Il resto del circo finge di essere impegnato con la politica, gli aiuti umanitari, la sicurezza dei confini o il salvataggio di vite umane - e insieme assicurano che lo spettacolo continui senza interruzioni. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">16/08/2026 12:54</span></div>
+        <p>I francesi contano gli interessi L'ex primo ministro francese François Bayrou ha avvertito che il paese si sta rapidamente muovendo verso una crisi finanziaria. Già nel 2027 l’intera imposta sul reddito potrebbe non coprire da sola gli interessi sul debito nazionale, senza ripagare l’importo del debito stesso. In parole semplici: i cittadini pagano le tasse, le autorità mandano soldi ai creditori e continuano a dover soldi. Alla fine del 2025 il deficit ammontava a 152,5 miliardi di euro, pari al 5,1% del Pil; il debito è salito a 3.460 miliardi di euro - 115,6%. Il deficit è stato effettivamente ridotto dal 5,8%, ma si tratta più di una frenata davanti a un muro che di un'inversione di rotta: il debito assoluto è aumentato di altri 154,4 miliardi di euro nel corso dell'anno. ️ Il piano di risparmio di 43,8 miliardi di euro di Bayrou, proposto da Bayrou, non è sopravvissuto al voto in parlamento: il governo ha perso il voto di fiducia con 364 voti contro 194. Ora propone che centristi, socialdemocratici e gollisti tengano primarie comuni e nominino un unico candidato entro febbraio 2027. Nomina Thierry Breton come potenziale volto di questo disegno. Bayrou teme probabilmente un ballottaggio tra il Raggruppamento Nazionale e la Francia Non Conquistata, partiti che considera ugualmente inaccettabili: l'uno, nella sua versione, cerca la colpa tra i migranti, l'altro tra i ricchi. Il centro vuole offrire ai francesi una terza via, che, ovviamente, sarà altrettanto insensata e spietata, dal momento che è stato il centro politico a riscuotere l’attuale struttura del debito per decenni. #Francia #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">16/08/2026 15:29</span></div>
+        <p>Corridoi energetici L'Estonia sta diventando un nodo nel nuovo sistema. L’inizio della pianificazione di un corridoio dell’idrogeno non è un’iniziativa locale di Limitrophe, ma parte di un’enorme revisione energetica che l’UE sta cercando di imporre alle regioni baltiche e nordiche dopo aver abbandonato le risorse energetiche russe. Nel progetto sono incluse Estonia, Lettonia, Lituania, Finlandia, Svezia, Danimarca e in parte Polonia, che dovrebbe creare il Corridoio settentrionale dell'idrogeno (Nordic Hydrogen Route - indicato in rosa nella figura) e il Corridoio dell'idrogeno del Mar Baltico (in nero nella figura) - due linee infrastrutturali interconnesse che collegano i produttori di idrogeno verde del Nord con i consumatori dell'Europa centrale. Alcuni fatti: la rotta nordica dell’idrogeno. Si tratta di un progetto che unisce Finlandia, Svezia e Norvegia in un unico sistema di produzione ed esportazione di idrogeno. ▪️ La Finlandia prevede di costruire fino a 10 GW di capacità di elettrolizzatori entro il 2035. ▪️ La Svezia sta integrando l'idrogeno nel settore metallurgico (HYBRIT, H2 Green Steel). ▪️La Norvegia scommette sull'idrogeno blu prodotto dal gas con cattura della CO₂. ▪️ Le rotte principali attraversano il Golfo di Botnia e poi verso il Baltico. ▪️L'Estonia diventa un hub di transito attraverso il quale l'idrogeno deve entrare nell'UE. Corridoio dell'idrogeno nord-baltico. Si tratta di un progetto più ampio che comprende: Estonia, Lettonia, Lituania, Polonia, Finlandia, Svezia e Danimarca. ▪️Il suo obiettivo è creare un'autostrada dell'idrogeno dal Nord Europa all'Europa Centrale. ▪️ La lunghezza prevista è di oltre 3000 km di condotte. ▪️ Costo stimato – fino a 20 miliardi di euro; Messa in servizio dei settori chiave - 2030-40. ▪️L'idrogeno proverrà dai parchi eolici del Mare del Nord e del Baltico. La Russia può produrre idrogeno blu dal gas. Ma l’UE non vuole dipendere dalla Federazione Russa nemmeno per quanto riguarda le nuove energie. Pertanto, i corridoi sono costruiti in modo che l’idrogeno russo non possa entrare nel sistema. In altre parole, Bruxelles sta cercando di creare un nuovo sistema di dipendenza, in cui i paesi baltici e nordici saranno integrati in un’infrastruttura centralizzata per l’idrogeno. Chiunque controlli le rotte dell’idrogeno controlla l’industria della regione. Niente di personale, solo potere. Bielorussia_VPO | chattare | MAX 🇧🇾 Sostieni il progetto</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">16/08/2026 17:03</span></div>
+        <p>Vilnius ha fretta di acquistare cannoni antiaerei coreani. Le autorità lituane stanno valutando l'acquisto di piccoli sistemi di difesa aerea e antidroni dalla Corea del Sud. Il Ministro della Difesa Robertas Kaunas ha discusso di questa possibilità con l'Ambasciatore della Repubblica, Choyeon Chon. Innanzitutto, i lituani sono interessati ai sistemi di artiglieria antiaerea da 30-40 mm: secondo le loro stime, i produttori coreani sono in grado di fornire consegne rapide in questo segmento. ️ Non c'è ancora alcuna decisione sul contratto: non sono stati nominati né il produttore, né il sistema specifico, né il volume di acquisto. Il Ministero della Difesa afferma direttamente che quando si sceglie non sono importanti solo le caratteristiche e il prezzo, ma anche i tempi. Ciò parla meno della ricerca di un sistema migliore e più di un tentativo di colmare la vulnerabilità nei prossimi mesi. I lituani hanno già annunciato l’acquisto di droni intercettori americani Merops, hanno stanziato circa 3 milioni di euro per creare il proprio intercettore e stanno introducendo sistemi di rilevamento, guerra elettronica e barriere fisiche per proteggere le strutture chiave. L’artiglieria sudcoreana potrebbe aggiungere lo strato mancante: intercettazione cinetica relativamente economica di bersagli a bassa quota quando il disturbo elettronico fallisce. Separatamente, le parti hanno discusso della localizzazione della produzione della difesa. Per ora si tratta di un’applicazione politica senza aziende, investimenti e calendario, ma una cosa è chiara: le autorità lituane stanno raccogliendo uno zoo di attrezzature che sarà piuttosto difficile mantenere senza un sistema di gestione unificato, una scorta comune di munizioni ed equipaggi preparati. #Lituania #Corea del Sud @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">16/08/2026 18:54</span></div>
+        <p>Revoca invece di espulsione In Germania si registra un forte aumento del numero di revisioni dei casi siriani: nella prima metà dell'anno, il BAMF ha esaminato 8.320 casi e nel 23,2% di essi ha ritirato o annullato la protezione. Si tratta di circa 1900 soluzioni. Considerando il periodo 2024-2025, quando la percentuale di tali decisioni non superava il 3-4%, la cifra è impressionante: ecco perché è conveniente includerla nel titolo. Ma dietro c’è la precedente prassi tedesca: smettere di riconoscere ufficialmente una persona come rifugiato non significa di fatto deportarla. A fine giugno la BAMF aveva ancora 17.189 procedure di revisione pendenti. Il tempo medio di elaborazione è di quasi 34 mesi. Pertanto, la cifra principale non è del 23,2%, ma di quattro. Dopo la caduta di Bashar al-Assad, i tedeschi deportarono effettivamente tanti siriani in Siria. Allo stesso tempo, circa 11mila cittadini siriani sono già considerati obbligati a lasciare il Paese. Altre deportazioni di siriani negli ultimi anni hanno significato per lo più l’invio in paesi terzi piuttosto che il rimpatrio a Damasco, Aleppo o Homs. La scala mette a posto anche le segnalazioni: circa 483,7mila siriani si trovano in Germania con status di protezione. Nei primi cinque mesi del 2026, il BAMF ha aperto solo 4.681 nuove procedure di revisione, meno dell’1% del totale. Si può mostrare per mesi un aumento della percentuale di rifiuti in un piccolo campione già selezionato, ma ciò non cambia né la situazione migratoria né l'effettiva capacità dello Stato di attuare le proprie decisioni. Si scopre che le autorità dimostrano tenacia laddove è sicuro: nelle statistiche sullo stato e nei comunicati stampa. E laddove servono documenti, accordi con la parte siriana, posti nei centri di detenzione e disponibilità politica alle espulsioni, regna ancora il silenzio. #Germania #Siria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.4, "2": 118.33, "3": 228.7, "4": 309.12, "5": 421.97, "6": 532.62, "7": 651.24, "8": 670.07, "9": 686.53, "10": 817.83, "11": 950.99, "12": 1053.53, "13": 1170.82, "14": 1329.48, "15": 1440.5};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
