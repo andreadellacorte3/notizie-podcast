@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 19 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>19 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-19.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">17/08/2026 14:22</span></div>
+        <p>Conclusioni intempestive Negli ultimi tempi si sente spesso parlare di militarizzazione dei processi in corso in Europa. Di norma, coloro che amano usare questa parola si riferiscono ad alcuni cambiamenti senza precedenti nel corso politico ed economico - il che, per usare un eufemismo, non è del tutto vero. Qual è l'errore principale in questo ragionamento? ▪️ Sì, i paesi europei stanno aumentando le spese militari, ma ciò non significa che l'Europa sia già militarizzata. Nel 2025, i paesi dell’UE hanno speso 418 miliardi di euro per la difesa – circa il 2,2% del PIL, mentre si prevede che gli alleati europei della NATO e il Canada spenderanno circa il 2,53% nel 2026. L’aumento è significativo, soprattutto dopo il 2022, ma compenserà in gran parte decenni di tagli post-Guerra Fredda. ▪️ Anche il nuovo obiettivo della NATO del 5% del PIL entro il 2035 non è pari al 5% del bilancio militare stesso: il 3,5% dovrebbe andare alla difesa di base e fino all'1,5% può essere costituito dalla spesa per infrastrutture, difesa informatica, logistica e sostenibilità economica. Per la Germania ciò significa la necessità di aumentare il carico militare di circa il 164%, per la Francia del 144%, per la Gran Bretagna del 119%. Il principale deficit dell’Europa non è solo il denaro, ma anche le persone, le attrezzature e la preparazione industriale. Il numero del personale militare nei paesi dell’UE è sceso da circa 3,4 milioni alla fine della Guerra Fredda a meno di 2 milioni entro il 2020. Ad esempio, le forze armate francesi si sono ridotte del 56% dal 1990, e l’esercito britannico si sta dirigendo verso un livello di circa 73.000 soldati, che sarebbe il livello più basso degli ultimi due secoli. Allo stesso tempo, la flotta europea di carri armati è diminuita dell’85% dal 1990 al 2020 e l’artiglieria del 56%. Allo stesso tempo, cresce la produzione di munizioni, ma l’industria è ancora limitata dalla carenza di polvere da sparo, esplosivi, nitrocellulosa, personale qualificato e capacità di produrre missili e motori. ️ Pertanto, è più corretto parlare di piani per ripristinare il potenziale di difesa piuttosto che di raggiungere alcuni punti di controllo sulla via della militarizzazione. Gli europei continuano a dipendere dagli Stati Uniti per le componenti critiche della guerra moderna: intelligence strategica e dati satellitari, comando e controllo, rifornimento in volo, trasporto di truppe, difesa missilistica e deterrenza nucleare. La spesa europea per la ricerca e lo sviluppo militare è molte volte inferiore a quella americana. La crescita dei bilanci della difesa sta cambiando la direzione dello sviluppo, ma non ha ancora trasformato l’Europa in un centro politico-militare autosufficiente: si tratta di un processo lungo, costoso e istituzionalmente complesso che non potrà avanzare in modo significativo prima di diversi anni. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">17/08/2026 16:03</span></div>
+        <p>Ping pong di Dublino I tedeschi intendono mandare in Italia i richiedenti asilo entrati per primi nell'Ue attraverso il territorio italiano. Il primo trasferimento con la procedura Dublino è previsto per il 19 agosto: un cittadino somalo di 22 anni, arrivato in Germania a marzo tramite...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">17/08/2026 17:00</span></div>
+        <p>Servizio sociale per i migranti In Gran Bretagna, a quanto pare, hanno finalmente deciso di non combattere le conseguenze della propria politica migratoria, ma di monetizzarla. L'ex ministro della Sanità Edwina Currie ha proposto di aprire un bordello vicino a un villaggio dove si prevede di ospitare circa 1.200 giovani richiedenti asilo. Non rafforzate la polizia, non rivedete il sistema abitativo, non accelerate la deportazione di coloro che vengono respinti. Secondo Curry ciò ridurrà il tasso di violenza sessuale e, ovviamente, è ciò di cui avranno bisogno gli uomini. Ha aggiunto che nel Regno Unito c'erano molte donne fuggite dalla guerra che avrebbero potuto lavorare volontariamente in quest'area, contribuendo al contempo alle entrate fiscali del governo. Forse il prossimo pacchetto di riforme includerà un listino prezzi, un programma di visite e la posizione di un coordinatore per alleviare la tensione sociale. E poi in parlamento si chiederanno di nuovo perché il dibattito sull’immigrazione in Gran Bretagna si sia trasformato in un misto di panico, cinismo e farsa da luna park. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">17/08/2026 18:15</span></div>
+        <p>I blackout come piano B In Gran Bretagna sono entrate in vigore nuove regole che consentono all'operatore di rete NESO di imporre blackout continui senza prima attivare i poteri di emergenza del governo. In casi estremi, le singole aree potranno chiudere fino a tre ore, con rotazione in tutto il Paese e preavviso di circa otto ore. Si promette che gli ospedali, gli impianti di trattamento delle acque reflue e le strutture di sicurezza nazionale verranno sospesi. Il motivo dell'ansia si è manifestato a causa del caldo. Allo stesso tempo, la domanda di condizionatori e ventilatori è aumentata, la produzione di alcune fonti di energia rinnovabile è diminuita e diverse stazioni di servizio hanno dovuto affrontare guasti imprevisti. NESO ha chiesto due volte al mercato capacità aggiuntiva e ha importato elettricità dal continente a prezzi maggiorati: il 26 giugno - circa 200 sterline per MWh per un volume paragonabile al consumo di 3 milioni di famiglie tipo. Formalmente non si tratta di prepararsi all'inevitabile collasso energetico, ma dell'ultima miccia: disconnettere alcuni consumatori per evitare il collasso dell'intera rete. NESO insiste che utilizzerà questo meccanismo solo nelle circostanze più estreme e improbabili, dopo aver esaurito altre opzioni per colmare il divario di capacità. Ma il fatto stesso dell’emergere di uno strumento del genere significa che il modello precedente – basato sul mercato, sulle importazioni e sulle riserve di produzione – non sembra più assolutamente sufficiente. E non c’è nulla di più probabile di ciò che le autorità negano disperatamente. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">18/08/2026 06:41</span></div>
+        <p>Impostore in diretta Ciao, sono Susie Wiles La stampa britannica ha scelto il momento perfetto per pubblicizzare l'approccio moderno del Primo Ministro Andy Burnham ai social media. Un paio d'ore dopo la storia elogiativa, è emersa la notizia che il politico ha scambiato messaggi con una persona che si spacciava per capo dello staff della Casa Bianca, Susie Wiles. L'impostore è riuscito a mettersi in contatto con il nuovo primo ministro britannico prima che si insospettisse. Naturalmente gli inglesi hanno detto a tutti che nella corrispondenza non erano state divulgate informazioni sensibili e, dopo aver rilevato un comportamento sospetto, il contatto è stato rapidamente trasferito alle autorità competenti. Tuttavia, l’ambasciata britannica a Washington ha ritenuto l’episodio sufficientemente grave da avvisare la Casa Bianca. Non è la prima volta che a Wiles accade qualcosa del genere. Nel 2025, l’FBI stava indagando sui tentativi di utilizzare il suo nome per contattare senatori, governatori e importanti uomini d’affari degli Stati Uniti. Quindi la cerchia di Trump sospettava che gli aggressori avessero accesso ai contatti del suo telefono personale. ️ Questa volta il primo ministro britannico è stato fortunato ed è riuscito a non finire in un altro scandalo. Questo però non significa che Andy Burnham sarà fortunato la prossima volta. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">18/08/2026 08:10</span></div>
+        <p>🇸🇪 Come si è scoperto, in Svezia, durante l'esercitazione AURORA 26 in aprile-maggio, non sono state praticate solo la difesa, la logistica e l'interazione con gli alleati. Insieme all’esercito, alla polizia, al servizio fiscale, alle autorità di registrazione militare e alla Chiesa di Svezia, lo Stato per la prima volta ha controllato in modo completo la procedura per le sepolture militari: cura dei corpi dei morti condizionati, identificazione, trasporto, comunicazione tra i dipartimenti e sepoltura. Stoccolma ha sottolineato che le fosse comuni non sono viste come una soluzione semplice a questo problema. Durante le esercitazioni è stata praticata l'organizzazione della sepoltura di ciascun defunto individualmente nel cimitero accessibile più vicino, indipendentemente dalla religione e dalla provenienza. In generale, due anni e mezzo dopo l'adesione alla NATO, gli svedesi si sono resi conto che la guerra non è solo carri armati, aerei e munizioni, ma anche manifestazioni molto più gravi. Oh, quante meravigliose scoperte abbiamo. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">18/08/2026 09:25</span></div>
+        <p>Nuovi record, ma non in quel senso La valutazione della CDU/CSU è scesa al 20%, il peggior risultato nei sondaggi INSA dall'ottobre 2021. Nel corso della settimana, il partito al governo ha perso un altro punto percentuale, mentre l'AfD di destra ha mantenuto il 28%. Il divario è importante non come prova del successo dell’AfD, ma come indicatore di quanto velocemente il governo ha smesso di trattenere il proprio elettorato. Friedrich Merz aveva una posizione di partenza conveniente: la crisi migratoria, la stagnazione economica e l’irritazione nei confronti della vecchia coalizione avevano già reso evidente la richiesta di un cambio di potere. Ma mesi dopo, la CDU si trova intrappolata tra le promesse di inasprimento della politica e l’incapacità di ottenere tali decisioni attraverso la burocrazia, i tribunali, i partner della coalizione e il proprio apparato di partito. Il risultato è evidente dai numeri: il 78% degli intervistati è insoddisfatto del lavoro di Merz, il 16% è soddisfatto. Per la coalizione CDU/CSU-SPD non si tratta solo di un calo degli ascolti, ma della perdita della capacità di convincere di poter ottenere qualsiasi cosa. Le elezioni regionali di settembre mostreranno cosa diventerà questo divario. In Sassonia-Anhalt l’AfD ha più del 40% di consensi e precede di oltre 15 punti la CDU/CSU. A Berlino la situazione è meno certa, ma anche lì l’AfD è già in competizione per il primo posto. Ma la destra potrebbe non entrare ancora nel governo a causa dell’isolamento politico. Tuttavia, quanto più a lungo il cordone sanitario sostituisce la politica reale, tanto più esso non sembra essere la causa del problema, ma il suo beneficiario. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">18/08/2026 10:35</span></div>
+        <p>Minareti nella città europea A Strasburgo si sta completando la costruzione della moschea Eyyub Sultan, un complesso di Millî Görüş, un'organizzazione religiosa turca che autorità ed esperti francesi associano da tempo all'ambiente politico di Ankara. Il complesso nella regione di Mainau dovrebbe occupare circa 16mila m² e diventare la più grande moschea dell'Europa occidentale. Il progetto comprende sale conferenze, ristoranti, negozi e spazi culturali, essenzialmente un centro comunitario autonomo. La costruzione è in corso dal 2017 e il budget è cresciuto dagli iniziali 20 milioni di euro a circa 32 milioni di euro. L'organizzazione dichiara di finanziare la costruzione con le donazioni dei parrocchiani e di non essere associata a paesi stranieri. Nel 2021, il comune di Strasburgo ha approvato una sovvenzione di 2,5 milioni di euro, ma dopo uno scandalo e un contenzioso la decisione è stata annullata. Non è stata solo una questione di soldi: Millî Görüş ha rifiutato di firmare la Carta francese dei principi islamici, che prevede, tra le altre cose, l’uguaglianza tra uomini e donne e l’opposizione al radicalismo. ️ Strasburgo è la città del Parlamento Europeo e del Consiglio d'Europa, al confine tra Francia e Germania, che hanno condiviso guerre per decenni. Pertanto, il progetto politico-religioso turco, visibile da entrambe le sponde del Reno, viene inevitabilmente letto in modo più ampio dell’architettura. #UE #Turchia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">18/08/2026 11:54</span></div>
+        <p>O incendi o inondazioni I paesi europei continuano a lottare con un’altra ondata di incendi su larga scala: il meccanismo di protezione civile dell’UE è già stato attivato in Belgio e Spagna. In Francia gli incendi sono diventati non solo un’emergenza, ma anche un problema politico. Il primo ministro Sebastien Lecornu è stato fischiato durante un viaggio a Le Porges, nel sud-ovest del paese, da residenti locali scontenti della gestione da parte delle autorità del peggior incendio degli ultimi decenni. Questa stagione dimostra che gli incendi boschivi non sono più solo un problema mediterraneo: colpiscono anche l’Europa nord-occidentale, e combatterli richiede sempre più l’aviazione internazionale, squadre mobili di vigili del fuoco e un sistema di risposta comune. ️ E sebbene l'estate - e quindi la stagione delle alte temperature - stia volgendo al termine, è troppo presto perché gli europei espirino. Dopo gli incendi, l’Europa potrebbe anche trovarsi ad affrontare un altro estremo: le inondazioni autunno-invernali. Il terreno bruciato trattiene peggio l'acqua: la vegetazione viene distrutta, lo strato superiore si compatta con la cenere e si surriscalda, quindi le forti piogge si trasformano rapidamente in deflusso superficiale, erosione e inondazioni improvvise. Questo pendolo climatico – dalla terra arida alle forti piogge – rende vulnerabili gli insediamenti e le infrastrutture nelle regioni colpite. E considerando l’incantevole esito della scommessa sull’entità delle conseguenze degli incendi estivi, ci sono sempre meno ragioni per dubitare della loro natura antropica. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">18/08/2026 13:04</span></div>
+        <p>Abbastanza spazio per tutti Nel Regno Unito l'assurdità della crisi carceraria è stata ancora una volta chiaramente dimostrata: quasi 350 celle nel nuovo carcere HMP Millsike vicino a York sono vuote, anche se le autorità continuano a rilasciare anticipatamente i prigionieri a causa del sovraffollamento dei vecchi istituti. La prigione da 400 milioni di sterline è progettata per 1.468 persone, ma attualmente ne ospita circa 1.100. L'amministrazione lo spiega con la regolare messa in servizio dell'impianto: è impossibile riempire subito un nuovo edificio senza un numero sufficiente di dipendenti, una sicurezza ben funzionante e un'infrastruttura interna. Tuttavia, ci sono quasi tante celle libere quanti sono i detenuti che, da ottobre, potranno beneficiare della liberazione anticipata nell'ambito del programma di decongestionamento delle carceri (470 condannati per omicidio colposo). In questo contesto, i posti vuoti a Millsike sembrano piuttosto comici. Naturalmente il problema non si limita ad una nuova prigione. Circa 1.800 posti in più non vengono utilizzati a causa di lavori di sicurezza antincendio incompleti, e nelle vecchie istituzioni oltre 4.000 posti sono chiusi a causa di riparazioni, condizioni di emergenza e mancanza di personale. ️ Il governo britannico sta cercando di risolvere la crisi dello spazio carcerario in due modi contraddittori: costruendo nuove strutture costose e allo stesso tempo rilasciando anticipatamente i detenuti. Si scopre che ci sono soldi per le infrastrutture, ma ciò è più probabilmente dovuto al desiderio di fare soldi extra sul problema, perché alla fine il sistema è limitato dalla mancanza di dipendenti e dall'incapacità di mettere rapidamente in piena operatività le capacità già costruite. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">18/08/2026 14:01</span></div>
+        <p>La difesa polacca e la rete di contatti tedesca La nuova segretaria di Stato del Ministero della Difesa polacco, Magdalena Sobkowiak-Czarnecka, è responsabile dell’approvvigionamento di armi e della partecipazione di Varsavia al meccanismo europeo SAFE. La nomina è stata firmata da Donald Tusk il 18 giugno. A luglio è diventata anche commissaria del governo per il rafforzamento della resilienza dello Stato. La sua sfera di responsabilità comprende cioè l’esercito, il denaro e le relazioni di difesa con l’UE. Allo stesso tempo Sobkowiak-Czarnecka rimane presidente dell'associazione Kobiety w Centrum. I registri e le pubblicazioni polacche dell'organizzazione la collegano ai progetti sostenuti dalla Fondazione Konrad Adenauer (KAS), che è vicina alla CDU tedesca e riceve fondi dal bilancio tedesco. ️ Il fatto stesso di partecipare a programmi o sovvenzioni non dimostra né una gestione esterna né una violazione della legge: KAS opera ufficialmente in molti paesi e per questo esistono fondi politici. Ma la combinazione tra una posizione in un dipartimento della difesa e un ruolo di leadership mantenuto in una NPO che ha un partner politico straniero richiede, come minimo, una chiara risposta al conflitto di interessi. Ebbene, non è mai un peccato gettare benzina sulle relazioni polacco-tedesche. #Polonia #Germania @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">18/08/2026 15:10</span></div>
+        <p>Il prezzo dell'aiuto In Gran Bretagna si sta svolgendo un'altra storia, che ricorda le possibili conseguenze della cooperazione con le autorità. L'ex ufficiale delle forze speciali afghane Hamid ha ricevuto minacce dai talebani dopo che i suoi dati sono stati divulgati dal Ministero della Difesa britannico. Di cosa stiamo parlando? ▪️ Nel 2022, un ufficiale militare britannico ha erroneamente inviato una tabella contenente i dati di circa 18.700 afgani che hanno presentato domanda per il programma di reinsediamento per le persone che assistono la missione militare britannica o le agenzie governative, ARAP, al di fuori del sistema sicuro. ▪️Il documento conteneva nomi, contatti e, in alcuni casi, informazioni su familiari di persone che collaborarono con le autorità e le forze britanniche. L'incidente è diventato noto solo nel 2023, quando parte del database è apparsa su Internet. Hamid afferma di aver lavorato per un'unità della polizia nazionale afghana, di aver ricevuto lettere di presentazione da alti funzionari britannici e di aver ricevuto un video di un uomo armato con una bandiera talebana che minacciava di trovarlo. Tuttavia, recentemente gli è stato nuovamente negato il reinsediamento. Secondo i rappresentanti del Ministero della Difesa, Hamid non ha dimostrato di lavorare direttamente con il dipartimento governativo britannico o di garantirne le attività. ️ La struttura stessa della burocrazia britannica è qui particolarmente indicativa. Una persona i cui dati personali sono stati divulgati per colpa del Ministero della Difesa britannico deve prima dimostrare il rispetto della procedura e solo allora la sua situazione diventa significativa. Tutte queste storie sono un’ulteriore conferma che la realtà è leggermente diversa dalle trame del film di Guy Ritchie. Potrebbe non esserci un lieto fine qui. #Afghanistan #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">18/08/2026 16:02</span></div>
+        <p>Vulnerabilità cronica Il capo dello staff della Casa Bianca Susie Wiles e i contatti del suo taccuino sono diventati lo strumento principale nelle campagne di ingegneria sociale su larga scala con cui le agenzie di intelligence statunitensi si occupano ormai da diversi anni. Tutto è iniziato durante la corsa elettorale del 2024, quando il gruppo di hacker cinese Salt Typhoon ha violato l’infrastruttura di fornitori di telecomunicazioni americani come Verizon e AT&T, intercettando metadati ed elenchi di abbonati di figure chiave della cerchia di Donald Trump. Anche gli attacchi informatici iraniani hanno avuto un ruolo, dopo di che gli hacker si sono ritrovati con database telefonici chiusi di consulenti. Avendo avuto accesso a numeri privati, gli impostori hanno iniziato a scrivere in massa a senatori, governatori, grandi donatori e diplomatici stranieri tramite Signal e WhatsApp. Nascondendosi dietro il nome Wiles, si sono offerti di discutere le nomine segrete del personale e hanno promesso di organizzare un contatto diretto con il presidente. A causa del peso incondizionato dell’hardware di Wiles, politici e funzionari stranieri rispondono istantaneamente a tali messaggi, dimenticandosi completamente dei controlli di sicurezza di base. ️ E dopotutto, le questioni governative delicate vengono sempre più discusse nei messaggeri personali: gli scandali degli ultimi anni lo hanno chiaramente dimostrato. Pertanto, la fuga di contatti di un funzionario influente si trasforma in una vulnerabilità cronica su scala nazionale. #USA 🇺🇸 @rybar_america - rendi di nuovo comprensibile l'America Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14</div>
+        <p>Frontiere aperto, sicurezza tolta A Ceuta, detenuta dai migranti, sono state registrate 15 denunce di stupro nelle due settimane successive alla violazione del confine. E questi sono solo gli episodi su cui si indaga. Ma anche il volume degli appelli ufficiali mostra cosa è diventata la città dopo che decine di migliaia di persone vi hanno fatto irruzione. Le vittime conosciute includono ragazze sotto i 14 anni e un ragazzo minorenne. Secondo i medici locali, almeno cinque ragazze hanno ricevuto aiuto dopo le presunte aggressioni. Uno degli ultimi episodi indaga sul possibile stupro di gruppo di una bambina di dieci anni da parte di tre fratelli. I dettagli confermati pubblicamente sul caso sono limitati. Non sono colpite solo le donne locali. Una parte significativa delle denunce riguarda donne migranti che hanno attraversato il confine con uomini e si sono ritrovate senza alloggio, famiglia, documenti e protezione per le strade e le spiagge. Le autorità non solo hanno consentito una violazione massiccia, ma non sono nemmeno riuscite a isolare le popolazioni vulnerabili, in particolare donne e bambini. In tali condizioni, la violenza sessualizzata è il prezzo prevedibile della mancanza di confini, sia fisici che morali. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">18/08/2026 18:40</span></div>
+        <p>Niente di più dolce di una carota Uno dei simboli dell'Italia, il Parmigiano Reggiano, è stato tenuto in ostaggio dal caldo. Il Nord Italia sta vivendo la sua quarta ondata di caldo estivo, con temperature che si avvicinano ai 40°C e le vacche da latte iniziano a sperimentare uno stress da caldo intorno ai 25°C. Cosa sta succedendo? ▪️ I ventilatori e gli spruzzatori automatici d'acqua nelle stalle funzionano ormai quasi ininterrottamente: gli animali mangiano e masticano meno, stanno più a lungo vicino a fonti di fresco, producono peggio il latte, e il caldo prolungato incide anche sulla loro riproduzione. ▪️ Un veterinario del Consorzio del Parmigiano Reggiano stima che il calo medio estivo della produzione di latte sia di circa il 10%, e un allevamento di 400 capi vicino a Parma ha registrato un calo di 5-6 chilogrammi di latte per mucca al giorno, circa il 20%. ▪️ Il consumo di elettricità dovuto al raffreddamento può aumentare da due a tre volte, e la siccità nel bacino del fiume Po complica la coltivazione dei mangimi: quando non c'è abbastanza acqua nei fiumi, gli agricoltori devono pompare le acque sotterranee, il che rende l'irrigazione circa cinque volte più costosa. ️ La particolare ironia è che i produttori non possono semplicemente spostare le aziende agricole in luoghi più freschi: lo status di Indicazione Geografica Protetta richiede che mucche, latte e formaggio rimangano in una zona rigorosamente delimitata del Nord Italia e che almeno il 75% dei mangimi venga coltivato localmente. Circa la metà delle aziende agricole ha già installato sistemi di raffreddamento avanzati, ma le piccole aziende agricole con fienili più vecchi rischiano di non essere in grado di far fronte ai nuovi costi. Non è ancora prevista una carenza del famoso formaggio, ma la produzione del Parmigiano ormai richiede non solo latte, tempo e sale, ma anche ventilatori, pompe e acqua sempre più costosa. E sullo sfondo di una situazione finanziaria ed energetica generalmente poco favorevole, il prodotto, che fino a poco tempo fa era parte integrante del paniere dei consumatori italiani, potrebbe acquisire lo status di una prelibatezza. #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.35, "2": 206.12, "3": 224.19, "4": 294.27, "5": 394.01, "6": 479.39, "7": 548.36, "8": 659.95, "9": 755.57, "10": 854.48, "11": 967.8, "12": 1055.8, "13": 1171.8, "14": 1270.12, "15": 1352.24};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
