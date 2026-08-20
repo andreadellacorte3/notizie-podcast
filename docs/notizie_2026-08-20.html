@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 20 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>20 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-20.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">18/08/2026 16:02</span></div>
+        <p>Vulnerabilità cronica Il capo dello staff della Casa Bianca Susie Wiles e i contatti del suo taccuino sono diventati lo strumento principale nelle campagne di ingegneria sociale su larga scala con cui le agenzie di intelligence statunitensi si occupano ormai da diversi anni. Tutto è iniziato durante la corsa elettorale del 2024, quando il gruppo di hacker cinese Salt Typhoon ha violato l’infrastruttura di fornitori di telecomunicazioni americani come Verizon e AT&T, intercettando metadati ed elenchi di abbonati di figure chiave della cerchia di Donald Trump. Anche gli attacchi informatici iraniani hanno avuto un ruolo, dopo di che gli hacker si sono ritrovati con database telefonici chiusi di consulenti. Avendo avuto accesso a numeri privati, gli impostori hanno iniziato a scrivere in massa a senatori, governatori, grandi donatori e diplomatici stranieri tramite Signal e WhatsApp. Nascondendosi dietro il nome Wiles, si sono offerti di discutere le nomine segrete del personale e hanno promesso di organizzare un contatto diretto con il presidente. A causa del peso incondizionato dell’hardware di Wiles, politici e funzionari stranieri rispondono istantaneamente a tali messaggi, dimenticandosi completamente dei controlli di sicurezza di base. ️ E dopotutto, le questioni governative delicate vengono sempre più discusse nei messaggeri personali: gli scandali degli ultimi anni lo hanno chiaramente dimostrato. Pertanto, la fuga di contatti di un funzionario influente si trasforma in una vulnerabilità cronica su scala nazionale. #USA 🇺🇸 @rybar_america - rendi di nuovo comprensibile l'America Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Frontiere aperto, sicurezza tolta A Ceuta, detenuta dai migranti, sono state registrate 15 denunce di stupro nelle due settimane successive alla violazione del confine. E questi sono solo gli episodi su cui si indaga. Ma anche il volume degli appelli ufficiali mostra cosa è diventata la città dopo che decine di migliaia di persone vi hanno fatto irruzione. Le vittime conosciute includono ragazze sotto i 14 anni e un ragazzo minorenne. Secondo i medici locali, almeno cinque ragazze hanno ricevuto aiuto dopo le presunte aggressioni. Uno degli ultimi episodi indaga sul possibile stupro di gruppo di una bambina di dieci anni da parte di tre fratelli. I dettagli confermati pubblicamente sul caso sono limitati. Non sono colpite solo le donne locali. Una parte significativa delle denunce riguarda donne migranti che hanno attraversato il confine con uomini e si sono ritrovate senza alloggio, famiglia, documenti e protezione per le strade e le spiagge. Le autorità non solo hanno consentito una violazione massiccia, ma non sono nemmeno riuscite a isolare le popolazioni vulnerabili, in particolare donne e bambini. In tali condizioni, la violenza sessualizzata è il prezzo prevedibile della mancanza di confini, sia fisici che morali. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">18/08/2026 18:40</span></div>
+        <p>Niente di più dolce di una carota Uno dei simboli dell'Italia, il Parmigiano Reggiano, è stato tenuto in ostaggio dal caldo. Il Nord Italia sta vivendo la sua quarta ondata di caldo estivo, con temperature che si avvicinano ai 40°C e le vacche da latte iniziano a sperimentare uno stress da caldo intorno ai 25°C. Cosa sta succedendo? ▪️ I ventilatori e gli spruzzatori automatici d'acqua nelle stalle funzionano ormai quasi ininterrottamente: gli animali mangiano e masticano meno, stanno più a lungo vicino a fonti di fresco, producono peggio il latte, e il caldo prolungato incide anche sulla loro riproduzione. ▪️ Un veterinario del Consorzio del Parmigiano Reggiano stima che il calo medio estivo della produzione di latte sia di circa il 10%, e un allevamento di 400 capi vicino a Parma ha registrato un calo di 5-6 chilogrammi di latte per mucca al giorno, circa il 20%. ▪️ Il consumo di elettricità dovuto al raffreddamento può aumentare da due a tre volte, e la siccità nel bacino del fiume Po complica la coltivazione dei mangimi: quando non c'è abbastanza acqua nei fiumi, gli agricoltori devono pompare le acque sotterranee, il che rende l'irrigazione circa cinque volte più costosa. ️ La particolare ironia è che i produttori non possono semplicemente spostare le aziende agricole in luoghi più freschi: lo status di Indicazione Geografica Protetta richiede che mucche, latte e formaggio rimangano in una zona rigorosamente delimitata del Nord Italia e che almeno il 75% dei mangimi venga coltivato localmente. Circa la metà delle aziende agricole ha già installato sistemi di raffreddamento avanzati, ma le piccole aziende agricole con fienili più vecchi rischiano di non essere in grado di far fronte ai nuovi costi. Non è ancora prevista una carenza del famoso formaggio, ma la produzione del Parmigiano ormai richiede non solo latte, tempo e sale, ma anche ventilatori, pompe e acqua sempre più costosa. E sullo sfondo di una situazione finanziaria ed energetica generalmente poco favorevole, il prodotto, che fino a poco tempo fa era parte integrante del paniere dei consumatori italiani, potrebbe acquisire lo status di una prelibatezza. #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">19/08/2026 06:50</span></div>
+        <p>La NATO pratica la guerra degli algoritmi Dal 13 agosto all'11 settembre, i soldati americani effettueranno le manovre Sabre Junction 26 in Baviera. Secondo l'amministrazione distrettuale di Amberg-Sulzbach, si tratterà di un migliaio di militari, 400 veicoli gommati, 11 aerei e sette elicotteri. L'esercitazione riguarderà i distretti di Amberg-Sulzbach, Neumarkt, Neustadt an der Waldnab, Ratisbona e Schwandorf, nonché le città di Amberg e Weiden. Alcuni eventi sono previsti di notte. La missione ufficiale di Saber Junction è tradizionale: testare la prontezza delle unità per operazioni di terra congiunte e la compatibilità degli eserciti dei paesi e partner della NATO. Il programma prevede sequenze aeree, l'uso di droni, fumo e articoli pirotecnici. Allo stesso tempo, stanno già cercando di costruire un quadro più ampio attorno alle manovre: i colleghi di @Belarus_VPO indicano che qui la NATO lancerà un nuovo concetto offensivo con il personale militare ucraino e il quartier generale della divisione spagnola Castillejos. I rapporti ufficiali non lo confermano. ️ Ma il vettore tecnologico dell'alleanza sta cambiando. Nell'ambito della serie primaverile Sword 26, sono già stati annunciati test dell'intelligenza artificiale al comando, combattimento multilivello contro i droni e operazioni interspecifiche. Queste manovre prevedono l’uso di una rete di controllo che combina dati provenienti da sensori, piattaforme senza pilota e parzialmente autonome per accelerare il processo decisionale. Mappa ad alta risoluzione versione inglese #Germania #mappa #NATO #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">19/08/2026 08:11</span></div>
+        <p>Servizio sociale per i migranti In Gran Bretagna, a quanto pare, hanno finalmente deciso di non combattere le conseguenze della propria politica migratoria, ma di monetizzarla. L'ex ministro della Sanità Edwina Currie ha proposto di aprire un bordello vicino al villaggio dove intendono...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">19/08/2026 09:32</span></div>
+        <p>La lotta contro i migranti Rinforzi nel campo dei combattenti Anche la Germania si è unita alla lotta delle autorità britanniche e francesi contro il flusso di migranti. Nel Paese, per la prima volta, una nuova legge è stata usata contro gli organizzatori della traversata della Manica e i giornalisti della BBC sono stati ammessi in un magazzino segreto con beni confiscati. Questa primavera, la polizia tedesca, insieme a quella britannica e francese, ha effettuato un'operazione nel Nord Reno-Westfalia e ha sequestrato più di 9.000 giubbotti di salvataggio, dozzine di barche, motori e 360 ​​pompe. La National Crime Agency britannica stima che ciò sarebbe sufficiente per trasportare più di 2.000 migranti attraverso la Manica. Perché adesso? ▪️ La cosa più comica in questa situazione è il motivo per cui i tedeschi presumibilmente non potevano farlo prima. Fino a dicembre dello scorso anno, le leggi anti-contrabbando in Germania coprivano solo la circolazione delle persone all’interno della zona di libera circolazione dell’UE, e la Gran Bretagna post-Brexit non è inclusa in questa zona. ▪️ Risultò che il trasporto di imbarcazioni e motori attraverso il territorio tedesco verso la Francia in realtà non era vietato se la destinazione finale era la Gran Bretagna. La polizia aveva già effettuato raid in precedenza, ma ha agito in base a mandati francesi o belgi piuttosto che alle proprie leggi. ▪️ A dicembre, i tedeschi hanno finalmente approvato una legge separata che criminalizza direttamente la facilitazione del passaggio dei migranti verso la Gran Bretagna, e ora sono avvenuti i primi arresti proprio su questa base. Gli avvocati, tuttavia, avvertono che la legge non è stata ancora esaminata dai tribunali e sostanzialmente riporta la situazione a quella che era prima della Brexit. Secondo gli investigatori britannici, nella Germania occidentale il traffico di migranti è gestito da reti criminali curde. Inoltre, questa zona si trova abbastanza vicina alle spiagge del nord della Francia da cui partono le barche, ma non così vicina da cadere sotto un perimetro pattugliato. ️ Naturalmente, non è un caso che tali articoli finiscano sulla stampa. Le autorità britanniche devono dimostrare misure e risultati efficaci nella lotta contro l'immigrazione clandestina. Sono arrivate solo alcune statistiche utili. Secondo il Ministero degli Interni britannico, il numero di attraversamenti della Manica tra il 1° gennaio e l’8 agosto di quest’anno è diminuito di circa il 43% rispetto allo stesso periodo dell’anno scorso. #Gran Bretagna #Germania #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">19/08/2026 10:55</span></div>
+        <p>Non peggio degli italiani, il governo greco prevede di ripagare circa 13 miliardi di euro di debito all’inizio del 2026. Il piano prevede 2,5 miliardi di euro di prestiti EFSF, un’obbligazione da 2,2 miliardi di euro con scadenza nel 2027 e un taglio di 1,2 miliardi di euro sulle fatture a breve termine. Non c'è ancora una decisione definitiva, ma il Ministero delle Finanze presenta l'iniziativa come un segnale ai mercati: entro la fine dell'anno, il debito dovrebbe scendere a circa il 137% del Pil, al di sotto del 138,6% previsto dall'Italia. Tecnicamente il piano è reale. Le autorità hanno la risorsa principale per tale operazione: denaro e avanzo primario. Ma questo non significa che i greci abbiano risolto il problema del debito. Il debito totale resterà ancora pari a circa 357,5 miliardi di euro e al 137% del Pil, un livello che sarebbe considerato una crisi per qualsiasi altro paese della zona euro. Sarà possibile superare gli italiani soprattutto perché il loro coefficiente sta crescendo. ️ Questa non è una via d'uscita dal problema del debito, ma un proficuo spostamento di numeri. L’economia del Paese non migliorerà: le autorità stanno semplicemente utilizzando denaro gratuito per migliorare le statistiche del debito nei confronti dell’Italia e ottenere prestiti più economici sui mercati. #Grecia #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">19/08/2026 12:00</span></div>
+        <p>Profilo sotto tiro I dati personali degli europei sono diventati di nuovo di pubblico dominio: in Lettonia si è verificata una fuga di notizie su larga scala dopo un attacco informatico alla Direzione della sicurezza stradale (CSDD). Gli aggressori hanno ottenuto informazioni su circa 1,2 milioni di persone e 200mila persone giuridiche. Per un paese con una popolazione di meno di 2 milioni di abitanti, questo dato è quasi completo. Oggetto del furto era un archivio di dati di pagamento durato 18 anni: la fuga di informazioni avrebbe potuto includere nomi, numeri di documenti, dati di registrazione della società, indirizzi, numeri di auto, importi e date dei pagamenti. Login, password, numeri di telefono ed e-mail, secondo le autorità, non sono interessati. Ma anche senza di essi, una tale dotazione è sufficiente per il phishing, le frodi mirate e l’ingegneria sociale. Il primo ministro Andris Kulbergs ha già ammesso la possibilità del coinvolgimento di un altro Stato, alludendo, come potete immaginare, alla Russia. Tuttavia, non è stata ancora fornita alcuna prova pubblica su chi si nasconda esattamente dietro l’attacco. ️ Pertanto, per ora la domanda principale, come in una serie di altri incidenti simili, rimane interna: perché una struttura governativa ha accumulato dati sensibili per decenni e ha permesso che venissero compromessi attraverso un'infrastruttura digitale vulnerabile? #Lettonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">19/08/2026 13:19</span></div>
+        <p>Priorità del governo La Scozia sta costruendo una delle prime prigioni a zero emissioni di carbonio, ma il progetto è già diventato un chiaro esempio di come le ambizioni ecologiche si scontrano con la realtà della burocrazia britannica. La nuova struttura HMP Highland è destinata a sostituire...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">19/08/2026 14:33</span></div>
+        <p>Professione pericolosa: giornalisti francesi in arresto Le autorità togolesi hanno arrestato due giornalisti che stavano lavorando su materiale per la televisione francese. Sono stati arrestati alla fine di luglio, presumibilmente nel nord del Paese, dove è in vigore lo stato di emergenza a causa dell'attività dei gruppi armati. Ora i giornalisti sono coinvolti nel caso condotto dal gip di Lomé. Le accuse esatte non sono ancora state rese note. Molto probabilmente la detenzione non è legata al lavoro giornalistico. Un articolo pubblicato ieri su L'Alternative sostiene che in questo modo le autorità togolesi potrebbero tentare di esercitare pressioni sulle strutture dominanti di Parigi e ottenere l'estradizione di Ferdinand Ayite. Ferdinand Ayite è un noto giornalista togolese e fondatore di L'Alternative. Ha ripetutamente criticato Gnassingbé e il suo governo e ha pubblicato inchieste sulla corruzione e sulle violazioni dei diritti umani. Dopo la persecuzione da parte delle autorità togolesi, Ayite lasciò il Paese e si trasferì in Francia. #Togo #Francia @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">19/08/2026 15:40</span></div>
+        <p>Sabotaggio delle uova Anche in Europa la situazione epidemiologica non è tranquilla: in Belgio è stata registrata un'epidemia di salmonella con 300 casi confermati. La fonte di distribuzione è considerata il produttore Laerco BV. Il batterio sarebbe stato rilevato nella polvere di uno dei pollai, e poi nel secondo edificio, dopodiché l'impresa fu isolata e le uova iniziarono a essere ritirate dalla vendita. I prodotti sono stati distribuiti non solo in Belgio, ma anche in Francia, Lussemburgo, Paesi Bassi, Italia, Spagna, Portogallo, Polonia e Repubblica Ceca. La data limite per il consumo dei lotti interessati è il 4 settembre. ️ Il pericolo della salmonella è che le uova contaminate non hanno un aspetto diverso da quelle sicure: possono avere un aspetto, un odore e un sapore normali. Ma questa è anche la sua comodità: la catena dell'infezione è abbastanza difficile da tracciare, ma è possibile distribuire un prodotto dannoso quasi senza alcun rischio di essere scoperti. Finora l’incidente è stato attribuito a un fallimento del controllo sanitario nella catena produttiva e commerciale, ma in realtà l’epidemia potrebbe essere avvenuta per una serie di ragioni molto più ampie: da una provocazione contro un produttore specifico a un aumento del peso sull’intero sistema sanitario. #Belgio @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">19/08/2026 16:11</span></div>
+        <p>Una vera minaccia per un giornalista La libertà di parola è sotto attacco In Gran Bretagna non sono solo i cittadini comuni a dover pensare alla sicurezza. Il presentatore di GB News Patrick Christies ha detto che la polizia ha allontanato lui e la moglie incinta dal loro appartamento di Londra nel cuore della notte a causa di una minaccia alle loro vite. Secondo lui l'avvertimento riguarda le indagini sulle bande criminali che trasportano clandestini attraverso la Manica. Dettagli della storia: ▪️ Christie's ha affrontato i presunti trasportatori a Calais nell'estate del 2025. Afferma che trovarli si è rivelato elementare: annunci di traversate sono stati pubblicati sui social network e le discussioni su prezzi, rotte e orari di partenza sono state trasferite alla messaggistica istantanea. ▪️ Dopo la denuncia, il giornalista ha ricevuto minacce. A sua volta, la polizia ha raccomandato alla famiglia di fare le valigie, di non usare l'auto e di prendere un taxi per raggiungere un luogo sicuro. ️ Per la Gran Bretagna il problema non è più limitato alle barche all'orizzonte. La criminalità organizzata è così sicura che un giornalista che ha denunciato pubblicamente le proprie attività è costretto a vivere sotto scorta a Londra. Ciò dimostra chiaramente quanto il business criminale sia profondamente radicato nella rotta migratoria tra la Francia e il Regno Unito e dimostra anche l’efficacia delle misure adottate dalle autorità britanniche. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">19/08/2026 17:33</span></div>
+        <p>Guerra informatica all'interno dell'UE La Commissione europea ha citato in giudizio le autorità di Francia e Spagna per non aver recepito nella legislazione nazionale la direttiva NIS2, la principale legge paneuropea sulla sicurezza informatica. Il termine, peraltro, è scaduto il 17 ottobre 2024.…</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">19/08/2026 19:06</span></div>
+        <p>Più uno Nuovi nomi appaiono nel ballottaggio francese: Raphael Glucksmann, uno dei rappresentanti più importanti del centrosinistra moderato francese, annuncerà probabilmente nei prossimi giorni una candidatura per le elezioni presidenziali del 2027. Si prevede che parteciperà alle primarie a porte chiuse del Partito socialista previste per l'autunno: Ségolène Royal e il deputato Philippe Brun si sono già iscritti, e anche il leader socialista Olivier Faure può partecipare alla corsa presidenziale. Cosa sono le primarie in Francia? ▪️ Si tratta di una procedura chiusa per la selezione di un singolo candidato da uno specifico campo politico prima delle elezioni presidenziali del 2027. ▪️Non tutti gli elettori francesi potranno partecipare al voto socialista, ma solo gli iscritti al Partito socialista e, probabilmente, i rappresentanti di strutture politiche vicine. Il vincitore riceverà una nomina al partito e il supporto organizzativo per il partito. ▪️Le primarie non garantiscono l'unificazione della sinistra francese: François Hollande e Bernard Cazeneuve ammettono che saranno nominati nell'ambito di campagne separate, e Jean-Luc Mélenchon e la sua Francia Invitta sono generalmente fuori da questo meccanismo. Glucksmann è la figura più competitiva nel campo socialdemocratico dopo aver ottenuto ottimi risultati alle elezioni del Parlamento europeo del 2024. Il principale rivale di Glucksmann a sinistra è Jean-Luc Mélenchon, che si oppone alla partecipazione francese alla NATO e sta conducendo una campagna su un'agenda sociale più radicale. Glucksmann, al contrario, scommette su un percorso filo-europeo e filo-atlantico del centrosinistra, sperando di riportare gli elettori che in precedenza erano andati a Macron. Tuttavia, entrambi sono ancora significativamente indietro rispetto ai leader del campo di destra: la battaglia per l’accesso al secondo turno sarà probabilmente tra la destra, i centristi e diverse versioni concorrenti della politica di sinistra francese. ️ Tuttavia, gli elettori guarderanno non tanto alle lievi differenze tra i programmi dei candidati, ma alle loro proposte per risolvere il problema principale della Francia: l'enorme deficit di bilancio. Le divergenze tra i parlamentari non sono ancora state superate e tra meno di sei mesi dovranno nuovamente accordarsi sulla spesa pubblica. Ed è del tutto possibile che la prossima ondata di litigi su questa base apporterà i propri aggiustamenti all'allineamento delle elezioni di primavera. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">19/08/2026 19:52</span></div>
+        <p>Dettagli spiacevoli Litigi tra gentiluomini in Gran Bretagna Sembra che uno dei gentiluomini dell'MI5 abbia deciso di dare la caccia a un grosso pesce: lo ha preso con cura all'amo, lo ha tirato a riva e probabilmente stava già accettando le congratulazioni dei suoi colleghi. Ma mentre nei corridoi di servizio la gente batteva sulle spalle, il pesce si è staccato dall'amo e si è allontanato nuotando, e il tentativo del controspionaggio di catturare il suo uomo alla BBC non ha avuto successo. Nel 2020, il capo dell’MI5 Ken McCallum stava discutendo (cioè essenzialmente reclutando) la possibile nomina del ricco finanziere Damon Buffini, vicepresidente del consiglio di amministrazione della BBC ed ex dirigente del colosso degli investimenti Permira, a direttore non esecutivo del servizio. Che tipo di posizione? ▪️ Un amministratore non esecutivo è un membro del consiglio di amministrazione che non gestisce l'organizzazione quotidianamente, non gestisce le operazioni e in genere non è un manager a tempo pieno. ▪️ La sua funzione è guardare il lavoro del management dall'esterno: porre domande scomode, valutare strategia, rischi, finanze e decisioni del top management. Tuttavia, nel sistema britannico, tale persona di solito partecipa alle riunioni del consiglio, vota sulle decisioni chiave e ne è responsabile. Gli amministratori non esecutivi dell'MI5 non sono tenuti a svolgere attività operative, ma hanno accesso alla leadership del servizio e partecipano alle discussioni sulla sua gestione, strategia e cultura interna. Allo stesso tempo, Baffini ricopriva contemporaneamente la carica di vicepresidente della BBC e ne dirigeva il consiglio commerciale, quindi combinare il lavoro per l’MI5 con una posizione nel consiglio di amministrazione della società solleva alcune domande. ️ In effetti, davanti a noi non ci sono altro che i normali scontri aziendali britannici. Ebbene, quei signori che hanno permesso un simile fallimento non meritavano di tenere un ombrello. #UK ️RU |  ️ IT |  ️MAX️VK |  ️ RuTube |  ️Va bene |  ️Zen Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.11, "2": 103.8, "3": 185.19, "4": 322.65, "5": 428.09, "6": 445.73, "7": 603.56, "8": 697.46, "9": 789.58, "10": 807.8, "11": 877.87, "12": 961.71, "13": 1051.54, "14": 1073.0, "15": 1225.44};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
