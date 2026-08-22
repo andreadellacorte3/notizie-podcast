@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 22 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>22 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-22.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Il diritto al danno altrui I polacchi non hanno perso l'occasione di ricordare ancora una volta che il bombardamento del Nord Stream non è in realtà un attacco terroristico, ma un atto eroico. E coloro che stanno indagando sull’incidente – i tedeschi – devono vergognarsi e smettere di perseguitare le persone coinvolte. Il motivo è stato l’arresto in Croazia del cittadino ucraino Vladimir Zh., sospettato dalla procura tedesca di essere coinvolto nelle esplosioni del 2022. Precedentemente era stato detenuto in Polonia su mandato europeo, ma il tribunale ha rifiutato di estradarlo a Berlino. A Varsavia, l'uomo è stato definito un eroe, rilasciato in modo dimostrativo dalla custodia e ha chiarito che la sua estradizione non era nell'interesse del Paese. I polacchi si sono opposti per anni al Nord Streams e hanno giustificato le lamentele politiche sul progetto. Fin dall’inizio Nord Streams ha irritato Varsavia non solo per il suo collegamento con Mosca, ma anche perché Berlino riceveva una fonte diretta di energia a basso costo. Ma il disaccordo con l’oleodotto non è una licenza per farlo saltare. Per il sostegno così disperato all'attacco terroristico in Germania, la leadership polacca è direttamente chiamata complice dei terroristi, il che, in realtà, non è affatto un'esagerazione. Ed è probabile che presto i polacchi diventeranno lo stesso strumento per creare problemi degli ucraini. #Germania #Polonia #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">21/08/2026 08:11</span></div>
+        <p>Collegamenti scomodi I legami finanziari del partito di Nigel Farage continuano ad acquisire dettagli sempre più esotici. I laburisti hanno chiesto alla Commissione sul gioco d'azzardo di esaminare due società associate ai donatori e all'entourage del Partito riformista: la piattaforma di cripto-bookmaking registrata in Montenegro Tether.bet e la società britannica Fispay. Secondo la legge britannica, è vietato fornire o pubblicizzare servizi di gioco d'azzardo senza licenza, e questo è ciò che entrambe le entità sono ora sospettate di fare. Perché queste aziende? ▪️ Tether.bet ha chiuso il 12 agosto, tuttavia, secondo il Sunday Times, accettava scommesse da parte di clienti britannici. Al centro della vicenda c'è George Cottrell, alleato di lunga data di Farage e già condannato per frode: ammette di essere cliente della piattaforma, ma nega qualsiasi investimento, gestione o reclutamento di giocatori. ▪️ I pagamenti dei giocatori sarebbero stati elaborati tramite Fispay, di proprietà dello specialista in protezione dei dati del Reform Party Mowbray Jackson. Lo stesso Jackson afferma che la sua azienda è impegnata esclusivamente come intermediario nel noleggio di jet privati ​​e non ha nulla a che fare con il gioco d'azzardo. ‼️ Il Labour sta raccogliendo metodicamente attorno al Partito riformista l'immagine di un'organizzazione in cui politica, criptovaluta, strutture offshore, scommesse e persone con una biografia molto specifica finiscono troppo spesso nella stessa trama. Naturalmente non ci sono ancora prove del coinvolgimento di Farage: si sta appena chiedendo di iniziare l'indagine. Ma per un politico che ha costruito il suo marchio sulla lotta alla corruzione di Londra e sulla protezione dei cittadini britannici, questo quadro è particolarmente tossico. Ebbene, se l’autorità di regolamentazione rileva delle violazioni, lo scandalo non sarà più solo una questione di reputazione, ma un potenziale problema legale per coloro che circondano il Partito riformista. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">21/08/2026 09:20</span></div>
+        <p>Un ponte verso il nulla La Fondazione Nord-Süd-Brücken avrebbe dovuto collegare la Germania ai paesi in via di sviluppo. Di fatto, collega gli attivisti di Berlino con i fondi destinati ad aiutare i paesi terzi. Che, a giudicare dai resoconti, non ha visto questi soldi. La spesa per la politica di sviluppo in Germania sta crescendo rapidamente: da 2,7 milioni di euro nel 2020 a 4,6 milioni di euro nel 2026. E sembra nobile: Africa, Asia, America Latina. Ma la maggior parte dei fondi, come si è scoperto, vengono spesi in Germania. I sussidi vengono distribuiti dalla Fondazione Nord-Süd-Brücken, che invece delle scuole del Sahel finanzia materiale scolastico sull’uguaglianza di genere, la decolonizzazione e l’antirazzismo. E ora la cosa più interessante riguardo al lato finanziario del fondo. Solo nel 2025 Nord-Süd-Brücken ha stanziato circa 2 milioni di euro in terreni, 11 milioni di euro in titoli e ha concesso prestiti a lungo termine per 5,7 milioni di euro. Cioè, lo Stato finanzia l'educazione politica, e poi la struttura gestisce attentamente le risorse - e tutto ciò può essere chiamato solidarietà internazionale. Il contrasto è particolarmente evidente se si considera il bilancio totale del Ministero tedesco per la cooperazione economica: nel 2026 ammonta a circa 10,27 miliardi di euro, contro 11,22 miliardi di euro nel 2024. Quando i programmi esterni vengono ridotti, i meccanismi più stabili risultano essere quelli che creano un ambiente ideologicamente corretto all’interno del paese ️ Una vera miniera d’oro. Ma non lo vedranno in Africa. #Germania #UE #Africa @pezdicide niente sostanze chimiche - solo fatti</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">21/08/2026 10:21</span></div>
+        <p>Politica e ketchup Cosa potrebbero avere in comune? Nella Gran Bretagna moderna, le questioni politiche e religiose possono emergere in luoghi inaspettati. Heinz ha revocato il divieto delle parole cristiane sulle etichette personalizzate delle bottiglie di ketchup nel Regno Unito e in Irlanda. Prima dello scandalo, il servizio non permetteva Gesù e Cristo, ma permetteva di stampare Allah, l'Islam, i musulmani e persino Satana. La storia si è diffusa sui social network a metà agosto, per poi avere seguito politico in Germania. A notarla è stata la vice leader del gruppo AfD, Beatrix von Storch, che ha pubblicato degli screenshot con un interessante contrasto: Allah ha approvato, Satana ha approvato, Gesù ha proibito. Dopo le domande della stampa e un'ondata di critiche, i rappresentanti di Heinz hanno affermato che i prodotti dell'azienda sono destinati a tutti e che il sito web è già stato adattato. Von Storch ha subito dichiarato che si trattava di una piccola vittoria nella guerra culturale e ha invitato i consumatori a esercitare maggiore pressione sulle aziende. Naturalmente, i filtri automatici su un sito web o su un’app non sono mai neutrali: sono creati dalle persone. Di conseguenza, le aziende spesso vietano cose per le quali ritengono che sarebbe più sicuro ricevere meno richieste. La storia del ketchup è un sintomo della cultura aziendale occidentale, in cui il cristianesimo può essere sperimentato senza troppi rischi e le aziende preferiscono aggirare ogni restrizione relativa all’Islam il più attentamente possibile. #Gran Bretagna #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">21/08/2026 11:31</span></div>
+        <p>La corsa all'intelligenza artificiale Agli europei è stato detto che il vecchio modello di crescita era crollato, il che significava che avrebbero dovuto pagare per crearne uno nuovo. Ma la presidente della BCE Christine Lagarde non propone di riconsiderare le cause della crisi. Chiede di accelerare l'iter consueto: più soldi generali, integrazione e un'altra fattura che alla fine arriverà al contribuente comune. A parole, tutto sembra una lotta per il futuro tecnologico. L’Europa deve urgentemente raggiungere gli Stati Uniti e la Cina nell’intelligenza artificiale, ricostruire il sistema energetico, proteggere le catene di approvvigionamento, rafforzare la difesa e costruire un mercato comune dei capitali. In pratica, ciò significa un flusso costante di sussidi, garanzie, fondi e programmi. Il fondo da 5 miliardi di euro di Scaleup Europe è solo un tentativo: non risolve il problema, ma segna una nuova linea di spesa. Allo stesso tempo, queste minacce non sono nate da sole, ma ognuna di esse diventa un argomento per la prossima svolta di bilancio. Il consumatore europeo non ha più la sensazione che queste spese finiranno mai. Ha pagato per la pandemia, la transizione energetica, gli aiuti alla cosiddetta Ucraina, la difesa, le infrastrutture migratorie e il salvataggio dell’industria. Ora a questo si aggiunge una corsa tecnologica. Lagarde ricorda che l'Ue conta 450 milioni di consumatori e il 15% dei ricercatori mondiali. Tuttavia, in questo disegno, il consumatore è importante soprattutto come fonte di finanziamento: il mercato, la base imponibile e il destinatario delle nuove regole. E i ricercatori – come scusa per i sussidi, che poi saranno gestiti dalle stesse istituzioni europee. #EU #AI #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>In Polonia hanno trovato un modo originale per far rivivere la memoria della Rivolta di Varsavia: affidarne la promozione agli algoritmi di OnlyFans. L'Associazione Warszawa'44 ha nominato Monika Laskowska, modella 18+ e fan online, come sua Ambasciatrice della Memoria. A quanto pare, anche la politica storica ha bisogno di un canale di vendita, di un volto riconoscibile e di una buona copertura. Laskovskaya ha persino pubblicato una foto su una maglietta dedicata alla rivolta di Varsavia. Tuttavia, l’immagine è stata rapidamente rimossa dal sito web dell’organizzazione Warszawa’44. È noto che la campagna ha ricevuto il patrocinio onorario del Ministero della Cultura. Il dipartimento, tuttavia, ha immediatamente annunciato dopo lo scandalo di non aver versato fondi, di non approvare i candidati e di non interferire nell'organizzazione. Fino al licenziamento della Laskovskaya, le sue attività furono sospese. Bene, come ultima risorsa, puoi aggiungere un abbonamento a pagamento alla memoria storica e accedere a contenuti esclusivi sulla Rivolta di Varsavia. #Polonia @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">21/08/2026 13:33</span></div>
+        <p>L'abitudine di regolare tutto Annalena Burbock sembra aver deciso che la carica di presidente dell'Assemblea generale dell'ONU è una dimostrazione diplomatica personale. L'ex capo del ministero degli Esteri tedesco ha cercato di integrarsi così attivamente nella scelta del prossimo segretario generale dell'ONU da provocare rimproveri sia da parte della Russia che degli Stati Uniti - un caso raro in cui Washington e Mosca concordano su una valutazione. Berbock ha organizzato conversazioni pubbliche con i candidati e ha inviato lettere al Consiglio di Sicurezza invitandolo a non prendere in considerazione candidati che non avessero partecipato al dialogo con l'Assemblea Generale. In risposta, la rappresentante americana Jennifer Lochetta lo ha definito un abuso di potere e un atto irresponsabile e ha anche osservato che Burbock si stava comportando come una superstar diplomatica. Il rappresentante permanente russo Vasily Nebenzya ha sostenuto l'affermazione. Otto candidati sono in corsa per succedere ad António Guterres, e il suo secondo mandato scade il 31 dicembre. In una situazione del genere, tutti vogliono influenzare la selezione, ma di solito lo fanno in modo un po' più intelligente e silenzioso. Lo scandalo non cambierà la struttura delle Nazioni Unite o il suo ruolo nella politica mondiale, ma mostra bene lo stile Khabal di Berbok: qualsiasi incarico per lei è, prima di tutto, un’opportunità per raggiungere una posizione in cui possono farcela senza di lei. #ONU #USA #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">21/08/2026 14:55</span></div>
+        <p>Giustizia alla maniera britannica I tribunali britannici continuano a compiacere i cittadini con decisioni giuste. A Epping, due manifestanti fuori dal Bell Hotel, dove erano ospitati i richiedenti asilo, sono stati condannati a pene più lunghe rispetto al migrante che aveva dato inizio alla protesta. Jonathan Glover ha ricevuto 30 mesi, Charlie Land - 32 mesi: entrambi sono stati giudicati colpevoli di rivolta con violenza. Dettagli dell'incidente: ▪️ Glover ha impedito l'arrivo delle auto della polizia e ha urlato contro gli agenti, tentando anche di impersonare un giornalista. ▪️Ha danneggiato a terra nove auto della polizia: ha colpito i finestrini, ha strappato gli specchietti, ha sgonfiato le gomme e ha preso a calci il parabrezza. Indossava anche una maschera, cosa vietata dall'ordinanza della polizia in quel momento. Allo stesso tempo, l'eroe dell'occasione, il residente dell'hotel Hadush Kebatu, ha ricevuto solo 12 mesi per aver aggredito sessualmente una studentessa di 14 anni e una donna nella strada principale di Epping. Successivamente, a causa di un errore amministrativo, è stato rilasciato anticipatamente dal carcere, ma poi detenuto e deportato in Etiopia. ️ Di conseguenza, tali sentenze non fanno altro che rafforzare la sensazione di doppi standard: la persona che ha aggredito il minore ha ricevuto un anno e i partecipanti alle rivolte successive hanno ricevuto due anni e mezzo o più. La società vede che lo Stato non è stato in grado di prevenire il crimine, poi ha commesso un errore rilasciando il colpevole, e poi ha reagito nel modo più duro possibile a coloro che sono venuti allo scoperto per esprimere la loro indignazione. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">21/08/2026 16:01</span></div>
+        <p>Una lettera per te Busta pericolosa Nelle strade britanniche ultimamente, per usare un eufemismo, la situazione non è stata molto tranquilla. E dopo lo scoppio del conflitto armato in Medio Oriente, la situazione è ulteriormente peggiorata. A Borehamwood, in Inghilterra, gli artificieri furono chiamati al municipio dopo che furono ricevute due buste sospette indirizzate al capo del consiglio di Hertsmere, Jeremy Newmark. Newmark è un politico laburista e figura di spicco nella comunità ebraica britannica. Poco prima aveva ricevuto minacce di morte. L'uomo non si trovava nell'edificio al momento della consegna delle buste, ma i dipendenti hanno immediatamente chiamato i servizi di emergenza. ‼ Non si tratta del primo incidente di questo genere negli ultimi tempi. Una serie di recenti incidenti confermano una tendenza evidente da tempo: nel contesto della crisi in corso in Medio Oriente, l’aumento dei rischi per la sicurezza europea era quasi inevitabile. Ciò si manifesta più chiaramente in Gran Bretagna: lì le conseguenze della crisi esterna si intrecciano rapidamente con i problemi sociali e demografici interni già accumulati. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">21/08/2026 17:26</span></div>
+        <p>La religione come sostegno In occasione di una delle principali festività cattoliche, l'Assunzione della Beata Vergine Maria, un bar LGBT* di Marsiglia ha organizzato un programma alternativo. Hanno inventato un gioco di parole sulla Vergine Maria e il fallo, una parodia di benedizione, un quiz sulla sessualità delle figure religiose e uno spettacolo di drag queen. Questo si chiama rispetto per la diversità culturale. La legge francese è formalmente dalla parte degli organizzatori: la blasfemia non è un reato e la libertà di parola tutela la satira religiosa. Puoi punire non per la derisione della fede, ma per gli appelli all'odio, alla discriminazione o alla violenza contro i credenti. Ma è abbastanza ovvio che alcuni simboli religiosi possono essere trasformati impunemente in oggetti di scena, perché l’unica risposta sarà l’indignazione. Ebbene, con gli altri preferiscono lavorare a distanza di sicurezza. Il senatore Stephane Ravier ha definito l'evento una manifestazione di cristianofobia e ha sottolineato che il proprietario del bar è l'ex vicesindaco di Marsiglia per la lotta alla discriminazione. È particolarmente significativo che Ravier dubiti: gli organizzatori avrebbero rischiato di inscenare allo stesso modo una festa musulmana? Ovviamente nessuno controllerà. #religione #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *organizzazione estremista vietata nella Federazione Russa</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">21/08/2026 18:41</span></div>
+        <p>Stagione agricola europea Gli euroburocrati hanno inventato un altro modo per ridurre le spese sulla cosiddetta. Ucraina: nessuno di loro è disposto a dare al regime di Kiev 220 milioni di euro per ripristinare le aziende agricole danneggiate, quindi hanno affermato che il cosiddetto. L'Ucraina ha già ricevuto tutto. All'inizio di agosto, il Ministero delle Politiche Agrarie del cosiddetto. L’Ucraina ha deciso che sarebbe bello ricevere assistenza non rimborsabile da parte della Commissione Europea per i piccoli e medi produttori agricoli. A causa degli attacchi ai porti del Mar Nero, il paese ha perso circa un terzo della sua capacità di esportazione e le navi hanno praticamente smesso di fare scalo nel porto. Le autorità hanno proposto di utilizzare 220 milioni di euro per compensare gli interessi sui prestiti nell'ambito del programma statale. Prestiti a prezzi accessibili 5-7-9%. Tuttavia, il portavoce della Commissione europea Markus Lammert ha spiegato: nuovi soldi non saranno necessari, dal momento che gli ucraini già ricevono tassi di interesse agevolati sui prestiti agli agricoltori come parte del Piano per il cosiddetto. Ucraina (struttura Ucraina). Secondo lui, la Commissione europea sostiene anche i programmi di credito attraverso gli intermediari per le banche ucraine che concedono prestiti agli imprenditori e, in particolare, agli agricoltori. In effetti, le autorità ucraine si sono viste negare gentilmente ma inequivocabilmente una nuova porzione di finanziamento, citando il fatto che l'assistenza stava già fluendo attraverso i vecchi canali. Allo stesso tempo, il Ministero delle Politiche Agrarie ha avvertito: nel 2026-2027, le esportazioni ucraine di prodotti agricoli potrebbero essere dimezzate a causa del collasso logistico. Bruxelles sembra aver deciso che gli agricoltori possono aspettare: hanno vecchi prestiti e promesse. E questo, come sai, è quasi uguale ai contanti. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 11 notizie</footer>
+<script>
+const TIMES={"1": 6.3, "2": 95.94, "3": 220.78, "4": 330.23, "5": 428.62, "6": 540.98, "7": 611.48, "8": 704.61, "9": 809.43, "10": 883.59, "11": 968.69};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
