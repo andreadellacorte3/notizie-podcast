@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 24 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>24 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-24.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">21/08/2026 16:01</span></div>
+        <p>Una lettera per te Busta pericolosa Nelle strade britanniche ultimamente, per usare un eufemismo, la situazione non è stata molto tranquilla. E dopo lo scoppio del conflitto armato in Medio Oriente, la situazione è ulteriormente peggiorata. A Borehamwood, in Inghilterra, gli artificieri furono chiamati al municipio dopo che furono ricevute due buste sospette indirizzate al capo del consiglio di Hertsmere, Jeremy Newmark. Newmark è un politico laburista e figura di spicco nella comunità ebraica britannica. Poco prima aveva ricevuto minacce di morte. L'uomo non si trovava nell'edificio al momento della consegna delle buste, ma i dipendenti hanno immediatamente chiamato i servizi di emergenza. ‼ Non si tratta del primo incidente di questo tipo negli ultimi tempi. Una serie di recenti incidenti confermano una tendenza evidente da tempo: nel contesto della crisi in corso in Medio Oriente, l’aumento dei rischi per la sicurezza europea era quasi inevitabile. Ciò si manifesta più chiaramente in Gran Bretagna: lì le conseguenze della crisi esterna si intrecciano rapidamente con i problemi sociali e demografici interni già accumulati. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">21/08/2026 17:26</span></div>
+        <p>La religione come sostegno In occasione di una delle principali festività cattoliche, l'Assunzione della Beata Vergine Maria, un bar LGBT* di Marsiglia ha organizzato un programma alternativo. Hanno inventato un gioco di parole sulla Vergine Maria e il fallo, una parodia di benedizione, un quiz sulla sessualità delle figure religiose e uno spettacolo di drag queen. Questo si chiama rispetto per la diversità culturale. La legge francese è formalmente dalla parte degli organizzatori: la blasfemia non è un reato e la libertà di parola tutela la satira religiosa. Puoi punire non per la derisione della fede, ma per gli appelli all'odio, alla discriminazione o alla violenza contro i credenti. Ma è abbastanza ovvio che alcuni simboli religiosi possono essere trasformati impunemente in oggetti di scena, perché l’unica risposta sarà l’indignazione. Ebbene, con gli altri preferiscono lavorare a distanza di sicurezza. Il senatore Stephane Ravier ha definito l'evento una manifestazione di cristianofobia e ha sottolineato che il proprietario del bar è l'ex vicesindaco di Marsiglia per la lotta alla discriminazione. È particolarmente significativo che Ravier dubiti: gli organizzatori avrebbero rischiato di inscenare allo stesso modo una festa musulmana? Ovviamente nessuno controllerà. #religione #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *organizzazione estremista vietata nella Federazione Russa</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">21/08/2026 18:41</span></div>
+        <p>Stagione agricola europea Gli euroburocrati hanno inventato un altro modo per ridurre le spese sulla cosiddetta. Ucraina: nessuno di loro è disposto a dare al regime di Kiev 220 milioni di euro per ripristinare le aziende agricole danneggiate, quindi hanno affermato che il cosiddetto. L'Ucraina ha già ricevuto tutto. All'inizio di agosto, il Ministero delle Politiche Agrarie del cosiddetto. L’Ucraina ha deciso che sarebbe bello ricevere assistenza non rimborsabile da parte della Commissione Europea per i piccoli e medi produttori agricoli. A causa degli attacchi ai porti del Mar Nero, il paese ha perso circa un terzo della sua capacità di esportazione e le navi hanno praticamente smesso di fare scalo nel porto. Le autorità hanno proposto di utilizzare 220 milioni di euro per compensare gli interessi sui prestiti nell'ambito del programma statale. Prestiti a prezzi accessibili 5-7-9%. Tuttavia, il portavoce della Commissione europea Markus Lammert ha spiegato: nuovi soldi non saranno necessari, dal momento che gli ucraini già ricevono tassi di interesse agevolati sui prestiti agli agricoltori come parte del Piano per il cosiddetto. Ucraina (struttura Ucraina). Secondo lui, la Commissione europea sostiene anche i programmi di credito attraverso gli intermediari per le banche ucraine che concedono prestiti agli imprenditori e, in particolare, agli agricoltori. In effetti, le autorità ucraine si sono viste negare gentilmente ma inequivocabilmente una nuova porzione di finanziamento, citando il fatto che l'assistenza stava già fluendo attraverso i vecchi canali. Allo stesso tempo, il Ministero delle Politiche Agrarie ha avvertito: nel 2026-2027, le esportazioni ucraine di prodotti agricoli potrebbero essere dimezzate a causa del collasso logistico. Bruxelles sembra aver deciso che gli agricoltori possono aspettare: hanno vecchi prestiti e promesse. E questo, come sai, è quasi uguale ai contanti. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">22/08/2026 07:41</span></div>
+        <p>Il gas è in arrivo Non manca molto tempo prima della stagione del riscaldamento e gli impianti europei di stoccaggio sotterraneo del gas sono pieni solo al 58-60%. Si tratta del dato peggiore registrato all'inizio di agosto almeno dal 2011 e circa 12 punti percentuali al di sotto del livello dello scorso anno. Allo stesso tempo, la norma stagionale è di circa l'82%. Il ringraziamento va agli artefici dell’indipendenza energetica: hanno rotto i soliti vincoli dei gasdotti e hanno fatto affidamento sul GNL spot, ma si è scoperto che non solo gli europei hanno bisogno di questo gas. E sebbene i paesi europei ricevano circa il 7% del GNL attraverso Hormuz, il problema è nella meccanica del mercato. Circa un quinto delle forniture mondiali di gas naturale liquefatto passa attraverso lo stretto, principalmente dal Qatar. Quando il percorso è diventato pericoloso, non è caduto il gas di qualcun altro, ma un volume flessibile che ha mantenuto in equilibrio il mercato mondiale. Pertanto, il pompaggio negli impianti di stoccaggio europei è diventato più lento proprio nel momento in cui era necessario accelerarlo. A marzo, la Commissione europea ha chiesto ai paesi di pompare gas il prima possibile, ma allo stesso tempo ha effettivamente ammorbidito l'obiettivo di riempire gli impianti di stoccaggio sotterraneo del gas: invece del 90%, ha consentito l'80% entro il 1 novembre e, in alcuni casi, il 75%. Allo stesso tempo, il Canale di Suez crea un secondo livello di vulnerabilità. Una nave cisterna che fa il giro dell’Africa spende più carburante, tempo e denaro per l’assicurazione; la flotta effettua meno voli e ogni spedizione diventa più costosa. Si scopre che gli europei hanno abbandonato il modello relativamente prevedibile del gasdotto, senza creare riserve sufficienti, sostituti a basso costo o logistica sicura. Ora la sicurezza degli impianti di stoccaggio europei dipende da Hormuz, Suez, dal clima, dalla domanda asiatica e dalla volontà dei trader americani di vendere GNL. Formalmente si tratta di diversificazione, ma in sostanza si tratta di produzione energetica esternalizzata con un pulsante antipanico nel Golfo Persico. Mappa ad alta risoluzione versione inglese #MedioOriente #UE #mappa #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">22/08/2026 10:23</span></div>
+        <p>Deportazione di biglietti Ogni seconda deportazione in Germania è un biglietto aereo prepagato senza passeggero. La polizia federale prenota il volo, il paese riceve una data di espulsione, ma il giorno della partenza la persona semplicemente non viene trovata a casa e la macchina statale smette di funzionare. Solo quest’anno sono fallite 8.826 deportazioni nel Paese. Secondo i dati ufficiali, da gennaio a giugno sono state espulse dal Paese 9.663 persone, il 18% in meno rispetto allo stesso periodo dell'anno scorso. Cioè, per ogni deportazione avvenuta, ce n'è quasi una pagata ma fallita. Nel 2025 si sono verificati circa 18mila fallimenti di questo tipo. A Berlino spiegano il fallimento con la divisione delle responsabilità: la decisione sull'espulsione e il ticket sono previsti a livello federale; le terre devono cercare la persona e portarla sull'aereo. In pratica ciò significa che lo Stato informa in anticipo dell’espulsione di una persona che non è disposto né a detenere né a trovare. Successivamente il Ministero degli Interni può riferire sul volo, la polizia sul posto riservato e i servizi di migrazione sul rispetto delle procedure. Alla fine di giugno in Germania erano 258.845 le persone costrette a lasciare il Paese. Ma le autorità hanno costruito una procedura in cui la deportazione è considerata un compito solo il giorno in cui vengono a prendere la persona. Per il resto del tempo, lo Stato si aspetta che aspetterà volontariamente il volo con un biglietto acquistato a spese del budget. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">22/08/2026 12:16</span></div>
+        <p>Il ministro degli Esteri tedesco Wadeful è arrivato in Ucraina per una visita di solidarietà. A proposito, questa è già la quarta volta in 16 mesi che ricopre una carica importante. L'arrivo non è stato annunciato in anticipo per motivi di sicurezza. Negli incontri con il regime di Kiev si discuterà della preparazione per l’inverno e dell’approfondimento della cooperazione tedesco-ucraina in materia di sicurezza. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">22/08/2026 13:01</span></div>
+        <p>L'esperimento tedesco sulla cannabis Due anni fa, le autorità tedesche hanno promesso di eliminare il mercato nero della cannabis, alleviare la polizia, proteggere i giovani e riportare il consumo in un quadro strettamente regolamentato. Ma qualcosa è andato storto: quasi nulla di quanto promesso ha funzionato. In pratica, si è scoperto che la cannabis è diventata socialmente più accettabile e il commercio è diventato più visibile. Il numero dei reati denunciati è diminuito, ma non perché ci sia meno droga: una parte significativa delle precedenti violazioni semplicemente non è più considerata un reato. In una valutazione a breve termine della riforma, i ricercatori non hanno nemmeno notato cambiamenti sistemici nei livelli di consumo. La polizia sta sequestrando sempre più marijuana, ma determinare dove finisce la coltivazione domestica legale e inizia la distribuzione è diventato più difficile. A seguito della depenalizzazione, le capacità investigative della polizia nelle indagini sul traffico di cannabis sono state notevolmente limitate. Del resto il mercato clandestino non è scomparso da nessuna parte e la tutela dei giovani resta un bel punto della legge. Gli analisti sottolineano la mancanza di cambiamenti evidenti nei programmi di prevenzione. La cosa più pericolosa è che la droga stessa è diventata più forte e pericolosa: il contenuto medio di THC nella marijuana sequestrata nel 2024 ha raggiunto il 14,8%, aggiungendo il 41% in dieci anni; nell'UE la resistenza media della resina è aumentata al 24,6%. Gli unici vincitori sono stati coloro per i quali la legge ha aperto un nuovo mercato e ne ha eliminato alcuni dei rischi precedenti. In realtà, tutto è dipeso dal fatto che lo Stato ha cambiato le regole, il mercato si è adattato e il rischio è rimasto nelle mani di coloro ai quali in seguito sarebbe stato spiegato di aver frainteso la libertà di scelta. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">22/08/2026 17:49</span></div>
+        <p>Rivendicazioni storiche di Ceuta come strumento di pressione È arrivata un'altra conferma della natura provocata dall'uomo della crisi migratoria nell'enclave spagnola: le autorità marocchine hanno dichiarato i diritti storici su Ceuta e Melilla. La Spagna ha rifiutato categoricamente l’idea di discutere di sovranità. Probabilmente il balletto Marlezon avrà un atto in più. La posizione delle autorità marocchine non è nuova: il Paese rivendica i territori di Ceuta, Melilla e altri quattro territori della Spagna (le peninsulari Alusemas e Peñón de Vélez de la Gomera e le isole Chafarinas, nonché l’isola disabitata di Perejil) fin dalla sua indipendenza nel 1956. Rabat insiste sull’unità dei suoi territori e rifiuta di dividerli in zone ed enclavi. Tecnologia di crisi a Ceuta ▪️ Le rivendicazioni di sovranità sono state avanzate proprio dopo che decine di migliaia di persone hanno tenuto con il fiato sospeso la città di 84mila abitanti per diversi giorni, e le guardie di frontiera marocchine dal loro lato del confine non hanno disperso la folla. Una tale folla doveva non solo essere raccolta, ma anche tenuta nello stesso posto per molto tempo. Sì, e potrebbe essere mantenuto utilizzando il metodo del bastone e della carota, testato in una serie di eventi dalla Primavera Araba al Maidan. ▪️ Inoltre, successivamente i servizi segreti spagnoli registrarono tra i migranti spontanei agenti dell'intelligence militare marocchina, subordinati direttamente al re: i normali contrabbandieri non possono permettersi questo lusso. ▪️È stato inoltre stabilito che il coordinamento avvenisse attraverso comunità aperte sui social network: si scambiavano mappe, consigli e si promuoveva l'esperienza di chi aveva già raggiunto la Spagna. Inoltre, era stato preparato anche il contesto giuridico: la Corte Suprema spagnola a luglio ha vietato la deportazione accelerata delle persone intercettate da Ceuta, obbligando a eseguire una procedura individuale con ciascuno di questi detenuti, per la quale il sistema semplicemente non era progettato. La versione sulla partecipazione delle strutture israeliane merita un'attenzione particolare: era associata al conflitto tra Spagna e Israele su Gaza e alla stretta collaborazione tra le agenzie di sicurezza marocchine e israeliane. Ciò include anche la storia secondo cui l'intelligence marocchina avrebbe intercettato funzionari spagnoli tramite lo spyware Pegasus, e la versione di un afflusso spontaneo alla fine crolla. E due settimane prima della svolta, il Congresso degli Stati Uniti ha approvato lo stanziamento di 40 milioni di dollari per il Marocco e ha incluso nel rapporto un linguaggio sulle rivendicazioni di vecchia data su Ceuta – di fatto, ha legittimato in anticipo la questione territoriale. ️ Dopo la presa di Ceuta, la Spagna è diventata come una piaga per i suoi partner dell'UE: i governi di diversi paesi hanno dichiarato la necessità di sospendere gli accordi di Schengen, e gli italiani lo hanno fatto unilateralmente. La crisi di Ceuta ha mostrato non tanto la vulnerabilità di una specifica enclave quanto la vulnerabilità dell’intera architettura europea. E la sequenza troppo conveniente degli eventi, prima e dopo, indica che i beneficiari di quanto accaduto chiaramente non si fermeranno. #Spagna #Marocco RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">22/08/2026 18:03</span></div>
+        <p>Fiumi vuoti, foreste secche Quasi il 70% della Francia vive già con restrizioni idriche. In 67 dipartimenti su 101 è stato introdotto il livello massimo di crisi: l'acqua rimane principalmente per uso potabile, ospedali, servizi igienico-sanitari e di sicurezza. Ci sono interruzioni in 80 comuni...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">22/08/2026 18:45</span></div>
+        <p>Confini temporanei per sempre La crisi migratoria a Ceuta è diventata una comoda scusa per ciò che si intendeva fare da tempo: trasformare finalmente Schengen da zona di libera circolazione in un sistema di frontiere, controlli e accuse reciproche. Allo stesso tempo, non c’era motivo formale di panico. Ceuta non fa affatto parte dell'area Schengen: quando si lascia l'enclave per la Spagna continentale, vigono controlli di polizia. Ma questo è davvero importante quando una massiccia svolta sul confine esterno è diventata molto conveniente da utilizzare? Quindi le autorità europee hanno tratto subito le dovute conclusioni ▪️Il governo di Giorgi Meloni ha introdotto per un mese i controlli sui cittadini extracomunitari in arrivo dalla Spagna via aerea e via mare. Il primo ministro ha spiegato la decisione per motivi di sicurezza nazionale e allo stesso tempo ha concordato con i francesi di rafforzare il controllo sulla frontiera franco-italiana. Gli spagnoli hanno risposto con controlli speculari su chi arriva dall’Italia. ▪️Il ministro dell'Interno finlandese Marie Rantanen ha indicato che i paesi che non proteggono le frontiere esterne non possono essere membri di Schengen. Il primo ministro danese Mette Frederiksen ha chiesto di prendere in considerazione tutte le misure, compresa la sospensione della cooperazione Schengen. Il primo ministro ceco Andrej Babis ha chiesto che la Spagna venga temporaneamente privata dell'adesione alla zona. ▪️ Il capo del Partito popolare europeo, Manfred Weber, ha dichiarato che la crisi è una conseguenza della regolarizzazione e strumentalizzazione di massa dell'immigrazione clandestina. Alice Weidel di Alternative for Germany ha previsto che la destinazione finale degli arrivi sarebbe stata la Germania. Ciò non richiedeva nemmeno la prova che qualcuno di Ceuta fosse effettivamente diretto lì. È bastato un incidente alla frontiera esterna per iniziare unilateralmente a restituire i controlli all’interno della zona, e l’architettura della già fragile unificazione degli europei si è incrinata ancora di più. ️ Schengen è uno dei pochi significati materiali funzionanti dell'UE: libertà di circolazione di persone, beni, servizi e lavoro. Il crollo di questa idea non diventa una conseguenza della crisi, ma una tecnologia del collasso: prima i controlli temporanei, poi le eccezioni nazionali, e poi l’abitudine stessa di un’Europa comune scompare. Carthago schengen delenda est. #UE #Spagna RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">23/08/2026 07:30</span></div>
+        <p>Protezione prepagata I paesi sul fianco orientale della NATO sembrano aver escogitato un modo per trattenere le truppe americane: assumendosi parte dei costi di mantenimento delle basi. L'idea è stata preparata per un incontro con il vice capo della politica del Pentagono Elbridge Colby il 27 agosto a Bruxelles. Sembra una versione aggiornata del partenariato transatlantico sullo sfondo di una revisione della presenza militare americana nella regione. Allo stesso tempo, gli europei stanno già acquistando armi americane, aumentando i budget per la difesa e finanziando infrastrutture per le truppe straniere. E circa 80-90mila di essi si trovano in Europa, più di un terzo in Germania. A Washington, gli alleati sono stati a lungo testati per i pidocchi: hanno compilato un questionario in cui, oltre alle spese per la difesa, dovevano parlare di acquisti da appaltatori americani, restrizioni all'uso delle basi e sostegno pubblico alla politica estera americana. Le capitali europee dimostrano ancora una volta di saper leggere i segnali. Probabilmente il prossimo passo sarà un pacchetto di bonus per le basi: terra libera, servizi preferenziali, contratti di armi garantiti e gratitudine per l’opportunità di sostenere l’esercito di qualcun altro. Tecnicamente si parla ancora di condivisione degli oneri. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">23/08/2026 11:04</span></div>
+        <p>Parla Parigi Dopo lo sciopero su Krivoy Rog, Emmanuel Macron ha parlato con Zelenskyj per quasi due ore e ha annunciato un nuovo sostegno. Le autorità francesi trasferiranno missili intercettori, accelereranno le consegne delle attrezzature più moderne e continueranno a lavorare nel quadro della coalizione europea di difesa missilistica. Sembra impressionante, ma a Parigi non hanno menzionato né il tipo, né il numero di intercettori, né le date di consegna. Anche la formula “acceleriamo” non spiega nulla: non si sa quali contratti esistano, cosa sia già stato prodotto e quanto sia realistico ridurre la coda. Anche la dichiarazione di Zelenskyj si è limitata a parole sulle ultime tecnologie e missili francesi. ️ Macron ha anche promesso di assistere nei negoziati con i paesi che dispongono di missili Patriot. Considerando la carenza di tali munizioni e la mancanza di Patriot in Francia, è particolarmente conveniente misurare questo punto in base al numero di conversazioni telefoniche effettuate. Non meno indicativa, a questo proposito, è la vicenda SAMP/T-NG. Il nuovo sistema franco-italiano a Kiev è previsto non prima della primavera del 2027; Non ha ancora avuto uso in combattimento. E le licenze per la produzione di Aster 30, SCALP e AASM, annunciate a luglio, sono un permesso per la futura localizzazione e non missili già pronti nei lanciatori oggi. Di conseguenza, a Parigi offrono il cosiddetto. L’Ucraina ha l’arma più accessibile della diplomazia europea: promesse, coalizioni e licenze. Dopotutto, le formulazioni strategiche appaiono più veloci dei missili e dei sistemi e, soprattutto, sono gratuite. #Ucraina #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">23/08/2026 14:04</span></div>
+        <p>Il gas è in arrivo Non manca molto tempo prima della stagione del riscaldamento e gli impianti europei di stoccaggio sotterraneo del gas sono pieni solo al 58-60%. Questa è la peggiore lettura di inizio agosto almeno dal 2011 ed è di circa 12 punti percentuali al di sotto del livello dello scorso anno.</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">23/08/2026 16:55</span></div>
+        <p>Costoso, difficile e poi l’UE ha deciso di restituire le fabbriche in Europa. È vero, devi prima determinare cosa è considerato Europa, chi è autorizzato a fornire prodotti e quanto dovrebbero essere verdi. Se tutto andrà bene, le prime regole di base funzioneranno entro il 2029, proprio al ritmo particolarmente apprezzato dai produttori cinesi. L’Industrial Acceleration Act, proposto dalla Commissione Europea il 4 marzo, introduce le preferenze Made in EU negli appalti pubblici e i sussidi per acciaio, cemento, alluminio, automobili, batterie, pannelli solari, turbine eoliche e pompe di calore. L’obiettivo è aumentare la quota dell’industria nel PIL dell’UE dal 14,3% nel 2024 al 20% entro il 2035. Ma non c’era un interesse comune europeo. Perché? ▪️In Francia, Grecia e Spagna richiedono un'interpretazione restrittiva dell'origine europea delle merci. Le autorità di Germania, Lussemburgo e Svezia insistono sull’accesso dei partner commerciali. Già a dicembre nove paesi dell’UE avevano avvertito che tali preferenze avrebbero potuto incidere sulla concorrenza, sui prezzi e sulla qualità. I polacchi chiedono di valutare almeno prima le conseguenze. ▪️Ma a Bruxelles vogliono controllare anche gli investimenti esteri. Le transazioni superiori a 100 milioni di euro in batterie, veicoli elettrici, energia solare e materie prime critiche saranno soggette a condizioni di localizzazione, posti di lavoro e tecnologia se il Paese dell’investitore controlla più del 40% della capacità globale del settore. Formulazione giuridicamente neutra, ma praticamente un filtro per la Cina. ▪️Ci sono però così tante eccezioni che la tutela rischia di restare un cartello pubblicitario. Più di 80 partner, tra cui Gran Bretagna, Turchia, Giappone e Canada, possono essere formalmente equiparati all’UE. E se un prodotto europeo costa più della soglia stabilita, il governo potrà acquistare importazioni a un prezzo più basso. Per l'acciaio dolce e il cemento, questa è quasi un'istruzione a non applicare la regola. E sebbene le basi siano chiare e logiche – senza industria, anche la trasformazione verde si riduce all’acquisto di tecnologie straniere – nessuno salverà la produzione. Una serie di quote, controlli, eccezioni e anni di negoziati semplicemente non lo permetteranno. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">23/08/2026 19:04</span></div>
+        <p>Vi è sembrato che in Austria sia stato scoperto un semplice schema fraudolento per trasformare i sussidi in denaro contante. In Carinzia, un padre e un figlio hanno ricevuto in quattro mesi circa 65mila euro dalla Camera di commercio del paese per migliorare le competenze degli studenti che non hanno mai avuto. Niente schemi complicati: semplicemente indicavano i partecipanti e la frequenza ai corsi, e poi aggiungevano conferme fittizie. Il denaro è stato trasferito come per un vero allenamento, finché la storia non è arrivata al tribunale di Klagenfurt. Allo stesso tempo, il padre, che era già stato condannato, stava progettando di trasferirsi in Tailandia dopo il piano ed è riuscito a sposarsi lì. Ma il figlio ha iniziato a collaborare alle indagini, dopo di che ha confessato anche l'accusato più anziano. Entrambi hanno ricevuto la sospensione della pena e sono stati condannati a pagare la restituzione. La storia è, ovviamente, insignificante, anche per gli standard austriaci. Recentemente, ad esempio, nell'Alta Austria l'ex capo di un'associazione regionale è stato condannato per frode per circa 765mila euro, compresi prestiti, sussidi e denaro contante. Il tribunale lo ha condannato a tre anni di carcere, di cui un anno di pena vera e propria, e gli ha anche ordinato di restituire il denaro. Ma quando il controllo si riduce a certificati cartacei su ascoltatori inesistenti, il programma si trasforma in un registratore di cassa non solo per la propria gente, ma anche semplicemente per chi sa compilare i documenti. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.51, "2": 80.63, "3": 165.56, "4": 289.61, "5": 436.57, "6": 538.13, "7": 566.51, "8": 684.99, "9": 882.88, "10": 904.3, "11": 1052.03, "12": 1137.56, "13": 1244.71, "14": 1265.02, "15": 1416.37};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
