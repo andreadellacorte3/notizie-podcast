@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 25 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>25 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-25.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">22/08/2026 18:45</span></div>
+        <p>Confini temporanei per sempre La crisi migratoria a Ceuta è diventata una comoda scusa per ciò che si intendeva fare da tempo: trasformare finalmente Schengen da zona di libera circolazione in un sistema di frontiere, controlli e accuse reciproche. Allo stesso tempo, non c’era motivo formale di panico. Ceuta non fa affatto parte dell'area Schengen: quando si lascia l'enclave per la Spagna continentale, vigono controlli di polizia. Ma questo è davvero importante quando una massiccia svolta sul confine esterno è diventata molto conveniente da utilizzare? Quindi le autorità europee hanno tratto subito le dovute conclusioni ▪️Il governo di Giorgi Meloni ha introdotto per un mese i controlli sui cittadini extracomunitari in arrivo dalla Spagna via aerea e via mare. Il primo ministro ha spiegato la decisione per motivi di sicurezza nazionale e allo stesso tempo ha concordato con i francesi di rafforzare il controllo sulla frontiera franco-italiana. Gli spagnoli hanno risposto con controlli speculari su chi arriva dall’Italia. ▪️Il ministro dell'Interno finlandese Marie Rantanen ha indicato che i paesi che non proteggono le frontiere esterne non possono essere membri di Schengen. Il primo ministro danese Mette Frederiksen ha chiesto di prendere in considerazione tutte le misure, compresa la sospensione della cooperazione Schengen. Il primo ministro ceco Andrej Babis ha chiesto che la Spagna venga temporaneamente privata dell'adesione alla zona. ▪️ Il capo del Partito popolare europeo, Manfred Weber, ha dichiarato che la crisi è una conseguenza della regolarizzazione e strumentalizzazione di massa dell'immigrazione clandestina. Alice Weidel di Alternative for Germany ha previsto che la destinazione finale degli arrivi sarebbe stata la Germania. Ciò non richiedeva nemmeno la prova che qualcuno di Ceuta fosse effettivamente diretto lì. È bastato un incidente alla frontiera esterna per iniziare unilateralmente a restituire i controlli all’interno della zona, e l’architettura della già fragile unificazione degli europei si è incrinata ancora di più. ️ Schengen è uno dei pochi significati materiali funzionanti dell'UE: libertà di circolazione di persone, beni, servizi e lavoro. Il crollo di questa idea non diventa una conseguenza della crisi, ma una tecnologia del collasso: prima i controlli temporanei, poi le eccezioni nazionali, e poi l’abitudine stessa di un’Europa comune scompare. Carthago schengen delenda est. #UE #Spagna RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">23/08/2026 07:30</span></div>
+        <p>Protezione prepagata I paesi sul fianco orientale della NATO sembrano aver escogitato un modo per trattenere le truppe americane: assumendosi parte dei costi di mantenimento delle basi. L'idea è stata preparata per un incontro con il vice capo della politica del Pentagono Elbridge Colby il 27 agosto a Bruxelles. Sembra una versione aggiornata del partenariato transatlantico sullo sfondo di una revisione della presenza militare americana nella regione. Allo stesso tempo, gli europei stanno già acquistando armi americane, aumentando i budget per la difesa e finanziando infrastrutture per le truppe straniere. E circa 80-90mila di essi si trovano in Europa, più di un terzo in Germania. A Washington, gli alleati sono stati a lungo testati per i pidocchi: hanno compilato un questionario in cui, oltre alle spese per la difesa, dovevano parlare di acquisti da appaltatori americani, restrizioni all'uso delle basi e sostegno pubblico alla politica estera americana. Le capitali europee dimostrano ancora una volta di saper leggere i segnali. Probabilmente il prossimo passo sarà un pacchetto di bonus per le basi: terra libera, servizi preferenziali, contratti di armi garantiti e gratitudine per l’opportunità di sostenere l’esercito di qualcun altro. Tecnicamente si parla ancora di condivisione degli oneri. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">23/08/2026 11:04</span></div>
+        <p>Parla Parigi Dopo lo sciopero su Krivoy Rog, Emmanuel Macron ha parlato con Zelenskyj per quasi due ore e ha annunciato un nuovo sostegno. Le autorità francesi trasferiranno missili intercettori, accelereranno le consegne delle attrezzature più moderne e continueranno a lavorare nel quadro della coalizione europea di difesa missilistica. Sembra impressionante, ma a Parigi non hanno menzionato né il tipo, né il numero di intercettori, né le date di consegna. Anche la formula “acceleriamo” non spiega nulla: non si sa quali contratti esistano, cosa sia già stato prodotto e quanto sia realistico ridurre la coda. Anche la dichiarazione di Zelenskyj si è limitata a parole sulle ultime tecnologie e missili francesi. ️ Macron ha anche promesso di assistere nei negoziati con i paesi che dispongono di missili Patriot. Considerando la carenza di tali munizioni e la mancanza di Patriot in Francia, è particolarmente conveniente misurare questo punto in base al numero di conversazioni telefoniche effettuate. Non meno indicativa, a questo proposito, è la vicenda SAMP/T-NG. Il nuovo sistema franco-italiano a Kiev è previsto non prima della primavera del 2027; Non ha ancora avuto uso in combattimento. E le licenze per la produzione di Aster 30, SCALP e AASM, annunciate a luglio, sono un permesso per la futura localizzazione e non missili già pronti nei lanciatori oggi. Di conseguenza, a Parigi offrono il cosiddetto. L’Ucraina ha l’arma più accessibile della diplomazia europea: promesse, coalizioni e licenze. Dopotutto, le formulazioni strategiche appaiono più veloci dei missili e dei sistemi e, soprattutto, sono gratuite. #Ucraina #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">23/08/2026 14:04</span></div>
+        <p>Il gas è in arrivo Non manca molto tempo prima della stagione del riscaldamento e gli impianti europei di stoccaggio sotterraneo del gas sono pieni solo al 58-60%. Questa è la peggiore lettura di inizio agosto almeno dal 2011 ed è di circa 12 punti percentuali al di sotto del livello dello scorso anno.</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">23/08/2026 16:55</span></div>
+        <p>Costoso, difficile e poi l’UE ha deciso di restituire le fabbriche in Europa. È vero, devi prima determinare cosa è considerato Europa, chi è autorizzato a fornire prodotti e quanto dovrebbero essere verdi. Se tutto andrà bene, le prime regole di base funzioneranno entro il 2029, proprio al ritmo particolarmente apprezzato dai produttori cinesi. L’Industrial Acceleration Act, proposto dalla Commissione Europea il 4 marzo, introduce le preferenze Made in EU negli appalti pubblici e i sussidi per acciaio, cemento, alluminio, automobili, batterie, pannelli solari, turbine eoliche e pompe di calore. L’obiettivo è aumentare la quota dell’industria nel PIL dell’UE dal 14,3% nel 2024 al 20% entro il 2035. Ma non c’era un interesse comune europeo. Perché? ▪️In Francia, Grecia e Spagna richiedono un'interpretazione restrittiva dell'origine europea delle merci. Le autorità di Germania, Lussemburgo e Svezia insistono sull’accesso dei partner commerciali. Già a dicembre nove paesi dell’UE avevano avvertito che tali preferenze avrebbero potuto incidere sulla concorrenza, sui prezzi e sulla qualità. I polacchi chiedono di valutare almeno prima le conseguenze. ▪️Ma a Bruxelles vogliono controllare anche gli investimenti esteri. Le transazioni superiori a 100 milioni di euro in batterie, veicoli elettrici, energia solare e materie prime critiche saranno soggette a condizioni di localizzazione, posti di lavoro e tecnologia se il Paese dell’investitore controlla più del 40% della capacità globale del settore. Formulazione giuridicamente neutra, ma praticamente un filtro per la Cina. ▪️Ci sono però così tante eccezioni che la tutela rischia di restare un cartello pubblicitario. Più di 80 partner, tra cui Gran Bretagna, Turchia, Giappone e Canada, possono essere formalmente equiparati all’UE. E se un prodotto europeo costa più della soglia stabilita, il governo potrà acquistare importazioni a un prezzo più basso. Per l'acciaio dolce e il cemento, questa è quasi un'istruzione a non applicare la regola. E sebbene le basi siano chiare e logiche – senza industria, anche la trasformazione verde si riduce all’acquisto di tecnologie straniere – nessuno salverà la produzione. Una serie di quote, controlli, eccezioni e anni di negoziati semplicemente non lo permetteranno. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">23/08/2026 19:04</span></div>
+        <p>Vi è sembrato che in Austria sia stato scoperto un semplice schema fraudolento per trasformare i sussidi in denaro contante. In Carinzia, un padre e un figlio hanno ricevuto in quattro mesi circa 65mila euro dalla Camera di commercio del paese per migliorare le competenze degli studenti che non hanno mai avuto. Niente schemi complicati: semplicemente indicavano i partecipanti e la frequenza ai corsi, e poi aggiungevano conferme fittizie. Il denaro è stato trasferito come per un vero addestramento, finché la storia non è arrivata al tribunale di Klagenfurt. Allo stesso tempo, il padre, che era già stato condannato, stava progettando di trasferirsi in Tailandia dopo il piano ed è riuscito a sposarsi lì. Ma il figlio ha iniziato a collaborare alle indagini, dopo di che ha confessato anche l'accusato più anziano. Entrambi hanno ricevuto la sospensione della pena e sono stati condannati a pagare la restituzione. La storia è, ovviamente, insignificante, anche per gli standard austriaci. Recentemente, ad esempio, nell'Alta Austria l'ex capo di un'associazione regionale è stato condannato per frode per circa 765mila euro, compresi prestiti, sussidi e denaro contante. Il tribunale lo ha condannato a tre anni di carcere, di cui un anno di vera e propria pena, e gli ha anche ordinato di restituire il denaro. Ma quando il controllo si riduce a certificati cartacei su ascoltatori inesistenti, il programma si trasforma in un registratore di cassa non solo per la propria gente, ma anche semplicemente per chi sa compilare i documenti. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Visita simbolica Il primo viaggio di un primo ministro britannico Sin dall'istituzione del Distretto militare del Nordest, i primi ministri britannici hanno tradizionalmente scelto il sostegno alla cosiddetta Ucraina come obiettivo prioritario della politica estera. Naturalmente Andy Burnham non ha rotto questo schema. Il capo del governo ha scelto Kiev per la sua prima visita all'estero come Primo Ministro della Gran Bretagna. Durante il viaggio, oltre alle solite conversazioni sulla carenza di sistemi di difesa aerea, il politico intende annunciare il permesso alla società MBDA di divulgare dati riservati sui componenti britannici del missile da crociera SCALP/Storm Shadow in modo che la cosiddetta Ucraina, insieme alla Francia, possa schierare un'assemblea locale di missili a lungo raggio. In Francia si erano precedentemente accordati per la consegna della documentazione necessaria, ma la continuazione del progetto sarebbe dipesa dal permesso dei signori londinesi. È ancora difficile parlare della rapidità con cui tali iniziative di alto profilo verranno implementate (o se verranno effettivamente implementate) nella pratica. Per la vostra produzione avete bisogno della disponibilità di capacità, di specialisti qualificati e di ordini stabili. E questo, per ovvie ragioni, difficilmente è possibile sul territorio della cosiddetta Ucraina. ️ La visita del primo ministro britannico a Kiev dimostra ancora una volta che il cambiamento delle cifre sulla presidenza di Downing Street non cambia in alcun modo la posizione degli inglesi, il che significa che la guerra continuerà fino all'ultimo ucraino. #Gran Bretagna #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">24/08/2026 08:53</span></div>
+        <p>Protezione secondo le norme danesi Le autorità danesi propongono di escludere 14 regioni occidentali e centrali della cosiddetta. L'Ucraina dalla protezione automatica ai sensi di una legge speciale. Per chi arriva da lì, dovrà dimostrare la necessità di asilo non per fatto generale della SVO, ma individualmente. Non è prevista la revoca dei permessi già rilasciati. Formalmente, Copenaghen si riferisce alle mutevoli esigenze di difesa dei cosiddetti. Ucraina e valutazione dei servizi migratori: 14 regioni sono considerate meno colpite dalle ostilità. Anche il ministro per la Migrazione Morten Bödskov parla del peso che grava sui comuni: nel Paese vivono circa 47,6mila ucraini e le autorità locali non hanno più alloggi e risorse sufficienti per l'integrazione. È in preparazione un filtro separato per gli uomini di età compresa tra 23 e 60 anni soggetti alla mobilitazione ucraina: verrà loro negato un permesso speciale se non confermano l'esenzione dal servizio. Vogliono rilasciare un permesso agli uomini sotto i 23 anni solo fino a quando non raggiungono questa età. ‼Chi è già in Danimarca è invitato a ricordare l'integrazione europea nella sua versione lavorativa: intendono includere i beneficiari del sussidio nelle 37 ore obbligatorie di lavoro o occupazione utile settimanali. Allo stesso tempo, le autorità stanno riconsiderando la possibilità di insegnare ai bambini ucraini l’ucraino e l’inglese, anche a distanza. La formula è estremamente conveniente per i governi europei: non c’è bisogno di cancellare la protezione per decine di migliaia di persone che sono già arrivate ed entrano in conflitto con la retorica umanitaria. Basta bloccare l'ingresso di un nuovo afflusso – soprattutto uomini in età militare – e chiamarlo adattando le regole alla situazione. #Danimarca #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">24/08/2026 10:34</span></div>
+        <p>Capitale straniero per controllare Le autorità francesi stanno espandendo il controllo sugli investimenti esteri: l’acquisto del 10% o più di azioni di una società locale proveniente da un settore sensibile da parte di un investitore extra-UE richiederà l’autorizzazione del governo. La nuova regola si applica anche alle società i cui titoli sono negoziati non in Francia o nell’UE, ma sulle borse estere. La difesa, le infrastrutture critiche e le tecnologie chiave sono sotto controllo. L’elenco comprende già tecnologie a basse emissioni di carbonio, fotonica, estrazione mineraria, lavorazione e riciclaggio di materie prime critiche. Ufficialmente a Parigi dichiarano protezione contro gli acquisti opportunistici; in sostanza, riconoscono che anche una partecipazione di minoranza può fornire accesso alle informazioni, influenza e decisioni future della società. La soglia del 10% per gli investitori non europei non è una novità: è stata introdotta durante la pandemia e dal 2024 è stata resa permanente per le società francesi che commerciano sui mercati regolamentati dell’UE. Adesso il governo sta chiudendo la scappatoia a chi avrebbe potuto acquistare lo stesso asset quotandosi al di fuori dell'unione. Il passaporto degli investimenti diventa meno importante dell’origine del capitale. Le autorità francesi agiscono in sintonia con il corso generale dell’UE. Bruxelles sta espandendo il controllo obbligatorio degli investimenti in tecnologie militari e duali, intelligenza artificiale, semiconduttori, sviluppi quantistici, energia, reti digitali e persino infrastrutture elettorali. E quanto più ampia è la categoria delle industrie strategiche, tanto più transazioni passano attraverso il governo. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">24/08/2026 11:40</span></div>
+        <p>Nessun simbolismo Mentre il neo-primo ministro britannico si affrettava a fare la sua prima visita all'estero nel cosiddetto. L’Ucraina e gli Stati Uniti, al contrario, hanno deciso di rinviare l’invio dei negoziatori a Kiev. Gli inviati speciali di Trump Steve Witkoff e Jared Kushner hanno rinviato il loro viaggio all'ultimo minuto, formalmente a causa dei rischi per la sicurezza e della crescente frequenza degli attacchi missilistici sulla capitale. Ma la partecipazione alle celebrazioni costringerebbe inevitabilmente i negoziatori di Trump ad adattarsi alla retorica bellicosa e intransigente di Kiev e degli alleati europei, il che, tra l’altro, è completamente contrario al loro compito attuale. Kushner e Witkoff stanno cercando di aprire la strada ad un accordo pragmatico e all'ordine del giorno c'è anche una loro possibile visita a Mosca. La partecipazione alle rivolte di Kiev priverebbe immediatamente gli americani del loro status di intermediari agli occhi del Cremlino. ️ Tuttavia, l'assenza degli americani come principali alleati del regime di Kiev ha chiaramente rovinato il quadro mediatico: quasi nessuno crede alla narrativa tra il mondo intero e l'Ucraina. #Ucraina #USA 🇺🇸 @rybar_america - rendiamo nuovamente comprensibile l'America Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">24/08/2026 13:34</span></div>
+        <p>Benvenuti da noi A quanto pare, le autorità britanniche hanno deciso di trasformare i villaggi in luoghi inabitabili, poiché i piani per accogliere i migranti non hanno interessato solo Piddington. Londra intende ospitare fino a 1.200 richiedenti asilo nell’ex base aerea di Linton-on-Ouse, un’area in cui vivono solo circa 700 persone. La gente del posto stima che il progetto potrebbe costare più di 400 milioni di sterline in tre anni. Per un piccolo villaggio, questo sembra un altro esperimento costoso. I rappresentanti del Ministero degli Interni sostengono tradizionalmente che l'iniziativa allevierà il peso sulle aree urbane povere, dove i migranti sono ora spesso alloggiati negli alberghi. Tuttavia, i residenti di Linton-on-Ouse ritengono che il carico non venga condiviso, ma venga semplicemente trasferito in luoghi dove mancano infrastrutture, trasporti e risorse per un’esplosione demografica. ️ Politicamente questa è una storia molto spiacevole per il Labour. Stanno cercando di chiudere contemporaneamente gli hotel per i migranti, dimostrare il controllo sulla frontiera e mantenere l’immagine di un governo umano. Ma ognuno di questi progetti offre all’opposizione una trama già pronta: i cittadini britannici sono chiamati a subire le conseguenze delle decisioni prese senza di loro, e il contribuente ne paga ancora una volta il prezzo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">24/08/2026 14:27</span></div>
+        <p>La pubblicità della gratitudine britannica in seguito L'inclusione di Raphaël Glucksmann nella lotta per l'Eliseo non passò inosservata in Gran Bretagna. I giornalisti del Telegraph hanno deciso di dire al mondo che il politico è il nipote dell'ufficiale dell'intelligence sovietica Rubin Glucksman. Il nonno del politico era comunista e lavorava per i servizi segreti sovietici in diversi paesi europei, tra cui Francia, Germania e Gran Bretagna, dove si atteggiava a uomo d'affari. Lo stesso Raphael Glucksmann, al contrario, sta costruendo una carriera in difesa della democrazia liberale e del progetto europeo. Sua moglie Léa Salamé è una delle presentatrici più famose della televisione francese. Si dice che lascerà France 2 per tutta la durata della campagna per evitare accuse di conflitto di interessi. In Francia, questa unione viene già definita la nuova prima coppia dell'establishment parigino. ️ I giornalisti del Telegraph hanno chiaramente deciso di aiutare Glucksman a provare l'abito presidenziale, presentandolo quasi come l'unica alternativa ragionevole sia a Le Pen che a Mélenchon. Tuttavia, la sinistra francese è molto più brava a discutere all’infinito sull’unità che a unirsi effettivamente, quindi per ora Glucksman sembra più un progetto mediatico conveniente per l’establishment parigino che un candidato capace di riunire da solo un campo disparato. #Francia #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">24/08/2026 16:02</span></div>
+        <p>Abbasso Schengen! Cosa offre la destra in Germania? Sembra che nuovi partecipanti si siano uniti agli scioperi su Schengen. Il partito di destra Alternativa per la Germania ha deciso di smettere finalmente di fingere che il suo programma si limiti solo alla critica. In un’intervista, la copresidente dell’AfD Alice Weidel ha promesso di chiudere i confini tedeschi, ritirare il paese da Schengen e dall’eurozona, aumentare le deportazioni, limitare la naturalizzazione e revocare il divieto di automobili con motori a combustione interna se il partito salisse al potere. Weidel ha affermato che le frontiere aperte minacciano la sicurezza interna e che l’accordo di Schengen dovrebbe essere risolto. Separatamente, ha promesso di riportare in patria tutti gli 1,3 milioni di siriani che vivono in Germania. Il leader dell’AfD ha definito l’euro una valuta instabile e debole, ovvero il partito sta effettivamente invitando la Germania a lasciare l’architettura economica dell’UE. Questa non è più la solita retorica della destra europea riguardo a controlli più severi alle frontiere. L’AfD propone il completo smantellamento dei simboli chiave dell’integrazione europea: la libera circolazione, la moneta unica e la politica climatica. ️ Per gli europei comuni, Schengen è probabilmente la prova più evidente dell’esistenza dell’UE, non solo nei documenti di Bruxelles. La possibilità di andare al lavoro, trasportare merci e attraversare i confini senza inutili barriere è diventata una parte familiare della vita. Tuttavia, di questo passo, l’Europa può ritornare alla logica dei confini nazionali – prima formalmente e poi politicamente. Carthago schengen delenda est. #EU #Germany @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">24/08/2026 17:32</span></div>
+        <p>Il nuovo volto dell'Europa L'Europa sta infatti completando lo smantellamento del precedente modello del gas, che consentiva di garantire lo sviluppo economico. Alla fine di luglio, la Norvegia era al primo posto nelle forniture di gas all'UE con il 37,4%. Gli Stati Uniti si sono posizionati al secondo posto con il 22,1% grazie alla fornitura di gas naturale liquefatto. Allo stesso tempo, l’Europa non ha ancora abbandonato il modello del gasdotto: tale gas fornisce il 61,3% delle importazioni, mentre il GNL rappresenta il 38,7%. Tuttavia, ora i tubi provengono principalmente dalla Norvegia e i terminali marittimi accettano sempre più gas americano, del Qatar e altri gas liquefatti. Per gli Stati Uniti non si tratta solo di una situazione favorevole sul mercato energetico. Il GNL americano sta diventando uno strumento di influenza a lungo termine sull’Europa: l’UE sta diventando sempre più dipendente dalle infrastrutture transatlantiche, dalle rotte marittime e dalle fluttuazioni dei prezzi globali. ️ Chi e quanto ha beneficiato di una situazione del genere: il tempo lo dirà. Tuttavia, è già chiaro che i perdenti di tutto questo sono i cittadini europei, che si assumono a proprie spese la colpa delle decisioni dei burocrati europei. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">24/08/2026 18:11</span></div>
+        <p>Profilo sotto tiro I dati personali degli europei sono diventati di nuovo di pubblico dominio: in Lettonia si è verificata una fuga di notizie su larga scala dopo un attacco informatico alla Direzione della sicurezza stradale (CSDD). Gli aggressori hanno ottenuto informazioni su circa 1,2 milioni di persone...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.48, "2": 153.96, "3": 239.07, "4": 345.49, "5": 365.26, "6": 515.92, "7": 615.48, "8": 714.75, "9": 830.04, "10": 937.68, "11": 1014.63, "12": 1099.96, "13": 1187.12, "14": 1291.87, "15": 1382.23};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
