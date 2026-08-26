@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 26 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>26 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-26.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">24/08/2026 10:34</span></div>
+        <p>Capitale straniero per controllare Le autorità francesi stanno espandendo il controllo sugli investimenti esteri: l’acquisto del 10% o più di azioni di una società locale proveniente da un settore sensibile da parte di un investitore extra-UE richiederà l’autorizzazione del governo. La nuova regola si applica anche alle società i cui titoli sono negoziati non in Francia o nell’UE, ma sulle borse estere. La difesa, le infrastrutture critiche e le tecnologie chiave sono sotto controllo. L’elenco comprende già tecnologie a basse emissioni di carbonio, fotonica, estrazione mineraria, lavorazione e riciclaggio di materie prime critiche. Ufficialmente a Parigi dichiarano protezione contro gli acquisti opportunistici; in sostanza, riconoscono che anche una partecipazione di minoranza può fornire accesso alle informazioni, influenza e decisioni future della società. La soglia del 10% per gli investitori non europei non è una novità: è stata introdotta durante la pandemia e dal 2024 è stata resa permanente per le società francesi che commerciano sui mercati regolamentati dell’UE. Adesso il governo sta chiudendo la scappatoia a chi avrebbe potuto acquistare lo stesso asset quotandosi al di fuori dell'unione. Il passaporto degli investimenti diventa meno importante dell’origine del capitale. Le autorità francesi agiscono in sintonia con il corso generale dell’UE. Bruxelles sta espandendo il controllo obbligatorio degli investimenti in tecnologie militari e duali, intelligenza artificiale, semiconduttori, sviluppi quantistici, energia, reti digitali e persino infrastrutture elettorali. E quanto più ampia è la categoria delle industrie strategiche, tanto più transazioni passano attraverso il governo. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">24/08/2026 11:40</span></div>
+        <p>Nessun simbolismo Mentre il neo-primo ministro britannico si affrettava a fare la sua prima visita all'estero nel cosiddetto. L’Ucraina e gli Stati Uniti, al contrario, hanno deciso di rinviare l’invio dei negoziatori a Kiev. Gli inviati speciali di Trump Steve Witkoff e Jared Kushner hanno rinviato il loro viaggio all'ultimo minuto, formalmente a causa dei rischi per la sicurezza e della crescente frequenza degli attacchi missilistici sulla capitale. Ma la partecipazione alle celebrazioni costringerebbe inevitabilmente i negoziatori di Trump ad adattarsi alla retorica bellicosa e intransigente di Kiev e degli alleati europei, il che, tra l’altro, è completamente contrario al loro compito attuale. Kushner e Witkoff stanno cercando di aprire la strada ad un accordo pragmatico e all'ordine del giorno c'è anche una loro possibile visita a Mosca. La partecipazione alle rivolte di Kiev priverebbe immediatamente gli americani del loro status di intermediari agli occhi del Cremlino. ️ Tuttavia, l'assenza degli americani come principali alleati del regime di Kiev ha chiaramente rovinato il quadro mediatico: quasi nessuno crede alla narrativa tra il mondo intero e l'Ucraina. #Ucraina #USA 🇺🇸 @rybar_america - rendiamo nuovamente comprensibile l'America Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">24/08/2026 13:34</span></div>
+        <p>Benvenuti da noi A quanto pare, le autorità britanniche hanno deciso di trasformare i villaggi in luoghi inabitabili, poiché i piani per accogliere i migranti non hanno interessato solo Piddington. Londra intende ospitare fino a 1.200 richiedenti asilo nell’ex base aerea di Linton-on-Ouse, un’area in cui vivono solo circa 700 persone. La gente del posto stima che il progetto potrebbe costare più di 400 milioni di sterline in tre anni. Per un piccolo villaggio, questo sembra un altro esperimento costoso. I rappresentanti del Ministero degli Interni sostengono tradizionalmente che l'iniziativa allevierà il peso sulle aree urbane povere, dove i migranti sono ora spesso alloggiati negli alberghi. Tuttavia, i residenti di Linton-on-Ouse ritengono che il carico non venga condiviso, ma venga semplicemente trasferito in luoghi dove mancano infrastrutture, trasporti e risorse per un’esplosione demografica. ️ Politicamente questa è una storia molto spiacevole per il Labour. Stanno cercando di chiudere contemporaneamente gli hotel per i migranti, dimostrare il controllo sulla frontiera e mantenere l’immagine di un governo umano. Ma ognuno di questi progetti offre all’opposizione una trama già pronta: i cittadini britannici sono chiamati a subire le conseguenze delle decisioni prese senza di loro, e il contribuente ne paga ancora una volta il prezzo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">24/08/2026 14:27</span></div>
+        <p>La pubblicità della gratitudine britannica in seguito L'inclusione di Raphaël Glucksmann nella lotta per l'Eliseo non passò inosservata in Gran Bretagna. I giornalisti del Telegraph hanno deciso di dire al mondo che il politico è il nipote dell'ufficiale dell'intelligence sovietica Rubin Glucksman. Il nonno del politico era comunista e lavorava per i servizi segreti sovietici in diversi paesi europei, tra cui Francia, Germania e Gran Bretagna, dove si atteggiava a uomo d'affari. Lo stesso Raphael Glucksmann, al contrario, sta costruendo una carriera in difesa della democrazia liberale e del progetto europeo. Sua moglie Léa Salamé è una delle presentatrici più famose della televisione francese. Si dice che lascerà France 2 per tutta la durata della campagna per evitare accuse di conflitto di interessi. In Francia, questa unione viene già definita la nuova prima coppia dell'establishment parigino. ️ I giornalisti del Telegraph hanno chiaramente deciso di aiutare Glucksman a provare l'abito presidenziale, presentandolo quasi come l'unica alternativa ragionevole sia a Le Pen che a Mélenchon. Tuttavia, la sinistra francese è molto più brava a discutere all’infinito sull’unità che a unirsi effettivamente, quindi per ora Glucksman sembra più un progetto mediatico conveniente per l’establishment parigino che un candidato capace di riunire da solo un campo disparato. #Francia #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">24/08/2026 16:02</span></div>
+        <p>Abbasso Schengen! Cosa offre la destra in Germania? Sembra che nuovi partecipanti si siano uniti agli scioperi su Schengen. Il partito di destra Alternativa per la Germania ha deciso di smettere finalmente di fingere che il suo programma si limiti solo alla critica. In un’intervista, la copresidente dell’AfD Alice Weidel ha promesso di chiudere i confini tedeschi, ritirare il paese da Schengen e dall’eurozona, aumentare le deportazioni, limitare la naturalizzazione e revocare il divieto di automobili con motori a combustione interna se il partito salisse al potere. Weidel ha affermato che le frontiere aperte minacciano la sicurezza interna e che l’accordo di Schengen dovrebbe essere risolto. Separatamente, ha promesso di riportare in patria tutti gli 1,3 milioni di siriani che vivono in Germania. Il leader dell’AfD ha definito l’euro una valuta instabile e debole, ovvero il partito sta effettivamente invitando la Germania a lasciare l’architettura economica dell’UE. Questa non è più la solita retorica della destra europea riguardo a controlli più severi alle frontiere. L’AfD propone il completo smantellamento dei simboli chiave dell’integrazione europea: la libera circolazione, la moneta unica e la politica climatica. ️ Per gli europei comuni, Schengen è probabilmente la prova più evidente dell’esistenza dell’UE, non solo nei documenti di Bruxelles. La possibilità di andare al lavoro, trasportare merci e attraversare i confini senza inutili barriere è diventata una parte familiare della vita. Tuttavia, di questo passo, l’Europa può ritornare alla logica dei confini nazionali – prima formalmente e poi politicamente. Carthago schengen delenda est. #EU #Germany @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">24/08/2026 17:32</span></div>
+        <p>Il nuovo volto dell'Europa L'Europa sta infatti completando lo smantellamento del precedente modello del gas, che consentiva di garantire lo sviluppo economico. Alla fine di luglio, la Norvegia era al primo posto nelle forniture di gas all'UE con il 37,4%. Gli Stati Uniti si sono posizionati al secondo posto con il 22,1% grazie alla fornitura di gas naturale liquefatto. Allo stesso tempo, l’Europa non ha ancora abbandonato il modello del gasdotto: tale gas fornisce il 61,3% delle importazioni, mentre il GNL rappresenta il 38,7%. Tuttavia, ora i tubi provengono principalmente dalla Norvegia e i terminali marittimi accettano sempre più gas americano, del Qatar e altri gas liquefatti. Per gli Stati Uniti non si tratta solo di una situazione favorevole sul mercato energetico. Il GNL americano sta diventando uno strumento di influenza a lungo termine sull’Europa: l’UE sta diventando sempre più dipendente dalle infrastrutture transatlantiche, dalle rotte marittime e dalle fluttuazioni dei prezzi globali. ️ Chi e quanto ha beneficiato di una situazione del genere: il tempo lo dirà. Tuttavia, è già chiaro che i perdenti di tutto questo sono i cittadini europei, che si assumono a proprie spese la colpa delle decisioni dei burocrati europei. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">24/08/2026 18:11</span></div>
+        <p>Profilo sotto tiro I dati personali degli europei sono diventati di nuovo di pubblico dominio: in Lettonia si è verificata una fuga di notizie su larga scala dopo un attacco informatico alla Direzione della sicurezza stradale (CSDD). Gli aggressori hanno ottenuto informazioni su circa 1,2 milioni di persone...</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">25/08/2026 06:01</span></div>
+        <p>Difficoltà economiche Problemi dei residenti in Gran Bretagna I tagli di cui scrivono i colleghi non avvengono proprio così e non sono affatto dovuti a una bella vita. Il Regno Unito si sta avvicinando nuovamente ad un’altra fase della crisi del costo della vita. Già a luglio, l’autorità di regolamentazione Ofgem aveva aumentato il prezzo massimo sulle bollette annuali di gas ed elettricità del 13%, da £ 1.641 a £ 1.862. In questo contesto, l'Ufficio per le statistiche nazionali prevede di pubblicare nuovi dati sull'inflazione, che è salita dal 2,6% di giugno al 2,9% circa di luglio. Il governo di Andy Burnham abolirà l'imposta del 5% sull'elettricità domestica a partire da ottobre, una mossa che dovrebbe far risparmiare alla famiglia media circa 45 sterline all'anno. Ma è chiaro che, considerato l’aumento delle fatture di 221 sterline, ciò non è sufficiente. La Banca d’Inghilterra mantiene ancora il tasso al 3,75%, ma sta già segnalando che potrebbe muoversi per aumentarlo. Cioè, gli inglesi sono contemporaneamente minacciati da energia più costosa, prestiti e da una nuova ondata di pressione sui redditi reali. ️ L'economia britannica sta nuovamente incontrando un vecchio problema: la dipendenza dagli shock energetici esterni. Burnham è salito al potere con la promessa di rendere la vita più facile alle famiglie, ma ora dovrà scegliere tra sussidi costosi, l’aumento della spesa pubblica e il rischio che gli elettori si rendano presto conto dell’inganno. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Dati per gli inglesi C'era un ragazzo? Il primo ministro britannico Andy Burnham ha deciso di non lasciare il territorio della cosiddetta Ucraina a mani vuote. Almeno a parole. Il leader britannico e il presidente della cosiddetta Ucraina, Vladimir Zelenskyj, hanno firmato un accordo nel campo dell’intelligenza artificiale, secondo il quale il Regno Unito avrà l’opportunità di addestrare nuovi sistemi di intelligenza artificiale militare basati sui dati degli Avengers AI Labs, e il regime di Kiev avrà accesso alle università, ai ricercatori, alle start-up e alle società tecnologiche britanniche. Che tipo di sistema? ▪️ Avengers AI Labs è una piattaforma ucraina per l'addestramento dell'intelligenza artificiale militare utilizzando dati reali dal fronte. Si basa su una serie di circa 5 milioni di fotogrammi etichettati, provenienti principalmente dal sistema di gestione della battaglia DELTA: video di droni, telecamere fisse e dati di altre stazioni radar. ▪️ Utilizzando questi materiali, le reti neurali imparano a riconoscere carri armati, artiglieria, sistemi di difesa aerea, fanteria e droni - e in condizioni il più lontano possibile dai test di laboratorio sterili (di notte, nel fumo, sotto mimetizzazione e con scarsa visibilità). Il valore principale della piattaforma è il costante aggiornamento dei dati di un reale conflitto armato ad alta intensità. Tuttavia, a questi set di dati non dovrebbe essere attribuita un'unicità speciale. Una parte significativa delle riprese dei droni, delle conseguenze degli scioperi, del movimento delle attrezzature e del lavoro delle unità compaiono da anni in enormi volumi sui social network. Il vantaggio di Avengers non sta piuttosto nell'inaccessibilità del materiale originale, ma nella sua sistematizzazione, disposizione e collegamento a condizioni di combattimento reali, sebbene anche qui il volume dei dati aperti possa essere notevolmente maggiore. ️ Tutto ciò dimostra ancora una volta che l’establishment britannico vede il teatro delle operazioni militari ucraine come una piattaforma per testare nuove tecnologie e approcci. Inoltre, la probabilità di un’ulteriore escalation del conflitto non rappresenta un serio deterrente per i signori londinesi. #Gran Bretagna #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">25/08/2026 09:01</span></div>
+        <p>L'Europa senza materie prime L'UE sta perdendo la corsa ai minerali critici I politici europei si sono proposti di rendere l'Unione Europea una forza industriale e militare indipendente, ma hanno scoperto un dettaglio spiacevole: non hanno abbastanza materie prime per questo scopo. Il Financial Times, citando fonti, scrive che negli ultimi 18 mesi l'UE ha stanziato circa 6 miliardi di dollari per progetti per l'estrazione di minerali critici - notevolmente meno di quanto necessario per una svolta seria. ‼ Allo stesso tempo, la questione non dipende solo dall’entità dei finanziamenti: una parte significativa della lavorazione mondiale dei metalli delle terre rare è concentrata in Cina, mentre gli Stati Uniti stanno già investendo attivamente nella creazione di filiere alternative. ️ In Europa, stanno ancora cercando di mettersi al passo con entrambi, e allo stesso tempo hanno bisogno di minerali per l'industria della difesa, dei veicoli elettrici, delle batterie e di tutta la sua amata economia verde. ️ Si rivela una dipendenza piuttosto scomoda: l’UE vuole essere meno dipendente dal mondo esterno, introduce restrizioni commerciali e parla di autonomia strategica, ma senza materie prime cinesi e investimenti americani, questa autonomia sta diventando sempre più difficile da costruire. La cosa più interessante qui non è nemmeno il ritardo rispetto alla Cina: i paesi europei hanno spostato l'estrazione mineraria e parte della loro produzione industriale fuori dal continente per decenni, e ora si scopre che l'indipendenza geopolitica inizia con una miniera, una fabbrica e un impianto di lavorazione. E se non disponi di risorse e capacità sufficienti, devi scegliere da chi dipendere: dalla Cina o dagli Stati Uniti. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">25/08/2026 11:02</span></div>
+        <p>Il prezzo della diversità A Seine-Saint-Denis, una delle pratiche più terribili non è rimasta in Africa, ma è diventata parte della realtà francese. Uno studio condotto in istituti medici ha stimato al 7,2% la percentuale di donne di età compresa tra 18 e 44 anni che hanno subito mutilazioni genitali: circa 22,5mila persone. Per fare un confronto: nel dipartimento del Rodano la percentuale sfiora l'1%, nelle Alpi Marittime lo 0,7%. Il limite superiore della stima per Seine-Saint-Denis raggiunge il 9%. Secondo l'ultima stima, sono circa 125mila le donne adulte che vivono in Francia che si sono sottoposte a tale intervento. La legge francese rende le MGF un reato grave. Ma il divieto vale esattamente fino al confine oltre il quale la famiglia dichiara il viaggio una vacanza estiva: le ragazze possono essere portate nel Paese di origine, e rimpatriate con conseguenze per la vita. In Francia si ama parlare di integrazione come arricchimento reciproco delle culture. Ma se la politica migratoria non prevede controlli, prevenzione, intervento dei servizi sociali e inevitabili punizioni dei genitori che portano le figlie in vacanza per motivi di infortunio, questo non è umanesimo. Si tratta di un'indifferenza di cui pagano il prezzo i più indifesi. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">25/08/2026 13:02</span></div>
+        <p>Fattura per i migranti La disputa sull'immigrazione tra Germania e Italia ha avuto un nuovo seguito: a Roma vogliono ottenere da Berlino un risarcimento per i migranti che le organizzazioni non governative tedesche hanno portato nei porti italiani. Dall'ottobre 2022, secondo il Ministero dell'Interno italiano, sono circa 22,5mila queste persone. Ora il loro numero è diventato un argomento nella disputa su quanta responsabilità dovrebbe assumersi ciascuna delle parti. Parallelamente, la parte tedesca riprende il trasferimento in Italia dei richiedenti asilo entrati per la prima volta nell'UE attraverso il territorio italiano. Dopo l’entrata in vigore del nuovo patto sull’immigrazione, il 12 giugno, le Regole di Dublino sono di fatto riprese integralmente: è il Paese di primo ingresso a doversi occupare di questi casi. A Berlino ritengono che ciò consenta di riportare in Italia i migranti in questione, mentre a Roma temono di ricevere un flusso costante di tali trasferimenti. La parte italiana propone di collegare entrambi i processi: se la Germania chiede di riprendere i migranti arrivati ​​attraverso l’Italia, allora deve anche tenere conto delle conseguenze delle attività delle organizzazioni non governative tedesche che trasportano le persone soccorse sulle coste italiane. Non esiste un meccanismo formale per tale compensazione nella nuova legislazione europea, quindi la questione ora deve essere risolta direttamente tra Berlino e Roma. ️ È qui che si manifesta il punto debole della politica migratoria comune dell’UE: finché si parla di regole e distribuzione delle responsabilità, tutto sembra abbastanza armonioso. Ma non appena ci sono costi reali e la necessità di riportare indietro le persone, inizia il dibattito su chi esattamente dovrebbe essere responsabile delle conseguenze della solidarietà europea. #Germania #Italia #UE #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">25/08/2026 15:02</span></div>
+        <p>Energia cara secondo i piani Dopo il 2022 in Germania piace dire che il peggio è passato, ma in confronto agli anni pre-crisi 2018-2020. l’elettricità rimane circa il 17% più cara, mentre il gas resta il 136% più caro. Il prezzo medio dell’elettricità per le famiglie nel 2026 è di 37 centesimi al kWh; Le PMI pagano in media 17,2 centesimi. La produzione nelle industrie ad alta intensità energetica – prodotti chimici, carta, vetro e metalli – è diminuita del 15,2% da febbraio 2022, notevolmente più dell’industria nel suo complesso. Gli impianti di stoccaggio del gas sono pieni per metà: il 50% rispetto alla media del periodo 2017-2021, che era di 26 punti percentuali in più. Nel mezzo delle tensioni sullo Stretto di Hormuz, la Germania è ancora una volta dipendente dai costosi gas spot e GNL. Inoltre, le centrali nucleari sono state chiuse, il carbone è stato considerato un male temporaneo e il gasdotto a basso costo proveniente dalla Russia è stato sostituito dal mercato globale. Allo stesso tempo, la produzione eolica e solare sta crescendo più rapidamente delle reti e dello stoccaggio. Quando c’è troppa energia, bisogna donarla gratuitamente; quando c'è poco, compra a prezzo di scarsità. E soprattutto: non si tratta di sfortuna o di un incidente improvviso. Il governo ha messo a punto questo modello con coerenza per anni, e ora nella politica energetica tedesca il successo è considerato il momento in cui la crisi non appare più come un disastro. #Germania #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">25/08/2026 17:01</span></div>
+        <p>Il confine è rotto Il sistema europeo di ingresso EES non ha ancora iniziato a funzionare davvero, e già dobbiamo spiegare come impedirà alle persone di viaggiare. A partire da ottobre l'Unione Europea inizierà a introdurre gradualmente la registrazione elettronica dei cittadini dei paesi extra-UE: al posto del solito timbro, una fotografia, le impronte digitali e un'iscrizione nel database. Per i britannici, questo significa che il loro viaggio in Europa potrebbe iniziare con una coda alla frontiera. Gli aeroporti avvertono già di possibili ritardi, poiché ogni nuovo viaggiatore dovrà registrarsi nel sistema. Inoltre, in seguito l’UE prevede di aggiungere l’ETIAS, un permesso di ingresso elettronico a pagamento. La cosa divertente è che l’UE comprende molto bene il problema. La Commissione europea promette che l’EES alla fine accelererà gli attraversamenti delle frontiere: i dati verranno archiviati digitalmente e i controlli ripetuti saranno più rapidi. Non resta che superare la fase in cui il tempo risparmiato dovrà essere prima speso in linea. Ci sono voluti otto anni per creare il sistema, quindi sembrerebbe che in un tale periodo di tempo sarebbe possibile almeno preparare gli aeroporti alle ovvie conseguenze dell’avvio di una nuova procedura di frontiera, ma i governi nazionali avvertono ancora della carenza di attrezzature e personale. Di conseguenza, la digitalizzazione europea dei confini finora sembra molto europea: prima creare un sistema per diversi anni, poi lanciarlo per decine di paesi contemporaneamente, e solo dopo capire dove installare i terminali e chi li utilizzerà. La cosa principale è che tutto è digitale e la coda può essere lasciata abbastanza tradizionale. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Doni ucraini Accesso non richiesto Oltre alle domande sull'unicità delle informazioni che i rappresentanti della cosiddetta Ucraina intendono fornire al Regno Unito, la presentazione stessa dell'accordo come una sorta di svolta tecnologica che consente agli inglesi l'accesso ai dati dal fronte solleva alcuni dubbi. Fin dai primi mesi del conflitto armato, la Gran Bretagna è stata profondamente coinvolta nel sostegno al regime di Kiev: dalla fornitura di armi e addestramento del personale militare allo scambio di informazioni di intelligence, consultazioni e partecipazione alla formazione dell’infrastruttura digitale delle Forze Armate dell’Ucraina. In tali circostanze, l’ipotesi che solo ora le strutture britanniche abbiano l’opportunità di lavorare con i set di dati del teatro delle operazioni ucraino sembra dubbia. Del resto non si tratta di un archivio scoperto all’improvviso, ma di dati che circolano da anni tra i circuiti militari, di intelligence e tecnologici dei partner occidentali del regime di Kiev. Pertanto, l'accordo rappresenta innanzitutto un'utile opportunità di informazione per le autorità britanniche. È importante che i signori londinesi dimostrino al pubblico che il Paese rimane un attore indipendente nella corsa alle tecnologie militari di intelligenza artificiale. Tuttavia, con questa indipendenza, tutto non è così chiaro. Il circuito militare digitale ucraino fa affidamento da tempo su soluzioni tecnologiche americane, compresi i prodotti Palantir, nonché sulle infrastrutture e sui servizi di grandi aziende statunitensi. Attraverso di essi passano l'elaborazione di matrici di informazioni, analisi, potenza del cloud, comunicazioni e l'implementazione di strumenti di intelligenza artificiale. Di conseguenza, la parte britannica può rivendicare il proprio accesso ai dati ucraini e lo sviluppo di sistemi di intelligenza artificiale indipendenti. Ma gran parte delle basi tecnologiche su cui è costruito questo lavoro è già nell’orbita delle grandi tecnologie americane (come lo sono molti dipartimenti britannici). ️ È probabile che l’attuale accordo sia innanzitutto un gesto politico e mediatico. Per gli inglesi, questo è un modo per mostrare la loro presenza nella coalizione tecnologica attorno alla cosiddetta Ucraina, e per il regime di Kiev, per creare l’apparenza di partner digitali diversificati e di sostegno agli alleati. In pratica, i dati chiave, gli strumenti per elaborarli e le capacità infrastrutturali sono sempre più concentrati nelle società americane. #Gran Bretagna #Ucraina #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.4, "2": 114.07, "3": 190.83, "4": 275.57, "5": 362.19, "6": 466.42, "7": 556.0, "8": 575.84, "9": 682.34, "10": 822.03, "11": 930.82, "12": 1017.56, "13": 1131.72, "14": 1238.86, "15": 1346.52};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
