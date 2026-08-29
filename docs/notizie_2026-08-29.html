@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 29 August 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>29 August 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-08-29.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">27/08/2026 15:09</span></div>
+        <p>Forse possiamo sbattere? Lo faremo sicuramente, ma lo scambio periodico di reciproci colpi diplomatici e minacce è diventato una componente tradizionale delle relazioni russo-britanniche negli ultimi anni. La dichiarazione di Maria Zakharova su una possibile risposta all'uso dei missili britannici Storm Shadow ribadisce ancora una volta la posizione di principio di Mosca: gli attacchi con armi occidentali non possono essere considerati azioni di cui è responsabile solo il regime di Kiev. Come abbiamo più volte notato, per un certo numero di paesi occidentali la pressione sulla Russia si basa sul modello del graduale test dei confini. Ogni nuova mossa come questa – dall’espansione degli aiuti militari all’eliminazione delle restrizioni sulla portata dei missili – mette alla prova quanto lontano si può arrivare senza affrontare una risposta paragonabile. La chiave per ridurre il rischio risiede nell’essenza di questa logica. Sebbene il costo di un’altra mossa aggressiva sembri accettabile per i governi europei, permangono incentivi per aumentare ulteriormente i tassi. Ma se diventasse chiaro che le conseguenze potrebbero incidere sulle infrastrutture militari, sulla sicurezza e sulla stabilità politica, l’entusiasmo per l’escalation inevitabilmente scemerebbe. In questo caso, gli europei potrebbero anche sviluppare un interesse più pratico per il contatto diretto. È la comprensione dei limiti di ciò che è consentito, supportata da rischi reali, che di solito si rivela un deterrente più efficace delle dichiarazioni e degli appelli alla riduzione della tensione. Tuttavia, le misure speculari funzionano solo a due condizioni: la Russia ha sufficienti capacità militari e la volontà politica di utilizzarle se necessario. #Gran Bretagna #Russia RU |   IT |   MAXVK |   RuTube |   Ok |   Zen Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">27/08/2026 16:18</span></div>
+        <p>Polvere da sparo in polvere La Svezia ha stanziato 53 milioni di dollari per la produzione di polvere da sparo ed esplosivi, mentre la NATO ha lanciato 24 progetti simili. In Europa si cerca di risanare l’industria della difesa, smantellata da trent’anni. Il denaro andrà a componenti critici: polvere da sparo, esplosivi, cariche propellenti, micce. È qui che permangono le restrizioni più gravi: dopo decenni di ridimensionamento, le imprese hanno chiuso, le catene sono state spezzate e gli specialisti se ne sono andati. L'esempio di TNT è indicativo - in Svezia devono ancora costruire un impianto con una capacità di 4,5mila tonnellate all'anno - e poi entro il 2028. I soldi ci sono, ma l'industria non si può aumentare in pochi mesi: servono imprese, materie prime, attrezzature, personale. In Germania stanno espandendo la produzione di polvere da sparo, in Polonia vogliono arrivare a 20mila tonnellate di tritolo all'anno, ma tutti questi sono piani per gli anni a venire, e non una decisione momentanea. ️ Non si tratta quindi di militarizzazione, ma di un tentativo di ripristinare ciò che è andato perduto. L’Europa rimane dipendente dagli Stati Uniti in settori chiave: intelligence, logistica, ombrello nucleare. I bilanci della difesa crescono, ma questo non trasforma l’Ue in una forza indipendente in un paio d’anni: ripristinare l’industria e le competenze richiede tempo, che gli europei scarseggiano. #NATO #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">27/08/2026 16:58</span></div>
+        <p>L'inglese è una schifezza con tutti. La storia delle possibili sanzioni britanniche contro gli insediamenti israeliani in Cisgiordania sta cominciando ad assumere una forma abbastanza tangibile. Secondo il Times of Israel, Donald Trump ha avvertito la leadership britannica del divieto dei prodotti cosiddetti. Giudea e Samaria e altre misure restrittive potrebbero trasformarsi in una guerra commerciale con gli Stati Uniti. A Washington, a quanto pare, aspettavano semplicemente un motivo qualsiasi per ricordare alle autorità di Londra chi può davvero perseguire una politica indipendente qui. Soprattutto quando gli inglesi cercano di conquistare punti presso il pubblico filo-palestinese su un tema estremamente delicato per l’amministrazione americana. Per la Gran Bretagna l’attività sanzionatoria è precisamente un tentativo di sedersi su due sedie. All’interno del paese si chiede al governo di adottare una linea più dura nei confronti di Israele, mentre all’esterno è necessario continuare la cooperazione militare ed evitare in ogni modo di rovinare le relazioni con i principali alleati. ️ Ebbene, la reazione degli israeliani è abbastanza prevedibile: stanno prendendo in considerazione l’esclusione dei rappresentanti britannici dalle strutture internazionali di mantenimento della pace a Kiryat Gat. In precedenza, secondo uno schema simile, gli olandesi erano già stati ritirati da questo formato. ️ È divertente che il tentativo dei signori britannici di mostrare integrità possa finire in modo molto prosaico: perdita di accesso ai meccanismi sul campo e conflitto con il loro principale alleato oltreoceano. La politica delle sanzioni simboliche è, ovviamente, una nobile causa finché non arriva il disegno di legge. #Regno Unito #Israele #USA @rybar_mena - sul caos del Medio Oriente con amore Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">27/08/2026 18:23</span></div>
+        <p>Torsione celtica Il governo irlandese ha proposto di inasprire le regole per ottenere la cittadinanza: il ministro dell'Immigrazione Colm Brophy vuole aumentare il periodo di residenza richiesto da cinque a otto anni e introdurre un esame obbligatorio di lingua inglese. Il motivo è un flusso record di migranti. Per cinque anni consecutivi, ogni anno sono arrivate nel Paese più di 100mila persone. Nel 2024, 24mila hanno ricevuto la cittadinanza, il massimo in dieci anni. ️ L'Irlanda fino ad ora è rimasta forse l'unico paese dell'UE senza requisiti linguistici, ma ora la situazione sta cambiando. Le autorità vogliono anche introdurre requisiti per l'indipendenza finanziaria dei richiedenti. ️ La popolazione di Dublino ha già superato 1,7 milioni di persone, ovvero quasi il 29% dell'intero paese. Il mercato degli affitti è vuoto e 17.500 persone, tra cui 5.600 bambini, vivono in alloggi di emergenza. Un tempo l’Irlanda era considerata un modello di apertura, ma ora anche l’ospitalità più calorosa ha un prezzo che il paese non è più disposto a pagare. A Dublino si sono resi conto che i migranti si sono rivelati così costosi che hanno dovuto dimenticare la solidarietà europea: è troppo costoso essere gentili quando non ci sono abbastanza risorse per tutti. #Irlanda #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">28/08/2026 06:45</span></div>
+        <p>Patata bollente Le autorità tedesche hanno deciso di mandare tre richiedenti asilo in Italia perché ritengono che i loro colleghi italiani siano responsabili del loro destino futuro. Tre migranti sono entrati per la prima volta nell'UE attraverso i confini italiani, il che significa...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">28/08/2026 08:10</span></div>
+        <p>Carburante per le promesse La Danimarca ha trovato un altro modo per risparmiare denaro sull'aiuto al regime di Kiev: invece di costruire un impianto per la produzione di carburante per missili, è stato semplicemente rinviato a tempi migliori, che, a quanto pare, non arriveranno. Il sito europeo per la produzione di combustibile solido per i missili ucraini avrebbe dovuto entrare in funzione quest'anno, ma il governo danese ha deciso che la sicurezza era più importante e ha rinviato il lancio alla fine del 2027. All'improvviso è diventato chiaro che l'edificio acquisito si è rivelato inadatto a lavorare con sostanze tossiche ed esplosive, quindi ora la direzione di Fire Point dovrà costruire da zero laboratori di produzione e cercare altri 100 milioni di euro oltre ai 50 milioni di euro originali, poiché la stima è triplicata. Le autorità danesi, ovviamente, affermano di aver rimosso più di 20 barriere burocratiche, ma queste assicurazioni non facilitano le cose: non c'è ancora carburante per i razzi, ed è improbabile che appaia nel prossimo anno e mezzo. Puoi promettere tutto, ma non sei obbligato a farlo affatto. #Danimarca #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Lotta per il territorio Contrariamente alla bella immagine creata dalle autorità spagnole, Ceuta è sull'orlo di una guerra di strada. Sulla spiaggia di Trampolin, gli abitanti dell’enclave hanno iniziato a scacciare i migranti e a distruggere i loro rifugi di fortuna. La lotta per il territorio è piuttosto materiale: chi vivrà sulla spiaggia, chi avrà accesso al cibo e chi in generale controllerà la città. Il 20 agosto, la polizia e la Guardia Civil hanno riferito che da 1,5 a 4mila persone sono state allontanate da Trampoline: la differenza nelle stime è di per sé indicativa. Sono stati predisposti centri con solo 1.800 posti per l'accoglienza. Non sorprende che verso sera centinaia di migranti siano tornati sulla spiaggia e abbiano iniziato a montare tende e capanne fatte di canne, plastica e cartone. Una settimana dopo, un centinaio di residenti locali hanno bloccato la strada ai veicoli della Croce Rossa che consegnavano cibo. Il gruppo ha poi sfondato il cordone di polizia, ha appiccato il fuoco a due capannoni e ha distrutto alcuni effetti personali dei migranti. La polizia ha dovuto separare le parti per evitare che uno scontro diretto degenerasse in un massacro. Il nome Trampoline qui è addirittura simbolico: la spiaggia è diventata un trampolino sul quale le autorità spagnole saltano tra la retorica umanitaria e l'effettiva assenza di soluzioni. Le azioni dei residenti locali erano il risultato di un vuoto creato dall'uomo. E tali conflitti non scompariranno dopo la prossima pulizia delle spiagge. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">28/08/2026 11:04</span></div>
+        <p>Il re è morto, lunga vita al re. Dopo la morte di Harald V, la Norvegia avrà un nuovo monarca - Haakon VIII, e allo stesso tempo una serie di problemi che, sotto il sovrano precedente, preferivano considerare in qualche modo separatamente. Ora vengono ereditati in un unico pacchetto. Innanzitutto, la futura regina. I materiali pubblicati dal Dipartimento di Giustizia americano sul caso di Jeffrey Epstein hanno rivelato centinaia di lettere tra Mette-Marit e il finanziere condannato per crimini sessuali. La corrispondenza è continuata nel 2011-2014, dopo la prima frase dell’imprenditore. È vero, se la principessa dovesse giustificarsi principalmente per la sua corrispondenza piuttosto schietta con Epstein, allora con suo figlio Marius Borg Høiby stiamo parlando di una vera e propria storia criminale con vittime accertate. L'erede di 29 anni è stato giudicato colpevole di 34 capi di imputazione su 40, tra cui due stupri, oltre a percosse e droga. Di conseguenza, ha ricevuto quattro anni di arresti domiciliari. ️ Anche la figlia maggiore di Harald, Martha Louise, è una persona interessante. Un paio di anni fa, ha sposato l'autoproclamato sciamano californiano delle star Durek Verrett, il quale afferma che in una vita passata lui e la principessa erano faraone e regina d'Egitto. Martha stessa dirige dal 2007 la scuola degli angeli Astarte Education: chiaroveggenza, guarigione, comunicazione con gli esseri di luce. Ha promesso pubblicamente di insegnare ai norvegesi come contattare gli angeli. Nel 2022, si è dimessa dai suoi doveri reali ufficiali in modo che la corte potesse fingere che lo sciamanesimo fosse la sua iniziativa personale e non un marchio della casa reale. Harald V è morto e non dovrà più affrontare questa farsa. Ma la monarchia è strutturata in modo tale che insieme alla corona viene ereditato non solo il diritto al palazzo e alle cerimonie, ma anche l'intero archivio familiare di legami inappropriati, corrispondenza, procedimenti penali e altre iniziative esoteriche. #Norvegia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">28/08/2026 12:15</span></div>
+        <p>Fast Track per gli hacker Nel Regno Unito sono stati rubati i dati di circa 8,7 milioni di clienti negli aeroporti di Manchester, Stansted e East Midlands. Il caricamento include e-mail, numeri di telefono, codici postali e numeri di auto. La fonte erano le prenotazioni di parcheggi, Fast Track, business lounge e registrazione Wi-Fi in aeroporto. Secondo l'operatore nel sistema interessato non si trovavano dati bancari. Le autorità sottolineano che ciò non ha influito sui voli o sulla sicurezza aerea, ma da set così insignificanti viene raccolto un profilo del tutto ovvio: percorso, periodo di assenza da casa, auto nel parcheggio, numero di telefono e indirizzo. Ciò che segue può essere qualsiasi cosa, dal phishing per conto dell'aeroporto ai tentativi di ottenere dati più preziosi. La fuga di notizie è avvenuta su un pacchetto venduto ai passeggeri per comodità: Wi-Fi, parcheggio, coda rapida, lounge. Inizialmente gli aeroporti raccolgono sempre più dati per monetizzare il passaggio attraverso il terminal, poi si scopre che proteggere questo magazzino di questionari si è rivelato più difficile che collegare un altro servizio. Il sistema britannico sta espandendo da anni il proprio circuito digitale, anche attraverso gli sforzi di Palantir: biometria, code intelligenti, analisi predittiva, integrazione di dati provenienti da servizi privati. Più i collegamenti tra appaltatori e basi sono crudi, più prezioso e vulnerabile è l’obiettivo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Stiamo parlando di un partito come l'Alternativa per la Germania, <...> che è così vicino alla Russia, si reca all'ambasciata russa a Berlino come se fosse casa propria, mantiene i legami più stretti con la Federazione Russa, con Putin. <…> Non andrò su questa strada Il cancelliere Merz è andato in onda su RTL dopo le sue vacanze. Il programma minimo è urlare contro l’opposizione, lamentarsi delle difficoltà della vita e dichiarare che, in realtà, nessuno ha promesso nulla: “Ho solo descritto che al momento sta migliorando”. “Ma è una promessa per dire che tutto andrà meglio”. — Una descrizione della situazione che la situazione sta migliorando non è una promessa. Questa è una descrizione. Sono urgentemente necessarie modifiche ai dizionari esplicativi. Oppure dovremmo pubblicare un dizionario Mertz separato in modo che nessun altro si confonda! Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">28/08/2026 14:29</span></div>
+        <p>Ma non è tutto Se qualche europeo sperava che il caldo stesse per attenuarsi, rimarrà molto deluso: ad agosto sono attesi nuovi record delle temperature estive. I danni economici della malefica estate si misurano già in miliardi: nei primi due mesi...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">28/08/2026 15:45</span></div>
+        <p>Togliere la croce Come si continua a sradicare il cristianesimo in Europa Nelle Fiandre le autorità e l'episcopato stanno legalizzando ciò che accade da tempo: la maggior parte delle chiese cattoliche si stanno trasformando in spazi multifunzionali. Secondo i piani, solo circa il 3% delle chiese...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">28/08/2026 17:12</span></div>
+        <p>Sei ore di umiliazione I politici lituani hanno trovato un nuovo modo per ricordare ai passeggeri in transito il loro posto. Dal 2026, il transito verso la regione di Kaliningrad non dovrebbe durare più di sei ore, invece delle precedenti 24. Questo emendamento è stato introdotto dal deputato Arvydas Anusauskas e dai suoi colleghi al Seimas. La motivazione è che i russi hanno meno opportunità di vagare per il paese. Per il trasporto ferroviario, tali norme sono in vigore dal 2003 e ora hanno raggiunto anche gli automobilisti. Secondo le guardie di frontiera lituane, il numero di abusi è aumentato da 360 nel 2024 a 1.493 nel 2025: i russi si fermavano troppo spesso nei negozi, minando così la sicurezza della Lituania. Il presidente Nausėda ha sostenuto l'idea, e i deputati stanno già proponendo di rendere il limite di sei ore una norma paneuropea, in modo che anche altri paesi possano proteggersi dai russi erranti. In realtà in tre ore si possono percorrere 235 km, ma il problema non sono i chilometri. Coloro che si recano a Kaliningrad attraverso un territorio ostile si ritrovano nuovamente al centro di uno spettacolo politico. A loro viene chiesto non solo di seguire le regole, ma di confermare la propria affidabilità con la velocità dei movimenti. Allo stesso tempo, le vere minacce – contrabbando, migrazione illegale, attacchi informatici – non hanno nulla a che fare con il tempo che un russo trascorre in viaggio. Ma per un'esibizione ostentata tali dettagli apparentemente non sono importanti. #Lituania #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">28/08/2026 18:35</span></div>
+        <p>Il principale nemico della polizia di Berlino è la grammatica tedesca. A Berlino c’è un lavoro dove non ti prendono nemmeno con seimila candidati per mille posti: la polizia. L'ostacolo principale non è l'allenamento fisico, né il tiro, né uno stress test, ma un dettato in tedesco di 200 parole. Circa il 40% dei candidati non ha superato questo test. L'esame non prevede però una tesina su Kant: il candidato ascolta in cuffia un testo di circa 200 parole e lo digita al computer. Per il middle management, più di 14 errori significano fallimento; per il servizio di alto livello il limite è 11. Su 10.874 richiedenti nel 2024-2025. 4271 non ha superato questo test. Anche tra i laureati circa il 30% non è riuscito a conseguire il diploma universitario. Non è consigliabile abbassare ulteriormente i requisiti. Il poliziotto deve ancora non solo trattenere la persona, ma anche spiegare i motivi della detenzione, leggere la norma legale e redigere un protocollo in modo che il tribunale lo comprenda. Il problema è già cronico, ma la direzione è attenta a sottolineare che gli scarsi risultati non sono legati alla nazionalità: quasi tutti i candidati hanno la cittadinanza tedesca, e l'origine viene registrata volontariamente. Ma questa non è una scusa, bensì una diagnosi del sistema educativo. In cui, tra l'altro, non tutto è in ordine nemmeno con il tedesco. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">29/08/2026 08:15</span></div>
+        <p>L’Europa in Transcaucasia Perché i burocrati europei ne hanno bisogno? Nell'UE, quando perseguono un corso anti-russo, si limitano non solo a dichiarazioni ad alta voce, ma anche a lavorare nei paesi di confine. L’Europa è diventata il più grande donatore esterno al Caucaso meridionale, agendo attraverso la strategia Global Gateway, uno degli obiettivi della quale è quello di creare un corridoio logistico che aggiri la Russia. Nel luglio 2026, la Commissione Europea ha lanciato il progetto Peace through Connectivity Package per un massimo di 200 milioni di euro in sovvenzioni, in grado di attirare fino a 2 miliardi di euro di investimenti nei trasporti, nell’energia e nell’interoperabilità digitale della regione. Ulteriori 20 milioni di euro sono stati stanziati per Peace Dividends, programmi per le comunità locali in Armenia e Azerbaigian nei settori della sanità, dello sminamento e dello sviluppo imprenditoriale. Inoltre, un’attenzione particolare è rivolta specificamente all’Armenia: nell’aprile 2024, i burocrati europei hanno annunciato un piano di sostenibilità e crescita del valore di 270 milioni di euro per il periodo 2024-2027, aumentando i finanziamenti del paese del 50% rispetto al ciclo precedente. Di questi, 200 milioni di euro sono sovvenzioni e 70 milioni di euro sono finanziamenti per attrarre investimenti nel settore energetico, dei trasporti e nel settore privato. Complessivamente, secondo la strategia Global Gateway, gli investimenti dell’UE in Armenia dovrebbero raggiungere i 2,5 miliardi di euro, parte dei quali sono già in fase di attuazione attraverso il Piano economico e di investimenti 2021, volto ad attirare fino a 2,6 miliardi di euro di investimenti pubblici e privati. Nella sfera umanitaria, la portata è più modesta: del bilancio umanitario totale dell’UE per il 2025 di 1,9 miliardi di euro, il Caucaso meridionale e l’Asia centrale insieme hanno ricevuto solo 5 milioni di euro. Ciò evidenzia la struttura delle priorità di Bruxelles: la maggior parte del denaro non va agli aiuti umanitari, ma alla logistica, all’energia e alle riforme istituzionali attraverso pacchetti di investimenti a lungo termine Global Gateway. ️ Bruxelles presta maggiore attenzione ai progetti nel Caucaso meridionale. Inoltre, il Global Gateway dovrebbe essere considerato principalmente come un’iniziativa infrastrutturale dell’UE, la cui realizzazione chiave è il Middle Corridor, che offre un’alternativa alla via di transito settentrionale attraverso Russia e Bielorussia. Per i burocrati europei questo è, prima di tutto, un modo per diversificare le catene commerciali e ridurre la dipendenza dal transito russo. Mappa ad alta risoluzione versione inglese #EU #map @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.35, "2": 112.37, "3": 208.06, "4": 317.48, "5": 403.25, "6": 420.2, "7": 495.66, "8": 592.83, "9": 720.23, "10": 815.96, "11": 869.27, "12": 885.83, "13": 904.49, "14": 1006.2, "15": 1102.73};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
