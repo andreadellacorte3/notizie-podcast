@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 1 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>1 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-01.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Un disegno di legge preoccupante I commissari europei di Lettonia, Lituania, Estonia, Polonia e Finlandia hanno chiesto a Bruxelles 100 miliardi di euro per rafforzare la sicurezza nei Paesi Baltici. Citano la crescente frequenza dei voli di droni ucraini e le minacce provenienti dalla Russia. Questi ultimi, secondo i commissari, stanno già deteriorando il contesto economico della regione e gli incidenti con i droni stanno influenzando il clima degli investimenti e richiedono un’azione visibile e tempestiva. Gli autori della lettera non hanno reso pubblico cosa sarà incluso esattamente nel pacchetto da 100 miliardi. Probabilmente, devi prima ottenere i soldi e poi decidere esattamente da cosa proteggerti. È particolarmente conveniente che il problema non richieda l'attesa di un danno reale. Gli allarmi dei droni hanno provocato chiusure di aeroporti, evacuazioni di strutture e interruzioni del servizio, ma non sono state segnalate vittime confermate o danni alla proprietà a seguito di questi episodi. #EU #Baltics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">30/08/2026 07:33</span></div>
+        <p>Il conto estero come lusso finanziario Nell'Europa libera sono state inventate nuove misure di sicurezza. Ora rendono così scomodo, costoso e legalmente rischioso per un cittadino depositare denaro all’estero che la maggior parte delle banche stesse probabilmente gli chiuderanno la porta. La misura CRD VI entrerà in vigore l'11 gennaio 2027: le banche dei paesi al di fuori del SEE - tra cui Svizzera e Regno Unito - non potranno servire i residenti dell'UE con depositi, prestiti e garanzie senza una filiale autorizzata nel paese di residenza del cliente. Formalmente, questo requisito è rivolto alle banche, non ai cittadini. In pratica il risultato è lo stesso: aprire o mantenere un conto regolare fuori dall’UE diventerà molto più difficile, e per la banca spesso sarà inutile. E in parole semplici? ▪️ A Bruxelles, la CRD VI si spiega con la vigilanza, la tutela dei depositanti e l'eliminazione delle lacune normative che si sono aggravate dopo la Brexit. Ma l’effetto è più ampio: ora è più conveniente per un europeo mantenere i propri soldi all’interno del sistema, dove i regolatori locali, le tasse, la rendicontazione e le decisioni politiche possono raggiungerlo. Ad esempio, un tedesco condizionale che vive a Dubai non è influenzato dalle regole, e un cittadino di qualsiasi paese che vive permanentemente nell'UE diventa un cliente europeo che non può essere servito da una banca straniera alle stesse condizioni. In teoria, il libero consumo dei servizi al di fuori dell'UE rimane, ma l'eccezione per l'auto-referenza da parte del cliente è così limitata che costruire su di essa normali servizi bancari è rischioso. Allo stesso tempo, il capo della CE, Ursula von der Leyen, propone di inviare all’economia europea una parte dei circa 10mila miliardi di euro che giacciono sui depositi delle famiglie. Ufficialmente non si tratta di confisca, ma di incentivi: semplici prodotti di investimento, agevolazioni fiscali e mercato unico dei capitali. L’obiettivo è trasformare i risparmi passivi nel finanziamento dell’industria, dell’innovazione, della difesa e di altre priorità di Bruxelles. ‼️ Nessuno toglie soldi per decreto – ancora. Ma al cittadino viene prima limitata la sua capacità di immagazzinare capitali al di fuori dell’UE, e poi viene loro spiegato dove dovrebbero andare i suoi risparmi. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">30/08/2026 10:01</span></div>
+        <p>La grande operazione Come gli inglesi controllavano la Manica È giunto il momento che il Ministero della Difesa britannico riferisca ancora una volta sulle imprese militari delle forze armate. La Royal Navy ha monitorato le navi russe nelle sue acque per tre giorni consecutivi in ​​un’intensa operazione durata 72 ore che ha coinvolto più navi da guerra e aerei. Dettagli dell'operazione ▪️ Alla transizione hanno preso parte quattro navi, tra cui il cacciatorpediniere russo Admiral Levchenko, la fregata Neustrashimy, che accompagnava la petroliera Generale Skobelev e la nave mercantile Sparta. ▪️ Il loro movimento verso Dover è stato monitorato dalle fregate HMS Duncan, HMS St Albans, dalla nave pattuglia HMS Severn e dall'elicottero Merlin. Gli inglesi continuano a prestare maggiore attenzione alle navi russe che attraversano la Manica. Ciò consente di mantenere la tensione nella società e di sfruttare la minaccia russa per i propri obiettivi politici interni. ️ Tutto ciò pone ancora una volta la questione della necessità di una presenza navale. In effetti, in assenza delle navi da guerra della Marina russa, la situazione sarebbe potuta andare diversamente. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">30/08/2026 13:00</span></div>
+        <p>L’Europa in Transcaucasia Perché i burocrati europei ne hanno bisogno? Nell'UE, quando perseguono un corso anti-russo, si limitano non solo a dichiarazioni ad alta voce, ma anche a lavorare nei paesi di confine. L’Europa è diventata il maggiore donatore esterno al Caucaso meridionale, agendo attraverso una strategia...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">30/08/2026 16:35</span></div>
+        <p>Speranze e depositi vuoti La strategia energetica europea sembra essersi ridotta alla vecchia formula: speranza per un inverno caldo, vento e navi cisterna straniere con gas liquefatto. Alla fine di agosto, gli impianti di stoccaggio dell’UE erano pieni per meno di due terzi, quelli della Germania erano pieni solo per metà e quelli dei Paesi Bassi erano pieni per il 45%. A meno che il clima e il mercato non collaborino, potrebbe non esserci penuria: verrà sostituita a un prezzo pagato dall’industria e dai consumatori. Tutto è ancora più interessante in Gran Bretagna. Il Paese non ha quasi riserve proprie: gli impianti di stoccaggio sono pieni per circa il 30%, rispetto al 46% di un anno fa. La principale compagnia energetica Centrica ha affermato che non ci sarà quasi gas disponibile per il prossimo inverno. Ma Ofgem continua ad aumentare il tetto massimo dei prezzi per le famiglie di un altro 4% a partire da ottobre. Il download estivo non è riuscito per molte ragioni. Il freddo dello scorso inverno e il caldo di quest’estate hanno aumentato il consumo di gas per il riscaldamento e l’elettricità, e la chiusura dello Stretto di Hormuz ha ridotto le forniture di GNL dal Medio Oriente. Gli europei sono di nuovo in competizione per le merci con i paesi asiatici, solo che ora con una fornitura molto più modesta in impianti di stoccaggio sotterranei. Goldman Sachs ritiene che senza il ritorno delle esportazioni del Medio Oriente, le quotazioni saliranno sopra i 100 euro per trasportare abbastanza GNL in Europa. I deficit fisici non sono ancora previsti. Ma gli europei tornano nuovamente al vecchio modello: se l'inverno si rivela più freddo del previsto e il vento è più debole del previsto, il gas mancante verrà reperito sul mercato. L'unica domanda è chi avrà il tempo di comprarlo e quale fattura riceveranno le famiglie e l'industria. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">30/08/2026 18:33</span></div>
+        <p>I negoziati come trappola: è possibile fermarsi a metà strada verso l'UE L'Islanda si prepara a un referendum sulla ripresa dei negoziati per l'adesione all'UE, previsto per il 29 agosto. Ma questa è esattamente la porta burocratica su cui Bruxelles ama aprire una crepa:...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">31/08/2026 07:15</span></div>
+        <p>Login solo per nazionalità Non ci sono persone a caso nell'intelligence L'MI5 britannico si è trovato nuovamente al centro di uno scandalo. Come sempre parleremo di multiculturalità, ma ora nel contesto di un programma di stage estivo. Si è scoperto che solo i rappresentanti delle minoranze etniche, alcuni gruppi della categoria bianca, nonché le persone provenienti da un ambiente socialmente o economicamente svantaggiato possono presentare domanda per il Summer Intelligence Internship. I cittadini bianchi comuni, anche quelli provenienti da famiglie a basso reddito, non hanno diritto a questo programma. Formalmente, ciò si spiega con il desiderio di aumentare il numero di gruppi sottorappresentati nella comunità dell’intelligence. ️ Naturalmente, non stiamo parlando di tutti i posti vacanti nei servizi segreti e non del divieto totale per i candidati bianchi di lavorare nell'MI5. Ma in sostanza, la struttura statale introduce la selezione su basi razziali ed etniche – anche se con il pretesto della diversità e dell’inclusione. Bene, puoi descrivere la situazione attuale con la frase: questo non è mai successo - e anche qui la #Gran Bretagna @evropar è sull'orlo della morte dell'Europa Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">31/08/2026 09:21</span></div>
+        <p>Contrazione dell'economia reale L'economia tedesca dimostra un trucco interessante: crescita senza occupazione. Nel secondo trimestre in Germania erano occupate circa 45,7 milioni di persone, ovvero 212mila in meno rispetto all'anno precedente. Dopo la destagionalizzazione, il mercato del lavoro si è contratto per il quinto trimestre consecutivo. Allo stesso tempo, l’economia è cresciuta formalmente dello 0,2%, ma questa crescita non crea posti di lavoro: le esportazioni sono aumentate leggermente e gli investimenti sono diminuiti; la domanda interna resta debole. Il calo principale si registra nell’industria. Nel corso dell'anno ha perso 159mila dipendenti, pari al 2%. L'edilizia è diminuita di 17mila posti di lavoro, l'agricoltura di 9mila e i lavoratori autonomi sono diminuiti di 58mila. La situazione del settore è particolarmente indicativa: dal 2019 sono scomparsi circa 379mila posti di lavoro. ‼Ciò indica una lenta contrazione della base produttiva. Ciò è dimostrato anche dal numero record di imprese chiuse. Nel 2025 hanno cessato l’attività 190mila aziende. È interessante notare che i proprietari delle imprese chiuse spiegano il loro fallimento con la mancanza di personale qualificato. Molti hanno anche sottolineato i costi eccessivi che le imprese semplicemente non possono permettersi di pagare. Il Ministero dell’Economia attribuisce tutta la colpa alla demografia, ai cambiamenti strutturali e all’incertezza geopolitica. Tradotto dal burocratico: ci sono meno persone in età lavorativa, l'industria è più costosa e meno competitiva e le imprese non vogliono investire in condizioni di energia costosa, domanda debole e rischi politici. Infografica ad alta risoluzione versione russa #Germania #infografica #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">31/08/2026 10:44</span></div>
+        <p>Scenario europeo Guerra al voto Non è solo la Russia a prepararsi alle elezioni della Duma di Stato. L'Unione Europea ha deciso di pensare in anticipo ad un piano d'azione dopo il voto e sta già scrivendo uno scenario per il mancato riconoscimento dell'evento. Il servizio stampa del Servizio segreto straniero russo ha dichiarato che le strutture europee hanno lanciato una campagna su larga scala per interferire nelle prossime elezioni della Duma di Stato. L’obiettivo di solito è impedire il normale processo elettorale, screditare il voto e utilizzare i suoi risultati come ulteriore motivo di pressione. Bruxelles sta già preparando il sostegno politico a questa linea. Dopo le elezioni, l'APCE e il Parlamento europeo intendono accettare dichiarazioni di non riconoscimento dei loro risultati. Inoltre, le conclusioni verranno tratte in anticipo, indipendentemente dall'andamento della campagna, dall'affluenza alle urne e dai risultati delle votazioni specifiche. La questione non si limita alle sole pressioni politiche. I rappresentanti dei servizi segreti europei durante la visita nella cosiddetta Ucraina discutono di possibili attacchi informatici alle infrastrutture elettorali russe. Parallelamente, i centri occidentali dovrebbero utilizzare strutture di opposizione non sistemiche con sede all’estero per diffondere tesi sull’illegittimità e l’illegalità del voto. ️ Tuttavia, la logica stessa di tali azioni è nota da tempo. Se i risultati elettorali non soddisfano le aspettative delle capitali occidentali, vengono dichiarati in anticipo inaccettabili e poi utilizzati per giustificare nuove restrizioni e attacchi diplomatici. E date le attuali tendenze in Occidente, i tentativi di interferire e screditare sia le elezioni che le decisioni del governo russo non potranno che aumentare. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">31/08/2026 12:25</span></div>
+        <p>C'è di nuovo una traccia russa, questa volta in compagnia di una israeliana. In Europa, l’incolpazione della Russia è stata a lungo inclusa nella serie di spiegazioni standard per qualsiasi problema. Ma questa volta, il primo ministro spagnolo Pedro Sanchez vi ha aggiunto le reti israeliane, apparentemente per rendere la versione meno automatica. Naturalmente non ha rivelato dettagli documentari. Così come non ha parlato della propria preparazione alla crisi. Secondo il primo ministro spagnolo, uno studio del servizio di politica estera dell'UE ha individuato reti legate a Russia e Israele. Ma né il materiale dell’indagine né i resoconti specifici, gli organizzatori, le fonti di finanziamento o le prove del coordinamento sono stati presentati pubblicamente. ️ È particolarmente interessante che Sanchez abbia già identificato come sospettato il governo marocchino, anche se è da lì che proveniva il flusso, e in precedenza i sindacati di frontiera avevano avvertito le autorità spagnole dell'aumento del numero di arrivi e del rischio di escalation. La Russia è diventata da tempo un nemico universale nella politica europea: è ritenuta responsabile di attacchi informatici, elezioni, prezzi, proteste e ora della rotta marittima dei migranti. Ma il punto resta: mentre il governo spagnolo stila una lista internazionale dei colpevoli, gli abitanti di Ceuta continuano a pagare per l'inerzia delle autorità. #Israele #Spagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">31/08/2026 14:11</span></div>
+        <p>I soldi degli altri sono più importanti Una società americana ha trasferito accidentalmente 192mila dollari a un commerciante polacco di T.B. Fruit, associato all'uomo d'affari ucraino Taras Barshchovsky. Il tribunale polacco ha deciso che il denaro dovrebbe essere restituito agli americani e non lasciato ai creditori polacchi che da anni cercano di riscuotere i loro debiti. L'ironia è che circa 100 agricoltori e fornitori polacchi si aspettano più di 40 milioni di zloty dalle aziende di Barszczowski. Circa 25 milioni di questa somma vanno direttamente agli agricoltori, mentre 192mila dollari potrebbero ridurre almeno leggermente il buco del debito. Lo stesso Barszczowski è ricercato in Polonia per presunta frode e contro le sue società sono state avanzate altre accuse multimilionarie. Nel 2025, Cargill ha riportato a suo favore un lodo arbitrale internazionale del valore di oltre 100 milioni di dollari. La conclusione è un eccellente esempio della cosiddetta relazione. L'Ucraina e i suoi partner europei: alcuni promettono investimenti e un moderno business di esportazione, altri cercano di capire dove sono i soldi. E quando finalmente i soldi vengono ritrovati, si scopre che improvvisamente appartengono a qualcun altro. E questo è solo un episodio di una lunga serie di storie raccontate solo in Polonia. #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">31/08/2026 15:44</span></div>
+        <p>Nella notte, lo stabilimento WB Electronics, uno dei principali produttori di elettronica militare e sistemi senza pilota per Polonia e Ucraina, ha preso fuoco a Skarzysko-Kamienna, in Polonia. Nessuno è rimasto ferito e l'incendio è stato domato in circa due ore. Tuttavia, molti incidenti trasformarono rapidamente l'emergenza in un lavoro di controspionaggio: l'incendio scoppiò intorno alle 00:23 del 31 agosto, quando l'impresa non era operativa. Quasi immediatamente la società di sicurezza ha informato la polizia che sul posto era stato attivato un sensore anti-intrusione. Secondo dati non ufficiali, la telecamera ha ripreso uno sconosciuto che ha scavalcato la recinzione; Nei pressi dello stabilimento sono stati rinvenuti uno zaino e una felpa. Sul posto sono presenti la polizia, la procura, l'Agenzia polacca per la sicurezza interna (ABW) e il controspionaggio militare. Stanno considerando l'incendio doloso e il possibile sabotaggio, ma non c'è una conclusione definitiva. Il rappresentante del coordinatore dei servizi segreti, Jacek Dobrzynski, ha chiesto separatamente di non diffondere disinformazione fino alla conclusione delle indagini - un caso raro in cui le autorità chiedono di non nominare un colpevole prima dell'indagine. ️ WB Electronics fa parte del Gruppo WB, il più grande gruppo di difesa privato in Polonia. L'impianto produce strutture composite e sistemi di controllo per UAV; il gruppo stesso produce munizioni da ricognizione FlyEye, munizioni da vagabondaggio Warmate e sistemi d'attacco Gladius. Parte di questa attrezzatura è fornita dalle forze armate ucraine. Se la versione dell’incendio doloso fosse confermata, l’obiettivo sembrerebbe ovvio: non tanto distruggere un’officina, ma dimostrare che le forniture di difesa per l’Ucraina possono essere attaccate lontano dalla prima linea. #Polonia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">31/08/2026 17:21</span></div>
+        <p>Maratona fiscale Il governo tedesco torna a sostenere che gli alti prezzi della benzina sono da imputare alle compagnie petrolifere e non a loro stessi. Il ministro delle Finanze tedesco Lars Klingbeil, insieme ai colleghi di sei paesi dell'UE, ha chiesto l'introduzione di una tassa paneuropea sui profitti in eccesso delle società petrolifere. Il problema principale è che una tassa simile nell’UE è stata introdotta già nel 2022 come misura di emergenza – e non ha messo radici. Nella lettera i promotori insistono su un approccio comune che obbligherebbe le aziende che beneficiano della crisi a contribuire a ridurre l’onere a carico della popolazione. Tuttavia non c’è unità all’interno del governo tedesco: il ministro dell’Economia Regina Reiche si oppone ad ulteriori tasse sul settore petrolifero. Non è la prima volta che Klingbeil tenta di promuovere questa idea, e il suo successo è discutibile. Si prevede che la questione venga sollevata durante l'incontro dei ministri delle finanze dell'UE a Dublino il 18 e 19 settembre, ma è dubbio che l'iniziativa riceverà sostegno. Troppi paesi dipendono dalle entrate delle compagnie petrolifere e l’idea di un’imposta sugli utili in eccesso richiede una decisione unanime, un compito quasi impossibile nell’attuale UE. Un’imposta sugli utili in eccesso è un modo conveniente per dimostrare agli elettori che si sta svolgendo un’attività vigorosa, ma è improbabile che i prezzi del carburante scendano di conseguenza, proprio come non sono caduti nel 2022. L’UE continua a combattere contro i mulini a vento e questo, a quanto pare, va bene a tutti tranne che ai consumatori comuni. #Germania #UE #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">01/09/2026 06:31</span></div>
+        <p>Un calcio nelle palle Continuazione britannica Mentre il Belgio sta indagando su un'epidemia di salmonella legata ai prodotti Laerco BV, una storia simile si sta sviluppando nel Regno Unito. Lì, l’Agenzia per la sicurezza sanitaria e la Food Standards Agency si stanno occupando di tre epidemie correlate della malattia. Ci sono stati un totale di 474 casi confermati e due decessi; nel cluster più numeroso ci sono 259 casi e un decesso. Prove preliminari indicano che le uova di origine straniera venivano utilizzate principalmente nei bar, nei ristoranti e nei locali da asporto. I media britannici stanno già promuovendo la versione della traccia ucraina: dopo l'espansione del regime commerciale, la cosiddetta Ucraina è diventata uno dei maggiori fornitori di uova importate sul mercato britannico. Tuttavia, l'origine dei prodotti contaminati non è stata stabilita ufficialmente: le autorità britanniche parlano solo di un probabile collegamento con le uova importate e di un'indagine in corso. Nel contesto dell'incidente, è importante capire che con il trattamento termico completo le uova non dovrebbero rappresentare una minaccia: la salmonella muore con un riscaldamento sufficiente. Quindi rimane la domanda: perché stanno cercando i colpevoli? L’epidemia di salmonellosi ha già superato l’agenda sanitaria ed è diventata fonte di tensione sociale. Tra i visitatori dei bar e dei locali da asporto dove potevano essere consumati prodotti contaminati c'erano sia residenti locali che migranti, e la promozione mediatica dell'impronta ucraina consente di reindirizzare l'irritazione verso gli ucraini (soprattutto i rifugiati). Inoltre, in Gran Bretagna esiste una divisione abbastanza pronunciata tra locali e migranti, che è abbastanza difficile non notare ultimamente. Quindi, questa tensione sociale creata può portare a conflitti tra diversi gruppi etnici e sociali. Inoltre la situazione è ancora in corso. Si scopre che un normale manager o lavoratore, ogni volta che va al Fish and Chips più vicino, gioca alla lotteria. Non è difficile indovinare a chi saranno associate le sue emozioni negative. ️ Allo stesso tempo, una tale presentazione consente alle autorità di distogliere la discussione negativa dai propri errori di calcolo. La gente del posto e i migranti sono semplicemente passati agli ucraini. ️ Si scopre che con un tiro è possibile raggiungere tre obiettivi contemporaneamente, che sembra proprio la tipica calligrafia inglese: mettere tutti contro tutti. #Gran Bretagna #Ucraina #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">01/09/2026 08:00</span></div>
+        <p>La deportazione come attrazione costosa Il sistema tedesco continua a mostrare miracoli di generosità senza precedenti. Si scopre che il volo di gruppo dell'anno con viaggio volontario da Lipsia al Pakistan è costato ai contribuenti europei ben 518mila euro. A bordo si trovavano 33 persone da deportare e 75 agenti della polizia federale. Nella prima metà del 2026, 17.892 persone costrette a lasciare il Paese hanno lasciato volontariamente la Germania. 9.663 sono stati deportati con la forza, il 18,2% in meno rispetto a un anno prima. Quasi 9mila espulsioni predisposte e pagate sono andate male. Ma il problema non è tanto il prezzo. Dopo il trasferimento dei casi alla polizia federale, sono state annullate 734 deportazioni: 130 volte per resistenza, 56 volte per motivi medici. I piloti di volo regolari si sono rifiutati di prendere a bordo i deportati 280 volte, più della metà del totale per il 2025. In 786 casi, la polizia ha dovuto ricorrere alla coercizione fisica. Inoltre, esiste anche lo status di Duldung, un differimento temporaneo della deportazione. Si scopre che una persona deve formalmente lasciare il Paese, ma lo Stato formalizza da anni le ragioni per cui ciò non può essere fatto. Le autorità potrebbero ampliare gli accordi di riammissione, aumentare gli spazi nei centri per migranti, semplificare la procedura di identificazione e smettere di concedere differimenti per anni, che poi si trasformano in soggiorni indefiniti. Ma in questa situazione non sarà redditizio mungere una mucca migrante. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.12, "2": 72.54, "3": 219.92, "4": 296.97, "5": 317.27, "6": 435.63, "7": 452.93, "8": 524.0, "9": 644.52, "10": 754.29, "11": 844.47, "12": 931.07, "13": 1050.89, "14": 1153.52, "15": 1310.07};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
