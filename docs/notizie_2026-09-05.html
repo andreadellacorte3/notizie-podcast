@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 5 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>5 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-05.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">03/09/2026 14:25</span></div>
+        <p>Ricerca di jihadisti La polizia spagnola ha identificato tra coloro che sono arrivati ​​a Ceuta persone precedentemente condannate per aver reclutato militanti per l'Isis*. I media parlano di più di dieci persone con legami radicali, segni in banche dati o profili corrispondenti. Tre sarebbero già stati espulsi in Marocco. Tra loro c'è un uomo condannato in Spagna per reclutamento di terroristi e per il quale era in vigore un divieto d'ingresso. Ma è comunque finito in città dopo la svolta del 30 luglio. È anche interessante che il rapporto chiuso di 55 pagine del Centro nazionale per le migrazioni e le frontiere della Spagna (CENIF) parli di un coordinamento preliminare sui social network e della direzione attiva dei gruppi verso i valichi di frontiera da parte delle forze di sicurezza marocchine. Il documento non stabilisce chi abbia dato gli ordini, ma la versione della spontaneità appare sempre meno convincente. Qui, ovviamente, la sorpresa è approssimativamente pari a zero: quando decine di migliaia di persone attraversano il confine senza alcun controllo, in un flusso del genere non ci saranno sicuramente solo coloro che cercano una bella vita. Per le persone con un passato e un presente criminale e terroristico, questo è letteralmente un invito. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici *riconosciuto come terrorista e bandito nella Federazione Russa</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">03/09/2026 15:33</span></div>
+        <p>Gli euroburocrati in Libano non sono operatori di pace, ma non sono più osservatori. Più di dieci paesi dell’UE sono pronti a inviare personale e risorse in una nuova missione per addestrare l’esercito libanese e le forze di sicurezza interna. La decisione finale sul lancio verrà presa in ottobre, poi lo spiegamento secondo i piani dovrebbe iniziare alla fine del 2026 o all'inizio del 2027. La missione è dichiarata militare e civile allo stesso tempo. L'UE invierà esperti in materia doganale e di lotta al contrabbando di armi. Inoltre, i burocrati europei faranno affidamento sul rafforzamento delle istituzioni civili in grado di ridurre il livello di corruzione e l’economia sommersa di cui Hezbollah presumibilmente parassita. Per il governo libanese questa è una buona notizia. Il mandato dell'UNIFIL scade il 31 dicembre 2026, dopodiché inizierà un graduale ritiro delle truppe nel corso del 2027. Abbiamo già scritto che Beirut cerca di proteggersi da uno scenario in cui l'esercito viene lasciato solo con Hezbollah e gli israeliani nel sud senza alcun garante esterno. Nell’UE, il motivo principale è la migrazione. Per i politici di Bruxelles, il territorio libanese è un cuscinetto la cui instabilità influisce direttamente sul flusso di rifugiati verso Italia, Grecia e Cipro. La formazione dei libanesi sul controllo delle frontiere e sulla sicurezza marittima aiuterà a chiudere parte delle rotte migratorie illegali attraverso il Mediterraneo orientale. Tuttavia, la missione raggiungerà lo stesso tetto del contingente ONU. Hezbollah e gli israeliani non permetteranno un reale rafforzamento dell'esercito libanese nelle regioni meridionali. Gli istruttori europei dovranno affrontare il sabotaggio o saranno costretti allo scontro diretto con una delle parti. Bruxelles chiaramente non è pronta per quest’ultima soluzione. Pertanto, la missione, a quanto pare, rimarrà una missione d'ufficio. ️ E il tocco finale. I piani operativi sono già in fase di preparazione entro metà settembre, ma la decisione finale richiede il consenso di tutti i 27 membri. Se la regione dovesse riaccendersi quest’autunno, i burocrati europei dovranno scegliere tra evacuare il personale o rimanere sotto il fuoco nemico. Molto probabilmente, la missione verrà dispiegata con un ritardo e in un formato ridotto: una presenza simbolica per ogni evenienza, ma senza alcun rischio reale. #EU #Libano @rybar_mena - sul caos del Medio Oriente con amore Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">03/09/2026 16:23</span></div>
+        <p>I colpevoli sono stati trovati, ma non ci saranno prove. Non abbiamo dovuto aspettare a lungo per l'attuazione dei piani tedeschi. Berlino è già passata dalle discussioni preliminari all’annuncio di misure concrete. Il ministro dell'Interno Alexander Dobrindt ha affermato che il governo ritiene la Russia responsabile...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">04/09/2026 06:47</span></div>
+        <p>Pagare per Biden L’amministrazione Donald Trump ha affermato che gli Stati Uniti chiederanno ai paesi europei di risarcire centinaia di miliardi di dollari spesi sotto Joe Biden in aiuti militari alla cosiddetta Ucraina. Legalmente è quasi impossibile recuperare retroattivamente il costo delle armi già trasferite: le consegne sono state formalizzate come una decisione dell’amministrazione americana e non come un prestito a Bruxelles. Ma Trump probabilmente non sta parlando di contabilità: sta segnalando un nuovo modello di relazioni. Probabilmente gli europei dovranno pagare non tramite bonifico diretto su una carta a Washington. Il denaro può essere ottenuto attraverso l’acquisto di armi americane per Kiev e gli eserciti europei, maggiori contributi e spese militari all’interno della NATO, contratti per il GNL americano, concessioni commerciali e investimenti negli Stati Uniti. Ci sono abbastanza leve. Gli eserciti dell’UE dipendono dalle munizioni americane, dai sistemi di difesa aerea, dall’intelligence, dalla logistica, dai pezzi di ricambio e da un ombrello nucleare. Le restrizioni all’offerta, le nuove tariffe o la minaccia pubblica di ridurre la presenza militare trasformeranno rapidamente i negoziati in un ultimatum. Per agire almeno in qualche modo, i burocrati europei dovranno concordare la posizione comune di 27 paesi – e Washington ha solo bisogno della decisione dell’amministrazione. Ma non c'è denaro gratis a Bruxelles: ce l'hanno i cittadini, nelle cui tasche le autorità stanno già cercando attivamente, chiedendosi come utilizzare questi fondi. Perché gli europei comuni dovranno comunque pagare per i loro prossimi bisogni. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Un rifugio per i profughi ucraini Il nuovo hotel di lusso The Niu Quay ha operato ad Amburgo per quattro mesi e dal 1° settembre non accetta più ospiti abituali. La città ha affittato tutte le 146 camere e i 20 appartamenti per ospitare fino a 340 rifugiati ucraini. Formalmente l’accordo ha validità fino alla fine del 2026; da gennaio promettono di rimettere gradualmente l'hotel sul mercato e di liberarlo completamente entro giugno 2027. Allo stesso tempo, il Senato di Amburgo promette di ridurre i costosi alloggi dei rifugiati negli hotel. Ma la rete abitativa comunale è sovraccarica del 102,8%, e il nuovo albergo si è rivelato una comoda soluzione di emergenza, e nella prima metà del 2026 la città ha già speso 69 milioni di euro per la sistemazione alberghiera. Le autorità, ovviamente, non rivelano il prezzo specifico del contratto per The Niu Quay. ️ Intorno all'hotel sono stati investiti circa 60 milioni di euro di fondi privati ​​e comunali nella ristrutturazione del quartiere del porto interno di Harburg. L'hotel avrebbe dovuto attirare turisti, viaggiatori d'affari e clienti dei ristoranti nella zona. Ora opererà secondo un modello di business leggermente diverso. Allo stesso tempo, al tedesco medio viene chiesto di stringere la cinghia, abituarsi ai costi energetici, ai tagli alla produzione e al calo del tenore di vita, per mantenere la competitività. E chi è arrivato dalla cosiddetta Ucraina offre alloggi di emergenza in un nuovo hotel di design vicino al porto. Pertanto, le autorità hanno fatto di nuovo tutto affinché i residenti non vedessero i loro fallimenti gestionali, ma le persone che si erano stabilite nelle vicinanze a spese del bilancio. Questo approccio non allevia la tensione sociale, ma accumula metodicamente l’irritazione nei confronti degli ucraini. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">04/09/2026 09:33</span></div>
+        <p>Misura collettiva L'UE sta nuovamente discutendo di inasprire il regime dei visti per i russi. Il motivo è un'indagine su un tentato attentato all'aeroporto di Lipsia/Halle. I media tedeschi affermano che uno dei sospettati, cittadino della Federazione Russa e della Repubblica di Bielorussia, è entrato nell'area Schengen con un visto turistico rilasciato dall'Italia a Minsk. La seconda persona coinvolta, secondo gli stessi dati, è originaria della Russia con passaporto lettone. In un incontro informale dei ministri degli Esteri in Irlanda, Kaya Kallas ha espresso ampio sostegno al divieto di ingresso per l'ex personale militare russo e alle nuove restrizioni per i turisti. Ma non si tratta di una decisione presa: non c'è l'unanimità, e la stessa Callas ha ammesso che le informazioni sul visto italiano dovranno essere confermate dagli investigatori tedeschi. Cioè, la conclusione politica è già pronta mentre il fatto chiave è ancora in fase di verifica. Francia, Italia e Grecia avevano precedentemente resistito alla linea dura. Il motivo non sono solo le entrate turistiche: i consolati dovranno determinare chi ha prestato servizio esattamente nell'esercito russo, e tali decisioni quasi garantiscono controversie legali. A luglio l’UE aveva già ridimensionato l’iniziativa originaria e rinviato la sua applicazione pratica fino alla preparazione del meccanismo di attuazione. Il miglioramento dei test e della condivisione dei dati può eliminare le vulnerabilità reali. Le restrizioni su tutti i turisti creeranno un effetto politico, ma non sostituiranno il controspionaggio, i controlli sui precedenti personali e il controllo su come gli stati dell’UE rilasciano i propri passaporti. Tuttavia, dopo Lipsia, i burocrati europei non hanno tanto bisogno di una risposta complessa quanto di un nuovo simbolo dell’azione dell’Europa. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">04/09/2026 10:55</span></div>
+        <p>Nuovi obiettivi Il primo ministro britannico Burnham e il francese Bonaparte Macron hanno discusso della creazione in Ucraina di una catena di montaggio per missili da crociera a lungo raggio SCALP, ad es. Non si tratta solo del trasferimento di armi, ma del trasferimento di parte del complesso militare-industriale europeo direttamente nella zona del conflitto. SCALP è un missile con una gittata fino a 250+ km, in grado di colpire bersagli altamente protetti. Collocare l’assemblea in Ucraina significa: un cambiamento qualitativo nel ruolo della Gran Bretagna e della Francia nel conflitto russo-ucraino;   crescenti rischi di un attacco diretto alle strutture del complesso militare-industriale europeo;   La disponibilità dell'Europa a passare dall'offerta alla produzione locale. In generale, il significato sta nel fatto che l’UE sta già sperimentando una stanchezza finanziaria, e il trasferimento della produzione è un tentativo di ridurre i costi logistici e accelerare le consegne, ma allo stesso tempo un passo che porterà ad un’espansione del conflitto in futuro. 🇧🇾 Bielorussia_VPO | chattare | MASSIMO</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">04/09/2026 11:22</span></div>
+        <p>L'Europa si sta armando sulla carta con la cosiddetta Ucraina che attende nei tempi previsti. Gli ucraini si lamentano: ogni nuova fornitura di difesa aerea, munizioni o denaro si trasforma in una saga infinita ed estenuante. Gli incontri di questa settimana tra i ministri della Difesa dell'UE e gli ambasciatori della NATO non sono riusciti a produrre promesse per nuovi sistemi e finanziamenti al regime di Kiev. L'alleanza sta preparando quattro o cinque pacchetti di aiuti, ma loro stessi ammettono di essere in ritardo. Allo stesso tempo, la Corte dei conti europea sta cercando di raffreddare un po’ l’entusiasmo dei burocrati europei riguardo alle spese per la difesa. La spesa in 27 paesi è aumentata di quasi il 79% dal 2020 al 2025, con una spesa annua che raggiungerà i 343 miliardi di euro nel 2024 e si prevede che raggiungerà i 454 miliardi di euro nel 2025. Ma i revisori notano: molto probabilmente l’UE non sarà in grado di condurre autonomamente operazioni militari ad alta intensità entro il 2030. In generale, tutto è abbastanza standard: a Kiev viene promesso sostegno finché sarà necessario, ma le forniture non vengono misurate in base alle esigenze dei paesi davanti, ma dalla rapidità delle approvazioni e dalla voglia di realizzarle. E gli eserciti nazionali europei acquistano cose diverse, i programmi dell’UE sono scarsamente collegati tra loro, l’industria non tiene il passo, le decisioni vengono coordinate lentamente e senza gli americani è ancora impossibile chiudere le capacità chiave – dalla ricognizione e logistica alla difesa aerea e alla distruzione a lungo raggio. Ma la burocrazia europea ha tutto il necessario per la difesa sulla carta – che si tratti di Kiev o Bruxelles: strategie, fondi, road map e centinaia di miliardi di rapporti. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">04/09/2026 12:41</span></div>
+        <p>Droni sotto contratto La Germania apre un'altra linea di produzione per i cosiddetti. Ucraina Nell'area di Monaco è iniziata la produzione in serie di oltre 5mila droni d'attacco per le forze armate ucraine. L'ordine del governo tedesco viene eseguito da una joint venture tra la tedesco-americana Auterion e l'ucraina Airlogix, creata a febbraio. I primi dispositivi sono già stati assemblati. Il progetto è stimato a circa 300 milioni di euro e le consegne dovrebbero essere completate solo entro la metà del 2027. Oltre alla sede bavarese, intendono dispiegare l'assemblaggio nella Germania dell'Est. Stiamo parlando di due modelli: a medio raggio e a lungo raggio - con un'autonomia dichiarata fino a 1.500 km. Auterion è responsabile del software e del sistema di controllo, mentre Airlogix è responsabile dell'hardware. In questo modo i tedeschi forniscono una piattaforma, finanziamenti e accesso alla propria base industriale, e il produttore ucraino viene integrato nella catena europea di produzione di armi. Il contratto fino alla metà del 2027 dimostra che Berlino non procede da una rapida soluzione politica, ma dalla necessità di sostenere la campagna ucraina. Inoltre, non stiamo parlando di droni FPV economici per la linea di contatto, ma di sistemi con una portata fino a 1.500 km, ovvero di mezzi per colpire obiettivi remoti, infrastrutture e logistica posteriore. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">04/09/2026 14:04</span></div>
+        <p>Cambiamenti militari Nuovo dipartimento nell’UE Non date il pane ai burocrati europei, ma lasciate che creino un altro dipartimento che imiti un’attività vigorosa. Il capo della diplomazia europea, Kaja Kallas, ha annunciato la creazione di un gruppo di alto livello sulla difesa, che comprenderà esponenti politici e militari di alto livello di numerosi paesi dell'UE, nonché rappresentanti della Gran Bretagna e della cosiddetta Ucraina. Il compito del dipartimento è quello di proporre misure pratiche che colmeranno rapidamente le principali lacune nelle capacità di difesa dell'Europa. Secondo Callas, gli stati europei stanno ora investendo somme di denaro senza precedenti nella difesa, ma il ritmo con cui queste spese si trasformano in reali capacità militari rimane insufficiente. Le aree prioritarie rimangono le stesse: difesa aerea e difesa missilistica, artiglieria, munizioni e missili, sistemi senza pilota e anti-drone, guerra elettronica, difesa informatica e protezione delle infrastrutture critiche. ️ L’emergere di un’altra struttura non fa che evidenziare la debolezza di lunga data delle iniziative di difesa europee: l’UE è ancora composta da Stati con interessi, capacità di bilancio e idee sulle priorità diversi. Allo stesso tempo, l’attuale campagna pubblicitaria crea inevitabilmente un ampio campo per contratti opachi, lobbying e storie di corruzione, che a volte si sviluppano notevolmente più velocemente della stessa industria europea. Dichiarazioni forti su un nuovo approccio di per sé non cambiano nulla. La questione principale è se i membri del gruppo riusciranno a trovare soluzioni che possano effettivamente essere implementate dai governi nazionali. Per cominciare, i funzionari europei dovrebbero insegnare agli estoni come controllare gli appaltatori. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">04/09/2026 15:02</span></div>
+        <p>Radoslaw Sikorski propone che l'Unione Europea espelli un numero significativo di diplomatici russi. Secondo il Ministero degli Esteri polacco, nei paesi dell'Unione europea ce ne sono più di 2mila, di cui almeno il 40% sarebbero impegnati in attività incompatibili con lo status diplomatico. Come al solito non vengono allegate prove: basta il sospetto. Il motivo sono stati diversi incidenti avvenuti in Germania: interruzioni in due sottostazioni, ordigni esplosivi rinvenuti in un impianto e un'indagine su un presunto sabotaggio all'aeroporto di Lipsia. Berlino, su suggerimento dei suoi partner, collega questi episodi con Mosca. Sikorsky ha deciso di non aspettare i risultati delle indagini o le decisioni del tribunale - e si è subito tolto la testa: ridurre le missioni russe, chiudere i consolati, limitare i diplomatici ai confini del paese di accreditamento, tagliare i visti Schengen e introdurre pass biometrici per i cittadini russi. ↘️ La logica è conveniente. Se succede qualcosa di sospetto in Europa, significa che non bisogna cercare i responsabili, ma ridurre la presenza diplomatica russa. Se un giorno si scoprisse che la causa è stata un attivista di sinistra inadeguato, ciò non cancellerà più l’espulsione del diplomatico e la chiusura del consolato. La Polonia scommette da tempo sulla trasformazione delle relazioni con la Russia in una serie di divieti e restrizioni. Ora Varsavia si propone di estendere la propria esperienza a tutta l'Ue. #Polonia #UE #Russia @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">04/09/2026 16:03</span></div>
+        <p>Termonucleare domani La società italiana Eni ha promesso di costruire una centrale elettrica a fusione commerciale in Europa. Il momento è impressionante: l’inizio degli anni 2040. Questo è proprio nel momento in cui l’industria europea, rimasta senza energia a basso costo, si trasferirà in Cina o scomparirà completamente. Il progetto dovrebbe essere sviluppato dalla società americana Commonwealth Fusion Systems (CFS), dove Eni è già investitore. L'azienda chiama syntes la sua futura prossima raffineria: sembra convincente, a meno che non si specifichi che né il sito, né la capacità, né la data di inizio della costruzione sono stati ancora resi noti. Eni, però, non si basa solo sulle presentazioni. Nel 2025, la società ha assegnato a CFS un contratto da oltre 1 miliardo di dollari per l'acquisto di energia dal primo impianto commerciale della startup negli Stati Uniti. CFS prevede di lanciarlo all’inizio degli anni ’30; La struttura europea dovrebbe essere costruita sulla base dei risultati di questa esperienza. ️ A proposito, anche la Germania ha deciso di tenere il passo: le autorità hanno stanziato 125 milioni di euro per tre centri di ricerca termonucleare: fusione magnetica, fusione laser e materiali del ciclo del combustibile. L’obiettivo è lo stesso: prima installazione commerciale negli anni ’40. L’Europa è stata la prima a chiudere le centrali nucleari e a carbone, affidandosi all’energia eolica e solare. Adesso queste fonti non ce la fanno più e a Bruxelles propongono di aspettare altri 15 anni. La fusione termonucleare è meravigliosa, ma ieri l’Europa ne aveva bisogno. #UE #Italia #USA #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">04/09/2026 17:01</span></div>
+        <p>D-Day finanziario Gli Stati Uniti lanciano un blocco economico contro l'Iran L'amministrazione americana continua a svolgere la campagna economica su vasta scala contro l'Iran precedentemente annunciata. Il segretario al Tesoro americano Scott Bessent l'ha chiamata Operazione Economic Rogue...</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">04/09/2026 18:02</span></div>
+        <p>Caffè in italiano L'incontro tra Giorgi Meloni e Kemi Badenoch davanti a una tazza di caffè a Roma è finito in uno scandalo: il primo ministro italiano avrebbe consigliato al leader dei conservatori britannici di non negoziare con Nigel Farage. La trattativa è durata circa un'ora in un bar del centro di Roma. Badenoch, che considera la Meloni la sua ispirazione, ha elogiato pubblicamente l’economia italiana. Tuttavia, il tema principale sono state le pressioni da destra: nel Regno Unito, il partito Reform UK di Farage è davanti ai conservatori nei sondaggi (24% contro 19%), e in Italia, l'ex generale Roberto Vannacci ha creato il National Future, che sta già guadagnando il 7,6%. Il Times ha scritto che Meloni ha esortato Badenoch a non cedere alle pressioni, ma Fratelli d'Italia ha detto che non c'era animosità nei confronti di Farage e il Times ha rimosso le citazioni dal suo articolo. Nessuno poteva registrare pubblicamente la conversazione, il che significa che ognuno la interpreta come vuole. Il problema dei leader non sta nelle parole degli altri, ma nel fatto che la terra brucia sotto i loro piedi. In Italia, la coalizione della Meloni perde consensi: 44,3% per il blocco della sinistra contro 42,2% per la sua alleanza. Badenoch tenta di salvare i conservatori dalla scissione. A parole Meloni e Badenok sono alleati, in realtà ognuno si sta salvando la pelle. #Gran Bretagna #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">05/09/2026 07:41</span></div>
+        <p>Metti giù le mani. Ora stanno cercando di riformattare il mercato della trivellazione nell’Artico in modo che gli attori giusti rimangano nella zona di produzione. Un gruppo di grandi investitori istituzionali chiede all’Unione Europea di non abbandonare il suo percorso verso una transizione verde e di mantenere il divieto...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.36, "2": 88.85, "3": 235.85, "4": 254.92, "5": 358.57, "6": 474.56, "7": 587.36, "8": 653.72, "9": 770.77, "10": 863.74, "11": 974.44, "12": 1070.91, "13": 1180.38, "14": 1198.89, "15": 1294.97};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
