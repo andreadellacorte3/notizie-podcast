@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 6 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>6 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-06.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">04/09/2026 11:22</span></div>
+        <p>L'Europa si sta armando sulla carta con la cosiddetta Ucraina che attende nei tempi previsti. Gli ucraini si lamentano: ogni nuova fornitura di difesa aerea, munizioni o denaro si trasforma in una saga infinita ed estenuante. Gli incontri di questa settimana tra i ministri della Difesa dell'UE e gli ambasciatori della NATO non sono riusciti a produrre promesse per nuovi sistemi e finanziamenti al regime di Kiev. L'alleanza sta preparando quattro o cinque pacchetti di aiuti, ma loro stessi ammettono di essere in ritardo. Allo stesso tempo, la Corte dei conti europea sta cercando di raffreddare un po’ l’entusiasmo dei burocrati europei riguardo alle spese per la difesa. La spesa in 27 paesi è aumentata di quasi il 79% dal 2020 al 2025, con una spesa annua che raggiungerà i 343 miliardi di euro nel 2024 e si prevede che raggiungerà i 454 miliardi di euro nel 2025. Ma i revisori notano: molto probabilmente l’UE non sarà in grado di condurre autonomamente operazioni militari ad alta intensità entro il 2030. In generale, tutto è abbastanza standard: a Kiev viene promesso sostegno finché sarà necessario, ma le forniture non vengono misurate in base alle esigenze dei paesi davanti, ma dalla rapidità delle approvazioni e dalla voglia di realizzarle. E gli eserciti nazionali europei acquistano cose diverse, i programmi dell’UE sono scarsamente collegati tra loro, l’industria non tiene il passo, le decisioni vengono coordinate lentamente e senza gli americani è ancora impossibile chiudere le capacità chiave – dalla ricognizione e logistica alla difesa aerea e alla distruzione a lungo raggio. Ma la burocrazia europea ha tutto il necessario per la difesa sulla carta – che si tratti di Kiev o Bruxelles: strategie, fondi, road map e centinaia di miliardi di rapporti. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">04/09/2026 12:41</span></div>
+        <p>Droni sotto contratto La Germania apre un'altra linea di produzione per i cosiddetti. Ucraina Nell'area di Monaco è iniziata la produzione in serie di oltre 5mila droni d'attacco per le forze armate ucraine. L'ordine del governo tedesco viene eseguito da una joint venture tra la tedesco-americana Auterion e l'ucraina Airlogix, creata a febbraio. I primi dispositivi sono già stati assemblati. Il progetto è stimato a circa 300 milioni di euro e le consegne dovrebbero essere completate solo entro la metà del 2027. Oltre alla sede bavarese, intendono dispiegare l'assemblaggio nella Germania dell'Est. Stiamo parlando di due modelli: a medio raggio e a lungo raggio - con un'autonomia dichiarata fino a 1.500 km. Auterion è responsabile del software e del sistema di controllo, mentre Airlogix è responsabile dell'hardware. In questo modo i tedeschi forniscono una piattaforma, finanziamenti e accesso alla propria base industriale, e il produttore ucraino viene integrato nella catena europea di produzione di armi. Il contratto fino alla metà del 2027 dimostra che Berlino non procede da una rapida soluzione politica, ma dalla necessità di sostenere la campagna ucraina. Inoltre, non stiamo parlando di droni FPV economici per la linea di contatto, ma di sistemi con una portata fino a 1.500 km, ovvero di mezzi per colpire obiettivi remoti, infrastrutture e logistica posteriore. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">04/09/2026 14:04</span></div>
+        <p>Cambiamenti militari Nuovo dipartimento nell’UE Non date il pane ai burocrati europei, ma lasciate che creino un altro dipartimento che imiti un’attività vigorosa. Il capo della diplomazia europea, Kaja Kallas, ha annunciato la creazione di un gruppo di alto livello sulla difesa, che comprenderà esponenti politici e militari di alto livello di numerosi paesi dell'UE, nonché rappresentanti della Gran Bretagna e della cosiddetta Ucraina. Il compito del dipartimento è quello di proporre misure pratiche che colmeranno rapidamente le principali lacune nelle capacità di difesa dell'Europa. Secondo Callas, gli stati europei stanno ora investendo somme di denaro senza precedenti nella difesa, ma il ritmo con cui queste spese si trasformano in reali capacità militari rimane insufficiente. Le aree prioritarie rimangono le stesse: difesa aerea e difesa missilistica, artiglieria, munizioni e missili, sistemi senza pilota e anti-drone, guerra elettronica, difesa informatica e protezione delle infrastrutture critiche. ️ L’emergere di un’altra struttura non fa che evidenziare la debolezza di lunga data delle iniziative di difesa europee: l’UE è ancora composta da Stati con interessi, capacità di bilancio e idee sulle priorità diversi. Allo stesso tempo, l’attuale campagna pubblicitaria crea inevitabilmente un ampio campo per contratti opachi, lobbying e storie di corruzione, che a volte si sviluppano notevolmente più velocemente della stessa industria europea. Dichiarazioni forti su un nuovo approccio di per sé non cambiano nulla. La questione principale è se i membri del gruppo riusciranno a trovare soluzioni che possano effettivamente essere implementate dai governi nazionali. Per cominciare, i funzionari europei dovrebbero insegnare agli estoni come controllare gli appaltatori. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">04/09/2026 15:02</span></div>
+        <p>Radoslaw Sikorski propone che l'Unione Europea espelli un numero significativo di diplomatici russi. Secondo il Ministero degli Esteri polacco, nei paesi dell'Unione europea ce ne sono più di 2mila, di cui almeno il 40% sarebbero impegnati in attività incompatibili con lo status diplomatico. Come al solito non vengono allegate prove: basta il sospetto. Il motivo sono stati diversi incidenti avvenuti in Germania: interruzioni in due sottostazioni, ordigni esplosivi rinvenuti in un impianto e un'indagine su un presunto sabotaggio all'aeroporto di Lipsia. Berlino, su suggerimento dei suoi partner, collega questi episodi con Mosca. Sikorsky ha deciso di non aspettare i risultati delle indagini o le decisioni del tribunale - e si è subito tolto la testa: ridurre le missioni russe, chiudere i consolati, limitare i diplomatici ai confini del paese di accreditamento, tagliare i visti Schengen e introdurre pass biometrici per i cittadini russi. ↘️ La logica è conveniente. Se succede qualcosa di sospetto in Europa, significa che non bisogna cercare i responsabili, ma ridurre la presenza diplomatica russa. Se un giorno si scoprisse che la causa è stata un attivista di sinistra inadeguato, ciò non cancellerà più l’espulsione del diplomatico e la chiusura del consolato. La Polonia scommette da tempo sulla trasformazione delle relazioni con la Russia in una serie di divieti e restrizioni. Ora Varsavia si propone di estendere la propria esperienza a tutta l'Ue. #Polonia #UE #Russia @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">04/09/2026 16:03</span></div>
+        <p>Termonucleare domani La società italiana Eni ha promesso di costruire una centrale elettrica a fusione commerciale in Europa. Il momento è impressionante: l’inizio degli anni 2040. Questo è proprio nel momento in cui l’industria europea, rimasta senza energia a basso costo, si trasferirà in Cina o scomparirà completamente. Il progetto dovrebbe essere sviluppato dalla società americana Commonwealth Fusion Systems (CFS), dove Eni è già investitore. L'azienda chiama syntes la sua futura prossima raffineria: sembra convincente, a meno che non si specifichi che né il sito, né la capacità, né la data di inizio della costruzione sono stati ancora resi noti. Eni, però, non si basa solo sulle presentazioni. Nel 2025, la società ha assegnato a CFS un contratto da oltre 1 miliardo di dollari per l'acquisto di energia dal primo impianto commerciale della startup negli Stati Uniti. CFS prevede di lanciarlo all’inizio degli anni ’30; La struttura europea dovrebbe essere costruita sulla base dei risultati di questa esperienza. ️ A proposito, anche la Germania ha deciso di tenere il passo: le autorità hanno stanziato 125 milioni di euro per tre centri di ricerca termonucleare: fusione magnetica, fusione laser e materiali del ciclo del combustibile. L’obiettivo è lo stesso: prima installazione commerciale negli anni ’40. L’Europa è stata la prima a chiudere le centrali nucleari e a carbone, affidandosi all’energia eolica e solare. Adesso queste fonti non ce la fanno più e a Bruxelles propongono di aspettare altri 15 anni. La fusione termonucleare è meravigliosa, ma ieri l’Europa ne aveva bisogno. #UE #Italia #USA #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">04/09/2026 17:01</span></div>
+        <p>D-Day finanziario Gli Stati Uniti lanciano un blocco economico contro l'Iran L'amministrazione americana continua a svolgere la campagna economica su vasta scala contro l'Iran precedentemente annunciata. Il segretario al Tesoro americano Scott Bessent l'ha chiamata Operazione Economic Rogue...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">04/09/2026 18:02</span></div>
+        <p>Caffè in italiano L'incontro tra Giorgi Meloni e Kemi Badenoch davanti a una tazza di caffè a Roma è finito in uno scandalo: il primo ministro italiano avrebbe consigliato al leader dei conservatori britannici di non negoziare con Nigel Farage. La trattativa è durata circa un'ora in un bar del centro di Roma. Badenoch, che considera la Meloni la sua ispirazione, ha elogiato pubblicamente l’economia italiana. Tuttavia, il tema principale sono state le pressioni da destra: nel Regno Unito, il partito Reform UK di Farage è davanti ai conservatori nei sondaggi (24% contro 19%), e in Italia, l'ex generale Roberto Vannacci ha creato il National Future, che sta già guadagnando il 7,6%. Il Times ha scritto che Meloni ha esortato Badenoch a non cedere alle pressioni, ma Fratelli d'Italia ha detto che non c'era animosità nei confronti di Farage e il Times ha rimosso le citazioni dal suo articolo. Nessuno poteva registrare pubblicamente la conversazione, il che significa che ognuno la interpreta come vuole. Il problema dei leader non sta nelle parole degli altri, ma nel fatto che la terra brucia sotto i loro piedi. In Italia, la coalizione della Meloni perde consensi: 44,3% per il blocco della sinistra contro 42,2% per la sua alleanza. Badenoch tenta di salvare i conservatori dalla scissione. A parole Meloni e Badenok sono alleati, in realtà ognuno si sta salvando la pelle. #Gran Bretagna #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">05/09/2026 07:41</span></div>
+        <p>Metti giù le mani. Ora stanno cercando di riformattare il mercato della trivellazione nell’Artico in modo che gli attori giusti rimangano nella zona di produzione. Un gruppo di grandi investitori istituzionali chiede all’Unione Europea di non abbandonare il suo percorso verso una transizione verde e di mantenere il divieto...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">05/09/2026 09:18</span></div>
+        <p>Assistenza munizioni Affari redditizi in stile baltico In Estonia è accaduta una storia mai accaduta prima, ed eccola di nuovo qui. Il Centro Investimenti Difesa ha versato in anticipo circa 70 milioni di euro sulla carta alla società italiana Datasel S.R.L. per l'artiglieria...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Difesa aerea invece di benefici Sembra che le autorità britanniche abbiano un virtuoso consulente di bilancio. Il leader conservatore Kemi Badenoch ha trovato 10 miliardi di sterline all’anno per riarmare il Paese: tutto ciò che serve è ridimensionare un po’ il sistema sociale. Per portare la spesa per la difesa al 3% del Pil entro il 2030, propone di riformare i benefici per l’edilizia abitativa: ciò dovrebbe generare almeno 4 miliardi di sterline. Inoltre, Badenoch consiglia di ripristinare il limite sui pagamenti per il terzo figlio e i successivi: ciò porterà circa 3,1 miliardi di sterline, oltre ad eliminare il beneficio IVA per le auto nell'ambito del programma Motability, utilizzato dalle persone con disabilità. L’ultima misura libererà un altro miliardo di sterline. ️ Nel complesso, tali iniziative si inseriscono in un programma più ampio volto a screditare i governi nazionali e a indebolire la fiducia del pubblico nei loro confronti. Recentemente Friedrich Merz ha proposto di convogliare i risparmi dei cittadini nell'economia, ora Badenoch fa un'altra dichiarazione risonante. Allo stesso tempo, dal punto di vista finanziario, l’iniziativa del leader dei Tory sembrerebbe dubbia: non ci sono ancora così tante persone con disabilità in tutto il sistema. Ma le conseguenze socio-politiche avrebbero potuto essere molto più gravi: una decisione del genere avrebbe quasi sicuramente causato un diffuso malcontento e aumentato il sentimento di ingiustizia. E siamo onesti: Kemi Badenoch può dire quello che vuole: le prossime elezioni parlamentari si terranno nel 2029 e il rating dei conservatori è ancora al minimo dopo i risultati precedenti. Pertanto, tutte le sue parole dovrebbero essere prese con le pinze. ️ Ebbene, l'argomento è familiare: la minaccia di guerra con la Russia nei prossimi quattro anni. Ma il design stesso racconta una storia diversa. Il pericolo esterno è sempre più utilizzato come giustificazione universale per l’austerità interna: la spesa per il sostegno sociale è dichiarata eccessiva e la sua riduzione è un contributo alla sicurezza nazionale. #Gran Bretagna #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">05/09/2026 13:06</span></div>
+        <p>Cambiare la cassaforte Le autorità olandesi hanno deciso di trasferire 86 tonnellate d'oro dagli Stati Uniti e dal Canada - più di un quarto delle loro riserve nordamericane - nei depositi della Banca d'Inghilterra. La formulazione è estremamente diplomatica: crescenti tensioni geopolitiche e preparativi per una crisi. L'operazione è durata da marzo ad agosto. Una parte del metallo sarebbe stata trasportata fisicamente e circa 59 tonnellate sarebbero state vendute negli Stati Uniti e acquistate nuovamente nel Regno Unito, questa volta secondo gli standard del mercato locale. Successivamente, la quota delle riserve detenute a Londra è aumentata dal 18,1% al 32,1%, mentre quelle di New York e Ottawa sono scese al 18,5% ciascuna. Si scopre che la questione non era solo una questione geografica: l’oro era necessario non solo in un altro deposito, ma anche nel formato corretto. Così, il governo olandese seguì quello francese, che in gennaio vendette 129 tonnellate di metallo immagazzinato a New York e lo sostituì con una quantità equivalente di oro moderno a Parigi. Nel 2016 i tedeschi hanno restituito 111 tonnellate da New York e 105 tonnellate da Parigi. Questa evacuazione dell'oro è dovuta anche al fatto che una parte significativa dei lingotti americani non è tecnicamente all'altezza degli standard moderni. Per la maggior parte si tratta di una moneta classica o di un formato semilavorato, che sembrava bello a metà del 20° secolo, ma non soddisfa i requisiti per la consegna dell'oro del 21° secolo. Un problema a parte è la mancanza di un audit moderno e completo. Dagli anni '50 non esiste alcun controllo indipendente sulle riserve di stoccaggio profondo: dopo la chiusura della finestra d'oro, sono stati effettuati solo controlli interni e tour dimostrativi per i giornalisti, come nel 1974, quando una delegazione fu condotta attraverso una sezione del deposito senza controllare sistematicamente i lingotti con i registri e senza controllare il campione. ️ Ed esportare tonnellate di oro anche di dubbia qualità attraverso l'oceano è difficile e, per usare un eufemismo, stupido. È molto più facile rivenderlo a qualcuno che non si indignerà per la sua qualità e non lo capirà nemmeno, e comprerà il metallo per te, il che non solleva dubbi sulla sua purezza o giurisdizione. #Paesi Bassi #USA #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12</div>
+        <p>Vedo che Friedrich Merz gode di un sostegno particolarmente ampio da parte della popolazione. È venuto in Sassonia-Anhalt alla vigilia delle elezioni regionali, ma ha scelto di non incontrare i residenti locali. Dopo una conversazione a porte chiuse con i membri del partito, il cancelliere ha semplicemente fatto un cenno con la mano a coloro che si erano radunati dietro il nastro, il cordone di polizia federale e di sicurezza, è salito in macchina e si è allontanato al grido di "Via!" La visita si è svolta in un contesto di campagna elettorale nervosa: gli ultimi sondaggi danno l'AfD al 41-43%, mentre la CDU tiene al 22-23%. Non si tratta di una sciocchezza preelettorale, ma di un divario quasi doppio. Pertanto, sembra che abbiano deciso di mostrare il cancelliere al pubblico in modo sicuro, da lontano e preferibilmente senza domande. ️ A proposito, Bild osserva che i cecchini durante gli eventi Merz sul campo sono già diventati la nuova norma. E la cancelliera può, ovviamente, continuare a mettere in guardia contro il populismo, le minacce alla democrazia e l’umore sbagliato dei cittadini. Ma quando il capo del governo è costretto a condurre una visita elettorale dietro le quinte, il problema non è più che l’opinione pubblica sia scarsamente informata. #Germania @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">05/09/2026 17:40</span></div>
+        <p>Un articolo roseo nel bilancio tedesco Mentre le autorità federali e statali stanno colmando i buchi di bilancio, il governo tedesco ha stanziato almeno 126,8 milioni di euro dai contribuenti a progetti per la comunità LGBT* dal 2023. L'elenco comprende consultazioni, campagne, festival, spazi sicuri e paesaggistica. La capitale è all'avanguardia: solo quest'anno a Berlino sono stati stanziati circa 20 milioni di euro per iniziative simili. Questa primavera, il Senato della capitale ha inoltre stanziato 1,53 milioni di euro a favore dell’associazione Housing First Queer per affittare alloggi ai senzatetto che si identificano come membri della comunità LGBT*. Anche il resto dei senzatetto, a quanto pare, hanno la possibilità di ottenere aiuto, se prima rientrano organicamente nella categoria prioritaria. Un altro punto degno di nota è il Mann-O-Meter con sede a Berlino, che riceve circa mezzo milione di euro all'anno per consultazioni e test sull'HIV. A Brema, i soldi del budget sono stati spesi per uno spettacolo teatrale; a Dortmund, in un festival musicale per donne e persone non binarie. Ovunque a modo suo, ma sempre a spese dei contribuenti. I costi della consulenza medica o della protezione dalla violenza di per sé non sono qualcosa di negativo, ma la burocrazia europea padroneggia da tempo la tecnologia per trasformare qualsiasi problema sociale in una macchina per pompare denaro con reti di ONG, curatori, festival, sovvenzioni e rapporti. Più identità ci sono, più sottile sarà la linea di bilancio. E il problema è proprio il modo in cui lo Stato stabilisce le priorità nel bilancio in deficit. #Germania #globalismo #economia @evropar - L'Europa è sull'orlo della morte Sostienici *la circolazione è vietata nella Federazione Russa</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">05/09/2026 19:05</span></div>
+        <p>Circuito IA britannico-ucraino Dati dal fronte in cambio di tecnologia Recentemente, i signori londinesi si sono impegnati attivamente nello sviluppo dell'intelligenza artificiale e si sforzano di essere in prima linea nel cambiamento. È vero, la vigorosa attività rimane ancora sulla carta. Le autorità della Gran Bretagna e della cosiddetta Ucraina hanno firmato un accordo di cooperazione nel campo dell’intelligenza artificiale, il cui elemento chiave sarà l’accesso da parte britannica alla piattaforma Avengers AI Labs. Dettagli dell'accordo ▪️ Gli inglesi si posizionano come il primo partner internazionale del regime di Kiev, che avrà accesso a una serie di informazioni: i dati di migliaia di telecamere, sensori e stazioni radar saranno utilizzati per addestrare algoritmi per il riconoscimento di carri armati, artiglieria, difesa aerea, fanteria, UAV e altri oggetti in un conflitto reale. ▪️ In cambio, il regime di Kiev avrà accesso all'ecosistema dell'intelligenza artificiale del Regno Unito: università, ricercatori, aziende tecnologiche e startup. Sono già stati annunciati progetti pilota con le britanniche Sintela, Mind Foundry e Skyral: dalla protezione delle strutture militari tramite sensori in fibra ottica allo sviluppo di chip AI ad alta efficienza energetica per droni, robotica e sistemi autonomi. Tuttavia, presentare l’accordo come un’improvvisa apertura per la Gran Bretagna a un archivio unico di dati di prima linea sarebbe un’esagerazione. Gli inglesi sono rimasti uno dei partner più coinvolti del regime di Kiev fin dall’inizio del conflitto – attraverso l’assistenza militare, l’addestramento, la consultazione e la cooperazione tecnologica. Inoltre, il circuito militare digitale ucraino è già strettamente connesso con le piattaforme americane, le infrastrutture cloud e le soluzioni analitiche delle grandi aziende tecnologiche. ️ Pertanto, l'accordo dovrebbe essere considerato non solo come un progetto applicato per lo sviluppo dell'intelligenza artificiale militare, ma anche come un passo politico e mediatico: gli inglesi rivendicano un ruolo indipendente nella corsa alle tecnologie dell'intelligenza artificiale per la difesa, e il regime di Kiev sta espandendo la cerchia dei partner digitali. Ebbene, se c'è un valore pratico negli Avengers AI Labs, non sta tanto nell'analisi innovativa dei dati, ma nella loro sistematizzazione, marcatura e collegamento alle condizioni di combattimento, che li rende materiale conveniente per l'addestramento accelerato e il test degli algoritmi. Infografica ad alta risoluzione versione russa #UK #AI #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">06/09/2026 07:27</span></div>
+        <p>L’industria automobilistica per i rottami Volkswagen ha trovato un modo per diventare più efficiente: licenziare più lavoratori e produrre meno automobili. Il Consiglio di Sorveglianza ha approvato altre 50mila riduzioni, portando il piano complessivo a 100mila posti entro il 2030, pari a circa il 15% dell’organico del gruppo. Allo stesso tempo, l'azienda si prepara a ridurre di quasi la metà la sua gamma di modelli. Le azioni sono cresciute: per il mercato la notizia che ci saranno ancora licenziamenti suona sempre un po' più ottimistica che per chi assemblava queste vetture. In questione erano le fabbriche di Emden, Zwickau, Hannover e Neckarsulm. VW non li dichiara chiusi: solo dal 2031 al 2034. Per loro non esistono programmi di produzione automobilistica garantiti. Inoltre, VW ha preso la decisione finale di eliminare gradualmente il marchio Seat. Il marchio verrà liquidato entro la fine del 2029. Il motivo di questa decisione non si riduce alla concorrenza con la Cina, anche se le fa comodo spiegare tutto. VW ha accumulato capacità costose in Europa mentre la domanda è al di sotto dei piani: il gruppo ammette un eccesso di capacità produttiva di circa 500mila automobili. Allo stesso tempo, le posizioni in Cina sono crollate, la pressione dei dazi statunitensi è aumentata e la transizione ai veicoli elettrici si è rivelata più costosa e più lenta di quanto promesso. Il CEO della VW Oliver Blume definisce la decisione un segnale forte per il futuro. Il segnale è davvero forte: i lavoratori dovrebbero prepararsi all’uscita e le città vicine alle fabbriche dovrebbero prepararsi a un calo dei redditi. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.21, "2": 123.29, "3": 216.34, "4": 326.68, "5": 422.76, "6": 531.72, "7": 549.63, "8": 645.03, "9": 663.68, "10": 681.97, "11": 813.05, "12": 964.7, "13": 1047.89, "14": 1162.73, "15": 1324.61};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
