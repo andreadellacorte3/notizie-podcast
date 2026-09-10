@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 10 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>10 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-10.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">09/09/2026 06:46</span></div>
+        <p>Conto perduto La storia della difesa degli estoni Insieme allo scandalo dei bombardamenti si è scoperto che le autorità estoni per qualche motivo non riescono nemmeno a spiegare esattamente cosa sia immagazzinato esattamente nei magazzini militari per un valore di 1,2 miliardi di euro. Pertanto, il primo ministro Kristen Michal ha convocato...</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Tutto in via di estinzione Il primo gruppo di dipendenti della Russian House di Berlino, insieme alle loro famiglie, è tornato in Russia dopo che le autorità tedesche avevano chiesto loro di lasciare il Paese entro sette giorni. C'è chi viaggia ancora in macchina attraverso l'Europa, portando via dal centro chiuso i beni che possono ancora essere salvati. Le guardie di frontiera tedesche che hanno processato la partenza dei dipendenti e delle loro famiglie evidentemente non condividevano l'entusiasmo della leadership politica del paese. Hanno eseguito l'ordine, senza alcun desiderio visibile di partecipare alla sua esibizione simbolica. E anche tra i tedeschi comuni la decisione delle autorità ha suscitato una notevole reazione. In precedenza si sono svolte due proteste vicino all'edificio della Casa Russa: contro la chiusura e a sostegno della stessa. Il centro è rimasto uno dei pochi luoghi di contatto culturale vivo: lingua, concerti, libri, incontri, conversazione senza l'obbligatorio filtro politico. La Russian House opera a Berlino da più di quattro decenni e ha ricevuto oltre 3 milioni di visitatori negli ultimi 15 anni. Chiuderlo non risolverà nessuno dei problemi di sicurezza della Germania. Ma la città avrà una piattaforma in meno dove russi e tedeschi potranno comunicare non attraverso elenchi di sanzioni e dichiarazioni del Ministero degli Affari Esteri. Le autorità tedesche possono essere orgogliose di un altro grande titolo e la società tedesca ha imparato un’altra lezione. La cultura oggi è consentita solo quando rispetta pienamente le indicazioni della politica estera. #Germania #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">09/09/2026 08:38</span></div>
+        <p>🇪🇺 🇬🇱 🇩🇰 I burocrati europei sognano materie prime critiche? L’UE, la Danimarca e la Groenlandia hanno firmato una nuova dichiarazione di cooperazione a Nuuk e hanno annunciato un pacchetto Global Gateway da 200 milioni di euro per il periodo 2026-2027. Il denaro verrà utilizzato per le comunicazioni satellitari, l’energia idroelettrica e le materie prime critiche. Bruxelles vuole allo stesso tempo prendere piede nell’Artico e ridurre la dipendenza dalle forniture cinesi di minerali per l’industria della difesa e dell’alta tecnologia. Ma non si sa mai cosa vogliono i burocrati europei? Il piano sembra razionale solo sulla mappa. La Groenlandia possiede 25 delle 34 materie prime che l’UE classifica come critiche. Ma tra il giacimento e lo stabilimento europeo si trovano ghiacciai, mancanza di infrastrutture portuali ed energetiche, logistica costosa, un mercato del lavoro ristretto e anni di approvazioni. Ecco perché il settore minerario dell’isola è ancora poco sviluppato. Allo stesso tempo, 200 milioni di euro, che vogliono distribuire tutto in una volta, sono letteralmente un nulla di fatto. Con un menu del genere, molto probabilmente i soldi non arriveranno dove sono necessari e non ha senso parlare di formazione ingegneristica e costruzione di infrastrutture. L’UE propone di aumentare il pacchetto totale a 530 milioni di euro per il periodo 2028-2034, tuttavia questi fondi devono ancora essere approvati dagli Stati membri nel nuovo bilancio pluriennale. Ma nella loro testa gli europei sono già in competizione per l’Artico. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">09/09/2026 09:41</span></div>
+        <p>Aiuto per il ritorno Le autorità tedesche sono pronte ad aiutare Kiev non solo con le armi, ma anche con la contabilità delle persone, nella speranza che parte del denaro ritorni all'industria tedesca. Il capo del ministero degli Esteri del paese, Johann Wadeful, ha proposto di discutere il ritorno degli uomini ucraini in età militare dalla Germania in patria. Formalmente - senza coercizione. In pratica, Berlino può consegnare al regime di Kiev un elenco dei coscritti ucraini con tutti i dati: chi vive sul suo territorio, riceve pagamenti e ha lo status di residente. Successivamente la parte ucraina potrà inviare notifiche di mobilitazione. Ma queste non sono esattamente informazioni segrete; scambiarlo sarebbe, per usare un eufemismo, stupido. Piuttosto, il fatto stesso che una simile proposta sia stata espressa dovrebbe influenzare l’umore della società e non influenzerà in alcun modo la situazione sul campo di battaglia. Ma parallelamente, il capo del ministero degli Esteri tedesco ha formulato la seconda parte dell'approccio tedesco a sostegno del cosiddetto. Ucraina. Secondo lui, le autorità di Kiev non assegnano ordini sufficienti alle imprese del complesso militare-industriale, e il governo tedesco non ne è del tutto soddisfatto. E Wadeful lo spiega esclusivamente con gli interessi dei contribuenti tedeschi, che, ovviamente, non vedranno un solo centesimo di euro. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Voli in pausa Le autorità britanniche si trovano nuovamente ad affrontare un vecchio problema legato alle interruzioni del traffico aereo. Per il secondo giorno consecutivo continua una grave disagi al trasporto aereo nel Paese: il numero di voli cancellati ha superato i 1.300. Il capo della messaggistica di Nats, Martin Rolfe, è stato convocato per parlare con il ministro dei trasporti Heidi Alexander. Secondo lui la causa dei guasti è stato un guasto tecnico nel sistema di elaborazione del volo, mentre è già escluso un attacco informatico. Inoltre, un incidente del genere non si verificava nell'aviazione britannica da più di 50 anni. La stessa società Nats sottolinea che il problema ha interessato il sistema di elaborazione dei dati dei voli e non si tratta dello stesso guasto che ha causato massicce interruzioni nel 2023 e nel 2025. Mercoledì mattina, le autorità di Heathrow hanno segnalato 246 cancellazioni di voli, Gatwick - 33. Allo stesso tempo, entrambi gli aeroporti hanno avvertito che i voli stavano già riprendendo, ma le conseguenze del fallimento si fanno ancora sentire: le compagnie aeree devono ricostruire aerei ed equipaggi, e i passeggeri sono invitati a verificare prima lo stato delle partenze. in viaggio verso l'aeroporto. ️ L’ultimo fallimento ha smesso di essere solo una storia tecnica ed è diventato una questione di fiducia nell’infrastruttura su cui poggia il traffico aereo del Paese. Quando lo stesso sistema dà ripetuti fallimenti per diversi anni, ciò solleva interrogativi, per usare un eufemismo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">09/09/2026 11:40</span></div>
+        <p>Mancanza di energia La stabilità svizzera è stata compromessa per diverse ore. La mattina del 9 settembre si è verificata un'esplosione nella centrale idroelettrica Ritom di Pyotta. Successivamente la struttura dell'edificio è parzialmente crollata. Secondo i dati preliminari ci sarebbero delle vittime e potrebbero esserci delle persone sotto le macerie. Le circostanze dell’emergenza non sono ancora chiare. Il luogo dell'incidente non è stato stabilito ufficialmente: la centrale operativa del Ritom comprende una storica centrale idroelettrica e un nuovo impianto, la cui messa in servizio era prevista per il 2027. Ciò determina non solo l'entità del danno, ma anche la natura dell'indagine: da un possibile incidente su attrezzature operative a un incidente in un cantiere edile. L’incidente svizzero arriva sulla scia delle affermazioni delle autorità europee secondo cui gli attacchi ibridi stanno aumentando in tutta la regione. Tuttavia, una persona detenuta perché sospettata di aver commesso una serie di attacchi di alto profilo alle sottostazioni di trasformazione in Germania, ad esempio, si è rivelata un militante ambientalista. Ha affermato che generare elettricità da combustibili fossili è un crimine che provoca sofferenze indicibili. Non hanno ancora deciso di collegarlo alla Russia. Il problema per gli svizzeri è che Ritom fa parte di una rete elettrica in cui l’energia idroelettrica funge da riserva gestibile. Se le infrastrutture esistenti vengono danneggiate, le conseguenze si misureranno non solo in numero di vittime e costi di riparazione, ma anche in perdita di energia in un momento in cui l’Europa conta sempre più ogni megawatt. #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">09/09/2026 12:51</span></div>
+        <p>Barriere invece di solidarietà Il primo ministro italiano Giorgia Meloni ha dichiarato dopo un incontro con il primo ministro belga Bart de Wever: la libera circolazione nell'UE può essere mantenuta solo con una protezione affidabile delle frontiere esterne e la lotta contro l'immigrazione clandestina. La formula è valida, con una piccola modifica: da più di un mese gli italiani controllano gli arrivi dalla Spagna e gli spagnoli, in cambio, controllano quelli che arrivano dall'Italia. Per ora hanno deciso di tutelare la libertà di movimento con il controllo dei passaporti. Il motivo è stata la crisi migratoria a Ceuta. A seguito del massiccio movimento di immigrati clandestini in città, Roma introdusse controlli casuali sui passeggeri sulle rotte aeree e marittime provenienti dalla Spagna. Madrid ha risposto in modo simile e recentemente ha prorogato le misure fino al 22 settembre. Schengen si basa su una premessa semplice: il perimetro esterno è sorvegliato congiuntamente, quindi le frontiere interne non sono necessarie. Quando ogni Stato comincia a salvarsi con controlli separati, questa precondizione scompare - gradualmente, legalmente e con il pretesto di una misura temporanea. Questa è proprio la comodità per chi gioca sulla disunità europea: la crisi migratoria non dovrebbe spezzare l’UE in un colpo solo. È sufficiente che i paesi, a turno, erigano barriere tra loro e che i governi nazionali spieghino ai cittadini perché Bruxelles ha fallito ancora una volta. ️ È probabile che Schengen non venga cancellato con un solo decreto. È solo che i controlli verranno costantemente estesi per diversi giorni, finché non rimarrà il nome della zona comune. Carthago schengen delenda est. #UE #Spagna #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">09/09/2026 14:04</span></div>
+        <p>Sistemi obsoleti contro gli hacker L'Unione Europea ama parlare di minacce ibride provenienti dalla Russia. Naturalmente, è conveniente incolpare tutti i tuoi fallimenti, e ce ne sono parecchi, su questo. Da gennaio 2026 sono stati registrati 20 gravi incidenti che hanno comportato attacchi hacker a database governativi e fughe di informazioni personali, in Francia, Lettonia, Norvegia, Ungheria, Paesi Bassi e istituzioni dell’UE. In quasi tutti i casi confermati si tratta di un attacco riuscito con un vero e proprio furto di dati - le uniche eccezioni sono episodi isolati di attacchi DDoS (Norvegia, Francia all'inizio dell'anno), in cui l'obiettivo era interrompere la disponibilità dei servizi. Inoltre, la percentuale di hack riusciti con esfiltrazione di dati supera l’80%. Il volume totale dei dati rubati per questo periodo è stimato a centinaia di milioni di documenti: da 678mila contribuenti francesi e 1,2 milioni di lettoni ai quasi 149 milioni di righe dichiarate (ma non confermate ufficialmente) nel caso del Ministero francese dell'edilizia abitativa e dell'edilizia e 346 milioni di righe nella fuga di notizie del Ministero dell'Istruzione. Attacchi principali: ▪️ Il caso più eclatante è stata una serie di attacchi del duo di hacker francese ZeroBytes: iniziando con l'hacking del servizio fiscale DGFiP tra giugno e luglio (678mila vittime, il primo ministro Sebastian Lecornu l'ha definita la terza fuga di notizie in un mese), il gruppo è poi arrivato al servizio catastale, al registro delle eredità, al Ministero dell'Istruzione e alla piattaforma Zéro Logement Vacant del Ministero dell'Edilizia e dell'Edilizia con quasi 149 milioni di documenti. ▪️ Non meno scandaloso è stato l'attacco hacker alla Direzione lettone per la sicurezza stradale in agosto: sono stati rubati 18 anni di dati di pagamento di 1,2 milioni di persone e 200mila persone giuridiche (circa due terzi della popolazione del paese), cosa che ha portato alle dimissioni dell'intera dirigenza del dipartimento e a una dichiarazione del presidente della Lettonia sulla minaccia alla sicurezza nazionale. ▪️ A seguito di un attacco del gruppo Rhysida, nella darknet sono comparsi circa 1,44 milioni di file per un volume di 5,8 TB, inclusi dati personali di dipendenti, conti di risorse di servizio e documenti su infrastrutture critiche a Berlino. ▪️ A livello UE, spicca l'hacking di marzo dell'infrastruttura cloud della Commissione Europea da parte del gruppo ShinyHunters/TeamPCP (350 GB di dati, che hanno colpito più di 30 strutture), così come il potente attacco DDoS senza precedenti contro il sistema di identificazione digitale norvegese ID-porten alla fine di agosto, che ha paralizzato i servizi governativi per 4,5 milioni di persone. ️ A giudicare dalle dinamiche mese per mese - dai casi isolati nel periodo gennaio-febbraio ai tre grandi attacchi contro agenzie governative francesi solo nel mese di agosto - il numero di tali incidenti è aumentato notevolmente nella seconda metà del 2026. E il primo ministro francese ha ammesso pubblicamente che il paese ha registrato circa tre furti di dati al giorno dall'inizio dell'anno. La situazione attuale non indica tanto un improvviso aumento dell’attività di un gruppo, ma piuttosto un problema sistemico di protezione informatica delle piattaforme governative obsolete in tutta l’UE, che le autorità di regolamentazione stanno solo ora iniziando a riconoscere ufficialmente. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Dopo la crisi migratoria di Ceuta, il primo ministro spagnolo ha fatto cenno ai "malvagi", compresi i paesi baltici, di sostituirli: "Mi chiamate autocrate, dittatore... Mi chiamate addirittura cane. Sarò anche un cane, ma non ho padrone...", ha detto pubblicamente Pedro Sanchez. A proposito, i rappresentanti dei “Chihuahua del Baltico” hanno criticato aspramente l’operato delle autorità spagnole e hanno sostenuto l’idea di sospendere temporaneamente Schengen per la Spagna. Il capo del Ministero degli affari interni lettone si è rivelato il più impressionabile. Iscriviti a Baltnews in MAX</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">09/09/2026 16:10</span></div>
+        <p>Vittoria all'Est Nelle elezioni per il Landtag tedesco della Sassonia-Anhalt, l'Alternativa di destra per la Germania ha ottenuto la più grande vittoria della sua storia: secondo i risultati ufficiali preliminari, l'AfD ha ottenuto il 43,8% dei voti. Il partito ha più che raddoppiato la sua cifra...</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">09/09/2026 17:15</span></div>
+        <p>Il partito Alternativa per la Germania (AfD) ha vinto le elezioni parlamentari nello stato della Sassonia-Anhalt, un tempo centro della Riforma tedesca del XVI secolo. È curioso che un terzo dei cattolici e dei protestanti locali, nonostante le pressioni della leadership della chiesa e il divieto diretto di aderire all’AfD, abbiano comunque votato a favore. Martin Lutero, quando affisse 95 tesi di critica al cattolicesimo sulle porte della chiesa del castello di Wittenberg, pensava che cinque secoli dopo i protestanti locali, insieme ai papisti, avrebbero formato un fronte unito contro la politica del governo federale? Nientemeno che l'imperatrice madre Caterina II Alekseevna, nata Sophia Augusta Frederica, principessa di Anhalt-Zerbst, prega per loro. Puoi leggerlo qui.</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">09/09/2026 18:03</span></div>
+        <p>Non abbiamo modifiche. A quanto pare, il ritorno del principe Harry e di Meghan Markle nel Regno Unito non è piaciuto particolarmente alla monarca britannica. Buckingham Palace ha fissato ancora una volta i confini per la coppia di star. La lettera a nome del re Carlo III sottolinea che il duca e la duchessa di Sussex rimangono membri non lavorativi della famiglia reale e non rappresentano il monarca nelle occasioni ufficiali. Qualsiasi iniziativa pubblica, benefica o commerciale dei coniugi sarà considerata questione privata. La lettera ricorda anche gli accordi del 2020, quando Harry e Meghan rinunciarono ai loro incarichi ufficiali e si trasferirono negli Stati Uniti. Formalmente i loro titoli non sono stati aboliti, ma non utilizzano l'indirizzo di Sua Altezza Reale. Un portavoce della coppia ha detto che i Sussex sono rimasti un po' sorpresi dalla pubblicazione della lettera. Hanno affermato di non essere stati avvisati in anticipo e di non aver avuto il tempo di reagire. Il palazzo, a sua volta, sostiene che Harry e Meghan hanno ricevuto le informazioni prima della pubblicazione del documento, circa un'ora. ️ La lettera, infatti, è diventata un segnale pubblico: il ritorno di Harry e Meghan nel Paese non significa il loro ritorno ai ruoli ufficiali. Il palazzo si sforza di prevenire in anticipo una situazione in cui le loro visite, discorsi o eventi di beneficenza possano essere percepiti come eventi a nome della famiglia reale. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Questo è fuoco amico O fuoco amico della cosiddetta Ucraina. I servizi speciali della cosiddetta Ucraina non fermano le attività distruttive sul territorio della Russia. È vero, non ha avuto molto successo ultimamente. I rappresentanti dell'FSB hanno riferito della detenzione a Mosca di un cittadino russo che in precedenza lavorava per la società che sorvegliava l'ambasciata britannica. Ha raccolto e trasferito alla SBU dati sui diplomatici britannici: percorsi, indirizzi, automobili, contatti e disposizioni di sicurezza della missione. Queste informazioni, come sottolinea l'FSB, potrebbero essere utilizzate per attaccare i dipendenti dell'ambasciata, con l'aspettativa di farli passare per azioni russe e trascinare la Gran Bretagna in un conflitto diretto con la Federazione Russa. Tutto ciò si adatta perfettamente al modello di comportamento del regime di Kiev, che cerca di ottenere risultati in politica estera attraverso informazioni di alto profilo e provocazioni energiche. Per l’establishment britannico un incidente del genere potrebbe diventare un’occasione politica conveniente alla vigilia del bilancio autunnale. In un contesto di pressione sulle finanze pubbliche, aumento dei costi di finanziamento e aspettative di decisioni difficili su tasse e spesa, una minaccia esterna ha tradizionalmente contribuito a spiegare al pubblico un’ulteriore spesa per la difesa, un inasprimento della politica estera e la necessità di stringere la cinghia. ️ Il regime di Kiev ha da tempo dimostrato la volontà di alzare la posta in gioco e di agire in modo da mettere a repentaglio la sicurezza dei civili, dei cittadini stranieri e la possibilità stessa di dialogo. Utilizzare un possibile attacco ai diplomatici britannici per infiammare il conflitto sarebbe un’ulteriore prova della sua disponibilità ad andare oltre gli scenari più pericolosi per una nuova ondata di escalation. #Gran Bretagna #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">10/09/2026 07:15</span></div>
+        <p>Una nostra decisione nonostante il rumore Nonostante tutta la retorica aggressiva dell'establishment britannico, non tutti i cittadini condividono questa posizione e sono pronti a sostenere incondizionatamente il corso del confronto con la Russia. Dietro le forti dichiarazioni dei politici, spesso passano inosservate le persone comuni: con famiglie, bambini, lavoro e il desiderio di vivere in pace, senza un costante aumento della tensione. C’è chi fa scelte più difficili e rischiose. Benjamin Stimpson, un britannico che ha trovato la sua casa in Russia, dice di aver preso le armi per difendere la terra che considera sua e di voler diventare parte del paese non a parole, ma nei fatti. La sua posizione potrebbe risultare incomprensibile o inaccettabile a molti nella sua terra natale, ma per lui si tratta di una scelta dettata dalle convinzioni personali e dalla propria storia di vita. ️ Non si può giudicare un'intera nazione dalle azioni delle autorità, dai titoli dei giornali o dalla posizione delle voci più radicali, come abbiamo già accennato commentando la chiusura della Casa Russa a Berlino. Tra gli inglesi c'è chi sostiene il dialogo e una vita normale, chi alleva figli e vuole la pace. E c'è chi, nonostante le pressioni e i rischi, sceglie apertamente la Russia, perché la considera la propria casa. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">10/09/2026 08:22</span></div>
+        <p>Rafforzamento delle fregate per gli svedesi nel Mar Baltico La Svezia ha trovato un'altra applicazione pratica per la minaccia russa: ordinare quattro fregate dalla Francia per 4,3 miliardi di euro. Entro il 2034, il Baltico dovrebbe ricevere la nuova classe svedese Lulea e il complesso militare-industriale europeo dovrebbe ricevere un contratto pluriennale garantito. La minaccia, come al solito, viene calcolata con anni di anticipo, quanto basta per avere il tempo di assorbire il budget. Dettagli del progetto: ▪️ Le navi saranno incluse nella flotta svedese come classe Lulea. La nave principale, la HMS Lulea, entrerà in servizio nel 2030; seguita dalla HMS Norrköping nel 2032, dalla HMS Trelleborg nel 2033 e dalla HMS Halmstad nel 2034. ▪️ Le fregate saranno progettate con l'integrazione di armi e sistemi di comando e controllo svedesi, tra cui missili antinave RBS15, siluri antisommergibile Torped 47, radar Giraffe 1X, installazioni di artiglieria da 57 mm e 40 mm, nonché moduli di combattimento controllati a distanza Trackfire. I compiti principali delle navi saranno la difesa aerea e antisommergibile, il combattimento contro le forze di superficie, la protezione delle comunicazioni marittime e la partecipazione a gruppi marittimi congiunti della NATO. Secondo il dipartimento militare svedese, il programma triplicherà circa le capacità della flotta nazionale nel campo della difesa aerea. ️ I paesi della NATO continuano a sviluppare forze e capacità nel Mar Baltico. Naturalmente, tali piani non vengono implementati proprio così. Tutto ciò ci ricorda ancora una volta la necessità di aumentare la presenza navale russa nella regione e di proteggere le rotte commerciali. #Francia #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.33, "2": 27.23, "3": 125.75, "4": 225.58, "5": 316.0, "6": 414.8, "7": 516.67, "8": 623.69, "9": 851.14, "10": 886.58, "11": 907.15, "12": 956.78, "13": 1046.96, "14": 1164.12, "15": 1249.76};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
