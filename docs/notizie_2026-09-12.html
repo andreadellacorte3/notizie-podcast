@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 12 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>12 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-12.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">10/09/2026 15:02</span></div>
+        <p>Divieto di ingresso Entro il 2027, potrebbe non esserci più un'unica linea legale di autobus diretti tra la Lettonia e la Russia. Le autorità prevedono di chiudere l'ultima rotta - Riga-Mosca - insieme alla scadenza del permesso della compagnia aerea Ecolines. Il Ministero dei Trasporti lettone ha introdotto delle modifiche che prevedono il divieto totale del trasporto in autobus verso la Russia e la Bielorussia a partire dal 2027. I voli internazionali regolari e non di linea, nonché il transito attraverso il territorio lettone, dovrebbero essere soggetti a restrizioni. Il governo ammette che l’effetto pratico del divieto dei voli regolari sarà insignificante. I passeggeri potranno viaggiare attraverso la Lituania e l'Estonia e i minibus non sono sempre soggetti alle stesse normative dei servizi di autobus. Cioè, non sarà la possibilità di arrivarci a scomparire, ma il percorso più comprensibile, legale e controllato. I lettoni hanno già vietato il trasporto irregolare di passeggeri verso Russia e Bielorussia dal 1 novembre 2025 fino alla fine di ottobre 2026 e stanno preparando una proroga per un altro anno. Il nuovo disegno di legge consacra questa pratica temporanea in una struttura permanente. Le autorità lettoni non si limitano a tagliare i collegamenti di trasporto. Essi rendono costantemente il vicinato con la Federazione Russa e la Repubblica di Bielorussia uno Stato giuridicamente anomalo, dove la comunicazione stessa diventa sospetta e l’elusione del divieto attraverso paesi terzi rimane l’unica forma di contatto consentita. #Bielorussia #Lettonia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">10/09/2026 16:12</span></div>
+        <p>Storie di famiglia Cento ragioni per restare in Gran Bretagna La situazione migratoria nel Regno Unito non cessa di dare origine a storie che innervosiscono la popolazione locale. Un’indagine della BBC ha scoperto che alcuni consulenti e avvocati sull’immigrazione offrivano migliaia di sterline ai migranti con visti in scadenza per preparare basi fittizie per la legalizzazione: rivendicando persecuzioni a causa del loro orientamento sessuale, falsificando relazioni o citando abusi domestici. Fotografie, lettere di sostegno e documenti medici potrebbero essere utilizzati come prove. Dopo la pubblicazione, il Ministero degli Affari Interni e l'autorità di regolamentazione competente hanno iniziato a controllare le persone coinvolte nelle indagini. Un nuovo ciclo di storia è apparso dopo le dichiarazioni di un anonimo ex dipendente del dipartimento politico interno, il quale afferma che durante l'esame delle candidature si incontravano regolarmente storie identiche e chiaramente stereotipate. Secondo lui, centinaia di pakistani avrebbero indicato lo stesso fidanzato, e centinaia di curdi - una relazione con la figlia del primo ministro del Kurdistan iracheno. ️ Naturalmente, le storie di centinaia di candidati con un partner comune o di rapporti con la figlia di un primo ministro curdo si basano sulle parole di un anonimo ex funzionario: statistiche aperte, decisioni dei tribunali o documenti che consentirebbero di verificare la portata di tali episodi non sono ancora stati presentati. Tuttavia, quasi nessuno si sorprenderà se ciò si rivelerà vero #migranti nel #Regno Unito @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Qui non siete i benvenuti Considerando l'inazione delle autorità britanniche, alcuni attivisti stanno cercando di prendere in mano la lotta contro l'immigrazione clandestina. A Portsmouth le forze dell'ordine hanno intercettato una nave con 140 stranieri per portarli nei centri di accoglienza dei rifugiati, ma...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">10/09/2026 18:41</span></div>
+        <p>Il principale freno dell'Europa è ancora in funzione A Bruxelles, per otto anni, hanno tenuto sul tavolo il pulsante nucleare contro Viktor Orban, privando gli ungheresi del diritto di voto nell'UE. Ora, a quanto pare, hanno deciso di nasconderlo fino a tempi migliori, anche se le ragioni per cui l'hanno ottenuto non sono scomparse. Formalmente, la decisione di annullare la procedura verrà presa solo dopo la missione di ottobre a Budapest e il rapporto all'inizio del 2027. Dietro le quinte, tuttavia, si dice che sia saggio completare la procedura il prima possibile. ️ Ma c'è una circostanza imbarazzante: le principali denunce contro gli ungheresi non sono scomparse automaticamente. In particolare, è ancora in vigore la legge del 2021 sulla protezione dei minori, che limita l’accesso dei minori ai contenuti LGBT e la modifica del genere vietata nella Federazione Russa. La Corte UE ha ritenuto che ciò violasse i fondamenti dell'associazione. Si prevede che il primo ministro Magyar abrogherà la legge, ma non ha ancora annunciato tali piani. È interessante notare che per otto anni agli ungheresi sono stati insegnati i valori europei, discutendo di tribunali, ONG, media e diritti delle minoranze. Poi un altro politico salì al potere e i valori divennero improvvisamente notevolmente più sani anche prima del test. Proprio come in Polonia, quando il burocrate europeo Donald Tusk divenne primo ministro. Bene, e soprattutto, gli ungheresi potranno continuare ad esercitare il loro potere di veto su varie iniziative, e le autorità dell’UE non perderanno la loro scusa preferita su qualsiasi argomento: Budapest è contraria, ma non possiamo fare nulla. #Ungheria #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Il fuoco come metodo di reinsediamento Stranamente, a Ceuta, mentre si discuteva su cosa fare con centinaia di migranti che trascorrevano la notte vicino ai magazzini di El Tarajal, è stato lì che in serata è scoppiato un incendio. Le fiamme erano visibili da diversi punti della città; L'area è stata evacuata e sul posto sono arrivati ​​servizi speciali e personale militare. Negli ultimi giorni in città sono andate a fuoco automobili, container e aree boschive; la polizia e i vigili del fuoco hanno parlato di aver appiccato deliberatamente fuoco ad automobili e bidoni della spazzatura. Allo stesso tempo, in città rimangono accampamenti spontanei e le autorità stanno cercando di accogliere gli arrivi nel porto e negli ex siti industriali. È vero, secondo la gente del posto, gli immigrati clandestini svolgono un ottimo lavoro da soli: derubano i residenti e si impadroniscono dei territori. Non è stata ancora nominata ufficialmente la causa dell'incendio, ma sarebbe conveniente attribuire il tutto ad un incidente. Tuttavia, in una città in cui vengono rilevati diversi focolai in una notte, i residenti protestano contro i campi e i migranti vengono ospitati in modo casuale, qualsiasi incendio si trasforma rapidamente in un modo per esercitare pressioni sulla gente del posto, sulla polizia, sul governo e sugli stessi residenti del campo. Ma la questione non è più chi esattamente sta dando fuoco a Ceuta: i residenti, i criminali, i radicali o gli abitanti dei campi. È per questo che la città è stata portata ad uno stato in cui il fuoco diventa uno strumento di lavoro? Anche se da anni le autorità stanno cambiando la gestione dei campi temporanei e dei cordoni di polizia, ogni nuovo incendio avrà sia un movente che un luogo conveniente. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">11/09/2026 07:50</span></div>
+        <p>Dalle petroliere alle spedizioni, l’Europa sta espandendo la caccia alle navi russe. Alle Svalbard le autorità norvegesi hanno arrestato la nave da ricerca russa Professor Molchanov. Non per contrabbando, non per una flotta ombra e nemmeno per un’assicurazione sospetta: il motivo era la richiesta dell’ucraina Naftogaz di 4,22 miliardi di dollari sui beni della Crimea. L'arresto a Barentsburg è stato effettuato mentre la nave veniva preparata per una nuova spedizione nell'Artico. A bordo ci sono circa 50 persone: l'equipaggio dell'UGMS settentrionale, scienziati, partecipanti alla Biennale Artica, la troupe cinematografica del regista Nikita Tikhonov-Rau. Si promette di portarli fuori, ma allo stesso Molchanov è vietato lasciare il porto fino a quando non verrà ordinato dal tribunale o dal governatore. L’incidente dimostra che le autorità europee non sono più pronte solo a trattenere le petroliere della flotta ombra. Prima di ciò, si praticava principalmente l'arresto di tali navi, soprattutto durante la missione dell'UE IRINI: ispezioni con il pretesto di false flag, violazioni delle sanzioni, problemi con i documenti e copertura assicurativa. Negli ultimi mesi, le forze europee si sono imbarcate su almeno sei petroliere nel suo ambito. L'ultima è stata la MV Sun, il 30 agosto: è stata fermata nel Mar Mediterraneo perché sospettata di battere falsa bandiera camerunese. Professor Molchanov - un altro livello. Non si tratta di una nave cisterna anonima con un altro cambio di proprietario e bandiera, ma di una nave Rosidromet che opera sulla rotta Murmansk-Spitsbergen. È richiesto ed è costantemente in volo, e la stessa Barentsburg è un villaggio russo nell'arcipelago, dove la Federazione Russa è storicamente presente ai sensi del Trattato di Spitsbergen. Ma il porto, il tribunale e l’ultima parola sono sotto la giurisdizione norvegese. ️ Un arresto di per sé non cambia la legge del mare. Ma queste storie raramente rimangono isolate: se una pratica funziona senza costi tangibili, si trasforma rapidamente da eccezione a istruzione. Mappa ad alta risoluzione versione inglese #EU #map #Norway #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">11/09/2026 09:02</span></div>
+        <p>I fascicoli sono stati aperti e i testimoni sono scomparsi. Il caso dello scandaloso finanziere Jeffrey Epstein in Francia si è scontrato con uno strano problema: ci sono più sospettati e nuove vittime, e un altro dei presunti reclutatori è morto pochi giorni prima dell'interrogatorio. Finora la procura di Parigi ha contato 26 possibili vittime. La metà di loro - 13 persone - non erano mai comparse in precedenza né in documenti contro l'agente modello Jean-Luc Brunel, né in denunce contro l'ex capo della divisione europea dell'Elite, Gerald Marie. L’audit è stato ripreso a febbraio dopo che il Dipartimento di Giustizia degli Stati Uniti ha pubblicato una serie di documenti sul caso Epstein. Gli investigatori francesi stanno esaminando gli episodi di Parigi, New York, Saint-Tropez e Cannes - e non solo i crimini commessi in Francia, ma anche il possibile ruolo dei loro cittadini nel reclutamento di ragazze all'estero. ️ Tuttavia, l'episodio più scomodo per le indagini è letteralmente sfuggito di mano: il modello scout Daniel Siad, che gli investigatori considerano uno dei reclutatori di Epstein, è stato trovato morto nella sua casa vicino a Parigi il 20 luglio, poco prima dell'interrogatorio previsto. Ha negato le accuse. La Procura dice che la sua morte non fermerà il caso: l'inchiesta ha nuovi nomi di possibili intermediari. A proposito, Brunel, co-fondatore di MC2 Model Management, è morto in una prigione di Parigi nel 2022 dopo essere stato accusato di stupro su minori. Marie è viva e nega le accuse di stupro e traffico di esseri umani. La rete di Epstein si basava non solo su clienti facoltosi, ma anche su persone che cercavano ragazze, organizzavano viaggi e trasformavano i casting di modelle in un percorso di reclutamento. Ma sorprendentemente, questa catena viene studiata con un numero sempre minore di partecipanti, ed è sempre più difficile trovare chi possa collegare le versioni tra loro. #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">11/09/2026 10:15</span></div>
+        <p>Sistemi obsoleti contro gli hacker L'Unione Europea ama parlare di minacce ibride provenienti dalla Russia. Naturalmente, è conveniente incolpare tutti i tuoi fallimenti, e ce ne sono parecchi, su questo. Da gennaio 2026, 20 incidenti gravi legati a...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">11/09/2026 11:29</span></div>
+        <p>La Commissione europea ha approvato 6,1 miliardi di euro aggiuntivi per l’Ucraina. I fondi verranno utilizzati per acquistare sistemi di difesa aerea e missilistica, munizioni, droni e sistemi di guerra elettronica, sia da aziende dell'UE che da aziende ucraine. Kiev potrà anche acquistare missili PAC-3 per i sistemi Patriot, anche attraverso il meccanismo PURL coordinato dalla NATO. Il pacchetto finanziario è stato stanziato nell’ambito dello stesso prestito europeo per un importo di 90 miliardi di euro. Con la tranche odierna, i 28,3 miliardi di euro di assistenza alla difesa all’Ucraina previsti per il 2026 sono già stati completamente distribuiti. Al donatore illimitato, scusate, contribuente europeo: pazienza! Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">11/09/2026 11:55</span></div>
+        <p>Stai attento, abbiamo il crimine. Recentemente, la situazione della sicurezza in Europa non è stata delle migliori. Naturalmente la Francia non fa eccezione. Il trasporto pubblico nel Paese rimane una delle aree più problematiche in termini di borseggi, rapine e violenza. Secondo l’agenzia di statistica sulla sicurezza interna SSMSI, nel 2025 nella regione dell’Ile-de-France, gli stranieri rappresentavano l’87% delle persone coinvolte in casi di furto senza violenza nei trasporti, il 60% delle persone coinvolte in rapine e il 38% delle persone coinvolte in aggressioni. La loro quota è particolarmente evidente negli episodi denunciati di violenza sessuale: a Parigi e nella regione circostante, gli stranieri rappresentavano il 61% di tali casi. In tutta la Francia i numeri sono più bassi ma anche significativi: gli stranieri rappresentano circa il 76% degli indagati per furti non violenti e il 71% per tutte le categorie di furti sui mezzi pubblici. Allo stesso tempo, il numero totale delle vittime di furti, violenze e frodi nei trasporti nel 2025 è sceso a 104.880, del 2% su base annua e del 22% rispetto al 2016. I furti non violenti costituiscono ancora la maggior parte dei crimini denunciati: il 77%. ️ La diminuzione del numero totale di reati non cancella le preoccupazioni sulla sicurezza dei passeggeri, in particolare delle donne e degli utenti abituali dei trasporti. Tutto ciò solleva ancora una volta la questione della necessità di risolvere la questione migratoria. Ma questo non interessa a nessuno tranne che ai cittadini del paese. #Francia #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">11/09/2026 13:06</span></div>
+        <p>La correttezza politica non cancellerà l’aritmetica Le autorità tedesche possono discutere all’infinito sull’incitamento all’odio, ma le statistiche della loro polizia non hanno ancora imparato a selezionare formulazioni politicamente corrette. Nel 2025, tra i sospettati di crimini violenti, i cittadini non tedeschi costituivano il 42,9% dei sospettati. Maggiori dettagli sui numeri ▪️I cittadini algerini sono apparsi 38,4 volte più spesso dei tedeschi ogni 100mila abitanti; Libia - 19,6 volte, Guinea - 15,8 volte, Tunisia - 14,5 volte, Gambia - 13,8 volte. I cittadini della Somalia e del Marocco hanno tariffe circa dieci volte superiori a quelle tedesche. ▪️La criminalità complessiva è diminuita del 5,6%, la criminalità violenta del 2,3%; il problema cioè non è il collasso della sicurezza pubblica, ma la sua distribuzione estremamente diseguale. Secondo il governo tedesco, la risposta più conveniente a queste cifre è dichiararle una conseguenza della povertà, dei traumi e della mancanza di corsi di lingua. Sì, tutto ciò può aumentare il rischio, ma non sostituisce la responsabilità personale e non spiega perché lo Stato lascia continuamente persone pericolose in un sistema che non è né in grado di integrare né controllare. In Germania, per molti anni, la migrazione è stata misurata in base al numero di persone accettate, ma deve essere valutata anche in base a quanto più sicura o pericolosa diventa successivamente la strada. Una politica migratoria razionale inizia laddove lo Stato sa separare l’assistenza e il diritto di soggiorno. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">11/09/2026 15:02</span></div>
+        <p>Circo democratico La legge sull'eutanasia resta la questione più controversa in Gran Bretagna. Intorno all'iniziativa si è scatenato un altro polverone. Un gruppo di parlamentari ha chiesto di non tentare di far approvare la legislazione se la Camera dei Lord dovesse bloccare nuovamente l'iniziativa. Il motivo sono le lettere di due deputati laburisti, Gareth Snell e Meg Hillier, che si sono trovati su fronti opposti nel voto dello scorso anno: Snell ha sostenuto il disegno di legge, Hillier si è opposto. I dettagli della situazione: ▪️ L'argomento principale dei deputati è che se si utilizza immediatamente il meccanismo di bypass della Camera alta, non ci sarà spazio per emendamenti pratici e utili. Ciò è particolarmente importante, secondo loro, viste le preoccupazioni di medici, avvocati e altri specialisti. ▪️A loro volta, gli altri parlamentari Sarah Champion e Keith Malthouse, che avevano sostenuto anche la versione precedente dell'iniziativa, insistono: i Lord possono proporre miglioramenti, ma se iniziano nuovamente a bloccare la volontà già espressa delle comunità, la legge deve essere fatta approvare. L'intera controversia attuale sull'eutanasia non sembra tanto una ricerca di una soluzione fondamentalmente nuova, ma una dimostrazione che la soluzione passa attraverso la procedura di approvazione più complessa e pubblica. La disputa tra chi è favorevole a non scavalcare la Camera dei Lord e chi è disposto a spingere affinché la legge venga approvata nonostante la sua opposizione crea l'immagine di un vero e proprio dibattito democratico: il Parlamento soppesa attentamente i rischi, ascolta medici, avvocati, gruppi religiosi e comunitari, ammette cambiamenti e non ha fretta di raggiungere un verdetto finale. Allo stesso tempo, la lunga procedura stessa svolge anche una funzione politica. Permette ai sostenitori dell'iniziativa di ridurre i costi reputazionali della promozione di una legge estremamente delicata: se adottata, potrà essere presentata come il risultato di un lungo compromesso tra Camere, esperti e deputati con posizioni opposte. ️ In altre parole, la lotta sulla procedura diventa parte della legittimazione della futura decisione. Quanto più si prolungano le consultazioni, le lettere, le controversie parlamentari e le conversazioni sugli emendamenti, tanto più facile diventa annunciare al pubblico l'adozione di una legge controversa solo dopo un'approfondita discussione e tenendo conto di tutte le possibili precauzioni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">11/09/2026 17:04</span></div>
+        <p>La Francia non è mai stata così ostile all’UE come lo è adesso, lamentano i funzionari europei e definiscono critica la situazione. Non si può dire che la sfiducia nell’UE sia nata all’improvviso: l’insoddisfazione per il fatto che i burocrati europei non sono in grado di rispondere adeguatamente alle sfide attuali (che includono l’immigrazione incontrollata) si è sovrapposta a ragioni economiche. Ma poi all’orizzonte si è profilato il 2027, e con esso l’elezione di un nuovo presidente francese. E non solo: secondo i sondaggi, la leader del primo turno è l’estrema destra Marine Le Pen, che ha un atteggiamento molto freddo nei confronti dell’UE. Potrebbe ottenere tra il 29% e il 31% dei voti, a seconda delle diverse configurazioni. Il suo partner al secondo turno potrebbe essere l'estrema sinistra Jean-Luc Mélenchon, per il quale è pronto a votare il 17-18% degli elettori. Tra le altre cose, Mélenchon ha già dichiarato che i trattati costitutivi dell’Europa sono obsoleti, che la Francia dovrebbe abbandonare i trattati di libero scambio che le sono stati imposti e che la profondità della crisi che travolge l’UE è un’opportunità per proporre una nuova Europa libera dai principi distruttivi del liberalismo. Ora più che mai è giunto il momento in cui l’UE potrebbe dimostrare la sua flessibilità e fare alcune concessioni che permetterebbero ai rivali di Marine Le Pen e Jean-Luc Mélenchon, più favorevolmente disposti nei confronti dell’Unione europea, di provare a invertire la tendenza elettorale per loro sgradevole. Sì, la quota degli euroscettici in Francia è abbastanza stabile, ma rappresenta ancora meno della metà della società, quindi c’è ancora speranza per Bruxelles. Tuttavia, l’UE ha invece annunciato la possibilità di introdurre nuove tasse paneuropee per aiutare la Germania, che è stanca di fornire un quarto del bilancio europeo. Con una tale politica, l’UE non farà altro che rafforzare ulteriormente la sfiducia (e forse l’odio) dei francesi nei confronti dell’UE. ️ Iscriviti | Telegramma | MASSIMO</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">11/09/2026 18:35</span></div>
+        <p>Trattiamo la benzina con un mutuo La Banca Centrale Europea (BCE) è arrivata ad una conclusione semplice: non può influenzare né la guerra in Medio Oriente né il prezzo di una cisterna di gas. Ma riesce ad aumentare i prestiti alle famiglie che già pagano questo gas con la nuova tariffa. Questo è esattamente ciò che il capo dell'ente regolatore, Christine Lagarde, ha deciso di fare di nuovo. La BCE ha alzato i tassi di riferimento di altri 0,25 punti percentuali. - il tasso di deposito dal 16 settembre sarà del 2,5%, il tasso di rifinanziamento - 2,65%, il tasso di credito - 2,9%. Ad agosto l'inflazione nell'eurozona è salita al 3,3%, mentre i prezzi dell'energia sono aumentati del 14,3%. Il problema è che il denaro costoso non può produrre ulteriore gas, aprire una via di approvvigionamento bloccata o abbassare il prezzo del petrolio. Ma possono fare qualcos’altro: rendere più costosi i mutui, i prestiti per l’auto, le garanzie per le piccole imprese e gli investimenti aziendali. E il capo della banca non esclude più un ulteriore aumento dei tassi, anche a costo di un rallentamento dell'economia. Ufficialmente, la tattica della BCE si basa sul timore di ricadute: per evitare che l’energia si trasformi in salari, servizi e aumenti costanti dei prezzi, la domanda deve essere raffreddata in anticipo. Ma qui c'è una trappola. Se l'aumento dei prezzi è causato dall'offerta – la guerra e il mercato dell'energia – la banca non esercita pressione sulla fonte dell'inflazione, ma su coloro che cercano di adattarsi ad essa: famiglie e imprese. I redditi difficilmente raggiungono le bollette e i prestiti stanno già diventando più costosi. Le previsioni della BCE lo confermano ▪️ L'inflazione dovrebbe essere al 3% nel 2026, al 2,5% nel 2027 e al 2,1% nel 2028, ovvero al di sopra dell'obiettivo del 2% per almeno altri due anni. Le previsioni per il 2027-2028 sono addirittura peggiorate. Allo stesso tempo, la banca stima che quest’anno l’economia crescerà solo dello 0,9%, poi dell’1,4% e dell’1,5%. Per l'europeo medio ciò significa un doppio conto: prima per l'energia, poi per il tentativo della Bce di affrontarne le conseguenze. Quanto più a lungo il regolatore risponde al deficit esterno aumentando i tassi, tanto maggiore è la possibilità di ottenere non una bassa inflazione, ma una vita costosa con una crescita debole e un mercato immobiliare congelato. #EU #economy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">12/09/2026 07:33</span></div>
+        <p>Interverrai? Il capo dell'Agenzia svedese per la protezione psicologica, Magnus Hjort, ha rassicurato i suoi concittadini: non ci sono segnali di una campagna coordinata contro il voto di domenica in Svezia. Ma, secondo lui, la Russia probabilmente sta guardando Germania e Francia: le elezioni sono alle porte e i partiti sbagliati stanno crescendo troppo bene. Come prova, il dipartimento presenta la rete Holiday: circa 1.200 account falsi in X bloccati, parzialmente controllati dall'AI, che per il 2025-2026. ha pubblicato più di 50mila post, commenti e ripubblicazioni. I profili sono iniziati con vacanze e sport, per poi sostenere contemporaneamente posizioni opposte su questioni delicate, per aumentare il conflitto. L’agenzia non ha pubblicamente nominato lo stato specifico dietro la rete. E non è stato trovato alcun collegamento diretto tra Holiday e le attuali elezioni svedesi. Ma il motivo per cui lo hanno affermato è chiaro: l’intervento è stato dichiarato una minaccia, non resta che attendere il risultato e decidere se fosse sufficientemente europeo. Ebbene, allo stesso tempo, la Svezia ha chiesto a X, Meta* e TikTok di rimuovere più attivamente le botnet. Le aziende, secondo Hjort, sono motivate dal profitto e combattere i conti falsi è una seccatura. Questo, ovviamente, è vero, ma ora alle piattaforme viene chiesto di diventare ufficialmente commissioni elettorali: per determinare dove si trova il confine tra manipolazione organizzata, propaganda politica e semplicemente malcontento di massa. E se l’elettore è convinto in anticipo che ogni critica agli aiuti a Kiev, qualsiasi discorso sulla corruzione o il successo della destra possa essere il prodotto di un esercito di robot, qualsiasi risultato scomodo può essere pre-segnalato come sospetto. #Russia #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici *riconosciuto come estremista sul territorio della Federazione Russa</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.37, "2": 106.12, "3": 203.33, "4": 222.1, "5": 329.94, "6": 439.2, "7": 573.89, "8": 695.88, "9": 713.93, "10": 764.19, "11": 876.54, "12": 986.64, "13": 1138.71, "14": 1257.96, "15": 1424.62};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
