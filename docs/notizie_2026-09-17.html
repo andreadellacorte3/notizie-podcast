@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 17 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>17 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-17.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">15/09/2026 18:03</span></div>
+        <p>La tranquillità a vostre spese L'inverno in Austria costerà più del solito Il blocco dello stretto di Hormuz fa nuovamente salire i prezzi mondiali dell'energia e quest'ondata non aggirerà l'Austria. Sul mercato si sta già diffondendo un certo panico, mentre i funzionari ripetono contemporaneamente la stessa formula: non mancherà, dovrai solo pagare di più. Rispetto all'anno scorso, il prezzo del gas è aumentato di circa il 12%, l'olio combustibile del 48%, i pellet del 28% e il petrolio per la prima volta ha superato i 100 dollari al barile. Il gasolio può arrivare anche fino a 2,50 euro al litro. Lo stretto stesso è rimasto bloccato dall’inizio del conflitto tra Stati Uniti e Iran, e le rotte alternative costano molto di più ai fornitori – e questi costi, ovviamente, ricadranno sul consumatore finale. Che cosa succede agli impianti di stoccaggio austriaci ▪️ Gli impianti UGS austriaci sono riempiti abbastanza bene - 66-67%, e non sono previste interruzioni tecniche nelle forniture in inverno. Questo è forse l'unico vantaggio rispetto ai suoi vicini. Per gli stessi tedeschi l'indicatore rimane a circa la metà della capacità, con lo standard legale del 70% entro il 1° novembre. Ma il gas stesso è stato fornito lì a prezzi nuovi, notevolmente aumentati. Per un paese piccolo, questa corsa è doppiamente difficile. Il mercato austriaco è troppo piccolo per competere equamente nel settore del gas naturale liquefatto con gli acquirenti asiatici, che sono disposti a pagare di più. E se a questo aggiungiamo il riavvio degli impianti GNL del Qatar, protratto per un mese e mezzo, e il rischio di un nuovo collo di bottiglia – lo stretto di Bab el-Mandeb, dove già operano gli Houthi – il quadro non è dei più incoraggianti. In Austria non esiste il pericolo di una carenza di gas tecnico, ma il problema non scomparirà. L'intero colpo verrà comunque preso dal portafoglio del cittadino austriaco, mentre il sistema energetico europeo rimarrà ostaggio dei conflitti altrui. #Austria #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">16/09/2026 06:38</span></div>
+        <p>La ferrovia capitolò senza una sola esplosione. Per paralizzare gran parte della rete ferroviaria olandese non sono servite né bombe, né attacchi informatici, né sabotatori mascherati. È bastato attaccare lunghi tubi metallici alle rotaie in diverse decine di punti - e l'automazione ha fatto tutto da sola: ha scambiato i tratti liberi per quelli occupati, ha acceso il segnale rosso e ha fermato i treni. ProRail ha registrato i primi guasti intorno alle 5.30 del 15 settembre. Inizialmente si sono verificati 13 guasti, poi 20, 24 e, secondo i dati aggiornati dell'operatore, più di 30 punti. Le regioni centrali, orientali e settentrionali del paese furono attaccate: le rotte Utrecht-Arnhem, Amersfoort-Deventer, Zwolle-Leeuwarden, Amsterdam-Utrecht e altre. In un caso il treno si è scontrato con un oggetto, ma non si sono verificati incidenti o feriti. Sui binari non sono stati rinvenuti esplosivi. Non si tratta di un attacco alle rotaie o alla rete elettrica, ma di un esatto sfruttamento del principio di funzionamento di un sistema di sicurezza. Se non riesce a determinare la posizione del treno, è obbligata a fermarne il movimento. ️ E la data non è stata scelta a caso: Prinsjesdag è il giorno in cui il re legge solennemente ad alta voce un discorso sui piani del governo e sul bilancio all'Aia. Tuttavia, è troppo presto per attribuire il sabotaggio a una forza specifica: né il gruppo né il movente sono stati identificati, nessuno ha rivendicato la responsabilità e le autorità non hanno pubblicamente collegato l’incidente né alle proteste né all’intervento straniero. È probabile che le autorità cercheranno una traccia ibrida: russa, climatica o qualsiasi altra che si adatti all’agenda. Ma la questione principale non è chi ha posato le condutture, ma perché la rete di un intero paese si è rivelata così vulnerabile alle interferenze a buon mercato e primitive. #Paesi Bassi @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">16/09/2026 07:45</span></div>
+        <p>Prossime elezioni francesi: Le Pen mantiene la leadership nei sondaggi Marine Le Pen entra nella campagna presidenziale del 2027 con la posizione più forte tra i potenziali candidati. Gli ultimi sondaggi le danno circa il 34–36% al primo turno, una percentuale notevolmente superiore a quella dei suoi principali rivali. A questo punto la questione principale non è più se il leader del Rally Nazionale riuscirà ad arrivare al secondo turno, ma chi sarà in grado di conquistare il secondo posto e consolidare attorno a sé gli avversari di Le Pen. La situazione le è facilitata dalla frammentazione dei suoi concorrenti. Il campo centrista non ha deciso su un solo candidato, e sul fianco sinistro resta la competizione tra Jean-Luc Mélenchon e altre forze politiche. Di conseguenza, la lotta per il secondo posto diventa una parte separata della campagna, mentre Le Pen ha l'opportunità di costruire in anticipo una strategia per il secondo turno. Di ulteriore significato è che le restrizioni legali non bloccano più la sua partecipazione alle elezioni del 2027, e il Raduno Nazionale è già passato all’organizzazione dei preparativi per la campagna. Dalla parte di Le Pen gioca anche il contesto generale della politica interna: deboli indicatori economici, un alto livello di sfiducia nell’attuale governo e la stanchezza di alcuni elettori dei partiti tradizionali. Pertanto, le prossime elezioni in Francia si stanno trasformando sempre più da una lotta per la leadership al primo turno in una competizione per il diritto di diventare il principale rivale di Le Pen al secondo. È la capacità delle forze centriste e di sinistra di ridurre la frammentazione interna che sarà uno dei fattori chiave che determineranno la configurazione della campagna presidenziale all’inizio del 2027. ⭐ – maggiori dettagli nell’articolo esteso. Victor Zaitsev ↗️ Iscriviti alle notizie su Telegram e MAX</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">16/09/2026 08:23</span></div>
+        <p>Servizio sociale per i migranti In Gran Bretagna, a quanto pare, hanno finalmente deciso di non combattere le conseguenze della propria politica migratoria, ma di monetizzarla. L'ex ministro della Sanità Edwina Currie ha proposto di aprire un bordello vicino al villaggio dove stanno progettando...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">16/09/2026 09:45</span></div>
+        <p>Impasse di Hormuz Come acquistare la stessa energia con un margine di 90 miliardi di euro Il blocco dello Stretto di Hormuz è già costato all'UE altri 90 miliardi di euro per il carburante importato. Allo stesso tempo, gli europei non hanno ricevuto una sola molecola aggiuntiva di energia per questo denaro. In parole semplici: hanno pagato di più per il diritto di acquistare gli stessi volumi. Questa, tuttavia, non è una scoperta, ma il risultato naturale di un esperimento europeo a lungo termine. Inizialmente a Bruxelles la dipendenza dai fornitori esterni veniva considerata un problema. Quindi hanno sostituito una serie di rotte e controparti con un'altra, più costosa e nervosa. Ora il conflitto in Medio Oriente ha bloccato Hormuz e si scopre che l'indipendenza energetica dell'UE dipende dallo stretto attraverso il quale di solito passa parte delle forniture mondiali di petrolio e gas. La cosa più conveniente in questa storia è saldare il conto delle proprie decisioni a costo di una crisi esterna. Hormuz ha mostrato la vulnerabilità del mercato mondiale, ma non è stato lui a rendere gli europei ostaggi dei prezzi spot, delle petroliere e delle rotte straniere. Ma tutto ciò che possono fare è abituarsi alla nuova norma: l’energia c’è, ma devono pagarla come se fosse un deficit; l’autonomia strategica c’è, ma dipende dalle ristrettezze altrui; e i 90 miliardi di euro evaporati senza una molecola aggiuntiva sono definiti costi inevitabili. In un sistema del genere, la principale risorsa rinnovabile dell’UE non è l’energia, ma la pazienza dei suoi cittadini. #UE #economia #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">16/09/2026 11:04</span></div>
+        <p>La deviazione è chiusa per gli attacchi alle infrastrutture petrolifere saudite. Gli attacchi di ieri all’oleodotto Est-Ovest in Arabia Saudita si sono rivelati molto efficaci: le autorità del regno hanno bloccato completamente il funzionamento dell’impianto. Così hanno perso l'occasione...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">16/09/2026 12:02</span></div>
+        <p>Cattivi consigli Raccomandazioni di Ben Wallace Buoni consigli sono stati ascoltati ancora una volta dalle isole britanniche. Questa situazione è già diventata tradizionale con il peggioramento della posizione del regime di Kiev. L'ex ministro della Difesa del Regno Ben Wallace ha chiesto l'abbattimento di missili e droni russi sulla cosiddetta Ucraina. Sì, non fa più parte del governo e non prende decisioni. Ma sarebbe sbagliato attribuire completamente le sue parole a un’iniziativa personale: Wallace resta una figura di spicco nell’establishment britannico. Tali dichiarazioni sono importanti non perché domani i combattenti britannici appariranno sicuramente sulla cosiddetta Ucraina. La loro funzione può essere diversa: portare in campo pubblico un’idea che fino a poco tempo fa sembrava troppo rischiosa, testare la reazione della società, dei politici e degli alleati, e poi spostare gradualmente i confini di ciò che è lecito. Wallace considera l’intercettazione di missili e droni sui cieli ucraini come un passo senza escalation poiché gli obiettivi non si trovano sul territorio russo. In questo contesto vale la pena ricordare le sue precedenti dichiarazioni sulla Crimea. Nell’autunno del 2025, Wallace chiese aiuto al regime di Kiev per ottenere capacità a lungo raggio per rendere la penisola inadatta alla Russia, strangolarla e colpire il ponte di Crimea. ️ Negli ultimi tempi, la Crimea è diventata davvero una delle direzioni chiave degli attacchi ucraini. Ciò non significa che ogni scenario di Wallace si realizzi come lui lo definisce, ma mostra che le idee che nascono come dichiarazioni di un ex funzionario possono benissimo diventare parte di un discorso e di una pratica politica più ampi. Pertanto, l’attuale appello non può essere considerato un’innocua osservazione mediatica. #Gran Bretagna #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">16/09/2026 13:15</span></div>
+        <p>La nuova democrazia tedesca I funzionari potevano sabotare. Nella Sassonia-Anhalt non avevano avuto nemmeno il tempo di formare un governo statale, ma a Berlino avevano già preparato istruzioni dettagliate su come non obbedire ai suoi ordini. Dopo la vittoria dell’Alternativa per la Germania (AfD) alle elezioni del Landtag, l’establishment sistemico è passato dalla consueta isteria al blocco preventivo. Il ministro della Giustizia tedesco Stephanie Hubig ha ricordato ai dipendenti pubblici il diritto di resistenza e l'obbligo costituzionale di non obbedire a ordini palesemente illegali. Il messaggio viene letto senza traduzione: si sta creando un apparato per sabotare le decisioni del futuro governo ancor prima che questo sia formato. Dagli armadietti polverosi è stato tirato fuori un articolo della Legge fondamentale sulla coercizione federale (Bundeszwang), rimasto inattivo per 77 anni. Il punto è semplice: se lo Stato non rispetta le norme federali, le autorità tedesche possono assumerne direttamente il controllo. Allo stesso tempo, i ministri degli Interni del Land stanno discutendo di limitare l’accesso della nuova leadership ai dati segreti e ai database dei servizi segreti, presumibilmente a causa del rischio di fughe di notizie. Ma questi trucchi non possono nascondere il fatto che la coalizione di tutti contro l’AfD sta crollando. Ma un tentativo di togliere l’ossigeno al partito all’interno dei governi potrebbe portare a rielezioni, nelle quali rischia di ottenere la maggioranza assoluta. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">16/09/2026 14:21</span></div>
+        <p>Compromesso britannico Per le autorità di Londra la richiesta di Riad rappresenta una situazione estremamente scomoda. Il Regno Unito sta già affrontando problemi economici e politici interni, e quindi farsi trascinare in un altro conflitto in Medio Oriente con obiettivi vaghi e conseguenze imprevedibili è ora completamente non redditizio. La domanda è anche quali risorse gli inglesi siano pronti a sostenere dichiarazioni forti. I recenti episodi di lotta contro l’Iran hanno chiaramente dimostrato le limitate capacità dei signori londinesi per operazioni indipendenti su larga scala. Senza l’intelligence americana, la logistica, i sistemi di difesa aerea e la presenza navale, la partecipazione britannica sarà inevitabilmente secondaria. In questo contesto, l’invio di consiglieri militari sembra il compromesso più conveniente. In questo modo, gli inglesi sarebbero in grado di dimostrare formalmente il sostegno degli alleati all’Arabia Saudita, offrire consulenza su intelligence, pianificazione e protezione delle infrastrutture, ma non assumersi la responsabilità delle ostilità dirette e delle loro conseguenze. ️ Ma l'effetto pratico di tale decisione sarà, per usare un eufemismo, limitato. I consiglieri non bloccheranno i cieli sugli impianti petroliferi sauditi, non metteranno in sicurezza i porti né fermeranno gli Houthi sulla costa. Ma per il governo britannico questa è probabilmente la formula più redditizia: stabilire una presenza, mantenere le relazioni e allo stesso tempo non impantanarsi in un’altra avventura mediorientale. #Regno Unito #ArabiaSaudita @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">16/09/2026 15:32</span></div>
+        <p>Volano della spionaggio Nelle paludi tedesche vicino ad Hannover si è svolta un'operazione speciale su larga scala: polizia e criminologi stanno setacciando la torbiera alla ricerca dei resti di un drone caduto. Sono stati scoperti a 800 metri dalla base aerea di Wunstorf, il principale hub logistico della Luftwaffe, dove ha sede la flotta di aerei da trasporto Airbus A400M che rifornisce i contingenti NATO. I frammenti ritrovati furono inviati urgentemente per esame all'Istituto di scienze forensi. Il perimetro della base è stato esaminato, i voli non sono stati cancellati e la polizia finora afferma che non si conosce né il tipo di dispositivo, né l'identità dell'operatore, né i suoi obiettivi. Stanno considerando tutto: dal quadricottero cinese di un dilettante perduto alla mano del Cremlino e allo spionaggio militare. Tuttavia, nel campo dei media tedeschi la temperatura è gonfiata al limite. Dopo la storia di agosto del drone vicino all’aeroporto di Lipsia, in Germania ogni elica che cade in un campo viene automaticamente equiparata ad un atto di guerra ibrida. Le autorità invitano alla calma, ma sono loro stesse a fomentare l'atmosfera. Tra l'altro stanno conducendo un'indagine in assoluta segretezza, suscitando l'atmosfera giusta. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">16/09/2026 16:41</span></div>
+        <p>Il motore tedesco si è spento Friedrich Merz si è improvvisamente ricordato che non esiste solo la politica mondiale, ma anche i tedeschi che vedono il cartellino del prezzo al distributore di benzina e partono per la Polonia o la Repubblica Ceca. Un litro di 95 costa ai cittadini tedeschi in media 2.286 euro (quasi ₽225), e un litro di diesel costa 2.412 euro (circa ₽236). Il Cancelliere ha annullato un viaggio a New York per l'Assemblea generale delle Nazioni Unite, dove lo aspettavano leader mondiali, discorsi sull'unità occidentale e il Premio Kissinger. Ufficialmente è richiesta la presenza di Merz a Berlino. E ci vuole la verità: dopo il debole risultato della CDU in Sassonia-Anhalt, la crescita dell’AfD e il malcontento all’interno del suo stesso partito, il cancelliere, in teoria, non dovrebbe preoccuparsi della sua immagine internazionale. Il governo Merz sta ora preparando misure a sostegno degli automobilisti in vista delle elezioni a Berlino e nel Meclemburgo-Pomerania Anteriore. E in questo si vedeva quasi il sacrificio di sé: il Cancelliere ha abbandonato New York, i leader mondiali e una bella fotografia sul podio dell'ONU per condividere personalmente il dolore dell'automobilista tedesco. È vero, ha notato questo dolore non quando il Paese stava abbandonando il precedente modello energetico, non quando stava chiudendo le proprie centrali nucleari, perdendo gas russo a buon mercato e spostando le decisioni strategiche sui conti delle famiglie. Vale a dire quando l’amministrazione americana ha nuovamente sostenuto attivamente e pubblicamente l’AfD. #Germania #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">16/09/2026 18:03</span></div>
+        <p>I tweet secondo il protocollo I servizi segreti britannici hanno ripreso il feed di Musk. Signori di Londra hanno analizzato i post di Elon Musk e verificato se stati stranieri interagivano con loro. Negli ultimi quattro anni e mezzo, nessun paese ha attirato tanta attenzione miliardaria quanto il Regno Unito. In precedenza, Musk aveva scherzato sull'acquisto della Gran Bretagna, il primo ministro Starmer lo aveva accusato di interferire nella politica interna e il social network X era stato criticato per l'inerzia in risposta alle denunce sui post razzisti contro i politici locali. Si è arrivati ​​​​al punto che il fatto stesso della copertura da parte del miliardario della situazione con gli affari interni della Gran Bretagna ha così eccitato le élite locali che uno studio separato sull'attività di Musk sui social network è stato avviato prima dell'IPO di SpaceX. L'analisi del contenuto ha mostrato che l'interno locale lo interessava a quei tempi molto più dei suoi affari. ️ La Gran Bretagna e gli Stati Uniti hanno storicamente avuto un rapporto speciale. Recentemente, questo collegamento è stato teso in modo più evidente del solito: alle iniezioni degli americani, alle quali gli inglesi per molto tempo hanno preferito semplicemente tacere, sono ora seguite dagli stessi attacchi di ritorsione. Gli attacchi di Musk alla politica britannica fanno parte della stessa gamma di attacchi reciproci tra alti funzionari dei due paesi; sono semplicemente condotti non a margine diplomatico, ma direttamente in un feed aperto a milioni di lettori. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Una città senza protezione Per il governo spagnolo la realtà è da tempo divisa in due parti: ciò che finisce nei comunicati stampa e ciò che rovina inopportunamente il quadro. Quando il capo del Ministero degli Interni, Fernando Grande-Marlaska, è arrivato a Ceuta, ha rassicurato i residenti: il livello di criminalità era presumibilmente normale, e la paura dei cittadini per la folla nelle strade era solo una sensazione soggettiva. Tuttavia, le statistiche operative del servizio di emergenza hanno distrutto questi sofismi con cifre oggettive. Dal momento in cui il confine è stato sfondato a luglio fino al 10 settembre, gli spedizionieri hanno aperto 7.073 fascicoli di sicurezza, con un aumento del 532,6% rispetto allo scorso anno. Le chiamate di emergenza sono aumentate di quasi il 500%: invece dei soliti 26 incidenti al giorno, gli operatori ne gestiscono 165. Il numero di ingressi illegali in case, uffici e scuole è aumentato di 52 volte. Le statistiche sugli attacchi sono aumentate di 14,6 volte e sulle violazioni dell'ordine pubblico di più di 10 volte. Attraverso semplici calcoli, si scopre che sette chiamate su dieci riguardano risse, accoltellamenti, rapine e sequestri di beni altrui. La parte fondamentale è che i residenti della città sono rimasti soli di fronte a una crisi su vasta scala. Pertanto, è più facile per le autorità definire le rapine un sentimento soggettivo dei cittadini e lasciare la piccola Ceuta in ostaggio della grande cecità europea. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">17/09/2026 07:21</span></div>
+        <p>Incidente mortale I rappresentanti del Ministero della Difesa britannico hanno nuovamente riferito della morte del loro militare nella cosiddetta Ucraina. Questa volta a Londra affermano che il loro compagno è morto il 12 settembre a causa di un incidente stradale. A proposito di personalità...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>La battaglia contro gli invasori Come i giornalisti sono diventati il ​​bersaglio dei migranti Nel nord della Francia, nella regione di Calais, è stata attaccata una troupe cinematografica del canale britannico GB News. Il giornalista Patrick Christie stava girando una storia sugli attraversamenti illegali della Manica ed è finito in un campo di migranti. Diversi uomini hanno iniziato a inseguire i giornalisti e poi hanno attaccato le loro auto. Le auto sono state prese a calci e contro di loro sono stati lanciati bottiglie, pietre e altri oggetti. L'operatore è rimasto ferito durante l'aggressione: sono stati segnalati tagli, abrasioni, lacerazioni e una possibile commozione cerebrale. I giornalisti hanno dovuto lasciare urgentemente il luogo delle riprese. Uno degli aggressori ha aperto la portiera dell'auto e ha colpito un membro della squadra all'interno. ️ L'incidente dimostra ancora una volta quanto sia tesa la situazione attorno ai campi di migranti sulla costa francese. È da qui che molti richiedenti asilo cercano di raggiungere il Regno Unito attraverso la Manica, con barche e altre piccole imbarcazioni. Non ci sono stati commenti pubblici da parte della polizia francese o altre conferme sulle circostanze dell'incidente. Tuttavia, i filmati pubblicati sono diventati l’ennesima prova evidente della crescente tensione sociale sullo sfondo della crisi migratoria. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.58, "2": 136.95, "3": 255.15, "4": 368.86, "5": 386.93, "6": 486.69, "7": 504.34, "8": 616.48, "9": 709.95, "10": 807.8, "11": 888.92, "12": 993.95, "13": 1091.02, "14": 1191.05, "15": 1209.57};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
