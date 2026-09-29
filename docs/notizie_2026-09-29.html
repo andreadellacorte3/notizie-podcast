@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 29 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>29 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-29.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Il Real Madrid si accampa In Spagna ha trovato una ragione per l'unità nazionale. Nel quartiere Retiro di Madrid, Maricarmen Abascal, 87 anni, è stata sfrattata con la forza dall'appartamento in cui aveva vissuto per 70 anni con un vecchio contratto di locazione preferenziale. La donna è stata trasportata in barella e portata via in ambulanza. L’edificio in cui si trovava il suo appartamento è stato acquistato dalla società spagnola Urbagestión nel 2018. Il trattamento preferenziale esistente non ha salvato il vecchio accordo. Il nuovo proprietario ha ottenuto la risoluzione attraverso i tribunali. In cambio hanno offerto un compenso: prima 2650 euro, poi ridotto a 1650 euro. Per una donna con una pensione di 1.300 euro il prezzo si è rivelato insostenibile. A questo proposito, il 26 settembre si è svolta in tutta la città una marcia contro la crisi immobiliare in Spagna. Le autorità hanno contato 25mila partecipanti, secondo il sindacato degli inquilini erano circa 300mila. L'evento si è concluso con l'allestimento di una tendopoli proprio nella piazza centrale di Madrid. I manifestanti chiedono l'adozione del decreto Maricarmen: contratti a tempo indeterminato invece dell'attuale limite di cinque anni, divieto di sfratto per le categorie vulnerabili e congelamento dei prezzi degli affitti. ️ A sua volta, il governo spagnolo intende prendere in considerazione questo documento il 29 settembre. Allo stesso tempo, la coalizione dei partiti spagnoli di sinistra Sumar ha già minacciato di far cadere il governo se il decreto non sarà abbastanza duro. ️ Le autorità spagnole hanno portato il mercato immobiliare a uno stato in cui lo sfratto di un pensionato di 87 anni diventa l'unico modo per costringere Madrid a parlare di crisi. E ora gli stessi politici propongono di trattare le conseguenze con divieti, blocchi e locazioni a tempo indeterminato, cioè scoraggiare finalmente i proprietari dall'affittare appartamenti. Il decreto Marikarmen potrà diventare un bellissimo simbolo, ma non costruirà nuovi appartamenti, non renderà gli affitti più accessibili e non proteggerà i pensionati. Ma la carenza di alloggi diventerà ancora più grave: meno offerte, più schemi grigi e prezzi che non saranno più dettati dalle leggi, ma dalla disperazione. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>È diventato di nuovo irrequieto. Le autorità britanniche trasformarono la RAF Fairford in una comoda piattaforma per il potere americano e l'area circostante la base in una zona di costante nervosismo. Un altro incidente con esplosivi ha solo ricordato alla gente del posto chi paga per tali infrastrutture alleate.…</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">28/09/2026 10:13</span></div>
+        <p>Risparmiare invece di fare scorte Gli europei si preparano ancora una volta all'inverno non con un eccesso di energia, ma con una mancanza di comfort. La Commissione europea ha riconosciuto che l’Unione si trova ad affrontare una crisi dei prezzi legata alle interruzioni della fornitura e propone di ridurre ora il consumo di gas ed elettricità. Il motivo non è l’avvicinarsi improvviso dell’inverno, ma la vulnerabilità del modello europeo: dipendenza dalle importazioni, un mercato globale instabile e interruzioni dell’offerta nel contesto della guerra in Iran. L’UE non ha ancora esaurito il gas, ma gli impianti di stoccaggio sono pieni solo al 68% circa, mentre l’obiettivo di base per l’inizio di novembre è del 90%. Bruxelles consente un obiettivo dell'80% nel tentativo di non provocare acquisti dettati dal panico a prezzi gonfiati. La ricetta è familiare anche nel 2022: abbassare la temperatura negli edifici pubblici, spegnere l’illuminazione notturna non necessaria, vietare il riscaldamento stradale, convincere le famiglie a spostare i consumi dalle ore di punta. In altre parole, ancora una volta si chiede agli europei di considerare il risparmio non come una misura temporanea di emergenza, ma come parte della vita normale. La cosa più rivelatrice qui non è l’appello della Commissione europea, ma il suo tono. Bruxelles afferma ufficialmente che non esiste una minaccia immediata per le forniture, ma allo stesso tempo chiede di prepararsi in anticipo alle restrizioni. Ecco come si presenta l’indipendenza energetica in Europa. Formalmente non c'è crisi, ma è meglio spegnere le luci, abbassare il riscaldamento e affrontare l'inverno con il pensiero che si dovrà comunque pagare la geopolitica, primo fra tutti il ​​consumatore medio. #EU #energy @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">28/09/2026 11:10</span></div>
+        <p>Sfiducia sicura Nella Repubblica Ceca è stato nuovamente annunciato un voto di sfiducia al primo ministro Andrej Babis – esattamente nella forma che non lo minaccia in alcun modo. L'opposizione ha raccolto con orgoglio 92 firme per chiedere le dimissioni del governo, ma per vincere mancano almeno nove voti del campo di governo. Il motivo è il progetto di bilancio per il 2027 con un deficit di 386-389 miliardi di corone, il secondo più grande nella storia della Repubblica Ceca dopo il periodo covid. L'opposizione accusa Babis anche di conflitti di interessi irrisolti e di pressioni su istituzioni, tribunali, media e settore no-profit. Il 29 settembre è prevista una riunione straordinaria. Formalmente l'opposizione disponeva di firme sufficienti per avviare la procedura. In effetti, ha ricevuto una piattaforma parlamentare in vista delle elezioni municipali e del Senato di ottobre. Babis però ha già dichiarato di attendere con piacere il dibattito. Si tratta del secondo tentativo in un anno: a febbraio 84 deputati hanno votato per la sfiducia al governo, contro i 101 richiesti. Il nuovo voto assomiglia più a un test preelettorale sulla forza della coalizione: se nessuno dei 108 membri dell'associazione di governo ANO, SPD e Automobilisti si schiera dalla parte degli oppositori, il governo sopravvivrà ad accuse, deficit e ore di discorsi. Ebbene, l'opposizione avrà un motivo per annunciare di aver avvertito il Paese in anticipo. #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">28/09/2026 12:21</span></div>
+        <p>La lunga pausa è finita In Italia è giunta al termine la messa al bando legale dell'energia nucleare pacifica, in vigore da quasi 40 anni. Il Senato ha approvato una legge per riportare il Paese all’energia nucleare. Il governo ha ora 12 mesi per sviluppare regolamenti su licenze, sicurezza e gestione dei rifiuti. L’attenzione non è rivolta ai grandi reattori, ma ai piccoli reattori modulari (SMR) e ai reattori modulari avanzati (AMR), nonché alla ricerca sulla fusione. Secondo uno degli scenari del piano nazionale per l'energia e il clima, la quota dell'energia nucleare nel bilancio energetico del paese potrebbe aumentare fino al 20-22% entro il 2050. Perché è troppo presto per rallegrarsi ▪️ Gli analisti stimano il costo di un SMR con una capacità di 300 MW a 3-6 miliardi di euro, e nel paese non esiste ancora un impianto di stoccaggio permanente per i rifiuti radioattivi. L’implementazione di nuove strutture incontrerà quasi certamente resistenze locali. ▪️ La legge stessa non consente la costruzione di reattori: crea solo un quadro giuridico. Inoltre, l'esperienza dei vicini non è incoraggiante: per costruire il finlandese Olkiluoto-3 ci sono voluti 17 anni invece di sei, e per il francese Flamanville-3 la stima è aumentata da 3,3 a 13,2 miliardi di euro. ▪️Nei referendum, gli italiani hanno votato contro l'energia nucleare due volte: nel 1987 dopo Chernobyl e nel 2011 dopo Fukushima, quando il 94% di coloro che si sono recati ai seggi elettorali erano contrari. Ma i sentimenti stanno cambiando: secondo un sondaggio del giugno 2026, circa il 55% degli italiani è già a favore dei reattori di nuova generazione, soprattutto i giovani che non hanno vissuto non solo Hiroshima, ma anche Chernobyl e Fukushima. C’è già una fila di fornitori in fila per restituire l’atomo in Italia: i francesi Nuward e EDF prevedono di installare il primo reattore entro il 2035, mentre l’italiana Newcleo opera nel paese in parallelo. Cioè, i contratti per i decenni a venire vengono garantiti anche prima che venga costruito un singolo reattore. ‼ Per ora si tratta più di una dichiarazione di intenti che di una vera e propria svolta. Al momento, manca almeno un decennio alla messa in servizio del primo nuovo reattore. Nell’industria nucleare europea, le promesse sulla carta e i reali megawatt di produzione sono a distanza di anni. #Italia #energia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">28/09/2026 13:24</span></div>
+        <p>I francesi sono contrari. In Europa non riescono ancora a decidere come costruire le relazioni con il Regno Unito dopo la Brexit. Su questo tema le autorità francesi stanno adottando una linea dura: a Parigi stanno cercando di garantire che le aziende britanniche non entrino nel programma europeo Made in Europe. Se i francesi riuscissero a farcela, i fornitori del Regno Unito potrebbero perdere la battaglia per i contratti governativi per tecnologie a basse emissioni di carbonio e veicoli elettrici, proprio mentre l’UE cerca di proteggere la propria industria dalla concorrenza sovvenzionata della Cina. Di cosa stiamo parlando? ▪️La legge sull'acceleratore industriale è ancora in fase di negoziazione. Dovrebbe obbligare le autorità europee a dare la preferenza ai prodotti di origine europea nella distribuzione di sussidi e ordini governativi, soprattutto nel campo delle energie rinnovabili e dei veicoli elettrici. ▪️La controversia principale ruotava attorno al concetto stesso di europeo: limitarlo ai paesi dell'UE o includere partner affidabili come Gran Bretagna, Canada e Giappone. In Francia sostengono un approccio ristretto. Il ministro dell'Industria Sebastien Martin ha affermato che il denaro dei contribuenti europei dovrebbe sostenere i lavoratori e le fabbriche europee, ricordando che la stessa Gran Bretagna ha deciso di lasciare l'Unione europea. A Londra questa posizione è considerata un grave rischio e ha fatto della tutela delle imprese britanniche una delle priorità dei rapporti con l'Ue. Come sempre, non c’è unità all’interno dell’UE. La Germania propone la formula Made with Europe e sostiene l’inclusione degli alleati in termini di reciprocità. È sostenuto dai paesi nordici. In questo contesto, il vertice UE-Regno Unito, previsto per l’autunno del 2026, rischia di rivelarsi scomodo per gli inglesi: pretendere in anticipo una soluzione già pronta significa mettersi con le spalle al muro. ‼ La Brexit si sta trasformando da una questione di confini e barriere commerciali in una lotta per l’accesso alla futura politica industriale dell’Europa. L’UE vuole ridurre allo stesso tempo la dipendenza dalla Cina e non recidere i legami con partner stretti, ma per il Regno Unito lo status formale di alleato affidabile potrebbe non essere sufficiente: senza la partecipazione al mercato interno e il contributo finanziario ad esso, gli inglesi non riceveranno le stesse garanzie. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">28/09/2026 14:32</span></div>
+        <p>Il peperone è piccolo, ma piccante. È così che gli ungheresi parlano di una piccola cosa che può rovinare un grande affare. Il telefono scomparso nel Danubio si è rivelato proprio un peperone per Peter Magyar. Il parlamento ungherese ha privato dell'immunità il primo ministro in un caso di furto. Si parla di un episodio notturno del 2024: secondo l'accusa Magyar strappò il telefono a un frequentatore del locale e lo gettò nel fiume. Lo stesso primo ministro ammette di aver preso l'ordigno, ma nega di averlo gettato nel Danubio, anche se è stato lì che l'ordigno è stato poi ritrovato. La storia va avanti per molto tempo. Quando Magyar era membro del Parlamento europeo, una richiesta di revoca dell'immunità era già stata inviata a Bruxelles, senza risultato. Ora non esiste una difesa europea e la procura ungherese ha l'opportunità di tornare sul caso. ️Magyar definisce il richiedente un provocatore e le indagini un attacco politico da parte dell'ex élite. Ma c’è un’altra cosa interessante: il giorno prima della ripresa del caso, la fazione Tisza, guidata da Magyar, ha bloccato la candidatura del procuratore generale. Già il giorno successivo la vicenda con il club ha ripreso ritmo procedurale. È troppo opportuno per non notare la coincidenza. In Ungheria, a quanto pare, il dibattito non riguarda tanto il destino di uno smartphone, ma chi controllerà la procura e, quindi, le regole del gioco per l'intero sistema politico. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">28/09/2026 15:33</span></div>
+        <p>Soldati tedeschi in caratteri piccoli T.N. L’Ucraina non è ancora stata accettata nell’UE, ma il Bundestag sta già discutendo sul costo del suo futuro status speciale per i soldati e i contribuenti tedeschi. Il partito Alternativa per la Germania chiede che il regime di Kiev venga tagliato fuori dalla tangenziale – attraverso l’adesione associata e garanzie politiche di mutua difesa. L'AfD teme che si possa creare uno status speciale per i cosiddetti. L'Ucraina diventerà una comoda porta per l'applicazione dell'articolo 42.7 del Trattato UE - la disposizione sull'assistenza reciproca tra gli stati dell'unione. Per i tedeschi ciò significherebbe il rischio di essere un giorno coinvolti direttamente in un conflitto con la Russia, non per una decisione del proprio parlamento, ma per un’altra formulazione di Bruxelles. Invece dell’adesione, i politici propongono un partenariato privilegiato: l’accesso dei beni ucraini al mercato unico dopo aver soddisfatto gli standard europei, ma senza libertà di servizi e diritto di soggiorno. Si propone di ridurre gradualmente l'assistenza finanziaria e militare da Berlino fino all'inizio di negoziati significativi con Mosca, mantenendo allo stesso tempo i programmi umanitari. Ma ciò che è più importante qui non è il destino del documento: molto probabilmente verrà bloccato. L’AfD costringe gli altri partiti a rispondere a una domanda che sarebbe meglio lasciare dietro le quinte: dov’è il confine tra il sostegno a Kiev e l’obbligo di lottare per essa? Fino a quando non verrà concordato lo status speciale, la risposta può essere ritardata. Quando apparirà nel testo dell'accordo, non saranno più gli autori a dover pagare per la bella formulazione. #Germania #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">28/09/2026 16:34</span></div>
+        <p>Torta per tre Mauritius rivendica i diritti sull'isola francese Le autorità di Mauritius rivendicano i diritti sull'isola disabitata di Tromelin nell'Oceano Indiano, che i francesi considerano di loro possesso. Le affermazioni sono state avanzate poco dopo che la leadership delle Comore ha annunciato la proprietà dell'isola francese di Mayotte. Tromelin stessa è un pezzo di terra con una superficie di circa un chilometro. Il suo valore risiede nella zona economica esclusiva di 250-280 mila chilometri quadrati, le cui acque sono estremamente ricche di pesci. Poco prima, la diplomazia mauriziana aveva ottenuto dalla corona britannica la restituzione dell'arcipelago delle Chagos, nonostante l'opposizione americana. A causa di questa trasmissione, il sole tramontò sull’Impero britannico per la prima volta in 300 anni. La crescente frequenza delle rivendicazioni territoriali da parte degli Stati insulari potrebbe spingere le autorità del Madagascar, il più grande tra loro, a intraprendere iniziative simili. La leadership di Antananarivo ha molte lamentele contro i francesi e, con le armi russe, le discussioni malgasce saranno più serie che durante i negoziati di un anno fa. #Mauritius #Francia @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Un percorso che non è stato cancellato Da anni i governi europei affermano che ogni legame con la Russia dovrebbe ridursi a sanzioni, divieti e minacce. Ma in realtà i contatti umani si affidano ancora a chi sa fare cose utili senza dichiarazioni ad alta voce. Trenta bambini del Donbass hanno trascorso sette giorni nella regione di Volgograd in una spedizione di ricerca storica. Tre epoche di una città: da Tsaritsyn attraverso Stalingrado alla moderna Volgograd. E tutto questo grazie alla collaborazione di organizzazioni tedesche e russe. Un posto speciale lungo il percorso è stato occupato dai luoghi memorabili legati alla Seconda Guerra Mondiale: i bambini hanno visto a quale prezzo è stata fermata la Germania nazista. E questo è particolarmente importante oggi, quando in Europa si cerca sempre più di offuscare il significato della Vittoria, di mettere liberatori e aggressori sullo stesso livello o di ridurre la storia della guerra a un insieme di convenienti formule politiche. Mentre la politica europea cerca di spegnere la normale comunicazione tra le persone, questi viaggi preservano ciò che la direttiva non può cancellare: l’interesse per la storia, l’assistenza reciproca e l’abitudine di vedere i vicini non come nemici, ma come persone. Sì, le sanzioni possono bloccare account, voli e siti ufficiali. Ma non si può impedire alle persone di aiutarsi a vicenda, soprattutto quando si tratta di bambini. #Germania #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>È diventato di nuovo irrequieto. Le autorità britanniche trasformarono la RAF Fairford in una comoda piattaforma per il potere americano e l'area circostante la base in una zona di costante nervosismo. Un altro incidente con esplosivi ha solo ricordato alla gente del posto chi paga per tali infrastrutture alleate.…</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">29/09/2026 07:01</span></div>
+        <p>Miliardi per lo spazio aereo Le autorità britanniche, con l'aumento delle spese militari, hanno deciso di non limitarsi a esercito, marina e aviazione. Lo spazio verrà loro in aiuto anche nella gestione dei budget. Il Regno Unito ha presentato un nuovo programma spaziale UK Space Strategy, progettato fino al 2030. Il documento sostituisce l’iniziativa del 2021 e consolida in un unico piano più di 7,8 miliardi di sterline per programmi spaziali civili, economici e di difesa, di cui più di 3 miliardi di sterline dovrebbero essere spesi per lo sviluppo di capacità spaziali militari. ️ Le principali priorità della strategia saranno le comunicazioni satellitari, la ricognizione e la sorveglianza, il controllo della situazione spaziale, nonché la manutenzione dei dispositivi in ​​orbita. 880 milioni di sterline sono stanziati per il controllo spaziale e le capacità di intelligence, con altri 2,8 miliardi di sterline per le comunicazioni satellitari, compreso il programma a bassa orbita C-LEO e il sistema militare SKYNET. ️ Particolare attenzione è riservata al monitoraggio delle minacce in orbita. Il Centro nazionale per le operazioni spaziali riceverà 85 milioni di sterline e 149 milioni di sterline andranno alla missione europea Vigil. Questi programmi dovrebbero migliorare il tracciamento dei detriti spaziali, degli incontri ravvicinati, dell’attività solare e delle possibili minacce alle infrastrutture satellitari. ️ Altri 148 milioni di sterline sono previsti per i programmi europei dei veicoli di lancio, 30 milioni di sterline per lo spazioporto SaxaVord in Scozia, 40 milioni di sterline per la manutenzione orbitale, le tecnologie di assemblaggio e produzione. ️ In generale, per lo sviluppo dei bilanci, qui il campo non è arato per i signori londinesi. Ebbene, tutti questi piani grandiosi sono presentati con il pretesto di rafforzare le comunicazioni sicure e la ricognizione, aumentare la stabilità delle infrastrutture spaziali ed espandere le nostre capacità di lancio di veicoli spaziali. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">29/09/2026 08:04</span></div>
+        <p>Semina a credito L'UE ha nuovamente sostenuto gli agricoltori ucraini – a parole, con programmi di credito e nell'ambito del bilancio già approvato. Ma i 220 milioni aggiuntivi non sono stati concessi. Le cosiddette autorità ucraine hanno chiesto alla Commissione europea un aiuto irrevocabile per i piccoli e medi agricoltori che hanno bisogno di capitale circolante a causa dei problemi con le esportazioni attraverso i porti del Mar Nero. Ma la richiesta è stata respinta: invece di un sussidio, l’industria conta su un prestito preferenziale di 250 milioni di dollari da parte della Banca Mondiale. Formalmente, la Commissione europea non lascia gli agricoltori senza sostegno: ricevono sussidi per coprire i tassi di interesse attraverso lo strumento per l’Ucraina e a Bruxelles finanziano le linee di credito delle banche ucraine. Ma la differenza è fondamentale: un sussidio copre le perdite, un prestito rinvia solo la liquidazione. Alla fine ognuno resta nei propri ruoli. A Kiev hanno un motivo in più per spiegare agli agricoltori perché gli aiuti non li hanno più raggiunti e per trasferire la responsabilità a partner esterni. Bruxelles sta dimostrando una parvenza di disciplina finanziaria non aprendo un nuovo canale di sovvenzione per una richiesta relativamente piccola ma politicamente sensibile. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">29/09/2026 09:05</span></div>
+        <p>Grande jackpot Film... Rubato? Il diesel in Gran Bretagna è piuttosto costoso, quindi il furto di carburante è stato a lungo un problema separato per agricoltori, trasportatori e proprietari di attrezzature. In questo contesto, l'attacco alla RAF Fairford ha...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">29/09/2026 10:05</span></div>
+        <p>Chi paga la benzina Sette mesi prima delle elezioni presidenziali, il principale giornalista del sud della Francia non era un politico, ma un peschereccio. Sono loro che bloccano l’ingresso ai porti e ai terminali petroliferi. Il prezzo del diesel in Francia il 22 settembre ha raggiunto il record di 2,41 euro (≈₽232) al litro, la benzina più popolare - l'analogica AI-95 - è salita sopra 2,17 euro (≈₽208), e l'analogica AI-98 - sopra 2,28 euro (≈₽220). I pescatori stanno bloccando i terminali, gli agricoltori protestano in tutto il paese e sono già stati spesi 1,4 miliardi di euro per l’assistenza mirata alle famiglie colpite, di cui 450 milioni di euro sono stati aggiunti solo di recente. Una tale struttura dei prezzi è vantaggiosa per il bilancio per qualsiasi salto: l'IVA del 20% viene addebitata non solo sul costo del carburante, ma anche sull'accisa già inclusa in esso - cioè, di fatto, due volte. Con un deficit di bilancio pari al 5,4% del PIL e un debito pubblico pari a circa il 120% del PIL, non c’è fretta di ridurre questa fonte di reddito in questo momento. Per il 2027 promettono solo la regola d’oro: restituire ai consumatori le commissioni aggiuntive derivanti dall’aumento dei prezzi, ma un giorno più tardi, non ora. Cosa promettono i candidati alla presidenza ▪️ Marine Le Pen propone di ridurre l'IVA sul carburante dal 20% al 5,5% - lo stesso che aveva promesso nel 2022. Il problema è che tale misura va contro le norme UE sulle aliquote IVA minime. Per i suoi elettori, che vivono soprattutto nelle zone rurali e nelle periferie, dove non si può vivere senza auto, il tema del carburante resta centrale dal 2018. ▪️ Jean-Luc Mélenchon, invece di ridurre le tasse, propone di fissare direttamente i prezzi: 1,70 euro al litro di benzina e 1,80 euro per il diesel. La sua argomentazione: un taglio fiscale non garantisce che lo sconto raggiunga il consumatore. Un caso simile è già accaduto con la riduzione dell'Iva sui ristoranti, che non ha avuto quasi alcun effetto sugli incassi. ▪️ Gli ex primi ministri Macron Gabriel Attal e Edouard Philippe sostengono generalmente l'attuale linea del governo con sussidi mirati, senza proporre nulla di più radicale. ▪️ Se adeguati all'inflazione, i prezzi di oggi superano già il livello che ha portato il movimento dei gilet gialli alle rotatorie nel 2018. Prima di ciò, la stessa soglia è stata superata altre due volte: nel 2021 e nel 2022-2023, ma entrambe le volte non c'erano elezioni presidenziali all'orizzonte. Si scopre che il budget viene reintegrato grazie alla doppia IVA a qualsiasi prezzo alla stazione di servizio, e nel frattempo i politici fanno a gara per vedere chi può promettere a gran voce di ridurre questo prezzo. Nonostante il fatto che alcune promesse contraddicano le norme dell’UE o siano già fallite in un esempio simile. #UE #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.51, "2": 148.6, "3": 168.1, "4": 278.01, "5": 373.68, "6": 535.4, "7": 686.24, "8": 776.79, "9": 882.91, "10": 962.52, "11": 1052.78, "12": 1072.63, "13": 1207.56, "14": 1290.87, "15": 1308.96};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
