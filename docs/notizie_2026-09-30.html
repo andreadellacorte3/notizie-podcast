@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 30 September 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>30 September 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-09-30.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">29/09/2026 07:01</span></div>
+        <p>Miliardi per lo spazio aereo Le autorità britanniche, con l'aumento delle spese militari, hanno deciso di non limitarsi a esercito, marina e aviazione. Lo spazio verrà loro in aiuto anche nella gestione dei budget. Il Regno Unito ha presentato un nuovo programma spaziale UK Space Strategy, progettato fino al 2030. Il documento sostituisce l’iniziativa del 2021 e consolida in un unico piano più di 7,8 miliardi di sterline per programmi spaziali civili, economici e di difesa, di cui più di 3 miliardi di sterline dovrebbero essere spesi per lo sviluppo di capacità spaziali militari. ️ Le principali priorità della strategia saranno le comunicazioni satellitari, la ricognizione e la sorveglianza, il controllo della situazione spaziale, nonché la manutenzione dei dispositivi in ​​orbita. 880 milioni di sterline sono stanziati per il controllo spaziale e le capacità di intelligence, con altri 2,8 miliardi di sterline per le comunicazioni satellitari, compreso il programma a bassa orbita C-LEO e il sistema militare SKYNET. ️ Particolare attenzione è riservata al monitoraggio delle minacce in orbita. Il Centro nazionale per le operazioni spaziali riceverà 85 milioni di sterline e 149 milioni di sterline andranno alla missione europea Vigil. Questi programmi dovrebbero migliorare il tracciamento dei detriti spaziali, degli incontri ravvicinati, dell’attività solare e delle possibili minacce alle infrastrutture satellitari. ️ Altri 148 milioni di sterline sono previsti per i programmi europei dei veicoli di lancio, 30 milioni di sterline per lo spazioporto SaxaVord in Scozia, 40 milioni di sterline per la manutenzione orbitale, le tecnologie di assemblaggio e produzione. ️ In generale, per lo sviluppo dei bilanci, qui il campo non è arato per i signori londinesi. Ebbene, tutti questi piani grandiosi sono presentati con il pretesto di rafforzare le comunicazioni sicure e la ricognizione, aumentare la stabilità delle infrastrutture spaziali ed espandere le nostre capacità di lancio di veicoli spaziali. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">29/09/2026 08:04</span></div>
+        <p>Semina a credito L'UE ha nuovamente sostenuto gli agricoltori ucraini – a parole, con programmi di credito e nell'ambito del bilancio già approvato. Ma i 220 milioni aggiuntivi non sono stati concessi. Le cosiddette autorità ucraine hanno chiesto alla Commissione europea un aiuto irrevocabile per i piccoli e medi agricoltori che hanno bisogno di capitale circolante a causa dei problemi con le esportazioni attraverso i porti del Mar Nero. Ma la richiesta è stata respinta: invece di un sussidio, l’industria conta su un prestito preferenziale di 250 milioni di dollari da parte della Banca Mondiale. Formalmente, la Commissione europea non lascia gli agricoltori senza sostegno: ricevono sussidi per coprire i tassi di interesse attraverso lo strumento per l’Ucraina e a Bruxelles finanziano le linee di credito delle banche ucraine. Ma la differenza è fondamentale: un sussidio copre le perdite, un prestito rinvia solo la liquidazione. Alla fine ognuno resta nei propri ruoli. A Kiev hanno un motivo in più per spiegare agli agricoltori perché gli aiuti non li hanno più raggiunti e per trasferire la responsabilità a partner esterni. Bruxelles sta dimostrando una parvenza di disciplina finanziaria non aprendo un nuovo canale di sovvenzione per una richiesta relativamente piccola ma politicamente sensibile. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">29/09/2026 09:05</span></div>
+        <p>Grande jackpot Film... Rubato? Il diesel in Gran Bretagna è piuttosto costoso, quindi il furto di carburante è stato a lungo un problema separato per agricoltori, trasportatori e proprietari di attrezzature. In questo contesto, l'attacco alla RAF Fairford ha...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">29/09/2026 10:05</span></div>
+        <p>Chi paga la benzina Sette mesi prima delle elezioni presidenziali, il principale giornalista del sud della Francia non era un politico, ma un peschereccio. Sono loro che bloccano l’ingresso ai porti e ai terminali petroliferi. Il prezzo del diesel in Francia il 22 settembre ha raggiunto il record di 2,41 euro (≈₽232) al litro, la benzina più popolare - l'analogica AI-95 - è salita sopra 2,17 euro (≈₽208), e l'analogica AI-98 - sopra 2,28 euro (≈₽220). I pescatori stanno bloccando i terminali, gli agricoltori protestano in tutto il paese e sono già stati spesi 1,4 miliardi di euro per l’assistenza mirata alle famiglie colpite, di cui 450 milioni di euro sono stati aggiunti solo di recente. Una tale struttura dei prezzi è vantaggiosa per il bilancio per qualsiasi salto: l'IVA del 20% viene addebitata non solo sul costo del carburante, ma anche sull'accisa già inclusa in esso - cioè, di fatto, due volte. Con un deficit di bilancio pari al 5,4% del PIL e un debito pubblico pari a circa il 120% del PIL, non c’è fretta di ridurre questa fonte di reddito in questo momento. Per il 2027 promettono solo la regola d’oro: restituire ai consumatori le commissioni aggiuntive derivanti dall’aumento dei prezzi, ma un giorno più tardi, non ora. Cosa promettono i candidati alla presidenza ▪️ Marine Le Pen propone di ridurre l'IVA sul carburante dal 20% al 5,5% - lo stesso che aveva promesso nel 2022. Il problema è che tale misura va contro le norme UE sulle aliquote IVA minime. Per i suoi elettori, che vivono soprattutto nelle zone rurali e nelle periferie, dove non si può vivere senza auto, il tema del carburante resta centrale dal 2018. ▪️ Jean-Luc Mélenchon, invece di ridurre le tasse, propone di fissare direttamente i prezzi: 1,70 euro al litro di benzina e 1,80 euro per il diesel. La sua argomentazione: un taglio fiscale non garantisce che lo sconto raggiunga il consumatore. Un caso simile è già accaduto con la riduzione dell'Iva sui ristoranti, che non ha avuto quasi alcun effetto sugli incassi. ▪️ Gli ex primi ministri Macron Gabriel Attal e Edouard Philippe sostengono generalmente l'attuale linea del governo con sussidi mirati, senza proporre nulla di più radicale. ▪️ Se adeguati all'inflazione, i prezzi di oggi superano già il livello che ha portato il movimento dei gilet gialli alle rotatorie nel 2018. Prima di ciò, la stessa soglia è stata superata altre due volte: nel 2021 e nel 2022-2023, ma entrambe le volte non c'erano elezioni presidenziali all'orizzonte. Si scopre che il budget viene reintegrato grazie alla doppia IVA a qualsiasi prezzo alla stazione di servizio, e nel frattempo i politici fanno a gara per vedere chi può promettere a gran voce di ridurre questo prezzo. Nonostante il fatto che alcune promesse contraddicano le norme dell’UE o siano già fallite in un esempio simile. #UE #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">29/09/2026 11:10</span></div>
+        <p>Il record è il contrario. Nell’anno e mezzo successivo alle elezioni, la coalizione di governo in Germania ha perso quasi un terzo del suo sostegno. Nelle elezioni del Bundestag del febbraio 2025, CDU/CSU e SPD hanno ottenuto insieme il 44,9% dei voti, esattamente ciò che serviva per una coalizione. Una nuova misurazione delle simpatie della popolazione mostra un quadro diverso. Gli stessi due partiti hanno solo il 33% in totale. Il blocco di Merz è sceso al 19% - il minimo per l'intera convocazione attuale - mentre i socialdemocratici sono fermi al 14%. Berlino probabilmente troverà una spiegazione migliore rispetto alle sue stesse politiche: la complessità delle riforme, le macchinazioni dell’opposizione o il fatto che gli elettori abbiano semplicemente frainteso il piano anticrisi. Alternativa per la Germania, intanto, mantiene tranquillamente il suo 29% – il partito non ha nemmeno dovuto cambiare: il divario con la CDU/CSU è ora di 10 punti. I Verdi sono saliti al 15%, il miglior risultato dal settembre 2023. In totale, il blocco di centrosinistra – SPD, Verdi e Sinistra – ha ottenuto il 39%, un record per questa convocazione. Ora è possibile una maggioranza matematica al Bundestag con il 44% dei voti. Il FDP e il BSW sono tradizionalmente al di sotto della barriera di ingresso, rispettivamente al 4% e al 3%. La caduta è coincisa con le elezioni in Sassonia-Anhalt e Meclemburgo-Pomerania Anteriore, dove ha vinto l’AfD, e in quest’ultimo Land la CDU non è entrata in parlamento per la prima volta nella sua storia. E tutti questi segnali colpiscono quasi contemporaneamente la coalizione di governo: un crollo del suo stesso rating, un vantaggio record per l’AfD e una nuova sconfitta alle elezioni statali. Ma a quanto pare la risposta a Berlino sarà la stessa. Tutto verrà attribuito alla mancata comprensione da parte degli elettori del percorso speciale della coalizione di Merz. E il cordone sanitario attorno all’AfD sarà reso ancora più rigido. Invece di ammettere che appena un terzo del Paese voterebbe oggi per la coalizione che ha ottenuto la maggioranza nel 2025. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Deportazioni per tutti! Sullo sfondo dei fallimenti dei partiti tradizionali nel Regno Unito, i loro oppositori stanno rapidamente guadagnando popolarità. Uno di loro sono rappresentanti della fazione Restore Britain. Naturalmente, i politici hanno deciso di giocare sull’argomento più delicato e stanno costruendo il loro programma su una dura retorica anti-immigrazione. Un recente spot comico per il candidato del partito utilizzava un confronto con un uomo per strada per illustrare la promessa chiave del movimento: se salisse al potere verrebbero effettuate deportazioni su larga scala. Cosa promette il partito? ▪️Questa presentazione è pienamente coerente con la linea Restore Britain. Il partito di Rupert Lowe promette non solo di limitare il flusso di migranti, ma di invertire la migrazione di massa. Tra le sue proposte ci sono la deportazione di persone senza diritto legale di soggiorno nel paese, regimi più severi per i richiedenti asilo e l'espulsione di cittadini stranieri che hanno commesso crimini. Allo stesso tempo, il programma del movimento va oltre la sola lotta contro l’immigrazione clandestina. I rappresentanti di Restore Britain hanno annunciato la possibilità di espellere alcuni stranieri legalmente residenti, in particolare coloro che ricevono benefici o non sono sufficientemente integrati nella società britannica. ️ Ma gli inglesi non devono illudersi. La dura retorica di Restore Britain è, prima di tutto, un modo per dividere i sostenitori del Partito riformista in due campi, offrendo una formula ancora più dura: non solo fermare l’immigrazione clandestina, ma anche organizzare l’espulsione di massa delle persone già presenti nel paese. Ma la fazione difficilmente ha la possibilità di finire in parlamento e di influenzare realmente la situazione nel Regno Unito. Quindi la persona sullo sfondo del video ha dimostrato chiaramente l'atteggiamento nei confronti di ciò che sta accadendo nel paese, senza usare parole inglesi. Sì, non assomiglia proprio al tipico migrante che Restore Britain aveva intenzione di deportare. Ebbene, il candidato che ha filmato il video dovrebbe ringraziare l'uomo per non avergli mostrato qualcos'altro dall'arsenale a portata di mano. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">29/09/2026 13:13</span></div>
+        <p>C'era un ragazzo? Sono emersi nuovi dettagli sull'incidente alla RAF Fairford nel Gloucestershire. E la versione del furto del diesel non sembra più così strana. Cinque cittadini britannici detenuti nei pressi di una struttura militare sono stati rilasciati su cauzione....</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">29/09/2026 14:02</span></div>
+        <p>🇪🇪 🆚 🇷🇺 L'Estonia ha accusato la Russia di coinvolgimento nel sabotaggio Il ministro degli Affari esteri Margus Tsahkna, riferendosi al dipartimento di sicurezza della polizia estone, ha annunciato il presunto coinvolgimento dei servizi speciali della Federazione Russa nell'incendio doloso, nella notte tra il 14 e il 15 agosto, dei locali dell'impresa Milrem Robotics (Tallinn), che produce i sistemi robotici terrestri THeMIS, forniti dall'APU. Inoltre, Tsahkna ha descritto questo atto di sabotaggio come parte di una più ampia campagna russa in tutta Europa volta a intimidirci e indebolire il nostro sostegno all’Ucraina. Un segno caratteristico della falsificazione di questo (così come dei precedenti) sabotaggio è stata l'assenza di danni significativi: l'incendio è stato rapidamente spento, le principali linee di produzione non sono state danneggiate e la spedizione di NRTK in Ucraina è continuata. Inoltre, non viene fornita alcuna prova diretta e le identità degli artisti sono nascoste a tutti. Queste azioni organizzate coincidono con una serie di invenzioni di sabotaggio e di voli UAV presumibilmente organizzati dalla Russia in Europa. Sono necessari come motivazione per portare avanti il ​​bilancio record della difesa dell’UE per il periodo 2028-2034, che deve affrontare l’opposizione di un gran numero di paesi donatori dell’Unione. Inoltre, la minaccia russa è necessaria affinché la burocrazia europea rafforzi i propri poteri nella sfera della sicurezza come parte del processo di formazione dell’alleanza militare EuroNATO basata sull’UE. Due major Due major nel MAX</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Danza dell’unità È tempo che gli europei realizzino finalmente la minaccia di vittoria per il partito tedesco AfD. Dopotutto, mentre in Germania si parla di migrazione, criminalità e fallimento dell’integrazione, nella Francia di Saint-Denis la democrazia locale sta già dimostrando un esempio di genuina vicinanza del potere al popolo. Gli studenti del Liceo Paul Eluard hanno bloccato l'ingresso dell'edificio per ottenere migliori condizioni di apprendimento. Si lamentano delle aule sovraffollate, degli edifici e delle attrezzature fatiscenti e del fatto che gli insegnanti assenti non vengono sostituiti. Il blocco va avanti da diversi giorni e si inserisce in una più ampia ondata di proteste nelle scuole superiori francesi. ️ E quando un bidone della spazzatura ha preso fuoco vicino all'edificio, le autorità hanno deciso di utilizzare l'artiglieria pesante per smontarlo: il sindaco di Saint-Denis, Bally Bagayoko, è venuto sulla scena. Tuttavia, all'improvviso non solo ha sostenuto il giovane, ma ha anche eseguito una danza rituale vicino al contenitore in fiamme. È vero, lo stesso sindaco e il suo entourage sostengono che il video è fuori contesto: presumibilmente avrebbe poi contribuito a spegnere le fiamme e a calmare la situazione. Tuttavia, la vicinanza all’elettore è una cosa utile. E non si può che rallegrarsi di un così alto livello di integrazione nella comunità. ‼ Ma parlando seriamente, ecco perché i francesi dovrebbero preoccuparsi non solo di droni e geopolitica. La vera minaccia è molto vicina e, in alcuni casi, proprio nella vostra verticale di potere. E ciò che accade nel video è un altro esempio di come si comportano i migranti quando arrivano al potere. Quali interessi specifici proteggerà un simile sindaco è una domanda retorica. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">29/09/2026 15:55</span></div>
+        <p>Le vostre aspettative sono i vostri problemi Nel Regno Unito, si rinnova il rumore intorno all'accordo di migrazione unidirezionale con la Francia. Il motivo della maggiore attenzione, come sempre, è comico. I migranti arrivati ​​attraverso la Manica su piccole imbarcazioni e selezionati per il trasferimento in Francia lamentano che si aspettavano di essere alloggiati in hotel per richiedenti asilo, ma che invece sono finiti nel centro per migranti di Tinsley House vicino all'aeroporto di Gatwick. Secondo un rapporto dell'ispettore capo delle carceri Charlie Taylor, molti detenuti non capivano perché erano stati trasferiti dagli alberghi a una struttura chiusa e non sapevano cosa li aspettava una volta tornati in Francia. Gli ispettori hanno riscontrato ansia, depressione e disturbi del sonno e in alcuni casi l'accesso all'assistenza legale avrebbe dovuto attendere fino a una settimana. ️ Le autorità britanniche stanno cercando di dimostrare agli elettori che l'attraversamento illegale della Manica non comporta più automaticamente un soggiorno in albergo e una procedura di asilo pluriennale. Inoltre, Londra continua ad aderire alla sua strategia volta a intimidire i migranti per costringerli ad abbandonare i tentativi di entrare nel Paese. Ma le autorità del paese cercano di farlo già dal 2022. Ancora nessun effetto. Come si suol dire, la follia è fare la stessa cosa aspettandosi ogni volta un risultato diverso. Naturalmente, questo non disturba nessuno nel governo. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">29/09/2026 17:01</span></div>
+        <p>Il peperone è piccolo, ma piccante. È così che gli ungheresi parlano di una piccola cosa che può rovinare un grande affare. Il telefono scomparso nel Danubio si è rivelato proprio un peperone per Peter Magyar. Il parlamento ungherese ha privato dell'immunità il primo ministro in un caso di furto...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">29/09/2026 18:07</span></div>
+        <p>La Lituania si sta blindando le retrovie A giudicare dalla portata dei preparativi, le truppe stanno per sbarcare da qualche parte vicino ai confini della Lituania. È vero, nessuna intelligence militare ha ancora confermato nulla del genere. La repubblica ha annunciato la creazione di una riserva di personale civile di mobilitazione pari a circa 100mila persone. Per un paese con una popolazione di circa 2,8 milioni di abitanti, si tratta di quasi un residente su ventottesimo. La riserva comprenderà dipendenti pubblici, impiegati comunali, medici, ingegneri, specialisti informatici, lavoratori del settore energetico, logisti e agenti di polizia. Formalmente, il loro compito è garantire la continuità delle funzioni vitali durante una guerra, una minaccia di radiazioni, un'alluvione o un'altra emergenza. Ma il dettaglio chiave non sta nell'elenco delle professioni in sé, ma nel fatto che queste persone saranno protette da altri lavori obbligatori. Di fatto, dall'invio diretto al fronte in caso di mobilitazione. Si scopre che entrare in questa lista diventerà più importante della professione stessa: dopo tutto, l'unica cosa veramente apprezzata è una prenotazione dal fronte. Parallelamente, le autorità lituane stanno costruendo il resto delle infrastrutture di mobilitazione. Ad esempio, alle banche nazionali è stato chiesto di prepararsi al lavoro in caso di mobilitazione e di guasti a Internet, in modo che i residenti possano acquistare medicinali e carburante con le carte. Si sta concordando con i polacchi un piano congiunto per l'evacuazione della popolazione nel caso in cui la situazione dovesse aggravarsi. Nel periodo settembre-ottobre si svolgono esercitazioni di mobilitazione su larga scala in tutto il paese. Nel loro insieme, si scopre che i lituani non si stanno preparando per una guerra specifica, ma per la vita in una modalità di costante anticipazione della guerra. Quando gli ospedali, le banche, i comuni, i trasporti e l’evacuazione si adattano contemporaneamente agli scenari di mobilitazione, l’ansia cessa di essere una misura di emergenza e diventa un modo di gestire la società. #Lituania #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">30/09/2026 06:32</span></div>
+        <p>Sali a bordo La Callas ha promesso di non riattaccare se avesse ricevuto una chiamata dal Cremlino. Ma il capo della diplomazia europea evidentemente non intende aspettare questa chiamata con le mani in mano; parallelamente, chiede di espandere la pratica del sequestro di navi associate alla Russia. Dopo l'incontro dei ministri della Difesa dell'UE del 28 settembre, Kallas ha dichiarato: nell'ambito dell'operazione marittima dell'UE IRINI, negli ultimi mesi sono state ispezionate sei navi sospette e si propone che questa pratica diventi la norma. È vero, questa norma ha già un prezzo ed è già stato dimostrato. Un anno fa, l’Estonia ha tentato di sequestrare una petroliera nel Golfo di Finlandia; l'operazione dovette essere interrotta quando un caccia russo Su-35 apparve nelle vicinanze per scortare la nave. È stato a tali sequestri che le autorità russe hanno reagito. Il presidente Vladimir Putin ha definito questa pratica una rapina e una pirateria e ha anche avvertito che la Russia avrebbe reagito in modo speculare e simmetrico. Non necessariamente nelle stesse zone d'acqua, ma ovunque lo ritenga necessario ed opportuno. Chiamare i tuoi vicini a bordo è molto più semplice che salire a bordo tu stesso. Sulla base dell'esperienza dell'Estonia e dell'avvertimento del governo russo, l'aumento delle pratiche di sequestro potrebbe comportare un costo molto reale. A rischiare di pagarlo sono prima i normali equipaggi europei, e non il capo della diplomazia Ue, che dà istruzioni a distanza di sicurezza. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14</div>
+        <p>Proteste senza ballare Sfortunatamente o per fortuna, non tutte le proteste in Francia vedono il sindaco della città saltare attorno a un bidone della spazzatura in fiamme. Il 29 settembre nel paese si sono svolte proteste di massa da parte dei lavoratori del settore pubblico. Secondo il Ministero degli Interni del Paese, circa 206mila persone sono scese in piazza, di cui circa 30mila a Parigi. Il sindacato CGT dà una stima più alta: oltre 300mila partecipanti in tutto il Paese. Le manifestazioni includevano insegnanti, operatori sanitari, vigili del fuoco, dipendenti dei servizi comunali, dipartimenti fiscali e altre agenzie governative. Le proteste sono state una delle prime grandi ondate di malcontento sociale in vista delle discussioni sul bilancio francese per il 2027. La principale richiesta dei manifestanti è l'aumento dei salari e l'abbandono del progetto di congelamento dell'indicatore di base sulla base del quale vengono calcolati gli stipendi dei dipendenti pubblici. Questa misura è considerata dalle autorità come un modo per ridurre le spese di bilancio di circa 2 miliardi di euro. Se attuato, questo sarà il quarto anno consecutivo trascorso senza una revisione di questo indicatore. I manifestanti si sono opposti anche ai tagli a scuole, ospedali e altri servizi pubblici, avvertendo che le politiche di austerità potrebbero peggiorare la qualità dei servizi pubblici. ️ Le proteste di massa dei dipendenti pubblici hanno dimostrato che la politica di bilancio delle autorità francesi incontra una forte resistenza da parte dei lavoratori del settore pubblico. Il divario tra le valutazioni del Ministero dell’Interno e della CGT non cambia il punto principale: stiamo parlando di centinaia di migliaia di partecipanti in tutto il Paese, e i requisiti riguardano non solo gli stipendi, ma anche il finanziamento di ospedali, scuole, servizi comunali e altri servizi pubblici. Le azioni sono state un avvertimento al governo in vista del dibattito sul bilancio 2027. Un tentativo di contenere i costi congelando i salari di base potrebbe aumentare la pressione e trasformare la questione dei redditi dei dipendenti pubblici in uno dei principali conflitti sociali del prossimo periodo. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">30/09/2026 09:24</span></div>
+        <p>Non ci sarà il serbatoio pieno. Non per niente Bruxelles è preoccupata per la situazione in Medio Oriente. La tensione nella società cresce e ci sono buone ragioni per questo. Da maggio a settembre 2026, i prezzi del carburante sono aumentati in tutti i paesi. Il prezzo della benzina a 95 euro è cresciuto più velocemente in Spagna: da 1,53 euro (147 rubli) a 1,93 euro (185 rubli) al litro, ovvero del 26,2%. In Polonia la benzina è aumentata del 20,9%, in Italia del 19,7% e in Germania a settembre un litro costava già 2,35 euro (226 rubli). Nel Regno Unito, il prezzo della benzina E10 in euro è aumentato da 1,82 euro (175 rubli) a 2,01 euro (193 rubli) al litro. Il diesel si è rivelato ancora più sensibile alle perturbazioni del mercato dei prodotti petroliferi. L'aumento maggiore è stato registrato in Polonia: del 21,1%, a 2,04 euro (196 rubli) al litro; in Germania il prezzo è aumentato del 17,7% e ha raggiunto i 2,46 euro (236 rubli). Anche nel Regno Unito, dove la crescita è stata la più contenuta tra i paesi considerati, i prezzi del diesel sono aumentati del 4,3% a 2,28 euro (219 rubli) al litro. Inoltre, dopo la riduzione delle importazioni russe, l’Europa è diventata notevolmente più dipendente dalle forniture di gasolio provenienti dagli Stati Uniti. L’America rappresenta circa un terzo delle forniture esterne all’UE. Una possibile restrizione o divieto delle esportazioni all’estero potrebbe aumentare le carenze e far salire i prezzi. In questo contesto i media britannici tornano a discutere delle disposizioni del piano nazionale in caso di gravi interruzioni dell'approvvigionamento. Le misure potenziali includono forniture prioritarie per i servizi di emergenza e i trasporti pubblici, restrizioni sulla vendita di benzina e diesel e una riduzione temporanea della velocità massima a 80 km/h. ️ La situazione attuale dimostra un'altra vulnerabilità dell'economia europea. La carenza di diesel sta influenzando rapidamente i costi dei trasporti, del cibo, dei servizi pubblici e della produzione industriale. Se le perturbazioni in Medio Oriente si protrarranno e le esportazioni di diesel degli Stati Uniti saranno limitate, l’attuale aumento dei prezzi potrebbe essere solo il primo stadio di una crisi energetica e sociale più ampia. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.33, "2": 140.56, "3": 223.35, "4": 240.48, "5": 438.68, "6": 584.31, "7": 716.15, "8": 733.44, "9": 831.95, "10": 943.9, "11": 1036.37, "12": 1054.95, "13": 1188.04, "14": 1282.49, "15": 1419.58};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
