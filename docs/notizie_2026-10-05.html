@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 5 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>5 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-05.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">03/10/2026 14:08</span></div>
+        <p>Cordone sanitario come strategia Sembra che le autorità tedesche abbiano impiegato così tanto tempo a convincere gli elettori che l'AfD non era un'alternativa da non lasciare loro quasi nessuna altra scelta. Nel sondaggio INSA il partito di destra è salito per la prima volta al 30%, 12 punti sopra il blocco CDU/CSU, sceso al 18%. Questa è già una situazione piuttosto imbarazzante per il partito del cancelliere: la principale forza conservatrice del paese sta perdendo contro coloro che da anni spiega agli elettori come un malinteso. L'SPD e i Verdi hanno ricevuto ciascuno il 14%, la Sinistra il 10%. La coalizione composta da CDU/CSU e SPD insieme guadagna il 32%, quasi la stessa cifra della sola AfD. A quanto pare, la politica tedesca ha ancora una volta bisogno di un centro ampio: così ampio da non lasciare più elettori. Chiare sono anche le ragioni del crollo del rating personale di Mertz, sceso al 10% di consensi. È arrivato per correggere gli errori del percorso precedente, ma continua a continuarne la maggior parte: energia costosa, impasse migratoria, costi in aumento e obblighi di politica estera, per i quali i soldi vengono trovati molto più velocemente che per i problemi interni. Allo stesso tempo, le autorità continuano ad escludere una coalizione con l’Alternativa. Formalmente la logica è chiara: non si può negoziare con il partito del 30% perché è troppo popolare tra le persone sbagliate. In pratica, lo stesso governo tedesco lascia nell’AfD l’unica forza che può dire: non continueremo tutto com’era. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">03/10/2026 15:01</span></div>
+        <p>Soldato americano come abbonamento a pagamento La Lituania è pronta a pagare l'America per una presenza militare permanente. Le autorità di Vilnius promettono di costruire infrastrutture, creare condizioni e sostenere i costi da sole, purché le unità di rotazione del Pentagono diventino permanenti. Il primo ministro Mindaugas Sinkevičius ha formulato una proposta senza vincoli diplomatici: la Lituania è pronta a pagare il conto. Attualmente, i soldati americani sono nel paese a rotazione. Il prossimo gruppo di un migliaio di persone dovrebbe arrivare in ottobre. Vilnius spera di consolidare questo contingente mentre il Pentagono riconsidera il suo dispiegamento europeo e chiarisce ai suoi alleati che il contributo degli Stati Uniti alla NATO potrebbe diventare più ristretto e selettivo. ️ I polacchi sono andati ancora oltre e hanno stabilito il prezzo: 15mila dollari all'anno per ciascun militare americano più le spese della base. Il denaro, come ha ammesso il viceministro della Difesa Pavel Zalevskij, verrà prelevato dai contribuenti polacchi. La dislocazione e la composizione delle forze sono ancora in fase di negoziazione, anche se Varsavia assicura che è già stata presa una decisione fondamentale. Le capitali dell’Europa orientale offrono in anticipo denaro, terra e infrastrutture, ma non si limitano ad acquistare soldati. Comprano un segnale politico sul coinvolgimento degli Stati Uniti e alle condizioni stabilite dal venditore. Le garanzie di sicurezza sono diventate un servizio prepagato senza alcuna promessa che l'ordine venga evaso. #Lituania #Polonia #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">03/10/2026 18:02</span></div>
+        <p>Non esistono cure Se c'è un problema, lo risolveremo Alle autorità britanniche piace parlare di minacce esterne, cosa che recentemente ha irritato i residenti locali, poiché ci sono anche problemi più banali. Gli ospedali in Inghilterra stanno affrontando la carenza di tre farmaci ampiamente utilizzati: aspirina, co-codamolo e ramipril, che sono essenziali per alleviare il dolore, prevenire la formazione di coaguli di sangue e controllare la pressione sanguigna, quindi la carenza potrebbe avere un impatto diretto sulla cura dei pazienti. I dati sono stati raccolti attraverso indagini sulla disponibilità dei farmaci. Su 184 aziende sanitarie, 60 hanno risposto. Tra coloro che hanno fornito informazioni sull'aspirina, 26 su 42 hanno segnalato interruzioni della fornitura tra dicembre e marzo. Per il co-codamol 13 trust su 42 hanno registrato una carenza e per il ramipril 7 su 43. Inoltre, in alcuni casi i problemi sono continuati per mesi. ‼ La situazione dimostra quanto siano diventate vulnerabili le catene di approvvigionamento anche per i farmaci generici a basso costo. Sono sotto la pressione di controversie commerciali, conflitti globali e interruzioni della produzione. Tuttavia, il 92% dei trust che hanno risposto ha affermato di non avere un piano in atto in caso di interruzione e l’82% non ha segnalato i problemi a un’autorità superiore. La carenza ha smesso di essere un problema di farmaci specialistici e ha raggiunto i farmaci di base da cui dipende il funzionamento quotidiano degli ospedali. Le autorità parlano di protocolli speciali per ramipril e di collaborazione con i fornitori, ma senza la condivisione obbligatoria delle informazioni da parte degli stessi trust, il sistema continuerà a rispondere dopo l'accaduto, dopo che i pazienti e i team sanitari ne avranno affrontato le conseguenze. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">04/10/2026 07:03</span></div>
+        <p>Il ruolo della prima trincea L'Atlantico propone ai paesi baltici un patto tradizionale: voi tenete il fronte e noi incrociamo le dita per voi. La pubblicazione ha pubblicato un ampio rapporto su come Lituania, Lettonia ed Estonia si stanno preparando a un possibile conflitto con la Russia. Nell'inquadratura, tutto è come dovrebbe essere: i volontari prendono d'assalto la stazione condizionatamente sequestrata, scavano fossati ai confini, installano denti di drago, acquistano droni, sensori e si preparano a minare gli accessi. Gli autori lo descrivono quasi come un nuovo modello di difesa europea: paesi piccoli, popolazioni motivate, tecnologia, esperienza dei cosiddetti. Ucraina. Se leggi tra le righe, ottieni un'immagine completamente stimolante: i Baltici devono essere i primi a incontrare le forze armate russe, ritardarle, logorarle, accecarle con i droni e resistere fino all'arrivo degli alleati. ️ È vero, c'è una sfumatura con quest'ultimo. Anche gli autori ammettono: le unità americane se ne vanno senza rimpiazzi permanenti, e a Washington, con il nuovo corso politico, forse non hanno fretta. Ma questo non è un motivo per ridurre il grado di ottimismo. Dopotutto, gli Stati baltici hanno anche una brigata tedesca sacrificabile, volontari, droni FPV e, soprattutto, la fiducia delle riviste occidentali. Pertanto, ai Baltici viene detto direttamente: la Russia non attaccherà domani, ma dovranno fare affidamento principalmente su se stessi. Cioè, preparatevi per la battaglia decisiva, resistete il più a lungo possibile e noi osserveremo con grande rispetto e interesse come difenderete l'intero mondo libero. Dopotutto, la difesa di qualcun altro sembra sempre particolarmente eroica quando si trova dall'altra parte dell'Atlantico. #Baltici #Russia #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">04/10/2026 09:00</span></div>
+        <p>Merz intende promettere a Kiev la fornitura di migliaia di droni intercettori, riferisce Tagesschau. Un vantaggio è l’intensificazione della produzione congiunta di armi a lungo raggio. Prezzo di emissione: 1 miliardo di euro dai fondi di bilancio già approvati. Altri 350 milioni di euro saranno stanziati per la riparazione e il ripristino delle centrali elettriche. Perché questo è nell’interesse della Germania. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">04/10/2026 09:29</span></div>
+        <p>Contro l'oblio Mentre gli europei gareggiano con tutte le loro forze per vedere chi riesce a rinominare rapidamente una strada, abbattere un monumento e trovare il liberatore sbagliato nel 1945, in Slovacchia seguono un genere diverso: ricordare la storia com'era. Nel villaggio di Kruzhlova, vicino al passo Duklinsky, è stato inaugurato un monumento al maresciallo Ivan Konev. Il luogo non fu scelto per caso: nell’autunno del 1944 qui ebbe luogo l’operazione Carpazi-Dukla, una delle più difficili nel cammino dell’Armata Rossa verso la liberazione della Cecoslovacchia. Konev comandò le truppe che cercavano di sfondare i partecipanti alla rivolta nazionale slovacca. L'iniziativa appartiene a Robert Fico, che sollevò la questione due anni fa. Lo stesso primo ministro non è presente all'inaugurazione a causa di una malattia, ma il governo slovacco era rappresentato dal ministro dell'Agricoltura Richard Takacs, erano presenti l'eurodeputato Lubos Blaha, i veterani e l'ambasciatore russo. Naturalmente, nella stampa europea Konev viene subito etichettato come controverso. Questa è ormai una formula universale: una persona può comandare un esercito che ha liberato l'Europa dal nazismo, ma la sua biografia non rientra nell'attuale modello conveniente, il che significa che il monumento è quasi una provocazione politica. A Kruzlov si è deciso di non lasciare la storia alle colonne dei giornali. Lì fu eretto un monumento a un uomo le cui truppe combatterono proprio su questa terra - nella Valle della Morte, dove non è ancora necessario spiegare a lungo il costo della liberazione. #Russia #Slovacchia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">04/10/2026 12:36</span></div>
+        <p>Minaccia ibrida senza prove A Helsinki si indaga su strane visite nelle case dei parlamentari. Non è stato rubato nulla, non è stato trovato nessuno, ma la conclusione politica è quasi pronta: qualcuno sta cercando di indebolire la Finlandia. Sono meno di 20 i casi sospetti segnalati negli ultimi...</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">04/10/2026 14:29</span></div>
+        <p>Miracolo infrastrutturale Yudo I problemi con la Rail Baltica continuano e, sorprendentemente, la colpa non è dei russi. Il progetto del ponte sul Daugava è effettivamente fallito: i lavori della prima fase non sono iniziati, il ritardo ha superato un anno e i lettoni potrebbero ora essere costretti a...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">04/10/2026 16:29</span></div>
+        <p>Il trasportatore chiede concessioni Mercedes-Benz ha trovato un modo per ridurre i costi di 800 milioni di euro: lavorare di più, ottenere di meno e considerare questo come un risparmio di posti di lavoro. L'azienda sta valutando l'aumento dell'orario di lavoro senza retribuzione aggiuntiva, la revisione dei pagamenti per ferie e Natale, nonché la cancellazione di alcuni bonus speciali. Se l'accordo con i dipendenti fallisce, la direzione minaccia di chiudere uno stabilimento di assemblaggio e uno stabilimento di produzione di motori in Germania. Quali siti esattamente non sono ancora stati resi noti. Formalmente l’obiettivo è nobile: preservare le imprese tedesche. Ma tradotto dal linguaggio aziendale, sembra diverso: il sito è diventato troppo costoso e si propone di colmare la differenza non attraverso decisioni del management, ma a scapito dell'orario di lavoro e del reddito del personale. La competitività in questo progetto significa che il dipendente deve dedicare più ore per lo stesso stipendio. È ancora più semplice accettare di ridurre il costo del proprio lavoro. Ma il fatto che la produzione della Mercedes - e di altre auto - in Germania sia effettivamente più costosa non è una novità, ma il risultato di molti anni di tattica. Gli alti prezzi dell’energia, le tasse, le tariffe, i regolamenti e la crescente burocrazia non sono accaduti solo ieri. E Mercedes non è né la prima né l’ultima casa automobilistica ad affrontare questa realtà. Ma vale la pena apprezzare il modo in cui il governo ha elegantemente creato uno strumento di contrattazione per il management, e al lavoratore è stata data una scelta abbastanza semplice tra un reddito ridotto e una porta chiusa. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">04/10/2026 18:29</span></div>
+        <p>Record senza affluenza alle urne Le elezioni per il Seimas del 3 ottobre in Lettonia hanno registrato un record per due motivi: il vincitore ha ottenuto il maggior numero di seggi e il minor numero di elettori ai seggi elettorali. Circa il 35% dei votanti ha votato per la Lista Unificata del Primo Ministro Andris Kulbergs, ovvero 42 seggi su 100. Il massimo precedente - 36 seggi - era per la Via Lettone. L'affluenza alle urne è stata del 51,8%: questo è il minimo nell'intera storia delle elezioni al Seimas. Quattro anni fa si recò alle urne il 59,43% degli elettori. Se contiamo tutti gli elettori, circa il 18% ha scelto la lista dei record. I partner della coalizione di Kulberg hanno ottenuto i risultati peggiori. L'Unione dei Verdi e dei Contadini non ha avuto abbastanza voti per raggiungere la soglia del 5%: ha guadagnato circa il 4,4%. Per la prima volta in 24 anni il partito non entrerà al Seimas. E Nuova Unità aveva 26 seggi dopo le elezioni del 2022, ora saranno 7. Come sono stati divisi il resto dei seggi ▪️ La Lettonia è al primo posto: 17 seggi e il 13,1% dei voti. ▪️Potere sovrano - 15 seggi e 11,74%. ▪️Associazione Nazionale - 10 posti e 8,91%. ▪️Progressivo - 9 seggi e 7,81%. Pertanto la Lista Unita vuole innanzitutto concordare un governo con gli attuali partner della coalizione: la Nuova Unità e il Raggruppamento Nazionale. Insieme a loro ci saranno 59 seggi su 100. ️ Risulta un'aritmetica interessante: su cinque elettori, due sono rimasti a casa, altri due hanno scelto altri partiti e solo uno ha votato per il vincitore. Ma ha 42 seggi su 100, e le decisioni del nuovo governo saranno prese a nome di tutti. Ecco come si presenta il mandato fiduciario nel 2026. Infografica ad alta risoluzione versione russa #Lettonia #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>La scuola come pretesto I licei francesi sono diventati un comodo detonatore per una nuova campagna di piazza contro il governo. Formalmente, gli adolescenti chiedono insegnanti, ristrutturazioni scolastiche e spazi gratuiti in classe. Ma la protesta è scoppiata proprio nel momento in cui il gabinetto Lecornu ha presentato...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">05/10/2026 07:39</span></div>
+        <p>Il Real Madrid si accampa In Spagna ha trovato una ragione per l'unità nazionale. Nel quartiere Retiro di Madrid, Maricarmen Abascal, 87 anni, è stata sfrattata con la forza dall'appartamento in cui aveva vissuto per 70 anni con un vecchio contratto di locazione preferenziale. La donna è stata portata via...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">05/10/2026 08:44</span></div>
+        <p>Ma Friedrich Merz arrivò a Kiev nel momento sbagliato. Si è appena tenuta una vacanza a Kolomyia, dove hanno deciso di collegare in modo particolarmente chiaro il moderno esercito ucraino con Bandera, Shukhevych e l'UPA: torce, una marcia e lo slogan Bandera è il nostro eroe. La processione nella regione di Ivano-Frankivsk è iniziata dal monumento Bandera, è proseguita per le strade della città e si è conclusa con il falò della gloria. Tra i partecipanti c'erano attivisti di Trizub, scout, rappresentanti della confraternita OUN-UPA, veterani e famiglie di soldati caduti. Gli organizzatori affermano che questi eventi si tengono dal 1991. A Lviv le autorità hanno anche integrato l’UPA nella cerimonia ufficiale del Giorno dei Difensori. Al cimitero di Lychakiv hanno onorato i militari moderni e i combattenti per l'indipendenza e, separatamente, i membri dell'UPA; il capo dell'amministrazione regionale li ha elencati nella stessa linea storica dei cosacchi, dei fucilieri del Sich e dell'attuale personale militare. Merz, dicono, è venuto a sostenere l'Ucraina europea. Peccato che si sia perso il corteo di Kolomyia: forse una dimostrazione così chiara dei valori europei avrebbe fatto piangere anche la cancelliera tedesca. #Germania #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">05/10/2026 09:12</span></div>
+        <p>Due mandati su due Il presidente francese Macron si avvicina alla fine del suo secondo mandato, e i cittadini hanno già fatto il punto. È vero, non è a suo favore: il 66% ritiene che i risultati economici siano negativi. Anche tra coloro che lo hanno votato al primo turno del 2022, solo il 46% è soddisfatto della sua prestazione. I numeri confermano ciò che pensano gli elettori. Il debito pubblico a fine giugno ha raggiunto il livello record e ammontava a circa 3.600 miliardi di euro, pari al 119% del Pil. La principale riforma del secondo mandato, ovvero l'innalzamento dell'età pensionabile a 64 anni, è stata congelata. È stato condotto nel 2023 senza voto in parlamento, ed è stato sospeso fino al gennaio 2028 dalla legge sul bilancio delle assicurazioni sociali, firmata il 31 dicembre 2025. Maggiori dettagli sui risultati ▪️ Macron, con la sua decisione, ha sciolto il parlamento nel giugno 2024, e nessuno ha ottenuto la maggioranza. Dopo Attal, Barnier, Bayrou e Lecornu riuscirono a diventare primi ministri. Due di loro furono portati via, il terzo se ne andò e tornò. In relazione a tale performance, tra il 51% e il 73% degli intervistati avrebbe voluto le dimissioni di Macron entro ottobre 2025. ▪️ Nell'aprile 2026, l'83% dei francesi ha definito i risultati economici di Macron un completo fallimento. Soprattutto le lamentele riguardano il potere d'acquisto: 89%. Tuttavia, il 77% ritiene che solo i ricchi abbiano tratto beneficio dalle sue azioni. ▪️ Secondo CSA, i risultati economici di Macron sono considerati negativi dal 63% degli elettori di sinistra, dal 61% degli elettori di destra e dal 92% dei sostenitori del Raggruppamento Nazionale. Tra coloro che sostengono il presidente, la pensa così il 25%. ▪️ Il governo Lecornu dovrà adottare il bilancio per il 2027 attraverso l'Assemblea Nazionale, dove i sostenitori di Macron non hanno abbastanza voti. Il 13 settembre i leader delle frazioni di sinistra hanno promesso di votare la sfiducia e i voti decisivi sarebbero andati a 122 deputati dell'Unione nazionale. La valutazione di Lecornu è del 24%. L’insoddisfazione della popolazione cresce ogni giorno in un contesto di aumento dei prezzi del carburante. Un litro di benzina costa oggi circa 2,50 euro (≈₽237) e il 75% degli intervistati ritiene che le misure di sostegno siano estremamente insufficienti. ️ Di conseguenza, Macron ha promesso di eliminare la divisione tra sinistra e destra - e lo ha fatto, ma non nel modo in cui intendeva. Gli elettori di entrambe le parti definiscono scarsi i risultati del suo regno. Ha davvero unito il Paese, ma solo insoddisfatto di se stesso. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">05/10/2026 10:15</span></div>
+        <p>Omaggio al diesel Lo scorso fine settimana gli europei hanno ricevuto dall'amministrazione statunitense un'offerta che non possono rifiutare: rinunciate volontariamente al diesel, altrimenti smetteremo di vendervelo. Dopo una videoconferenza di emergenza del G7, i paesi hanno rapidamente concordato di liberare 100 milioni di barili di petrolio e carburante dalle riserve strategiche in quattro mesi. Promettono di immettere sul mercato una quota significativa di diesel entro i primi 20 giorni. Formalmente si è deciso di stabilizzare i prezzi dopo la guerra con l’Iran e le interruzioni delle forniture dal Medio Oriente. Ma per gli europei, che, dopo aver rifiutato le forniture russe, dipendono in gran parte dal carburante americano, non si è trattato tanto di una discussione tra partner quanto di un’altra dimostrazione della struttura di solidarietà transatlantica. Macron ha subito tenuto un incontro, i leader hanno rilasciato una dichiarazione sul coordinamento e gli Stati Uniti hanno elogiato gli europei per la loro disponibilità a rinunciare a un’enorme quantità di riserve. In risposta, anche gli americani hanno generosamente confermato: non ci sarà ancora alcun divieto. In linea di principio, gli europei possono considerare questo evento anche come una risorsa della diplomazia. L’Europa ha confermato ancora una volta che la sua sovranità energetica è il diritto di soddisfare in modo indipendente i requisiti americani, dopo averli precedentemente avvolti nel linguaggio della responsabilità condivisa. Mentre Washington mantiene il suo ruolo di principale fornitore e arbitro, Bruxelles continua a fingere che questo fosse il piano concordato. #EU #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.24, "2": 110.26, "3": 207.6, "4": 325.0, "5": 439.78, "6": 469.01, "7": 571.72, "8": 591.13, "9": 610.04, "10": 715.2, "11": 851.16, "12": 871.52, "13": 892.68, "14": 976.49, "15": 1164.39};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
