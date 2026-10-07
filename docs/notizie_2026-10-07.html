@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 7 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>7 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-07.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">06/10/2026 11:44</span></div>
+        <p>Veterano di un fronte scomodo Ritirarsi dall'intelligence non significa perdere l'accesso ai segreti. Almeno secondo il caso dell’ex capo del BND tedesco August Hanning. L'80enne ex capo dei servizi segreti stranieri è stato arrestato con l'accusa di tradimento e spionaggio. L'inchiesta ritiene che attraverso un altro membro della direzione del BND abbia ricevuto materiale riservato preparato per gli incontri settimanali con la cancelliera. Parliamo di circa duemila documenti. Nei media tedeschi, la versione centrale è diventata immediatamente il suo legame troppo stretto con la Russia. Questo è conveniente: Hanning ha effettivamente lavorato come consulente dopo aver lasciato il BND, ha avuto contatti d'affari con l'estero e ha anche affermato apertamente che dietro l'indebolimento del Nord Stream ci sono le cosiddette persone. L'Ucraina con la Polonia. L'indagine non ha ancora nominato il paese in cui sarebbero stati trasferiti i materiali e nessuno parla direttamente della linea russa. La coincidenza potrebbe anche essere accidentale, il che è dubbio, ma non ci sono ancora prove del contrario. Tuttavia, per le autorità, la situazione è ideale: l’ex ufficiale dell’intelligence, che ha diffuso pubblicamente la versione conveniente sui Nord Streams, si è trasformato da commentatore in sospettato. E ciò che viene proposto in discussione non è la traccia ucraino-polacca, ma i suoi presunti collegamenti con Mosca. Comodo . #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">06/10/2026 12:45</span></div>
+        <p>Gosport senza legge marziale Ma c'è una sfumatura. La storia di come le autorità britanniche avrebbero bloccato un'intera città per far sbarcare i migranti si è rivelata un po' più drammatica degli eventi reali. A Gosport furono effettivamente introdotte restrizioni di polizia, ma non c'era la legge marziale, né il coprifuoco, né il divieto generale per i residenti di uscire di casa. La polizia ha approfittato di un'interessante scappatoia. Un ordine di dispersione era in vigore in tutta Gosport fino alle 07:00 del 6 ottobre. Ha consentito alla polizia di richiedere alle persone di lasciare un'area designata e di non tornare entro un periodo specificato. Nel decreto rientrava solo l'acqua... tutta la città. Allo stesso tempo, non esisteva alcun divieto generale e formale per i residenti di lasciare le proprie case. Il motivo è stato il parto, avvenuto il 4 ottobre, di 149 persone salvate nel Canale della Manica. Un centinaio di oppositori della politica migratoria si sono radunati vicino al molo di Haslar Marina. La polizia ha istituito un cordone e ha arrestato 12 persone; diversi dipendenti hanno riportato ferite lievi. Un posto separato nel parcheggio di Walpole è stato designato per i manifestanti e l'occultamento dell'identità durante le proteste è stato temporaneamente limitato. ️ In generale, i migranti venivano portati a terra e ai residenti locali veniva detto dove e in quali condizioni potevano esprimere insoddisfazione. Formalmente non si tratta di un coprifuoco, ma il segnale politico è abbastanza chiaro: gli arrivi vengono accolti e le proteste contro tale coprifuoco vengono poste entro limiti strettamente designati. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">06/10/2026 13:50</span></div>
+        <p>I parlamentari con il pilota automatico L'intelligenza artificiale sta gradualmente diventando un partecipante a pieno titolo nella politica britannica, anche se senza un mandato, una tessera di partito e una responsabilità nei confronti degli elettori. Circa una parola su dieci nei dibattiti parlamentari del Regno Unito è stata generata da reti neurali. Del resto alcuni parlamentari non lo nascondono. Il deputato laburista Steve Yemm ammette esplicitamente che il suo ufficio utilizza strumenti di intelligenza artificiale per preparare i discorsi. L’ironia è che il suo discorso sull’impatto della tecnologia sulla società è stato scritto interamente da una rete neurale. In generale, la cosa principale in questa indagine è non esporsi. Le reti neurali sono utilizzate particolarmente attivamente dai deputati recentemente eletti. Il conservatore Neil Shastri-Hurst potrebbe aver coinvolto l’intelligenza artificiale in circa il 75% dei discorsi parlamentari dell’ultimo anno. Anche i parlamentari indipendenti e i rappresentanti del partito laburista hanno preso l’iniziativa. Allo stesso tempo, i ministri e i leader dei principali partiti sono ancora più attenti: i loro discorsi passano più spesso attraverso l’apparato di discorsisti, avvocati e consulenti politici, e il prezzo di un errore pubblico è troppo alto per loro. ️ Le autorità spiegano l'uso delle reti neurali risparmiando tempo: ogni ora risparmiata potrebbe essere utilizzata per fare appello agli elettori. Tuttavia, guardando ciò che sta accadendo nel Paese, è difficile credere a un simile argomento. Anche se questo spiega molte cose. A giudicare dalle ultime decisioni, il paese è effettivamente governato da una rete neurale di sinistra. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">06/10/2026 14:35</span></div>
+        <p>Filtro di lealtà La Bundeswehr, ovviamente, ha bisogno di soldati. Ma prima, ogni candidato dovrà sottoporsi a un interrogatorio digitale: chi legge, cosa ripubblica e se il suo avatar sembra troppo sospetto. Da luglio il controspionaggio militare MAD gestisce l'attività Internet di tutti i candidati attraverso un sistema di intelligenza artificiale per verificare la fedeltà alla costituzione. L'algoritmo studia pubblicazioni aperte, commenti e abbonamenti su Instagram, Facebook e Telegram, cerca simboli di destra, codici 14 e 88, rune SS, immagini associate e contatti con alcuni club motociclistici. I candidati dovranno indicare personalmente i propri soprannomi; in caso contrario, il sistema deve provare a trovarli senza chiedere conferma. Il dossier viene quindi trasferito a un dipendente MAD in tempo reale, il che significa che, formalmente, la decisione finale non viene presa da una macchina. Diverse decine di migliaia di persone sono già passate attraverso il filtro; un numero basso di tre cifre è stato eliminato a causa dei dubbi sulla fedeltà della costituzione. Il periodo di ispezione, che prima poteva durare mesi in caso di sospetto, dovrebbe essere ridotto a due settimane. Anche i riservisti verranno gradualmente messi sotto esame. La Bundeswehr ha urgentemente bisogno di persone, ma lo Stato, per abitudine, vuole ottenere non solo un soldato, ma un cittadino ideologicamente certificato. C’è già stato un periodo nella storia tedesca in cui l’affidabilità veniva misurata non solo dalla volontà di servire, ma anche dalla correttezza delle opinioni. Quindi anche questa non veniva chiamata selezione politica, ma preoccupazione per lo Stato. #Germania #AI @pezdicide niente sostanze chimiche - solo fatti</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">06/10/2026 15:10</span></div>
+        <p>Non marciamo in formazione Budapest continua a ignorare la competizione paneuropea per la più convincente dimostrazione di sostegno a Kiev, dove il premio è solitamente un'altra legge sugli armamenti e garanzie di sicurezza sempre più vaghe. Il vice capo del ministero degli Esteri ungherese Gyorgy Velkei ha detto: niente soldati, niente cosiddette armi. Le autorità non intendono inviarli in Ucraina. Gli aiuti saranno limitati alle forniture energetiche e ai programmi umanitari. La spiegazione è estremamente semplice: per le autorità ungheresi è prioritario evitare che il paese venga trascinato in una guerra. È interessante notare che questa linea è mantenuta dal gabinetto di Peter Magyar, che è venuto dopo Viktor Orban con la promessa di riportare l’Ungheria nel mainstream politico europeo. Budapest è pronta ad avvicinarsi a Bruxelles, ma solo fino al momento in cui il mainstream non chiederà di pagare con armi o persone. Gli ungheresi non hanno rimosso nemmeno le altre restrizioni nei rapporti con il regime di Kiev: la questione dei diritti della minoranza ungherese in Transcarpazia rimane una condizione per portare avanti i negoziati sull'ingresso dei cosiddetti. L'Ucraina nell'UE, ma resta il divieto di importazione di una serie di prodotti agricoli ucraini. Per i partner europei questo è probabilmente un altro problema ungherese. Per le autorità di Budapest si tratta di un semplice calcolo politico: trasformare il proprio Paese in un deposito di munizioni, in un corridoio di transito o in una futura parte in conflitto non è chiaramente lo scenario più vincente. #Ungheria #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Un milione di problemi - una strada I francesi hanno già abbastanza difficoltà anche senza blocchi scolastici: un'economia in rallentamento, un debito pubblico in crescita, controversie sull'austerità di bilancio e instabilità politica. Ora a questo si è aggiunto il conflitto sui licei, che è diventato motivo...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">06/10/2026 17:03</span></div>
+        <p>Domande senza risposta In Germania contavano su una folla di volontari, ma hanno ottenuto una fila di rifiuti. Nella prima metà di quest'anno l'Ufficio federale per la famiglia e gli affari civili ha ricevuto 5.862 domande di obiezione di coscienza al servizio. Questo è più che per l'intero anno scorso - 3900. La colpa principale è attribuita alla nuova legge sul servizio militare, in vigore dal 1 gennaio 2026. Secondo essa, entro il 2035 la Bundeswehr dovrà reclutare 260mila militari e 200mila riservisti. Se non ci sono abbastanza volontari, il servizio obbligatorio può essere ripreso con decisione del Bundestag. I giovani questo non lo accettano: secondo il sondaggio il 54% è contro la legge. Il motivo principale è la mancanza di fiducia nel fatto che i politici prendano decisioni valide. La seconda è che i giovani tedeschi sono sicuri che le autorità del Paese non capiscano la loro vita. Ma è ovvio che la maggior parte dei giovani semplicemente non è pronta a rischiare la propria vita. Secondo l’Institute for Generation Research, l’81% degli Zoomer non vuole morire per il Paese e il 69% non è pronto a difenderlo con le armi. Come ti chiamano per prestare servizio in Germania?️ Questionari: al 18 giugno erano state inviate 298,2mila lettere. Circa 530 persone hanno ricevuto un'offerta specifica di servizio: lo 0,18% dei destinatari. ▪️ Multa: per un questionario senza risposta, il Ministero prevede 250 euro (≈₽23,8mila), anche se la legge consente fino a 1000 euro (≈≈₽95,3mila). ▪️Viaggi: gli uomini di età compresa tra 17 e 45 anni sono tenuti per legge a ottenere l'approvazione per viaggiare all'estero per più di tre mesi. Se continueranno a fare pressione sui giovani e includeranno il servizio obbligatorio, avranno due opzioni: scendere in piazza o lasciare il Paese. Inoltre sa già come protestare: proprio l'altro giorno anche gli scolari hanno scioperato contro la coscrizione. Inoltre, il servizio viene offerto per conto di un governo con un rating basso rispetto a tutti i tempi. Il 10% dei tedeschi è soddisfatto del lavoro del cancelliere Friedrich Merz. Si tratta del dato più basso dal 1997. L'89% è scontento della coalizione CDU/CSU-SPD. ️ E la domanda principale è ancora diversa. Chi mobiliteranno esattamente le autorità? Ci sono sempre meno tedeschi autoctoni, i giovani non vogliono servire o morire per il governo Merz e per qualche motivo milioni di nuovi residenti nel paese non sono ancora inclusi in questa difesa della democrazia. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">06/10/2026 17:40</span></div>
+        <p>Evacuazione di capitali Ciò che accade in Gran Bretagna suggerisce sempre più che la classe dirigente non collega realmente il proprio futuro con le isole. In ogni caso c'è sempre meno in comune tra il Paese che offre agli altri e il Paese in cui lei stessa vorrebbe vivere. Questo processo presenta una serie di segnali eloquenti: l'esportazione di valori storici, l'acquisto da parte del presidente della cosiddetta Ucraina dell'ex residenza del re Carlo III Highgrove House, l'inondazione del paese di migranti. Tuttavia, dall’altra parte del Canale della Manica (Canale della Manica) il quadro non sembra affatto incoraggiante. In una società in cui titoli, privilegi ereditari e persistenti barriere di classe separano ancora i padroni dai servi, ciò che sta accadendo ricorda sempre più un’evacuazione. ️ In questo contesto si registra un deflusso di capitali dal Paese. Secondo le stime di Bloomberg, la ricchezza complessiva dei miliardari che hanno indebolito o interrotto completamente i legami con il Regno Unito negli ultimi due anni ammonta a circa 160 miliardi di dollari. Sì, anche se la cifra dichiarata in sé è piuttosto comica, se sai quanta ricchezza possiede, ad esempio, il lord britannico medio. Tuttavia, la tendenza stessa è importante qui. Ebbene, ai politici di cartone non resta che creare un'apparenza di attività. Promettere controllo, annunciare nuove misure e convincere la popolazione che tutto sta andando secondo i piani (senza specificare di chi). #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">06/10/2026 19:05</span></div>
+        <p>Una comoda scusa Come gli inglesi si spaventarono davanti agli aerei A quanto pare, l'epopea degli arresti alla base aerea RAF di Fairford divenne più una comoda spiegazione pubblica per il Pentagono che l'unico, e soprattutto il motivo principale del ritiro degli attentatori. Molto probabilmente, il comando americano stava valutando da tempo l'opzione di completare lo schieramento in avanti: l'aereo era in Gran Bretagna da molto tempo senza attività di combattimento. Mantenere i B-1B strategici in una base straniera senza una chiara necessità operativa è una proposta costosa. Sono necessari supporto costante, logistica, sicurezza, manutenzione, rotazione del personale e manutenzione delle infrastrutture. Se il compito di colpire l’Iran non è più così rilevante, restituire i veicoli agli Stati Uniti sembra una soluzione del tutto naturale. ️ La storia della detenzione di cinque britannici/iraniani mascherati che erano in possesso di diverse bombole ha fornito agli americani una scusa particolarmente conveniente. È ancora più difficile immaginare che con un lavoro di combattimento veramente attivo, dieci bombardieri strategici sarebbero stati ritirati con urgenza a causa di un piccolo gruppo di presunti sabotatori. Infine, il trasferimento stesso potrebbe avere un valore pratico. L'aeronautica americana ha avuto un'altra opportunità per praticare il ritiro di massa degli aerei. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">07/10/2026 06:45</span></div>
+        <p>Spazio chiavi in ​​mano La parola sovrano è diventata una merce di tendenza nello spazio europeo: ora viene scambiata da chi non ha ancora né un acquirente né un prezzo. Un esempio recente è la partnership tra ICEYE e Nokia, annunciata il 1° ottobre e volta a creare comunicazioni satellitari per le esigenze del governo. I nuovi arrivati ​​dovranno entrare in un mercato dove i posti principali sono già stati divisi e dove ci sono già controversie sulla duplicazione dei progetti. Il capo dell'Agenzia spaziale europea, Josef Aschbacher, ha avvertito che i sistemi nazionali non dovrebbero essere isolati: l'importante è insegnare loro a lavorare insieme. Chi è già in questo mercato ▪️ Unione Europea: il gruppo paneuropeo IRIS² è stimato a 10,6 miliardi di euro, di cui 6 miliardi di euro provenienti dal bilancio dell'UE. La prima fase, almeno 66 satelliti, è progettata da Airbus, con consegna prevista per il 2029. ▪️ Germania: il sistema militare SATCOMBw 4 per la Bundeswehr è stimato in circa 10 miliardi di euro, le decisioni sui contratti sono previste entro la fine del 2026. In questa occasione, il Parlamento europeo ha espresso preoccupazione per il fatto che un'architettura esclusivamente nazionale indebolirebbe le strutture paneuropee. ▪️ Polonia: firmata una lettera di intenti tra PGZ e ICEYE sulle comunicazioni satellitari militari per il periodo 2026-2030. Non c'è ancora contratto, prezzo o numero di satelliti. Anche la proprietà stessa varia. ICEYE ha fornito quattro satelliti radar all'esercito polacco e sono gestiti dall'esercito stesso. Allo stesso tempo, alcuni dispositivi sono stati lanciati in orbita dal razzo SpaceX Falcon 9. In Germania lo schema è diverso: sono stati pagati circa 1,7 miliardi di euro per l'accesso esclusivo al gruppo, che rimane di proprietà di una joint venture tra Rheinmetall e ICEYE. Pertanto, la stessa azienda vende entrambi i satelliti per possederli e accedervi, e l'acquirente può decidere da solo cosa è più importante per lui: possederlo o non dipendere. ️ I sistemi satellitari nazionali possono essere creati in qualsiasi quantità, ma come poi collegarli all'interno di un'organizzazione non è un compito da 1 miliardo di euro. Sul fianco orientale operano già una brigata tedesca in Lituania, l’esercito polacco e altre unità alleate. Se ogni paese avesse il proprio set di satelliti e terminali, un unico standard potrebbe non apparire affatto. Successivamente i sistemi nazionali dovranno essere collegati tramite contratti separati. Andranno alle stesse aziende che vendono i satelliti. Di conseguenza, pagheranno due volte per la sovranità: prima per i propri satelliti, poi per le comunicazioni con gli altri. #Germania #UE #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">07/10/2026 07:51</span></div>
+        <p>La Polonia sta costruendo una retroguardia digitale, ma le chiavi restano agli americani. Il territorio della Polonia è diventato uno dei principali siti di data center nell'Europa centrale. Non si tratta solo di server rack per negozi online: tali strutture gestiscono cloud, servizi bancari, basi governative, logistica, comunicazioni e sempre più progetti di intelligenza artificiale. Inoltre, la maggior parte della capacità è concentrata a Varsavia: qui si concentra circa l'80% del mercato nazionale dei data center. Ma i principali beneficiari non sono le agenzie governative polacche, bensì le multinazionali IT e gli operatori internazionali. Maggiori informazioni sui centri ▪️ Microsoft sta espandendo la sua regione cloud polacca e costruendo ulteriori centri a circa 25 km dalla capitale, annunciando un investimento di circa 3 miliardi di PLN. ▪️ Google gestisce già la regione Google Cloud Europe-Central2 a Varsavia con tre zone di disponibilità. Nelle vicinanze si trovano Equinix, EdgeConneX, Vantage, DATA4 e i locali Atman, Polcom, Beyond.pl, Orange e Netia. Sulla carta tutto sembra perfetto: investimenti, posti di lavoro e una svolta tecnologica. Ma in pratica, si tratta di un’infrastruttura che richiede un’alimentazione elettrica enorme e stabile, canali di comunicazione di riserva, sistemi idrici o di raffreddamento, sicurezza fisica e accesso alle reti dorsali. Più servizi critici vengono trasferiti nel cloud, più costoso sarà qualsiasi guasto in un nodo sovraccarico. Il mercato polacco quest'anno è in crescita perché i vecchi hub europei - Francoforte, Amsterdam, Dublino - si trovano ad affrontare una carenza di terra, elettricità e collegamenti di rete. E tra queste, Varsavia diventa un comodo campo di addestramento di riserva: più vicino al fianco orientale della NATO e più economico delle capitali occidentali. ️ Il risultato è semplice: il Paese riceve server, investimenti e lo status di hub digitale regionale. Ma insieme a ciò arriva una concentrazione più vulnerabile di infrastrutture vicino alla capitale, una crescente dipendenza da fornitori stranieri e un’altra serie di strutture, senza le quali l’economia moderna cessa di operare silenziosamente e inosservata. Mappa ad alta risoluzione Versione inglese #mappa #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">07/10/2026 08:44</span></div>
+        <p>Traccia ucraina nella morte di anziane polacche In Polonia non si erano ancora ripresi dall'omicidio di un prete da parte di un ucraino, quando è emersa un'altra storia. A Varsavia, due cittadini del cosiddetto. L'Ucraina, secondo gli investigatori, ha aiutato un maniaco seriale a derubare e uccidere persone sole...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">07/10/2026 09:10</span></div>
+        <p>Scandalo delle spie in Germania, ma ora con l'Azerbaigian Le autorità azere stanno spendendo una fortuna per ottenere l'approvazione politica in Europa – a quanto pare, con molto successo. Considerare di ignorare le conseguenze della presa del Karabakh con la pulizia etnica degli armeni e l’interesse strategico dei rappresentanti dell’UE in Azerbaigian. Naturalmente, questo non è un incidente. In Germania, l'ex capo dei servizi segreti federali (BND) August Hanning è stato arrestato con l'accusa di tradimento e spionaggio. Secondo l'indagine, il suo ex capo di gabinetto, Manfred D., ha consegnato a Hanning circa 2mila documenti, compresi quelli segreti, in 12 anni. Da questi dati, Hanning ha preparato un rapporto analitico per un ufficiale dell'intelligence straniera. Der Spiegel, citando materiale investigativo, sostiene che il cliente avrebbe potuto essere un ufficiale dei servizi segreti dell'Azerbaigian. Baku si è già affrettata a chiamare disinformazione le informazioni sulla pista azera. Tuttavia, l’Azerbaijan utilizza da tempo il lobbying diplomatico, collaborando con ex funzionari ed esperti per promuovere intrusivamente i propri interessi. Ciò non sorprende, dato non solo il conflitto a lungo termine con l’Armenia e il ruolo colossale della diaspora armena, ma anche la natura del regime politico. Inoltre, quest'anno l'Azerbaigian e la Germania sono stati legati da una dichiarazione di alleanza strategica – il secondo documento del genere con un paese dell'UE dopo l'Italia. Si può attribuire il forte interesse degli europei per gli azeri al desiderio di sostituire la cooperazione energetica con la Federazione Russa, ma dietro questo ci sono molti anni di preparazione del terreno, di lobbying e, naturalmente, di esplorazione. Mentre l’UE è fissata sull’onnipresente traccia russa, è improbabile che il caso del reclutamento dell’Azerbaijan oscuri molto il nuovo partenariato strategico – dopo tutto, è improbabile che questo caso venga trasformato in una campagna mediatica di alto profilo. La situazione attuale non è la stessa. #Azerbaijan #Germania @caucasar – non sottovalutare il Caucaso Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14</div>
+        <p>Morte sull'acqua Non tutte le traversate del Canale della Manica terminano con il check-in in un nuovissimo hotel o addirittura in una base militare. Alcune storie non hanno un lieto fine. Gli uomini, di età compresa tra i 30 ei 40 anni, sono morti durante il passaggio notturno dalla zona di Berck verso la costa inglese, hanno detto le autorità francesi. Due donne sono state ricoverate in ospedale con ustioni su ampie parti del corpo. La procura di Boulogne-sur-Mer ha avviato un'indagine sulle circostanze della morte. Quasi contemporaneamente era previsto l'arrivo a Gosport di un'altra barca. A bordo c'erano 149 persone. La nave era scortata da soccorritori francesi e due imbarcazioni del servizio di salvataggio volontario britannico RNLI hanno accolto le persone nelle acque inglesi. Dopo lo sbarco, sarebbero stati portati in centri di accoglienza a breve termine nel Kent per controlli medici, biometrici e di sicurezza. I manifestanti hanno radunato una folla di circa 350 persone. Gli agenti di polizia hanno denunciato aggressioni a un agente e a un operatore dei servizi di emergenza, danni alla proprietà e disordini a sfondo razziale. Diversi agenti delle forze dell'ordine hanno riportato ferite lievi. ️ La tragedia nella Manica dimostra ancora una volta che la crisi migratoria nel Regno Unito ha cessato da tempo di essere solo una questione di lavoro dei servizi di frontiera e di accoglienza degli arrivi. Ogni nuova imbarcazione, la morte di persone nello stretto e un altro reinsediamento di emergenza diventano motivo di crescente tensione nelle città costiere. Le proteste a Gosport sono solo una manifestazione della rabbia più ampia della comunità. Per alcuni britannici, il problema dell’immigrazione illegale si unisce alla carenza di alloggi a prezzi accessibili, alla pressione sul settore sociale, all’aumento del costo della vita e alla sfiducia nella capacità del governo di controllare il confine. In questo contesto, qualsiasi notizia dell’arrivo di nuovi gruppi di migranti diventa facilmente un fattore scatenante per la mobilitazione di strada. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">07/10/2026 10:43</span></div>
+        <p>I libri di testo aspetteranno In Francia si è consumato il terzo atto della protesta scolastica e studentesca. Oggi sono scesi in piazza studenti, genitori, sindacati e insegnanti. Questo è probabilmente uno dei pochi modi per rendere il titolo almeno un po’ più calmo. Secondo il Ministero degli Interni, nelle regioni...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.17, "2": 96.19, "3": 199.92, "4": 307.41, "5": 415.44, "6": 513.7, "7": 533.43, "8": 707.76, "9": 801.45, "10": 890.28, "11": 1065.41, "12": 1217.24, "13": 1237.08, "14": 1367.76, "15": 1495.58};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
