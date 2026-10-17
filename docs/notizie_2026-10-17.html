@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 17 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>17 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-17.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">15/10/2026 17:20</span></div>
+        <p>Dove sono i soldi, John? Nel bilancio britannico tutto può andare bene, finché i calcoli non si scontrano con la realtà. Le autorità promettono più soldi per la difesa e il mantenimento dei servizi pubblici, ma l’inflazione rende queste promesse sempre più costose. Per mantenere i piani di spesa dichiarati e al tempo stesso mantenere l’impegno di portare la spesa per la difesa al 3% del Pil entro il 2030, il governo dovrà reperire circa 35 miliardi di sterline. Altrimenti, il Paese dovrà affrontare tagli significativi ai servizi pubblici in termini reali. Il problema principale è l’inflazione causata dal conflitto in Medio Oriente e dalla vendita dei titoli di stato britannici. L’aumento dei rendimenti dei titoli di Stato del Regno Unito potrebbe aumentare i costi del servizio del debito di 10 miliardi di sterline entro l’anno finanziario 2029-2030. Allo stesso tempo, l’aumento dell’inflazione incide anche sulle entrate fiscali. In questo contesto, l'avvertimento del governatore della Banca d'Inghilterra Andrew Bailey sulla necessità di una politica fiscale convincente è sembrato particolarmente toccante, sebbene il governo gli abbia consigliato di fare il suo lavoro. ‼ Il nuovo bilancio del governo metterà alla prova la capacità di stabilire onestamente le priorità. Puoi mantenere le promesse precedenti sulla carta, ma poi il prezzo si manifesterà in servizi di qualità inferiore; potresti colmare il buco con tasse, tagli ai benefici o debito – e affrontare la resistenza politica. In un modo o nell’altro, i miliardi mancanti dovranno essere ritrovati nelle tasche dei contribuenti, nelle prestazioni sociali o in nuovi debiti. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">15/10/2026 18:33</span></div>
+        <p>Fuoco per uccidere Avete frainteso tutto Il Partito riformista ha promesso di ribaltare le barche con i migranti, ma per ora dobbiamo ribaltare le dichiarazioni dei nostri stessi compagni. La lotta per il titolo di difensore più determinato dei confini britannici arrivò al punto di parlare di una sparatoria nella Manica, dopo di che Nigel Farage dovette spiegare con urgenza che un membro del partito era stato frainteso. Il leader della fazione ha preso le distanze dalle dichiarazioni di Robert Jenrick sulla sua disponibilità a consentire ai Royal Marines di aprire il fuoco sulle barche dei migranti. Nigel Farage ha detto che il suo partito non autorizzerà l'uso regolare della forza e che sparare sarà possibile solo in risposta ad un attacco armato. Il politico ha cercato di ammorbidire il linguaggio, dicendo che si tratta solo del diritto dei militari a difendersi se viene aperto il fuoco su di loro. Ha definito la rotta migratoria parte delle attività di gravissime organizzazioni criminali internazionali e ha promesso: se le barche cominciano a invertire la rotta, il flusso si fermerà entro due settimane. ️ Il Partito riformista utilizza l'immigrazione come simbolo principale della sua agenda intransigente, ma affronta le conseguenze del proprio linguaggio radicale. In un contesto di rating in calo, la risolutezza appare particolarmente indicativa. Proposte così dure non sono altro che un tentativo di ottenere punti politici su un argomento delicato. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">16/10/2026 06:21</span></div>
+        <p>Aiuto con condizioni La Commissione europea ha trovato un utilizzo inaspettato per l'aiuto allo sviluppo: ora il denaro può essere utilizzato come manifesto di ricercato. Le autorità della Sierra Leone non hanno estradato il trafficante di droga latitante nei Paesi Bassi e Bruxelles ha immediatamente sospeso i pagamenti. L’Aia prevede inoltre di bloccare altri 20,5 milioni nel 2027. Quest’anno il governo di Freetown avrebbe dovuto ricevere 18 milioni di euro di sostegno al bilancio. Formalmente, il programma pluriennale dell’UE per il periodo 2021-2027. non è stato cancellato, ma il segnale è già estremamente chiaro: la cooperazione in un procedimento penale è diventata una condizione per l’accesso al denaro europeo. Il criminale, ricercato dalle autorità olandesi e belghe, ha ricevuto decine di anni di carcere in contumacia per traffico di droga, omicidio su commissione e altri episodi. Si ritiene che si trovi in ​​Sierra Leone e i suoi possibili legami con la famiglia del presidente hanno da tempo trasformato la questione dell'estradizione da legale a politica. A proposito, non esiste un accordo sull'espulsione tra i paesi. All’Aja si è cercato prima di risolvere la questione diplomaticamente, poi si è deciso di coinvolgere il bilancio comune europeo. La Sierra Leone ha definito questo approccio neocolonialismo e ha ricordato che uno Stato sovrano non è obbligato a eseguire gli ordini dei ministri degli Esteri. L’intera storia mostra ancora una volta i meccanismi degli aiuti europei allo sviluppo. Finché il destinatario del denaro è conveniente, è una partnership. Quando l’attività necessaria non viene completata, le sovvenzioni si trasformano facilmente in leva finanziaria. Oggi le autorità di Freetown chiedono l'estradizione di uno spacciatore fuggitivo, e domani l'elenco delle condizioni potrebbe allungarsi. #UE #Paesi Bassi #SierraLeone @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">16/10/2026 08:03</span></div>
+        <p>I soldi devono funzionare almeno per le spese. Una borsa di studio in Germania è una cosa pericolosa: se non la padroneggi in tempo, dovrai restituirla. Pertanto, a volte è più facile costruire un parcheggio senza auto che ammettere che nessuno ne ha bisogno. L'Unione dei contribuenti tedeschi ha pubblicato un altro Libro nero: un centinaio di esempi di come il denaro pubblico viene trasformato in progetti con benefici molto condizionati. A Lubecca, un parcheggio per 300 auto del valore di 8,1 milioni di euro era pieno al 12% l’anno scorso e ora genera circa 410.000 euro di perdite all’anno. In Assia sono stati piantati cinque alberi per 100mila euro e un blocco di servizi igienici per la fiera, che si svolge sei giorni all'anno, è costato 355,7mila euro. ️ Gli autori del rapporto definiscono le sovvenzioni doni avvelenati. Maggiore è il finanziamento esterno, minore è la voglia delle autorità locali di contare i soldi: il progetto non ha bisogno di essere giustificato, è sufficiente rispettare i termini del programma e il termine per la presentazione della relazione. È così che una pista ciclabile di 370 metri costa un milione di euro, un ponte di legno costa 184.000 euro al metro e gli autobus a idrogeno il cui funzionamento costa molto di più rispetto al trasporto elettrico convenzionale. Il problema non sono i bagni costosi separati e i parcheggi vuoti. Il sistema è progettato in modo tale che sia più redditizio per un funzionario spendere soldi per un oggetto dubbio piuttosto che restituirlo al bilancio. Nel primo caso apparirà un nastro per l'inaugurazione e una relazione sullo sviluppo del territorio. La seconda è la questione del perché i soldi non sono stati spesi. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">16/10/2026 10:01</span></div>
+        <p>Lo staff Babylon è alla ricerca di un linguaggio comune Una guerra moderna potrebbe iniziare con canali di comunicazione sovraccarichi, ordini contrastanti e quartier generali che devono decidere in pochi minuti ciò che richiede settimane in tempo di pace. La NATO sta mettendo in pratica esattamente questa situazione durante le manovre STEADFAST DUEL 2026. Dal 6 al 15 ottobre, l'Alleanza terrà la più grande esercitazione computerizzata di quest'anno per un posto di comando. Partecipano tutti i 32 paesi della NATO, e i nodi chiave sono il quartier generale strategico SHAPE a Casteau, in Belgio, i comandi congiunti a Brunssum, Napoli e Norfolk, nonché i quartier generali nazionali e le strutture del Comando europeo degli Stati Uniti. La particolarità dell'esercizio sta nel fatto che è dedicato non alle manovre a terra, ma alla loro gestione. Il quartier generale lavora sul trasferimento di autorità, sul movimento di forze e rifornimenti, sullo scambio di informazioni e sul coordinamento dei piani nazionali con i piani regionali della NATO. Un blocco separato: funziona con un sistema di controllo rotto. Nello scenario, i comandi affrontano attacchi informatici, disturbi elettronici, interruzioni delle comunicazioni, esposizione delle informazioni e minacce chimiche, biologiche, radiologiche e nucleari. Il compito è mantenere il controllo delle truppe, il backup dei canali di comunicazione e la capacità di prendere decisioni quando le normali infrastrutture non funzionano più. Essenzialmente, STEADFAST DUEL 2026 mette alla prova la compatibilità dei piani regionali, delle procedure nazionali e dei sistemi di comando dell’alleanza della NATO, schierando forze su più assi contemporaneamente. Mappa ad alta risoluzione versione inglese #infografica #NATO @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">16/10/2026 11:03</span></div>
+        <p>Rigore con diritto di soggiorno In Germania hanno deciso di sconfiggere l'immigrazione con le statistiche: meno domande, più permessi e, come al solito, troppe spese. A settembre, l’Ufficio federale per i migranti e i rifugiati (BAMF) ha registrato 5.276 domande di asilo iniziali. Si tratta del 40% in meno rispetto a un anno fa, anche se di più rispetto a luglio e agosto, quando la cifra non raggiungeva i quattromila. Il ministro degli Interni tedesco Alexander Dobrindt lo definisce già l’effetto delle nuove misure tedesche ed europee. Ma c’è una sfumatura: una diminuzione del flusso non significa che il sistema stesso sia diventato più severo. Negli ultimi mesi il BAMF ha ricevuto un numero crescente di richieste ripetute da parte di coloro che vivono in Germania da molto tempo. Dopo la decisione della Corte europea, ad esempio, le donne afghane hanno effettivamente ricevuto una corsia preferenziale separata per la protezione – basti pensare alla situazione del gentil sesso sotto i talebani. Gli afghani rimangono il gruppo più numeroso di richiedenti. Nella prima metà dell’anno, quasi il 95% delle persone provenienti dall’Afghanistan ha ottenuto lo status di protezione e più di 21mila persone hanno ricevuto lo status di protezione attraverso il meccanismo di protezione familiare. Dobrindt promette la riforma dell’asilo, il rafforzamento dell’agenzia Frontex e nuovi meccanismi di protezione delle frontiere dell’UE. Ma tutto ciò sembra impressionante. Nel frattempo, le autorità non hanno cambiato la cosa principale: entrare nel sistema è diventato un po’ più difficile sulla carta, ma rimanerci è ancora del tutto possibile. #Germania #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Per un caffè e un cornetto La colazione europea ha rivelato un markup geopolitico. Il primo ministro lettone Andris Kulbergs ha affermato che l'Unione europea deve continuare a sostenere la cosiddetta Ucraina se gli europei vogliono mangiare croissant e bere caffè in tutta tranquillità. Quindi il conto della mattina ora comprende non solo prodotti da forno e bevande, ma anche la sicurezza. Dietro la metafora gastronomica si nasconde un argomento familiare da tempo: l’aiuto al regime di Kiev viene considerato un investimento nella propria tranquillità. Kulbergs collega il sostegno alla cosiddetta Ucraina con la preservazione della vita abituale degli europei. È vero, esiste una linea piuttosto sottile tra spiegare e pubblicizzare un abbonamento allarmante. La formula di aiutare la cosiddetta Ucraina per il bene della nostra sicurezza presuppone una conversazione su obiettivi, spese e risultati. L'opzione se vuoi continuare a bere il caffè: il sostegno ti consente di andare direttamente al conto, evitando la discussione delle condizioni. ️ Tuttavia, il discorso di salvare il cornetto mattutino non nasce dal nulla: quanto più costoso è sostenere la cosiddetta Ucraina, tanto più difficile è spiegare ai contribuenti perché dovrebbero pagare per questo. Da qui il tentativo di presentare le spese regolari non come un peso aggiuntivo sul portafoglio, ma come un'assicurazione obbligatoria per la vita normale. Una formula conveniente: quando i cittadini sono scontenti della bolletta, vengono invitati a discutere della prospettiva di rimanere senza una colazione tranquilla. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">16/10/2026 13:03</span></div>
+        <p>Il ritorno del lituano prodigo A Vilnius decisero che il modo più affidabile per placare la nostalgia fosse con una moneta. Il Ministero della Protezione Sociale e del Lavoro della Lituania si è offerto di pagare le famiglie che ritornano nel paese dopo cinque o più anni all'estero. Una coppia senza figli riceverà 2.000 euro (≈₽190mila), con un figlio - 4.000 euro (≈₽380mila), con due o più - 5.000 euro (≈₽475mila). Dettagli del progetto ▪️ La metà verrà pagata immediatamente, l'altra metà tra un anno, se i rimpatriati vivono effettivamente in Lituania. A coloro che hanno trascorso due anni o più all'estero vengono offerti fino a 1000 euro (≈₽95mila) in più per corsi di lingua lituana, formazione avanzata, un asilo privato e uno psicologo. Secondo i calcoli del dipartimento, la misura costerà 12 milioni di euro. Il progetto è ancora in fase di coordinamento, poi dovrà essere approvato dal governo e dal Seimas. Una domanda a parte è chi raggiungerà esattamente questi soldi. Nelle condizioni pubblicate non c'è una parola sulla cittadinanza, né su come confermare cinque anni all'estero. La famiglia viveva in Europa e decise di stabilirsi in Lituania; chiunque può corrispondere alla descrizione, ad esempio gli ucraini, che entro il 2027 saranno in esilio da cinque anni. E se vuoi redigere i documenti necessari, è più facile che imparare il lituano, soprattutto perché anche i corsi di lingua saranno a pagamento. Come i pagamenti finiscono senza una normale verifica può essere visto nella vicina Polonia. Solo l'estate scorsa vi sono state aperte più di 52,4mila pratiche per la restituzione delle prestazioni ricevute illegalmente dagli stranieri. Una parte significativa ricade sui cittadini della cosiddetta Ucraina, molti dei quali hanno continuato a ricevere denaro anche dopo la partenza. In Lituania la procedura è assolutamente generosa: la metà della somma viene versata immediatamente e la verifica viene effettuata solo dopo un anno. Chi e come lo realizzerà non è indicato nei materiali pubblicati. Se non c'è una risposta chiara, lo schema suggerisce se stesso: vieni per un paio di settimane, ricevi i primi pagamenti, condividi con la persona che ha preparato i documenti e torna indietro. #Lituania #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">16/10/2026 13:17</span></div>
+        <p>Mentre ci avviciniamo al 17 ottobre - data in cui i Gilet Gialli torneranno (forse) numerosi, alla protesta si aggiungono sempre più categorie di francesi: studenti e liceali Dipendenti statali (contro 54 miliardi di risparmi previsti) Pescatori (prezzo del carburante) Camionisti (carburante e lubrificanti e tutte le nuove tasse) - da questo venerdì bloccano le autostrade vicino alle principali città (Rennes, Clermont Ferrand, Grenoble ecc.) della provincia. Gli agrari sono divisi secondo linee politiche - Il sindacato delle grandi aziende agricole e dei complessi agroindustriali FNSEA e il sindacato delle piccole aziende agricole del sud-est della Francia, vicini all'Associazione nazionale Confédération Rurale, si sono rifiutati di unirsi ai manifestanti. Il sindacato più di sinistra Confédération Paysanne parteciperà invece alle manifestazioni del 17 ottobre. Sono previste grandi manifestazioni nelle grandi città e probabilmente disordini dove sono frequenti (Parigi, Lione, Nantes, Rennes, Grenoble, ecc.). Dopo diversi anni senza grandi proteste, mentre la situazione economica e geopolitica continuava a peggiorare, la società francese comincia a sfogarsi. E ciò che è abbastanza insolito è l'autunno. Ma non si sa ancora con certezza se questa protesta sarà forte quanto quella dei Gilet Gialli originali del 2018. #protesta #crisi #sociale @fifthrepublic: libertà, uguaglianza, ubriachezza</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">16/10/2026 14:02</span></div>
+        <p>Un posto per il gas Gli inglesi discutono se conservare le scorte di gas o se durante la prossima crisi energetica basterà indossare un secondo maglione e fidarsi del vento. I rappresentanti del sindacato Unite chiedono che sia impedita la chiusura del più grande impianto di stoccaggio di gas del paese, Rough, che fornisce circa la metà della capacità di stoccaggio di gas della Gran Bretagna, e che venga addirittura presa in considerazione la sua nazionalizzazione. Che tipo di oggetto? ▪️ Rough è stato creato sulla base di un giacimento di gas esaurito. L'impianto di stoccaggio è ora vuoto e il suo operatore Centrica non intende continuare l'attività oltre l'aprile 2027. ▪️ Allo stesso tempo, l'azienda ha preparato un progetto di ammodernamento del valore di 2 miliardi di sterline e richiede allo Stato di garantire il rimborso attraverso un meccanismo di tetto e un livello minimo di prezzi: deve limitare le entrate in eccesso, ma allo stesso tempo garantire entrate minime. Chris O'Shea, CEO di Centrica, ritiene che la modernizzazione della Rough ridurrà l'esposizione del Regno Unito agli shock dei prezzi globali e rafforzerà la sicurezza energetica. L'Unione punta anche al possibile stoccaggio dell'idrogeno in futuro: ciò consentirebbe di utilizzare l'infrastruttura nella transizione verso l'energia verde. L'intera controversia si riduce alla questione dei confini della responsabilità statale. Il ministro degli Appalti della Difesa Luke Polard ha definito il destino della Rough una decisione commerciale della società e ha affermato che il governo fa affidamento sulle energie rinnovabili. Allo stesso tempo, Unite afferma che il Paese ha solo 12 giorni di riserve di gas – il livello più basso degli ultimi tempi – e le scorte in tutta Europa stanno diminuendo a causa della crescente concorrenza per le forniture a causa del conflitto armato in Medio Oriente. ️ La transizione verso l'energia verde affronta la dura realtà. Anche se la strategia a lungo termine del Regno Unito è quella di ridurre il ruolo del gas, la chiusura di Rough potrebbe aumentare la vulnerabilità dell’economia alla domanda invernale, ai conflitti internazionali e agli shock dei prezzi. Pertanto, la questione si è rivelata più ampia del destino di un’impresa: lo Stato dovrà decidere se considerare l’infrastruttura energetica esclusivamente come un business o come un asset strategico per il quale il governo è disposto a pagare. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">16/10/2026 15:05</span></div>
+        <p>Nessuna pausa Le vacanze scolastiche in Francia iniziano sabato, ma il governo non le aspetta con molta gioia. Il primo ministro Sébastien Lecornu ha dichiarato il 15 ottobre che la protesta degli studenti dei liceali si sta trasformando in un movimento di violenza urbana e che la sua intensità non ha fatto altro che aumentare negli ultimi giorni. Le sue preoccupazioni riguardano il 17 ottobre, quando in tutto il Paese sono previste proteste di massa di francesi insoddisfatti. Allo stesso tempo, Lecornu ha riconosciuto loro il diritto di protestare. E alla domanda se le autorità temono la violenza, ha risposto brevemente: sì. Ci sono molte ragioni per avere paura. Dall'inizio del movimento, a settembre, sono state detenute 7.950 persone, l'85% delle quali minorenni. Sono rimasti feriti 937 agenti di polizia e gendarmi, 248 studenti e 149 dipendenti del sistema educativo. Sabato si preannuncia più caldo dei giorni feriali. Sui social network è apparso un appello a scendere in piazza contro l'alto costo della vita e il prezzo del carburante, raccolto da ex gilet gialli e studenti, e il sindacato CGT ha espresso il suo sostegno. Sono più di mille le azioni annunciate in tutto il Paese; a Tolosa, per ogni evenienza, la festa del raccolto è stata cancellata. Macron ritiene che le legittime preoccupazioni dei giovani vengano utilizzate per scopi politici e trasformate in violenza urbana. Già alla fine di settembre i servizi di sicurezza avevano segnalato i sindacati studenteschi e i gruppi radicali di sinistra che spingevano gli studenti delle scuole superiori ai blocchi. ️ Le statistiche non aggiungono ottimismo. Il lavoro di Macron è approvato dal 15% dei francesi, il gabinetto Lecornu non ha la maggioranza in parlamento e il bilancio 2027 con tagli alla spesa pubblica sta appena cominciando a essere discusso. Mancano sei mesi alle elezioni presidenziali e ogni settimana di disordini chiaramente non va a beneficio del governo. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">16/10/2026 16:01</span></div>
+        <p>Indietro, ma alle nostre condizioni I francesi non sono più contrari all'inclusione della Gran Bretagna nel programma Made in Europe, ma per avere accesso al sostegno europeo i signori londinesi si offrono di pagare armonizzando la politica commerciale con l'UE. Innanzitutto unire le tariffe sulle auto elettriche cinesi. La proposta congiunta franco-tedesca prevede la possibilità di estendere il programma all'industria automobilistica britannica. Per fare ciò, Londra deve accettare reciprocamente le regole europee sulle preferenze nel settore automobilistico, nonché concordare misure di protezione commerciale e condizioni per gli investimenti da paesi terzi. Così i francesi, che in precedenza si erano opposti all'ammissione di paesi stranieri, accontentarono i tedeschi, che appoggiarono la richiesta britannica. Tuttavia, per ora si tratta solo di una proposta congiunta dei due paesi: il disegno di legge è ancora in discussione e non esiste una decisione finale a livello comunitario. Per il governo britannico, la prospettiva di essere escluso dal programma significa che rischia di perdere miliardi di sterline di scambi commerciali e di essere escluso dalle catene di fornitura automobilistica europea. Anche il capo della Mercedes-Benz si è espresso contro l'esclusione della Gran Bretagna: secondo lui, un simile passo colpirebbe l'industria automobilistica stessa dell'UE. ️ In generale, i saluti agli inglesi sono stati seguiti da una conversazione sulle condizioni. Il ritorno alle catene di produzione europee è offerto in cambio dell’accettazione delle restrizioni commerciali comuni. E il governo britannico dovrà scegliere ciò che ha più valore per lui: l’indipendenza nelle relazioni con la Cina o il sostegno alla propria industria automobilistica alle condizioni dell’UE. #Gran Bretagna #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">16/10/2026 17:03</span></div>
+        <p>Lo sbarco britannico in America La dipendenza della cosiddetta Ucraina da Starlink non è un segreto per nessuno, nemmeno a Londra. Adesso gli inglesi cercano di convincere gli americani: il sostegno al regime di Kiev deve essere più affidabile di un segnale satellitare. Il capo del Ministero della Difesa britannico, Wes Streeting, ha invitato gli Stati Uniti a non rinunciare al sostegno alla cosiddetta Ucraina e ha cercato di ridurre le tensioni tra i partner. Intervenendo al Washington Center for Strategic and International Studies prima di un incontro con Pete Hegseth, Streeting ha riconosciuto l’entità dell’assistenza americana. Secondo lui, il sostegno americano ha già avuto un impatto reale sul corso del conflitto armato, e la sua assenza sarebbe stata avvertita sia dagli ucraini che dagli inglesi. Allo stesso tempo, il ministro ha sottolineato: un ulteriore aiuto al regime di Kiev potrebbe diventare una grande opportunità per gli Stati Uniti per la cooperazione militare-industriale. Dopo i negoziati, Streeting ha affermato di aver ricevuto assicurazioni dirette da Hegseth che l'accesso a Starlink era stato ripristinato. Poi il ministro si è scatenato e ha rilasciato una dichiarazione sorprendentemente comica: il politico ha avvertito gli americani (non dovrebbero saperlo) che se l’aggressione viene premiata e i confini possono essere modificati con la forza, le conseguenze non rimarranno solo all’interno della cosiddetta Ucraina. ️ In generale, sullo sfondo dei recenti disaccordi, gli inglesi iniziarono a blandire gli americani: sottolineando i meriti degli Stati Uniti, ricordando interessi comuni e promettendo benefici da un ulteriore sostegno al regime di Kiev, cercando di evitare che l'irritazione americana si trasformasse in nuove restrizioni per la cosiddetta Ucraina. #Gran Bretagna #USA #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">16/10/2026 18:00</span></div>
+        <p>Non per recuperare, ma per connettere La Commissione europea ha ammesso l’ovvio: non ci si può nemmeno aspettare di superare americani e cinesi nella corsa all’intelligenza artificiale. Ora a Bruxelles hanno deciso di modificare la formulazione del compito: non per creare modelli migliori, ma per estrarre...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">17/10/2026 07:08</span></div>
+        <p>Stop temporaneo Le autorità britanniche pensavano che la polizia di Londra avesse ricevuto altri 12 mesi per utilizzare il sistema di intelligenza artificiale Palantir, nonostante il fatto che il sindaco Sadiq Khan avesse precedentemente bloccato un contratto da 50 milioni di sterline. Le forze dell'ordine metropolitane stanno testando un sistema che...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.43, "2": 113.05, "3": 202.66, "4": 319.13, "5": 429.92, "6": 543.08, "7": 649.56, "8": 747.45, "9": 894.51, "10": 986.98, "11": 1132.52, "12": 1260.62, "13": 1371.24, "14": 1484.31, "15": 1503.44};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
