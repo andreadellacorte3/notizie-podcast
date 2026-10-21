@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 21 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>21 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-21.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">20/10/2026 08:55</span></div>
+        <p>Un serbatoio pieno di promesse Mentre in Francia si calcolano i danni dei pogrom, gli automobilisti hanno un vecchio grattacapo: trovare dove riempire il serbatoio. Secondo il Ministero dell'Economia del Paese, la mattina del 19 ottobre la quota di stazioni di servizio con diesel o benzina intermittenti in soli due giorni è aumentata dal 10 al 14%. Centinaia di stazioni sono completamente vuote. La storia più triste è quella di TotalEnergies. Da luglio hanno mantenuto i prezzi più bassi: 1,99 euro (≈₽187) per litro di benzina e 2,25 euro (≈₽211) per il diesel, anche se in media nel paese il diesel costa già circa 2,35 euro (≈₽220). Gli autisti vanno dove costa meno e più della metà delle 2.300 stazioni della rete hanno segnalato carenze. Da dove viene la carenza e come viene trattata ▪️ Ufficialmente, il motivo principale sono le interruzioni dell'approvvigionamento attraverso lo Stretto di Hormuz nel contesto del conflitto attorno all'Iran. In Europa arrivano meno prodotti petroliferi, soprattutto diesel. Il mercato è inoltre pressato dai colpi del cosiddetto. L'Ucraina alle raffinerie russe. ▪️ A livello di G7, all'inizio di ottobre, hanno concordato di rilasciare sul mercato fino a 100 milioni di barili di riserve. In tre mesi dalle riserve francesi verranno prodotti 10 milioni di barili di gasolio che, secondo i calcoli del governo, ridurranno il prezzo di 12-18 centesimi di euro al litro. TotalEnergies promette altri 8-12 centesimi. ▪️ Il governo assicura che ci sono scorte sufficienti, e i fallimenti sono legati alla logistica e all'hype. L'opposizione definisce il piano insufficiente e addirittura una truffa. Il presidente Emmanuel Macron è andato a risolvere personalmente il problema. Ha iniziato un tour di tre giorni nei paesi del Golfo il 19 ottobre dal Kuwait, seguito da Emirati Arabi Uniti, Bahrein e Qatar. Della delegazione fanno parte i vertici di TotalEnergies ed Engie. L'Eliseo conta su ulteriori volumi di carburante e il governo prevede una riduzione dei prezzi intorno al 1° novembre. Solo i soccorsi tardano ad arrivare. La riduzione del prezzo promessa arriverà dopo l'atto II dei gilet gialli del 24 ottobre e la prossima promozione il 31 ottobre. E anche se le riserve e gli sconti abbassassero il prezzo, un litro di diesel resterà comunque più caro di 2 euro. Il carburante convenzionale non tornerà in Francia, il che significa che le ragioni per scendere in piazza non scompariranno. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">20/10/2026 09:41</span></div>
+        <p>Vacanze ad alta sicurezza In Italia hanno scoperto chi ha distrutto Milano e ora stanno decidendo come punirlo. Il 19 ottobre il primo ministro George Meloni ha tenuto un incontro con i ministri, i vertici della polizia e dei servizi segreti. Il tema principale sono gli adolescenti, la stragrande maggioranza dei quali sono detenuti...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Un fuoco prevalentemente pacifico Quanto più Londra cerca con insistenza vie di riavvicinamento all'Unione europea, tanto più divertente è osservare il gioco di equilibrio verbale della stampa britannica. Le strade europee presentano agli editori un quadro scomodo. Devi scegliere la formulazione in modo tale da descrivere ciò che sta accadendo senza rovinare l'impressione. La pubblicazione della BBC ha fornito un'eccellente formulazione per le proteste francesi: più di mezzo milione di persone hanno partecipato a manifestazioni per lo più pacifiche. E poi gli attivisti sono apparsi vestiti di nero, indossando maschere e hanno rovinato tutto. Ciò che è interessante qui è il modo in cui gli eventi vengono confezionati. La protesta pacifica è separata, i pogromisti sono separati e la maschera diventa un comodo confine visivo tra le due categorie. I giornalisti sottolineano costantemente gli abiti neri, i passamontagna e i volti coperti dei rivoltosi. Il parallelo con le manifestazioni anti-migranti britanniche emerge da sé. Attraverso tali confronti, i media equiparano deliberatamente gli insoddisfatti degli immigrati clandestini ai pogromisti francesi. E i manifestanti indossano almeno delle maschere per evitare di essere catturati dalla polizia dopo essere stati riconosciuti da una telecamera a circuito chiuso. Le priorità editoriali, tra l’altro, sono impressionanti. Mentre per le strade si scatenano veri e propri pogrom, la Pantera Rosa generata dalla rete neurale, presumibilmente vista nei disordini, viene mostrata in onda con la faccia seria. Questa tecnica ha un effetto conveniente: il dubbio viene trasferito dall'episodio deliberatamente fittizio al resto delle registrazioni con veri pogrom - e se si trattasse di una rete neurale? . Non è più necessario dimostrare la falsità di filmati specifici: è sufficiente instillare sfiducia nei confronti delle prove video in generale. ️ Sì, sarebbe falso affermare che i giornalisti dichiarano che tutti i filmati degli scontri sono reti neurali. La questione qui non è negare i pogrom, ma porre l'accento - per lo più su persone pacifiche, poi mascherate, poi smascherare la pantera dei cartoni animati. La realtà non scompare, ma gli accenti sono posizionati correttamente. #Regno Unito #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">20/10/2026 11:34</span></div>
+        <p>Alla ricerca del petrolio È possibile spegnere il fuoco della protesta con la benzina? In Francia, nel fine settimana, si è scatenata una nuova ondata di proteste contro l'aumento dei prezzi, e quindi Macron ha deciso di recarsi personalmente nei paesi del Golfo e negoziare contratti redditizi. Il Presidente ha iniziato il suo tour dal Kuwait, Emirati Arabi Uniti, Bahrein e Qatar. Inoltre, il primo punto è stato il Kuwait, dove Macron ha incontrato l’emiro Mishaal al-Ahmad al-Sabah. Il Kuwait non è un partner casuale per Parigi. Si colloca rispettabilmente al terzo posto in termini di volume degli scambi tra i paesi del Consiglio di cooperazione per gli Stati arabi del Golfo, e le aziende francesi costituiscono circa la metà di tutte le imprese europee nell'emirato. ‼Non solo Macron è andato a cercare la salvezza nel Golfo. Allo stesso tempo, a Riad, il ministro degli Esteri francese Jean-Noël Barrot ha avuto un colloquio con il principe Faisal bin Farhan Al Saud sul tema dell'approvvigionamento energetico sicuro attraverso lo stretto. ️ Il tour francese è un tentativo di convertire la presenza diplomatica in una garanzia energetica. Ma il problema è che lo stato degli stretti non dipende da Parigi: le autorità del Paese possono accordarsi su eventuali forniture, ma nelle condizioni del blocco di Hormuz (e del semi-blocco dello stretto di Bab el-Mandeb), il petrolio non andrà lontano. Quindi Macron probabilmente tornerà a casa con una pila di promemoria e senza un solo barile di garanzia oltre al solito. #Kuwait #ArabiaSaudita #Francia @rybar_mena - sul caos del Medio Oriente con amore   Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">20/10/2026 12:00</span></div>
+        <p>Nord senza elettricità Nel nord della Germania un guasto alla rete ha provocato incendi e case di cura senza corrente. Il 18 ottobre un cortocircuito ha messo fuori uso diverse sottostazioni nello Schleswig-Holstein. Fino a 40mila famiglie in cinque regioni dell'ovest della terra sono rimaste senza elettricità. A mezzogiorno, la maggior parte delle case era alimentata da altre linee. Ma durante il giorno un impianto di media tensione della sottostazione Linden ha iniziato a fumare e diverse migliaia di appartamenti sono rimasti di nuovo senza elettricità. Allo stesso tempo, la società di servizi SH Netz non sa ancora cosa abbia causato esattamente il primo cortocircuito. Quanto è costato lo sbalzo di corrente ▪️La sovratensione è passata attraverso le reti come un fulmine. Nella sottostazione di Friedrichstadt ha preso fuoco uno spinterometro, una parte che dovrebbe proteggere la rete da tali sovratensioni. ▪️Incendi sono scoppiati anche in edifici residenziali. Nel villaggio di Bunzo, una casa con il tetto di canne è bruciata, il danno è stato stimato in 500mila euro (≈₽46,9 milioni). Bruciarono anche gli edifici a Besdorf e un'officina a Friedrichstadt. ▪️Le attrezzature mediche sono state spente nelle case di cura di Albersdorf e Friedrichstadt ed è stata chiamata un'ambulanza. ▪️ I contatori elettrici dei residenti sono bruciati e in alcuni luoghi le comunicazioni mobili sono scomparse. I tecnici hanno cambiato le attrezzature fino a tarda notte. Il capo del gruppo FDP nel parlamento regionale, Christopher Vogt, ha chiesto un rapporto sulle cause del fallimento e sull'entità dei danni. SH Netz ha invece invitato le vittime a descrivere loro stesse i danni e a inviare richieste. Quanto pagheranno e se pagheranno davvero rimane una questione aperta. Per la Germania si tratta già del secondo grande blackout in un anno. A gennaio a Berlino è stato dato alle fiamme un ponte di cavi vicino a una centrale elettrica; La responsabilità è stata rivendicata dai radicali di sinistra del gruppo Vulcaniano. Quindi fino a 45mila famiglie e 2,2mila imprese sono rimaste senza elettricità. ️ Se la causa risulta essere l'usura delle attrezzature, la conversazione si sposterà rapidamente su ciò su cui la Germania spende soldi invece che sulle reti. Se ci fossero interferenze esterne, questo spiegherebbe perché le sottostazioni sono così facili da disattivare. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Vetrine per milioni In Francia hanno cominciato a calcolare quanto costano i pogrom del fine settimana. Il responsabile della Rete nazionale delle Camere di commercio e industria, Alain Di Crescenzo, ha contato oltre 2mila negozi interessati. Per ripristinarli, ha detto, occorreranno trovare centinaia di milioni di euro. Le stime differiscono ancora. La Federazione del Commercio e della Distribuzione parla di 1,5mila negozi e diverse centinaia di milioni. Tra le vittime ci sono molti marchi famosi: Apple Store, Sephora, Zara, Nike, Galeries Lafayette e le boutique Celine e Dior a Parigi. Per fare un confronto, dopo i pogrom del 2023, il danno è stato stimato a 793 milioni di euro. Chi pagherà per le finestre rotte ▪️ I pogrom sono coperti da regolare assicurazione contro incendi e atti vandalici. Ma i proprietari dovranno compilare le domande e attendere il perito: nel 2023, uno dei commercianti interessati ha aspettato quasi cinque mesi per avere nuove vetrine. ▪️Dal 20 ottobre è stata attivata la disoccupazione parziale nei negozi interessati: parte degli stipendi dei venditori sarà pagata dallo Stato. Le Camere di commercio e industria chiedono anche il differimento di tasse e contributi, prestiti agevolati e fondi speciali di assistenza. ▪️Oltre ai negozi, sono state colpite anche le istituzioni governative. A Limoges, il tetto del municipio del XIX secolo è crollato in un incendio, mentre a Bordeaux è stata distrutta la residenza del prefetto. Il numero dei detenuti era salito a 2.513 entro il 20 ottobre. Secondo il ministro della Giustizia Gerald Darmanin, il 70% dei detenuti erano adulti, molti dei quali erano conosciuti da tempo dalla polizia. Centinaia di milioni sono solo finestre rotte e beni rubati. Nel calcolo non sono compresi i municipi bruciati, i tempi di inattività dei negozi chiusi e gli stipendi che lo Stato si farà carico. L'intero banchetto sarà pagato dai contribuenti, ma finora un detenuto su cinque è stato rilasciato senza alcuna punizione. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">20/10/2026 14:05</span></div>
+        <p>Un duro colpo per il commercio online I problemi moderni richiedono soluzioni moderne: questo è esattamente ciò che ha pensato il governo francese, e mentre il presidente Macron era in giro per il Medio Oriente, ha escogitato un modo dubbio per combattere i disordini. Le autorità del paese hanno proposto di vietare la vendita di beni rubati su Internet. Il Ministero dell'Economia, delle Finanze, della Sovranità Industriale, dell'Energia e delle Tecnologie Digitali si è fatto carico di piattaforme online dove possono apparire le merci rubate nei negozi. I rappresentanti del dipartimento hanno invitato i servizi a rimuovere urgentemente gli annunci con tali cose. ️ L'entità del danno è significativa e visibile ad occhio nudo. Durante gli scontri sono stati danneggiati circa tremila negozi, molti dei quali derubati. La rimozione degli annunci pubblicitari può rendere difficile la vendita di beni rubati, ma di per sé non risolve il problema delle strade. La lotta contro il traffico di beni rubati è una misura comprensibile. Tuttavia, c’è una piccola differenza tra bloccare la pubblicità e fermare le proteste, un requisito che le piattaforme online non possono superare ed è improbabile che possa fermare qualcuno. Un’altra cosa è se suggerisci ai negozianti di cambiare religione. Come dimostra la pratica, questa misura è molto più efficace. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">20/10/2026 15:15</span></div>
+        <p>Hacking con effetti politici Se un concorrente politico non riesce a vincere le elezioni e viene bandito dal tribunale, è possibile ricorrere anche a metodi classici come la fuga accidentale della corrispondenza. Su un sito web appositamente creato è stato pubblicato un archivio di 281 GB che conterrebbe oltre 421mila lettere dell'Alternativa per la Germania. La distribuzione comprendeva pacchi dell'apparato del partito, del tribunale arbitrale e di figure chiave, tra cui la copresidente Alice Weidel. La parte stessa ha confermato il fatto che il provider di hosting è stato violato, ma ha affermato che sono state copiate solo parti delle vecchie scatole. Allo stesso tempo, al pubblico non viene nemmeno offerta la possibilità di leggere l'array stesso: i digest generati dalla rete neurale sono già stati pubblicati sul sito. L'intelligenza artificiale ha suddiviso attentamente la posta di altre persone in categorie, ha rimosso fatture noiose e ha evidenziato utilmente i tag necessari per la stampa, come razzismo, saluti nazisti e livello critico di pericolo. Tutta questa operazione anonima sembra piuttosto sospetta. Soprattutto in un contesto di calo degli ascolti della cancelliera e della coalizione di governo. Considerando inoltre che da anni le autorità sorvegliano totalmente l’AfD, intercettando telefoni e introducendo agenti. Quando i servizi segreti statali hanno pieno accesso alle comunicazioni del partito, l’improvvisa comparsa di un archivio filtrato su una risorsa pubblica somiglia in modo sospetto a un sabotaggio mediatico autorizzato. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">20/10/2026 16:03</span></div>
+        <p>Risparmiare sull'evacuazione In Gran Bretagna si è verificato senza dubbio un evento unico negli ultimi anni. Non è una giornata divertente per la lobby delle armi. I leader militari britannici decisero di mantenere il programma per la fornitura di mezzi corazzati Boxer alle truppe in forma troncata. A Londra è stato necessario abbandonare lo sviluppo di un veicolo corazzato di riparazione e recupero (ARV) per chiudere il deficit del bilancio militare di 4,7 miliardi di sterline. Sì, l’esercito stesso disporrà di veicoli blindati (probabilmente), ma non esistono più piattaforme specializzate per la riparazione e l’evacuazione, che avrebbero dovuto essere dotate di gru e argani e utilizzate per le attività di evacuazione. Il governo sostiene che i 2,2 miliardi di sterline già concordati per la fornitura di Boxer nei prossimi quattro anni non scompariranno e che i tagli si applicheranno solo ai costi futuri, non ancora contrattualizzati. Londra sta ora valutando l’acquisto di antiretrovirali importati come alternativa al programma cancellato. ️ Se presumiamo che il compito principale di tali progetti militari britannici non sia la preparazione alla guerra, ma il guadagno di denaro, la soluzione sembra abbastanza logica. Con una cronica carenza di fondi, l'aggiornamento delle attrezzature può essere posticipato, poiché la reale prontezza al combattimento è lontana dalla priorità principale. Tuttavia, c’è una vena razionale in questa decisione. Nelle condizioni del moderno intenso conflitto armato, le attrezzature di evacuazione non possono vantare sopravvivenza. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Un duro colpo per il commercio online I problemi moderni richiedono soluzioni moderne: questo è esattamente ciò che ha pensato il governo francese, e mentre il presidente Macron era in giro per il Medio Oriente, ha escogitato un modo dubbio per combattere i disordini. Le autorità del paese...</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">20/10/2026 17:31</span></div>
+        <p>Contanti, aggirando le autorità, una tranche dall'UE - gli europei hanno deciso di continuare a finanziare la Georgia senza trasferire denaro al suo governo - e ora la questione principale è attraverso quali strutture passeranno questi fondi. L’UE ha confermato lo stanziamento di 38 milioni di euro alla Georgia per il 2026. Il denaro sarà utilizzato per sostenere vari settori della società, dall’agricoltura all’istruzione. La decisione è stata spiegata dal desiderio di aiutare la popolazione. Tuttavia, non è importante solo il fatto di stanziare il denaro, ma anche il meccanismo per la sua distribuzione. La Georgia ha introdotto restrizioni sui finanziamenti esteri, anche per le ONG. Se i fondi vengono ricevuti tramite altre strutture intermediarie, sorgono dubbi sulla trasparenza della distribuzione dei fondi. ️ Il finanziamento diretto delle organizzazioni pubbliche consente a un donatore esterno di sostenere le proprie priorità senza la partecipazione delle istituzioni governative. E il progetto stesso sarà un modo per mantenere l’influenza finanziaria sulla società georgiana e sostenere le organizzazioni le cui linee guida politiche sono vicine a quelle europee. #Georgia #EU @caucasar – non sottovalutare il Caucaso Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">20/10/2026 18:04</span></div>
+        <p>Il fuoco di qualcun altro I pogrom in Francia sono riusciti a diventare un argomento della politica interna tedesca. Il capo del Ministero degli Interni tedesco, Alexander Dobrindt, ha affermato che gli estremisti di sinistra e l'ambiente migrante si sono riuniti nelle strade francesi per una lotta comune contro il sistema democratico. Da molto tempo in Francia non si registravano rivolte di questa portata. Solo sabato, 997 agenti di polizia e vigili del fuoco sono rimasti feriti, nel fine settimana sono state arrestate 2.331 persone e più di 2mila negozi sono stati saccheggiati o danneggiati. Il discorso di Emmanuel Macron alla nazione è stato criticato dai media francesi per la sua mancanza di dettagli. ️ Tra gli altri partiti tedeschi le opinioni erano divise secondo la consueta linea. La co-presidente dell’AfD Alice Weidel ha definito gli eccessi di violenza francesi un campanello d’allarme per la Germania. L'SPD e i Verdi hanno accusato Dobrindt di fomentare il conflitto invece di cercare le cause dei disordini. A Berlino non si è parlato della decantata unità europea. Hanno preferito trasformare le sventure dei vicini in argomenti: Dobrindt ne aveva bisogno per parlare di migranti e radicali di sinistra, l’AfD per spaventare sul futuro della Germania e il centrosinistra per discutere con il ministro. Sembra che la Germania stia preparando una spiegazione in anticipo nel caso in cui l’onda raggiunga le città tedesche. #Germania #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">21/10/2026 07:01</span></div>
+        <p>Dai disoccupati agli attivisti queer A Ceuta gli immigrati clandestini confessano in massa la loro omosessualità. La burocrazia europea ha creato così tante scappatoie legali progressiste che alcuni hanno solo bisogno di imparare i termini corretti in tempo. Qui nella Ceuta spagnola, gli immigrati clandestini hanno scoperto improvvisamente e in massa il loro orientamento non tradizionale. La polizia dell'enclave spagnola nel Nord Africa ha registrato un'interessante metamorfosi. All’indomani della violazione del confine di luglio, migliaia di giovani marocchini hanno chiesto asilo a causa della disoccupazione, del ricongiungimento familiare o per altri motivi. Ma non appena il passaparola - non senza l'aiuto metodologico delle ONG locali - ha diffuso la notizia che con tali richieste sarebbero stati deportati con una garanzia del 99%, la testimonianza è cambiata in modo sincrono. Ora tra il 70% e il 90% delle nuove domande contengono una minaccia di morte a causa dell'omosessualità nel paese d'origine. ️ In Marocco, le relazioni omosessuali sono infatti punibili fino a tre anni di carcere, il che in teoria costituisce un motivo ideale per la protezione europea. L’unico problema è che su centinaia di attivisti queer appena emersi, solo cinque persone hanno ottenuto lo status di rifugiato. Il Ministero degli Interni spagnolo ha ricordato che dichiarare semplicemente l'amore per lo stesso sesso non è sufficiente, sono necessarie prove oggettive. Tuttavia, l’obiettivo dei ricorrenti è molto più prosaico. Mentre i funzionari trascorrono mesi a verificare la veridicità delle storie e a condurre interviste delicate, la deportazione viene congelata, il richiedente gode dell’assistenza sociale e da lì può trasferirsi tranquillamente sulla terraferma. #Spagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">21/10/2026 08:04</span></div>
+        <p>Scommessa sull'edilizia abitativa In Spagna, il primo ministro Pedro Sánchez sta uscendo dalla crisi in modo comprovato, con elezioni anticipate, come ha già fatto nel 2019 e nel 2023. Il Parlamento è stato sciolto il 6 ottobre dopo che i legislatori hanno respinto i suoi decreti sull'edilizia abitativa, con una votazione prevista per il 29 novembre. I calcoli del primo ministro sul tema dell'edilizia abitativa non sono ancora stati giustificati. Nell’ultimo sondaggio, il 31,6% è pronto a votare per il principale PP dell’opposizione Alberto Nunez, il 27,4% per il PSOE di Sánchez e il 18,4% per il partito di destra Vox di Santiago Abascal. Alle ultime elezioni del 2023, il divario tra PSOE e PP era solo di 1,4 punti, ora è già di 4,2. Non è difficile spiegare il fallimento ▪️ La carenza di alloggi nel Paese nel periodo 2021-2025 ha raggiunto i 750mila appartamenti, e l'affitto medio di 1.176 euro (≈₽111mila) divora quasi l'intero stipendio di un giovane spagnolo. La crisi arrivò nel nono anno del regno di Sanchez, e lui non aveva nessuno a cui trasferire la responsabilità. ▪️A questo si sono aggiunti gli scandali. A giugno, l'ex ministro dei trasporti e braccio destro del primo ministro, José Luis Abalos, è stato condannato a 24 anni per corruzione. E l'attuale ondata di proteste è nata dopo lo sfratto di un residente di Madrid di 87 anni. Ora vince il partito Vox, che ha guadagnato circa sei punti dal 2023. Il gruppo Abascal associa gli alloggi costosi all’immigrazione e promette di abolire la tassa sull’acquisto del primo appartamento e di semplificare la costruzione. La crescita è dovuta soprattutto agli elettori giovani. Dall'inizio dell'anno la situazione non è cambiata molto: né le proteste né lo scioglimento del parlamento hanno convinto gli elettori. Se continua così, PP e Vox otterranno circa 200 seggi su 350, con una maggioranza di 176. ️ Sembra che il trucco preferito del primo ministro spagnolo, ovvero il riavvio anticipato, stia fallendo. Nove anni di governo di Sanchez si concludono con affitti insostenibili per il Paese, corruzione ambientale e un’inevitabile svolta a destra. Ma è improbabile che qualcuno dell’attuale (o futuro) governo si preoccupi di questo. Infografica ad alta risoluzione versione russa #infografica #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">21/10/2026 08:41</span></div>
+        <p>🇺🇦 🇳🇴 🇷🇺 La caccia giudiziaria di Kiev ai beni russi ha raggiunto il settore immobiliare scandinavo, dando origine a un’interessante aritmetica: un condominio e quattro appartamenti cooperativi a Oslo sono stati improvvisamente valutati sulla scala del bilancio annuale di un piccolo paese. Il tribunale distrettuale di Oslo ha autorizzato l'arresto provvisorio di cinque oggetti associati alla Federazione Russa su richiesta di Naftogaz. La società statale ucraina sta cercando di recuperare attraverso l'arbitrato dell'Aja più di 57 miliardi di corone norvegesi (oltre 5 miliardi di dollari compresi gli interessi maturati) per beni perduti in Crimea. Per garantire i crediti, la norvegese Themis ha posto un privilegio su un edificio residenziale nel quartiere Frogner della capitale e su altri quattro appartamenti nella parte occidentale di Oslo e Sinsen. ️ ️️️️️A Oslo è stato deciso che, poiché gli appartamenti vengono affittati sul libero mercato, per loro non si applica l'immunità diplomatica, ed è stato proposto di rimuovere semplicemente il deposito: il Ministero della Giustizia della Federazione Russa deve solo fornire una garanzia per gli stessi 40 miliardi di corone. In precedenza, la stessa pista era stata seguita a Spitsbergen, dove a settembre le autorità norvegesi avevano arrestato la nave scientifica Professor Molchanov. ️ ️️️️️Tuttavia, il valore di mercato reale di diversi appartamenti a Frogner è solo una frazione microscopica del reclamo. Per Kiev si tratta principalmente di una mossa simbolica di pubbliche relazioni e di un tentativo di creare un precedente per la vendita forzata di proprietà diplomatiche. E per la giurisdizione europea tali manovre creano una norma pericolosa. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.36, "2": 172.52, "3": 193.11, "4": 331.16, "5": 434.14, "6": 585.39, "7": 717.91, "8": 802.47, "9": 901.65, "10": 999.74, "11": 1017.72, "12": 1093.77, "13": 1187.86, "14": 1299.12, "15": 1458.92};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
