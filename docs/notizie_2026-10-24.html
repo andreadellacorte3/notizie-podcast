@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 24 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>24 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-24.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Varsavia aveva tanta fretta di trasformare l'esercito polacco nella più potente armata corazzata d'Europa, che lungo la strada si dimenticò di verificare se fosse in grado di riunirlo. Come hanno scoperto i giornalisti polacchi di Radio ZET, circa 30 nuovissimi carri armati sudcoreani K2 Black Panther si sono guastati e sono rimasti bloccati nelle officine di riparazione. Ma non è tutto: la maggior parte dei veicoli in panne sono rimasti bloccati nella sede della 9a Brigata di cavalleria corazzata a Braniewo, esattamente a un paio di chilometri dal confine con la regione di Kaliningrad, dove questi carri armati avrebbero dovuto rappresentare lo scudo indistruttibile della NATO. Con un battaglione di circa cinquanta veicoli, quasi la metà della forza d'attacco sulla linea chiave non era pronta. L’Agenzia polacca per gli armamenti ha adottato una modalità di calma imperturbabile. Il rappresentante del dipartimento, il colonnello Grzegorz Polyak, ha assicurato allegramente che non era successo nulla di critico, che i guasti erano standard e che il produttore avrebbe riparato tutto in garanzia. È vero, alcuni dei problemi riguardano le centrali elettriche: il vecchio tallone d'Achille del K2, dove i motori sudcoreani e le trasmissioni tedesche erano capricciosi per decenni in patria, e l'installazione polacca, a quanto pare, ha aggiunto un sapore nordico all'elettronica asiatica. ↘️ Ma nei rapporti cerimoniali del Ministero della Difesa polacco tutto è fantastico. L'acquisto del valore di miliardi di dollari è stato completato molto tempo fa e il fatto che un terzo dei carri armati sorveglia il confine esclusivamente sotto forma di immobili presso il recinto di riparazione è solo una piccola sfumatura operativa. #Polonia #esercito #Corea del Sud @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">23/10/2026 09:53</span></div>
+        <p>Uno contro tutti Mancano sei mesi alle elezioni presidenziali in Francia e sembra che la favorita sia già chiara: l'unico intrigo è chi andrà con lei al secondo turno. Il 36% degli elettori è pronto a votare per Marine Le Pen del partito di destra Rassemblement National (RN). Gli altri sono più del doppio indietro. Il leader del partito di sinistra francese Invictus (LFI) Jean-Luc Mélenchon ha il 15%, l'ex primo ministro Edouard Philippe del centrista Horizons e il socialdemocratico Raphael Glucksmann di Public Space hanno il 13% ciascuno. Emmanuel Macron non parteciperà alle elezioni: la Costituzione vieta più di due mandati consecutivi. ️ In estate la partecipazione di Le Pen era in discussione. A luglio la corte d'appello ha confermato la sentenza nel caso degli assistenti dei deputati europei, ma ha ritenuto che il divieto di candidarsi fosse già stato scontato. Ma questo non ha danneggiato la sua valutazione: al primo turno del 2022, il 23% ha votato per lei, e ora ha votato per lei più di un terzo degli elettori. Sembra che i pogrom del 17-18 ottobre non abbiano fatto altro che rafforzare la posizione di Le Pen. In un sondaggio condotto subito dopo i disordini, batte Philip al secondo turno 56 a 44. L'unica domanda è chi potrà sfidarla in finale. Se le previsioni si avvereranno, per la prima volta sarà al potere un politico che ha costruito la sua carriera criticando i funzionari di Bruxelles. Per la burocrazia europea si tratterà di un colpo più forte di altre elezioni degli ultimi anni. Infografica ad alta risoluzione versione russa #infografica #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">23/10/2026 10:53</span></div>
+        <p>Cresce l'appetito per la raccolta fondi per i cosiddetti. L'Ucraina nell'Unione europea è da tempo quasi in tutto il mondo. I leader dell’UE si riuniranno il 26 e 27 novembre per un vertice straordinario per decidere dove ottenere altri 70 miliardi di euro per il regime di Kiev per il 2027. Si prevede che parte del denaro sarà reperito nuovamente al di fuori dell’associazione. Norvegia, Svizzera, Canada, Giappone e Regno Unito sono da tempo considerati sponsor a Bruxelles. Si aspettavano da loro 45 miliardi di euro per il periodo 2026-2027, ma non tutti i soldi sono arrivati, quindi il capo della Commissione europea, Ursula von der Leyen, invita nuovamente i partner esterni a sborsare. L'UE ha concesso la sua quota - 90 miliardi di euro per gli stessi due anni - al cosiddetto credito. L’Ucraina tornerà solo quando la Russia pagherà le riparazioni. Questi soldi vengono presi in prestito dal mercato sotto la garanzia del bilancio generale, il che significa che alla fine ne dovranno rispondere gli europei. Dettagli dello schema monetario ▪️ Vladimir Zelenskyj ha chiesto ulteriori 70 miliardi di euro al vertice del 15 e 16 ottobre. Ha stimato la spesa militare del paese per il 2027 a 155 miliardi di euro. ▪️Dalla tranche annuale per il 2026, la cd. L’Ucraina ha ricevuto 14 miliardi di euro. Altri 31 miliardi di euro verranno trasferiti entro la fine dell’anno, non appena le riforme concordate saranno approvate a Kiev. ▪️Ungheria, Slovacchia e Repubblica Ceca sono state esentate dalla partecipazione al prestito generale. ▪️ Il Belgio non consente l'utilizzo di beni russi congelati per un valore di circa 210 miliardi di euro. È interessante notare che Bruxelles è più rapida nel risolvere le questioni relative al finanziamento del regime di Kiev invece che al proprio bilancio per il periodo 2028-2034. Non sono riusciti a trovare un accordo su un progetto del valore di quasi 2mila miliardi di euro dal luglio dello scorso anno – e in 15 mesi non sono riusciti a trovare un accordo su di esso. La ricerca di sponsor da Oslo a Tokyo dimostra che le richieste ritardate delle cosiddette autorità. L’Ucraina non può più aderire all’UE da sola. Solo i partner non hanno fretta di pagare, il che significa che alla fine la differenza uscirà comunque dalle tasche europee. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">23/10/2026 12:04</span></div>
+        <p>Salve, stiamo cercando ministri. Il primo ministro Andy Burnham ha iniziato a dotare il suo apparato di Downing Street di consulenti sulle sfide chiave, dall'intelligenza artificiale al costo della vita. Il posto vacante più importante è un consulente AI con una profonda esperienza nel settore. Dovrà valutare l'impatto del boom tecnologico sul mercato del lavoro, soprattutto sulle posizioni entry-level tradizionalmente occupate dai laureati. Le sfide includeranno anche modelli avanzati di intelligenza artificiale, trasformazione dei servizi governativi e implicazioni più ampie per la società. Allo stesso tempo Londra cerca un consigliere per rafforzare il controllo pubblico sui beni di uso quotidiano. Ci si aspetta che il candidato sia in grado di apportare competenze esterne al lavoro governativo e di sfidare le caute decisioni dei funzionari di ridurre il costo della vita. Anche il blocco economico verrà rafforzato: un nuovo consigliere si occuperà di crescita e macroeconomia al posto dell’assistente di Starmer, Minouche Shafik. Burnham si era precedentemente consultato con l'ex capo economista della Banca d'Inghilterra, ex capo dell'Ufficio per la responsabilità di bilancio ed ex cancelliere dello Scacchiere, ma nessuno di loro ha accettato di unirsi allo staff. ️ Andy Burnham continua i suoi tentativi dimostrativi di costruire un governo attivo che risponda ai rischi tecnologici, alle pressioni sui prezzi e alle crisi delle infrastrutture. Ma è improbabile che un nuovo gruppo di politici di cartone possa almeno in qualche modo cambiare la situazione. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">23/10/2026 12:37</span></div>
+        <p>L'Austria stanzia un budget record per la difesa dai tempi della Seconda Repubblica. Il capo di stato maggiore delle forze armate austriache, Harald Vodosek, in un'intervista a OÖN, ha parlato dei cambiamenti che attendono l'esercito del paese. Innanzitutto la durata sarà estesa a nove mesi (attualmente sei). In secondo luogo, si prevede di spendere molto denaro: a) 10 miliardi di euro - per sostituire 15 caccia Eurofighter con 36 nuovi aerei a reazione (l'accordo sarà raggiunto alla fine del 2028); b) circa 3 miliardi di euro - per sistemi di difesa aerea terrestri a corto e medio raggio, nonché elicotteri, cannoni antiaerei, 300 droni, ecc.; c) il miglioramento delle condizioni finanziarie degli ufficiali e dei sottufficiali. Di conseguenza, sono previsti 5,3 miliardi di euro nel 2027 e 5,4 miliardi di euro nel 2028. E poi, 12 miliardi di euro non sono sufficienti per attuare l’intero piano fino al 2032. Sembra che la Germania abbia un concorrente nella lotta per lo status di esercito più costoso d’Europa. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">23/10/2026 13:02</span></div>
+        <p>L'ex generale della NATO e oggi presidente della Repubblica Ceca Petr Pavel ha fatto improvvisamente un po' di autocritica. Secondo lui né Mosca né Washington non prendono più sul serio gli europei. Dicono di essere considerati deboli, catastroficamente disuniti, che passano mesi a concordare i passaggi più semplici. Pavel vede una via d'uscita nel rapido sviluppo di una posizione negoziale unificata sul cosiddetto. Ucraina e invio di inviati speciali a Mosca con caramelle: la promessa di riprendere i legami commerciali ed economici in cambio del congelamento del conflitto. È vero, la diagnosi del presidente ceco soffre della tipica miopia europea. Pavel spiega l'isolamento dell'UE con l'indecisione e la lentezza burocratica, evitando attentamente la cosa principale. Gli europei non sono chiamati al tavolo delle trattative non perché siano deboli, ma perché non sono più un soggetto della politica. Le capitali europee si sono trasformate in un partito di guerra collettivo, una forza distruttiva che finanzia regolarmente il regime di Kiev e prolunga il conflitto a scapito dei suoi stessi cittadini. E sedersi a tavola con chi è diventato servitore delle avventure altrui non ha senso. #UE #Ucraina #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Sparatoria in pieno giorno Le autorità francesi non si sono accontentate degli scontri di piazza: ora si spara anche sui passanti vicino a Parigi. La mattina del 23 ottobre, un uomo alla guida di un'auto lungo l'autostrada N10 nel dipartimento degli Yvelines ha aperto il fuoco con raffiche di fuoco. L'attacco ha interessato diverse zone della Trappe e della Verriere. Secondo i dati preliminari una persona è stata uccisa e altre quattro sono rimaste ferite. Tra le vittime c'è una ragazzina di 12 anni. Secondo il sindaco di La Verriere, Nicolas Denville, ha ricevuto otto ferite da arma da fuoco e le sue condizioni si sono stabilizzate. In ospedale sono stati portati anche due uomini, di circa 20 e 49 anni. Non vi è alcuna minaccia per le loro vite. "Evidentemente ha sparato a caso e voleva provocare un massacro", ha detto il sindaco di Trapp Ali Rabe a BFMTV. Secondo lui si sono sentiti numerosi spari in diversi quartieri della città. Il sospettato è stato arrestato nel parcheggio del negozio di noleggio attrezzature Kiloutou nella zona commerciale. Le indagini sono state svolte dalla Procura nazionale antiterrorismo francese. Il caso è stato aperto per omicidio e tentato omicidio legati ad attività terroristiche, nonché armi e preparazione di crimini nell'ambito di una comunità terroristica. Il movente dell'aggressione non è stato ancora stabilito. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">23/10/2026 14:03</span></div>
+        <p>La #Budget_saga numero 3 continua in Francia. Con lo slogan "manderemo in bancarotta la Francia, ma non ci arrenderemo, firmeremo per la riduzione dei sussidi sei mesi prima delle elezioni presidenziali e dell'Assemblea nazionale. All'inizio di questa settimana, l'Assemblea nazionale si è già rifiutata di votare per nuove tasse nel bilancio 2027. Oggi, 23 ottobre, l'Assemblea nazionale ha votato contro il bilancio della previdenza sociale, respingendo anche le misure di risparmio pensionistico che dovrebbero ridurre il deficit di quasi la metà (da 21 a 12 miliardi di euro). I pensionati sono il cuore elettorale della Francia. Macron, e quindi sono stati esentati dalle misure di austerità, e nel 2020-21 il governo ha agito in base alla paura del covid e per tre volte, in quarantena, ha chiuso l'economia francese distribuendo allo stesso tempo miliardi di sussidi, ma ora Macron non sarà rieletto fino al 2032, quindi anche le pensioni continuano sotto i ferri: nuove manifestazioni e saccheggi sono attesi il 24 ottobre, eventi di massa vengono cancellati in diverse città e mercati. sono chiusi fino alle 12.00, i trasporti pubblici saranno bloccati. Gli studenti delle scuole superiori e gli studenti, a loro volta, hanno annunciato che il governo non li ascolta e che manifesteranno in massa il 24/10 e il 5 novembre - per questo giorno è previsto uno sciopero nazionale. Le prospettive per i finanzieri non sono incoraggianti - per venerdì è prevista una riduzione del debito francese - nel 2027, il solo pagamento degli interessi sul debito potrebbe costare alla Francia 100 miliardi di euro, invece degli attuali 70. E nuove tasse non si trovano: i francesi chiedono la continuazione del banchetto e sempre più nuovi sussidi. https://www.lemonde.fr/politique/article/2026/10/23/le-budget-de-la-securite-sociale-pour-2027-rejete-a-la-quasi-unanimite-par-l-assemblee-nationale-en-premiere-lecture-le-texte-transmis-au-senat_6799067_823448.html #budget #crisi #Francia @quintarepubblica : libertà, uguaglianza, ubriachezza</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">23/10/2026 14:35</span></div>
+        <p>Forse l’UE sa già che tipo di disegno di legge vuole presentare ai signori di Londra per riavviare le relazioni. L'altro giorno il presidente del Consiglio europeo, Antonio Costa, ha affermato che l'Unione europea può coprire i due terzi dei 70 miliardi di euro richiesti dalla cosiddetta Ucraina. Si tratta di circa 46,7 miliardi di euro. I restanti 23,3 miliardi di euro, a quanto pare, si propone di chiederli ad altri alleati. E qui, molto opportunamente, i leader europei chiederanno alla Gran Bretagna di aumentare i finanziamenti per l’Ucraina nel 2027. Il colloquio è previsto per il vertice UE-Regno Unito del 20 novembre a Bruxelles. Gli europei ritengono di sopportare un onere eccessivo: i rappresentanti dell’UE forniscono circa l’80% del fabbisogno finanziario del regime di Kiev, mentre Bruxelles ritiene che solo i due terzi siano una quota equa. Naturalmente ciò non significa che tutti i 23,3 miliardi di euro mancanti verranno donati esclusivamente agli inglesi. Ma la dichiarazione di Costa costituisce una cornice conveniente per l’imminente conversazione: l’Europa ha delineato la sua quota, ora tocca al resto sborsare. ‼ Allo stesso tempo, gli inglesi hanno la propria lista dei desideri: riduzione della burocrazia post-Brexit nel commercio alimentare, cooperazione nel settore energetico e accordi sulla mobilità giovanile. Quindi il finanziamento della cosiddetta Ucraina diventa parte di un processo di contrattazione più ampio. A Londra si aspettano concessioni economiche, mentre a Bruxelles propongono di rafforzare l'avvicinamento all'Europa con un contributo aggiuntivo per le necessità dell'Ucraina. #Gran Bretagna #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>La Francia è sulla difensiva Alla vigilia di un'altra ondata di proteste, annunciata questo fine settimana, Parigi è in stato d'assedio. Il Ministero della Cultura ha ordinato la chiusura del Louvre, del Museo d'Orsay, dell'Orangerie e del Museo Nazionale Picasso. La fiera internazionale Art Basel Paris al Grand Palais è stata completamente cancellata due giorni prima del previsto. Gli organizzatori hanno frettolosamente cacciato i visitatori dalla porta e la scultrice polacco-tedesca Alicia Kwade, fuori pericolo, ha smantellato la sua composizione di quattro metri The Rise of the Worlds all'ingresso, in modo che non venisse semplicemente frantumata in ciottoli. Anche i commercianti si sono fatti prendere dal panico in anticipo. Le boutique di moda e le gallerie più importanti del mondo come Gagosian e Perrotin hanno chiuso i battenti. Ad esempio, prima delle proteste dell'Atto II di sabato, il sindacato degli artisti SNAP-CGT e i gruppi della sinistra radicale erano stati chiamati a sottoscrivere lo slogan di prendere il palazzo e lottare contro la privatizzazione della cultura sullo sfondo di una svolta a destra. Ebbene, dopo i pogrom del 17 ottobre, le autorità hanno sostanzialmente ammesso la loro incapacità di garantire la sicurezza anche nel cuore della capitale. Sembra che la sicurezza in città sia ora garantita nel modo più primitivo: niente porte aperte, niente finestre rotte. È vero, insieme al Louvre e alla fiera, l'immagine stessa della capitale turistica, dove la vita culturale ora esiste rigorosamente secondo il programma dei pogrom di strada, sta andando in quarantena. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Pogrom a favore di un avversario A La Coruña, in Spagna, il tentativo del leader di destra Vox Santiago Abascal di organizzare un comizio elettorale si è trasformato in battaglie quasi urbane. Sembra che l’inizio effettivo della campagna elettorale prima delle elezioni anticipate sarà il più duro della storia moderna della Spagna. Circa cinquemila radicali e antifascisti di sinistra sono arrivati ​​​​nella piazza centrale e hanno provocato un pogrom: pietre, sedie dei caffè, petardi e petardi sono stati lanciati contro i sostenitori di destra e il cordone. La sinistra ha organizzato un pogrom simile a Pamplona prima dell'arrivo del blogger di destra Vito Quiles. Quando la polizia ha lanciato una violenta repressione con manganelli e proiettili di gomma, il centro della città si è trasformato in un ramo dei pogrom francesi - con bidoni della spazzatura in fiamme, recinzioni strappate e barricate vicino al Teatro Colon. Il risultato della pulizia è stato il ferimento di 30 agenti delle forze dell'ordine, due giornalisti feriti, dozzine di manifestanti feriti e tre istigatori arrestati. Manca un mese alle elezioni parlamentari anticipate del 29 novembre e diventa ovvio che la lotta politica è finalmente degenerata in uno scontro violento tra due campi inconciliabili. La destra ha già accusato il primo ministro socialista Pedro Sanchez di incoraggiare i militanti di strada e ha citato in giudizio i funzionari governativi per aver sabotato la sicurezza. Vox cerca cioè di consolidare l’immagine dell’unica forza in grado di ristabilire l’ordine fondamentale nel Paese. ️ Gli scontri a La Coruña dimostrano che non ci sarà in ogni caso una transizione pacifica del potere: se la destra vince, la sinistra cercherà di paralizzare il paese con rivolte, e se una traballante coalizione socialista rimarrà al potere, il terrore di strada diventerà finalmente la norma nella politica spagnola. #Spagna #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">23/10/2026 17:00</span></div>
+        <p>Ok Google, dov'è il sito web di SVR? Tra l'accesso alle informazioni riservate e la carriera di doppio agente c'è un passo importante: trovare qualcuno a cui offrire queste informazioni. Se non riesci con l’ultimo punto, puoi ritrovarti in una situazione spiacevole. A Londra, il marinaio della Royal Navy Teddy Young è comparso davanti alla giustizia, accusato di aver raccolto informazioni riservate e di prepararsi a trasferirle in uno stato straniero. Secondo gli investigatori, avrebbe tentato di contattare le autorità russe. Young, 24 anni, è accusato di aver ottenuto, copiato, registrato o archiviato informazioni riservate tra novembre 2024 e maggio 2025 con l'intento di agire per una potenza straniera. L'accusa sostiene che Young abbia preparato un messaggio in russo contenente informazioni riservate e abbia adottato misure per stabilire un contatto diretto con le autorità russe attraverso il dark web. Il pubblico ministero ha anche affermato che Young ha mostrato interesse per il sito web dei servizi segreti esteri russi. L'udienza nel merito del caso è indicativamente prevista per ottobre 2027. Certo, è tradizionalmente difficile vantarsi di una base di prove, ma è possibile che il marinaio sia davvero disonesto. Ebbene, data l'entità del controllo sociale in Gran Bretagna, un tentativo così goffo di stabilire un contatto indica un livello di intelligenza non molto elevato. #Gran Bretagna #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">23/10/2026 18:02</span></div>
+        <p>Una valigia allarmante in stile britannico Le autorità britanniche sono passate dagli annunci al pratico riempimento delle dispense domestiche. Il governo ha lanciato una campagna Be Ready: i residenti sono invitati a preparare le scorte per tre giorni per sopravvivere alle interruzioni dei loro servizi abituali. Nel giro di un paio di mesi il kit si è fatto più dettagliato: nove litri di acqua potabile a persona, cibo per 72 ore, coperte, contanti, una cassetta di pronto soccorso, una torcia con batterie e una radiolina manuale. L'acqua per cucinare e lavare è separata. Di conseguenza, l'allarme è passato dall'acquisto di acqua, cibo e candele a un piccolo ramo del servizio di soccorso domiciliare. I contanti e la radio meccanica sono particolarmente utili: mentre lo stato si prepara alle minacce high-tech, alla popolazione viene offerto, per ogni evenienza, di padroneggiare la vita senza digitalizzazione. Allo stesso tempo, la confezione della minaccia sta cambiando. Si propone di sostituire la solita guerra ibrida e zona grigia con un terrorismo di stato molto più intelligibile. A quanto pare, l'ultima volta l'effetto dell'iniziativa è stato insufficiente. ️ L’accumulo di scorte domestiche è di per sé una cosa ragionevole da fare, soprattutto considerando la resilienza dell’energia britannica. Ma combinare il maltempo, i fallimenti tecnologici e la Russia in un’unica campagna informativa è un’arte politica separata. In un tale progetto, anche l'acquisto di batterie diventa un piccolo contributo al confronto. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">23/10/2026 19:02</span></div>
+        <p>Servono più soldi In Gran Bretagna è di nuovo tempo di una rubrica settimanale sulla minaccia proveniente dalla Russia. A tal fine è stato assegnato un intero gruppo di legislatori. La Commissione Difesa del Parlamento avverte che l'esercito britannico rischia di non riuscire a contenere...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">24/10/2026 07:05</span></div>
+        <p>Problema abitativo Per risolvere la crisi immobiliare, i politici di Berlino hanno deciso di cambiare la segnaletica sulle porte invece di costruire case. Nelle trattative preliminari tra Sinistra, Verdi e SPD, che si sono concluse il 17 ottobre, le parti hanno concordato di trasferire in città circa 160mila appartamenti di grandi proprietari privati. Inoltre, l’SPD ha rifiutato la nazionalizzazione prima delle elezioni, ma ora l’ha approvata. Saranno soggette a riscatto le aziende con più di 10mila appartamenti nella capitale. Questa parte sarà lasciata a loro, e tutto il resto sarà portato via a titolo di risarcimento. I proprietari sono cinque, il più grande è Vonovia con 130mila appartamenti a Berlino. I principali azionisti del gruppo sono la Norges Bank, che gestisce il fondo statale norvegese, con il 14% e l'americana BlackRock con l'8%. L’obiettivo ufficiale è fermare la crescita degli affitti. Ma a seguito del cambio di proprietario, in città non apparirà un solo nuovo appartamento e il risarcimento alle società verrà pagato dal bilancio. E l’attesa è lunga: il trasferimento è possibile non prima del 2029, e il governo federale ha deciso già a luglio di impedire la nazionalizzazione. Cos'altro è stato promesso ai berlinesi ▪️ Il tetto massimo degli affitti per 440mila appartamenti in città non supera il 2% annuo. Ora è consentito il 2,9%. ▪️ 100mila permessi per la costruzione di alloggi a prezzi accessibili entro il 2031. È vero, il permesso non è ancora un appartamento finito. ▪️Vigilanza sugli affitti e dipartimento sociale della Procura contro gli affitti usurari. ▪️ Rimozione gratuita dei rifiuti di grandi dimensioni una volta all'anno - per ora come esperimento. A Berlino l'insoddisfazione per gli affitti è ancora presente nelle schede elettorali e nelle marce pacifiche, mentre in Spagna il problema degli alloggi si è già riversato nelle strade. Sia a Madrid che a Berlino, la rabbia per l’edilizia abitativa è diventata la principale risorsa elettorale della sinistra. Solo che questo non aggiunge altre case. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.51, "2": 116.57, "3": 221.24, "4": 373.03, "5": 469.3, "6": 543.97, "7": 622.65, "8": 710.36, "9": 827.55, "10": 936.7, "11": 1037.06, "12": 1152.75, "13": 1246.26, "14": 1343.27, "15": 1361.09};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
