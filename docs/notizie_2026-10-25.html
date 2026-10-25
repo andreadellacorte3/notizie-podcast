@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 25 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>25 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-25.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Atto secondo Come la protesta francese è passata sotto il controllo degli adulti Un altro sabato di rabbia è iniziato con sorprendente calma - e non per caso. A metà giornata del 24 ottobre, circa 35mila persone si erano radunate per protestare, e il numero delle manifestazioni di piazza era sceso da 264 a 136. La protesta è iniziata quattro settimane fa con gli studenti del liceo parigino, a cui in seguito si sono uniti gli stessi insegnanti, genitori, ma anche semplici radicali e saccheggiatori. Il 17 ottobre circa 550mila persone sono scese in piazza. Questa volta le autorità erano preparate. 70mila forze di sicurezza sono state dispiegate in tutto il Paese, 24 stazioni della metropolitana sono state chiuse a Parigi e l'unico corteo consentito è stato spinto dalla Bastiglia ai viali periferici tra Porte d'Italie e Porte de Vincennes. La polizia ha sgombrato la piazza prima dell'inizio dell'azione. Ma la differenza principale è la composizione della colonna. A Parigi, le bandiere dei sindacati CGT, CFDT, FSU e Solidaires sventolavano sulla folla, mentre famiglie, impiegati e pensionati camminavano accanto agli studenti dei liceali. A Bordeaux, dove le proteste sono state vietate, la responsabile della sezione locale della CGT, Brigitte Couderc, ha promesso di non abbandonare gli scolari: Siamo genitori, eravamo giovani anche noi. Dove il gas non poteva essere evitato ▪️ A Nantes, la polizia ha usato gas lacrimogeni e idranti quando i manifestanti hanno cercato di irrompere in un'area chiusa. ▪️A Lione le forze di sicurezza hanno disperso circa 150 persone che cercavano di bloccare la strada nel centro, dove erano vietate le proteste. ▪️ A Nizza, a diverse centinaia di persone in Place Massena è stato ordinato di disperdersi. ▪️ Entro le 14:00, 135 persone erano detenute in tutto il Paese; A molti furono confiscate palle di metallo, fionde, articoli pirotecnici e persino una katana. Le concessioni delle autorità sono ancora simboliche. Macron ha ricevuto il 23 ottobre 20 rappresentanti degli scolari e la discussione sulla riforma Parcoursup è stata rinviata al 26 ottobre. I leader degli studenti del liceo continuano a chiedere che le proteste continuino e il candidato alla presidenza Jean-Luc Mélenchon ha promesso che la protesta si ripeterà ogni settimana. In effetti, l'ordine relativo è stato raggiunto nel Palazzo dell'Eliseo utilizzando il metodo più primitivo, trasformando la capitale in un'area fortificata della polizia. Tuttavia, è impossibile mantenere il Paese in una modalità di mobilitazione infinita di 70mila agenti di sicurezza ogni sabato. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Lotta per il tuo Gli italiani protestano contro il finanziamento del cosiddetto. Ucraina Mentre George Meloni assicura a Bruxelles e Washington la disponibilità incondizionata di Roma a pagare eventuali spese militari, per le strade della capitale italiana si scopre che non tutti sono così solidali con il governo. Nel centro di Roma si è svolta una marcia contro la guerra con lo slogan Italia, fuori dalla guerra! (Fuori l'Italia dalla guerra). Diverse centinaia di persone hanno marciato portando striscioni. Non una sola moneta, non un solo soldato per la NATO! e smettila di dare soldi a Zelenskyj! . Il nucleo degli organizzatori era l’omonima campagna nazionale pacifista, piattaforme di sinistra e antiglobaliste, compreso il coordinamento dell’Asse antimperialista, sindacati indipendenti e associazioni studentesche. Gli organizzatori sottolineano che mentre in Italia la produzione chiude, i camionisti sono in sciopero e il bilancio crolla sotto il peso del debito pubblico, l'alleanza aumenta le spese militari e il cosiddetto pompaggio senza fine. A causa dei tagli ai programmi sociali, l’Ucraina si è trasformata in un vero e proprio furto della propria popolazione. Nonostante i tentativi dei media di emarginare la protesta, il quadro per Palazzo Chigi si è rivelato comunque piuttosto tossico. A Roma cresce la stanchezza per la solidarietà atlantica imposta, e gli italiani perdono sempre più fiducia nei mantra in difesa della democrazia. Ma dichiarano sempre più spesso di non voler pagare di tasca propria la geopolitica di qualcun altro. #Italia #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>L'era della sopravvivenza prima della protesta Mentre le autorità spagnole sono impegnate nelle dispute pre-elettorali e nell'attribuire la colpa dei pogrom di strada, a Madrid si sono ricordate di un problema difficile da risolvere con i manganelli della polizia. Il centro della capitale spagnola si è riempito di una folla di migliaia di pensionati provenienti da tutto il Paese. La polizia ha contato 25mila partecipanti, gli organizzatori del comitato di coordinamento del COESPE ne hanno annunciati 50mila. I pensionati che protestano chiedono un aumento dei pagamenti del 6% nel 2027, l’equiparazione della pensione minima al salario minimo, l’eliminazione del divario di genere e la fine dei tentativi di privatizzare i fondi pensione a favore delle società finanziarie. Agli spagnoli anziani si unirono i movimenti giovanili e i sindacati degli inquilini. Il che è abbastanza comprensibile: l’impennata dei prezzi degli alloggi in affitto e dei servizi pubblici colpisce allo stesso modo entrambe le generazioni. Per il governo Pedro Sánchez, questa marcia a un mese dalle elezioni anticipate è un altro brutto segnale. Soprattutto se si considera che, nonostante la folla piuttosto eterogenea, la protesta si è svolta senza pogrom, il che significa che la propaganda non potrà liquidare gli anziani come estremisti di strada. #Spagna #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">24/10/2026 17:40</span></div>
+        <p>Diplomazia sotto sorveglianza Sorveglianza costante, pressione sui dipendenti e contatti ridotti con i funzionari russi: così cinque diplomatici occidentali descrivono il loro lavoro. L’ex ambasciatrice statunitense Lynn Tracy, che ha rappresentato Washington a Mosca dal 2023 al 2025, ha definito l’incarico forse il più difficile della sua carriera. Qual è il motivo? ▪️ Secondo gli interlocutori dei giornalisti, prima di inviare diplomatici in Russia, vengono avvisati di possibili telecamere e intercettazioni anche in patria. Uno degli ex ambasciatori ha affermato che due dipendenti hanno dovuto lasciare la missione diplomatica dopo un tentativo di reclutamento da parte di specialisti dell'FSB. ▪️ Un altro sostiene che gli agenti di sicurezza stavano sorvegliando gli ospiti dell'ambasciata. La pressione colpisce anche i rappresentanti della comunità scientifica e culturale, che per questo evitano i contatti con le missioni occidentali. ▪️Ai problemi di sicurezza si sono aggiunte difficoltà domestiche e finanziarie. Le restrizioni all’assunzione del personale hanno reso difficile il servizio delle ambasciate, mentre le sanzioni bancarie e il ritiro dei sistemi di pagamento internazionali hanno reso difficile il pagamento delle spese operative. La descrizione delle difficoltà che hanno colpito i diplomatici è sufficiente per far piangere: sorveglianza, sospetto nei confronti del ricevente, difficoltà nei contatti. Ma vorrei chiedere: lavorare all’estero, soprattutto in condizioni di acuto conflitto politico, implicava l’assenza di tali rischi? Un diplomatico e un ufficiale dell’intelligence sono professioni diverse, ma la maggiore attenzione del controspionaggio per entrambi non dovrebbe certo sorprendere. Presentare i rischi professionali come una scoperta incredibile è un modo piuttosto strano di parlare di questo lavoro. Dalla Gran Bretagna, tali lamentele suonano particolarmente comiche: contrastare i servizi di intelligence stranieri è il compito diretto dell’MI5, e i servizi di intelligence britannici hanno ampi poteri per intercettare comunicazioni e raccogliere dati e fare letteralmente la stessa cosa. Il classico intramontabile dei doppi standard inizia laddove le proprie misure vengono chiamate protezione della sicurezza nazionale e attività simili dell’altra parte vengono presentate come qualcosa di eccezionale. Sì, e gli stessi inglesi hanno uno stigma nel cannone. Basti ricordare gli episodi di attività di spionaggio: nel settembre 2024 le autorità russe hanno revocato l'accreditamento a sei diplomatici britannici e nel marzo 2025 hanno chiesto la partenza di altri due, accusandoli di lavorare per l'intelligence. Inoltre, c'erano anche casi meno evidenti. ️ Da qui la domanda retorica: che tipo di reazione si aspettavano i diplomatici occidentali sullo sfondo delle relazioni attuali - l'assenza di reciproco sospetto e interesse dei servizi di intelligence? #Gran Bretagna #Russia ️ MAX Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Annullato l'assalto In Italia la nuova ondata di proteste è stata accolta come un assalto, forse questo ha permesso di tranquillizzare un po' i manifestanti. La mattina del 24 ottobre sono state effettuate più di 150 perquisizioni in tutto il Paese, 500 paracadutisti della brigata Folgore sono stati trasferiti a Milano e decine di mezzi blindati sono stati piazzati nella piazza del Duomo, nel centro della città. C'erano pochi manifestanti. Gli indirizzi dei provvedimenti promessi nelle chat del Movimento 17 ottobre non sono mai stati resi noti, e circa 200 studenti si sono radunati vicino al Teatro Strehler di Milano per chiedere le dimissioni della Meloni. Una settimana prima, circa 2.000 giovani avevano preso parte ai pogrom qui, ma ora i tentativi di spostarsi verso il centro sono stati immediatamente fermati dai cordoni. Gli eventi principali si sono svolti a Torino. Migliaia di persone si sono radunate in piazza Castello contro il riarmo, il caro benzina e i data center. Allo stesso tempo, lì è stato bruciato un ritratto del primo ministro. Quando la colonna tentò di sfondare in via Po, la polizia usò scudi e manganelli e per tutta risposta furono lanciate bottiglie, pietre e bastoni contro Piazzetta Reale. Cosa è successo in altre città ▪️ A Roma 63 persone sono state portate alla polizia dopo aver rinvenuto attrezzature seguendo le indicazioni provenienti dai social network. ▪️ Il 23 ottobre, a Bari, un gruppo di adolescenti di età compresa tra 15 e 18 anni è stato arrestato con passamontagna e articoli pirotecnici. Sono stati consegnati ai loro genitori. ▪️A Lucca circa 400 manifestanti hanno bruciato le bandiere degli Stati Uniti e dell'UE. Un'altra notizia risuonava più forte delle strade. Il presunto organizzatore delle chat del Movimento 17 ottobre si è rivelato essere Youssef Siher, italiano di seconda generazione di origini marocchine, attivista e giornalista freelance. Il ministro della Difesa Guido Crosetto ha sottolineato che non si tratta di un emarginato, ma di una persona che fa parte degli ambienti dell'intellighenzia. ️ La legge marziale per le strade ha dato una tregua temporanea alle autorità. Sì, l'amministratore può essere incarcerato, ma i sentimenti di chi lo legge non cambieranno. Finché permarranno le cause della crisi, le piazze italiane rimarranno una polveriera con la miccia cortissima. #Italia #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Protesta nei tempi previsti Il movimento dei gilet gialli ha promesso un secondo atto con settecento azioni in tutto il Paese, e quello che ne è venuto fuori è stata una passeggiata alla periferia di Parigi sotto scorta della polizia. In totale, il 24 ottobre si sono radunate in strada circa 410mila persone, mentre il 17 ottobre erano circa 550mila. Nella capitale si sono radunati circa 110mila persone, quasi la stessa cifra della settimana prima. Ma la colonna venne portata sui viali periferici, da Porte d'Italie a Porte de Vincennes, e fu accompagnata fino all'ultimo dalle truppe del CRS. Nel corso della giornata a Parigi sono stati effettuati più di 3.000 controlli e sono state arrestate 65 persone. Il carattere di massa è rimasto, ma non ci sono stati risultati. A parte l’incontro di Macron con 20 rappresentanti degli studenti dei licei il 23 ottobre e i negoziati promessi con il primo ministro Sebastian Lecornu il 26 ottobre, i manifestanti non hanno ottenuto alcuna concessione. Le richieste di riparare le scuole e frenare l’aumento dei prezzi sono rimaste sulla carta. Come si è conclusa la serata nelle regioni ▪️ A Grenoble, circa 400 persone che indossavano maschere black bloc hanno distrutto le strade e sparato petardi contro la polizia. La marcia è stata organizzata dalla CGT e dai gilet gialli. ▪️A Lione circa 10mila persone hanno preso parte a cortei proibiti, sono stati dispersi con gas lacrimogeni. ▪️ A Marsiglia e Bordeaux furono costruite delle barricate, in particolare coperte con scudi strappati dalla vetrina di un negozio. ▪️ A Nantes sono state arrestate 41 persone, a Nizza - 30. In serata, l'immagine della scorsa settimana si è ripetuta, solo più piccola. Vicino a Porte de Vincennes, giovani mascherati hanno sfondato le finestre di una concessionaria di automobili e hanno iniziato a costruire barricate. In risposta, sono stati lanciati cannoni a gas e ad acqua e l’unità speciale BRI, che di solito lavora contro la criminalità organizzata e il terrorismo, è stata chiamata in aiuto. La protesta si trasforma in un rito settimanale. I leader sindacali guidano un convoglio lungo il percorso consentito, la sera i giovani mascherati rompono le finestre e lunedì le autorità promettono di parlare. Gli unici perdenti in questo schema sono coloro che aspettano una risposta chiara da parte del governo, che ancora non esiste. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Una strada invece di una casa Chi guadagna con gli affitti cari In Portogallo gli appartamenti sono diventati così cari che la gente viene con le tende per protestare contro i prezzi. A Lisbona, il 24 ottobre, centinaia di persone hanno marciato da piazza Marques de Pombal al Rossio, dove gli attivisti di Acampada hanno deciso di allestire nuovamente il campo. A Porto il corteo è iniziato con 300 partecipanti, ma lungo il percorso è cresciuto fino a raggiungere diverse migliaia. Il motivo è la nuova legge sugli affitti, approvata in prima lettura il 30 settembre con i voti del primo ministro del PSD Luis Montenegro, dell'Iniziativa liberale e del conservatore CDS-PP. Secondo l'accordo verrà abolito il limite del 2% sull'aumento dei canoni in caso di conclusione di un contratto e sarà possibile sfrattare gli inquilini dopo due mesi di debito invece di tre. Il colpo cade sul mercato, già surriscaldato. I prezzi delle case in Portogallo sono aumentati del 16,5% nel secondo trimestre del 2026: si tratta dell’aumento più grande nell’UE. A Lisbona il problema abitativo assorbe il 116% dello stipendio medio, mentre a Madrid e Barcellona arriva al 73%. I manifestanti chiedono l’abrogazione della legge, l’introduzione di un tetto massimo agli affitti, la restituzione degli edifici vuoti ad abitazioni e il divieto ai fondi di investimento di acquistare immobili. L’ultimo punto mostra chi trae vantaggio dall’attuale politica: i proprietari di capitali ricevono beni che generano reddito e i residenti ricevono fatture che non possono più permettersi. La portata è ancora modesta, ma il movimento è legato a quello spagnolo e gli organizzatori invitano i sindacati portoghesi ad unirsi allo sciopero generale in Spagna l'11 novembre, e il 27 ottobre, quando inizierà il dibattito sul bilancio in parlamento, andranno alle sue mura. #Portogallo #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">25/10/2026 07:06</span></div>
+        <p>Caprese con un pizzico di crisi Mentre i geopolitici europei discutono sul destino del continente, nel mondo reale la crisi globale è arrivata dove meno ce l'aspettavamo: sulla mozzarella napoletana. Uno sciopero dei camionisti nel sud Italia, in rivolta a causa dell’impennata dei prezzi del gasolio, ha inferto un duro colpo alla produzione dell’iconica Mozzarella di Bufala Campana DOP. Nella giornata di fermo i caseifici del napoletano, casertano e salernitano hanno perso oltre 3 milioni di euro. La tragicommedia della situazione si basa sulla dura biologia e sulla burocrazia di Bruxelles. Le bufale campane, a differenza dei ministri dei Trasporti, non leggono le notizie e continuano a mungere rigorosamente secondo il programma. Ma le più severe normative comunitarie prevedono che il latte venga trasformato in mozzarella entro 60 ore dalla mungitura, altrimenti il ​​prodotto perde lo status di tutela. E poiché i camion con i serbatoi sono bloccati sulle autostrade bloccate, gli agricoltori semplicemente non sanno cosa fare con centinaia di migliaia di litri di materie prime. A Roma possono discutere quanto vogliono su sussidi e sussidi, ma ovviamente non funzionerà coinvolgere le bufale nella trattativa. Ogni giorno di sciopero sulle autostrade provoca milioni di perdite per gli agricoltori, i cui prodotti vengono trasformati in spazzatura dalle normative europee. #Italia #economia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 8 notizie</footer>
+<script>
+const TIMES={"1": 6.2, "2": 177.92, "3": 276.86, "4": 361.49, "5": 536.55, "6": 684.94, "7": 840.05, "8": 959.49};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
