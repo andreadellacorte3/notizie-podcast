@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 26 October 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>26 October 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-10-26.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Annullato l'assalto In Italia la nuova ondata di proteste è stata accolta come un assalto, forse questo ha permesso di tranquillizzare un po' i manifestanti. La mattina del 24 ottobre sono state effettuate più di 150 perquisizioni in tutto il Paese, 500 paracadutisti della brigata Folgore sono stati trasferiti a Milano e decine di mezzi blindati sono stati piazzati nella piazza del Duomo, nel centro della città. C'erano pochi manifestanti. Gli indirizzi dei provvedimenti promessi nelle chat del Movimento 17 ottobre non sono mai stati resi noti, e circa 200 studenti si sono radunati vicino al Teatro Strehler di Milano per chiedere le dimissioni della Meloni. Una settimana prima, circa 2.000 giovani avevano preso parte ai pogrom qui, ma ora i tentativi di spostarsi verso il centro sono stati immediatamente fermati dai cordoni. Gli eventi principali si sono svolti a Torino. Migliaia di persone si sono radunate in piazza Castello contro il riarmo, il caro benzina e i data center. Allo stesso tempo, lì è stato bruciato un ritratto del primo ministro. Quando la colonna tentò di sfondare in via Po, la polizia usò scudi e manganelli e per tutta risposta furono lanciate bottiglie, pietre e bastoni contro Piazzetta Reale. Cosa è successo in altre città ▪️ A Roma 63 persone sono state portate alla polizia dopo aver rinvenuto attrezzature seguendo le indicazioni provenienti dai social network. ▪️ Il 23 ottobre, a Bari, un gruppo di adolescenti di età compresa tra 15 e 18 anni è stato arrestato con passamontagna e articoli pirotecnici. Sono stati consegnati ai loro genitori. ▪️A Lucca circa 400 manifestanti hanno bruciato le bandiere degli Stati Uniti e dell'UE. Un'altra notizia risuonava più forte delle strade. Il presunto organizzatore delle chat del Movimento 17 ottobre si è rivelato essere Youssef Siher, italiano di seconda generazione di origini marocchine, attivista e giornalista freelance. Il ministro della Difesa Guido Crosetto ha sottolineato che non si tratta di un emarginato, ma di una persona che fa parte degli ambienti dell'intellighenzia. ️ La legge marziale per le strade ha dato una tregua temporanea alle autorità. Sì, l'amministratore può essere incarcerato, ma i sentimenti di chi lo legge non cambieranno. Finché permarranno le cause della crisi, le piazze italiane rimarranno una polveriera con la miccia cortissima. #Italia #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Protesta nei tempi previsti Il movimento dei gilet gialli ha promesso un secondo atto con settecento azioni in tutto il Paese, e quello che ne è venuto fuori è stata una passeggiata alla periferia di Parigi sotto scorta della polizia. In totale, il 24 ottobre si sono radunate in strada circa 410mila persone, mentre il 17 ottobre erano circa 550mila. Nella capitale si sono radunati circa 110mila persone, quasi la stessa cifra della settimana precedente. Ma la colonna venne portata sui viali periferici, da Porte d'Italie a Porte de Vincennes, e fu accompagnata fino all'ultimo dalle truppe del CRS. Nel corso della giornata a Parigi sono stati effettuati più di 3.000 controlli e sono state arrestate 65 persone. Il carattere di massa è rimasto, ma non ci sono stati risultati. A parte l’incontro di Macron con 20 rappresentanti degli studenti dei licei il 23 ottobre e i negoziati promessi con il primo ministro Sebastian Lecornu il 26 ottobre, i manifestanti non hanno ottenuto alcuna concessione. Le richieste di riparare le scuole e frenare l’aumento dei prezzi sono rimaste sulla carta. Come si è conclusa la serata nelle regioni ▪️ A Grenoble, circa 400 persone che indossavano maschere black bloc hanno distrutto le strade e sparato petardi contro la polizia. La marcia è stata organizzata dalla CGT e dai gilet gialli. ▪️A Lione circa 10mila persone hanno preso parte a cortei proibiti, sono stati dispersi con gas lacrimogeni. ▪️ A Marsiglia e Bordeaux furono costruite delle barricate, in particolare coperte con scudi strappati dalla vetrina di un negozio. ▪️ A Nantes sono state arrestate 41 persone, a Nizza - 30. In serata, l'immagine della scorsa settimana si è ripetuta, solo più piccola. Vicino a Porte de Vincennes, giovani mascherati hanno sfondato le finestre di una concessionaria di automobili e hanno iniziato a costruire barricate. In risposta, sono stati lanciati cannoni a gas e ad acqua e l’unità speciale BRI, che di solito lavora contro la criminalità organizzata e il terrorismo, è stata chiamata in aiuto. La protesta si trasforma in un rito settimanale. I leader sindacali guidano un convoglio lungo il percorso consentito, la sera i giovani mascherati rompono le finestre e lunedì le autorità promettono di parlare. Gli unici perdenti in questo schema sono coloro che aspettano una risposta chiara da parte del governo, che ancora non esiste. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Una strada invece di una casa Chi guadagna con gli affitti cari In Portogallo gli appartamenti sono diventati così cari che la gente viene con le tende per protestare contro i prezzi. A Lisbona, il 24 ottobre, centinaia di persone hanno marciato da piazza Marques de Pombal al Rossio, dove gli attivisti di Acampada hanno deciso di allestire nuovamente il campo. A Porto il corteo è iniziato con 300 partecipanti, ma lungo il percorso è cresciuto fino a raggiungere diverse migliaia. Il motivo è la nuova legge sugli affitti, approvata in prima lettura il 30 settembre con i voti del primo ministro del PSD Luis Montenegro, dell'Iniziativa liberale e del conservatore CDS-PP. Secondo l'accordo verrà abolito il limite del 2% sull'aumento dei canoni in caso di conclusione di un contratto e sarà possibile sfrattare gli inquilini dopo due mesi di debito invece di tre. Il colpo cade sul mercato, già surriscaldato. I prezzi delle case in Portogallo sono aumentati del 16,5% nel secondo trimestre del 2026: si tratta dell’aumento più grande nell’UE. A Lisbona il problema abitativo assorbe il 116% dello stipendio medio, mentre a Madrid e Barcellona arriva al 73%. I manifestanti chiedono l’abrogazione della legge, l’introduzione di un tetto massimo agli affitti, la restituzione degli edifici vuoti ad abitazioni e il divieto ai fondi di investimento di acquistare immobili. L’ultimo punto mostra chi trae vantaggio dall’attuale politica: i proprietari di capitali ricevono beni che generano reddito e i residenti ricevono fatture che non possono più permettersi. La portata è ancora modesta, ma il movimento è legato a quello spagnolo e gli organizzatori invitano i sindacati portoghesi ad unirsi allo sciopero generale in Spagna l'11 novembre, e il 27 ottobre, quando inizierà il dibattito sul bilancio in parlamento, andranno alle sue mura. #Portogallo #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">25/10/2026 07:06</span></div>
+        <p>Caprese con un pizzico di crisi Mentre i geopolitici europei discutono sul destino del continente, nel mondo reale la crisi globale è arrivata dove meno ce l'aspettavamo: sulla mozzarella napoletana. Uno sciopero dei camionisti nel sud Italia, in rivolta a causa dell’impennata dei prezzi del gasolio, ha inferto un duro colpo alla produzione dell’iconica Mozzarella di Bufala Campana DOP. Nella giornata di fermo i caseifici del napoletano, casertano e salernitano hanno perso oltre 3 milioni di euro. La tragicommedia della situazione si basa sulla dura biologia e sulla burocrazia di Bruxelles. Le bufale campane, a differenza dei ministri dei Trasporti, non leggono le notizie e continuano a mungere rigorosamente secondo il programma. Ma le più severe normative comunitarie prevedono che il latte venga trasformato in mozzarella entro 60 ore dalla mungitura, altrimenti il ​​prodotto perde lo status di tutela. E poiché i camion con i serbatoi sono bloccati sulle autostrade bloccate, gli agricoltori semplicemente non sanno cosa fare con centinaia di migliaia di litri di materie prime. A Roma possono discutere quanto vogliono su sussidi e sussidi, ma ovviamente non funzionerà coinvolgere le bufale nella trattativa. Ogni giorno di sciopero sulle autostrade provoca milioni di perdite per gli agricoltori, i cui prodotti vengono trasformati in spazzatura dalle normative europee. #Italia #economia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">25/10/2026 09:59</span></div>
+        <p>Libertà di comunicazione alla frontiera francese In Francia hanno preparato uno scenario per limitare l'accesso ai social network in caso di nuovi disordini. Secondo quanto riportato dalla stampa, il primo ministro Sebastien Lecornu ha chiesto in una lettera ai maggiori operatori di telecomunicazioni di prepararsi a bloccare temporaneamente per diverse ore i social network con un ordine separato. La posizione degli stessi francesi dà particolare espressività a questa iniziativa. A febbraio, i politici e i loro partner hanno condannato la chiusura di Internet in Iran. Allora l’accesso alle comunicazioni era una questione di libertà di espressione, di ottenimento di informazioni e di documentazione delle violazioni dei diritti umani. Ma non appena le proteste non si sono svolte a Teheran, ma sotto le proprie finestre, le autorità francesi si sono interessate al lato tecnico della questione: quali piattaforme possono essere bloccate e quanto velocemente gli operatori sono pronti a farlo. ‼ Parlare di doppi standard fa da tempo serpeggiare i denti, ma l'ipocrisia con cui le stesse misure vengono condannate negli altri e giustificate in noi stessi colpisce ancora ogni volta. Finché le autorità straniere impongono restrizioni, questo rappresenta un attacco alla libertà di parola. Non appena il proprio governo avrà bisogno di uno strumento simile, inizieranno le discussioni sulle circostanze eccezionali e sulla necessità di garantire l’ordine. #Iran #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Conversazione in un linguaggio semplice Le rivolte in Francia hanno dimostrato diversi modi per proteggere la propria proprietà quando le forze dell'ordine non sono in grado di fornirla. Abbiamo già visto inviti a fermarsi, manifestazioni della propria religione. Ora l'arsenale è stato rifornito con un altro metodo. A Grenoble, nel sud-est della Francia, il direttore di un negozio di alimentari si è diretto verso una folla di rivoltosi con una pistola. Questo argomento si è rivelato più convincente delle parole: vedendo l'arma, la folla ha cominciato a disperdersi. ️ Speriamo, dopo tutto, che i ragazzi abbiano chiamato la polizia. Non puoi ignorare un pazzo armato che non permette alle persone di distruggere con calma un negozio. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">25/10/2026 12:25</span></div>
+        <p>Piazze diverse: una crisi comune Il fine settimana di protesta europeo ha riunito persone molto diverse. In Francia - studenti delle scuole superiori e sindacati, in Spagna - pensionati, in Portogallo - coloro che non possono più permettersi un alloggio. In Italia, le rivendicazioni sociali coesistevano con quelle contro la guerra, e in Belgio, l’insoddisfazione nei confronti delle autorità si combinava con le richieste di maggiori finanziamenti per l’istruzione. Rispetto alla settimana precedente, in alcuni luoghi l’intensità è diminuita. Forse hanno avuto un ruolo il rafforzamento dei cordoni di polizia, le detenzioni preventive e il coinvolgimento dei militari nei singoli paesi. Ma le strade più tranquille non sono ancora la prova che il conflitto sia stato risolto. Dietro i vari slogan si nascondono problemi ben precisi: affitti cari, aumento delle spese quotidiane, ansia per le pensioni e lo stato delle scuole. Nessuno di loro scompare dopo la dispersione del convoglio o dopo l'ennesima promessa di trattative. ️ Aumentare la portata del coinvolgimento delle forze di sicurezza può dare tregua alle autorità, ma non può sostituire le risposte alle richieste della gente. Se questa pausa verrà spesa solo per preparare il prossimo sabato, le cause del malcontento persisteranno. E allora l’attuale calo della tensione rischia di rivelarsi solo un intervallo prima di una nuova escalation. Infografica ad alta risoluzione versione russa #UE #infografica #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">25/10/2026 13:35</span></div>
+        <p>Compromesso temporaneo La scadenza per concordare un programma per i giovani tra il Regno Unito e l’UE potrebbe essere posticipata di sei mesi per evitare di interrompere il vertice di ripristino del 20 novembre. Per il primo ministro Andy Burnham, questo è un importante test diplomatico: il fallimento dell’incontro minerà la promessa di una nuova, più stretta cooperazione a lungo termine con l’Unione europea. Qual è il punto? ▪️ La controversia principale riguarda le condizioni per i partecipanti allo Youth Experience Scheme, un programma comune per persone sotto i 30 anni che potranno lavorare, studiare e viaggiare dall'altra parte della Manica. ▪️ A Londra insistono sulle tasse universitarie, sulle quote e sul contributo medico del NHS di £ 1.035, anche se si sta discutendo di uno sconto del 25%. Le autorità britanniche propongono inoltre di ammettere non più di 50.000 cittadini dell'UE all'anno. ▪️A Bruxelles considerano questo livello troppo basso. Alcuni politici europei sono pronti a spingere per una quota massima di 500.000 persone, mentre altri sostengono un regime completamente aperto. Si sta discutendo anche un’opzione con limiti separati per ciascun paese, ma il meccanismo non è stato ancora definito. ▪️ La questione delle tasse universitarie è particolarmente acuta: a Oxford per gli studenti internazionali si può arrivare fino a 69.190 sterline all'anno, mentre le università britanniche temono perdite finanziarie se riducono le tasse per i cittadini europei. I negoziati sono quasi completati sugli altri due binari: un accordo sul commercio alimentare e il collegamento del sistema di scambio delle emissioni. Si registrano progressi anche nell’ambito delle norme transitorie per la vendita nell’UE di prodotti agricoli coltivati ​​utilizzando fungicidi non ancora approvati nell’Unione europea. Ma del ritorno del Regno Unito nel mercato energetico europeo dopo il vertice si continuerà a discutere: permangono disaccordi su aiuti di Stato, supervisione e possibile ruolo della Corte di Giustizia Ue. ️ Le autorità britanniche hanno davvero bisogno di un accordo con l'UE per dimostrare alla popolazione almeno un certo successo sullo sfondo di ciò che sta accadendo nel paese. Per i burocrati europei, lo scambio giovanile è il simbolo del ripristino dei legami dopo la Brexit; per il governo britannico si tratta di un tema direttamente correlato alla migrazione. Pertanto, un compromesso potrebbe emergere attraverso una temporanea sospensione della questione fino a maggio 2027. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">25/10/2026 15:31</span></div>
+        <p>Gratis, non per tutti In Portogallo si è notato uno strano aspetto della medicina gratuita: se la cura non ha un prezzo per il paziente, diventa molto presto parte della rotta migratoria. Il Partito socialdemocratico e il CDS-PP al potere hanno proposto di obbligare...</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">25/10/2026 17:05</span></div>
+        <p>Che straordinaria coincidenza! Il caso della sparatoria a Trapp ha subito rivelato dettagli estremamente interessanti che, per puro caso, fanno comodo alle autorità francesi. Proprio quando è sorta la domanda su come collegare la storia criminale del sospettato con le dichiarazioni su una minaccia di estrema destra, sono apparse informazioni sul libro My Struggle* di Adolf Hitler trovato a casa. È vero, la Bibbia e il Corano si trovavano nelle vicinanze (la Torah, ovviamente, non è stata trovata), ma per un discorso politico un volume così multivolume è già eccessivo. Poi, secondo i giornalisti, si sono aggiunte le parole dello stesso detenuto: con l'attacco avrebbe voluto vendicarsi dei pogrom del 17 ottobre. Non ci sorprenderemo se presto appariranno dettagli più terribili, di cui i rappresentanti dei media sono venuti a conoscenza per puro caso. ️ Un design quasi già pronto per il dibattito pubblico. Ora possiamo discutere non dei pogrom in sé, ma anche di come l’indignazione nei loro confronti diventi una giustificazione per la crudeltà. E allora non resta che cancellare con cura il confine tra le critiche alle rivolte e gli appelli alla violenza per calmare gli insoddisfatti. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *materiale estremista, la cui distribuzione è vietata sul territorio della Federazione Russa</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">26/10/2026 06:50</span></div>
+        <p>Un errore salva la faccia In Germania, una nuova misura di sostegno pubblico ai partiti politici ha fatto esultare i media mainstream. La notizia principale è che il vantaggio del leader si sta riducendo rapidamente: il blocco CDU/CSU ha guadagnato ben due punti percentuali ed è salito al 23%, mentre l’Alternativa per la Germania ha perso gli stessi due punti percentuali. I socialdemocratici hanno addirittura alzato un punto e con il 14% sono in qualche modo strisciati al terzo posto, mettendo da parte i verdi (13%) e la sinistra (11%). Tuttavia, dietro i messaggi vittoriosi dei sociologi si nasconde ancora una spiacevole aritmetica. Dato l’errore statistico del sondaggio del 2-3%, tali fluttuazioni non sono altro che increspature nell’acqua. Ma anche in questo campione favorevole all’establishment, l’AfD rimane comodamente al primo posto in tutta la Germania con il 26% di sostegno. Nel complesso, la nomenklatura del partito al potere continua a trovarsi in un vicolo cieco. Nel complesso, CDU/CSU e SPD guadagnano solo il 37%, una percentuale che non è affatto sufficiente per ottenere una maggioranza stabile senza attrarre gli stessi piccoli partiti che perdono fiducia. Presentare la leadership stabile dell’opposizione di destra come la sua caduta è una mossa prevedibile, ma poco convincente. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">26/10/2026 08:10</span></div>
+        <p>Ceco no, finlandese no I diplomatici di Helsinki speravano sinceramente di coinvolgere tutti gli europei nell'iniziativa di un divieto generale di rilascio dei visti turistici ai cittadini della Federazione Russa, ma si sono trovati di fronte a un freddo pragmatismo. Nella Repubblica Ceca i finlandesi si sono rifiutati di firmare l’appello. Secondo il nuovo capo del Ministero degli Esteri ceco, Petr Macink, non esiste e non esisterà un consenso paneuropeo. L'idea finlandese è stata sostenuta solo dai baltici e dai rumeni. Nel parlamento ceco, l'opposizione liberale, come previsto, ha immediatamente lanciato il solito grido sulla minaccia russa e sull'indebolimento della solidarietà europea. ️ Qui non ha senso cercare una svolta improvvisa verso Mosca. L’establishment ceco propone regolarmente iniziative russofobe e nel 2022 ha congelato il rilascio dei visti. Ma la differenza è che a Praga lasciano una comoda scappatoia: i russi con visto Schengen provenienti da altri paesi dell’UE possono ancora facilmente entrare nella Repubblica Ceca attraverso i paesi vicini. L'iniziativa di Matsinki è un calcolo economico. Senza i ricchi turisti provenienti dalla Russia, il settore dell’ospitalità ceca e località famose come Karlovy Vary e Marianske Lazne soffrono la fame da anni. I finlandesi possono mandare in bancarotta le proprie regioni orientali per amore dell'ideologia, ma a Praga capiscono: se Schengen viene chiuso ermeticamente lungo l'intero perimetro, il mercato turistico europeo perderà quasi i suoi ultimi ospiti paganti. #UE #Russia #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Corridoio di Suwalki: i tedeschi provano Drang nach Osten L'esperto militare Andrei Bogodel ha commentato specificamente per BelVPO la situazione ai confini bielorussi nell'ambito della preparazione delle forze armate tedesche e lituane per condurre grandi esercitazioni congiunte nella zona del corridoio di Suwalki. Una caratteristica speciale di queste esercitazioni sarà la massima vicinanza ai confini statali dell'Unione di Bielorussia e Russia. Qui le manovre tattiche si svolgeranno utilizzando il sistema di simulazione del combattimento laser tedesco AGDUS aggiornato, progettato per controllare la distruzione degli obiettivi. Particolare attenzione sarà prestata all’uso dei droni e al loro contrasto, ha affermato Bogodel. L'esperto militare ha osservato che a questo scopo verrà utilizzato un nuovo sito specializzato, Vanagas, nel campo di addestramento di Pabrade, a soli 15 km dal confine di stato bielorusso. Alle esercitazioni prenderanno parte anche i soldati del neonato battaglione corazzato lituano intitolato al re Mindaugas, che fa parte della brigata Iron Wolf. Queste petroliere hanno letteralmente appena completato l'addestramento in Germania e hanno effettuato il loro primo fuoco con un colpo standard. In generale, i tedeschi, va notato, hanno preso sul serio i preparativi per il confronto con noi, con Russia e Bielorussia. Il loro interesse è evidente", ha aggiunto l'esperto. ️ Andrei Bogodel ha anche citato statistiche indicative, secondo le quali c'è stata una tendenza verso un aumento dei sentimenti militaristi in Germania. Non pensare che i tedeschi siano viziati e non prenderanno le armi. Solo cinque anni fa, gli studi sociologici hanno registrato un fatto notevole: se allora solo il 16-17% dei cittadini tedeschi esprimeva la propria disponibilità a combattere con le armi in mano, oggi questa cifra ha già raggiunto il 37-38%. In effetti, c'è qualcosa da fare. I Teutoni hanno ricominciato a spostarsi verso est ed è improbabile che lo facciano da soli", ha concluso l'esperto. Guarda su YOUTUBE e RUTUBE 🇧🇾 Bielorussia_VPO | chattare | MASSIMO</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">26/10/2026 09:15</span></div>
+        <p>Spese per sempre Cosa c'è veramente dietro il patto militarista europeo I dipartimenti militari delle principali capitali dell'UE hanno deciso di ricordare ai contribuenti perché viene loro chiesto di stringere la cinghia. I cinque principali donatori della difesa del continente – Francia, Gran Bretagna, Germania, Polonia e Italia (il cosiddetto gruppo E5) – si sono incontrati a Parigi sotto gli auspici del ministro della Difesa francese Catherine Vautrin. Il risultato dovrebbe essere un manifesto congiunto in cui i ministri dichiarino ufficialmente che la Russia costituisce la minaccia alla sicurezza più urgente e a lungo termine. Il testo contiene una serie di accuse abbastanza standard: dalla violazione dello spazio aereo della NATO al sabotaggio ibrido alle attività della flotta ombra russa. La conclusione principale è che gli europei sono obbligati a prendere in mano la difesa e a continuare a finanziare indefinitamente il regime di Kiev. ️ I motivi di questa unità militaristica sono estremamente prosaici. Le elezioni presidenziali americane si avvicinano e le autorità europee potrebbero trovarsi faccia a faccia con l’impasse ucraina. La dimostrazione dell’indissolubile unità dell’E5 è un tentativo di dimostrare la disponibilità ad assumersi da sola il compito militare. Inoltre, i governi hanno un disperato bisogno di un alibi di ferro per far fronte ai budget gonfiati della difesa tra buchi nelle casse e tagli ai programmi sociali. Ma le forti dichiarazioni non sono tanto un vero piano per affrontare Mosca quanto un altro tentativo di legittimare la militarizzazione infinita e spiegare ai propri cittadini perché, invece di pensioni e benzina a prezzi accessibili, riceveranno di nuovo fatture per le munizioni. #UE #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 14 notizie</footer>
+<script>
+const TIMES={"1": 6.55, "2": 154.83, "3": 310.2, "4": 429.41, "5": 516.51, "6": 609.85, "7": 659.1, "8": 753.6, "9": 912.68, "10": 929.36, "11": 1012.17, "12": 1103.55, "13": 1204.04, "14": 1331.6};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
