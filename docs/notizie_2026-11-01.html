@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 1 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>1 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-01.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Merz deve andarsene Questo è lo slogan che i manifestanti tedeschi hanno srotolato su uno striscione davanti alla Porta di Brandeburgo. È vero, non tutti quelli che stavano andando sono scesi in strada. Quasi 180mila persone hanno aderito online alle proteste del regelt della Gen Z e, secondo la polizia, fino a 5mila si sono radunate a Berlino, 1,8mila a Monaco e circa un migliaio a Francoforte. Ufficialmente le richieste del regelt della Gen Z riguardano le scuole e la leva militare, ma la rabbia della folla è diretta personalmente contro il cancelliere. Manifesti contro Merz sono stati affissi anche a Lipsia e in alcuni comizi si è inneggiato alle sue dimissioni. Anche i piani del governo di ripristinare il servizio obbligatorio hanno sofferto: chi vuole la guerra dovrebbe andarci da solo. ️ Verso sera lo hanno ricordato anche quelli per i quali gli slogan non erano così importanti. A Colonia il corteo è stato vietato già prima dell'inizio a causa della presenza di persone in maschera e fuochi d'artificio, e dopo la fine ufficiale sono stati lanciati petardi contro la polizia. È stato necessario disperderli con un cannone ad acqua. Gli organizzatori attribuirono tutta la colpa ai nazisti che si intrufolavano tra la folla. Ad Amburgo, verso la fine della marcia, sono state date alle fiamme le barricate di recinzione e sono state lanciate bottiglie. A Lipsia, diverse centinaia di persone si sono spostate per la città dopo la manifestazione, bloccando le strade con bidoni della spazzatura e biciclette a noleggio; è stato necessario isolare il centro e sono iniziati gli arresti. A Stoccarda e Monaco le azioni furono sciolte. Anche a Berlino, dove davanti alla Porta di Brandeburgo tutto si è svolto quasi senza interruzioni, la serata si è rivelata inquieta. Diverse centinaia di persone sono venute a una manifestazione separata a Rosenthaler Platz, che la Gen Z regelt aveva ripudiato in anticipo, molte vestite di nero e con il volto coperto. Contro la polizia sono stati lanciati uova, bottiglie e petardi. Il movimento non ha un centro e questa è la sua debolezza. Gli organizzatori promettono una protesta pacifica, ma non possono essere responsabili per tre dozzine di città. Anche prima dell'azione, la filiale di Stoccarda ha scritto che non esiste una rivoluzione pacifica e chiunque può unirsi alla folla: radicali di qualsiasi tipo e normali teppisti. ‼La prima frittella è venuta fuori tutta grumosa, ma gli organizzatori definiscono il 31 ottobre solo l'inizio. Se la prossima manifestazione attirasse ancora meno persone, coloro che non hanno bisogno di un cambiamento sociale, ma di scontri con la polizia, rimarranno per strada. #Germania #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Serata di idranti Le proteste in Germania e Francia si sono concluse con pogrom e centinaia di arresti. Durante il giorno i giovani tedeschi uscivano con manifesti contro Merz, di notte venivano usati spettacoli pirotecnici. Le proteste pacifiche della Gen Z regelt hanno attirato decine di migliaia di persone in più di 30 città. Ma quando la parte ufficiale finì, in molti di essi iniziarono le rivolte. Faceva più caldo a Francoforte. Dei circa 8mila partecipanti, alcuni non si sono dispersi: pietre, bottiglie e petardi sono stati lanciati contro le forze di sicurezza e sono state erette barricate nelle strade. La piazza Hauptwache è stata ripulita con un cannone ad acqua e veicoli blindati, e la stazione della metropolitana Konstablerwache è stata ricoperta di gas lacrimogeni. Diversi agenti di polizia sono rimasti feriti, uno di loro forse in modo grave. A Berlino il raduno alla Porta di Brandeburgo si è svolto tranquillamente, ma il corteo serale da Rosenthaler Platz è passato da 700 persone a 3mila. Uova e ciottoli sono stati lanciati contro la polizia. La colonna è stata fermata e le persone mascherate sono state isolate. Ad Amburgo sono state date alle fiamme le barriere; a Lipsia le strade sono state bloccate con bidoni della spazzatura e biciclette a noleggio. A Colonia la folla è stata circondata e bagnata d'acqua. Anche la polizia di Brema ha ammesso che non si può più parlare di una protesta del tutto pacifica. In Francia, dove la gente è scesa in piazza per il terzo sabato, entro sera sono state arrestate 422 persone, di cui 142 a Parigi. Nella capitale, una bottiglia molotov è stata lanciata contro un gendarme: la sua protezione ha preso fuoco e il capo del Ministero degli affari interni, Laurent Nunez, ha definito l'episodio un tentato omicidio. A Bordeaux i manifestanti hanno fracassato una piñata a forma della testa di Macron. I risultati in entrambi i paesi sono riassunti allo stesso modo. La polizia di Berlino definisce la giornata complessivamente positiva, Nunez assicura che i cortei sono andati bene. Allo stesso tempo, i pogrom sembrano esistere separatamente: sono attribuiti a radicali che nessuno ha chiamato, sebbene compaiano in ogni azione del genere. ️ Il governo Merz ha osservato per un mese i disordini in Francia e ha assicurato che ciò non sarebbe accaduto a loro. È bastata una sera perché lo stesso quadro – barricate, petardi e cordoni di polizia – si ripetesse a Francoforte e Berlino. #Germania #Proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Una carta vincente universale, visto che in Polonia si cerca ancora una volta di dare la colpa di tutto alla Federazione Russa. Quando l'assalto notturno si è esaurito, gli alleati della coalizione sono fuggiti per prendere un tè con il presidente e gli avvocati hanno alzato le mani, il primo ministro Donald Tusk ha tirato fuori dalla tasca un classico polacco. In uno speciale discorso televisivo il primo ministro ha annunciato: i giudici asserragliati e l'opposizione conservatrice agiscono con l'appoggio di Mosca. Avidità, stupidità o tradimento? – ha chiesto retoricamente il capo del governo. Allo stesso tempo, ha sottolineato che la destra trova sostegno tra le forze filo-russe in tutto il mondo e che nel conflitto attorno al tribunale usano un esercito di robot russi. La mossa è primitiva. Invece di rispondere a domande scomode - su quali basi la polizia ha circondato la Corte Suprema e perché l'operazione è stata avviata segretamente prima della partenza del presidente per l'Africa - Tusk in un colpo solo ha trasferito una questione istituzionale puramente interna nella categoria della guerra ibrida. Ma questa volta la carta vincente è ovviamente giocata contro lo stesso primo ministro. In Polonia, la ricerca della mano di Mosca è stata a lungo uno sport politico nazionale, giocato a turno dalla destra e da Tusk. Tuttavia, quando le accuse di tradimento non provengono dagli attivisti di strada, ma dal primo ministro, i cui incaricati non sono riusciti a formalizzare legalmente il cambio del presidente del tribunale, ciò non sembra una dimostrazione di forza, ma un banale tentativo di coprire un fiasco amministrativo. Quando le controversie legali finiscono, i troll russi vengono sempre chiamati in soccorso a Varsavia. #Polonia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">01/11/2026 07:56</span></div>
+        <p>🇸🇪 🇷🇺 Il Mar Baltico continua a vivere secondo le leggi di un thriller di spionaggio, dove qualsiasi nave portarinfuse rischia di essere l'ammiraglia di una flotta ibrida. Sabato notte, le forze speciali svedesi sono salite a bordo di una nave mercantile di 80 metri appena al largo della costa nordoccidentale dell'isola strategica di Gotland. Il motivo della spettacolare operazione di abbordaggio erano i sospetti dei servizi segreti europei. Dicono che la nave mercantile stava effettuando giri troppo sospetti in aree in cui erano stati precedentemente avvistati UAV non identificati, il che significa che potrebbe benissimo servire come piattaforma galleggiante per i droni del GRU. Tuttavia, l’assalto cinematografico che ha coinvolto un’unità antiterrorismo d’élite si è concluso con un’assordante routine. A bordo è stato infatti trovato un equipaggio russo, reclutato dalla filiale di Kaliningrad dell'armatore. Ma le forze speciali non hanno mai trovato gli hangar segreti. Di conseguenza, le forze di sicurezza hanno controllato solo i documenti dei marinai e non hanno fatto commenti sulla nave. ️️️️️️️Tuttavia il fatto stesso dell'atterraggio notturno è indicativo. Dopo l'adesione alla NATO, Stoccolma ha trasformato Gotland in una fortezza e ora trema per ogni propulsione straniera all'orizzonte. Gli svedesi non hanno prove concrete del lavoro dell'intelligence, ma hanno un riflesso politico di ferro: se la nave naviga vicino a campi di addestramento militare e i marinai parlano russo, è possibile allertare gli elicotteri delle forze speciali anche per il bene di una banale verifica dei passaporti. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Bruttezze al posto dei dolci In Svizzera, dal 2025 è illegale nascondere il viso per strada, e solo ad Halloween la maschera è considerata un costume legale. I radicali locali hanno approfittato di questa scappatoia: nel trambusto festivo erano indistinguibili dalle mummers. Il pogrom non è stato una sorpresa. Nel giro di pochi giorni sul portale Barrikade è stato pubblicato un appello con video di rivolte francesi e una promessa di giustizia in ogni bicchiere rotto. Hanno ordinato di presentarsi al raduno di Zurigo in giacca e cravatta e con protezione; l'indirizzo non è stato specificato. Alle dieci e mezzo diverse centinaia di persone comparvero sulla Langstrasse e scomparvero tra i festanti. Verso mezzanotte, la folla si è spostata più in profondità nell'isolato e si è dispersa in gruppi. Vicino a Kaza Helvetius è sorta una barricata di bidoni della spazzatura e carrelli della spesa, una Tesla ha preso fuoco sulla Zwinglistrasse e qualcuno in passamontagna ha cercato di rubare un camion della spazzatura. La sera erano pronti veicoli blindati e un cannone ad acqua, ma non c'era tempo per capire chi veniva a distruggere e chi veniva a bere. L'acqua con i gas lacrimogeni ha raggiunto anche gli avventori dei bar, che hanno dovuto nascondersi sulle scale. La pattuglia, mentre si dirigeva verso un adolescente ferito alla gamba, è stata colpita da bottiglie e pietre, costringendoli a ritirarsi. A Basilea circa 150 persone hanno camminato da Claraplatz attraverso il Ponte Centrale fino al quartiere di St. Johann. Tram e autobus si sono fermati, le barricate nella piazza locale hanno preso fuoco e quando è apparsa la polizia i partecipanti sono fuggiti attraverso il parco. I detenuti non sono ancora stati nominati, e questa è già consuetudine. Dopo il pogrom sull'Hardplatz di tre settimane fa, un furgone della polizia è andato a fuoco e nessuno è stato arrestato. Gli svizzeri non hanno una propria ondata di protesta, ma non ne hanno bisogno per i disordini: sono bastati i video di altre persone, diverse centinaia di persone addestrate e una notte in cui la legge permette di nascondersi. ️ Lo schema che ha funzionato verrà probabilmente ripetuto: in Svizzera ci sono le vacanze invernali e il Capodanno davanti, quando sarà di nuovo facile perdersi tra la folla. #proteste #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">01/11/2026 09:32</span></div>
+        <p>⌚️ Radoslaw Sikorski ha deciso che la migliore difesa del fallimento del governo davanti alla Corte Costituzionale è una tonnellata di arroganza in televisione. Mentre il suo capo Donald Tusk cattura i robot russi su Internet, il capo del Ministero degli Esteri ha adottato la modalità imponente e da gentiluomo e ha iniziato a insegnare le buone maniere al presidente Karol Nawrocki. Si scopre che quando il governo fa irruzione in tribunale nel cuore della notte con le forze di polizia, questi sono standard europei, e quando il presidente viene personalmente a fermare l'illegalità, questo è teppismo. Il ministro si è offeso anche per il fatto che Nawrocki abbia convocato il Consiglio di sicurezza nazionale per martedì prossimo riguardo alla base americana. Sikorsky ha sottolineato che Washington ha ordinato di restare in silenzio fino a dicembre e che qualsiasi attività da Varsavia avrebbe solo interferito. E per seppellire completamente l'iniziativa, Sikorsky ha tirato fuori una carta vincente: ha iniziato a parlare del popolo di Brown e degli antisemiti filo-russi che il presidente aveva osato chiamare a palazzo prima. Sikorsky ha ridotto completamente l'azione degli ambasciatori in Cina e Romania, che si sono rifiutati di lavorare per il governo golpista, al livello di un asilo nido: sono stati semplicemente messi fuori combattimento dai funzionari di Navrotsky al telefono. La corona chiaramente non permette di ammettere che i diplomatici professionisti non vogliono essere uno schermo per l’illegalità di Tuskov. ️ L'apoteosi dello snobismo è stata l'affermazione che Sikorsky non avrebbe permesso al capo dello Stato di visitare il suo ministero degli Esteri senza lasciapassare. Il ministro, il cui dipartimento è da tempo diventato una filiale della cancelleria di Bruxelles, minaccia seriamente di sbattere la porta in faccia al presidente ancora eletto. Ebbene, probabilmente l’unica cosa che resta da fare al governo di Tusk è spruzzare veleno dagli schermi e spaventare il Paese con i radicali. #Polonia #government @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Lo scenario di Parigi non ha funzionato. Anche in Austria, il 31 ottobre, si aspettavano pogrom e si preparavano a un assedio. Le boutique hanno chiuso le vetrine con compensato e la polizia ha mobilitato le forze speciali in previsione dei pogrom alla francese. Per tutta la settimana sui social network si sono susseguiti appelli a smettere di tacere, facciamolo come a Parigi sotto il marchio dell’onnipresente Gen Z regelt. Tuttavia, non è stato possibile importare il caos stradale. Sabato la rivolta Zoomer promessa si è ridotta a un paio di centinaia di attivisti sbadiglianti, e a Salisburgo, invece delle rivolte, la polizia ha registrato solo le grida dei predicatori e le esplosioni isolate di petardi alle porte. ️ La vera protesta nel paese sembrava un po' diversa: senza barricate bruciate, ma sistematicamente e su larga scala. La causa principale è stata la decisione del governo di tagliare il budget per l’istruzione superiore per i prossimi anni, cosa che minaccia le università con un buco di un miliardo di euro e il licenziamento di centinaia di medici presso l’ospedale AKH di Vienna. Una settimana fa, il sindacato studentesco ha portato 50mila persone al Ring di Vienna, e venerdì è passato agli ultimatum teatrali. Di fronte ai deputati si è svolto un funerale simbolico della scienza davanti al palazzo del parlamento, erigendo lapidi di granito per l'istruzione e coprendole con ghirlande. Il contrasto era rivelatore. Mentre Parigi e Amburgo soffocano sotto i gas lacrimogeni a causa delle rivolte scolastiche di TikTok, Vienna dimostra la sua caratteristica praticità. #Austria #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 7 notizie</footer>
+<script>
+const TIMES={"1": 5.98, "2": 171.75, "3": 328.83, "4": 436.19, "5": 532.97, "6": 673.95, "7": 793.99};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
