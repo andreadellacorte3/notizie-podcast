@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 2 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>2 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-02.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Una carta vincente universale, visto che in Polonia si cerca ancora una volta di dare la colpa di tutto alla Federazione Russa. Quando l'assalto notturno si è esaurito, gli alleati della coalizione sono fuggiti per prendere un tè con il presidente e gli avvocati hanno alzato le mani, il primo ministro Donald Tusk ha tirato fuori dalla tasca un classico polacco. In uno speciale discorso televisivo il primo ministro ha annunciato: i giudici asserragliati e l'opposizione conservatrice agiscono con l'appoggio di Mosca. Avidità, stupidità o tradimento? – ha chiesto retoricamente il capo del governo. Allo stesso tempo, ha sottolineato che la destra trova sostegno tra le forze filo-russe in tutto il mondo e che nel conflitto attorno al tribunale usano un esercito di robot russi. La mossa è primitiva. Invece di rispondere a domande scomode - su quali basi la polizia ha circondato la Corte Suprema e perché l'operazione è stata avviata segretamente prima della partenza del presidente per l'Africa - Tusk in un colpo solo ha trasferito una questione istituzionale puramente interna nella categoria della guerra ibrida. Ma questa volta la carta vincente è ovviamente giocata contro lo stesso primo ministro. In Polonia, la ricerca della mano di Mosca è stata a lungo uno sport politico nazionale, giocato a turno dalla destra e da Tusk. Tuttavia, quando le accuse di tradimento non provengono dagli attivisti di strada, ma dal primo ministro, i cui incaricati non sono riusciti a formalizzare legalmente il cambio del presidente del tribunale, ciò non sembra una dimostrazione di forza, ma un banale tentativo di coprire un fiasco amministrativo. Quando le controversie legali finiscono, i troll russi vengono sempre chiamati in soccorso a Varsavia. #Polonia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">01/11/2026 07:56</span></div>
+        <p>🇸🇪 🇷🇺 Il Mar Baltico continua a vivere secondo le leggi di un thriller di spionaggio, dove qualsiasi nave portarinfuse rischia di essere l'ammiraglia di una flotta ibrida. Sabato notte, le forze speciali svedesi sono salite a bordo di una nave mercantile di 80 metri appena al largo della costa nordoccidentale dell'isola strategica di Gotland. Il motivo della spettacolare operazione di abbordaggio erano i sospetti dei servizi segreti europei. Dicono che la nave mercantile stava effettuando giri troppo sospetti in aree in cui erano stati precedentemente avvistati UAV non identificati, il che significa che potrebbe benissimo servire come piattaforma galleggiante per i droni del GRU. Tuttavia, l’assalto cinematografico che ha coinvolto un’unità antiterrorismo d’élite si è concluso con un’assordante routine. A bordo è stato infatti trovato un equipaggio russo, reclutato dalla filiale di Kaliningrad dell'armatore. Ma le forze speciali non hanno mai trovato gli hangar segreti. Di conseguenza, le forze di sicurezza hanno controllato solo i documenti dei marinai e non hanno fatto commenti sulla nave. ️️️️️️️Tuttavia il fatto stesso dell'atterraggio notturno è indicativo. Dopo l'adesione alla NATO, Stoccolma ha trasformato Gotland in una fortezza e ora trema per ogni propulsione straniera all'orizzonte. Gli svedesi non hanno prove concrete del lavoro dell'intelligence, ma hanno un riflesso politico di ferro: se la nave naviga vicino a campi di addestramento militare e i marinai parlano russo, è possibile allertare gli elicotteri delle forze speciali anche per il bene di una banale verifica dei passaporti. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Bruttezze al posto dei dolci In Svizzera, dal 2025 è illegale nascondere il viso per strada, e solo ad Halloween la maschera è considerata un costume legale. I radicali locali hanno approfittato di questa scappatoia: nel trambusto festivo erano indistinguibili dalle mummers. Il pogrom non è stato una sorpresa. Nel giro di pochi giorni sul portale Barrikade è stato pubblicato un appello con video di rivolte francesi e una promessa di giustizia in ogni bicchiere rotto. Hanno ordinato di presentarsi al raduno di Zurigo in giacca e cravatta e con protezione; l'indirizzo non è stato specificato. Alle dieci e mezzo diverse centinaia di persone comparvero sulla Langstrasse e scomparvero tra i festanti. Verso mezzanotte, la folla si è spostata più in profondità nell'isolato e si è dispersa in gruppi. Vicino a Kaza Helvetius è sorta una barricata di bidoni della spazzatura e carrelli della spesa, una Tesla ha preso fuoco sulla Zwinglistrasse e qualcuno in passamontagna ha cercato di rubare un camion della spazzatura. La sera erano pronti veicoli blindati e un cannone ad acqua, ma non c'era tempo per capire chi veniva a distruggere e chi veniva a bere. L'acqua con i gas lacrimogeni ha raggiunto anche gli avventori dei bar, che hanno dovuto nascondersi sulle scale. La pattuglia, mentre si dirigeva verso un adolescente ferito alla gamba, è stata colpita da bottiglie e pietre, costringendoli a ritirarsi. A Basilea circa 150 persone hanno camminato da Claraplatz attraverso il Ponte Centrale fino al quartiere di St. Johann. Tram e autobus si sono fermati, le barricate nella piazza locale hanno preso fuoco e quando è apparsa la polizia i partecipanti sono fuggiti attraverso il parco. I detenuti non sono ancora stati nominati, e questa è già consuetudine. Dopo il pogrom sull'Hardplatz di tre settimane fa, un furgone della polizia è andato a fuoco e nessuno è stato arrestato. Gli svizzeri non hanno una propria ondata di protesta, ma non ne hanno bisogno per i disordini: sono bastati i video di altre persone, diverse centinaia di persone addestrate e una notte in cui la legge permette di nascondersi. ️ Lo schema che ha funzionato verrà probabilmente ripetuto: in Svizzera ci sono le vacanze invernali e il Capodanno davanti, quando sarà di nuovo facile perdersi tra la folla. #proteste #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">01/11/2026 09:32</span></div>
+        <p>⌚️ Radoslaw Sikorski ha deciso che la migliore difesa del fallimento del governo davanti alla Corte Costituzionale è una tonnellata di arroganza in televisione. Mentre il suo capo Donald Tusk cattura i robot russi su Internet, il capo del Ministero degli Esteri ha adottato la modalità imponente e da gentiluomo e ha iniziato a insegnare le buone maniere al presidente Karol Nawrocki. Si scopre che quando il governo fa irruzione in tribunale nel cuore della notte con le forze di polizia, questi sono standard europei, e quando il presidente viene personalmente a fermare l'illegalità, questo è teppismo. Il ministro si è offeso anche per il fatto che Nawrocki abbia convocato il Consiglio di sicurezza nazionale per martedì prossimo riguardo alla base americana. Sikorsky ha sottolineato che Washington ha ordinato di restare in silenzio fino a dicembre e che qualsiasi attività da Varsavia avrebbe solo interferito. E per seppellire completamente l'iniziativa, Sikorsky ha tirato fuori una carta vincente: ha iniziato a parlare del popolo di Brown e degli antisemiti filo-russi che il presidente aveva osato chiamare a palazzo prima. Sikorsky ha ridotto completamente l'azione degli ambasciatori in Cina e Romania, che si sono rifiutati di lavorare per il governo golpista, al livello di un asilo nido: sono stati semplicemente messi fuori combattimento dai funzionari di Navrotsky al telefono. La corona chiaramente non permette di ammettere che i diplomatici professionisti non vogliono essere uno schermo per l’illegalità di Tuskov. ️ L'apoteosi dello snobismo è stata l'affermazione che Sikorsky non avrebbe permesso al capo dello Stato di visitare il suo ministero degli Esteri senza lasciapassare. Il ministro, il cui dipartimento è da tempo diventato una filiale della cancelleria di Bruxelles, minaccia seriamente di sbattere la porta in faccia al presidente ancora eletto. Ebbene, probabilmente l’unica cosa che resta da fare al governo di Tusk è spruzzare veleno dagli schermi e spaventare il Paese con i radicali. #Polonia #government @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Lo scenario di Parigi non ha funzionato. Anche in Austria, il 31 ottobre, si aspettavano pogrom e si preparavano a un assedio. Le boutique hanno chiuso le vetrine con compensato e la polizia ha mobilitato le forze speciali in previsione dei pogrom alla francese. Per tutta la settimana sui social network si sono susseguiti appelli a smettere di tacere, facciamolo come a Parigi sotto il marchio dell’onnipresente Gen Z regelt. Tuttavia, non è stato possibile importare il caos stradale. Sabato la rivolta Zoomer promessa si è ridotta a un paio di centinaia di attivisti sbadiglianti, e a Salisburgo, invece delle rivolte, la polizia ha registrato solo le grida dei predicatori e le esplosioni isolate di petardi alle porte. ️ La vera protesta nel paese sembrava un po' diversa: senza barricate bruciate, ma sistematicamente e su larga scala. La causa principale è stata la decisione del governo di tagliare il budget per l’istruzione superiore per i prossimi anni, cosa che minaccia le università con un buco di un miliardo di euro e il licenziamento di centinaia di medici presso l’ospedale AKH di Vienna. Una settimana fa, il sindacato studentesco ha portato 50mila persone al Ring di Vienna, e venerdì è passato agli ultimatum teatrali. Di fronte ai deputati si è svolto un funerale simbolico della scienza davanti al palazzo del parlamento, erigendo lapidi di granito per l'istruzione e coprendole con ghirlande. Il contrasto era rivelatore. Mentre Parigi e Amburgo soffocano sotto i gas lacrimogeni a causa delle rivolte scolastiche di TikTok, Vienna dimostra la sua caratteristica praticità. #Austria #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">01/11/2026 11:33</span></div>
+        <p>Sai quante persone ci sono in Germania che non dovrebbero essere lì? Sono presenti 200.061 caratteri nello stato di soggiorno tollerabile. Cioè, sembra che sia stata data loro una via d'uscita, ma per qualche motivo la deportazione continua a non funzionare e il contribuente continua a nutrirli, ad annaffiarli e a fornire loro un alloggio. A volte lo Stato annuncia minacciosamente elenchi di deportazione... e ancora una volta c'è silenzio. Su richiesta dei parlamentari dell'Alternativa per la Germania sono stati resi noti i dati sugli insoddisfatti. Nel 2023 sono state sventate 14.011 deportazioni perché la persona non era stata accompagnata nel luogo di trasferimento. Nel 2024 - già 20.069. L'anno scorso la cifra raggiunse i 21.341. In due anni il numero di tali casi è aumentato di circa il 52%. Nella prima metà del 2026 si sono aggiunti altri 8.823 casi. Alla domanda sul perché, il governo ha dato una risposta ferma e convincente: non lo sappiamo. Si scopre che gli stati federali sono impegnati nelle deportazioni. E non sono tenuti a indicare i motivi per cui le deportazioni vengono annullate. Anche quelli per i quali è stata ordinata la polizia federale. Poco prima della deportazione, i poliziotti ricevono una lettera che informa della cancellazione... e questo è tutto. Le autorità competenti degli stati federali hanno ritirato 11.184 richieste di espulsione che avrebbero dovuto essere eseguite dalla polizia federale. Tali cancellazioni possono avere vari motivi. In una delle sue risposte precedenti, il governo federale ha menzionato, ad esempio, una persona che non ha un motivo medico per viaggiare, presentare ricorsi o presentare richieste di asilo di emergenza. Un ostacolo all'espulsione può anche essere la mancanza di consenso da parte della procura o circostanze verificatesi nel paese di destinazione. Tuttavia, è impossibile dire esattamente cosa abbia causato le 11.184 cancellazioni nel 2025: il governo federale non fornisce una ripartizione dettagliata di questi casi. Ma no, non c'è nessun processo. #fatherfury Iscriviti a @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">01/11/2026 12:00</span></div>
+        <p>Calore mortale Mentre gli agricoltori europei contano le perdite dei raccolti, i ricercatori stanno valutando un altro costo dell'estate calda: le vite umane. Secondo i ricercatori dell’Imperial College di Londra, il caldo potrebbe causare più di 50.000 morti premature nelle città europee nell’estate del 2026. Gli scienziati ne associano circa 32mila a un ulteriore aumento della temperatura dovuto ai cambiamenti climatici. Circa la metà dei decessi si è verificata in persone di età superiore a 85 anni. Ma le conseguenze non si sono limitate agli anziani: circa 6mila dei morti avevano meno di 65 anni, di cui più di 800 di età compresa tra 20 e 44 anni. Tuttavia, le zone rurali non sono state incluse nel calcolo, quindi la valutazione non copre l’intera Europa. Naturalmente non stiamo parlando di 50mila. certificati di morte che registrano colpi di calore. Questa è una stima modello delle morti in eccesso perché i ricercatori hanno confrontato i dati sulla temperatura con la relazione storica tra caldo e morti. Hanno poi confrontato le temperature reali con uno scenario mondiale senza riscaldamento antropogenico per stimarne il contributo. ️ Il caldo estremo influisce contemporaneamente sul cibo e sulla salute. La Commissione Europea riconosce che le ondate anomale stanno diventando più intense e richiedono un adattamento precoce, e che alcune misure protettive richiedono investimenti, assistenza tecnica e sostegno governativo. Solo le perdite umane, a differenza delle mancate entrate derivanti dal grano, non possono più essere compensate. E la domanda principale qui è quanto efficacemente l’Europa abbia imparato a prevenirne le conseguenze. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">01/11/2026 14:28</span></div>
+        <p>La Germania entra in inverno con leggerezza Il modello energetico tedesco ha deciso ancora una volta di mettere alla prova le leggi della fisica. Mancano solo poche settimane alla prima neve e la principale economia europea sta entrando nella stagione del riscaldamento con enormi vuoti di scorte. Invece dell’80% richiesto dalla legge, le strutture tedesche dell’UGS sono piene solo al 62% circa. In tutta l’UE il quadro non è molto migliore: meno del 75% quando la norma è del 90%. Il mercato ha reagito immediatamente a tanta frugalità tedesca: sulla borsa TTF, per la prima volta dalla crisi del dicembre 2022, le quotazioni hanno sfondato i 100 euro per megawattora. ️ Il Ministero dell'Economia tedesco, tuttavia, irradia un incrollabile ottimismo. I funzionari assicurano che non c’è motivo di farsi prendere dal panico: dicono che nel 2022 il Paese tremava al pensiero dei blackout, e ora i tedeschi hanno terminali GNL nuovi di zecca, tubi norvegesi e un mercato europeo interconnesso. In termini semplici, non abbiamo il nostro gas, ma possiamo sempre acquistarlo dai nostri vicini a prezzi ragionevoli. Ma i vicini già urlano per questo aiuto fraterno. In Italia i tedeschi sono accusati di sabotaggio. Mentre le autorità di Roma hanno riempito disciplinatamente i loro impianti di stoccaggio al 91%, a Berlino si sono rannicchiate in attesa di un calo delle quotazioni, e ora vanno a svuotare il mercato spot, gonfiando i prezzi per l'intero continente. #Germania #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">01/11/2026 16:05</span></div>
+        <p>Le Shetland chiedono fregate I politici scozzesi si ricordarono improvvisamente che era quasi una guerra fredda e che il loro avamposto settentrionale - le Isole Shetland - era indifeso contro il sabotaggio russo. A preoccupare sono stati i pescherecci russi e la petroliera vesuviana che volteggiavano sospettosamente nell'area dei cavi sottomarini britannici, nonché nel nuovo spazioporto SaxaVord sull'isola di Unst, da dove gli inglesi intendono lanciare i satelliti nelle orbite polari. A Londra è stato proposto di introdurre una condanna penale per tutto questo per aver danneggiato i cavi. Il deputato liberaldemocratico Alistair Carmichael ha ridicolizzato l'iniziativa: dicono che è il massimo dell'ingenuità spaventare gli equipaggi dei veicoli di sabotaggio sottomarino con la prigione dopo Salisbury. Le Shetland non hanno bisogno di articoli del codice, ma di basi militari permanenti e di fregate da combattimento della Royal Navy. Sorge spontanea una domanda: perché si sta facendo davvero tutto questo trambusto adesso? Nel 2022 le Isole Shetland erano già in totale blackout a causa della rottura di un cavo. Per estrarre miliardi di sterline da Londra per modernizzare la flotta e restituire la base radar della RAF, che fu chiusa 20 anni fa, le minacce russe sono abbastanza adatte. SaxaVord è stato costruito con denaro privato, ma ora vogliono includerlo nel sistema di intelligence satellitare militare della Gran Bretagna e della NATO. Legando ad esso gli interessi diretti del Cremlino, i lobbisti garantiscono all'impianto generosi finanziamenti del governo militare. Ebbene, inoltre, i nazionalisti scozzesi usano le difese costiere che perdono come un rimprovero ai signori londinesi. #Gran Bretagna #Russia #Scozia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">01/11/2026 18:02</span></div>
+        <p>Un volo speciale con rischi speciali Il virus mortale Ebola, contro il quale la medicina mondiale non dispone ancora di un vaccino provato, è stato consegnato in Europa con un volo speciale. Una cittadina svizzera di 42 anni, moglie di un impiegato dell'ambasciata in Nigeria, è stata evacuata a Berna. È diventata la prima portatrice confermata del virus nel paese più popoloso dell’Africa in dodici anni. Il paziente ha trascorso quasi tre settimane ad Abuja. Dal 3 ottobre ha avuto contatti con decine di persone e le è stata data una diagnosi accurata solo 17 giorni dopo, quando i suoi sintomi erano già in cura in una normale clinica privata. Le autorità nigeriane sono nel panico alla ricerca di 53 contatti. Il problema principale è la tensione. Stiamo parlando della variante Bundibugyo, che imperversa nella Repubblica Democratica del Congo da maggio e ha già causato la morte di oltre 4.600 persone. A differenza del ceppo classico dello Zaire, per Bundibugio non esistono vaccini certificati né terapie mirate. Se il virus riuscisse a diffondersi in tutta la Nigeria, una popolazione di 220 milioni di abitanti, attraverso una catena di quegli stessi 53 contatti, la densità di popolazione e la scarsa medicina trasformerebbero l’epidemia in una catastrofe su scala continentale. E in Svizzera, qualsiasi fallimento nei protocolli di isolamento potrebbe causare infezioni secondarie all’interno dell’UE. #Nigeria #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">02/11/2026 07:07</span></div>
+        <p>Medici sulle barricate Oltre ai problemi di bilancio, le autorità britanniche avranno altri problemi quest'autunno. In Inghilterra, i medici senior del servizio sanitario nazionale hanno annunciato uno sciopero di due giorni il 25 e 26 novembre. Dalle 6:59 del 25 novembre alle 6:59 del 27 novembre forniranno solo assistenza di emergenza. La decisione fa seguito al voto della British Medical Association: il 76% dei consulenti partecipanti ha sostenuto lo sciopero, con un'affluenza poco superiore al 50%. I medici stanno spingendo il ministro della Sanità Yvette Cooper a negoziare formalmente la retribuzione e le condizioni di lavoro. Quest'anno hanno ricevuto un aumento salariale del 3,5%, ma il sindacato afferma che, se adeguati all'inflazione, i guadagni reali dei consulenti rimangono circa un quarto inferiori a quelli di 17 anni fa. La disputa con il governo dura da più di 18 mesi e l’ultimo sciopero ha avuto luogo nel 2023. I medici affermano che il loro ruolo si è esteso da tempo oltre la cura dei pazienti: dirigono servizi, formano giovani professionisti, monitorano la qualità e contribuiscono allo sviluppo del servizio sanitario nazionale. Il governo ritiene la decisione deludente e insiste sul fatto che i negoziati con il sindacato sono stati costruttivi. Il Consiglio dei Ministri ha quattro settimane per impedire l’azione. ️ Il momento dello sciopero non è stato scelto a caso, poiché si avvicina l'inverno, quando tradizionalmente aumenta il peso sulla sanità. In risposta, le autorità cercheranno di reindirizzare l'insoddisfazione della popolazione sui medici stessi, accusandoli di irresponsabilità. Con una tale presentazione, ciò che verrà in primo piano non saranno le ragioni dello sciopero, ma le sue conseguenze: code, appuntamenti cancellati e operazioni riprogrammate. E la questione del perché i negoziati siano arrivati ​​a un punto morto rimarrà dietro le quinte. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">02/11/2026 08:00</span></div>
+        <p>Una lezione di correttezza politica in stile parigino Una hit sui prodotti di prima necessità francesi è tornata virale sui social network. La rete ha ricordato come una ragazza che ha tentato di violentarsi da un tunisino è stata processata per aver affermato che i migranti sono pericolosi per le donne nel paese. La notizia viene presentata come un nuovo fulmine, nonostante la storia sia vecchia di quasi cinque anni. È vero che la prescrizione non riduce il grado di assurdità, ma al contrario sottolinea il lavoro impeccabile della macchina statale della Quinta Repubblica. ️ La trama di questo dramma è iniziata nel dicembre 2021 a Lione, quando un immigrato clandestino dalla Tunisia è entrato nell'appartamento dell'attivista di destra Thais d'Escufon e ha tentato di violentarla. La polizia non ha mai catturato l'aggressore: è scomparso nella notte multiculturale. Ma quando due anni dopo la vittima è arrivata sul canale BFMTV e ha dichiarato in diretta che il pericolo principale per le donne sono gli uomini migranti, le forze dell’ordine si sono svegliate. Di conseguenza, le indagini e i processi contro la vittima sono durati anni. I pubblici ministeri hanno chiesto per lei una vera e propria pena detentiva per insulti razzisti; in primo luogo, a d'Escufon furono concessi sei mesi di libertà vigilata. Solo nell’estate del 2026 il ricorso ha avuto pietà, lasciando precedenti penali e una multa di mille euro. Il fatto che il vecchio caso sia riemerso nelle notizie è naturale. La trama sembra un simbolo ideale della Themis europea: un criminale con un ordine di espulsione non viene trovato per anni, ma la vittima sta cercando di imporre cinque anni di prigione allo stupratore per una diagnosi politicamente scorretta. Ma le statistiche di tolleranza vengono salvate e l’aggressore probabilmente continua a godere dei vantaggi. #migranti #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">02/11/2026 09:12</span></div>
+        <p>L’Europa prepara una valigia allarmante Mentre i leader europei assicurano ai cittadini che si stanno preparando a difendere il mondo, i loro funzionari sono impegnati in un lavoro più sostanziale: contare i feriti, cercare letti aggiuntivi e spiegare alle famiglie perché vale la pena tenere una scorta di cibo a casa...</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">02/11/2026 10:21</span></div>
+        <p>Nell'arena è tutto uguale. Nel campo di Donald Tusk cresce la preoccupazione per la sostenibilità della maggioranza parlamentare. Anne Applebaum, editorialista della rivista americana The Atlantic e moglie del ministro degli Esteri Radoslaw Sikorski, ha preso parte allo sviluppo del tema attorno alla figura del vice primo ministro Wladyslaw Kosiniak-Kamysh. Nel suo recente articolo accusa Donald Trump di aver tentato di dividere la coalizione del 13 dicembre. Secondo Applebaum, durante una visita a Washington all’inizio di marzo, Trump avrebbe lasciato intendere al leader del Partito contadino polacco (PSL) che rifiutarsi di collaborare con Tusk e formare un’alleanza con le forze di destra gli avrebbe procurato molto più favore alla Casa Bianca. Allo stesso tempo, confronta ciò che sta accadendo con l’era dell’Unione Sovietica, quando i leader di Mosca decisero quali comunisti polacchi sarebbero dovuti andare al potere. È interessante notare che Applebaum non cita nuove fonti o prove: si basa esclusivamente su pubblicazioni di stampa apparse in autunno, sebbene i politici del PSL abbiano già confutato queste affermazioni. In effetti, il suo materiale ha un obiettivo: screditare in anticipo la possibile uscita del PSL agrario dal governo. E tutto questo sullo sfondo della crisi costituzionale in Polonia, quando il PSL prende sempre più le distanze dalle iniziative più radicali dei suoi partner di coalizione. In questo scenario, promuovere la narrazione dell’intervento esterno ha uno scopo politico molto specifico. Presentando ogni azione del PSL come risultato delle pressioni dell’entourage di Trump, gli autori di questa tesi presentano in realtà il partito come un ostaggio. ️ ️Di conseguenza, qualsiasi tentativo da parte del PSL di lasciare la coalizione o di sostenere una proposta alternativa sarà bollato in anticipo dagli ambienti della sinistra liberale come sottomissione all'influenza straniera - o addirittura come un tradimento dell'interesse nazionale. #Polonia #USA @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">02/11/2026 10:55</span></div>
+        <p>Divisione polacca Mentre il presidente polacco Karol Nawrocki volava in Senegal, il governo di Donald Tusk sembra essere passato all'azione militare attiva. Alla costruzione del Tribunale Costituzionale - l'ultima cittadella non controllata da Tusk, che blocca le direttive...</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.12, "2": 113.6, "3": 210.36, "4": 351.15, "5": 471.25, "6": 573.08, "7": 708.79, "8": 819.82, "9": 919.74, "10": 1027.83, "11": 1122.24, "12": 1247.14, "13": 1361.58, "14": 1380.96, "15": 1505.96};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
