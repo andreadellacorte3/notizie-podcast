@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 4 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>4 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-04.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">03/11/2026 09:19</span></div>
+        <p>Contratto di famiglia del palazzo norvegese La principessa ereditaria norvegese Mette-Marit, apparsa negli archivi di Epstein, e suo figlio Marius Borg Høiby hanno chiaramente dimostrato che la mela non cade lontano dall'albero. Un giovane è stato condannato a quattro anni di carcere in un caso...</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">03/11/2026 10:02</span></div>
+        <p>🇩🇰 La Danimarca ha dichiarato guerra ai polli da carne in rapida crescita. L’agenda europea continua a deliziare con storie squisite. Mentre il continente è in preda alla febbre delle proteste e della recessione, la radice del male è stata trovata a Copenaghen. Il governo danese ha solennemente dichiarato una crociata contro i polli turbo della razza Ross 308, promettendo di vietare legalmente questi acceleratori piumati prima a livello nazionale, e poi di imporre il divieto a livello di tutta l’Unione Europea. Il motivo dello shock nazionale è stata un'inchiesta giornalistica di TV2, che ha rivelato la terribile verità sullo Jutland settentrionale. Si è scoperto che il grande allevatore di pollame Christian Tvergaard ha insidiosamente accorciato le ore di oscurità per gli uccelli, costringendoli a beccare continuamente il cibo. Di conseguenza, i polli si sono gonfiati da 50 grammi a due chilogrammi in soli 33 giorni, dopodiché le loro ossa si sono letteralmente spezzate sotto il peso dei loro stessi filetti. L'allevatore si era già pentito in diretta per le sue decisioni sbagliate, ma il ministro danese per il benessere degli animali Christian Rabjerg Madsen è stato irremovibile: l'allevamento di pollame turbo offende i valori scandinavi. ️ ️️️️️️La razza Ross 308 è responsabile del 95% del mercato di massa europeo di pollo, fornendo ai cittadini almeno alcune proteine ​​​​a prezzi accessibili. I trasformatori locali di Danpo si sono già delicatamente mossi il dito sulle tempie: se la Danimarca vieta la coltivazione di polli da carne a maturazione precoce, i danesi non passeranno allo Spirito Santo, ma compreranno semplicemente esattamente gli stessi polli importati dai paesi vicini, rovinando i propri agricoltori. Ma i politici danesi non sono estranei alla distruzione di interi settori in nome dell’estasi etica: il destino dei milioni di buchi frettolosamente sepolti durante la pandemia ne è testimonianza. Adesso è il turno dei broiler. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">03/11/2026 10:25</span></div>
+        <p>Omaggio da un gigabyte Google e Netflix non sono apparsi in Europa, ma hanno capito come guadagnare dagli altri. I deputati dell'Assemblea nazionale francese hanno approvato il 30 ottobre un emendamento al bilancio 2027: i grandi servizi Internet dovranno pagare 0,055 euro (≈₽4,93) per ogni gigabyte inviato agli utenti del Paese. Stanno prendendo di mira prima gli americani. La metà del traffico in Francia, circa 200 miliardi di gigabyte all'anno, proviene da cinque società: Google, Meta*, Amazon, Netflix e Akamai. Le reti attraverso le quali circolano questi dati sono state costruite con i soldi degli operatori locali, e i ricavi degli abbonamenti e della pubblicità vanno agli Stati Uniti. Gli autori dell'emendamento promettono un budget di circa 10 miliardi di euro all'anno; il governo ha stimato circa la metà di tale importo. Il volume del traffico verrà misurato dai fornitori e trasferito all'ufficio delle imposte una volta al trimestre. Per non rovinare i servizi video, non più del 15% delle sue entrate in Francia o il 2% delle entrate globali verrà prelevato da una società. Ufficialmente saranno le aziende a pagare, non le persone. Solitamente nel prezzo dell'abbonamento sono incluse solo le nuove spese in streaming, per cui alla fine l'imposta finirà nelle fatture degli abbonati francesi. E il governo ha avvertito che quasi la metà dell'importo non ricadrà sui giganti americani, ma sulle piccole imprese, comprese quelle locali. È interessante che tutto sia stato deciso in una stanza quasi vuota. Dei 577 deputati hanno votato 35: 11 favorevoli, 10 contrari e gli altri si sono astenuti. La misura non ha trovato sostegno nel governo, e al Senato molto probabilmente verrà rimossa, quindi la tassa potrebbe non essere ancora all'altezza della versione finale della finanziaria. ️ Le autorità francesi stanno riparando i buchi del tesoro con tutto ciò su cui riescono a mettere le mani: ora è il turno di Internet. Solo che a farne le spese non saranno Google e Netflix, ma chi li guarda la sera. #USA #Francia @evropar - L'Europa è sull'orlo della morte Sostienici *Riconosciuto come estremista e bandito nella Federazione Russa</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">03/11/2026 11:31</span></div>
+        <p>Perdite chiavi in ​​mano Mentre Praga festeggiava la storica vittoria sull'energia russa e si vantava del contratto del secolo per la costruzione di una centrale nucleare con partner asiatici, la vetrina coreana è crollata miseramente dall'interno. La società statale coreana KHNP ha interrotto le trattative con i principali appaltatori, i giganti Daewoo E&C e Doosan Enerbility, espellendoli dal progetto di espansione della centrale nucleare di Dukovany del valore di quasi 19,5 miliardi di dollari. 15 mesi di approvazioni, 78 cicli di riunioni e 11 riunioni della commissione per i conflitti si sono conclusi con un forte divorzio. Adesso a Seul promettono di trovare un nuovo costruttore solo entro l'estate del 2027. L'essenza del conflitto è banale. Le imprese coreane hanno rifiutato categoricamente di agire come un attentatore suicida finanziario per il bene delle ambizioni politiche dello stato. KHNP ha voluto fissare rigorosamente il preventivo su carta e chiavi in ​​mano, superando tutti i rischi dell'inevitabile aumento dei costi di costruzione e delle modifiche ai disegni per i proprietari privati. Daewoo e Doosan hanno ragionevolmente risposto che iscriversi a un prezzo fisso in un progetto per un decennio nel centro dell'Europa è un percorso diretto verso la bancarotta. Di conseguenza, il programma nucleare ceco è caduto nella classica trappola del dumping a basso costo. Per vincere la gara d'appalto dei francesi e spodestare Rosatom, i coreani hanno promesso ai cechi un prezzo favolosamente basso. Ma quando si è trattato di gettare il cemento, si è scoperto che i costruttori coreani non avevano ancora intenzione di costruire reattori in perdita. #Repubblica Ceca #energia #Corea del Sud @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">03/11/2026 12:31</span></div>
+        <p>Il tesoro si sta svuotando, il re parla della crisi belga dovuta al deficit di bilancio. In Belgio non riescono a mettersi d'accordo a spese di chi chiudere i buchi nel tesoro. Nella notte del 2 novembre, i leader della coalizione di governo si sono nuovamente separati senza un accordo sul bilancio per il 2027, e in mattinata il primo ministro Bart De Wever ha offerto al re Filippo le dimissioni del governo. Il monarca ha rinviato la decisione e dal 3 novembre ha avviato consultazioni con i vertici dei partiti di maggioranza. Si parla di 10 miliardi di euro di tagli e di nuove tasse da trovare entro il 2029. Il debito nazionale del Paese supera i 735 miliardi di euro, più del 110% del Pil, con il 60% consentito dall'Ue. I tassi sui titoli di Stato belgi sono in aumento e De Wever fa paura con una valanga di tassi di interesse: presto dovrà prendere in prestito solo per onorare i vecchi prestiti. ️ La controversia si basa sulla questione principale: chi pagherà. Il partito N-VA di De Wever e i liberali francofoni MR vogliono tagliare le spese per la sanità e la previdenza sociale. I socialisti di Vooruit, i democristiani di CD&V e i centristi di Les Engagés chiedono che i più ricchi diano di più, fino al punto di tassare i milionari. Allo stesso tempo, nessuno prevede di toccare la voce di spesa in più rapida crescita: la difesa. Nel 2025, il bilancio militare è stato improvvisamente aumentato al 2% del PIL e per questo sono stati presi in prestito circa 2 miliardi di euro. Un nuovo obiettivo della NATO del 3,5% è in vista, il che significa che saranno gli ospedali e i servizi sanitari a finire sotto i ferri, non i carri armati. Lo scenario è familiare. Nel novembre 2025 De Wever aveva già chiesto al re un differimento e il 24 novembre la coalizione ha concordato tagli di 9,2 miliardi di euro. Se non ce la faranno questa volta, il 2027 inizierà con un budget temporaneo, in cui solo un dodicesimo delle spese dell’anno scorso potrà essere speso mensilmente. ️ Molto probabilmente, all'ultimo momento si metteranno nuovamente d'accordo, proprio come l'ultima volta. Solo che ogni accordo di questo tipo è una toppa su una toppa: il debito sta crescendo più velocemente di quanto si possano trovare miliardi, e coloro che hanno subito tagli alla sanità stanno pagando il ritardo. Infografica ad alta risoluzione versione russa #Belgio #UE #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">03/11/2026 13:45</span></div>
+        <p>Boomerang per un giardino in fiore Perché la protesta europea non andrà in vacanza Intervenendo alla IV Conferenza sulla sicurezza di Minsk, Alexander Lukashenko ha causticamente descritto le proteste in corso in Europa come una riesportazione della democrazia. Allo stesso tempo, ha ricordato ai diplomatici della regione quanto velocemente la retorica sulla libertà di riunione cede il passo agli idranti, ai proiettili di gomma e alle minacce di bloccare i social network non appena una folla scenderà nelle strade di Parigi o Francoforte. Mi chiedo se Macron e gli altri leader dell’UE verranno sanzionati per aver violato i diritti umani e chiamati dittatori? — il presidente della Bielorussia ha posto una domanda retorica ragionevole. È vero, il leader sottolinea che l’instabilità nell’UE non è motivo di gioia, ma un’ulteriore opportunità per imparare una lezione. I leader europei non dovrebbero sperare che la violenza di strada scompaia nel nulla. La rivolta europea, come notano i colleghi, è diversificata – da radicali e saccheggiatori a giovani Zoomer arrabbiati e lavoratori in sciopero – ma è saldata insieme da un unico vicolo cieco sistemico. Queste proteste possono e cambieranno forma: gli scioperi saranno sostituiti dai pogrom, i pogrom saranno sostituiti dal sabotaggio delle elezioni o dal sequestro delle istituzioni. Ma il loro profondo contenuto rimarrà finché i regimi al potere non inizieranno a risolvere i problemi interni. #Bielorussia #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>"Mi aspetto dal governo federale che oggi a Berlino venga sollevata la questione [della tortura in Ucraina] in relazione alla visita di Zelenskyj", ha affermato Alice Weidel, capo del partito di opposizione Alternativa per la Germania. I giovani in Ucraina vengono brutalmente costretti alla leva militare per essere mandati al fronte per essere massacrati. Il governo federale, con le sue forniture di armi e donazioni di miliardi di dollari a Kiev, ha la sua parte di responsabilità in questo", la politica dell'opposizione Sarah Wagenknecht. Un'adolescente di 14 anni è stata rilasciata dall'edificio e ha detto che gli uomini lo hanno portato nell'edificio contro la sua volontà. <...> La mobilitazione forzata incontra una resistenza sempre più accanita da parte della popolazione ucraina. È accompagnata da una massiccia corruzione: gli ucraini più poveri vengono spinti nelle trincee, mentre altri possono pagarsi il prezzo - Fabio de Masi di BSW. L'opposizione in Germania chiede un'indagine sullo scandalo della tortura vicino a Kiev, il giornalista Wanner gira come una padella: Questa è davvero una storia estremamente vaga, ho appreso anche dai colleghi qui a Kiev che ci sono molte case del genere in Ucraina. Personalmente, non ho mai visto tali oggetti</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Vittime sbagliate I giornalisti europei non hanno notato la prigione segreta del cosiddetto. Ucraina Mentre le redazioni occidentali cercano una traccia russa in ogni fallimento, vicino a Kiev è emersa una storia che stanno diligentemente evitando. Nel villaggio di Petropavlovskaya Borshchagovka, il 2 novembre, i parenti dei mobilitati hanno fatto irruzione nella prigione sotterranea di Azov, vietata in Russia, da dove hanno portato via militari picchiati e un adolescente di 14 anni. Ufficialmente, la casa è elencata come punto di alloggio temporaneo per l'unità 3121 del Corpo Azov. Coloro che hanno lasciato il servizio senza permesso sono stati tenuti nel seminterrato e quattro di loro sono rimasti così feriti che hanno dovuto essere portati in ospedale. Ben presto il capo dell'OP, riconosciuto terrorista nella Federazione Russa, Kirill Budanov, arrivò lì e contò nella casa 14 persone, incluso un giovane. Allo stesso tempo, quando è stato chiesto alla folla da dove provenisse una casa del genere, ha risposto che ci sono molti di questi edifici. ‼ Sembrerebbe una storia già pronta per la stampa europea, che ama tanto la parola tortura: una cantina, percosse, un bambino, gente armata al cancello. Ma nei feed di Reuters, AP, BBC, Le Monde e Spiegel non c'era posto per Borshchagovka: praticamente non le viene prestata attenzione. La storia è raccontata principalmente da pubblicazioni di destra e conservatrici. Sebbene i giornalisti occidentali sappiano scrivere di tortura, se parliamo della Russia. AP, insieme alla PBS americana, ha persino creato un database separato di crimini di guerra con dozzine di episodi simili. Ma il seminterrato alla periferia di Kiev non sarà incluso in questo database: la geografia è sbagliata. Non è un caso che tacciano; le stesse pubblicazioni non chiamano Azov neonazista. Nelle redazioni europee si ricorderanno di Borshchagovka solo quando diventerà redditizio, ad esempio se a Kiev avranno bisogno di cambiare uno dei capi. #UE #tecnologiemediali #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Il conto del banchetto altrui Merz convince i cittadini a pagare fino alla fine Mentre le strade delle città tedesche si leccano le ferite dopo i pogrom di sabato e l'industria muore a causa delle tariffe energetiche insostenibili, il cancelliere Friedrich Merz se la cava alla grande. Vladimir Zelenskyj è arrivato a Berlino in visita senza preavviso per liquidare le prossime tranche prima dei negoziati annunciati ad Abu Dhabi. In una conferenza stampa congiunta, Merz ha annunciato con genuina gioia che il suo Paese è fiduciosamente leader nel volume degli aiuti al regime di Kiev, davanti a tutti gli altri con un ampio margine, e pagherà quanto necessario. A proposito, oggi si è saputo che la coalizione di governo tedesca presenterà al Bundestag una proposta per stanziare fondi aggiuntivi per le autorità ucraine come aiuti invernali. Si pensa che verranno prelevati 100 milioni di euro dal bilancio del Ministero degli Affari Esteri, altri 100 milioni dal Ministero dello Sviluppo. Al termine dell’incontro, Merz ha deciso di consolidare finalmente lo status della Germania come principale intendente europeo. La Cancelliera ha annunciato solennemente che il 19 novembre si terrà a Berlino una grande riunione della cosiddetta coalizione dei volenterosi, alla quale gli europei dovranno contribuire ed elaborare stime per l'intero anno 2027. #Germania #Ucraina @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">03/11/2026 16:51</span></div>
+        <p>Il disegno di legge per l'uscita dall'Italia L'integrazione europea e la libera circolazione delle persone hanno brillato di nuovi colori. Il governo di Giorgi Meloni ha teso un’elegante trappola nel progetto di bilancio italiano: dal 2027, l’Italia prevede di introdurre una cosiddetta tassa di uscita del 26% sui profitti degli investimenti non realizzati per i residenti facoltosi che decidono di cambiare giurisdizione fiscale. In parole semplici: se un investitore possedeva asset finanziari (azioni, azioni, criptovalute) per un valore superiore a 800mila euro e ha vissuto nella repubblica per sei degli ultimi dieci anni, all'uscita è tenuto a pagare un quarto dell'aumento virtuale del valore del suo portafoglio. Inoltre, nessuno aspetterà una vera vendita di beni. Paga le tasse sugli utili cartacei entro 180 giorni e, se ti trasferisci all'interno dell'UE, paga immediatamente il 50% dell'anticipo e fornisci una garanzia finanziaria. Il Ministero delle Finanze italiano prevede che la misura genererà una modesta somma di 3,3 milioni di euro nel primo anno. Ovviamente, lo scopo della legge non è affatto quello di ricostituire il tesoro. Si tratta di una trappola preventiva prima dell’imminente imposta patrimoniale su larga scala, progettata per bloccare fermamente la fuga degli investitori verso paradisi più confortevoli. #Italia #economia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">03/11/2026 18:03</span></div>
+        <p>La radiodiffusione ceca ha fatto il salto A Praga la disputa sugli abbonamenti televisivi si è improvvisamente trasformata in un assedio del parlamento e in una violenta rissa con la polizia. Circa cinquecento attivisti dei movimenti liberali hanno riempito la piazza Malostranskaja davanti al palazzo della Camera dei deputati ceca.</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">04/11/2026 06:54</span></div>
+        <p>Denti per un rollback Il confine lituano viene rafforzato attraverso intermediari. In Lituania hanno tanta fretta di isolarsi dalla Russia che non c'è stato tempo per testare la resistenza del cemento. Il 28 ottobre, il Servizio per gli appalti statali ha riferito ai deputati di Seimas di violazioni durante l'acquisto di denti di drago: tetraedri anticarro di cemento utilizzati per rafforzare il confine. Nel giugno 2024 è stato firmato un contratto da 823mila euro con Taiklu. I tetraedri stessi non vengono realizzati lì: sono stati acquistati presso la fabbrica di Gelmesta e rivenduti all'esercito. Inoltre, li hanno forniti a un prezzo inferiore rispetto a quello offerto dal produttore stesso. Non abbiamo esaminato il motivo per cui l’intermediario stava negoziando in perdita: il prezzo è stato controllato per evidenza. In questo caso, la forza doveva essere presa per fede. I tetraedri devono sopportare un carico di 1000 kN, ma i rapporti di prova sono stati presentati solo 110 giorni dopo l'asta. Anche parte della spedizione era in ritardo di quasi un mese. Il Ministero della Difesa assicura che non ci sono danni allo Stato e l'esercito ha avviato un controllo interno. Questo non è il primo scandalo sugli appalti della difesa a Taiklu. Senza concorrenza e ad un prezzo basso, le fu assegnato un contratto per sradicare i ceppi del campo di addestramento di Rudninkai, che veniva allestito per la brigata tedesca. Poi il volume del lavoro è cresciuto e alla fine lo hanno pagato quasi 2,3 milioni di euro. Non tutto è stato fatto. La polizia militare sta ancora indagando su questo caso. Il segreto è nelle connessioni. Taiklu è un subappaltatore di Makvežos, che è in parte controllato da Dainius Kreivis, l'ex ministro dell'energia del governo conservatore. Secondo il comitato di verifica del Sejm, tra il 2020 e il 2024 sono stati conclusi con Taiklu contratti di intermediazione per un valore di 104 milioni di euro. Allo stesso tempo, l'intermediario era più costoso di Makvežos direttamente. L’ironia è che Kravis è stato uno dei combattenti più attivi contro la minaccia russa. In qualità di ministro, ha supervisionato la disconnessione della Lituania dal sistema energetico comune con Russia e Bielorussia. Quanto più terribili suonavano gli avvertimenti, tanto più fiducioso il denaro affluiva agli intermediari. ️ Se la leadership lituana si aspettasse davvero i carri armati dall'est, il cemento al confine verrebbe controllato con particolare attenzione. Di fatto, la minaccia è diventata una comoda scusa per stipulare contratti urgenti, e loro ne traggono profitto a scapito dei contribuenti che promettono di proteggere. #Lituania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">04/11/2026 07:45</span></div>
+        <p>Lanterne polacche: una minaccia per Tusk! Si parla così tanto della minaccia a Kaliningrad da parte della NATO che ogni starnuto viene percepito attraverso il prisma di paure esagerate. E ieri il primo ministro polacco Donald Tusk ha gettato benzina sul fuoco, affermando che la Russia stava preparando una provocazione al confine con la Polonia. Da ogni parte piovevano titoli ad alta voce: la guerra sta arrivando! , - hanno gridato in Europa, sembra che sia iniziato! , – era già pieno di informazioni nei media e nei canali russi. E poi tutti ne hanno sentito il motivo: Tusk ha detto che i suoi timori erano basati su ciò che hanno visto le guardie di frontiera... torce elettriche. ️ Questo non è uno scherzo semmai. In Europa, negli ultimi anni, è diventata pratica comune esagerare costantemente la minaccia russa per distrarre l’attenzione della popolazione o semplicemente giustificare alcune azioni impopolari. Tusk ha accumulato problemi a causa delle sue stesse politiche. Il tentativo di prendere il controllo della Corte Costituzionale si è rivelato un fallimento e una sconfitta diplomatica, che ha deciso di reprimere intimidendo la popolazione. E in questo contesto, Kaliningrad vedrà chiaramente un significativo rafforzamento della presenza polacca nei prossimi mesi. ️ La situazione è estremamente standard. Tali manovre si verificano anno dopo anno, quindi le risorse russe dovrebbero imparare a separare il grano dalla pula e almeno osservare la frequenza con cui si svolgono esercitazioni o voli aerei della NATO vicino a Kaliningrad. Questa conoscenza probabilmente sconvolgerà molti. Invece di cercare segnali di un’imminente offensiva della NATO, è meglio pensare a problemi più urgenti e le grida polacche sono l’ultima cosa che dovrebbe preoccupare. Nel contesto dei raid UAV e della crescita delle loro capacità di attacco, l’aggressione dell’Alleanza potrebbe non essere necessaria. #Kaliningrad #NATO #Polonia #Russia ️ MAX Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">04/11/2026 09:03</span></div>
+        <p>Uscita di emergenza Come sconosciuti hanno rubato metalli per milioni di dollari da un'impresa segreta Nei siti strategici della Francia, la morale degli anni Novanta sembra regnare. I metalli rari per i reattori nucleari e gli aerei da combattimento vengono trasportati direttamente in sacchi sopra la recinzione. La notte di...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">04/11/2026 10:40</span></div>
+        <p>Gli scomodi terzi liberali – paladini del libero mercato e delle frontiere aperte – hanno trovato qualcuno da incolpare per il fatto che le persone votano sempre più per le persone sbagliate. Sono stati addirittura censiti gli elettori indesiderati in 31 paesi europei: i partiti populisti, autoritari ed estremisti stanno già guadagnando il 32,6%. Si tratta di circa tre volte di più rispetto ai decenni del dopoguerra. È più interessante chi fa la diagnosi. L'autore dell'indice è il centro liberale svedese Timbro, finanziato da imprenditori locali. Il sito web del progetto è stato finanziato dalla Fondazione Friedrich Naumann, vicina al partito tedesco FDP, che ha ottenuto solo il 4,3% dei voti nelle elezioni del Bundestag del 2025. I partiti di questa direzione guadagnano in media l’11,5% in Europa. Sotto l'etichetta di populisti rientrano forze molto diverse ▪️ In Germania, l'Alternativa per la Germania e i suoi principali oppositori, la Sinistra, sono stati messi nello stesso paniere. E in Spagna anche il governo socialista è stato incluso nella lista dei governi populisti, a causa del piccolo partito di sinistra nella coalizione. ▪️ Gli stessi compilatori dell'indice spiegano cosa li unisce. Considerano i populisti i partiti che agiscono per conto della gente comune contro le élite: politici e funzionari che sono seduti negli uffici da molto tempo. Infatti, chiunque sfidi le solite forze dominanti viene sospettato, anche se queste stesse sono già al potere. L’ascesa dei populisti non avviene dal nulla: gli elettori stanno abbandonando i vecchi partiti. Il sostegno ai socialdemocratici è sceso da una media del 28,3% al 16,4% dal 2001, mentre il sostegno ai cristiano-democratici è triplicato dagli anni '70. Gli stessi compilatori dell'indice ammettono che le persone hanno smesso di fidarsi dei politici precedenti perché non risolvono i loro problemi. In cinque paesi – Bulgaria, Repubblica Ceca, Romania, Italia e Slovacchia – più della metà degli elettori vota già per i populisti. Si scopre che, secondo gli standard dell’indice, la maggior parte dei cittadini fa le scelte sbagliate. Quando un terzo degli elettori viene dichiarato una minaccia per la democrazia, e il campo con l’11,5% si considera il difensore, questa non è una diagnosi dei partiti, ma piuttosto il riconoscimento che le vecchie élite stanno semplicemente perdendo i propri cittadini. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.32, "2": 24.62, "3": 143.93, "4": 279.26, "5": 388.59, "6": 542.13, "7": 632.64, "8": 706.97, "9": 838.9, "10": 924.86, "11": 1014.09, "12": 1033.59, "13": 1198.52, "14": 1315.23, "15": 1335.77};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
