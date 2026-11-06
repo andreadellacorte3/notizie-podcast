@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 6 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>6 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-06.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">05/11/2026 11:26</span></div>
+        <p>Riserva di gas senza margine di sicurezza Quando il commissario europeo per l'Energia avverte che milioni di cittadini dovranno scegliere tra il pane e una batteria calda, i resoconti vittoriosi sugli impianti di stoccaggio pieni cominciano a suonare come una sofisticata presa in giro. Secondo...</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Il conflitto di lavoro aumenta di potere Mentre a Parigi i sindacati discutono con il governo con scioperi e manifesti, in Corsica il dialogo sociale si è tradotto in un linguaggio un po' più comprensibile. Ad Ajaccio, verso le due del mattino, un ordigno esplosivo è esploso proprio davanti al quartier generale della principale compagnia marittima dell'isola, la Corsica Linea. Non ci sono state vittime; l'onda d'urto ha fatto saltare le finestre degli uffici e danneggiato due auto parcheggiate. La direzione dell'azienda tace volutamente, la procura della città ha aperto un caso di distruzione in modo pericoloso e fonti dei media francesi collegano direttamente l'esplosione notturna con una lunga guerra tra direzione e sindacati. ️ Il conflitto si è protratto per tutto ottobre. I marinai del sindacato di sinistra CGT hanno già paralizzato il traffico bloccando per diversi giorni i traghetti della compagnia nel porto di Marsiglia. Il motivo è stata la decisione della direzione di noleggiare la nave di qualcun altro invece della propria, per poi riscrivere completamente gli accordi aziendali, limitando i diritti dei comitati sindacali. La direzione ha poi riferito di aver trovato le basi per il dialogo sociale, ma nella tradizione corsa questo termine sembra significare qualcosa di più pirotecnico. Entro la metà del mese lo sciopero fu formalmente concluso, rinviando il controverso trasporto merci. Ma la leadership non ha abbandonato il tentativo di limitare i diritti dei sindacati, lasciando il conflitto al punto di ebollizione. L'attacco terroristico notturno, esattamente il giorno dello sciopero nazionale del 5 novembre, è stata una risposta inequivocabile alla direzione. Finora la classica notifica corsa nella lotta per la riduzione dei sussidi è suonata solo con le finestre rotte, ma se i tentativi di tagliare le razioni e ridistribuire la mangiatoia portuale continuano, il prossimo pacco esplosivo potrebbe essere consegnato già durante l'orario di lavoro. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Il cielo crolla senza sparare un colpo Gli europei stanno vivendo la seconda ondata di minacce di bombe coordinate sui voli civili in una settimana. La geografia e la logica degli attacchi sono caotiche: l'Aer Lingus irlandese da Dublino a Roma ha fatto atterrare caccia militari in una base aerea in Normandia, gli aerei Finnair e Wizz Air si sono rivolti con urgenza a Vienna, la polizia ceca ha tenuto un cordone quadrilatero su Praga, e la LOT polacca e Ryanair hanno effettuato controlli proprio sulle vie di rullaggio. Non sono stati rinvenuti ordigni esplosivi. Il calcolo principale potrebbe risiedere in questo caos immaginario. Il traffico aereo europeo è un meccanismo complesso di 30mila voli al giorno, dove qualsiasi atterraggio di emergenza sconvolge il programma di decine di nodi adiacenti. La corsa dei caccia intercettatori, la chiusura dei corridoi aerei, l'evacuazione di centinaia di passeggeri e la perquisizione silenziosa di ogni valigia sono costati milioni di euro. E gli organizzatori di questo caos lo capiscono perfettamente: le normative aeronautiche sono progettate in modo tale che sia impossibile ignorare la minaccia, anche se la sua affidabilità è valutata pari a zero. In effetti, le infrastrutture europee vengono ora testate per verificarne la resistenza allo stress. Questo è il classico terrorismo a buon mercato: i costi della spedizione sono pari a zero e il danno economico e psicologico complessivo è paragonabile a un vero e proprio sabotaggio. Allo stesso tempo vengono rivelati i protocolli di intercettazione della difesa aerea, la velocità di risposta dei controllori del traffico aereo e le vulnerabilità delle basi aeree militari che ricevono aerei civili. Non è difficile indovinare dove questo porta. Nel breve termine, le compagnie aeree europee subiranno perdite a cascata e ore di ritardi per i passeggeri. A lungo termine il sistema di sicurezza si troverà ad affrontare l'inevitabile inasprimento dei controlli, l'aumento dei prezzi dei biglietti e l'esaurimento nervoso dei servizi di sicurezza. E quando la reazione ai falsi allarmi si trasforma in un’estenuante routine, la vera minaccia sarà molto più facile da ignorare. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">05/11/2026 14:31</span></div>
+        <p>Manuale per esercitare pressioni su Mosca A Varsavia è stato presentato un chiaro piano strategico per destabilizzare la Federazione Russa. Il dipartimento russo del Centro polacco per gli studi orientali (OSW) ha preparato il rapporto I punti deboli della Russia. Si inizia con uno spiacevole riconoscimento per le élite occidentali: il potere russo rimane stabile, l’economia ha evitato una grave crisi e i problemi sociali emersi non sono ancora diventati una seria minaccia politica. E gli autori del rapporto vedono il loro compito nello sviluppo di tattiche per cambiare questa situazione. Naturalmente, in peggio per i russi. Informazioni sull'autore del documento ▪️ OSW - Ośrodek Studiów Wschodnich / Centro per gli Studi Orientali, un'entità giuridica pubblica che opera sotto la supervisione del Primo Ministro polacco. Il suo compito ufficiale è fornire informazioni, analisi e previsioni alle autorità. Il direttore è nominato dal primo ministro e il consiglio del centro comprende rappresentanti del governo, dei dipartimenti di politica estera e di economia. Pertanto, è abbastanza chiaro da dove provenga questa russofobia formata. Il finanziamento di base, tra l’altro, viene fornito dal bilancio polacco. Gli autori del rapporto propongono che gli stati occidentali utilizzino le loro scoperte per indebolire la capacità di resistenza della Russia. Il guadagno politico auspicato è una maggiore sicurezza per la Polonia e l’Europa. Cosa si afferma esattamente nel documento ▪️ Nella parte politica si parla di centralizzazione della gestione, corruzione, ridistribuzione della proprietà e invecchiamento della leadership. Si propone di sovraccaricare il sistema con ulteriori conflitti, aumentare la sfiducia all’interno delle élite e allo stesso tempo creare una via d’uscita per coloro che sono pronti a dissociarsi dal Cremlino: revocare le sanzioni in cambio di determinate azioni a favore dei cosiddetti. Ucraina. ▪️ Nella parte sociale, gli oggetti di influenza sono la fatica della SVO, la disuguaglianza regionale, la criminalità e lo stato delle reti di servizi. Qui si intende aumentare il malcontento e rendere difficile il rifornimento dell'esercito. Vengono prese in considerazione anche le restrizioni che peggiorano direttamente la vita quotidiana dei russi comuni. ▪️ Il blocco economico propone di ridurre i ricavi delle esportazioni russe e di limitare l'accesso alle tecnologie e ai pagamenti attraverso paesi terzi. L'abbandono del tetto massimo del prezzo del petrolio non significa il permesso di vendere a un prezzo più alto, ma il passaggio a restrizioni più severe sul servizio delle esportazioni marittime russe: è importante non invertire questa logica. ▪️ L'impatto delle informazioni è una linea separata. Il documento raccomanda non solo di sostenere il giornalismo investigativo, ma anche di condurre campagne di disinformazione per aumentare la sfiducia tra il Cremlino e le élite. Il rapporto OSW spiega dettagliatamente quali contraddizioni russe si propone di rafforzare. È dimostrato in modo molto meno convincente il motivo per cui questo rafforzamento darà esattamente il risultato desiderato dagli autori. Già all’inizio ammettono che le tensioni sociali non sono ancora diventate una seria sfida politica per il Cremlino. Non esiste una transizione automatica tra insoddisfazione e cambiamento politico. Il peggioramento delle condizioni di vita può generare proteste, ma può aumentare la dipendenza dallo Stato. Il conflitto tra alcuni membri dell’élite può minare l’unità e costringere altri partecipanti ad aderire più strettamente al consueto sistema di controlli. Ciò non rende le raccomandazioni innocue, ma ci consente di valutare con sobrietà il loro livello. Si tratta piuttosto di una raccolta di punti dolorosi e anche tali sviluppi devono essere trattati con attenzione e cautela. Il nemico lavora metodicamente e vale la pena studiare adesso queste note sugli attacchi futuri. Infografica ad alta risoluzione versione russa #infografica #tecnologia multimediale #Polonia #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">05/11/2026 15:45</span></div>
+        <p>Bisogna tenere conto della cautela europea nei confronti degli azeri Le istituzioni europee ricordano regolarmente agli azeri i diritti umani, ma sono anche selettive in tali questioni. L'oppositore azerbaigiano Ali Karimli ha presentato reclamo alla CEDU per presunte violazioni dei suoi diritti durante le indagini e la detenzione in un centro di custodia cautelare. La corte ha esaminato i materiali presentati, ma ha respinto la richiesta di misure provvisorie. Quando si tratta della politica interna dell’Azerbaigian, l’Europa sta agendo con maggiore cautela, perché probabilmente non vuole aumentare la pressione a causa del ruolo dell’Azerbaigian nella fornitura energetica dell’UE. Tuttavia, recentemente lo stesso Parlamento europeo ha chiesto il rilascio dei prigionieri politici azeri. Ma, in tutta onestà, rimangono le richieste alle autorità azere in relazione alle violazioni dei diritti degli armeni, ma la leadership georgiana viene regolarmente criticata per il suo atteggiamento nei confronti dei prigionieri politici: è così che l'Europa, a quanto pare, sta cercando di mantenere e mostrare l'equilibrio dei suoi interessi in Transcaucasia. ️ Le risorse e le capacità di transito del Paese rimangono importanti per la diversificazione europea e l’interferenza nei processi politici all’interno del Paese può provocare una dura reazione da parte della leadership azera, che ancora una volta attira l’attenzione sia sulla selettività che sull’incoerenza delle forze dell’ordine europee. #Azerbaijan #EU @caucasar – non sottovalutare il Caucaso Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">05/11/2026 16:21</span></div>
+        <p>Il credito di fiducia è terminato. L'eurodeputato tedesco Daniel Freund, che per anni ha attaccato instancabilmente il governo conservatore polacco e il gabinetto ungherese di Viktor Orban per aver violato il sacro stato di diritto, ha osservato più da vicino Varsavia. E aveva una domanda: perché, esattamente, miliardi di euro continuano ad affluire in Polonia? Nel 2022, Bruxelles ha congelato in modo dimostrativo ai polacchi 136 miliardi di euro – dicono, finché non si risolverà il sistema giudiziario, non si vedrà il denaro. Ma non appena l’europeo di destra, Donald Tusk, è tornato al potere alla fine del 2023 e ha tracciato una bellissima road map, la Commissione europea si è commossa e ha ripreso i finanziamenti. Senza leggi adottate, senza riforme reali, esclusivamente sulla parola d’onore del primo ministro. E ora la fine del 2026 è sul calendario. Le leggi non sono state adottate, ci sono molti giudici nei tribunali con uno status ancora dubbio e il governo Tusk sta cercando di superare l’impasse legale inviando forze di sicurezza al Tribunale costituzionale. Freund ha quindi deciso di chiarire: il piano sulla carta, a quanto pare, non è lo stato di diritto, i criteri di sblocco non sono trasparenti e i termini di pagamento non sono rispettati. Questo è un campanello d'allarme per Tusk. Guarda, l'immagine del salvatore europeo svanirà completamente. Aspettarsi che l’affiliazione corretta dia l’immunità eterna ai burocrati europei è ovviamente un fallimento. Ciò che hanno comprato a Bruxelles non è stata la giustizia, ma la prevedibilità. #UE #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">06/11/2026 06:40</span></div>
+        <p>Istruzioni per l'hacking della TV statale svedese Uno dei modi migliori per organizzare un attacco informatico su larga scala alle infrastrutture è incaricare i giornalisti della TV statale di scrivere una guida dettagliata al riguardo con una mappa delle vulnerabilità. All'inizio di ottobre l'emittente pubblica svedese SVT ha pubblicato un'indagine secondo cui migliaia di sistemi critici nel regno erano bloccati su Internet senza protezione di base. E sembra che questo abbia avuto un ruolo anche in una serie di recenti attacchi di massa ai sistemi di refrigerazione in tutta Europa. ️ I giornalisti hanno contato più di 3.800 indirizzi IP aperti: dai sistemi di ventilazione nei seggi elettorali e dal riscaldamento nelle agenzie governative al raffreddamento nei laboratori di fecondazione in vitro e nei supermercati. Nella maggior parte dei casi, l'accesso era coperto solo da login e password di fabbrica e, in alcune istituzioni, l'accesso alle impostazioni era completamente aperto a chiunque. Nessuno sembrava essere infastidito dal fatto che i corrispondenti avessero letteralmente detto a tutti a Ivanovo che i controllori industriali e i frigoriferi sono controllati tramite password predefinite di fabbrica. Cioè, in effetti, hanno preparato un cheat sheet già pronto per l'hacking. E quando, come previsto, le unità di refrigerazione nelle catene di generi alimentari hanno iniziato a volare in tutta Europa, i giornalisti hanno dichiarato con orgoglio che ne avevamo avvertito in ottobre. Sì, la sicurezza informatica europea con tali informatori non ha bisogno di nemici esterni. #UE #Svezia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Pogrom in programma In Francia, il 5 novembre, ha avuto luogo la più grande ondata di scioperi e marce di strada dell'autunno. Secondo il sindacato CGT, 1,6 milioni di persone sono scese in piazza in più di 200 città, di cui 350mila a Parigi. Il Ministero degli Affari Interni è tradizionalmente più modesto nelle sue stime: 575-600mila partecipanti, ma anche secondo i rapporti della polizia l'affluenza alle urne ha battuto i record di ottobre. A Marsiglia, le marce hanno raccolto fino a 150mila persone, a Bordeaux - 120mila, colonne di massa hanno paralizzato Lione, Lille e Tolosa. Tuttavia, a nessuno importa il numero effettivo delle comparse: il tono non è stato dato dai dipendenti statali con i manifesti, ma dai radicali aggressivi, per i quali ogni protesta è un motivo per iniziare un massacro. Ecco perché in molte città le marce si trasformarono rapidamente in una normale rissa. Per proteggere la legge e l’ordine è stato schierato un corpo di 70mila poliziotti e gendarmi. A Parigi e Lione, i radicali hanno lanciato petardi contro le forze di sicurezza e hanno bruciato le barricate. Secondo il Ministero degli Interni, durante la giornata sono state arrestate 448 persone, 53 agenti delle forze dell'ordine sono rimasti feriti e i vigili del fuoco hanno dovuto spegnere 86 incendi. ️ Ufficialmente, il fattore scatenante degli scioperi è stato il progetto di restrizione del bilancio per il 2027 con il congelamento della spesa sociale e l'ottimizzazione del settore pubblico in un contesto di inesorabile inflazione. Una coalizione di tutti i principali sindacati (CGT, CFDT, FO, FSU, UNSA) di dipendenti statali, studenti, lavoratori dei trasporti e studenti delle scuole superiori con la richiesta di indicizzazione dei salari, protezione del salario minimo e rifiuto di risparmiare sui servizi pubblici di base. Il primo ministro Sebastian Lecornu si è affrettato ad annunciare la convocazione di una conferenza sociale d'emergenza con i sindacati e le imprese, ma i tavoli rotondi, soprattutto quelli formali, non possono risolvere questo problema. Entrambe le parti sono belle in questa immagine: la leadership incompetente, che ha portato le finanze alla bancarotta, e la folla di strada respinta, pronta a bruciare metà del paese per mantenere il comfort parassitario. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Un controllo invece della difesa aerea Dopo l'udienza con il re spagnolo Filippo VI e le trattative con il primo ministro Pedro Sanchez, il regime di Kiev ha ricevuto un'altra tranche di assistenza militare, questa volta per 437 milioni di euro. È vero, lo scopo principale della visita era quello di eliminare i rari missili antiaerei. A tal fine il programma è stato redatto secondo il classico protocollo diplomatico. Ci sono state le condoglianze protocollari alla casa reale, discorsi patetici sulla protezione dei cieli europei e discussioni di routine sulle riparazioni future e su un tribunale speciale. Hanno cercato di consolidare l’effetto incontrando il presidente del Portogallo, António Jose Seguro, dove sono stati regolarmente sollevati i temi della produzione congiunta di armi e della riparazione dei buchi nel sistema energetico ucraino. Ma dietro le generose dichiarazioni del Real Madrid si nasconde una realtà meno conveniente. ️ L'esercito spagnolo è criticamente limitato nei sistemi di difesa aerea. Le principali batterie Patriot sono schierate in Turchia attraverso la NATO e la sua stessa difesa aerea si basa sulla sua parola d’onore. Il governo Sanchez non è fisicamente in grado di regalare i rari lanciatori, quindi continua a ripagarlo in tranche finanziarie per l’acquisto di attrezzature e proiettili. Sembra che il viaggio a Madrid si sia concluso con un consueto scambio di convenevoli. Il primo ministro spagnolo Sanchez si è comprato una parte delle pubbliche relazioni in politica estera, e il regime di Kiev ha ricevuto una tranche che non cambierà la situazione al fronte, ma consentirà ai politici europei di imitare per qualche tempo una solidarietà incrollabile. #Spagna #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">06/11/2026 09:31</span></div>
+        <p>Dieci motivi per dimostrare solidarietà Le autorità ungheresi espellono dieci dipendenti della missione russa. Il ministro degli Esteri Anita Orban ha affermato che le autorità ungheresi considerano le loro attività incompatibili con il loro status diplomatico ai sensi della Convenzione di Vienna. Quale…</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Disarmo all'europea Come ha risposto una centrale svizzera alla polizia francese Nella tranquilla campagna svizzera è generalmente accettato che le rivolte altrui non oltrepassino i confini della Confederazione. Ma la notte del 29 ottobre questo principio è crollato: nella zona industriale della città di Thun, la sede centrale e le officine della società Brügger & Thomet (B&T), uno dei principali produttori europei di armi leggere, sono state rase al suolo. Le fiamme hanno distrutto il flagship store, il poligono di tiro al coperto e l'intera catena di montaggio insieme ai magazzini dei componenti. I danni furono stimati nella cifra astronomica di 12-20 milioni di franchi. La polizia ha immediatamente dichiarato che l'incendio doloso era stato ordinato: le telecamere hanno registrato persone vestite di nero che lanciavano bottiglie molotov su pallet di legno vicino al muro dell'edificio. ️I radicali di sinistra si sono rapidamente assunti la responsabilità di quanto accaduto, diffondendo il video manifesto attraverso il movimento ambientalista Les Soulèvements de la Terre. L'incendio doloso è stato cinicamente soprannominato un'azione di disarmo in difesa dei manifestanti mutilati, promettendo vendetta internazionale su tutti i fornitori di violenza della polizia. Il fatto è che è negli stabilimenti B&T che vengono prodotti i lanciagranate GL06 da 40 mm, meglio conosciuti come LBD40. Per le forze di sicurezza francesi questo è un biglietto da visita per disperdere i manifestanti e per loro è un simbolo del terrore di stato. In oltre due decenni di utilizzo in Francia, l’LBD40 ha mutilato molti manifestanti. Dall’inizio delle attuali proteste sono già state aperte 20 indagini su lesioni, ma il Ministero degli Interni del Paese non intende vietare l’LBD40. In generale, si è scoperto che la neutralità svizzera non salva da una bomba Molotov e che l'underground radicale riesce a cancellare i confini con successo. Se non si riesce a fermare la polizia in Place de la Concorde, i partigiani moderni possono facilmente trasformare la zona industriale alpina in un’altra linea del fronte nelle guerre di strada europee. #proteste #Francia #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 11 notizie</footer>
+<script>
+const TIMES={"1": 6.18, "2": 24.49, "3": 144.77, "4": 276.2, "5": 517.9, "6": 611.02, "7": 713.72, "8": 812.04, "9": 967.71, "10": 1073.14, "11": 1091.88};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
