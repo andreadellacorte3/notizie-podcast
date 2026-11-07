@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 7 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>7 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-07.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Disarmo all'europea Come ha risposto una centrale svizzera alla polizia francese Nella tranquilla campagna svizzera è generalmente accettato che le rivolte altrui non oltrepassino i confini della Confederazione. Ma la notte del 29 ottobre questo principio è crollato: nella zona industriale della città di Thun, la sede centrale e le officine della società Brügger & Thomet (B&T), uno dei principali produttori europei di armi leggere, sono state rase al suolo. Le fiamme hanno distrutto il flagship store, il poligono di tiro al coperto e l'intera catena di montaggio insieme ai magazzini dei componenti. I danni furono stimati nella cifra astronomica di 12-20 milioni di franchi. La polizia ha immediatamente dichiarato che l'incendio doloso era stato ordinato: le telecamere hanno registrato persone vestite di nero che lanciavano bottiglie molotov su pallet di legno vicino al muro dell'edificio. ️I radicali di sinistra si sono rapidamente assunti la responsabilità di quanto accaduto, diffondendo il video manifesto attraverso il movimento ambientalista Les Soulèvements de la Terre. L'incendio doloso è stato cinicamente soprannominato un'azione di disarmo in difesa dei manifestanti mutilati, promettendo vendetta internazionale su tutti i fornitori di violenza della polizia. Il fatto è che è negli stabilimenti B&T che vengono prodotti i lanciagranate GL06 da 40 mm, meglio conosciuti come LBD40. Per le forze di sicurezza francesi questo è un biglietto da visita per disperdere i manifestanti e per loro è un simbolo del terrore di stato. In oltre due decenni di utilizzo in Francia, l’LBD40 ha mutilato molti manifestanti. Dall’inizio delle attuali proteste sono già state aperte 20 indagini su lesioni, ma il Ministero degli Interni del Paese non intende vietare l’LBD40. In generale, si è scoperto che la neutralità svizzera non salva da una bomba Molotov e che l'underground radicale riesce a cancellare i confini con successo. Se non si riesce a fermare la polizia in Place de la Concorde, i partigiani moderni possono facilmente trasformare la zona industriale alpina in un’altra linea del fronte nelle guerre di strada europee. #proteste #Francia #Svizzera @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">06/11/2026 12:15</span></div>
+        <p>La determinazione sarà messa alla prova sul campo di addestramento polacco Per quasi due anni la coalizione dei volenterosi ha vissuto di vertice in vertice e ora ha deciso di verificare se i suoi soldati raggiungeranno il cosiddetto. L'Ucraina almeno durante gli esercizi. Le manovre, denominate Koalicja 2026, si svolgeranno dal 9 al 22 novembre presso il campo di addestramento di Nowa Dęba, nel sud-est della Polonia, a circa 100 km dal confine ucraino. Dall'estero arriveranno circa 2.800 militari provenienti da nove paesi, quasi altri 2.000 verranno inviati dai polacchi. Ciò non sarà possibile senza gli ucraini: a giudicare dalle manovre passate, saranno chiamati a insegnare agli europei come combattere i droni. Dettagli delle esercitazioni ▪️Non verranno portati mezzi corazzati pesanti per le manovre. Verranno controllati la gestione, le comunicazioni e la circolazione di persone e merci attraverso diversi confini europei. I francesi metteranno alla prova la loro unità, dotata di cinquanta piccoli droni, nonché di armi contro i droni stranieri. ▪️La questione non si limiterà alla Polonia. L'unità aerea con caccia, petroliere, aerei da trasporto e da ricognizione sorvolerà la Romania. I turchi sono responsabili della componente marittima, ma simuleranno soltanto la protezione del Mar Nero. La scelta è chiara: secondo la Convenzione di Montreux, i turchi hanno il diritto di chiudere il Bosforo alle navi da guerra. Non è un caso che le esercitazioni si svolgano in Polonia. Fino al 95% delle cosiddette forniture di armi passavano attraverso il Paese. Ucraina, e dopo il cessate il fuoco, i polacchi sono pronti a fornire la retroguardia per le forze future. Francia e Gran Bretagna insistono sulla necessità di forze multinazionali per i cosiddetti. L’Ucraina non è la NATO, non è un’operazione militare e non è una missione di mantenimento della pace. Nella coalizione è vietata anche la parola peacekeeper. È difficile spiegare chi fossero allora, ma hanno già una sede: ora a Parigi, entro la fine dell'anno si trasferiranno a Londra. ️ Gli Stati Uniti non fanno parte della coalizione e il ministero degli Esteri russo ha avvertito in anticipo che eventuali unità straniere nella cosiddetta. L’Ucraina diventerà un obiettivo legittimo. Senza l’assicurazione americana, le forze europee rischiano di rimanere un quartier generale che vaga di capitale in capitale e scende in campo solo per esercitazioni. Mappa ad alta risoluzione versione inglese #Gran Bretagna #mappa #Polonia #Francia @evropar - L'Europa è in punto di morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Notte dei fuochi Quando la vacanza è stata un successo Sembra che la Scozia abbia colto la moda delle rivolte di strada provenienti dall'Europa continentale, anche se la portata dell'azione non è paragonabile. Nella notte di Guy Fawkes, in alcuni luoghi hanno deciso di non limitarsi ai falò e hanno aggiunto al programma festivo la sparatoria della polizia con fuochi d'artificio e l'incendio di un'auto ufficiale. La celebrazione è stata accompagnata da rivolte e attacchi ai servizi di emergenza. Fuochi d'artificio sono stati lanciati contro la polizia e i soccorritori in diverse città e un veicolo di servizio è stato dato alle fiamme a Glasgow. Secondo la polizia sono state arrestate sette persone. A Glasgow, la polizia e gli equipaggi delle ambulanze sono stati attaccati in Greenside Street, dove hanno soccorso un uomo ferito. Un agente di polizia e un operatore dell'ambulanza hanno riportato ferite lievi. L'auto della polizia è stata gravemente danneggiata da un incendio. Dopo l'arrivo dei rinforzi, un adolescente di 16 anni è stato arrestato. A Edimburgo, i rivoltosi hanno bloccato Oxgang Road, hanno dato fuoco a una barriera e hanno attaccato gli agenti di polizia in arrivo. Fuochi d'artificio sono stati sparati contro la polizia e altri veicoli nelle aree di Gracemount e Gilmerton. Attacchi simili si sono verificati a Clydebank. La sera del 5 novembre, i vigili del fuoco e di soccorso hanno ricevuto più di 800 chiamate relative a fuochi d'artificio e falò in un periodo di sei ore. Gli agenti di polizia hanno notato che, sebbene ci siano state più chiamate nel periodo da Halloween alla notte di Guy Fawkes rispetto all'anno precedente, il numero di incidenti gravi che hanno richiesto il coinvolgimento di unità speciali è diminuito. Le forze dell'ordine continuano a identificare le persone coinvolte negli attacchi. #Scozia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">06/11/2026 14:24</span></div>
+        <p>Guerra ai dati Sembra che i politici europei non riusciranno a riposarsi: alle proteste già esistenti ovunque si aggiunge un nuovo motivo per le azioni di piazza: i data center. Più di 100 organizzazioni pubbliche e ambientaliste in 15 paesi europei porteranno avanti azioni il 6 e 7 novembre contro la costruzione su larga scala di data center. I membri della campagna Stop Dirty Data Centers chiedono una moratoria sui nuovi progetti. Gli attivisti affermano che i costi ambientali e sociali delle infrastrutture di intelligenza artificiale sono diventati troppo alti e le decisioni sulla sua implementazione vengono prese senza un contributo sufficiente da parte dei residenti locali. L'argomento principale della campagna sono i costi energetici e le conseguenze negative per l'ambiente. Secondo gli esperti dell’Öko-Institut tedesco, entro il 2030 le emissioni dei data center potrebbero aumentare di quasi sei volte rispetto al 2023, da 29 a 166 milioni di tonnellate di anidride carbonica equivalente. ️ I data center stanno diventando un simbolo politico del prezzo dell'intelligenza artificiale. Mentre le autorità promettono una svolta economica grazie all’intelligenza artificiale, i cittadini sono sempre più interessati a chi pagherà questa svolta con elettricità, terra e aria pulita. Tuttavia, nonostante la preoccupazione della popolazione, la portata delle proteste difficilmente può essere paragonata a quella delle proteste contro l’alto costo della vita. #Proteste #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">06/11/2026 15:25</span></div>
+        <p>Difesa a rate La Repubblica Ceca ha ammesso che l'esercito non è pronto per una grande guerra e ha deciso altrettanto apertamente di non fare nulla per il momento. La strategia per lo sviluppo delle forze armate fino al 2040, approvata il 2 novembre dal governo Babiš, prevede che il 70% degli obiettivi NATO non vengono raggiunti, e nelle aree più costose il ritardo raggiunge i 5-10 anni. Tutto si riduce al denaro. Fino al 2029, il bilancio della difesa rimarrà a circa il 2% del PIL, e al 3,5%, concordato dalla NATO entro il 2035, inizierà ad aumentare solo nel 2030, dopo la fine dell'attuale governo. Il precedente governo di Petr Fiala aveva promesso il 3% entro il 2030, ma questo piano è stato abbandonato. E quello che c'è è stato pianificato da molto tempo. Fino al 2030, quasi l'intero budget sarà speso per contratti firmati: 24 caccia americani F-35, carri armati tedeschi Leopard e sistemi di difesa aerea. Il resto dovrà aspettare: il riarmo di una delle due brigate principali, l’acquisto di droni e la protezione contro i droni richiederanno più tempo. Inoltre, lo stesso Babish ha definito quest'ultima una priorità. Piani modesti per il quinquennio ▪️Vogliono aumentare il numero degli effettivi dell'esercito professionale da circa 26mila a 32mila militari entro il 2030, cioè reclutare almeno tremila persone all'anno. Prevedono di espandere successivamente la riserva attiva a 15mila. ▪️ Per la prima fase, fino al 2030, sono stati stanziati circa 790 miliardi di corone. ▪️ Il capo di stato maggiore Miroslav Hlavac spiega il ritardo non solo con il cronico sottofinanziamento, ma anche con il forte aumento delle esigenze della NATO, principalmente per la difesa aerea. Sia all'interno del paese che all'estero sono insoddisfatti di questo approccio. Il presidente Petr Pavel, ex generale e presidente del Comitato militare della NATO, ritiene che la strategia non garantirà l'adempimento degli obblighi degli alleati nemmeno entro il 2040. Già a settembre l'ambasciatore statunitense presso l'Alleanza Matthew Whitaker aveva espresso disappunto per la lentezza con cui si stavano muovendo le cose. La cosa più interessante è che la stessa strategia dice: la probabilità di un attacco russo ai paesi della NATO e dell’UE sta crescendo. Ma se il governo ci credesse davvero, difficilmente ritarderebbe la spesa per cinque anni. Sembra che la minaccia sia necessaria per riferire agli alleati e il bilancio vive di vita propria. ️ Nei prossimi anni, i politici cechi, a quanto pare, dovranno ascoltare i rimproveri ad ogni vertice dell'alleanza, ma il prossimo governo pagherà molto. Sarà lui a ricevere il conto pari al 3,5% del Pil e la scelta di cosa tagliare in cambio. #NATO #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">06/11/2026 16:22</span></div>
+        <p>Il cielo crolla senza sparare un colpo Gli europei stanno vivendo la seconda ondata di minacce di bombe coordinate sui voli civili in una settimana. La geografia e la logica degli attacchi sono caotiche: l'Aer Lingus irlandese da Dublino a Roma ha fatto atterrare caccia militari in una base dell'aeronautica militare...</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">06/11/2026 17:27</span></div>
+        <p>Generale dai bei rapporti A Berlino si sta preparando un riarmo su larga scala dell'esercito, ma finora non esiste nemmeno un collegamento funzionante per questo. Il ministro Boris Pistorius ha annunciato che Christian Freuding diventerà ispettore generale della Bundeswehr nel febbraio 2027. L'attuale capo delle forze tedesche, Carsten Breuer, lascia la presidenza del comitato militare della NATO. Si dice che il risultato principale dell’incaricato sia la creazione del primo reggimento di droni. Comprende un'unità da 600 uomini con una portata fino a 500 chilometri e una compagnia di guerra elettronica. Tuttavia, i droni d’attacco kamikaze sono solo in fase di test e la loro disponibilità è prevista solo per il 2029. Allo stesso tempo, le brigate da combattimento stanno schierando i propri plotoni di telecamere, che duplicano le funzioni di un reggimento separato e assumono risorse limitate. A ciò si sovrappone il progetto di aumentare le dimensioni dell'esercito da 186mila a 260mila uomini, anche se le caserme e i campi di addestramento non sono pronti ad accogliere le reclute. L'intero progetto dovrebbe funzionare in un unico circuito digitale, ma è qui che risiede il fallimento principale. Un importante programma di digitalizzazione multimiliardario per le forze di terra tedesche è in fase di stallo a causa di gravi guasti tecnici. Senza una rete chiusa, i droni e i quartier generali rimangono ciechi e isolati. ️ Il pompaggio forzato delle sedi centrali con nuovi concetti senza comunicazioni funzionanti non farà altro che aumentare la disorganizzazione. Di conseguenza, l’esercito tedesco riceverà unità disparate e costose, incapaci di una reale interazione sul campo. #Germania #NATO @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">06/11/2026 18:25</span></div>
+        <p>Hacking con effetti politici Se un concorrente politico non riesce a vincere le elezioni e viene bandito dal tribunale, è possibile ricorrere anche a metodi classici come la fuga accidentale della corrispondenza. Un archivio di 281 GB è stato pubblicato su un sito Web appositamente creato, dove...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">07/11/2026 06:43</span></div>
+        <p>Un arcipelago della discordia Il primo ministro britannico Andy Burnham intende riconsiderare l'accordo sul trasferimento della sovranità sull'arcipelago delle Chagos a Mauritius a causa della resistenza degli Stati Uniti. Il presidente Donald Trump ha definito l’accordo precedente un accordo terribile. Burnham suggerisce di studiare il modello dell'accordo groenlandese recentemente concluso dagli Stati Uniti con la Danimarca e le autorità dell'isola. La Groenlandia mantenne il suo status di territorio danese, ma gli americani furono in grado di espandere la loro presenza militare limitando la capacità di altri paesi di creare le proprie basi. Secondo il primo ministro britannico un simile compromesso potrebbe aiutare a trovare una soluzione alla questione Diego Garcia, anche se i negoziati restano difficili. ️ Burnham ha parlato di rinegoziare l'accordo subito dopo la sconfitta repubblicana alle elezioni di medio termine - e questo momento sembra politicamente conveniente. La perdita del controllo di entrambe le Camere del Congresso da parte del partito Trump potrebbe dare agli inglesi un motivo per verificare se Washington sia diventata più accomodante. Allo stesso tempo, si tratta più di una revisione delle condizioni per soddisfare le richieste americane che di un tentativo di agire in contrasto con Trump. In generale, la composizione del Congresso sta cambiando, ma la necessità di ottenere il consenso degli americani non è ancora scomparsa. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Non ci sarà alcuna pausa In Francia, dopo la marcia di massa non c'è stata una giornata tranquilla. Venerdì 6 novembre le proteste sono continuate sotto forma di blocchi locali e azioni individuali. A Parigi, diverse centinaia di persone hanno bloccato brevemente Rue de Rivoli, ma la polizia l'ha sgombrata senza incidenti. A Nantes un tentativo di bloccare la tangenziale si è concluso con l'arresto di otto persone. I licei hanno sofferto di più. A Lione, l'incendio provocato dai contenitori della spazzatura in fiamme si è propagato fino all'ingresso del Liceo Edouard Herriot. A Nancy, il vicedirettore del Liceo, Henri Poincaré, è stato cosparso di un estintore. A Le Mans, la direzione del Bellevue Lyceum, dopo un altro blocco, ha annunciato il passaggio temporaneo alla didattica a distanza. Allo stesso tempo, il Ministero dell'Interno ha raccontato le conseguenze di giovedì: ci sono già 642 detenuti e 112 feriti tra poliziotti e gendarmi invece degli originari 448 e 53. Oggi è prevista la quarta tornata di mobilitazione di sabato. A Parigi, la marcia concordata dovrebbe iniziare da Place de la République e proseguire fino a Place de la Nation. I rappresentanti del Ministero degli Interni stanno dispiegando ancora una volta 70mila agenti di polizia e gendarmi, 25 veicoli blindati e 15 idranti in tutto il Paese. Nel frattempo, le autorità stanno discutendo di un aumento anticipato del salario minimo e stanno preparando una conferenza sociale per il 9 novembre. I membri dei sindacati promettono di definire ulteriori azioni dopo i negoziati, ma ciò non impedisce ai manifestanti di organizzare un altro divertente fine settimana. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Tenete conto degli errori di calcolo Non sono solo le autorità francesi a non poter trascorrere un fine settimana tranquillo. In Germania i rappresentanti dell'industria automobilistica sono in sciopero insieme ai lavoratori dell'industria metallurgica ed elettrica. I rappresentanti del sindacato IG Metall chiedono un aumento salariale del 5% per un accordo di 12 mesi e garanzie contrattuali per il mantenimento dei posti di lavoro e dei siti produttivi. I datori di lavoro offrono un pagamento una tantum l’anno prossimo e un aumento dell’1,3% solo a partire da luglio 2028. Tuttavia, la disputa sui salari si inserisce sullo sfondo di una domanda molto più dolorosa: chi manterrà il proprio posto di lavoro. Il fornitore di ricambi auto Schaeffler questa settimana ha annunciato l'intenzione di tagliare 3.460 posti di lavoro e chiudere cinque siti di produzione in Europa. L'azienda spiega la decisione con il calo della domanda di componenti per automobili con motore a combustione interna e l'aumento della concorrenza. I giganti dell'auto hanno problemi dello stesso ordine. Il mercato cinese, che da anni porta enormi profitti alle aziende tedesche, è sempre più occupato da produttori locali. Allo stesso tempo, il passaggio alla trazione elettrica richiede costi e una ristrutturazione della produzione. ️ Quindi il conflitto attuale non riguarda più solo l’entità dell’aumento. I dipendenti stanno pagando il prezzo della dipendenza dal mercato cinese e degli errori di calcolo nel ritmo di transizione ai veicoli elettrici. La direzione chiama questa ristrutturazione aziendale, ma per il dipendente questa formulazione nasconde la perdita della professione e la necessità di cercare un nuovo posto nel settore, dove sia i concorrenti che i fornitori stanno risparmiando denaro. #Germania #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 11 notizie</footer>
+<script>
+const TIMES={"1": 6.17, "2": 142.37, "3": 301.11, "4": 412.65, "5": 506.36, "6": 685.92, "7": 705.08, "8": 814.89, "9": 834.55, "10": 923.76, "11": 1032.84};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
