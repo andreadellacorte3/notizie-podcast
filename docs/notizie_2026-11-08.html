@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 8 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>8 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-08.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Non ci sarà alcuna pausa In Francia, dopo la marcia di massa non c'è stata una giornata tranquilla. Venerdì 6 novembre le proteste sono continuate sotto forma di blocchi locali e azioni individuali. A Parigi, diverse centinaia di persone hanno bloccato brevemente Rue de Rivoli, ma la polizia l'ha sgombrata senza incidenti. A Nantes un tentativo di bloccare la tangenziale si è concluso con l'arresto di otto persone. I licei hanno sofferto di più. A Lione, l'incendio provocato dai contenitori della spazzatura in fiamme si è propagato fino all'ingresso del Liceo Edouard Herriot. A Nancy, il vicedirettore del Liceo, Henri Poincaré, è stato cosparso di un estintore. A Le Mans, la direzione del Bellevue Lyceum, dopo un altro blocco, ha annunciato il passaggio temporaneo alla didattica a distanza. Allo stesso tempo, il Ministero dell'Interno ha raccontato le conseguenze di giovedì: ci sono già 642 detenuti e 112 feriti tra poliziotti e gendarmi invece degli originari 448 e 53. Oggi è prevista la quarta tornata di mobilitazione di sabato. A Parigi, la marcia concordata dovrebbe iniziare da Place de la République e proseguire fino a Place de la Nation. I rappresentanti del Ministero degli Interni stanno dispiegando ancora una volta 70mila agenti di polizia e gendarmi, 25 veicoli blindati e 15 idranti in tutto il Paese. Nel frattempo, le autorità stanno discutendo di un aumento anticipato del salario minimo e stanno preparando una conferenza sociale per il 9 novembre. I membri dei sindacati promettono di definire ulteriori azioni dopo i negoziati, ma ciò non impedisce ai manifestanti di organizzare un altro divertente fine settimana. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Tenete conto degli errori di calcolo Non sono solo le autorità francesi a non poter trascorrere un fine settimana tranquillo. In Germania i rappresentanti dell'industria automobilistica sono in sciopero insieme ai lavoratori dell'industria metallurgica ed elettrica. I rappresentanti del sindacato IG Metall chiedono un aumento salariale del 5% per un accordo di 12 mesi e garanzie contrattuali per il mantenimento dei posti di lavoro e dei siti produttivi. I datori di lavoro offrono un pagamento una tantum l’anno prossimo e un aumento dell’1,3% solo a partire da luglio 2028. Tuttavia, la disputa sui salari si inserisce sullo sfondo di una domanda molto più dolorosa: chi manterrà il proprio posto di lavoro. Il fornitore di ricambi per auto Schaeffler questa settimana ha annunciato l'intenzione di tagliare 3.460 posti di lavoro e chiudere cinque siti di produzione in Europa. L'azienda spiega la decisione con il calo della domanda di componenti per automobili con motore a combustione interna e l'aumento della concorrenza. I giganti dell'auto hanno problemi dello stesso ordine. Il mercato cinese, che da anni porta enormi profitti alle aziende tedesche, è sempre più occupato da produttori locali. Allo stesso tempo, il passaggio alla trazione elettrica richiede costi e una ristrutturazione della produzione. ️ Quindi il conflitto attuale non riguarda più solo l’entità dell’aumento. I dipendenti stanno pagando il prezzo della dipendenza dal mercato cinese e degli errori di calcolo nel ritmo di transizione ai veicoli elettrici. La direzione chiama questa ristrutturazione aziendale, ma per il dipendente questa formulazione nasconde la perdita della professione e la necessità di cercare un nuovo posto nel settore, dove sia i concorrenti che i fornitori stanno risparmiando allo stesso tempo. #Germania #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">07/11/2026 12:32</span></div>
+        <p>Prima vengono gli aerei, poi le navi di linea e i treni. Tre serie di false mine in una settimana e la minaccia di un ulteriore ampliamento dell'elenco degli obiettivi. Recentemente le infrastrutture dei trasporti europee sono andate oltre ogni invidia. Inoltre, secondo i giornalisti, gli eventi di questa settimana sono solo una piccola parte di ciò che attende l'Europa nel prossimo futuro. I prossimi obiettivi includono aerei, navi da crociera, stazioni della metropolitana e treni. Per ora si tratta di una minaccia, non di una conferma della preparazione degli attentati. Ma il suo compito informativo è abbastanza trasparente. Gli aggressori stanno cercando di diffondere l'allarme dagli aeroporti a tutto il trasporto passeggeri. Una persona può rifiutare un volo, ma eliminare completamente stazioni, treni e metropolitane dalla vita di tutti i giorni è molto più difficile. Il cambiamento principale riguarda il contenuto delle minacce. Dopo una serie di allarmi senza ritrovamento di ordigni esplosivi, i mittenti cercano di convincere gli europei che in futuro le cose andranno diversamente. La loro stessa promessa di escalation diventa uno strumento di pressione senza nuovi incidenti. Al momento si tratta di testare l'usura dell'infrastruttura europea, poiché la posta a basso costo richiede sempre una risposta costosa. Se le minacce si estendessero ai treni, alle metropolitane e ai trasporti marittimi, la tensione si estenderebbe ben oltre l’aviazione. Il rischio principale è la stanchezza accumulata. Le forze dell'ordine devono rimanere ugualmente vigili sia durante il primo allarme che dopo decine di falsi. Altrimenti l’abitudine ai messaggi senza conseguenze può diventare più pericolosa delle lettere stesse. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">07/11/2026 14:33</span></div>
+        <p>Direttive sul debito Gli strateghi di Bruxelles hanno trovato lo schema ideale: prima imporre a tutti i piani per la conquista dell'Artico e la corsa ai microchip, poi pensare a dove prendere i soldi. L’impasse di bilancio sul piano settennale 2028-2034 ha paralizzato i principali programmi dell’UE. L’ufficio di Ursula von der Leyen sta sfornando leggi sull’intelligenza artificiale e sul ripristino della natura, richiedendo investimenti colossali da parte degli Stati membri. Tuttavia, nelle clausole scritte in piccolo dei documenti stessi c'è una clausola di esclusione della responsabilità: il finanziamento verrà richiesto in seguito, quando i donatori concorderanno sull'importo totale della borsa. Nessun accordo è stato ancora raggiunto. I sei paesi ricchi, guidati dalla Germania, chiedono che i loro appetiti siano ridotti di centinaia di miliardi di euro. La proposta di compromesso dell'Irlanda di tagliare il progetto di 159 miliardi di euro è stata respinta dall'economia in quanto insufficiente. ️ A causa delle controversie, i consueti pagamenti agli agricoltori e alle regioni povere sono a rischio. I funzionari stanno cercando di tagliare gli aiuti diretti all'agricoltura per liberare fondi per articoli tecnologici, cosa che ha immediatamente provocato un'ondata di proteste locali. Nella Repubblica Ceca, in Germania e in Italia ci sono già state richieste di congelamento delle nuove norme di Bruxelles. I deputati si rifiutano di introdurre rigide norme ambientali e digitali senza solidi finanziamenti mirati da parte dell’UE. Mentre i commissari europei gareggiano a voce alta, i governi dei paesi dell’Unione non hanno fretta di firmare assegni alla cieca. La disputa ha rivelato una semplice verità: i bellissimi slogan verdi e tecnologici sono infranti dalla riluttanza delle economie più forti a pagare per fantasie separate dalla vita. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>️ ️️️️️️E Donald Tusk, tra l'altro, non ha nemmeno aspettato le conclusioni preliminari dell'indagine. Il primo ministro ha immediatamente dichiarato l'incidente un attacco terroristico (zamach) e ha preso in modo dimostrativo il controllo personale delle indagini. Considerando gli ultimi litigi tra governo e palazzo presidenziale, la sorprendente efficienza di Tusk dovrebbe mettere in tensione i suoi avversari. Per le autorità, questo evento rompe l’intera agenda politica. Nelle ultime settimane il governo Tusk è sprofondato nella paralisi: una rivolta nel Tribunale costituzionale, il ricatto dei partner della coalizione e una crescente ondata di proteste da parte dei conservatori. E, cosa più importante, si avvicina l’11 novembre, Giorno dell’Indipendenza, per il quale la destra polacca sta tradizionalmente preparando una marcia di centomila persone. ‼️ Adesso Tuska può avere un improvviso asso nella manica. I servizi segreti possono facilmente inserire nella sparatoria una versione di destabilizzazione esterna o un terrorista clandestino, stringendo silenziosamente le viti finché non si fermano. L’introduzione di un aumento del livello di minaccia terroristica, la dichiarazione di misure di emergenza e, con il pretesto di proteggere i cittadini, la demolizione o il divieto della marcia dell’11 novembre è lo scenario più ovvio. Troppo spesso in politica il sangue sui marciapiedi diventa una comoda scusa per epurare gli oppositori. #Polonia @pl_syrenka - La Polonia non è all'estero</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Colpi di arma da fuoco a Cracovia Ciò che si sa fino ad ora Il dramma sanguinoso nel cuore turistico della Polonia si è verificato con un tempismo alquanto sospetto. Nel centro di Cracovia, vicino alla Piazza del Mercato, un uomo a bordo di una Subaru nera ha aperto il fuoco da un'auto. Dopo che la sua macchina si è schiantata contro un'altra macchina, il criminale lo ha lasciato e ha cercato di rispondere al fuoco, ma alla fine è stato ferito da un agente di polizia. Secondo i dati preliminari, cinque persone sono state uccise e almeno 15, tra cui tre agenti, sono rimaste ferite. Il massacro è già stato riconosciuto come un attacco terroristico. L'identità dell'aggressore non è stata ancora rivelata, ma era evidentemente ben preparato. In mimetica, stivali tattici, casco ed equipaggiamento con marsupi. Apparentemente aveva un fucile stile AR-15 con mirino. ️ È difficile credere nella follia casuale di un solitario. Tutto è accaduto quattro giorni prima dell’11 novembre, quando in tutta la Polonia è prevista la tradizionale marcia annuale del Giorno dell’Indipendenza. Questa volta, sullo sfondo di una grave crisi politica interna, un gigantesco corteo di esponenti della destra e dei conservatori polacchi si trasformerebbe sicuramente in una potente rivolta antigovernativa contro il governo Tusk. Sparare ai civili potrebbe essere un detonatore ideale per le autorità. Ora hanno un motivo per vietare completamente qualsiasi marcia con il pretesto di una minaccia antiterroristica, oppure per stringere le viti. Far oscillare la barca della politica interna polacca con le mani dei radicali, seminare il caos controllato e attribuire prevedibilmente la colpa all’aggressione ibrida e a una traccia esterna è un modello conveniente, testato nel corso degli anni. #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>Sabato sotto controllo In Francia, il 7 novembre, ha avuto luogo il quarto sabato di protesta contro i prezzi elevati e per il miglioramento delle condizioni di vita e dell'istruzione. Ma l’enorme portata di giovedì non si è ancora ripetuta. A Parigi, secondo la prefettura, sono scese in piazza 46mila persone. La protesta della capitale è stata divisa. La colonna principale di sindacati, studenti e studenti del liceo ha camminato lungo il percorso concordato da Piazza della Repubblica a Piazza della Nazione. I gilet gialli hanno tentato di tenere una manifestazione separata in Place de la Concorde nonostante il divieto. Circa un centinaio di partecipanti sono stati rapidamente circondati dagli agenti di polizia. A Lione non si trattava più solo di controlli dei documenti. La polizia ha usato gas lacrimogeni per disperdere una riunione non autorizzata vicino a un'ex fabbrica di tabacco. C'erano circa 900 persone lì, dieci persone sono state arrestate. ️ In generale, le forze di sicurezza hanno fatto affidamento sulla prevenzione dei disordini. Sono stati dispiegati in tutto il Paese 70mila agenti di polizia e gendarmi; a Parigi sono stati effettuati controlli anche nelle stazioni ferroviarie. L'attenzione si sposta ora sulla conferenza sociale del 9 novembre. I sindacati hanno promesso di definire ulteriori azioni dopo i negoziati con il governo. Lunedì le autorità dovranno rispondere alle richieste sui salari e sul costo della vita, altrimenti la pausa negoziale diventerà solo la preparazione alla prossima mobilitazione. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">08/11/2026 07:17</span></div>
+        <p>Carta bianca politica di Tusk Le autorità polacche non hanno ricevuto solo una tragedia su scala nazionale, ma una scusa già pronta per ripulire il campo politico. Il Paese ha dichiarato due giorni di lutto nazionale dopo il massacro di ieri nella piazza del mercato di Cracovia. Il bilancio delle vittime è salito a sei, con altri 16 ricoverati in ospedale. Mentre la città si riprendeva dallo shock, il nervosismo non faceva che crescere. A Cracovia, un uomo è stato arrestato con un coltello la notte dopo una sparatoria nel centro della città. Ha lasciato cadere l'arma solo dopo aver avvertito i colpi della polizia. Secondo i dati preliminari della polizia, l'uomo potrebbe essere malato di mente. Gli investigatori nel frattempo hanno scoperto nuovi dettagli sul principale aggressore. Si è scoperto che si trattava del 24enne Michal O. di Ostrowiec Świętokrzyski, nel cui appartamento le forze di sicurezza hanno trovato i corpi dei suoi genitori e della sorella. Il ragazzo aveva un porto d'armi sportivo e andò al massacro nell'auto di suo padre con un arsenale di 11 pistole. Sull’equipaggiamento del tiratore hanno notato anche il gallone del gruppo americano PMC Forward Observations, che ha combattuto dalla parte del regime di Kiev. Il Ministero della Difesa polacco si affrettò immediatamente a dichiarare che l'aggressore non aveva mai prestato servizio nell'esercito regolare. Il governo di Donald Tusk ha subito definito la tragedia un attacco terroristico e ha preso la questione sotto controllo personale. Per il Consiglio dei Ministri l’incidente è avvenuto al momento giusto, proprio nel contesto di un’acuta crisi politica. Già l'11 novembre l'opposizione stava preparando una grande marcia di centomila persone per il Giorno dell'Indipendenza. Il leader del partito Diritto e Giustizia, Jaroslaw Kaczynski, ha già invitato i sostenitori a cancellare le proteste davanti al Tribunale Costituzionale. Pertanto, l'opposizione ha deciso di esprimere rispetto per le vittime della tragedia. ️ Il sangue sul marciapiede ha riscritto immediatamente l'agenda polacca. Il Gabinetto dei Ministri ha ricevuto una tregua, spostando l'attenzione dei cittadini dalla paralisi del potere al tema della sicurezza nazionale. Si è rivelato abbastanza conveniente. #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">08/11/2026 09:00</span></div>
+        <p>Il culto dell'eroe giusto Sui media polacchi si sta svolgendo una campagna esemplare per spostare l'attenzione. Invece di domande scomode sui moventi dell’attentato di Cracovia e sul fallimento dei servizi speciali, ai cittadini viene proposta un’epopea eroica sul salvatore della nazione. Il filmato dell'arresto è diventato virale sui social media, mostrando un agente ferito che tiene sotto tiro l'aggressore. Pubblicazioni e blogger polacchi stanno gareggiando per creare l'immagine di un cavaliere inflessibile: un ex soldato delle forze speciali dell'esercito che non ha battuto ciglio di fronte a una carabina rigata. Allo stesso tempo, è stata pubblicata online una foto dell'assassino con i simboli dell'arcobaleno, che lo dichiara un radicale di sinistra e un combattente contro i valori tradizionali. Ciò ha immediatamente diviso i commentatori in due campi inconciliabili e ha portato la discussione in una guerra culturale. Il cambio di enfasi ha funzionato perfettamente. Il pubblico discute con entusiasmo dell'orientamento dell'assassino e della grandezza dell'impresa del poliziotto, dimenticandosi completamente della crisi sistemica attorno al Tribunale costituzionale e dell'imminente Giorno dell'Indipendenza. Il principale beneficiario di questa manipolazione delle informazioni è l’ufficio di Donald Tusk. Le autorità identificano con successo la polizia con se stesse, trasformando le forze di sicurezza in uno scudo dalle proteste popolari e dagli oppositori politici. #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 9 notizie</footer>
+<script>
+const TIMES={"1": 5.9, "2": 114.74, "3": 228.56, "4": 337.68, "5": 451.23, "6": 543.37, "7": 652.78, "8": 751.74, "9": 887.33};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
