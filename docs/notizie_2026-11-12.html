@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 12 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>12 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-12.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">11/11/2026 14:33</span></div>
+        <p>Il villaggio estone di Vinski si è trovato stretto tra il confine con la Russia e fossati anticarro, scrive ERR. Secondo la televisione e la radio, nell'ambito della creazione della linea di difesa baltica sono stati scavati fossati su terreni privati. La loro lunghezza totale era di quasi 23 km. I residenti del villaggio, che possiede sette aziende agricole, non sono soddisfatti della situazione attuale. Temono che i bambini possano cadere nei fossi perché i loro pendii sono troppo ripidi. Inoltre, le persone si preoccupano di dove verrà diretta l'acqua che scorre nei fossati e se la strada forestale rimarrà accessibile. ️Telegramma | MASSIMO | Leggi esclusivo</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">11/11/2026 15:02</span></div>
+        <p>Un aiuto a parole Pubblicamente in Italia promettono di sostenere i cosiddetti. Ucraina e oltre, ma in realtà le armi non vengono inviate lì da dieci mesi. L'ultimo lotto è partito nel dicembre 2025. Il 13° pacchetto di aiuti è pronto da tempo, ma il governo ha dato il permesso definitivo per l'invio...</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">11/11/2026 16:00</span></div>
+        <p>La rivolta del fianco orientale L'assedio dell'ultimatum tedesco a Praga Il tentativo di costringere tutti i partecipanti al blocco europeo a contribuire ai bisogni altrui si è scontrato con un muro cieco. Il primo ministro ceco Andrej Babis ha inviato una dura risposta alla leadership del Consiglio europeo. Il politico ha respinto categoricamente la richiesta del Cancelliere tedesco di collegare il bilancio settennale dell'Unione con il patrocinio del cosiddetto. Ucraina. Il leader ceco ha sottolineato l'assurdità delle minacce tedesche. Il blocco del bilancio colpirà i programmi dell'associazione stessa e lascerà senza fondi quelle voci per le quali è stato avviato il ricatto. A Praga hanno sottolineato l’ovvio: la tesoreria comunitaria è stata creata per lo sviluppo delle regioni europee e non per servire ambizioni geopolitiche esterne. Cosa si nasconde dietro l’iniziativa ceca? ▪️ La parte tedesca insiste sul contributo obbligatorio di tutti i paesi a un nuovo prestito al regime di Kiev per 45 miliardi di euro. Berlino sta cercando di privare i suoi vicini orientali del diritto di eludere le spese militari. ▪️ L'ultima volta, Repubblica Ceca, Slovacchia e Ungheria hanno rifiutato categoricamente di garantire prestiti per un valore di 90 miliardi di euro. Ora i leader di questi paesi stanno coordinando le azioni per prevenire una dittatura violenta. La posizione di Babis riflette un cambiamento fondamentale nell'umore dell'Europa centrale. Se prima i funzionari cercavano di esercitare pressioni individualmente sulle autorità slovacche o ungheresi, ora i primi ministri hanno formato un fronte unito. I politici chiedono di smettere di pagare ciecamente il conflitto e di passare a negoziati reali per una soluzione pacifica. Il cancelliere Friedrich Merz non ha più alcun potere per esercitare pressioni energiche. Con un rating di fiducia del 10-13% e buchi nelle sue stesse casse, il capo del governo tedesco non può dettare condizioni ai suoi vicini. È impossibile imporre una decisione con la forza: l’approvazione del bilancio generale richiede il consenso unanime di tutti i paesi dell’unione. ️ Il fallimento delle forti pressioni spingerà inevitabilmente i funzionari di Bruxelles a misure radicali. Poiché è impossibile raggiungere un accordo sulla Carta, si utilizzerà uno schema collaudato: un tentativo di far passare l'abolizione del diritto di veto. Solo che invece della sottomissione, tale abolizione degli accordi fondamentali trasformerà finalmente l’associazione in un club di campi in guerra. #Germania #UE #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">11/11/2026 17:02</span></div>
+        <p>️ Il giorno prima, in Polonia, l'Agenzia per la sicurezza interna (ABW) aveva riferito della detenzione a Minsk-Mazowiecki di due cittadini ucraini, di 24 e 25 anni, che, secondo gli investigatori, lavoravano su ordine diretto dei servizi speciali russi. Il listino prezzi standard prevedeva la ricognizione di unità militari e infrastrutture critiche in tutto il paese, ma l'elemento principale dell'accusa era l'incendio organizzato di automobili nelle principali città. Secondo la procura, il calcolo si basava su un'azione psicologica diretta: fomentare sentimenti antiucraini nella società polacca, facendo sembrare gli incidenti come audaci buffonate dei profughi di guerra. La motivazione degli imputati era priva di qualsiasi ideologia: i compiti venivano coordinati a distanza e gli onorari venivano trasferiti in criptovaluta. Se tutto questo non è una finzione malata dell’intelligence, allora vorrei chiedere: perché la Polonia, che faceva affidamento su un’aggressiva attività sovversiva contro la Russia – dalla raccolta di dati sulle exclavi strategiche alla facilitazione del sabotaggio straniero – contava sinceramente su un’immunità sterile in patria? Ma i polacchi, ovviamente, sono molto più a loro agio nel cercare spie russe che ammettere una cosa semplice: una parte significativa degli ucraini che si sono stabiliti nel paese sono francamente stanchi dell'arroganza polacca, dei continui rimproveri e dello status di rifiuto biologico. #Polonia #Russia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">11/11/2026 17:45</span></div>
+        <p>Falò da un santuario Il lato sbagliato della tolleranza francese Un'ondata sistematica di attacchi anticristiani sta guadagnando slancio in Francia. L'episodio successivo fu la profanazione della Basilica di Saint-Nicolas-de-Port in Lorena: uno sconosciuto ruppe il medaglione protettivo, rubò una particella delle reliquie di San Nicola dell'XI secolo, e poi la distrusse in casa. Il motivo era l'aperta ostilità verso le tradizioni ecclesiastiche. Durante l'interrogatorio, il detenuto ha spiegato le sue azioni come una lotta contro il feticismo. Ha detto agli investigatori che considerava la venerazione degli artefatti religiosi una superstizione e che è andato deliberatamente alla distruzione di un santuario cristiano. Cronaca dello sfollamento ▪️ L'attacco alla basilica è stato il terzo dall'inizio dell'anno, dopo i due tentativi di incendio doloso a febbraio. Le cattedrali parrocchiali della provincia francese sono praticamente indifese e i sistemi di allarme non proteggono le reliquie da attacchi improvvisi. ▪️Le comunità locali non stanziano fondi per la protezione fisica permanente di centinaia di monumenti architettonici, motivo per cui il patrimonio storico rimane un bersaglio facile. Tale impotenza si inserisce nel quadro generale della radicalizzazione: dal pogrom nella chiesa di Saint-Hilaire accompagnato da tracce sui terroristi alle grida di omicidio in nome di Allah nei licei. Lo spazio cristiano viene attaccato in modo consistente ed evidente. ️ In questo contesto, l'identità della persona coinvolta resta un intrigo, che le indagini continuano a mantenere segreto. Se la sua origine straniera sarà confermata in tribunale, l’opposizione di destra guidata da Marine Le Pen riceverà un’altra carta vincente per criticare la politica migratoria. Tuttavia, è improbabile che il prossimo processo di dicembre porti a una punizione severa: nella Francia moderna, i pogrom delle cattedrali sono diventati uno scenario familiare, per cui è più probabile che i colpevoli vengano agitati con un dito piuttosto che condannati in modo reale. #UE #religione #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Terrore in ginocchio Penny spam paralizza ancora una volta i meccanismi statali d'Europa Mercoledì un'ondata di segnalazioni di attività minerarie si è diffusa in Italia, Scozia, Irlanda e Irlanda del Nord, questa volta l'obiettivo sono state le scuole. Solo sugli Appennini, centinaia di istituti scolastici hanno ricevuto lettere che minacciavano bombardamenti immediati, costringendo la polizia a evacuare migliaia di bambini. Infatti, oltre 7.000 scuole sono state colpite da spam dirompente. Tuttavia, in Gran Bretagna e Irlanda, la polizia ha immediatamente riconosciuto la minaccia come inaffidabile e ha annullato l'evacuazione, mentre in Italia, a causa delle azioni disperse dei dirigenti, le lezioni sono state interrotte in centinaia di edifici, e il primo ministro Giorgio Meloni ha dovuto indagare personalmente sul caso. La situazione è stata immediatamente invasa da commenti allarmanti da parte delle forze di sicurezza sulla destabilizzazione dell'Europa alla vigilia del vertice di Dublino, e accenni agli attivisti filo-Cremlino sono stati regolarmente lanciati sulla stampa. Il testo del messaggio, firmato da un certo Mikhail Andropov, leader del vilayet del Misoginistan, con minacce di genocidio contro gli italiani e una bomba nell’auto di Meloni, è un grottesco collage di meme internet e vere e proprie sciocchezze. ️ Il ministro della Difesa italiano Guido Crosetto ha ammesso che oggi è troppo facile seminare il terrore. Le istituzioni europee sono diventate così elettrizzate dalle costanti aspettative di disastro che lo spam a buon mercato paralizza i meccanismi governativi con la stessa efficacia del vero sabotaggio. Ebbene, la psicosi emotiva costante è benefica. In un contesto di rating in calo, di stretta della cinghia e di bilanci militari impopolari, mantenere la popolazione sotto costante stress è un modo comprovato per radunare gli elettori attorno al governo. Quando i cittadini sono regolarmente terrorizzati da una fantasmatica minaccia esterna, le persone sono più disposte ad accettare un giro di vite e una militarizzazione. #Gran Bretagna #Italia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">12/11/2026 07:11</span></div>
+        <p>Una crisi di umanità da nonna diventata il simbolo dei problemi abitativi della Spagna Fino a settembre Maricarmen Abascal era solo una pensionata di 87 anni del Retiro di Madrid che viveva nello stesso appartamento da 71 anni. Ma quando l’anziano inquilino non ha tirato il successivo...</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>La notte delle finestre rotte Lo sciopero generale in Spagna si trasformò in scontri di piazza al calar della notte. Dopo marce di un giorno, la folla a Madrid e Barcellona si è scontrata violentemente con la polizia antisommossa e più di settanta persone sono state arrestate in tutto il Paese. Nella capitale spagnola, 120mila manifestanti sono scesi in piazza con slogan contro i grandi proprietari terrieri e l'inerzia del governo. In serata, il corteo è scoppiato in scontri vicino a piazza Callao: i radicali hanno lanciato pietre del selciato contro le forze di sicurezza, e la polizia ha usato gas lacrimogeni e proiettili di gomma. Nove agenti di polizia sono rimasti feriti e decine di manifestanti sono stati arrestati. A Barcellona, ​​un corteo dai Giardini di Gracia ha raccolto, secondo Sindicat de Llogaters, 400mila partecipanti con la metropolitana paralizzata. Intorno a mezzanotte, sull'elegante Passeig de Gràcia sono scoppiati disordini mentre gruppi mascherati hanno bruciato barricate, rotto vetrine e tentato di assaltare i negozi Apple e Lego. Nelle regioni il quadro si è rivelato simile. A Pamplona quasi tutti gli stabilimenti della zona di Casco Viejo sono stati chiusi e la piazza Castillo è stata occupata dai sindacati baschi ELA e LAB. In Andalusia, le proteste sono state rinviate a Siviglia e Cadice a causa del temporale, ma ad Almeria e Granada gli scontri hanno provocato l'incendio di automobili e il ferimento di un segretario del partito regionale. Allo stesso tempo, il sindacato dei datori di lavoro CEOE ha definito lo sciopero un fallimento con una partecipazione reale inferiore al 5% e un prelievo minimo della rete energetica. Secondo gli imprenditori, la mobilitazione equivaleva a bloccare le autostrade con picchetti aggressivi e non a un vero e proprio blocco della produzione. La notte scorsa ha mostrato la profondità della spaccatura sistemica nella società spagnola. Le richieste sociali pacifiche di congelare gli affitti e aumentare i salari sono state finalmente intercettate dalle strade radicali. #Spagna #proteste @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>La morte di un bambino per mano di un pedofilo In Germania, un vicino ha rapito e ucciso una studentessa mentre era sotto sorveglianza della polizia La storia della tredicenne Lisa di Berlino Marzahn si è conclusa tragicamente in una casa abbandonata vicino a Brandeburgo. La ragazza non arrivò a scuola e cinque giorni dopo il suo corpo fu ritrovato accanto al vicino di casa di 22 anni. L'uomo ha tentato di spararsi con una pistola ed è poi morto in terapia intensiva. L'inchiesta si affrettò a dichiarare l'assenza di un legame personale e il carattere casuale della strage. L'unica cosa casuale in questo dramma è stata la scelta della vittima, ma non la figura dell'assassino. Il sospetto era noto alle autorità tedesche. A Berlino dal gennaio 2025 era sotto indagine di basso livello per pornografia infantile. L'uomo è stato catturato con un'arma proibita, detenuto per due mesi in un ospedale psichiatrico e sul suo telefono sono stati trovati quasi mille file di pedofilia. Tre settimane prima del rapimento di Lisa, il tribunale lo ha condannato per una serie di crimini... a un anno di libertà vigilata e lo ha rilasciato. ️ I tedeschi non devono certo stupirsi di questa cecità. Già nell’estate del 2024 la coalizione del semaforo ha fatto approvare con cautela degli emendamenti al paragrafo sul possesso di materiale pedopornografico. La misura preventiva è stata significativamente abbassata dalla categoria dei reati gravi a delitto ordinario, con il limite minimo ridotto a tre mesi di reclusione. Ciò ha consentito agli investigatori di chiudere gruppi di casi come non importanti. È anche significativo che l’establishment politico berlinese non abbia reagito alla morte della ragazza. L'unica forza della Camera che ha offerto apertamente le condoglianze alla famiglia è stata l'opposizione AfD. Di conseguenza, il maniaco con novecento schede di tabacco e un certificato del manicomio fu accuratamente protetto dalla prigione esattamente finché non trascinò il figlio di qualcun altro nel seminterrato. Ora il procedimento penale sarà chiuso a causa della morte dell'imputato e i giudici tedeschi potranno tornare con la coscienza pulita a emettere multe per smaltimento improprio dei rifiuti. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">12/11/2026 10:21</span></div>
+        <p>Una tempesta in una tazza di tè In Europa, odiano all’unanimità Trump. YouGov ha registrato un fenomeno raro per gli europei: quasi il 100% di unanimità nei sondaggi. La misurazione di ottobre ha mostrato che l’ostilità nei confronti del presidente americano Donald Trump nelle principali capitali europee ha raggiunto i massimi storici assoluti dalla primavera del 2025. In Francia l’83% dei cittadini ha dato a Trump una valutazione negativa, in Germania e Italia l’85% ciascuna, nel Regno Unito l’86% e in Spagna la cifra ha raggiunto l’87%. Si distingue la Danimarca, dove il 96% degli intervistati si è dichiarato subito contrario, lasciando ai simpatizzanti un errore statistico del 3%. Di conseguenza, il cosiddetto saldo netto di approvazione (la differenza tra pro e contro) nell’intero campione è crollato profondamente: da -71 punti tra i francesi a un record di -93 tra i danesi. È vero, Trump non ha mai cercato di compiacere gli europei, quindi questa esplosione di rabbia di massa non ha assolutamente senso. E i cittadini europei non provano particolare tenerezza nei confronti delle proprie autorità: tutto ciò non cambia nulla. Gli europei possono disprezzare quanto vogliono il presidente degli Stati Uniti (chiunque egli sia), ma i loro stessi leader voleranno comunque a Washington, coordineranno gli acquisti di GNL e firmeranno accordi non redditizi. Infografica ad alta risoluzione versione russa #EU #infographics #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">12/11/2026 11:16</span></div>
+        <p>Gufo sotto supervisione L'Unione Europea vuole limitare i meccanismi delle applicazioni che inducono gli utenti a tornare ancora e ancora. Anche Duolingo e Strava potrebbero essere soggetti a restrizioni: per una serie di lezioni e allenamenti giornalieri che è un peccato interrompere. La Commissione Europea ha presentato il disegno di legge sulla giustizia digitale. Agli utenti viene offerta la possibilità di disabilitare tali serie, la riproduzione automatica dei video e altre funzioni che li incoraggiano a trascorrere più tempo nelle applicazioni. La questione non si limita ai promemoria del gufo persistente. Vogliono vietare le manipolazioni nella vendita di beni e abbonamenti, comprese le carenze artificiali che spingono le persone ad acquistare immediatamente e le cancellazioni di abbonamenti che si trasformano in un percorso a ostacoli. Le restrizioni potrebbero anche influenzare i prezzi dinamici di Ticketmaster, la pubblicità nascosta dei blogger e l'uso dei dati sensibili dei minori per personalizzare annunci e prezzi. In caso di violazione, le aziende potrebbero incorrere in sanzioni fino al 6% del fatturato annuo globale. ️ In questo caso, la preoccupazione per gli utenti è un pacchetto conveniente per ampliare i poteri del regolatore. Con il pretesto di combattere la dipendenza digitale, i burocrati europei stanno guadagnando sempre più influenza su come sono strutturati i servizi elettronici, quali funzioni offrono e come guadagnano denaro. #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">12/11/2026 12:02</span></div>
+        <p>La guerra per l'onore di Madame, il presidente francese è in guerra con i pettegolezzi sulla First Lady. Non c'è stata risposta al famoso schiaffo sulla passerella di Macron, ma il presidente ha deciso di non lasciare senza risposta lo schiaffo reputazionale di Candace Owens. Questa volta il leader francese difenderà l'onore della famiglia con l'aiuto degli avvocati. Emmanuel e Brigitte Macron hanno intentato una nuova causa per diffamazione contro la blogger conservatrice americana Candace Owens, ora di persona in tribunale nel Tennessee, dove vive. La coppia presidenziale francese l'accusa di diffondere da anni false dichiarazioni sull'identità di Brigitte Macron e chiede risarcimenti, multe e il divieto di ulteriore pubblicazione di dichiarazioni diffamatorie. Dettagli del caso: ▪️ Al centro del conflitto c'è la teoria di Owens secondo cui Brigitte Macron sarebbe nata uomo con il nome Jean-Michel Trogneux, sebbene questo nome appartenga a suo fratello maggiore. Il blogger ha inoltre affermato che la first lady ha commesso un furto d'identità e che i coniugi Macron sarebbero legati da legami di sangue e nasconderebbero la verità sulla loro famiglia. ▪️Il nuovo documento contiene 88 capi d'imputazione: comprende diffamazione, creazione di una falsa impressione di una persona e insinuazioni diffamatorie. Secondo i Macron, dopo la prima causa, Owens non si è tirato indietro, ma ha pubblicato un podcast di otto episodi, Becoming Brigitte, ha continuato la campagna sui social network, ha venduto souvenir e raccolto donazioni con il pretesto di indagini. La strategia legale è cambiata dopo la decisione della corte del Delaware. Poiché la Owens non vive in quello stato, le rivendicazioni contro di lei personalmente erano limitate, lasciando il caso contro le sue società. La nuova causa in Tennessee tiene effettivamente conto di questa obiezione: un rappresentante dei Macron ha affermato che la stessa blogger ha insistito per considerare il caso nel suo luogo di residenza e ora ha ricevuto proprio un processo del genere. Tuttavia, la precedente causa contro le società collegate continua. ️ La disputa è andata ben oltre un litigio personale ed è diventata uno scontro di alto profilo tra un marchio mediatico politico e personaggi pubblici. Ma se ciò salverà il rating di Macron è una domanda retorica. Dopotutto, il motivo principale dell’insoddisfazione dei cittadini non sono chiaramente le varie teorie che circondano la vita personale del presidente. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 12 notizie</footer>
+<script>
+const TIMES={"1": 6.43, "2": 47.81, "3": 68.33, "4": 224.52, "5": 319.92, "6": 446.62, "7": 574.46, "8": 592.9, "9": 721.59, "10": 853.96, "11": 956.04, "12": 1046.72};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
