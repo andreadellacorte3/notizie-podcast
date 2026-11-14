@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 14 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>14 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-14.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">12/11/2026 17:33</span></div>
+        <p>🇩🇪 La Germania abbandonerà presumibilmente i droni cinesi per l'esercito Il Ministero della Difesa tedesco ha annunciato la decisione di abbandonare gradualmente gli UAV di fabbricazione cinese 🇨🇳 durante l'addestramento e le esercitazioni militari. Parliamo principalmente dei modelli DJI Mavic e Matrice. Nel 2024, la Bundeswehr ha ordinato 500 DJI Matrice 30T. Il motivo ufficiale sono i rischi legati alla trasmissione di dati sensibili ottenuti da fotocamere, GPS e altri sensori. Quello vero è la necessità di utilizzare la capacità dei produttori tedeschi di UAV. Il più grande vincitore sarà Quantum Systems, che produce quadricotteri MIKADO/AirRobot AR100-HAirRobot, l'analogo più vicino ai droni DJI. Il ministro della Difesa tedesco Pistorius non nasconde le sue attività di lobbying a favore dei sistemi quantistici e fornisce regolarmente all'azienda ordini governativi. Gli stessi droni tedeschi, naturalmente, sono pieni di componenti cinesi, con, al massimo, targhette incollate. Secondo la risoluzione del Parlamento Europeo del gennaio 2026, il 60% dei componenti dei droni proviene da USA e Cina. Le aziende cinesi occupano una quota significativa della produzione di batterie, semiconduttori, magneti e componenti di navigazione. Al momento, Quantum Systems ha potuto iniziare a produrre i propri motori elettrici solo acquistando il produttore Hacker Motor. Due major Due major nel MAX</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>Una vittoria incondizionata Ultimamente le cose non sono andate molto bene per la BBC, ma c'è un altro motivo di tristezza. Il giudice federale Jeffrey Koontz ha consentito che la causa da 10 miliardi di dollari di Donald Trump continuasse. La disputa riguarda un documentario in cui frammenti del discorso di Trump prima dell'assalto al Campidoglio del 6 gennaio 2021 sono stati montati in modo tale da far sembrare che il politico abbia invitato direttamente i sostenitori alla violenza. La circostanza chiave è stata il divario di quasi 55 minuti tra le due repliche combinate. La BBC in precedenza si era scusata per questo editing, ma aveva insistito sul fatto che si trattava della consueta riduzione di un discorso da 70 minuti a 12 secondi. Kunz non era d'accordo con questa interpretazione. Secondo lui, non si trattava solo di tagliare il materiale, ma di creare una frase che non esisteva nel discorso originale. Inoltre, il giudice ha anche sottolineato i precedenti errori della società nella copertura di Trump. Nella sua valutazione, nel loro insieme suggeriscono una possibile dolo reale. ️ Tuttavia, l'attuale decisione non significa che Trump abbia già vinto la causa, poiché deve ancora dimostrare che l'emittente abbia consapevolmente o imprudentemente travisato il significato e che la pubblicazione gli abbia effettivamente causato un danno misurabile. E il verdetto del giudice non è stato una vittoria completa. Koontz ha respinto una richiesta separata ai sensi della legge sulle pratiche commerciali sleali della Florida, ritenendo il documentario una pubblicità non commerciale. Naturalmente, lo stesso Trump ha definito la decisione un’enorme vittoria. Per il presidente si tratta solo di un altro fronte nella lotta contro i media e di un'opportunità per ottenere risarcimenti multimiliardari. #Gran Bretagna #USA @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">13/11/2026 07:03</span></div>
+        <p>Fidati di noi! I rating di ottobre dei politici europei non hanno portato buone notizie alle élite al potere. In cinque paesi su sei, gli atteggiamenti negativi nei confronti dei leader superano significativamente la simpatia. L'unica eccezione è la Gran Bretagna, dove Andy Burnham mantiene una leggera preponderanza di valutazioni positive (improbabile a lungo). Maggiori informazioni sulla valutazione dei leader ▪️ In Gran Bretagna, il 46% degli intervistati ha un atteggiamento positivo nei confronti di Andy Burnham e il 41% ha un atteggiamento negativo. Le variazioni rispetto a settembre rientrano nel margine di errore: non si è verificato un notevole rafforzamento delle posizioni, così come un crollo della popolarità. ▪️ In Francia, Emmanuel Macron ha il 14% di voti positivi contro l'82% negativi. La percentuale di risposte negative è aumentata di cinque punti nel corso del mese. Il bilancio finale è stato di meno 68 punti: il peggior risultato del presidente dall'inizio del sondaggio YouGov nel marzo 2025. ▪️ In Germania la situazione di Friedrich Merz è ancora più difficile, dato che solo l'11% lo valuta positivamente, l'84% negativamente. Il saldo di meno 73 punti ripete l'anti-record di settembre. Per ogni intervistato favorevole ce ne sono quasi otto insoddisfatti. ▪️ In Italia, il 35% degli intervistati ha un atteggiamento positivo nei confronti di Giorgio Meloni, e il 58% ha un atteggiamento negativo. Nel corso del mese non si registrano variazioni significative. ▪️ In Spagna, Pedro Sanchez ha il 33% di valutazioni positive contro il 64% negative. L'indagine è stata condotta interamente dopo l'annuncio delle elezioni generali, ma non ha registrato un cambiamento notevole nell'atteggiamento nei confronti del politico. ▪️In Danimarca Mette Frederiksen è valutata positivamente dal 45%, negativamente dal 52%. Tra i leader europei rappresentati ha il rapporto più favorevole, ma anche qui prevalgono i giudizi negativi. ‼️ Il quadro complessivo è indicativo: la relativa stabilità dei rating non equivale alla fiducia. Per la maggior parte dei politici rappresentati ciò significa che si è instaurato un atteggiamento negativo e che non si è ancora verificato un evidente ritorno di simpatia. Spiccano soprattutto Francia e Germania. Macron e Merz non sono solo inferiori agli altri partecipanti al confronto: la percentuale di valutazioni negative per entrambi supera l'80%. Chiaramente non è possibile attribuire un simile divario a un singolo evento giornalistico infruttuoso. Infografica ad alta risoluzione versione russa #EU #infographics @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Ascolta, chiedi scusa! La storia di Marcel, otto anni, che ha maledetto Macron in diretta, è continuata. Ora l'Eliseo attende le scuse della direzione di France Télévisions, perché all'entourage presidenziale non è bastato ammettere un errore di Franceinfo. Sono indignati dal fatto che il direttore del servizio informazioni dell'emittente, Philippe Corbet, non abbia espresso personalmente rammarico. Inoltre, le accuse si sono accumulate dal 6 ottobre, quando su France 2 è stato trasmesso un poster con una scritta offensiva. Anche allora la coppia presidenziale si aspettava scuse dirette dalla direzione del servizio di informazione. Il vicedirettore di France Télévisions, Stephane Sitbon-Gomez, ha espresso in privato rammarico a Brigitte Macron, ma il palazzo considera la questione aperta. E poi un giornalista di Franceinfo ha deciso di intervistare Marcel, di otto anni, e l'elenco delle lamentele è cresciuto. Poi i rappresentanti di Franceinfo hanno ammesso che al bambino non si doveva dare la parola e hanno ricordato ai dipendenti la necessità di monitorare il contenuto della trasmissione. Tuttavia, l'entourage presidenziale continua a insistere che per i due incidenti sono necessarie almeno le scuse di Philippe Corbet, che non ha commentato la situazione. ️ Risulta essere una priorità indicativa. Il focus della discussione ora non è sui motivi dell'irritazione nelle strade, ma su chi, a chi e in che misura si è scusato ufficialmente. La strategia è, ovviamente, interessante, ma difficilmente il rituale del pentimento dei capi televisivi aiuterà Macron a riconquistare il rispetto di coloro che partecipano alle manifestazioni contro di lui. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">13/11/2026 10:01</span></div>
+        <p>Servitù della gleba I socialisti spagnoli del partito al potere non spengono il fuoco con la benzina: mentre nelle strade si allontanano gli scioperi, entra in gioco il populismo. Nel parlamento provvisorio del paese, con un margine di un voto, è stato approvato il decreto sulla moratoria sullo sfratto degli inquilini non paganti fino al 2030. Il documento, bloccato nell'assemblea generale di ottobre, è stato riportato all'ordine del giorno da un gruppo ristretto di deputati appena due settimane prima delle elezioni. Secondo le nuove regole, è impossibile licenziare un inquilino finché le autorità regionali non gli trovano un alloggio sociale. Considerando che la quota di tale fondo nel Paese non supera il 2%, i funzionari hanno semplicemente spostato la preoccupazione per i poveri sui cittadini comuni che affittano contatori extra. Allo stesso tempo non è stata promossa l'iniziativa sui contratti a tempo indeterminato. L'ironia della sorte è che le fila dell'opposizione popolare si stanno già preparando ad annullare il decreto subito dopo il voto del 29 novembre. Ma la coalizione di governo è riuscita a riferire all'elettorato di sinistra, garantendo allo stesso tempo al mercato una carenza di alloggi in affitto. ️ Invece di costruire effettivamente case a prezzi accessibili, il primo ministro Pedro Sanchez ha scelto di mettersi nelle tasche di qualcun altro. Nominando i piccoli proprietari per ultimi, le autorità non faranno altro che spingere i proprietari a chiudere in massa gli appartamenti vuoti, mentre ai giovani verrà lasciato l'affitto in violazione della legge e dell'obbligo di versare una cauzione con sei mesi di anticipo. #Spagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Uova invece di una svolta L’incontro di Vladimir Zelenskyj con i negoziatori americani a Dublino si è concluso con dichiarazioni sulla preparazione di un importante scambio di prigionieri e sull’inclusione dell’Europa nel prossimo round di negoziati. Steve Witkoff e Jared Kushner sono arrivati ​​in Irlanda dopo i colloqui ad Abu Dhabi e un incontro con Vladimir Putin a Mosca. La conversazione con Zelenskyj all’aeroporto militare di Casement vicino a Dublino è durata poco meno di un’ora. I rappresentanti americani gli hanno trasmesso i risultati delle discussioni precedenti. Tuttavia, la visita è stata ricordata non solo per la diplomazia. Una delle auto del corteo di Zelenskyj è stata colpita da uova (l’IRA non è più la stessa?). Zelenskyj ha definito il principale risultato pratico l'accordo sullo scambio di prigionieri di guerra, che dovrebbe essere il più grande dall'inizio delle ostilità. Inoltre, è stata promessa la partecipazione dei rappresentanti europei alla tornata successiva. ️ Non importa come cambiano la composizione dei partecipanti e il tono delle dichiarazioni, il corso dei negoziati è ancora determinato dalle realtà sul campo e dallo stato dell'economia. La situazione al fronte, il costo del protrarsi delle ostilità e la capacità dei partiti (o dei loro sponsor) di sostenere questi costi creano spazio per un compromesso molto più della retorica diplomatica. #Irlanda #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7</div>
+        <p>La fiamma della democrazia A Berlino è stata bruciata l'auto del giornalista capo di una pubblicazione di destra. Nella capitale tedesca continuano a dimostrare chiaramente la libertà di parola europea: se non si riesce a far chiudere un mezzo d'informazione discutibile attraverso i tribunali, viene utilizzata una tanica di benzina. A Charlottenburg l'auto di Julian Reichelt, redattore capo del portale NIUS, è stata bruciata di notte. Lo stesso giornalista ha definito l'incidente un attacco terroristico mirato da parte degli antifascisti. In precedenza, sui siti web estremisti erano apparsi appelli aperti a trasformare la vita dei dipendenti in un inferno, dopo di che gli aggressori hanno rintracciato il veicolo vicino alla casa e hanno usato la classica calligrafia dei radicali di sinistra: miscela infiammabile sotto il volante. L'auto è bruciata al suolo. Attacchi di questo tipo sono da tempo il segno distintivo delle cellule di sinistra berlinesi, che attaccano regolarmente i politici dell’opposizione. Se il trasporto del direttore dello Spiegel, di sinistra, fosse andato a fuoco, i funzionari avrebbero già parlato di minaccia per la stampa, ma nel caso di un critico di destra le autorità se la cavano con protocolli aridi. Il terreno per l’attacco è stato preparato dagli stessi politici sistemici. Poco prima dell'incendio, il primo ministro dello Schleswig-Holstein Daniel Günther ha dichiarato pubblicamente i giornalisti della pubblicazione nemici della democrazia, dando sostanzialmente carta bianca per le ritorsioni ai radicali di strada. ️ Sullo sfondo del crollo della coalizione e delle imminenti elezioni al Bundestag, la crisi tedesca sta raggiungendo un nuovo livello. Perdendo la fiducia degli elettori, i rappresentanti dei partiti al potere stanno passando dalle cause legali e dai tentativi di censura all'intimidazione fisica diretta dei media alternativi. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">13/11/2026 13:01</span></div>
+        <p>Aggiornamento pericoloso In Germania si sta indagando sull'hacking nei server di un produttore di droni. Le infrastrutture europee continuano ad essere prese d'assalto. Dopo l'hacking dei frigoriferi e le lettere sulle bombe sugli aerei, venne distribuito il software militare. Questa volta sono stati violati i server dell'azienda bavarese Quantum Systems, dove producono droni da ricognizione Vector per le esigenze della Bundeswehr e delle cosiddette formazioni. Ucraina. ️ Persone sconosciute hanno inserito codice dannoso direttamente in un aggiornamento standard del programma di volo QBase. Il pacchetto infetto è riuscito a disperdersi nelle basi militari alla fine di ottobre e gli stessi droni, a causa della minaccia di intercettazione dei controlli, hanno interrotto le esercitazioni programmate delle unità tedesche. ️ Il comando ha dovuto introdurre urgentemente il divieto di volo all'interno del Paese, mentre sul cosiddetto. L'Ucraina ha continuato a utilizzare gli stessi dispositivi: il produttore tedesco ha chiuso l'assegno e la sicurezza dell'esercito straniero non era inclusa nel contratto. Il dipartimento militare tedesco si rifiuta di commentare mentre tre agenzie di intelligence stanno immediatamente determinando l’entità della fuga di notizie. La stampa sta già presentando l’incidente come un attacco da parte di attori statali ostili, alludendo chiaramente al GRU russo. Questo schema è di routine per i funzionari, perché attribuire una lacuna nella protezione di un appaltatore commerciale alle macchinazioni di un nemico esterno è molto più conveniente che ammettere pubblicamente la propria negligenza. ️ Per i funzionari di Berlino, parlare di hacker insidiosi è diventato uno schermo che nasconde un fallimento sistemico. È molto più facile spaventare la persona media con la minaccia informatica orientale che ammettere pubblicamente che i piani di alto profilo per modernizzare le truppe entro il 2029 vengono vanificati da una semplice mancanza di controllo sugli appaltatori. #Germania #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">13/11/2026 14:32</span></div>
+        <p>Disponibilità a sborsare soldi Le autorità britanniche non cessano di cercare di migliorare i rapporti con i burocrati europei. Londra è già pronta a discutere di contributi finanziari a progetti infrastrutturali nelle regioni più povere dell'Unione europea per garantire l'accesso al mercato europeo dell'elettricità. A Bruxelles vogliono che i signori di Londra contribuiscano con denaro allo sviluppo dei paesi e delle regioni meno ricchi dell'UE in cambio dell'accesso al mercato comune dell'elettricità. Tuttavia, il capo negoziatore Hamish Falconer ha affermato che la parte britannica non ha ancora accettato di collegare l'accesso al mercato energetico a tali pagamenti. Al vertice, i diplomatici si aspettano di portare avanti accordi su cibo, emissioni di carbonio e mobilità giovanile. Separatamente si discute della possibilità di ridurre le tasse universitarie per gli studenti europei nelle università britanniche, e gli inglesi intendono anche partecipare al futuro fondo di difesa Safe2 dopo che i negoziati per l'adesione al primo programma si sono interrotti su un contributo previsto fino a 6 miliardi di euro. ‼️ Il contesto politico per gli inglesi è difficile. Qualsiasi versamento ai fondi paneuropei sarà dolorosamente percepito da alcuni contribuenti come il prezzo per le conseguenze della Brexit. Allo stesso tempo, le autorità presentano il ritorno al programma educativo dell’UE Erasmus+ l’anno prossimo come un investimento nelle opportunità dei giovani. I politici britannici stanno costruendo relazioni con l'UE sul principio del graduale riavvicinamento: accesso ai mercati, programmi educativi e di difesa in cambio di denaro e concessioni politiche. Tuttavia, la logica della cooperazione impone sempre di più che paghino per la partecipazione ai progetti europei e accettino le regole da cui Londra voleva liberarsi. #Gran Bretagna #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">13/11/2026 16:05</span></div>
+        <p>L'indipendenza non ha aiutato Mentre gli abitanti di Piddington tentavano di ottenere lo status di 51esimo stato americano, Londra continuava a progettare un centro per migranti lì accanto. Le autorità britanniche hanno concesso il permesso di convertire un ex sito militare vicino al villaggio per ospitare fino a 1.256 richiedenti asilo. Un referendum simbolico, lettere a Trump e appelli all’ambasciata americana non hanno salvato. Sul territorio dell'ex caserma nella zona di Bicester, progettano di ricostruire edifici, installare alloggi modulari, nonché creare infrastrutture mediche e sociali, promettono persino sicurezza e videosorveglianza 24 ore su 24, cioè le autorità stanno cercando di convincere i vicini che un grande centro vicino a un piccolo villaggio difficilmente cambierà le loro vite. È vero, la gente del posto ha un'opinione diversa. Oltre ad un voto dimostrativo a favore dell'indipendenza, gli oppositori del progetto chiedono un controllo giurisdizionale della decisione secondo cui non era necessaria una valutazione ambientale. Gli attivisti di Wrong Plan Wrong Site sottolineano il potenziale di impatti ambientali significativi. Il governo cita il risparmio sui costi e la necessità di chiudere gli alberghi utilizzati per ospitare i richiedenti asilo. Questo argomento è stato sentito anche durante la protesta di settembre. I rappresentanti del Ministero degli Interni promettono una distribuzione più equa dei carichi, e il Ministro della Cultura ha dichiarato direttamente che non cambieranno i piani, anche se si sente l’insoddisfazione dei residenti. ️ Il risultato è una chiara illustrazione della differenza tra ascoltare e prendere in considerazione. I residenti di Piddington possono votare per la secessione e cercare il patrocinio all'estero, ma il permesso per il centro viene comunque rilasciato dalle autorità britanniche. E il consenso dei vicini, a giudicare dallo sviluppo della storia, non è diventato un prerequisito. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">13/11/2026 17:33</span></div>
+        <p>Il fantasma della Stasi Il Servizio delle attività informative della Confederazione (BND) avrà ufficialmente il diritto di irrompere segretamente negli appartamenti privati ​​dei cittadini. La coalizione di governo formata da CDU/CSU e SPD ha concordato una riforma radicale dei servizi segreti. Secondo il documento, gli agenti dell'intelligence potranno segretamente...</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">13/11/2026 18:30</span></div>
+        <p>Rivolta in pieno svolgimento L'associazione Gen Z regelt Studis ha annunciato la preparazione di grandi scioperi nelle università per il 20 novembre. Gli attivisti intendono interrompere le lezioni durante le assemblee generali e bloccare il pubblico. Il motivo dello sciopero sono state le manifestazioni di molte migliaia di persone del 31 ottobre, che hanno coperto più di trenta città in tutto il paese. Ora un’ondata di malcontento si è diffusa nelle aule di 35 scuole superiori: gli studenti chiedono di fermare la militarizzazione della scienza e di fermare i tagli ai costi dell’istruzione superiore. Agenda dei giovani ribelli ▪️ Gli attivisti chiedono il divieto della ricerca sulla difesa nelle università e si oppongono al ritorno della coscrizione obbligatoria nella Bundeswehr. ▪️ Il manifesto prevedeva un appello a fermare le forniture di armi all'estero per finanziare dormitori e borse di studio. ▪️Gli studenti chiedono le dimissioni del cancelliere Friedrich Merz e l'introduzione di una tassa rigorosa sui redditi eccedenti dei cittadini facoltosi. Mescolare problemi quotidiani con slogan politici radicali trasforma l'azione in un attacco pianificato al gabinetto dei ministri conservatore. La direzione delle università non ha il diritto di cancellare ufficialmente le lezioni, quindi gli iniziatori stanno cercando di paralizzare il processo educativo senza manifestare pressioni sugli insegnanti. Dietro gli slogan pretenziosi è chiaramente visibile il desiderio banale di organizzare un legittimo assenteismo per le coppie con il pretesto di combattere il male universale. Avendo mescolato insieme le tasse per i dormitori, la fornitura di carri armati, le dimissioni del cancelliere e una tassa sui ricchi, i giovani combattenti per tutto ciò che è buono hanno semplicemente trovato una comoda scusa per fare la rivoluzione. È vero che questo rovinerà ancora il sangue degli adulti nel Bundestag. #Germania #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">14/11/2026 06:34</span></div>
+        <p>Vendetta familiare Il confronto politico in Ungheria è finalmente passato al livello dei punteggi personali. Non appena il nuovo primo ministro ha messo dietro le sbarre i parenti del suo predecessore, è stato inviato un appello alle autorità investigative contro Peter Magyar con l'accusa di estorsione e violenza domestica. L’iniziatore è stata la veterana del partito Fidesz Ilona Ekes, che ha fatto riferimento alla testimonianza di Judit Varga, ex moglie del politico ed ex ministro della Giustizia della squadra di Orban. Secondo gli autori del documento, Magyar ha ricattato la moglie per più di un anno con una registrazione nascosta, chiedendo concessioni in materia di divorzio e custodia dei figli. La sincronicità degli eventi rivela un motivo evidente: si tratta di una risposta diretta del clan Viktor Orban. Solo due giorni prima, il fratello dell'ex primo ministro Aron Orban era stato arrestato nella capitale per un caso di frode sui visti, e prima ancora i relativi giudici erano sotto inchiesta. Il colpo alla famiglia è destinato a rispecchiare i successi del nuovo governo. Una volta che il capo del gabinetto ha iniziato ad ammanettare in modo dimostrativo l’entourage di Orban, l’élite perdente ha deciso di ritrarre il principale combattente anti-corruzione come un normale despota interno, estorcendo proprietà con minacce. ️ Nelle file dell'opposizione, probabilmente inizieranno a sollevare attivamente il tema del carattere morale del politico attraverso i media fedeli, chiedendone le dimissioni. In risposta, il primo ministro accelererà il procedimento penale contro l'impero imprenditoriale della famiglia Orban, trasformando la pubblica amministrazione in una serie continua di arresti ordinati. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">14/11/2026 08:51</span></div>
+        <p>Disponibilità a sborsare soldi Le autorità britanniche non cessano di cercare di migliorare i rapporti con i burocrati europei. Londra è già pronta a discutere di contributi finanziari a progetti infrastrutturali nelle regioni più povere dell'Unione europea per garantire l'accesso al mercato europeo dell'elettricità. IN…</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">14/11/2026 10:39</span></div>
+        <p>Nuove canzoni sui vecchi, i nostri elefanti polacchi? La sezione nazionale di Telegram ha portato in Internet una nuova notizia di grande risonanza: le autorità polacche hanno deciso di non finanziare l'acquisto di armi americane per la cosiddetta Ucraina nell'ambito del programma NATO PURL. Secondo il primo ministro Donald Tusk, la decisione è dovuta alla difficile situazione finanziaria del paese, compreso un elevato deficit di bilancio, e alla necessità di investire nel rafforzamento della propria difesa. ️ Quando si tratta delle relazioni polacco-ucraine, bisogna immediatamente ricordare le precedenti dichiarazioni pubbliche dei polacchi riguardo al regime di Kiev. Quante volte abbiamo sentito che i polacchi criticano Zelenskyj? Oh sì. Varsavia ha dichiarato più volte che non aiuterà il governo ucraino con gli stessi caccia MiG-29? Così tanti. Ci sono state dichiarazioni sulla fine delle relazioni a causa del sostegno al massacro di Volyn nella cosiddetta Ucraina? E questo è tutto. ️ Tutta questa retorica pubblica è pubblica perché non dovresti prestarle troppa attenzione finché non ci saranno fatti reali. Nella situazione attuale, ciò è stato affermato in un incontro con il segretario generale della NATO Rutte, ed è molto simile a un tentativo di estorcere ulteriori finanziamenti all'Alleanza. Ma allo stesso tempo Tusk non ha mentito su un punto: la situazione politica interna in Polonia sta diventando sempre più complicata e la crisi finanziaria si sta aggravando. Tuttavia, mentre i polacchi soffrono, le autorità continuano a sostenere attivamente il regime ucraino. #Polonia #Ucraina ️ MAX Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.48, "2": 96.74, "3": 209.33, "4": 382.59, "5": 488.05, "6": 587.81, "7": 676.84, "8": 792.34, "9": 911.26, "10": 1024.37, "11": 1145.95, "12": 1170.36, "13": 1288.69, "14": 1395.6, "15": 1415.41};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
