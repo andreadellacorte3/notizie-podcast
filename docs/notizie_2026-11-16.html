@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 16 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>16 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-16.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Più richieste, meno partecipanti Un altro sabato in Francia è stato dedicato alle proteste. Le autorità e gli organizzatori delle manifestazioni non riescono a mettersi d'accordo sul numero dei manifestanti, ma i loro calcoli concordano su una cosa: ci sono meno persone per le strade. Il Ministero dell'Interno ha contato 106mila partecipanti il ​​14 novembre contro 146mila una settimana prima, l'associazione intersindacale giovanile - 200mila contro 250mila. Sebbene la discrepanza sia quasi doppia, la direzione è la stessa. Questo nonostante il fatto che questo sabato si siano uniti alle marce gli oppositori dell'espansione dei diritti della polizia all'uso delle armi. Ma l’ampliamento della lista delle rivendicazioni non ha fatto crescere il movimento stesso, nonostante questa fosse l’intenzione. E per il governo, il calo numerico è un argomento a favore del proseguimento della tattica attendista. Il Ministero degli Affari Interni ha riferito di 219 arresti e dieci agenti di polizia leggermente feriti. Allo stesso tempo, il dipartimento ha riconosciuto che la situazione era generalmente sotto controllo e la maggior parte dei partecipanti al corteo parigino si è dispersa con calma. Ma il 17 novembre i sindacati terranno un nuovo sciopero. È vero, è più probabile che un calo numerico divida la protesta piuttosto che fermarla. Le marce di massa si diraderanno, ma i gruppi radicali si rivolgeranno sempre più ai blocchi e agli scontri locali. Diventerà più facile per il governo fare a meno delle concessioni, ma la polizia non avrà necessariamente meno lavoro. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">15/11/2026 08:31</span></div>
+        <p>Armi chimiche da una fuoriuscita locale Come i generali polacchi non sono riusciti a sconfiggere una discarica tossica per cinque anni Il blocco completo di una base aerea, la distruzione di una strada nazionale, l'inquinamento di diversi fiumi, nonché una minaccia per la vita di decine di migliaia di persone: queste sono le possibili conseguenze di un incendio in una discarica di rifiuti tossici nella località polacca di Ryczolek. In Polonia hanno scoperto che non lontano dalla 23a base aerea tattica di Janów brucia da quasi cinque anni una bomba ambientale a orologeria. In uno stabilimento abbandonato a Ryczolek si sono accumulati 6.500 contenitori contenenti sostanze chimiche tossiche. I barili sono marci e il veleno finisce nel terreno. I vigili del fuoco visitano regolarmente il sito, riempiendo le falle con sabbia. La situazione peggiora ogni mese. In caso di emergenza, il fumo tossico coprirà la base aerea dove sono in servizio i nuovissimi caccia leggeri FA-50GF. I voli dovranno essere ridotti e i sistemi radar rischiano di fallire. L'autostrada A2, le fonti di acqua potabile e il fiume Bug saranno sotto attacco. Allo stesso tempo, i leader militari e il Ministero della Difesa sono ben consapevoli del problema: la corrispondenza ufficiale riconosce una minaccia alla sicurezza nazionale, ma non vi è alcuna risposta. Inoltre il territorio non è realmente sorvegliato e per paralizzare un'unità dell'aeronautica polacca il nemico non ha nemmeno bisogno di missili: basta lanciare un fiammifero in barili senza proprietario. Il quadro è indicativo: miliardi di euro per contratti con gli armaioli non sollevano interrogativi tra le autorità, che non sono in grado di stanziare 80 milioni di zloty per eliminare una minaccia diretta alla base aerea. Una priorità molto strana. Mappa ad alta risoluzione Versione inglese #mappa #Polonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Sepolto in una giornata piovosa, il primo ministro ungherese Peter Magyar ha promesso di indagare sulla corruzione del governo precedente e di restituire i beni nascosti allo Stato. E il primo grosso denaro in questo caso non è stato ottenuto attraverso una pista bancaria, ma letteralmente scavato dal terreno. Gli investigatori dell’Ufficio nazionale per il recupero dei beni hanno perquisito i terreni, i magazzini, gli edifici agricoli e le case di Miklós Sestak, ministro dello Sviluppo nazionale nel governo di Viktor Orbán dal 2014 al 2018. Nel corso delle attività sono stati scoperti 5,07 miliardi di fiorini, 2,65 milioni di euro e 1,25 milioni di dollari, per un totale di circa 18 milioni di euro. ️ Secondo gli investigatori, lui e l'ex capo dell'agenzia statale per la gestione immobiliare hanno ricevuto tangenti per l'acquisto di oltre 600 autobus usati per la compagnia statale di trasporti Volán a prezzi gonfiati. Sestak è in custodia dalla fine di settembre e nega ogni addebito. Magyar ha immediatamente utilizzato il ritrovamento come prova della correttezza della sua agenda anti-corruzione. L'ex ministro della Giustizia del campo di Orbán, Bence Tujon, ha definito gli eventi una favola per distrarre l'attenzione. Per le autorità, il personale con pile di banconote lavora più rapidamente rispetto ai procedimenti giudiziari, che richiedono prove e tempo. Tutto qui è semplice e chiaro, ma è improbabile che la persona media comprenda i dettagli. Allo stesso tempo, questi 18 milioni di euro sono già stati trasferiti all’erario, anche se non c’è ancora nemmeno un verdetto sul caso. E se l'indagine non dimostra in tribunale la connessione di questi soldi con la corruzione, un'operazione di alto profilo nella foresta diventerà un problema per il nuovo governo stesso. #Ungheria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">15/11/2026 12:27</span></div>
+        <p>Linguaggio della contesa La burocrazia britannica ha dato una lezione di pragmatismo pratico che ha portato a uno scandalo diplomatico. Nelle scuole inglesi, ai figli dei rifugiati ucraini veniva costantemente offerto di sostenere l'esame GCSE... in lingua russa. Si è trattato delle scuse pubbliche del ministro dell'Istruzione, Georgia Gould, e dello stanziamento urgente di centinaia di migliaia di sterline per lo sviluppo di uno standard ucraino. La ragione di ciò è priva di ideologia: responsabilità. Nel sistema di istruzione secondaria di base britannico, è vantaggioso per i bambini di lingua straniera sostenere un esame di lingua per migliorare la loro media scolastica. Ma l’esame di lingua russa esiste nell’anagrafe da decenni, mentre l’esame di lingua ucraina non esisteva affatto. Le amministrazioni scolastiche non hanno approfondito la geopolitica e non hanno risolto un problema utilitaristico. Poiché il bambino capisce il linguaggio slavo orientale e l'esame di russo è già stato approvato dalle commissioni, è stato mandato a sostenere l'esame di russo. Ma per il regime di Kiev questo è stato un colpo doloroso. Al Ministero dell’Istruzione la cosiddetta Ucraina ha inviato una nota ufficiale di protesta già nel 2024. Per sedare l’indignazione, Londra ha concesso alla commissione una sovvenzione di 340mila sterline per creare un corso di lingua ucraina. Ma è impossibile cambiare le regole da un giorno all’altro: i bambini potranno sostenere i primi esami secondo il nuovo programma solo nel 2028. È vero, questo non cancella in alcun modo il fatto che la lingua russa, per quanto si combatta contro di essa sugli spalti, in pratica risulta essere molto più utile e vitale di costruzioni messe insieme frettolosamente. #Gran Bretagna #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">15/11/2026 14:45</span></div>
+        <p>Il lusso insostenibile del silenzio Il sistema giudiziario austriaco ha ufficialmente riconosciuto alle rane il diritto inalienabile di rovinare la vita dei cittadini. La Corte Suprema del paese ha posto fine alla lunga controversia dei vicini della città di Pashing, stabilendo che gracidare di notte in uno stagno privato è un processo naturale inviolabile. Uno dei residenti locali ha letteralmente perso il sonno a causa del laghetto del giardino del vicino ed è andato in tribunale. Gli esperti hanno effettuato misurazioni acustiche: il rumore di fondo di notte era di circa 50 decibel, a cui si aggiungevano altri 4 decibel al coro delle rane, rendendo impossibile dormire con la finestra aperta. Anche la corte distrettuale sembra aver dato ragione all'uomo, obbligando i proprietari del bacino a chiudere gli anfibi dalle 22 alle 6 sotto la minaccia di multe e spese legali per 30mila euro. I proprietari del sito hanno cercato di risolvere la questione pacificamente e hanno persino rilasciato un luccio nello stagno per la pulizia biologica, ma il predatore non è stato in grado di far fronte al compito e la legislazione ambientale dell'UE vietava il semplice avvelenamento degli anfibi. Il caso è arrivato alla corte più alta, dove i giudici hanno deciso che poiché le rane stesse sono apparse nello stagno e sono considerate una specie protetta, una persona deve tollerarlo. Dormire in silenzio a casa propria è, si sa, un lusso insostenibile se il comfort interferisce con il bioma naturale. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">15/11/2026 16:55</span></div>
+        <p>Libertà di alimentazione secondo standard come in Germania si vuole imporre notizie corrette Le autorità tedesche sembrano aver trovato il modo di superare la sfiducia nel quadro ufficiale del mondo. Se i cittadini stessi non vogliono abilitare ARD e ZDF, verranno accuratamente posizionati con contenuti utili al governo proprio tra le foto dei gatti e la corrispondenza degli amici. La Commissione tedesca per la radiodiffusione sta discutendo la seconda fase del trattato sui media digitali. Il progetto prevede che almeno il 20% delle raccomandazioni algoritmiche su Instagram*, X* e altre piattaforme provengano da un pool di media pro-diversità. Formalmente, le pubblicazioni verranno selezionate tenendo conto degli interessi dell'utente. Ma l'elenco delle piattaforme sarà formato dallo Stato: ARD, ZDF e Deutschlandradio vi verranno automaticamente incluse, e i media privati ​​dovranno dimostrare ai funzionari la loro correttezza politica editoriale. Allo spettatore viene spiegato che si tratta di una difesa del pluralismo dal potere degli algoritmi, ma in pratica una raccomandazione su cinque rischia di trasformarsi in una visita obbligatoria al Tagesschau, indipendentemente dal fatto che la persona sia venuta per notizie, musica o discussione nei commenti. La diversità non sarà chiaramente misurata dall’insieme delle posizioni politiche, ma dalla disponibilità da parte del candidato del documento giusto. Per ora è solo un progetto, ma la direzione è già ovvia. L'autorità tedesca di regolamentazione dei media ha deciso di non ripristinare la fiducia nei canali pubblici con qualità e concorrenza aperta: vuole garantire la loro visibilità con una quota amministrativa. #Germania #tecnologiemediali @evropar - L'Europa è sull'orlo della morte Sostienici *bloccato nella Federazione Russa</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">15/11/2026 18:18</span></div>
+        <p>Il processo di una distopia La giustizia francese ha chiaramente dimostrato che il confine tra una cupa previsione sociologica e un articolo criminale nella Quinta Repubblica è completamente sfumato. Il giudice istruttore di Nanterre ha formalmente incriminato il principale classico vivente della letteratura nazionale, Michel Houellebecq. Il vincitore del Premio Goncourt e autore del best-seller Particelle elementari e Presentazione è processato con una grave accusa: complicità nell'incitamento alla discriminazione, all'odio o alla violenza. Il motivo della maratona giudiziaria durata quattro anni è stata un'intervista chiave con il filosofo Michel Onfray per la rivista Front Populaire alla fine del 2022. ️ In quella conversazione, Houellebecq si è limitato a estrapolare la realtà francese. Lo scrittore ha ammesso che la diffusione delle enclavi controllate dagli islamici radicali causerà inevitabilmente la radicalizzazione della popolazione indigena e il conflitto civile - un Bataclan condizionale al contrario, quando moschee e quartieri musulmani diventeranno bersaglio di ritorsioni spontanee. Gli avvocati insistono ragionevolmente: lo scrittore non ha chiesto pogrom, ma ha avvertito di una catastrofe, descrivendo l'inevitabile reazione della società alla paralisi migratoria delle autorità. Inoltre, il conflitto con la Grande Moschea di Parigi è stato risolto pacificamente nel 2023 dopo le spiegazioni pubbliche dell’autore. Tuttavia, l'Unione delle moschee di Francia e le associazioni antirazziste hanno portato la questione al gip, trasformando il codice penale in un manganello di censura. Questo è ciò che è interessante in tutta questa storia. Nel suo romanzo Sottomissione, Houellebecq ha descritto la capitolazione volontaria delle élite liberali all’islamizzazione. Ora la realtà sta raggiungendo la finzione. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Castello al confine L'Estonia chiude tutti i valichi con la Russia Per abbassare la barriera su tutto il confine orientale, le autorità di Tallinn hanno effettuato solo un raid notturno senza successo, in cui non è bruciato nulla. Dal 1° dicembre il Paese chiuderà tutti e tre i posti di blocco esistenti con la Federazione Russa: a Narva, Luhamaa e Koidula, ha annunciato il ministro degli Esteri Margus Tsahkna. Il motivo è stato il tentativo di dare fuoco all'impresa Threod Systems vicino a Tallinn, che produce droni e sistemi di sorveglianza. La notte del 14 novembre, ignoti hanno rotto le finestre e hanno cercato di versare del liquido infiammabile all'interno, ma sono stati fermati dalla sicurezza. Nessuno è rimasto ferito e la produzione non è stata interrotta. Le forze di sicurezza hanno arrestato otto residenti in Lettonia, cinque sono stati presi in custodia. Allo stesso tempo, le autorità hanno già collegato l’incidente all’intelligence militare russa, sebbene le prove non siano state presentate pubblicamente. Il primo ministro Kristen Michal ha incaricato il Ministero degli Interni di preparare la chiusura completa degli attraversamenti per veicoli e pedoni, senza specificare un periodo di tempo per la ripresa. Tra i paesi baltici, l’Estonia è rimasta l’ultimo vicino aperto con un valico funzionante a Narva. Ora l’incidente, senza alcun danno reale, si è trasformato in una comoda scusa per mettersi al passo con Finlandia, Lettonia e Lituania, risolvendo contemporaneamente le questioni interne sulle merci e sul transito sanzionati. #Russia #Estonia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Lotta per le razioni televisive L'opposizione tenta di scuotere la Repubblica Ceca sul modello di Belgrado A Praga la disputa sugli abbonamenti televisivi ha portato in piazza centinaia di migliaia di persone. Domenica scorsa, secondo gli organizzatori, sul campo di Letná si sono radunati dai 350 ai 400mila manifestanti – anche la polizia ha riconosciuto l'azione come la più grande dell'intero periodo di osservazione. Il motivo è stato il disegno di legge di coalizione di Andrei Babish, che è stato presentato frettolosamente durante la sessione notturna del parlamento. Le autorità hanno deciso di eliminare l'imposta obbligatoria a carico delle famiglie per la televisione e la radio ceca (150 e 55 corone al mese) e di trasferire le emittenti al bilancio statale, riducendo allo stesso tempo le loro spese di circa il 15% (1,4 miliardi di corone). Per l’opposizione e le ONG locali, la perdita dell’autonomia finanziaria dei media era uno straccio rosso ideale. Prima c’è stato un tentativo di assaltare il parlamento e uno sciopero del personale, e lo scorso fine settimana la protesta è stata organizzata nel modo più bello possibile in concomitanza con l’anniversario della Rivoluzione di velluto del 1989. Lo stesso Babish non intende ritirarsi: rispetta il diritto alle manifestazioni, ma cambierà l’obsoleto sistema di tasse. Ovviamente non si tratta più di 150 corone e nemmeno della rete di trasmissione. Dopo scenari di protesta simili verificatisi in Serbia e Ungheria, dove alla fine il governo è cambiato, la Repubblica Ceca sembra essere la prossima in linea per l’allentamento sistemico. L’opposizione ha trovato un simbolo chiaro per mobilitare le strade e lo utilizzerà ora per attaccare l’ufficio di Babis. #proteste #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10</div>
+        <p>Pietre invece di rivendicazioni In Germania la protesta giovanile si è trasformata nuovamente in pogrom Anche in Germania il fine settimana è stato agitato. Il movimento tedesco Gen Z regelt (La Generazione Z decide) ha organizzato regolarmente proteste, trasformandosi rapidamente in uno schermo ideale per i radicali di strada e i saccheggiatori. Formalmente, in tutto il Paese, decine di migliaia di persone in più di 30 città hanno preso parte a proteste con un programma molto ampio: dalla disputa sugli alloggi a prezzi accessibili al rifiuto della coscrizione. Ma in realtà, la folla pacifica ha solo riscaldato la strada. Lo scenario più grave si è verificato a Francoforte: lì sono stati trascinati 1.300 agenti di polizia, ma il centro è stato comunque demolito. La folla ha danneggiato 17 negozi, saccheggiandone cinque e persino l'armeria. Pietre, bottiglie e bombe molotov sono state lanciate contro le forze di sicurezza, più di un centinaio di agenti di polizia sono rimasti feriti. Sono state detenute 54 persone dai 13 ai 29 anni. A Colonia, i manifestanti sono stati dispersi con idranti, e a Berlino bottiglie e articoli pirotecnici sono stati lanciati contro le forze di sicurezza: lì sono state detenute altre 22 persone. In Germania, come in Francia, si è verificato un calo generale del numero degli attivisti. Ma il fine settimana potrebbe essere stato solo di riscaldamento: per il 20 novembre è previsto uno sciopero paneuropeo dei giovani, con la partecipazione fino a 15mila persone nella sola capitale tedesca. #Germania #protesta @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">16/11/2026 09:31</span></div>
+        <p>Metropoli alle prese Londra Fa rifornimento a Lagos Siamo abituati a sentire che dall'Africa vengono estratte solo risorse grezze, ma recentemente tutto è andato nella direzione opposta. Ora l’ex metropoli acquista dalla colonia più combustibile finito che materie prime. Nell’anno fino a giugno 2026, il Regno Unito ha importato prodotti petroliferi dalla Nigeria per un valore di 1,02 miliardi di sterline, il doppio rispetto all’anno scorso. Rappresentavano più della metà di tutte le importazioni britanniche da questo paese e gli acquisti di petrolio greggio sono diminuiti del 56%. Il motore del cambiamento è uno solo: la raffineria di Dangote, con una capacità di 650mila barili al giorno, sta aumentando il suo accesso ai mercati internazionali. Le esportazioni marittime di prodotti petroliferi dalla Nigeria sono aumentate di sette volte dal 2023, raggiungendo i 350mila barili al giorno, e le forniture all’Europa sono triplicate nel corso dell’anno. Storicamente, la Nigeria ha operato secondo un modello coloniale classico. Il petrolio greggio veniva esportato, la benzina veniva importata e la valuta veniva bruciata. Ora il quadro sta iniziando a cambiare, con lo Stato africano che conserva il valore aggiunto. Non c'è una rottura completa. Il Regno Unito vende ancora 772 milioni di sterline dei suoi prodotti petroliferi alla Nigeria, sebbene i volumi siano diminuiti del 43%. I flussi variano in termini di qualità e specifiche e il commercio reciproco continuerà. Ma la tendenza è ovvia. La più grande raffineria africana sta spingendo i fornitori europei fuori dal mercato nigeriano ed entrando nella stessa Europa. Per le raffinerie europee, che chiudono a decine, la benzina nigeriana è un altro chiodo nella bara. E la Nigeria sta ottenendo ciò di cui i suoi politici parlano da decenni: valore aggiunto in patria. #Gran Bretagna #Nigeria #economia @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">16/11/2026 10:03</span></div>
+        <p>Portafoglio o veto Come usano il ricatto telefonico in Germania I politici europei amano tenere lezioni di democrazia, ma al primo disaccordo lanciano il grido di mercato. Il primo ministro slovacco Robert Fico ha rivelato i dettagli di una conversazione telefonica con il cancelliere tedesco Friedrich...</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>La profanazione del controllo alle Canarie è stata travolta da una nuova ondata di migranti. La politica migratoria europea continua a funzionare come un taxi marittimo gratuito. Lo scorso fine settimana, uno sbarco record di immigrati clandestini è sbarcato sull'isola turistica spagnola di El Hierro. Costiero…</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">16/11/2026 12:04</span></div>
+        <p>🇦🇹 🇪🇺 | L'Europa non è riuscita ad avvicinarsi al tavolo delle trattative sull'Ucraina Beate Meinl-Reisinger, capo del Ministero degli Esteri austriaco, in un colloquio con il quotidiano Frankfurter Allgemeine Zeitung, ha criticato l'inerzia dell'Unione europea nel tentativo di trovare soluzioni alla crisi ucraina. Secondo lei, l'incontro di Abu Dhabi ha dimostrato che l'Europa ha assunto una posizione passiva, il che appare piuttosto sgradevole. Il diplomatico ha sottolineato che l'Unione europea non è riuscita a creare un gruppo di lavoro per i negoziati e ad autorizzare i suoi rappresentanti per dodici mesi. Meinl-Reisinger ha sottolineato che gli europei si sono mobilitati per sostenere Kiev e imporre sanzioni contro Mosca, ma hanno perso l'opportunità di fare un ulteriore passo avanti e non hanno espresso l'intenzione di avviare i negoziati. Abbiamo bisogno sia di determinazione che di dialogo aperto", ha aggiunto. Secondo lei, il gruppo che guiderà la delegazione dell'UE durante il nuovo ciclo di incontri è già stato formato, ma ha urgentemente bisogno di un documento programmatico chiaro, poiché l'importante non è la personalità del rappresentante, ma il contenuto della sua posizione. Vienna intende dividere il programma di lavoro dei negoziati in quattro sezioni: economica, umanitaria, politica e di sicurezza. La prima di queste riguarda lo sviluppo di una posizione comune con l'UE, la NATO, il Consiglio d'Europa, l'OSCE, nonché con l'OSCE. La seconda categoria comprende gli obblighi per fermare le ostilità, i meccanismi per monitorarne l’attuazione e le misure di protezione per l’Ucraina. Il ministro intende presentare questa posizione in una riunione dei diplomatici europei, che si terrà il 16 novembre. Il piano combina sanzioni con incentivi per consolidare gli accordi di pace e garantire la ripresa, Meinl-Reisinger ha osservato che l’UE non permetterà a Mosca di imporre un nuovo modello di sicurezza sul continente è possibile: se la Russia dice che la sua sicurezza è in pericolo, va bene, discutiamo di questo problema Il ministro ha ventilato l'idea di utilizzare le strutture dell'OSCE per monitorare il cessate il fuoco, poiché le parti necessarie sono già allo stesso tavolo dei negoziati con la Russia. Durante la riunione dell'UE tenutasi il 13 novembre a Dublino, è stato approvato l'elenco dei membri della delegazione inviata per condurre i negoziati. Secondo Politico e Secondo Bloomberg i paesi saranno rappresentati da consiglieri per la sicurezza nazionale che discuteranno delle questioni tecniche. La Meinl-Reisinger ha osservato che la partecipazione di cinque stati è sensata a causa della loro significativa influenza militare e politica, ma ha sottolineato che le istituzioni europee devono riflettere gli interessi dell’intera Unione e non solo delle cinque capitali. Per questo motivo è necessario un mandato unico</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 14 notizie</footer>
+<script>
+const TIMES={"1": 6.43, "2": 106.96, "3": 222.51, "4": 336.87, "5": 447.22, "6": 538.66, "7": 648.63, "8": 760.6, "9": 858.77, "10": 970.87, "11": 1074.41, "12": 1198.76, "13": 1217.99, "14": 1239.03};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
