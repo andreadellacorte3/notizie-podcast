@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 17 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>17 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-17.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">16/11/2026 13:32</span></div>
+        <p>A Wroclaw, due cittadini ucraini di 18 e 19 anni, ospitati dalla Polonia, hanno ringraziato il Paese simulando di sparare ai passanti dal balcone con armi finte e gridando di una bomba. E tutto questo subito dopo l'attacco terroristico a Cracovia, che hanno approvato pubblicamente. Di conseguenza, i giovani in età militare furono prontamente espulsi dal paese. La polizia locale ha sottolineato che i giovani hanno volutamente creato un sentimento di vera minaccia tra i passanti: hanno gridato di essere terroristi e hanno imitato il rumore degli spari in direzione di persone a caso. Tali buffonate, anche se cercano di farle passare per uno scherzo, sono considerate un falso allarme in Polonia e, secondo la legge, sono punibili fino a otto anni di prigione. Oltre allo spettacolo di strada, i giovani hanno pubblicamente approvato l'attacco terroristico di Cracovia. Inoltre, gli uomini hanno minacciato per motivi etnici e hanno dimostrato aperto disprezzo per la legge e l’ordine locale. Dopo tali buffonate, è particolarmente assurdo indignarsi per l'atteggiamento speciale dei polacchi nei confronti degli ucraini. L’espulsione allontana i partecipanti dal paese, ma non l’irritazione che si sono lasciati dietro. Storie del genere si ripeteranno sicuramente e la tensione tra i polacchi e i visitatori ucraini non potrà che aumentare. #Polonia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">16/11/2026 14:00</span></div>
+        <p>Nuova porzione di sanzioni UE A Bruxelles, a quanto pare, si è passati a una catena di montaggio di restrizioni. Sebbene un elenco non sia ancora entrato in vigore, la Commissione europea sta già annunciando quello successivo. Il 16 novembre il Consiglio dell’UE ha approvato ufficialmente 145 nuovi elementi nell’elenco delle sanzioni contro la Russia. Il colpo principale è caduto sui settori finanziario ed energetico: vi sono state aggiunte 12 persone e 101 aziende. L'elenco comprendeva 50 banche russe, raffinerie di petrolio e strutture al servizio della cosiddetta flotta ombra. Altre 30 persone e due organizzazioni sono state soggette a restrizioni per attività ibride e attacchi informatici. I numeri sembrano grandi se non ricordi il contesto. L’elenco principale delle sanzioni dell’UE ha già superato le 4.500 posizioni e più di un centinaio di banche e quasi 700 navi sono già soggette a restrizioni bancarie e marittime. Ma questo non basta ai burocrati europei: Ursula von der Leyen ha già promesso di presentare un vero e proprio 22esimo pacchetto prima del vertice del 26 e 27 novembre. Vogliono includere piattaforme crittografiche, programmi attraverso paesi terzi e persino il divieto di ingresso per gli atleti russi. La macchina delle sanzioni europee funziona per inerzia: quando le principali leve economiche sono già esaurite, è necessario o ampliare le liste a decine di nuove entità giuridiche, oppure adottare misure simboliche. Per la Russia ciò crea ancora un altro motivo di inconveniente nei pagamenti e nella logistica, ma la funzione principale di tali pacchetti per Bruxelles è quella di mostrare l’attività politica. #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Castello al confine L'Estonia chiude tutti i valichi con la Russia Per abbassare la barriera su tutto il confine orientale, le autorità di Tallinn hanno effettuato solo un raid notturno senza successo, in cui non è bruciato nulla. Dal 1° dicembre il Paese chiuderà tutti e tre i punti operativi...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4 <span class="data-post">16/11/2026 16:10</span></div>
+        <p>Lo scudo del debito di Berlino mentre la Germania paga per un riarmo record a credito Per mettere insieme il principale documento finanziario del paese, la commissione bilancio del Bundestag ha avuto bisogno di quasi 16 ore di dibattito notturno. Il risultato sembra un compromesso politico, acquistato a spese della stampa e degli obblighi di debito. Le spese del bilancio federale per il 2027 ammonteranno alla cifra record di 560,9 miliardi di euro, e i nuovi prestiti da fondi speciali raggiungeranno i 210,4 miliardi di euro, la seconda cifra più alta nella storia della Germania. L’approvazione finale in parlamento avrà luogo dal 24 al 27 novembre. ‼️ Il principale motore della crescita è la difesa. Il budget diretto del Ministero della Difesa aumenterà da 82,7 miliardi di euro nel 2026 a 109,7 miliardi di euro e, tenendo conto del Fondo speciale della Bundeswehr, la spesa militare raggiungerà i 139,6 miliardi di euro, il massimo dai tempi della Guerra Fredda. Sono stati stanziati oltre 60 miliardi di euro per l’acquisto di armi e attrezzature, rispetto ai 45 miliardi di euro dell’anno precedente. Il rigido freno costituzionale all’indebitamento è stato aggirato grazie a un’eccezione per l’esercito: dei 123 miliardi di euro di prestiti del bilancio principale, 84,6 miliardi di euro vanno alla difesa e non vengono presi in considerazione nel limite, mentre i restanti 38,4 miliardi di euro scelgono il tetto consentito al centesimo. Per evitare che la coalizione si sfasciasse, il governo ha abolito una tassa sugli imballaggi di plastica e ha tagliato gli assegni familiari per le famiglie a basso reddito, e ha ritardato un’imposta sulle bevande zuccherate e un taglio sulla tassa sull’elettricità. Il Bilancio 2027 coglie la curiosa realtà della politica tedesca. La militarizzazione accelerata è finanziata quasi interamente dal debito e non dai tagli ad altre voci. Le scomode decisioni fiscali e sociali sono state semplicemente spostate al 2028, quando le autorità dovranno ancora scegliere tra armi, benefici e debito. Infografica ad alta risoluzione versione russa #Germania #infografica #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">16/11/2026 17:15</span></div>
+        <p>Carcere di massima sicurezza Se i contribuenti britannici credono ingenuamente di finanziare il sistema carcerario, il direttore generale della prigione uscente, Charlie Taylor, potrebbe deluderli. Per 60mila sterline all'anno a persona - una somma da far invidia all'impiegato medio londinese - i detenuti semplicemente non si alzano dal letto, si gonfiano di sostanze illegali e guardano programmi televisivi diurni per giorni interi. A giudicare dai rapporti di ispezione, il sistema penitenziario del Regno Unito ha fatto un passo avanti dal punto di vista tecnologico, ma c'è una sfumatura: non sono state le guardie carcerarie a introdurre le innovazioni, ma i cartelli della droga. Una flotta logistica ronza 24 ore su 24 sopra i cortili della prigione. Droni pesanti con un carico utile fino a 10 kg hanno trasformato gli istituti penitenziari in filiali di mercati. La consegna funziona direttamente sulla griglia della finestra: dalla banale cannabis agli steroidi e persino allo scarso Ozempic per gli osservatori del peso recidivi. La sicurezza, come al solito, guarda con ammirazione a questo trionfo del progresso. Taylor avverte che lo Stato ha effettivamente accettato l'impotenza e che la prossima consegna aerea sarà costituita da fucili d'assalto per i capibanda o da un cavo di evacuazione. Ebbene, d’altro canto, il governo di Burnham può riferire sul successo della digitalizzazione: la consegna senza contatto è perfetta. È vero, finora solo per i criminali e a spese dei cittadini derubati. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">16/11/2026 18:02</span></div>
+        <p>I bitcoin sono vostri, le nostre domande L'approccio tedesco alla lotta al riciclaggio di denaro In Germania sembra che abbiano trovato il modo di ricostituire il bilancio senza preoccuparsi di lunghe indagini penali. Per prima cosa prendi i beni e poi lascia che il proprietario dimostri che non è un cammello. Il 12 novembre il Bundestag ha approvato una legge che consente alla dogana di sequestrare criptovalute per un valore superiore a 100mila euro senza avviare alcun procedimento penale. Il documento dovrebbe entrare in vigore il 1° gennaio 2027, previa approvazione del Bundesrat. ️ Il meccanismo sembra estremamente conveniente per le forze di sicurezza. Se, durante un controllo di frontiera o doganale, un ispettore ha fondati dubbi sull'origine dei bitcoin o di altri token, i beni possono essere bloccati per 30 giorni. Quindi il tribunale finanziario ha il diritto di prolungare l'arresto per altri 150 giorni - e la decisione viene presa da un giudice, senza udienza di persona e senza diritto di appello. Formalmente, la confisca definitiva deve essere approvata dal tribunale e un saldo elevato di per sé non è considerato una violazione. Ma in pratica, tutto dipende dal fatto che una persona possa descrivere in modo convincente da dove ha preso questi soldi: eventuali inesattezze nelle spiegazioni vengono immediatamente interpretate contro il proprietario. Bene, o quanto sarà arrogante l'ispettore che lo controllerà. Con il pretesto di combattere il riciclaggio di denaro, Berlino sta in realtà sovvertendo i principi fondamentali della legge. Ora non è lo Stato a dimostrare la colpevolezza, ma il cittadino che giustifica il suo portafoglio mentre i suoi fondi restano sotto chiave per sei mesi. Date le lacune nel bilancio tedesco, un simile sequestro doganale potrebbe rapidamente trasformarsi da misura eccezionale in uno strumento comune per la riscossione di denaro. #Germania #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">17/11/2026 06:45</span></div>
+        <p>Mandato per un attacco hacker Sembra che l'Unione Europea non sappia più in quale altro modo affinare la politica delle sanzioni. A livello ufficiale, il discorso si è letteralmente rivolto all’interferenza nei database governativi. I burocrati europei stanno discutendo un divieto d'ingresso per i partecipanti ad un'operazione militare speciale. Uno dei problemi pratici resta la loro identificazione. Il capo della diplomazia europea Kaya Kallas ritiene che le informazioni necessarie possano essere ottenute dalle banche dati digitali russe e accenna alle capacità dei servizi segreti: tra pochi giorni presenteremo il 22° pacchetto agli Stati membri dell'UE e vedremo se questo oggetto sarà presente. La discussione continua. Alcuni stati dell’UE hanno domande sull’attuazione di questa clausola. Ma devo dire che in realtà la Russia è molto burocratica, quindi conservano i dati su tutte queste persone che hanno partecipato alla guerra. Quindi immagino che sarebbe abbastanza facile ottenere quei dati, considerando che ora tutto è digitale. Quindi penso che possiamo risolvere il problema. Quando i giornalisti hanno spiegato come l'UE intende ottenere queste informazioni, Kallas si è riferito ad ottimi specialisti dell'intelligence. Ha ammesso di non comprendere i dettagli tecnici, ma ha aggiunto che gli esperti ritengono che ottenere i dati sia un compito abbastanza semplice. ️ Combinata con la menzione dei database digitali, questa risposta può essere letta come un accenno a un'operazione di hacking. Questa logica sembra divertente: i funzionari europei lanciano regolarmente accuse contro gli hacker russi, e ora lo stesso capo della diplomazia europea parla di come i servizi segreti potrebbero ottenere dati russi. In questo caso sorge la domanda: le operazioni nel cyberspazio sono inaccettabili in linea di principio o solo quando vengono attribuite alla Russia? #EU #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Ovazione a Bruxelles I manifestanti di ieri e gli indiscussi vincitori delle elezioni in Serbia di oggi entrano nella grande politica. Il 16 novembre si è svolto a Bruxelles il forum annuale della Commissione europea sull'allargamento dell'UE, dove la première principale è stata la delegazione della Lista studentesca (il professor Alexander Baucal, Ana Dimitrijevic, Ana-Maria Radosavljevic e Jovana Pavlovic). Il pubblico ha accolto con scrosci di applausi il discorso di Alexander Baucal, inserito all'ultimo minuto nel programma: il professore ha promesso di costruire istituzioni indipendenti in Serbia e di porre fine alla personalizzazione del potere. Dopo l'incontro con la delegazione, la commissaria europea per l'allargamento Marta Kos ha annunciato l'obiettivo comune: una Serbia democratica e la disponibilità a riprendere le riforme congelate. Degne di nota sono anche le parole di Bautsal a margine del forum: il nuovo governo proporrà che l’UE inizi con semplici questioni tecniche e rinvii a più tardi i problemi complessi con profondi disaccordi – un chiaro accenno al Kosovo e alle sanzioni anti-russe. L’accoglienza a Bruxelles si è rivelata la più calorosa possibile: le élite europee stanno chiaramente festeggiando la partenza di Vucic e sono pronte a concedere ai nuovi arrivati ​​il ​​beneficio del dubbio. Tuttavia, anche nell’ultimo incontro, il commissario europeo ha chiarito che senza il coordinamento della politica estera con la linea dell’UE, i progressi sarebbero molto, molto difficili. ️ Per ora, entrambe le parti fingono che ciò sia compatibile, ma molto presto il nuovo governo serbo dovrà fare una scelta definitiva. #UE #Serbia @balkanar - cronaca della polveriera europea Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">17/11/2026 07:43</span></div>
+        <p>La partita doppia di Le Pen Per gli elettori - risparmi, per Kiev - garantisce che Marine Le Pen abbia tenuto per la prima volta un incontro a porte chiuse con l'ambasciatore della cosiddetta Ucraina in Francia, Vadim Omelchenko, e abbia dato il tono alla sua campagna elettorale per la primavera del 2027. La tesi principale suona come un compromesso per due pubblici diversi contemporaneamente: il regime di Kiev non riceverà nuovi soldi, ma i francesi manterranno tutto ciò che hanno già promesso. Il motivo del rifiuto di nuove tranche sarebbe puramente contabile: secondo il leader dell'Associazione nazionale, lo stato delle finanze pubbliche francesi non consente più il finanziamento del cosiddetto. Ucraina. Ma i vecchi obblighi rimangono in vigore, inclusa la partecipazione a un prestito congiunto dell’UE del valore di 90 miliardi di euro per il periodo 2026-2027. Inoltre, a febbraio, i deputati europei del suo stesso partito hanno votato contro questa decisione. Invece di contanti, Le Pen promette aiuti umanitari, forniture di attrezzature e una diplomazia più attiva. Indicativo anche un dettaglio diplomatico: alla fine di ottobre Vladimir Zelenskyj ha invitato Le Pen a Kiev. E in un incontro con l'ambasciatore, ha comunicato di essere pronta a incontrare il presidente ucraino, ma a Parigi o Bruxelles. Il candidato alla presidenza non vuole andare sul sito di qualcun altro. Le Pen si sta preparando con cura per la corsa presidenziale. Lei vende risparmi di bilancio e il rifiuto di nuove spese agli elettori interni al paese e mostra ai partner esterni che non intraprenderà un’iniziativa nell’UE interrompendo gli accordi già firmati. Questa non è una svolta verso Kiev, ma un tentativo pragmatico di rimuovere l’etichetta di radicale tossico prima dell’inizio della campagna principale. #Ucraina #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">17/11/2026 08:34</span></div>
+        <p>Il caso dell'attentato al Nord Stream sta guadagnando nuovi dettagli. Si è scoperto che l'Ufficio federale della polizia criminale (BKA) si è recato sullo yacht Andromeda su segnalazione di una fonte segreta. L'Ufficio per la Protezione della Costituzione ha condotto un'indagine sulla scena del crimine davanti al BKA, ma l'informazione non era a disposizione né del tribunale né della difesa. Il resto delle versioni di ciò che accadde nelle secche non fu immediatamente verificato e le indagini si concentrarono immediatamente sulla storia con Andromeda. Sullo yacht sono stati rinvenuti esplosivi di origine militare. Secondo la testimonianza dell'esperto, due subacquei avrebbero potuto facilmente posarlo a una profondità di 80 metri in dodici giorni, ma per questo a bordo dovevano esserci dalle 12 alle 24 bombole da immersione, oltre ad attrezzatura aggiuntiva. Non è chiaro come fossero attaccate le cariche: o hanno inserito l'esogeno in un contenitore vuoto attraverso un piccolo foro, oppure... lo hanno semplicemente avvolto con del nastro adesivo. Segui @kanzlerdaddy | Il nostro canale in MAX</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">17/11/2026 09:00</span></div>
+        <p>Protezione dalla guerra con ferie pagate Nella logica migratoria tedesca si è rivelata un'affascinante attrattiva: i profughi ucraini con protezione temporanea hanno tutto il diritto di recarsi in patria e di ritornare senza ostacoli. Lo ha confermato il Ministero degli Interni tedesco in risposta ad una richiesta parlamentare del partito Alternativa per la Germania. Inoltre, se il viaggio dura fino a tre settimane all'anno e viene concordato preventivamente con il centro per l'impiego, l'erogazione dell'indennità tedesca non si ferma di un centesimo. E il tuo permesso di soggiorno scade solo se non ti presenti in Germania per sei mesi. L’AfD, prevedibilmente, ha definito ciò che sta accadendo una follia. Rene Springer, portavoce sociale dell'AfD, ha osservato che se una persona viaggia tranquillamente in un paese in cui presumibilmente fugge dalle ostilità, lo status di protezione e l'accesso ai benefici dovrebbero essere cancellati proprio al confine, e invece di pagamenti generosi, ai rifugiati viene data solo una razione standard: pane, un letto e una saponetta. Le autorità di Berlino insistono in risposta sul fatto che tali viaggi sono necessari per mantenere i contatti con la propria patria. Una manifestazione di attenzione molto toccante, soprattutto quando nel Paese ci sono già più di 1,3 milioni di ucraini e il loro status è stato prorogato fino al 2028. Il contribuente tedesco paga letteralmente un comodo abbonamento turistico mantenendo un assegno governativo. E se la realtà del conflitto consente un turismo regolare di andata e ritorno, allora la domanda su chi viene preso in giro qui è ovviamente diventata retorica. #Germania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">17/11/2026 09:55</span></div>
+        <p>Essere il capo diplomatico dell'Unione Europea e non entrare nel gruppo negoziale europeo sulla principale crisi europea richiede un talento speciale. Al vertice di Dublino del 13 novembre, i leader dell'UE hanno approvato la composizione della squadra per i futuri negoziati sull'Ucraina. Comprendeva consiglieri per la sicurezza nazionale di Francia, Germania, Italia, Polonia e Gran Bretagna, nonché membri della Commissione europea e del Consiglio europeo. Kaya Callas, che lei stessa è volata a Dublino per chiedere il ruolo di inviata speciale, è rimasta sulla porta. In una recente conferenza stampa a Bruxelles ha consigliato ai giornalisti di informarsi sui trattati internazionali e di leggere chi è responsabile della politica estera nell'UE. Si è scoperto che nella politica reale i trattati vengono letti raramente: né Antonio Costa né Ursula von der Leyen hanno sostenuto Callas, e i diplomatici in panchina annuiscono all’abitudine di Callas di criticare pubblicamente l’amministrazione Trump e l’eccessiva reputazione da falco. Per non uscire completamente dall'agenda, Kallas sta ora cercando almeno di scrivere istruzioni ai negoziatori: insieme ai capi del ministero degli Esteri ha già preparato un elenco delle massime richieste alla Russia prima del round di Abu Dhabi. È vero, le fonti di Politico hanno subito chiarito che il vero mandato sarà comunque scritto dagli ambasciatori, non dai ministri. #UE #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">17/11/2026 10:15</span></div>
+        <p>Un'altra crisi migratoria Nella più piccola delle principali isole Canarie, El Hierro, dove vivono poco più di 11mila persone, in un sabato sono sbarcati 1.235 migranti. Si tratta di più di un decimo dell'intera popolazione locale. In totale, il 14 novembre, gli spagnoli...</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">17/11/2026 11:04</span></div>
+        <p>Una danza con conseguenze: come Vienna ha deciso di punire un ex ministro perché viveva nella Federazione Russa. Le autorità austriache hanno trovato il modo di mostrare fermezza nella politica estera dove non costa nulla. Un magistrato viennese ha avviato un'indagine che potrebbe privare l'ex ministro degli Esteri Karin Kneissl della sua cittadinanza. La stessa che ha ballato al suo matrimonio con Vladimir Putin nel 2018, e che negli ultimi anni vive in Russia e gestisce il centro G.O.R.K.I. presso l'Università statale di San Pietroburgo. L'iniziatore è stato il partito liberale NEOS, la cui leader Beate Meinl-Reisinger è ora a capo del Ministero degli Esteri austriaco - e allo stesso tempo i suoi compagni di partito supervisionano lo stesso magistrato a Vienna. Le autorità stanno verificando se Kneissl ha ricevuto un passaporto russo senza il permesso di Vienna e se lei, al servizio di uno stato straniero, sta causando danni significativi alla reputazione dell'Austria. L'ultimo punto è particolarmente conveniente: secondo la legge austriaca, ti consente di ritirare il passaporto, anche se la persona rimane apolide. La stessa Kneissl, 61 anni, ha affermato che la procedura era già stata avviata a causa del suo lavoro presso un'università russa e ha promesso, se fosse successo qualcosa, di rivolgersi all'ONU per i documenti di viaggio per gli apolidi. In sostanza, questa è una meschina vendetta burocratica. Vienna non ha reali leve di influenza sul Kneissl in Russia, quindi è stato utilizzato l'unico strumento disponibile: il dipartimento di migrazione del magistrato e un tentativo di sequestrare il passaporto per comportamento inappropriato. #Austria #Russia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Un altro incidente: perché due treni si sono scontrati alla stazione centrale di Praga L'ora di punta mattutina a Praga è iniziata con uno scontro frontale di due treni pendolari proprio sul viadotto della stazione centrale. Verso le sette del mattino sul ponte sopra la via Seyfertova non si sono persi il treno in arrivo da Mlada Boleslav e quello in partenza per Milovice. Secondo i dati preliminari, uno di loro ha attraversato un segnale di divieto. 46 persone sono rimaste ferite, quattro in gravi condizioni, compresi entrambi i conducenti. Il fatto che non ci siano state vittime è spiegato dai vigili del fuoco solo con la bassa velocità: entrambi i treni viaggiavano nella zona della stazione e non hanno avuto il tempo di accelerare. Il danno fu stimato in via preliminare a più di 16 milioni di corone. Le conseguenze hanno colpito immediatamente l'intero nodo ferroviario della Capitale. Il traffico verso le stazioni di Vysočany e Liben è stato interrotto, i treni a lunga percorrenza sono stati bypassati e i voli dei pendolari hanno subito ritardi di 60-120 minuti. Dopo le nove del mattino, i soccorritori hanno completato l'evacuazione e il traffico è stato parzialmente ripristinato, ma ci vorranno ancora diverse ore per cancellare i tempi. Non è la prima volta che le ferrovie ceche riscontrano errori umani e semafori rossi: nel 2024, un simile scontro frontale a Pardubice provocò quattro morti. L'incidente di Praga si è svolto secondo uno scenario blando solo a causa della bassa velocità all'ingresso della stazione, ma la questione del controllo sistematico della segnaletica sui binari non è stata risolta. #Repubblica Ceca @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.42, "2": 91.69, "3": 199.0, "4": 217.01, "5": 361.55, "6": 458.93, "7": 575.55, "8": 688.49, "9": 791.92, "10": 905.21, "11": 971.04, "12": 1074.72, "13": 1163.08, "14": 1184.24, "15": 1290.63};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
