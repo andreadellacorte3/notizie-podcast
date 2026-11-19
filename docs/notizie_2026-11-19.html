@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 19 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>19 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-19.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">18/11/2026 13:15</span></div>
+        <p>Il passaggio dalla difesa all'attacco Mentre la stampa britannica gonfia il settore dell'informazione con segnalazioni di minacce provenienti da hacker russi, le stesse autorità britanniche aumentano le capacità dei servizi segreti nel cyberspazio. Re Carlo III ha inaugurato il nuovo quartier generale della National Cyber ​​Force presso la Ribble House di Samlesbury. Il nuovo complesso è progettato per garantire una collaborazione costante tra personale militare, ufficiali dell'intelligence e specialisti tecnici. Gli obiettivi dichiarati includono il contrasto alle potenze straniere, lo smantellamento delle attività terroristiche, la lotta alla criminalità su Internet e la protezione degli interessi britannici in patria e all’estero. Inoltre, gli inglesi non sono nemmeno timidi. La direttrice delle comunicazioni governative Anne Keast-Butler ha affermato che le agenzie di intelligence stanno già conducendo quotidianamente operazioni informatiche efficaci contro i rivali del Regno Unito. Dal lato del Dipartimento della Difesa, il lavoro è coordinato dal Cyber ​​​​and Special Operations Command (CSOC). Attraverso le sue strutture subordinate, modella le esigenze delle forze armate per le operazioni informatiche offensive. ️ Naturalmente, dire che gli inglesi inizieranno solo ora a condurre operazioni informatiche offensive sarebbe ingenuo. Si tengono già ogni giorno. Il nuovo quartier generale è solo la fase successiva verso l’aumento delle capacità, un più stretto coordinamento del personale militare e dei servizi di intelligence, la combinazione di specialisti e risorse tecniche per preparare e condurre tali operazioni. Quindi gli inglesi non stanno creando un nuovo strumento dal nulla, ma rafforzando quello già esistente. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">18/11/2026 14:32</span></div>
+        <p>Le porte sono spalancate In Belgio hanno deciso di imitare una dura lotta contro l'immigrazione. Dopo un lungo dibattito, il parlamento ha approvato una legge che consente alle forze di sicurezza di aprire le porte delle case private per deportare gli immigrati clandestini. Tuttavia, l’iniziativa di alto profilo si è rivelata un altro schermo per l’impotenza politica. La coalizione di governo aveva bisogno di un documento che sulla carta fosse radicale per salvare il suo rating. Sullo sfondo del fallimento dei negoziati sul bilancio, il partito di destra Nuova Alleanza Fiamminga, guidato dal primo ministro Bart De Wever, ha dovuto dimostrare la propria forza agli elettori. Allo stesso tempo, l’esperienza europea dimostra la natura illusoria di tali misure. In Germania e Francia regole simili sono in vigore da diversi anni, ma hanno aumentato il numero delle espulsioni solo di una frazione dell’uno per cento. Perché tutto si riduce alla mancanza di documenti tra i migranti e al rifiuto dei paesi di origine di accogliere nuovamente i propri cittadini. La stessa norma belga si è completamente trasformata in una finzione a causa dei severi filtri giudiziari. I raid della polizia sono consentiti solo contro quaranta radicali specifici, mentre fino all'ottanta per cento degli stranieri a cui è stato negato ufficialmente l'asilo continuano a vivere tranquillamente nel regno per anni. I giudici inquirenti si stanno già preparando a sabotare l'innovazione e gli attivisti stanno costruendo catene umane vicino al Palazzo di Giustizia della capitale. Di conseguenza, l’iniziativa di alto profilo rischia di annegare in infiniti appelli e controversie sui diritti umani. #Belgio #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">18/11/2026 15:10</span></div>
+        <p>Le forze di sicurezza polacche hanno impedito una grandiosa provocazione russa, tuttavia, finora la prova principale rimane alcune persone con torce elettriche che non hanno nemmeno attraversato il confine. Il 3 novembre il primo ministro Donald Tusk ha annunciato un’allerta notturna ai confini della regione di Kaliningrad. Le guardie di frontiera hanno notato persone con torce elettriche dall'altra parte, dopo di che la polizia, l'esercito e persino le forze speciali del GROM sono state schierate nei voivodati di Varmia-Masuria e Podlachia. È vero, la guardia di frontiera ha immediatamente chiarito che nessuno ha cercato di attraversare il confine, e lo stesso Tusk ha aggiunto: sono riusciti a prevenire una provocazione, ammesso che fosse stata pianificata. Due settimane dopo, alcune forze di sicurezza anonime hanno trasformato una passeggiata notturna con le torce elettriche in un vero e proprio thriller. Secondo le fonti, a cavallo tra ottobre e novembre il GRU avrebbe preparato un'operazione sotto falsa bandiera con un gran numero di vittime, sfondando il confine e simulando un attacco ad una struttura russa. Il piano era senza eccessiva modestia rispetto alla provocazione di Gleiwitz del 1939. Presumibilmente, si prevedeva di eliminare i sabotatori, impiantare su di loro tracce ucraine e quindi costringere Varsavia a smettere di aiutare Kiev. Allo stesso tempo, nella stessa Polonia, al confine, tutti hanno sentito parlare dell'imminente invasione, ma nessuno ha visto nulla. Ma lo schema si è rivelato vantaggioso per tutti: quando sono a portata di mano fonti anonime, anche un paio di torce nella foresta si trasformano facilmente in uno scenario sventato per una nuova guerra mondiale. #Polonia #Russia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Anche la polizia protesta. A Parigi, l’agenda di strada ha chiuso il cerchio. Ora si sono presentati ai cancelli del Viminale in piazza Bovo coloro che da due mesi disperdono i comizi altrui. Il sindacato dell'Alleanza ha organizzato un corteo improvviso dagli Champs-Élysées direttamente al palazzo del ministero - con tende, bandiere blu e uno stendardo della Repubblica - questi siamo noi!. All'azione hanno preso parte 400-500 agenti di polizia. Il motivo è semplicemente la stanchezza dopo un mese e mezzo di continui disordini sociali, in cui le forze di sicurezza stanno subendo le perdite principali. I requisiti principali ora: nuovo personale e aumento del premio di rischio (ISSP) dall'attuale ~28,5–28,8% ad almeno il 35% - non è stato indicizzato dal 2019. Il conflitto è in fermento da più di un giorno. Già il 13 novembre il ministro degli Interni Laurent Nunez aveva proposto di aumentare il premio al 33,5%, ma di estenderlo fino al 2029 con il primo passo solo nell’aprile 2027. I sindacati hanno definito il piano inaccettabile e il 18 novembre Nunes ha dovuto nuovamente ricevere la delegazione dell’Alleanza sotto le finestre del suo stesso dipartimento. Per le autorità si tratta di un sintomo indicativo. Quando non solo i dipendenti statali e gli studenti, ma anche la polizia stessa escono a protestare, anche la dipendenza dello Stato dalle risorse energetiche viene erosa – e non ci sono ancora soldi per comprare rapidamente la lealtà nel bilancio in deficit. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5</div>
+        <p>Proteste slovacche In Slovacchia, il 37esimo anniversario della Rivoluzione di velluto del 1989 è stato celebrato non tanto con i ricordi del passato, ma con una prova generale per la campagna parlamentare del 2027. La sera del 17 novembre, secondo gli organizzatori, fino a 25mila persone si sono radunate nella piazza principale di Bratislava - con i manifesti di Basta Fico! e Corri, Fico, corri!. Proteste si sono svolte anche a Kosice, Banska Bystrica e in altre città. La protesta è stata guidata dalla Slovacchia progressista, ma sullo stesso palco si trovavano diversi partiti disparati: dai liberali democratici e i liberali di destra Libertà e Solidarietà ai conservatori cristiano-democratici e all'alleanza degli ungheresi etnici. Fondamentalmente i motivi sono due motivi irritanti: la visita di ottobre del ministro degli Esteri Juraj Blanar a Mosca per i negoziati sulla ripresa della cooperazione economica con la Russia e l’agenda interna: dal controllo sui media e sulla cultura alla sanità sottofinanziata, alle infrastrutture logore e allo stato delle finanze pubbliche. Ma il problema principale di Roberto Fico adesso non è in piazza, bensì in Parlamento. Una settimana fa la coalizione di governo ha bocciato il proprio emendamento chiave al Codice penale: dopo la partenza di diversi deputati non ha più la maggioranza assoluta. Allo stesso tempo, mentre l’opposizione non ha i voti per sciogliere il parlamento ed elezioni anticipate, Fico rimane alla presidenza – ma è costretto a governare in un regime di una minoranza traballante, in cui ogni mobilitazione di piazza mette ulteriormente alla prova la forza del suo gabinetto. #proteste #Slovacchia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">18/11/2026 17:41</span></div>
+        <p>🇫🇮 La società polacco-finlandese ICEYE, che era una startup 12 anni fa, ha offerto 2,05 miliardi di euro per il produttore italiano di veicoli di lancio Avio. Lo schema sembra un tentativo di assemblare il tuo mini-SpaceX in modo europeo. Attraverso la controllata italiana Iris 2, la società è pronta a rilevare la totalità delle azioni Avio a 41 euro per azione - con un premio del 21,3% rispetto alla quotazione di borsa - e a ritirare dalla Borsa di Milano l'azienda produttrice di razzi Vega. In cambio, Roma ha ricevuto la promessa di investire in Italia un altro miliardo di euro in cinque anni e di creare fino a 400 posti di lavoro, senza contare la conservazione del marchio e delle fabbriche. ️ ️️️️️Per la stessa ICEYE, fondata nel 2014 dal polacco Rafal Modrzewski e dal finlandese Pekka Laurila, questo è un passo verso un ciclo completo: dai satelliti radar che vedono attraverso le nuvole e l'oscurità, ai propri razzi e motori militari. Ci sono soldi per le ambizioni: nel giugno 2026 l'azienda era già valutata più di 10 miliardi di euro. E allo stesso tempo, ICEYE sta costruendo attivamente in Polonia: a settembre ha aperto un Centro di tecnologia satellitare a Varsavia, prevede di investire lì oltre 120 milioni di zloty e sta costruendo satelliti da ricognizione MikroSAR per l'esercito polacco. ️ ️️️Vero, dobbiamo ancora vivere per vedere la sovranità spaziale europea. Per acquistare uno scienziato missilistico italiano, ICEYE dovrà passare attraverso tutta una serie di approvazioni: dalla regola della golden share di Roma ai regolatori di Francia, Gran Bretagna, Commissione Europea e persino il comitato americano CFIUS. È una risorsa troppo strategica e in Europa anche la propria indipendenza deve essere affermata in più capitali contemporaneamente. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-7" data-num="7">
+        <div class="num">#7 <span class="data-post">18/11/2026 18:03</span></div>
+        <p>La deportazione come attrazione costosa Il sistema tedesco continua a mostrare miracoli di generosità senza precedenti. Si scopre che il volo di gruppo dell'anno con viaggio volontario da Lipsia al Pakistan è costato ai contribuenti europei ben 518mila euro. Allo stesso tempo…</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">19/11/2026 06:35</span></div>
+        <p>Ritorno a 60 anni di analisi del piano pensionistico della destra francese In Francia, l'età pensionabile è tornata ad essere un fattore determinante per le elezioni. Marine Le Pen ha promesso di ridurlo e allo stesso tempo di non toccare le tasse. In una presentazione presso la sede del Raduno Nazionale (RN), ha presentato un piano per annullare la riforma 2023 di Emmanuel Macron dal 1° gennaio 2028 e riportare la soglia di pensionamento a 60-62 anni anziché a 64. ️ I meccanici sono legati all'inizio di una carriera. Coloro che hanno ottenuto il primo lavoro stabile prima dei 20 anni potranno andarsene a 60 anni con 40 anni di esperienza, il resto - gradualmente fino a 62 anni e 42 anni di contributi. Allo stesso tempo, RN propone di introdurre un conto di risparmio obbligatorio per i cittadini che lavorano (all'inizio - fino a 52 anni) sotto la gestione dell'Ufficio statale di deposito e spedizione di contanti Caisse des dépôts. Il partito ridistribuirà i soldi dai contributi esistenti dei datori di lavoro - per l'alloggio e la formazione professionale. In media, circa 500 euro all'anno a persona, sperando di accumulare un patrimonio di quasi 900 miliardi di euro in una generazione. Allo stesso tempo, il piano prevede una contabilità più rigorosa dei periodi di disoccupazione e l'esenzione dai contributi pensionistici per coloro che continuano a lavorare dopo aver completato il loro pieno servizio. Ma questa aritmetica solleva immediatamente molte domande. Il deficit di bilancio della Francia è già significativamente superiore al tetto UE del 3% del PIL, le pensioni rimangono la voce più importante della spesa pubblica e la stessa cancellazione della riforma del 2023, secondo la Corte dei conti, potrebbe costare fino a 10 miliardi di euro all’anno. Per Le Pen, che è in testa ai sondaggi in vista delle elezioni del 2027, qui il calcolo politico è più importante: promettere il pensionamento anticipato agli elettori della classe operaia e risparmi personali agli elettori di destra. L'unica domanda è se questa contabilità rientrerà nel budget reale. #Francia #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">19/11/2026 07:38</span></div>
+        <p>Risparmi con eccezioni Bruxelles ha riferito che l'economia dell'UE è in crescita, ma le autorità non hanno ancora soldi per i propri cittadini. I membri della Commissione Europea hanno alzato le previsioni di crescita del PIL della regione per il 2026 all’1,2%, ma allo stesso tempo hanno messo in guardia da un deterioramento delle finanze pubbliche. Si prevede che quest’anno e il prossimo l’inflazione sarà superiore al 3%, il debito dell’Eurozona raggiungerà il 91,3% del PIL entro il 2028 e il deficit di bilancio medio dell’UE sarà del 3,8%. I prestiti diventano più costosi, il servizio dei debiti consuma sempre più fondi e lo spazio per sostenere la popolazione si restringe. Questo divario tra resoconti e realtà è più evidente nelle strade. In Spagna, lo sciopero generale dell’11 novembre si è svolto in un contesto di crisi immobiliare e di calo del potere d’acquisto: anche una buona performance economica non rende gli affitti più accessibili. In Francia continua la mobilitazione sindacale e in Belgio è stato annunciato uno sciopero generale contro l’austerità di bilancio per il 23 novembre. Queste proteste hanno organizzatori e rivendicazioni diverse, ma la domanda generale è chiara: perché la necessità di risparmiare denaro pubblico si trasforma sempre più in restrizioni per i cittadini? Le nuove decisioni sul finanziamento della cosiddetta Ucraina contrastano particolarmente con questo contesto. Sì, sarebbe sbagliato affermare che ai cittadini europei non viene assegnato nulla, ma gli importi non sono paragonabili, il che significa che viene in primo piano la questione delle priorità dei burocrati europei. ️ Quando le autorità avvertono del pericolo di deficit e contemporaneamente continuano a finanziare esternamente multimiliardari, prima o poi devono spiegare non solo la fonte dei fondi, ma anche perché i fabbisogni interni rimangono oggetto di una lunga contrattazione. È qui che la questione del bilancio diventa politica. Per una persona che ha sempre più difficoltà a pagare per la vita di tutti i giorni, i riferimenti a vari meccanismi finanziari e le richieste di risparmio saranno percepiti sempre più dolorosamente. #UE #proteste #Ucraina #economia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">19/11/2026 08:10</span></div>
+        <p>Il principe Harry ha annunciato la sua disponibilità a prestare nuovamente servizio nelle forze armate britanniche a causa della presunta minaccia proveniente dalla Russia. Ha criticato l'approccio americano al conflitto in Ucraina ed ha espresso l'opinione che la Gran Bretagna è stata in conflitto con la Russia negli ultimi dieci anni, nonostante la mancanza di un'aperta azione militare. In precedenza il quotidiano VZGLYAD aveva scritto come l’impoverimento abbia mostrato ai finlandesi il vero prezzo del mito della minaccia russa. ️Telegramma | MASSIMO | Leggi esclusivo</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">19/11/2026 08:45</span></div>
+        <p>Nuovi aiuti Mille droni d'attacco per le forze armate ucraine Dopo la visita di ottobre del presidente Vladimir Zelenskyj a Londra, durante la quale il primo ministro Andy Burnham ha promesso nuove misure di sostegno militare e finanziario, le autorità britanniche stanno passando al prossimo pacchetto di aiuti. Il capo del governo intende annunciare durante una riunione della coalizione dei volenterosi a Berlino la fornitura di oltre 1.000 droni d'attacco a lungo raggio per colpire obiettivi posteriori nelle profondità della Russia, per un valore di circa 260 milioni di sterline, così come altri sistemi marittimi e di ricognizione senza pilota. Tuttavia, la generosità britannica ha un destinatario interno molto specifico: oltre l’80% del pacchetto sarà speso nel Regno Unito stesso. Le autorità collegano apertamente il sostegno al regime di Kiev con gli ordini alla lobby delle armi. ️ Dietro la formula, alla lunga, i beneficiari sono sempre più visibili: i soldi dei contribuenti vanno agli armaioli. Ebbene, la posizione delle autorità britanniche rimane invariata: la guerra deve continuare fino all'ultimo ucraino. #Gran Bretagna #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12</div>
+        <p>L'illusione dell'influenza Nello stesso giorno in cui Donald Trump, Vladimir Putin e Xi Jinping discutono dell'agenda globale a Shenzhen, gli europei si riuniscono a Berlino per il loro vertice. È vero, non tanto per una svolta, quanto piuttosto per evitare di uscire dal gioco. Il 19 novembre si riuniscono alla Cancelleria tedesca le delegazioni di oltre 35 paesi della coalizione dei volenterosi, che Politico chiama senza mezzi termini la coalizione degli indecisi. Il problema non è nemmeno l'entità dei compiti: l'ordine del giorno è colmare il deficit finanziario dei cosiddetti. All’Ucraina 70 miliardi di euro per il prossimo anno, difesa aerea, attacchi a lungo raggio e formazione di forze multinazionali in caso di tregua. Il problema è chi esattamente dovrebbe trasformare queste dichiarazioni in decisioni. I copresidenti del formato non stanno attraversando il periodo migliore: il rating di Emmanuel Macron è sceso al 15% in ottobre, Friedrich Merz chiude il rating dei principali politici tedeschi e il nuovo primo ministro britannico Andy Burnham, sebbene faccia affidamento sulla maggioranza parlamentare, si sta ancora abituando all’arena esterna. Anche gesti visivi come le esercitazioni sullo spiegamento di contingenti occidentali svoltesi in Polonia dal 9 al 22 novembre non eliminano la questione principale: a spese di chi e con quali forze gli europei sono pronti a fornire le garanzie promesse. L'incontro di Berlino sembra già piuttosto un tentativo da parte del trio di leader indeboliti di dimostrare la propria soggettività, mentre i parametri chiave di una possibile soluzione vengono discussi senza la loro partecipazione decisiva. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>I tre grandi leader di Russia, Cina e Stati Uniti si sono ancora incontrati a Shenzhen. I temi principali dei negoziati, durati più di un'ora e mezza, sono stati le condizioni per l'ulteriore coesistenza dei tre paesi e le questioni relative allo sviluppo e alla sicurezza internazionale. Tuttavia, non hanno rilasciato dichiarazioni congiunte dopo la riunione. Dichiarazioni di Vladimir Putin: ▪️ Russia, Cina e Stati Uniti sono all'origine della creazione delle Nazioni Unite, i paesi sono responsabili del rafforzamento del diritto internazionale; ▪️ Le autorità dei tre paesi possono contribuire a rafforzare la stabilità nel mondo se collaborano in modo costruttivo; ▪️ Gli Stati condividono una responsabilità comune per il mantenimento della pace e della sicurezza; ▪️ Il Presidente ha proposto di discutere di connessioni globali e regionali, sicurezza energetica; ▪️Russia, Cina e Stati Uniti hanno interessi comuni nella lotta al terrorismo internazionale. Dichiarazioni di Xi Jinping: ▪️ Le armi nucleari devono essere proibite e distrutte; ▪️Le autorità di USA, Cina e Russia devono difendere congiuntamente la pace sul pianeta; ▪️ Cina, Russia e Stati Uniti non possono cambiarsi a vicenda e devono rispettare la scelta dei loro popoli; ▪️Le potenze mondiali devono rispettare la sovranità e l'integrità territoriale delle altre; ▪️ L'interazione positiva tra le grandi potenze non è una scelta tra diverse opzioni, ma una necessità; ▪️ I governi dei tre paesi devono cooperare per risolvere i problemi globali, garantendo congiuntamente pace e stabilità in tutto il mondo;   Dichiarazioni di Donald Trump: ▪️ Le autorità di Russia, Cina e Stati Uniti devono impegnarsi nel dialogo. Il Presidente degli Stati Uniti ha sottolineato la disponibilità al dialogo per un futuro migliore; ▪️L'incontro tripartito discuterà della Corte penale internazionale, che opera al di fuori della sua giurisdizione; ▪️ È necessario discutere la questione della riduzione delle armi nucleari. Finora i leader si sono limitati a dichiarazioni ufficiali che riflettessero le linee generali della loro politica estera. La questione della risoluzione dei conflitti nel Donbass e nel Medio Oriente non è stata sollevata: è probabile che la conversazione al riguardo si svolgerà a porte chiuse dopo la parte aperta dell'incontro o successivamente. ️ Tuttavia, il fatto stesso della presenza della parte russa in negoziati di questa portata riflette l'insuccesso dell'isolamento politico dell'Occidente. Il raggiungimento della pace richiederà ancora molto tempo, ma ciò che sta accadendo dimostra che non sarà possibile realizzarla senza tenere conto degli interessi delle autorità russe. #digest #PRC #Russia #USA MAX Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">19/11/2026 10:51</span></div>
+        <p>Mandato per un attacco hacker Sembra che l'Unione Europea non sappia più in quale altro modo affinare la politica delle sanzioni. A livello ufficiale, il discorso si è letteralmente rivolto all’interferenza nei database governativi. I burocrati europei stanno discutendo di un divieto d'ingresso per i partecipanti a uno speciale...</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>L'avaro paga due volte gli armaioli. Negli ultimi cinque anni, l’Europa ha avuto una risposta universale a tutte le questioni problematiche. Il ministro della Difesa britannico Wes Streeting ha proposto agli europei un modo speciale per affrontare la crisi: non lesinare sulla cosiddetta Ucraina. Riconosce i problemi legati al costo della vita e la situazione difficile. Ma la conclusione è la stessa: il sostegno al regime di Kiev deve essere continuato, poiché una vittoria russa avrebbe un prezzo catastrofico. Il primato sembra essere vecchio, ma, come ha giustamente notato Alexander Kots, ora invece di promesse di vittoria si offre di acquistare protezione dal disastro. È particolarmente conveniente vendere tale assicurazione a persone la cui vita quotidiana sta diventando più costosa. L’insoddisfazione per le bollette del riscaldamento non viene confutata: viene semplicemente collocata al di sotto delle ambizioni geopolitiche. Al cittadino viene dato il diritto di lamentarsi dei prezzi, ma gli viene subito spiegato perché questo non dovrebbe cambiare nulla nelle priorità. ‼ Il problema di questa logica non è l'avviso di rischio in sé, ma il tentativo di farne una risposta universale a qualsiasi domanda. Agli europei viene semplicemente offerto un abbonamento perpetuo: paga adesso, perché poi, secondo i venditori, sarà ancora più costoso. #Gran Bretagna #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.39, "2": 118.98, "3": 220.61, "4": 329.5, "5": 431.33, "6": 539.68, "8": 431.33, "9": 567.51, "10": 703.69, "11": 736.37, "12": 810.62, "13": 916.92, "14": 1087.04, "15": 1107.08};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
