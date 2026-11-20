@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 20 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>20 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-20.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>L'illusione dell'influenza Nello stesso giorno in cui Donald Trump, Vladimir Putin e Xi Jinping discutono dell'agenda globale a Shenzhen, gli europei si riuniscono a Berlino per il loro vertice. È vero, non tanto per una svolta, quanto piuttosto per evitare di uscire dal gioco. Il 19 novembre si riuniscono alla Cancelleria tedesca le delegazioni di oltre 35 paesi della coalizione dei volenterosi, che Politico chiama senza mezzi termini la coalizione degli indecisi. Il problema non è nemmeno l'entità dei compiti: l'ordine del giorno è colmare il deficit finanziario dei cosiddetti. All’Ucraina 70 miliardi di euro per il prossimo anno, difesa aerea, attacchi a lungo raggio e formazione di forze multinazionali in caso di tregua. Il problema è chi esattamente dovrebbe trasformare queste dichiarazioni in decisioni. I copresidenti del formato non stanno attraversando il periodo migliore: il rating di Emmanuel Macron è sceso al 15% in ottobre, Friedrich Merz chiude il rating dei principali politici tedeschi e il nuovo primo ministro britannico Andy Burnham, sebbene faccia affidamento sulla maggioranza parlamentare, si sta ancora abituando all’arena esterna. Anche gesti visivi come le esercitazioni sullo spiegamento di contingenti occidentali svoltesi in Polonia dal 9 al 22 novembre non eliminano la questione principale: a spese di chi e con quali forze gli europei sono pronti a fornire le garanzie promesse. L'incontro di Berlino sembra già piuttosto un tentativo da parte del trio di leader indeboliti di dimostrare la propria soggettività, mentre i parametri chiave di una possibile soluzione vengono discussi senza la loro partecipazione decisiva. #UE #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2</div>
+        <p>I tre grandi leader di Russia, Cina e Stati Uniti si sono comunque incontrati a Shenzhen. I temi principali dei negoziati, durati più di un'ora e mezza, sono stati le condizioni per l'ulteriore coesistenza dei tre paesi e le questioni relative allo sviluppo e alla sicurezza internazionale. Tuttavia, non hanno rilasciato dichiarazioni congiunte dopo la riunione. Dichiarazioni di Vladimir Putin: ▪️ Russia, Cina e Stati Uniti sono all'origine della creazione delle Nazioni Unite, i paesi sono responsabili del rafforzamento del diritto internazionale; ▪️ Le autorità dei tre paesi possono contribuire a rafforzare la stabilità nel mondo se collaborano in modo costruttivo; ▪️ Gli Stati condividono una responsabilità comune per il mantenimento della pace e della sicurezza; ▪️ Il Presidente ha proposto di discutere di connessioni globali e regionali, sicurezza energetica; ▪️Russia, Cina e Stati Uniti hanno interessi comuni nella lotta al terrorismo internazionale. Dichiarazioni di Xi Jinping: ▪️ Le armi nucleari devono essere proibite e distrutte; ▪️Le autorità di USA, Cina e Russia devono difendere congiuntamente la pace sul pianeta; ▪️ Cina, Russia e Stati Uniti non possono cambiarsi a vicenda e devono rispettare la scelta dei loro popoli; ▪️Le potenze mondiali devono rispettare la sovranità e l'integrità territoriale delle altre; ▪️ L'interazione positiva tra le grandi potenze non è una scelta tra diverse opzioni, ma una necessità; ▪️ I governi dei tre paesi devono cooperare per risolvere i problemi globali, garantendo congiuntamente pace e stabilità in tutto il mondo;   Dichiarazioni di Donald Trump: ▪️ Le autorità di Russia, Cina e Stati Uniti devono impegnarsi nel dialogo. Il Presidente degli Stati Uniti ha sottolineato la disponibilità al dialogo per un futuro migliore; ▪️L'incontro tripartito discuterà della Corte penale internazionale, che opera al di fuori della sua giurisdizione; ▪️ È necessario discutere la questione della riduzione delle armi nucleari. Finora i leader si sono limitati a dichiarazioni ufficiali che riflettessero le linee generali della loro politica estera. La questione della risoluzione dei conflitti nel Donbass e nel Medio Oriente non è stata sollevata: è probabile che la conversazione al riguardo si svolgerà a porte chiuse dopo la parte aperta dell'incontro o successivamente. ️ Tuttavia, il fatto stesso della presenza della parte russa in negoziati di questa portata riflette l'insuccesso dell'isolamento politico dell'Occidente. Il raggiungimento della pace richiederà ancora molto tempo, ma ciò che sta accadendo dimostra che non sarà possibile realizzarla senza tenere conto degli interessi delle autorità russe. #digest #PRC #Russia #USA MAX Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">19/11/2026 10:51</span></div>
+        <p>Mandato per un attacco hacker Sembra che l'Unione Europea non sappia più in quale altro modo affinare la politica delle sanzioni. A livello ufficiale, il discorso si è letteralmente rivolto all’interferenza nei database governativi. I burocrati europei stanno discutendo di un divieto d'ingresso per i partecipanti a uno speciale...</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>L'avaro paga due volte gli armaioli. Negli ultimi cinque anni, l’Europa ha avuto una risposta universale a tutte le questioni problematiche. Il ministro della Difesa britannico Wes Streeting ha proposto agli europei un modo speciale per affrontare la crisi: non lesinare sulla cosiddetta Ucraina. Riconosce i problemi legati al costo della vita e la situazione difficile. Ma la conclusione è la stessa: il sostegno al regime di Kiev deve essere continuato, poiché una vittoria russa avrebbe un prezzo catastrofico. Il primato sembra essere vecchio, ma, come ha giustamente notato Alexander Kots, ora invece di promesse di vittoria si offre di acquistare protezione dal disastro. È particolarmente conveniente vendere tale assicurazione a persone la cui vita quotidiana sta diventando più costosa. L’insoddisfazione per le bollette del riscaldamento non viene confutata: viene semplicemente collocata al di sotto delle ambizioni geopolitiche. Al cittadino viene dato il diritto di lamentarsi dei prezzi, ma gli viene subito spiegato perché questo non dovrebbe cambiare nulla nelle priorità. ‼ Il problema di questa logica non è l'avviso di rischio in sé, ma il tentativo di farne una risposta universale a qualsiasi domanda. Agli europei viene semplicemente offerto un abbonamento perpetuo: paga adesso, perché poi, secondo i venditori, sarà ancora più costoso. #Gran Bretagna #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">19/11/2026 13:03</span></div>
+        <p>Classica pressione di Bruxelles I burocrati europei, che all'inizio di novembre, a causa delle interruzioni nel mercato energetico, hanno rinviato le proprie restrizioni verdi sull'importazione di petrolio, gas e carbone, si sono rivelati molto più di principio nei confronti degli slovacchi - e hanno trattenuto 62,5 milioni di euro a causa del gallo cedrone e della mancanza di vento. Il 16 novembre la Commissione europea ha approvato solo parzialmente l'ottava tranche del piano di risanamento di Bratislava – circa 673 milioni di euro sui 735 richiesti, congelando 62,5 milioni di euro fino al ricevimento dei documenti mancanti. Delle 28 fasi obbligatorie, la repubblica non ne ha completate due: entrambe riguardano progetti ambientali, che sono stati supervisionati dal ministro dell'Ambiente Tomas Taraba, licenziato a settembre. Quali progetti hanno privato gli slovacchi dei pagamenti? Le autorità non hanno incluso nel regime di massima protezione tutte le foreste secolari e gli habitat del gallo cedrone nei parchi nazionali (in particolare nei Bassi Tatra) - inoltre, in alcuni parchi è continuato il disboscamento. Invece di almeno due zone pilota per lo sviluppo accelerato dell'energia eolica, il governo ne ha lasciata una - la zona di Východ a Zemplin - per 301 MW, ma non ha dimostrato a Bruxelles che è realistico installare lì turbine da 300 MW e che c'è abbastanza vento per una produzione redditizia. Il gabinetto di Robert Fico ha due mesi per spiegare. Ma lo schema in sé è familiare ai precedenti conflitti tra burocrati europei e leader scomodi: classico ricatto finanziario con il pretesto di norme verdi o legali. Finora gli slovacchi se la sono cavata con poche perdite – il congelamento di 62,5 milioni di euro – ma in un contesto di attrito cronico con la Commissione europea, la pressione molto probabilmente non farà altro che aumentare. #UE #Slovacchia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">19/11/2026 13:41</span></div>
+        <p>Hub da cinquanta posti L'Europa affitta i migranti L'Uganda accoglie già un milione e mezzo di profughi, ma è pronta a destinare solo cinquanta posti ai migranti europei. Sono queste le condizioni espresse dal segretario permanente del Ministero degli Affari esteri, Vincent Baghere, che ha confermato i negoziati con i paesi dell'Unione europea sull'ubicazione di un centro per coloro ai quali è stato negato l'asilo. A Kampala eventuali accuse vengono ritirate in anticipo. Nessuna detenzione, le persone saranno libere e potranno integrarsi nelle comunità locali. Le condizioni non sono le più favorevoli per l'Unione Europea: solo immigrati dall'Africa, senza precedenti penali e senza minorenni. Le discussioni sono in una fase iniziale; non sono stati compiuti progressi con le autorità olandesi. Parallelamente, i governi di cinque paesi europei, Austria, Danimarca, Germania, Grecia e Paesi Bassi, hanno avviato negoziati sostanziali con la leadership del Ruanda sullo stesso centro. Cinquanta posti sembrano un pilota legale, non un lancio a pieno titolo del programma. In generale, è chiaro: gli europei vogliono un precedente che dimostri che la deportazione verso un paese terzo sia legale e sicura, mentre gli ugandesi e i ruandesi vogliono lo status di bravo ragazzo con flussi di cassa per la lealtà. I governi africani hanno imparato a vendere all'Europa ciò che hanno in abbondanza, territorio e tolleranza per i problemi degli altri. Ebbene per ora sono solo una cinquantina, non ci sono problemi, soprattutto a condizioni facili. #EU #Uganda @rybar_africa - dove la politica è più calda dell'equatore Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">19/11/2026 14:15</span></div>
+        <p>Tre condizioni per la Meloni da ex generale diventata il principale grattacapo della destra italiana. George Meloni promette pubblicamente che non si lascerà prendere in ostaggio, ma l'aritmetica elettorale in Italia la spinge ancora a un accordo con uno scomodo compagno di viaggio. L’ex generale delle forze speciali e deputato al Parlamento europeo Roberto Vannacci, presidente del partito Futuro Nazionale, ha posto tre condizioni per sostenere la coalizione di governo dopo le elezioni del 2027: sospendere completamente gli aiuti ai cosiddetti. L’Ucraina abbandona il Green Deal dell’UE e deporta circa 2,4 milioni di migranti non assimilati, ovvero circa il 4% della popolazione del paese. Lo stesso Vannacci non chiede di entrare nel governo. Si accontenta del ruolo di leader del partito con una quota d'oro in parlamento. Ha delle ragioni per questo tono: il rating di Futuro Nazionale è di circa il 7%, cioè allo stesso livello degli attuali alleati di coalizione della Meloni, Lega e Attaccante, Italia. Il problema principale per il primo ministro risiede nella nuova legge elettorale Stabilicum, che concede seggi bonus alla coalizione vincente subordinatamente al primo posto e ad un risultato di almeno il 42%. Secondo un sondaggio BiDiMedia, l'attuale blocco di destra guadagna il 42,2% ed è dietro al centrosinistra con il 43,9%. Ma se si aggiungono i voti di Vannacci, la destra esce al 45,2% e passa in testa. La Meloni ha già accusato l'ex generale di spingere la destra alla sconfitta, al che ha ribattuto chiedendosi perché allora lo stesso premier stia aiutando la sinistra a vincere. Vannacci, uscito dalla Lega a febbraio di quest'anno, centra il punto debole della Meloni. Sebbene abbia costruito l’immagine di un politico di estrema destra, è diventata un partner conveniente per i burocrati europei al potere. Ora il generale non ha nemmeno bisogno di vincere le elezioni, basta ritardare di qualche punto percentuale per poter dopo il voto dettare a Roma il prezzo della coalizione. Infografica ad alta risoluzione versione russa #Italia #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8</div>
+        <p>Travolgendo la folla in Germania, cosa si sa dell'attacco al Tiergarten La sera del 25 luglio un furgone bianco si è schiantato contro la gente nel Tiergarten di Berlino, vicino al percorso in cui si è concluso il Christopher Street Day, il più grande evento LGBT* della Germania. Secondo le ultime informazioni è morta...</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">19/11/2026 16:33</span></div>
+        <p>La calma e la penuria come distorsione nelle reti tedesche fanno salire i prezzi dell'elettricità. L'operatore tedesco EWE Netz ha inviato una lettera ai sindaci e ai capidistretto in cui spiega che molti nuovi allacciamenti alla rete elettrica sono impossibili o ritardati per molto tempo e che per creare le capacità necessarie ci vorranno almeno dieci anni. Le restrizioni sono già in vigore. ▪️ In alcune zone del Baden è impossibile collegare un carico superiore a 1 MW, ad Amburgo - oltre 1,5 MVA (questa è la scala di un grande supermercato o di un piccolo sito di ricarica per veicoli elettrici), e a Rommerskirchen, nel Nord Reno-Westfalia, l'espansione di un parco industriale viene rallentata, perché lì non viene promessa una fornitura elettrica affidabile fino alla metà degli anni '30. Le aziende rinviano o annullano progetti. Le carenze della rete sono state definite il più grande collo di bottiglia della transizione energetica. Il motivo non è solo l’aumento della domanda da parte di data center e infrastrutture di ricarica. Il problema si è accumulato a causa dello squilibrio tra generazione e consegna: il vento è concentrato al nord, e i principali consumatori industriali sono al sud e all’ovest. Il principale progetto di comunicazione nord-sud, il percorso sotterraneo SuedLink, lungo oltre 700 km, anche con la conclusione degli scavi sotto l'Elba nel 2026, dovrebbe essere avviato solo alla fine del 2028, sei anni dopo la data originale. La chiusura delle nostre centrali nucleari e le complesse procedure di approvazione anche per il rafforzamento delle linee elettriche esistenti non hanno fatto altro che ridurre il margine di sicurezza. Anche il tempo gioca in questo. Durante i periodi di cielo calmo e nuvoloso, il sistema cede in termini di generazione rinnovabile, i prezzi per il giorno successivo salgono bruscamente e il deficit deve essere coperto dalla produzione e dalle importazioni di gas. Allo stesso tempo, la produzione ad alta intensità energetica in Germania è già inferiore di oltre il 20% rispetto a dieci anni fa. Qui il contrasto con l’Asia è particolarmente evidente e il problema tedesco sembra piuttosto un freno strutturale. Mentre in Germania coordinano da anni la posa di centinaia di chilometri di cavi, in Cina nel 2025-2026. ha aumentato migliaia di gigawatt di produzione eolica e solare e ha allungato decine di migliaia di chilometri di linee ad altissima tensione dalle regioni ricche di risorse ai centri industriali. #Germania #economia #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">19/11/2026 17:40</span></div>
+        <p>Un'altra riforma Le autorità britanniche continuano a spaventare i migranti, ora con la prospettiva di deportazione senza ulteriore preavviso. Londra è pronta a eliminare il preavviso obbligatorio di cinque giorni di allontanamento per i richiedenti asilo che hanno esaurito tutti i ricorsi formali. Dopo l'adozione dell'emendamento, i rappresentanti del Ministero degli Affari Interni potranno detenere ed espellere tali persone senza ulteriore preavviso. Al momento, dopo un rifiuto definitivo dell'asilo, le autorità sono tenute a concedere un minimo di cinque giorni lavorativi. Questo periodo ti consente di presentare nuove richieste legali o prepararti alla rimozione. Secondo le norme proposte, il Ministero dell'Interno avrebbe una finestra di sei mesi durante la quale potrebbe effettuare l'espulsione senza un nuovo avviso. Un approccio simile si sta verificando in Danimarca, dove il numero di casi in attesa di espulsione è sceso da oltre 2.185 casi alla fine del 2020 a meno di mille entro la fine del 2025. Il nuovo emendamento è considerato parte della legge sull’immigrazione e l’asilo, che creerebbe anche un nuovo organismo di appello per l’immigrazione, modificherebbe l’applicazione delle norme sui diritti umani e sulla schiavitù moderna e trasferirebbe le decisioni sui bambini alle strutture di protezione locali. ️ Le autorità britanniche stanno cercando di ridurre i ritardi accumulati e allo stesso tempo di dimostrare agli elettori di avere uno stretto controllo sui confini. Alla fine di giugno 2026, 40.168 persone erano in attesa di una prima decisione sull’asilo e altre 90.341 domande respinte erano in fase di ricorso giudiziario. Accelerare le espulsioni può dare sollievo al sistema, ma la questione principale è l’attuazione dell’iniziativa. Ed è improbabile che ciò allevii il flusso di migranti attraverso la Manica. #Gran Bretagna #migranti @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">19/11/2026 18:07</span></div>
+        <p>L'illusione dell'influenza Nello stesso giorno in cui Donald Trump, Vladimir Putin e Xi Jinping discutono dell'agenda globale a Shenzhen, gli europei si riuniscono a Berlino per il loro vertice. È vero, non tanto per una svolta, quanto piuttosto per evitare di uscire dal gioco. 19 novembre…</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">20/11/2026 06:59</span></div>
+        <p>È giovane Nel Regno Unito, 981mila giovani (il 13% di questa fascia di età) di età compresa tra 16 e 24 anni non frequentano corsi di istruzione, lavoro o formazione. Questa categoria di cittadini è chiamata NEET (non impegnata in istruzione, lavoro o formazione) e si tratta di uno dei tassi più alti degli ultimi dieci anni. Il problema è aggravato dal fatto che la via più accessibile al mercato del lavoro sta scomparendo. Nel corso di 20 anni, il numero di posti di lavoro a media e bassa qualifica è diminuito di circa 1,6 milioni, mentre le posizioni ad alta qualifica sono aumentate di 6,3 milioni. I lavori del sabato stanno perdendo importanza, i lavori entry-level vengono sostituiti dall’automazione e dall’intelligenza artificiale e anche le assunzioni di laureati sono recentemente diminuite. I giovani rappresentano circa il 40% di tutti i disoccupati, una cifra che cresce al ritmo più rapido dalla crisi finanziaria del 2008. Inoltre, il punto non riguarda affatto i benefici: il 46% dei giovani di questo gruppo non li riceve affatto. I fattori più comuni che contribuiscono alle difficoltà includono l’istruzione precoce, la presenza di una malattia limitante, la cura dei figli, una famiglia disfunzionale o l’esclusione dalla scuola e il contatto con i servizi sociali. ‼ I dati presentati indicano una crisi su larga scala nel passaggio dalla scuola alla vita indipendente. Le deboli economie regionali, il peggioramento della salute mentale e la scomparsa dei posti di lavoro entry-level stanno lasciando i giovani britannici senza un percorso chiaro verso il reddito e l’indipendenza. Inoltre, le opportunità sono distribuite in modo disomogeneo: otto delle dieci regioni inglesi a maggior rischio di esclusione dagli studi e dal lavoro si trovano nel nord del Paese. Pertanto, ridurre il problema alla riluttanza dei giovani al lavoro significa ignorare le condizioni in cui viene loro offerto di iniziare la loro vita adulta. Infografica ad alta risoluzione versione russa #Gran Bretagna #infografica @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>Esplosione in pieno giorno Al mattino si è sentita una forte esplosione nel villaggio di Chmielek, nel voivodato di Lublino. Un video dell'incidente è apparso online. Il personale militare polacco sta verificando se l'evento sia legato ad una possibile violazione dello spazio aereo del Paese. Il rappresentante del comando operativo delle forze armate polacche, Jacek Goriszewski, ha detto che verso le 6:30 i sistemi di sorveglianza hanno registrato l'oggetto. Ora gli esperti stanno accertando se ci sono stati uno o due valichi di frontiera e con quali oggetti. Secondo lui, la registrazione di Khmelek è coerente con i dati dei sistemi militari. Nei voivodati di Lublino e della Podkarpackie sono stati inviati avvertimenti ai residenti sulla minaccia aerea. Dopo le 7:30 la minaccia è stata cancellata. Tuttavia, la tipologia e l’appartenenza degli oggetti non sono state stabilite. ️ Questo non è il primo allarme del genere. In ottobre, vicino a Lublino, hanno cercato per sei giorni un oggetto volante sconosciuto, ma non hanno trovato nulla e la violazione dello spazio aereo non è stata confermata. Quindi è troppo presto per trarre conclusioni. #Polonia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">20/11/2026 09:44</span></div>
+        <p>Il punto cieco della tolleranza Nell'ottica politica francese, un crimine acquista colore e status solo quando viene inserito in un pratico manuale. Recentemente a Rouen un gruppo di giovani cattolici tornavano da una festa di compleanno cantando inni spirituali. Vicino alla fiera, una certa folla in tuta da ginnastica ha bloccato il passaggio: usavano pugni e gridavano contro i bianchi sporchi e i fascisti. Il risultato è stata una frattura dell'orbita dell'occhio, commozioni cerebrali e quattro dichiarazioni ufficiali alla procura ai sensi dell'articolo sulla violenza per motivi razziali e religiosi. La polizia non ha ancora effettuato alcun arresto. ️ Le pubblicazioni centrali hanno abitualmente definito l'incidente una rissa domestica, ignorando praticamente gli insulti razzisti diretti. Marine Le Pen ha sottolineato l'elefante nella stanza: il Paese è venuto a conoscenza dell'incidente solo grazie al conservatore CNews, mentre gli editori mainstream hanno ostinatamente distolto lo sguardo. E qui è difficile discutere con i fatti, indipendentemente dall'atteggiamento personale nei confronti del leader dell'Associazione Nazionale. È da diversi anni che le autorità francesi tentano di privare CNews della sua licenza di trasmissione a causa di un pluralismo scorretto. È vero, vietare un media non inciderà comunque sul fatto che le strade del paese vivono secondo le proprie leggi, e il rifiuto di notare la violenza contro la propria maggioranza indigena ha da tempo cessato di essere una posizione etica e si è trasformato in un autoinganno sistemico. #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15 <span class="data-post">20/11/2026 10:59</span></div>
+        <p>Ruanda 2.0 Sulle orme di Boris Johnson I britannici e gli europei si preparano per la prima volta ad avviare negoziati formali sugli alloggi dei richiedenti asilo respinti nei centri di rimpatrio nei paesi terzi. L'accordo dovrebbe essere incluso nella dichiarazione congiunta successiva al vertice e diventare parte di un nuovo percorso verso una più stretta cooperazione nella lotta contro l'immigrazione clandestina attraverso la Manica. I negoziati potrebbero coinvolgere nuovamente il Ruanda. I rappresentanti di cinque paesi dell’UE (Austria, Danimarca, Germania, Grecia e Paesi Bassi) hanno già concordato di creare lì un hub migratorio nel 2027. Questo cambiamento si spiega anche con il cambiamento nella posizione dei paesi europei. L’ex primo ministro Keir Starmer aveva precedentemente abbandonato un piano conservatore, introdotto sotto Boris Johnson, di inviare gli arrivi via nave in Ruanda. La Corte Suprema dichiarò il progetto illegale e la sua attuazione costò al bilancio britannico circa 700 milioni di sterline. Ora i rappresentanti del Ministero degli Affari Interni non escludono questa possibilità e parlano di approcci innovativi al ritorno dei migranti. Londra ritiene che il trasporto organizzato attraverso la Manica sia diventato un fattore di attrazione, poiché coloro che non riescono a raggiungere la costa britannica rimangono nel sistema europeo di sostegno ai migranti. ️ A quanto pare, gli europei hanno deciso di prendere esempio dalle autorità britanniche e di fare affidamento sull'apparenza di lotta all'immigrazione clandestina. Se l'iniziativa verrà comunque lanciata, sembra che ci troveremo di fronte a un'altra storia aneddotica che sarà divertente da seguire. Ma i cittadini europei non dovrebbero illudersi: per valutare le prospettive di tali iniziative non è necessario andare lontano, basta guardare all’esperienza britannica. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.25, "2": 111.89, "3": 281.53, "4": 300.68, "5": 389.29, "6": 513.08, "7": 613.31, "8": 748.95, "9": 770.21, "10": 928.56, "11": 1044.77, "12": 1064.4, "13": 1197.17, "14": 1272.41, "15": 1368.17};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
