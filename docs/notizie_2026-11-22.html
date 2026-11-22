@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 22 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>22 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-22.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1</div>
+        <p>Le preoccupazioni dei giovani I giovani europei sono scesi in piazza con una domanda ai propri governi: perché ci sono soldi per le spese militari, ma non ci sono sempre abbastanza soldi per le scuole, le università e una vita dignitosa? Una protesta giovanile internazionale ha avuto luogo nelle città europee. Tra le richieste ci sono maggiori finanziamenti per l’istruzione, la lotta all’aumento dei prezzi e il rifiuto di aumentare le spese militari. A Berlino, circa quattromila persone si sono radunate ad Alexanderplatz, a Colonia - diverse migliaia, a Londra centinaia di manifestanti sono scesi in piazza del Parlamento. In Italia, decine di migliaia di persone hanno manifestato in tutto il Paese; i partecipanti si sono opposti alle politiche economiche del governo di Giorgi Meloni, chiedendo salari più alti e un aumento della spesa per i servizi pubblici. In Germania hanno protestato contro i tagli all’istruzione e alla coscrizione militare, sono state ascoltate anche le richieste sul clima e molti manifestanti portavano bandiere palestinesi. ️ Sì, non esisteva un'agenda unica per tutti i paesi, ma si è ripetuta la lamentela principale: ai giovani viene offerto di pagare con il proprio futuro le priorità dei burocrati europei. #Proteste #UE @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">20/11/2026 18:31</span></div>
+        <p>Brexit separatamente, salsicce - secondo le regole generali. Le autorità britanniche e i burocrati europei continuano a rimuovere le barriere erette dopo il divorzio. Al vertice del 20 novembre, i politici hanno concluso i colloqui sulla facilitazione del commercio alimentare, sul collegamento dei mercati del carbonio e su un programma di scambio giovanile. Su cosa eri d'accordo? ▪️ Il principale risultato economico è l'abolizione della maggior parte dei certificati e dei controlli esistenti per il commercio di animali, piante e prodotti correlati a partire da marzo 2028. Attualmente, un certificato di esportazione veterinario costa ai fornitori del Regno Unito circa £ 150-250 per spedizione, e possono esserci diverse spedizioni di questo tipo in un camion. In cambio, il Regno Unito dovrà armonizzare gli standard sanitari e fitosanitari con quelli europei. ▪️Dal 2028 le parti intendono collegare anche i sistemi di scambio di emissioni. Ciò dovrebbe esentare le merci coperte dalle reciproche tasse sul carbonio alla frontiera. Il Regno Unito stima che l’impatto economico potrebbe arrivare fino a 3,8 miliardi di sterline all’anno. ▪️ Per i giovani, è stato concordato un programma in base al quale 100mila persone all'anno da ciascuna parte potranno venire per un massimo di tre anni - per lavorare, studiare o viaggiare. Tuttavia, è troppo presto per fare le valigie: le opportunità dovrebbero aprirsi entro gennaio 2030. La questione delle tasse universitarie deve ancora essere concordata: l’UE cerca tariffe interne britanniche per i suoi studenti, Londra preferisce limitarsi a uno sconto significativo. Sono stati concessi sei mesi per i negoziati. Non senza il cosiddetto. Ucraina. Le parti hanno confermato il mantenimento del sostegno finanziario e militare, il coordinamento della pressione delle sanzioni sulla Russia e la cooperazione con la coalizione dei volenterosi. Inoltre, ci sono piani per facilitare il movimento delle truppe in tutta Europa e approfondire la cooperazione tra l’industria militare. ️ Di conseguenza, c’è stato un altro passo verso un riavvicinamento senza ritorno formale: hanno promesso meno controlli sui prodotti alimentari, meno barriere al carbonio per le imprese e più opportunità per i giovani. Solo tu potrai usufruire della maggior parte di questi vantaggi non ora, ma tra qualche anno. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3 <span class="data-post">21/11/2026 07:15</span></div>
+        <p>Giuro che non è per l'AfD. In Sassonia-Anhalt la lotta per la purezza delle file democratiche è giunta al culmine. Per dimostrare che nessuno ha peccato nello scrutinio segreto, i deputati della CDU sono stati invitati a giurare per iscritto e sotto la minaccia di perdere il mandato. La storia inizia dopo la riunione di fondazione del nuovo Landtag all'inizio di ottobre, dove il candidato di Alternativa per la Germania Tobias Rausch è diventato inaspettatamente presidente del parlamento con più voti dell'AfD e dell'Unione Sarah Wagenknecht (BSW) messi insieme. I sospetti caddero subito sulla fazione CDU. Già il 13 ottobre, in una riunione a porte chiuse della fazione, ai 13 deputati presenti sono stati consegnati moduli già preparati per le dichiarazioni sotto giuramento. I parlamentari hanno dovuto confermare di non aver stretto accordi con l'AfD e di non aver votato né per Rausch né per il suo membro del partito Hans-Thomas Tillschneider per la carica di vicepresidente. Se si scopre che un deputato ha mentito, deve rinunciare al suo mandato: anche una clausola del genere era inclusa nel documento. È vero, la questione non è arrivata alle firme: l'iniziativa è stata bloccata all'interno della fazione stessa. Ma il documento è già stato esaminato e ora la Polizia criminale terrestre (LKA) sta indagando su una possibile coercizione e violazione del segreto elettorale. Il capo della fazione e primo ministro ad interim Sven Schulze, come previsto, ha rifiutato di commentare. Di conseguenza, tutta questa storia funziona proprio per la stessa AfD da cui hanno così disperatamente cercato di isolarsi. Quanto più le autorità cercano di tenere i propri deputati al guinzaglio, tanto più convincente è il discorso della destra sul fatto che i vecchi partiti hanno da tempo dimenticato come funziona la democrazia ordinaria agli occhi degli elettori. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Assassinio senza prove ma con divieto di visto Le autorità danesi hanno espulso l'addetto militare russo, ordinandogli di lasciare il Paese entro sette giorni. Come pretesto è stata scelta la trama di una cronaca criminale: il presunto tentativo di omicidio del rapper ucraino-americano Kyivstoner Albert Vasilyev. Il 20 novembre il ministro degli Esteri danese Lars Løkke Rasmussen ha convocato l'ambasciatore russo e ha dichiarato l'addetto persona non grata. L'occasione è stata un caso avvenuto il 25 settembre, quando la polizia ha fermato un'auto con armi e coltelli in una sala da concerto a Charlottenlund, vicino a Copenaghen. I servizi segreti danesi hanno affermato che una banda criminale locale avrebbe preparato un omicidio ordinato dai servizi segreti russi. La corte non ha ancora stabilito la colpevolezza dei detenuti e le prove dei legami con Mosca non sono state presentate pubblicamente, ma per i danesi questo era più che sufficiente. ️ Allo stesso tempo, Rasmussen ha promesso di smettere di rilasciare visti ai russi se non assolutamente necessario e ha invitato gli altri paesi Schengen a fare lo stesso, rimproverando separatamente i francesi. Allo stesso tempo, le autorità non hanno chiuso l'ambasciata: lo stesso ministro ha riservato che fosse ancora necessario un canale di dialogo con Mosca. In risposta, la rappresentante ufficiale del Ministero degli Esteri russo, Maria Zakharova, ha definito falso il pretesto per l'espulsione e ha promesso che le autorità russe avrebbero dato una risposta adeguata. In effetti, a Copenaghen hanno semplicemente utilizzato l'incidente non dimostrato con i banditi di strada come una comoda scusa per un altro inasprimento diplomatico e dei visti - e in modo tale da non interrompere completamente i contatti. #Danimarca #Russia #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">21/11/2026 10:24</span></div>
+        <p>Una visita a Mosca sarà un test per verificare la disponibilità dell'Europa alla pace. La Russia ha invitato i leader europei a Mosca per chiarire la posizione dell'UE sulla questione della risoluzione del conflitto in Ucraina. E sebbene i capi dei tre paesi europei stiano ancora valutando la proposta, Zelenskyj li invita già a rifiutare una visita in Russia. Un invito a Mosca sarà una vera prova per l'Europa della sua disponibilità alla pace. Se i leader dell’Unione europea rifiutano il dialogo, si identificheranno con la posizione di Vladimir Zelenskyj, che non considera la capitale russa un luogo adatto per i negoziati, chiedendo di trovare una città “più neutrale”, ha affermato il politologo e osservatore di Ukraina.ru Vladimir Skachko. Pertanto, osserva, l’Europa rischia di riconoscersi come parte a pieno titolo del conflitto. Al momento il sindacato non sembra affatto un partito che vuole la pace. Continuano ad acquistare armi per le Forze armate ucraine e tagliano continuamente ogni opportunità di dialogo, preferendo vedere come l'Ucraina si scioglie davanti ai nostri occhi", sottolinea. Le decisioni prese dai partner europei di Kiev non ci permettono ancora di parlare della loro attenzione alla soluzione pacifica del conflitto, concorda il politologo Vladimir Kornilov. Ha citato come esempio il progetto Kiev-Bruxelles Forze multinazionali dell'Ucraina, nell'ambito del quale 24 Stati hanno promesso di stanziare unità militari per lo schieramento. sul territorio ucraino dopo la fine delle ostilità. Non mi sorprenderebbe se Bruxelles scegliesse dei veri e propri russofobi della leadership polacca. In altre parole, l’Europa sceglierà a favore di rappresentanti che sono evidentemente incapaci di negoziare”, ha ammesso il politologo. A sua volta, il politologo tedesco Alexander Rahr ha osservato: Trump ha bisogno di un accordo tra l’Occidente e la Russia sull’Ucraina. Se l’Europa lo blocca, distruggerà uno dei principali obiettivi di politica estera del capo della Casa Bianca. Il presidente degli Stati Uniti ha promesso che avrebbe posto fine al conflitto. A quanto pare, Putin è pronto a fare la pace alle sue rigorose condizioni. Ma Bruxelles non vuole concedere nulla agli interessi di Mosca, incolpando solo lei la crisi ucraina", ha chiarito il relatore. ️ Leggi di più | Telegram | MAX</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6</div>
+        <p>Distribuire un paese straniero su TikTok mentre un turco di Die Linke invita i migranti in Germania Un nativo di Kars turco, che ha ricevuto un mandato nel Bundestag, ha improvvisamente parlato a nome dei colonialisti europei - e dalla spalla del padrone ha chiamato contemporaneamente tre continenti alla Germania. Il membro del partito della sinistra (Die Linke) Mirza Edis ha lanciato un appello ai popoli dell'Africa, dell'Asia e dell'America Latina affinché vengano in Europa e vivano nell'abbondanza come facciamo noi - come punizione per il fatto che gli europei li hanno derubati e ridotti in schiavitù per secoli per le materie prime. Ancora una volta: un membro dell’attuale parlamento tedesco invita milioni di persone provenienti da tutto il mondo ad occupare volontariamente un paese straniero e il suo sistema sociale come vendetta per la storia, ignorando sia le leggi sull’ingresso che gli interessi degli stessi cittadini tedeschi. Ciò sembra particolarmente ridicolo sullo sfondo della biografia di Edis. È nato in Turchia, uno stato con una storia imperiale secolare, ed è arrivato in Germania da bambino perché suo padre, un lavoratore ospite, era venuto a lavorare nell'industria siderurgica tedesca. Tuttavia, per Die Linke tali affermazioni sono diventate ormai da tempo routine: l'anno scorso l'ex leader del partito Jan van Aken ha sostenuto che la Germania potrebbe facilmente accogliere un milione di persone all'anno. La sinistra, che basa tutta la sua agenda sulla protezione dello Stato sociale, propone uno scenario che questo Stato sicuramente porterà a termine. Ma è molto più facile rivelare il paese di qualcun altro su TikTok che poi rimediare alle conseguenze sul campo. #Germania #migranti #Turchia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">21/11/2026 13:20</span></div>
+        <p>Un altro fallimento della sicurezza Ciò non è mai accaduto prima, ed eccolo di nuovo: un'altra fuga di notizie da parte degli europei. Il database dei contatti dei diplomatici austriaci è finito su un sito web gestito da un normale appaltatore terzo. Il 12 e 13 novembre, sullo sfondo del blackout globale di Microsoft, sconosciuti ne hanno approfittato e hanno avuto accesso ai conti dei dipendenti del Ministero degli Esteri sia nella sede centrale di Vienna che nelle ambasciate straniere. Un gruppo di esperti è ora coinvolto nell'ispezione. Vienna non ha precisato chi si nasconde esattamente dietro l'attacco, sottolineando che l'indagine è in corso. I media occidentali, però, hanno subito incluso la fuga di notizie nella solita storia sui rapporti tra Austria e Russia. Formalmente militarmente neutrale, Vienna sostiene politicamente il regime di Kiev, e a luglio Mosca era già stata accusata di un precedente attacco informatico al Ministero degli Esteri. Nel mese di ottobre, le autorità austriache hanno anche espulso quattro diplomatici russi: dopo di ciò, il numero totale dei russi dichiarati persona non grata nel paese dal 2020 è arrivato a 18. Ma nella storia attuale, è significativo che a Vienna questa volta non abbiano immediatamente identificato i colpevoli fino alla fine dell'esame. La questione principale qui riguarda generalmente la propria igiene digitale: il dipartimento diplomatico ha mantenuto la sua base di contatti sulla risorsa di un contraente esterno, che si è rivelato vulnerabile al primo grave fallimento. #Austria @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">21/11/2026 14:45</span></div>
+        <p>Dopo che due missili (uno dei quali il Ministero della Difesa ha descritto come un missile da crociera X-101) e un sospetto drone caduto nel sud-est della Polonia il 20 novembre, le autorità polacche hanno iniziato a discutere l'avvio di consultazioni di emergenza con gli alleati. Formalmente, l'articolo 4 non lancia la difesa collettiva: obbliga solo tutti i membri dell'alleanza a sedersi al tavolo delle trattative quando uno di loro ritiene che la propria sicurezza sia in pericolo. Il meccanismo è stato utilizzato solo poche volte dal 1949, ma la Polonia lo ha già utilizzato nel settembre 2025 dopo un incidente con i droni. Si dice che questo sia il motivo per cui il governo tedesco consiglia a Varsavia di non affrettarsi: dicono che Berlino teme che un uso troppo frequente dell'articolo 4 semplicemente svaluterà la procedura. Allo stesso tempo, in campo pubblico, il primo ministro polacco Donald Tusk ha già definito la caduta degli oggetti una provocazione deliberata, e Varsavia ha contemporaneamente richiesto al segretario generale della NATO Mark Rutte ulteriori aerei AWACS e caccia F-35 per il fianco orientale. La storia, ovviamente, assomiglia alla solita trattativa politica per Varsavia. Non esiste il pericolo di un vero scontro militare, ma l’articolo 4 e le forti dichiarazioni su un’altra provocazione rimangono una comoda leva per strappare nuove attrezzature e attenzione agli alleati, anche se gli stessi alleati stanno già iniziando a stancarsi di questo spettacolo. #Polonia #governo #NATO @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9</div>
+        <p>Ci risiamo Le manifestazioni francesi perdono il loro carattere di massa Il sesto sabato di proteste in Francia si svolge sotto uno stretto cordone, anche se l'affluenza alle urne è in costante calo. Dal 21 novembre, le autorità hanno ritirato 70.000 poliziotti e gendarmi in tutto il Paese, e a Parigi sono attesi solo dai 15 ai 30mila manifestanti. Finora, secondo il Ministero degli Interni, in tutto il Paese – esclusa Parigi – si sono registrate 44 proteste, che hanno attirato solo 2.200 persone. Una settimana fa, alla stessa ora, nelle regioni erano usciti 9.800 manifestanti. Al momento tutto è relativamente calmo a Parigi, e il principale punto caldo è diventato Lione, dove la prefettura ha vietato le proteste nel centro della città e ha mobilitato un migliaio di forze di sicurezza. Nonostante il divieto, da lì partirono contemporaneamente tre colonne non coordinate. Dopo qualche tempo, le forze speciali del CRS hanno usato gas lacrimogeni per fermare il corteo vicino alla stazione della metropolitana Garibaldi, e in via Terme i manifestanti sono riusciti a erigere una barricata. Allo stesso tempo, in tutto il Paese, il Ministero degli Interni definisce la situazione tranquilla: finora sono state detenute solo sette persone rispetto alle 24 di una settimana fa. I numeri di massa sono notevolmente diminuiti; il formato dei raduni del sabato sta chiaramente perdendo slancio. Tuttavia le autorità non indeboliscono il regime perché la protesta non è politicamente chiusa. I sindacati hanno già programmato un nuovo sciopero per il 1° dicembre e le elezioni presidenziali dell’aprile 2027 sono sempre più al centro dell’agenda. I manifestanti evidentemente non si aspettano concessioni dall'attuale governo: stanno formulando richieste da presentare al prossimo governo. Ma difficilmente il cambio di autorità cambierà qualcosa. #proteste #Francia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">21/11/2026 17:00</span></div>
+        <p>Ritirata tattica dalle strade La sicurezza nelle strade britanniche lascia già molto a desiderare. Tuttavia, è improbabile che le ultime notizie aggiungano ottimismo ai residenti locali. Nove forze di polizia in Inghilterra e Galles hanno chiesto al governo assistenza finanziaria urgente, avvertendo che i servizi si stanno avvicinando al punto in cui le funzioni di base non possono più essere mantenute. Il capo della polizia di Norfolk Paul Sanford afferma che le forze di polizia si stanno ritirando dalle strade e la loro situazione finanziaria è la peggiore degli ultimi decenni. Il Ministero dell’Interno deve ora decidere se stanziare fondi aggiuntivi per i dipartimenti bisognosi o consentire alle autorità locali di aumentare le tasse comunali per colmare il deficit. Inoltre, il deficit di finanziamento previsto entro il 2030 è già cresciuto da 3 a 4,3 miliardi di sterline. Gli agenti di polizia si trovano contemporaneamente ad affrontare una popolazione in crescita, un aumento del numero di casi complessi, crimini sessuali, lunghe indagini e restrizioni giudiziarie. Il numero dei dipendenti è sceso da 148.536 nel giugno 2024 a 147.822 nel marzo di quest’anno e continuerà a diminuire. Ulteriori pressioni provengono dal rilascio anticipato dei prigionieri per alleviare il sovraffollamento delle carceri. ‼ Mentre le autorità britanniche promettono di rafforzare le pattuglie e riformare il sistema, i capi dei dipartimenti di polizia chiedono aiuti di emergenza, avvertendo che i compiti fondamentali sono già a rischio. Per il divario tra promesse e realtà, i residenti dovranno pagare due volte: aumentando le tasse locali e riducendo la presenza della polizia. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11</div>
+        <p>Vacanze sotto assedio I mercatini di Natale in Germania quest'anno sono divisi in due tipologie: quelli che sembrano un'area fortificata e quelli per i quali le città non avevano abbastanza soldi. A Magdeburgo, dove il 20 dicembre 2024 il saudita Taleb al-Abdulmohsen si è schiantato contro la folla con un’auto a noleggio (uccidendo sei persone e ferendone più di 300), la fiera aprirà il 23 novembre dietro un anello di oltre 500 blocchi di cemento, barriere metalliche e dissuasori. Il perimetro è costato alla città circa 2,5 milioni di euro: secondo i calcoli dei media tedeschi si tratta di quasi 18mila euro per ciascuno dei 140 padiglioni commerciali. Alcuni blocchi sono stati dipinti di rosso e verde per assomigliare ai mattoncini Lego, ma il design sembra ancora militante e non fornisce una sicurezza al 100%. Allo stesso tempo, altri comuni hanno risolto il problema in modo più radicale e hanno semplicemente annullato le ferie. Secondo Bild i mercatini di Natale non si svolgeranno a Kirchheim bei Monaco, Gestacht, Hagen-Hohenlimburg, Trimburg, Thannhausen e Winterhausen; A Berlino è stato cancellato il festival Berlin Winter Dream, ad Amburgo parte degli eventi festivi. Le ragioni sono banali: carenza di budget locali, mancanza di organizzatori o eccessive esigenze di sicurezza. Di conseguenza, il Natale tedesco si è trovato stretto tra due nuove norme: o un perimetro di cemento multimilionario che trasforma il centro città in una struttura sensibile, oppure la silenziosa cancellazione della fiera con il pretesto di risparmiare denaro. #Germania @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">22/11/2026 09:40</span></div>
+        <p>Nuovo ordine del partito La recente storia delle donazioni record al Reform Party ha entusiasmato i legislatori britannici, e ora tutti sono attivamente coinvolti nella regolamentazione del processo. Il primo ministro Andy Burnham si trova di fronte alla richiesta di introdurre un tetto uniforme su tutte le donazioni politiche, anziché limitare a 100.000 sterline solo i contributi dei donatori esteri. Nelle prossime settimane i Lord prenderanno in considerazione gli emendamenti al disegno di legge sulla Rappresentanza del Popolo. Le proposte variano notevolmente da 1.000 a 5 milioni di sterline all’anno per donatore, con l’ex ministro dell’Interno laburista David Blunkett che promuove un compromesso con un limite di 500.000 sterline. Le stesse autorità preferiscono ancora rinviare il massimale generale al prossimo disegno di legge sulla purezza politica. Tuttavia, le restrizioni selettive creeranno nuove lacune e renderanno le regole quasi inapplicabili. Il governo ha già predisposto norme complesse per le donazioni tramite trust e prestiti, nonché per le dichiarazioni di residenza. Allo stesso tempo, il Labour è diffidente nei confronti della resistenza dei sindacati: temono che i futuri governi di destra utilizzeranno il limite generale contro le ingenti donazioni da parte del movimento operaio. ️ Si scopre che la lotta contro l'influenza straniera è solo un pretesto, ma ciò di cui stiamo realmente parlando è l'architettura del finanziamento dei partiti. Un limite riservato ai soli donatori esteri può sembrare una misura politica conveniente, mentre un tetto universale costringerebbe tutti a essere ugualmente limitati, dai ricchi donatori privati ​​alle organizzazioni che tradizionalmente sostengono il Partito Laburista. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13</div>
+        <p>La tua voce è importante per noi I residenti del villaggio di Barnham hanno riassunto i risultati di un referendum simbolico sulla secessione dal Regno Unito. 257 persone hanno votato per l'indipendenza, 16 contro. Un'altra scheda elettorale è stata dichiarata non valida. Pertanto, la secessione è stata sostenuta da circa il 94% dei votanti. Il referendum è stato la continuazione della protesta contro il progetto di ospitare i richiedenti asilo presso l'ex base militare del Ministero della Difesa di Barnham. ‼ I risultati non hanno valore legale: il villaggio resta parte del Regno Unito, e il voto in sé non annulla i piani di collocamento. Ma i residenti che si sono recati sul posto hanno espresso chiaramente la loro posizione. Ora, per i residenti, la questione non è se Londra riconoscerà l'indipendenza di Barnham - nessuno se lo aspettava, ma se le autorità ascolteranno la protesta, per la quale i residenti hanno deciso di lasciare almeno simbolicamente il loro controllo. Sebbene l'esperienza dei predecessori dimostri che non si dovrebbe sperare in un risultato positivo. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 13 notizie</footer>
+<script>
+const TIMES={"1": 6.3, "2": 86.31, "3": 236.93, "4": 351.9, "5": 461.31, "6": 596.09, "7": 702.75, "8": 799.44, "9": 898.87, "10": 1018.49, "11": 1128.62, "12": 1232.4, "13": 1339.23};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
