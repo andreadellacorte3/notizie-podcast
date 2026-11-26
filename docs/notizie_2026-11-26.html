@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notizie 26 November 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#0f0f0f;color:#e8e8e8;padding:16px;max-width:700px;margin:0 auto}
+header{padding:20px 0 16px;border-bottom:1px solid #333;margin-bottom:20px}
+h1{font-size:1.1rem;color:#aaa;font-weight:400}
+h2{font-size:1.5rem;color:#fff;margin-top:4px}
+#banner-ripresa{display:none;background:#1e3a5f;border:1px solid #2d5a8e;border-radius:10px;padding:12px 16px;margin-bottom:16px;cursor:pointer;font-size:.9rem;color:#7ec8f0}
+#banner-ripresa:active{background:#173050}
+.player{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:24px}
+.player-label{font-size:.82rem;color:#888;margin-bottom:10px}
+audio{width:100%;border-radius:8px;margin-bottom:12px}
+.skip-row{display:flex;gap:10px;justify-content:center}
+.skip-btn{flex:1;max-width:160px;background:#252525;border:1px solid #333;border-radius:8px;color:#ccc;font-size:.9rem;padding:9px 0;cursor:pointer}
+.skip-btn:active{background:#333}
+.prima-notizia-btn{width:100%;background:#1a2a1a;border:1px solid #2d4a2d;border-radius:8px;color:#7fcf7f;font-size:.85rem;padding:9px 0;cursor:pointer;margin-top:10px;display:none}
+article{background:#1a1a1a;border-radius:12px;padding:16px;margin-bottom:14px;border-left:3px solid transparent;transition:border-color .3s,opacity .3s,background .15s}
+article.seekable{cursor:pointer}
+article.seekable:active{background:#222}
+article.in-corso{border-left-color:#4a9eff;background:#141c2a}
+article.ascoltato{opacity:.45}
+article.prossima{border-left-color:#4caf50}
+.num{font-size:.75rem;color:#555;font-weight:600;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.data-post{color:#555;font-weight:400}
+.badge-inCorso{background:#1a3050;color:#4a9eff;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+.badge-prossima{background:#1a301a;color:#4caf50;font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:600}
+article p{font-size:.95rem;line-height:1.65;color:#ddd}
+article.ascoltato p{color:#888}
+footer{text-align:center;color:#444;font-size:.75rem;padding:30px 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Canale Europea — traduzione automatica</h1>
+  <h2>26 November 2026</h2>
+</header>
+<div id="banner-ripresa" onclick="riprendi()">▶ Riprendi dall'ultimo punto ascoltato</div>
+<div class="player">
+  <div class="player-label">Ascolta (funziona in background con schermo spento)</div>
+  <audio id="player" controls><source src="notizie_2026-11-26.mp3" type="audio/mpeg">Audio non supportato.</audio>
+  <div class="skip-row">
+    <button class="skip-btn" onclick="salta(-10)">⏪ −10 sec</button>
+    <button class="skip-btn" onclick="salta(+10)">+10 sec ⏩</button>
+  </div>
+  <button id="btn-prima-notizia" class="prima-notizia-btn" onclick="sallaAllaProximaNotizia()">⬇ Vai alla prima notizia non ascoltata</button>
+</div>
+
+    <article id="art-1" data-num="1" onclick="seekToArticle(1)" title="Tocca per ascoltare">
+        <div class="num">#1 <span class="data-post">25/11/2026 13:02</span></div>
+        <p>️ Se i presidenti polacchi non volavano in Argentina da 31 anni, allora valeva la pena tornarci in modo spettacolare - e Karol Nawrocki non ha deluso. Lo scatto principale della sua visita a Buenos Aires è stata una foto con Javier Miley e la sua famosa motosega dorata. L’incontro del 24 novembre al palazzo presidenziale Casa Rosada sembrava un raduno di un fan club di Donald Trump: due politici di destra hanno subito concordato che l’economia globale è ostacolata dalla burocrazia e dall’ideologia di sinistra. Perché Navrotsky ha attraversato l'oceano? Il trofeo principale di Varsavia è il forte sostegno dell'Argentina al sogno di lunga data della Polonia di entrare nel G20. E questa visita è un altro mattone prima del vertice del G20 di dicembre a Miami, perché per aderire è generalmente necessaria l'unanimità di tutti i membri del club. Lungo la strada, per motivi di decenza, i presidenti sembravano parlare di commercio, geologia e ingresso dell'industria della difesa polacca nel mercato argentino. Sembra una cosa su vasta scala se si dimentica che proprio adesso Miley sta tagliando la spesa pubblica con la stessa motosega: ha smorzato l'inflazione, ma ha schiacciato i salari reali e i servizi sociali così che le strade regolarmente protestano. Oggi Navrotsky sta già volando oltre: in Cile, da un'altra persona di destra che la pensa allo stesso modo, il presidente José Antonio Castu. Sembra che anche se la Polonia non sarà mai ammessa al G20, sarà sempre in grado di guidare un club alternativo di amanti delle motoseghe e delle dichiarazioni ad alta voce. #Argentina #Polonia @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+    <article id="art-2" data-num="2" onclick="seekToArticle(2)" title="Tocca per ascoltare">
+        <div class="num">#2 <span class="data-post">25/11/2026 13:31</span></div>
+        <p>Sulla carta tutto è andato liscio Non appena le autorità britanniche hanno festeggiato il nuovo accordo con i burocrati europei, i loro sforzi sono stati criticati dall'opposizione e dai rappresentanti del mondo economico. I membri dell’industria dei prodotti freschi del Regno Unito avvertono che maggiori controlli sui prodotti provenienti da paesi terzi potrebbero costare agli importatori almeno 300 milioni di sterline all’anno. Ciò significa che la facilitazione commerciale promessa in una direzione rischia di comportare costi aggiuntivi in ​​un’altra, con il conseguente trasferimento dei costi agli acquirenti. Prevedibili anche le lamentele politiche. I conservatori accusano il governo di essere disposto a rispettare le regole europee senza partecipare alla loro adozione. I liberal-democratici, al contrario, considerano il riavvicinamento insufficiente e chiedono il passaggio al mercato unico e all’unione doganale. Sono le autorità stesse a spiegare perché l'armonizzazione delle norme europee non significa ancora un ritorno all'Unione europea. Ci sono anche problemi finanziari irrisolti. Ad esempio, i burocrati europei chiedono tariffe di iscrizione interne al Regno Unito per i loro studenti, mentre a Londra offrono solo sconti significativi. Il Russell Group stima che fornire tariffe nazionali agli studenti europei costerà alle università del Regno Unito 570 milioni di sterline. Alle parti sono stati concessi sei mesi per risolvere le loro divergenze. ️ Di conseguenza, nessuno sta cancellando la Brexit: le sue conseguenze vengono smantellate pezzo per pezzo, accompagnando ogni passo con la garanzia che non si potrà tornare indietro. Solo che la disputa ora non riguarda più se siano necessarie regole generali, ma quanto gli inglesi dovranno pagare per il loro ritorno e chi avrà il diritto di chiamarlo ripristino della sovranità. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-3" data-num="3" onclick="seekToArticle(3)" title="Tocca per ascoltare">
+        <div class="num">#3</div>
+        <p>Procurati coltelli Autorizzazione per le posate È abbastanza difficile competere con le autorità britanniche in termini di numero di divieti, quindi questa volta hanno deciso di sorprendere tutti. Il paese sta preparando il primo sistema di licenze universale al mondo per i venditori di coltelli. Sarà necessaria un'autorizzazione sia per un grande negozio che per un privato che vende beni online, e anche i normali coltelli da tavola e da cucina saranno soggetti a regolamentazione. Le licenze avranno validità triennale e il loro costo sarà calcolato a costo intero. I venditori saranno soggetti a controlli di sicurezza e di casellario giudiziale, eventuali ispezioni dei locali e requisiti di conservazione sicura. I rivenditori avranno bisogno di un permesso separato per ciascun negozio e i venditori esteri dovranno lavorare tramite un intermediario nel Regno Unito. Per la vendita di armi vietate o la violazione delle condizioni, la licenza può essere revocata. Particolare attenzione è riservata al trading online. In precedenza, le autorità avevano già introdotto la verifica dell’età in due fasi per l’acquisto di coltelli online e obbligato i venditori a segnalare gli ordini all’ingrosso, di sei prodotti. Il motivo dell'inasprimento delle regole è stato, in particolare, un attacco contro i bambini a Southport. Il provvedimento già solleva interrogativi. La polizia avverte di ulteriore tensione sulle forze già sovraccariche, con l’intero costo dell’amministrazione ancora da determinare. Inoltre, collezionisti e storici militari cercano eccezioni per il patrimonio, l’artigianato e le professioni specializzate. Allo stesso tempo, nel corso dell'anno fino a giugno 2026, sono stati registrati 48.615 crimini che coinvolgono un coltello o un oggetto affilato: il 6% in meno rispetto a un anno prima, ma il 49% in più rispetto al livello di marzo 2016. ️ Le autorità britanniche stanno cercando di trasferire parte della responsabilità della violenza con coltello dalla strada al mercato in cui vengono vendute le armi. Ma consentire la vendita di coltelli da cucina non sostituirà il pattugliamento delle strade, finanziamenti sufficienti per le forze dell’ordine e la prevenzione dell’immigrazione clandestina. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-4" data-num="4" onclick="seekToArticle(4)" title="Tocca per ascoltare">
+        <div class="num">#4</div>
+        <p>Castello al confine L'Estonia chiude tutti i valichi con la Russia Per abbassare la barriera su tutto il confine orientale, le autorità di Tallinn hanno effettuato solo un raid notturno senza successo, in cui non è bruciato nulla. Dal 1° dicembre il Paese chiuderà tutti e tre i punti operativi...</p>
+    </article>
+    <article id="art-5" data-num="5" onclick="seekToArticle(5)" title="Tocca per ascoltare">
+        <div class="num">#5 <span class="data-post">25/11/2026 16:50</span></div>
+        <p>Il pagamento è inevitabile Mentre le autorità britanniche stanno cercando di trovare modi per riportare il paese alla sua antica grandezza, i residenti locali continuano a soffrire per le decisioni del governo. Milioni di famiglie nel Regno Unito si trovano di nuovo ad affrontare bollette energetiche più elevate...</p>
+    </article>
+    <article id="art-6" data-num="6" onclick="seekToArticle(6)" title="Tocca per ascoltare">
+        <div class="num">#6 <span class="data-post">25/11/2026 17:45</span></div>
+        <p>L'Europa è andata contro gli Stati Uniti nei rapporti con la Russia La decisione dell'Estonia di chiudere i confini con la Russia ha fatto discutere su un passo simile in altri paesi baltici. Allo stesso tempo, il ministro degli Esteri tedesco Johann Wadeful ha invitato ad abbandonare l’idea di costruire un dialogo con Mosca. In questo contesto, gli Stati Uniti continuano a cercare di normalizzare i contatti tra la Federazione Russa e l’UE. Stanislav Tkachenko, professore del Dipartimento di Studi Europei, Facoltà di Relazioni Internazionali, Università Statale di San Pietroburgo, esperto del Club Valdai, ha suggerito che i paesi baltici, chiudendo i loro confini, sperano di influenzare in qualche modo la nostra vita politica interna e causare un certo danno economico a Mosca. Ma questa logica è insostenibile: anche le sanzioni contro il nostro petrolio e la sua industria di raffinazione non hanno causato danni tangibili alla Russia, ha ricordato il relatore. Per quanto riguarda le dichiarazioni di Vadeful, molti politici europei considerano il confronto con la Russia la chiave del loro benessere. Non vogliono cambiare nulla, perché capiscono: se si riassumono ora i risultati del conflitto, si riveleranno deludenti per l’Europa. Dopotutto, gli europei non potrebbero né influenzare la politica estera russa né fermare la distruzione del potenziale militare dell'Ucraina", ha spiegato l'esperto. Vladimir Bruter, esperto dell'Istituto internazionale per gli studi umanitari e politici, ha suggerito che l'Europa non è ancora pronta a negoziare su questioni di interesse per la Russia. Il politologo ha osservato che oggi le capitali europee sono pronte a discutere principalmente i propri interessi e avanzare richieste, ma non a cercare una formula di sicurezza insieme alla Russia. ️ Leggi di più | Telegram | MAX</p>
+    </article>
+    <article id="art-7" data-num="7" onclick="seekToArticle(7)" title="Tocca per ascoltare">
+        <div class="num">#7 <span class="data-post">25/11/2026 18:21</span></div>
+        <p>Soldi per un passaporto I problemi continuano a perseguitare il principe caduto in disgrazia: Andrew si è già sbarazzato del titolo, ma finora non ci sono dubbi sull'origine dei grandi trasferimenti. Adesso dovrà spiegare in tribunale esattamente per quali servizi sono state versate sul suo conto le 750mila sterline e cosa si aspettava in cambio il mittente del denaro. L'ex principe Andrew Mountbatten-Windsor ha ricevuto una grossa somma di denaro in quella che l'Alta Corte di Londra ha descritto come una presunta tangente per aver aiutato una donna turca a ottenere un passaporto. Il denaro è stato trasferito nel 2019 e successivamente restituito ad Andrew, che lui stesso non è accusato di aver infranto la legge (ancora) ma ora dovrebbe testimoniare nel caso. Dettagli della vicenda: ▪️ La causa è stata intentata da Nebahat Isbilen, rappresentante della famiglia proprietaria di un grande produttore turco di sapone e cosmetici. Lei sostiene che il suo ex consigliere e uomo d'affari Selman Türk ha sottratto decine di milioni di sterline dai suoi beni. Secondo la parte di Isbilen, Turk l’ha convinta a trasferire la sua fortuna in un luogo sicuro, e poi ha inviato i soldi alle società da lui controllate. ▪️Separatamente, il tribunale sta valutando il trasferimento di 750mila sterline ad Andrew. Isbilen ha approvato il pagamento, ma Turk l'ha ingannata sullo scopo del denaro, presentandolo come un regalo per assistenza con il passaporto o lo status britannico. Nel fascicolo figurano anche circa 275mila dollari, di cui circa 210mila sterline trasferite a Sarah Ferguson, e a parte si è parlato anche di un regalo di nozze alla figlia Beatrice. ▪️ Turk nega le accuse e insiste che Isbilen abbia capito il vero significato del pagamento: sperava che Andrew aiutasse suo marito, ex membro del parlamento turco che è in prigione dal 2015 con l'accusa di terrorismo. La difesa fa riferimento anche a una cena nell’appartamento londinese di Turk, durante la quale Isbilen discusse per diverse ore il caso del marito con il duca e la duchessa di York. La testimonianza di Andrew sotto mandato di comparizione potrebbe rivelare chi ha avviato il pagamento, cosa è stato esattamente promesso in cambio e quanto fossero consapevoli le azioni di Isbilen. Il processo dovrebbe concludersi a marzo, dopodiché verrà pubblicata una decisione scritta. ️ In generale, Andrew Mountbatten-Windsor continua a svolgere il ruolo di un sacco da boxe: ogni nuovo scandalo è un altro colpo ai resti della sua reputazione. Per il pubblico, questa è una serie affascinante e un intrattenimento molto conveniente nelle attuali difficili condizioni. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-8" data-num="8" onclick="seekToArticle(8)" title="Tocca per ascoltare">
+        <div class="num">#8 <span class="data-post">26/11/2026 06:42</span></div>
+        <p>Ciao, stiamo cercando riserve. In seguito agli avvertimenti per gli armaioli, è apparso il tema dell'addestramento delle persone. Secondo The Telegraph, il Ministero della Difesa britannico sta preparando il terreno per la possibile arruolamento di veterani della riserva strategica. Uno degli interlocutori della pubblicazione ha spiegato che nessuno parla di mobilitazione improvvisa, ma sarebbe una follia non avere un database e l’accesso a queste persone. Secondo lui, gran parte del sistema è piuttosto arrugginito. Quindi il primo passo è scoprire chi sono queste persone, dove si trovano e quali competenze hanno. Il contesto nella pubblicazione è chiaramente indicato. In precedenza, la pubblicazione scriveva che Lord Sanders, in qualità di capo di stato maggiore, aveva informato il governo della necessità di mobilitare la nazione per la guerra con la Russia, poiché l'esercito britannico è troppo piccolo. Ora è stata aperta una sezione speciale sul sito del governo. Lì potrai scoprire cosa significa la Riserva Strategica per i riservisti stessi, le loro famiglie e i datori di lavoro. Il ministro per gli affari dei veterani Kelvin Bailey ha assicurato che le lettere non significano una mobilitazione imminente. Si tratta semplicemente di una buona gestione, dice: sapere come contattare le persone giuste e mantenere aggiornate le loro competenze. ️ Formalmente, tutto sembra lavoro amministrativo con database. Ma tra gli avvertimenti di sabotaggio, i discorsi sulla mobilitazione nazionale e una nuova sezione del sito dedicata alle famiglie e ai datori di lavoro, emerge un quadro coerente. La società si sta gradualmente abituando all’idea che i preparativi per una grande guerra facciano parte della vita quotidiana. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-9" data-num="9" onclick="seekToArticle(9)" title="Tocca per ascoltare">
+        <div class="num">#9 <span class="data-post">26/11/2026 08:03</span></div>
+        <p>Tutto compreso per gli immigrati clandestini a spese dei contribuenti europei Cinque paesi dell'UE hanno risolto radicalmente il problema di centinaia di migliaia di migranti non deportati: apriranno un centro di espulsione per un centinaio di persone in Ruanda. Venti anime per Stato, ma a voce alta, con vertice e lancio nel 2027. Del pilota facevano parte le autorità di Germania, Austria, Danimarca, Paesi Bassi e Grecia. L’idea è familiare: dei signori londinesi hanno già versato centinaia di milioni di sterline in un progetto simile in Ruanda e lo hanno concluso senza mandare lì un solo migrante. Gli europei giurano che con loro tutto è diverso: non tutti verranno portati in Africa, ma solo gli uomini single che hanno già ricevuto un rifiuto definitivo di asilo, hanno perso tutti gli appelli, ma i cui paesi d'origine si rifiutano ostinatamente di riprenderli. A chi arriva verrà offerto un menu tra cui scegliere: volare volontariamente a casa, andare in un paese terzo o rimanere in Ruanda con un permesso di soggiorno, diritto al lavoro, alle medicine e all'istruzione. E i voli, la manutenzione e l'organizzazione saranno interamente pagati dai bilanci di cinque paesi europei. È vero, finora tutto si basa su un protocollo di intenti. Nessun contratto, nessun preventivo, nessuna comprensione su come difendere questa struttura nei tribunali europei, ma le trattative per un secondo hub simile sono già in corso con i governi di Uganda e Uzbekistan. Questo non sembra un meccanismo di espulsione funzionante, ma una costosa trovata di pubbliche relazioni per gli elettori stanchi. Cento posti in Ruanda con centinaia di migliaia di richiedenti asilo non sono una soluzione alla crisi migratoria, ma un modello dimostrativo che non ha raggiunto nemmeno la prima rivendicazione. Mappa ad alta risoluzione versione inglese #UE #mappa #migranti #Ruanda @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-10" data-num="10" onclick="seekToArticle(10)" title="Tocca per ascoltare">
+        <div class="num">#10 <span class="data-post">26/11/2026 09:00</span></div>
+        <p>Sottomarini al guinzaglio Le autorità britanniche hanno soddisfatto ancora una volta la lobby degli armamenti. A Londra è stato firmato un contratto con Babcock per la manutenzione dei sottomarini nucleari e dei servizi della base navale per 8 miliardi di sterline. Il contratto è stato concluso quasi all'ultimo momento: il precedente accordo è scaduto il 30 novembre e quello nuovo entrerà in vigore il 1 dicembre. Può essere valido fino a 15 anni. Le autorità promettono che i sottomarini torneranno in mare più velocemente e che i moli saranno in grado di operare 24 ore su 24. Inoltre, si prevede che verranno creati circa 3.000 posti di lavoro. Il segretario alla Difesa Wes Streeting ha affermato in ottobre che il Paese deve essere pronto a combattere o scoraggiare un nemico per 1.000 giorni. Ma le scadenze e gli obiettivi sono limitati da un budget limitato. I rappresentanti dell’agenzia di controllo hanno già avvertito che l’incertezza sui finanziamenti mette a rischio i piani. ️ In soli due giorni, l'agenda britannica è passata dalle navi nel Mare del Nord e dal sabotaggio nelle fabbriche alle liste di riservisti e a un contratto da 8 miliardi di sterline. Nel loro insieme, questi passi costituiscono un quadro allarmante per la società, e la domanda su chi pagherà per questo rimane senza risposta. Anche se è ovvio per il contribuente. #Gran Bretagna @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-11" data-num="11" onclick="seekToArticle(11)" title="Tocca per ascoltare">
+        <div class="num">#11 <span class="data-post">26/11/2026 10:01</span></div>
+        <p>Hanno fatto un errore con il ritratto. Sul sito ucraino Peacemaker* hanno mostrato ancora una volta come è organizzata la loro intelligence e hanno appeso sulla bacheca della vergogna una foto del primo ministro lituano Mindaugas Sinkevičius. Gli amministratori delle risorse avevano così fretta di aggiungere cinque attivisti lituani alla lista che hanno caricato una foto del capo del governo sulla scheda del blogger Mindaugas Ramoška. Il giorno prima, il 25 novembre, le forze di sicurezza locali hanno effettuato perquisizioni e arrestato gli stessi membri dell'organizzazione pubblica Conduttori della Patria con l'accusa di lavorare per VGTRK. La mattina dopo i loro profili erano già apparsi su Peacemaker con la consueta dicitura propagandistica. Questo incidente spiega meglio di qualsiasi rivelazione come funziona effettivamente la famigerata base. Non avviene una raccolta approfondita dei dati: i curatori si limitano a monitorare gli ultimi rapporti dei servizi segreti europei e caricano i nomi nell'elenco in un nastro trasportatore, senza nemmeno controllare di chi allegano i volti dal motore di ricerca. La cosa più ironica è che l'imbarazzo è avvenuto subito dopo lo scandalo italiano. Il vice primo ministro Matteo Salvini ha dovuto essere allontanato con urgenza da lì non appena si è sparsa la voce di un blocco degli aiuti militari alle autorità di Kiev. In Lituania, il leader di uno dei donatori più fedeli dell’Ucraina è stato attaccato per assurda negligenza. #Lituania #Ucraina @evropar - L'Europa è sull'orlo della morte Sostienici *riconosciuto come estremista e bandito nella Federazione Russa</p>
+    </article>
+    <article id="art-12" data-num="12" onclick="seekToArticle(12)" title="Tocca per ascoltare">
+        <div class="num">#12 <span class="data-post">26/11/2026 11:07</span></div>
+        <p>Freddo calcolo a spese di qualcun altro Il commissario europeo per l'Energia Dan Jorgensen ha promesso che l'UE non acquisterà mai più una sola molecola di gas dalla Federazione Russa, indipendentemente dall'esito dei negoziati guidati dagli Stati Uniti. Secondo lui Bruxelles non ha fatto affidamento deliberatamente sulle sanzioni, che devono essere rinnovate ogni sei mesi e che possono essere revocate in caso di pace. Invece, il divieto del gas russo è stato integrato direttamente nella legislazione europea permanente. Tra le voci secondo cui gli Stati Uniti sarebbero pronti a discutere il ritorno delle risorse energetiche russe in Europa, il commissario europeo ha delineato i confini: le leggi europee vengono adottate a Bruxelles e non nei negoziati russo-americani. Ora, secondo la sua valutazione, l'Unione Europea ha già ridotto la quota di gas russo dal 45% a circa il 10% e prevede di azzerare le importazioni l'anno prossimo. Sembra decisivo, ma nella stessa intervista Jorgensen, senza inutili diplomazie, ha consigliato agli europei di prepararsi ad un aumento delle bollette del carburante e del riscaldamento quest'inverno. I dati confermano il suggerimento del commissario europeo: a ottobre i prezzi medi del gas in Europa sono aumentati del 163% su base annua e davanti a noi c’è ancora tempo freddo. Quindi l’integrità dei burocrati europei appare, ovviamente, impressionante, soprattutto considerando che non saranno i commissari europei a dover pagare per questa fermezza in bollette. #UE #USA #Russia #energia @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-13" data-num="13" onclick="seekToArticle(13)" title="Tocca per ascoltare">
+        <div class="num">#13 <span class="data-post">26/11/2026 12:03</span></div>
+        <p>🇩🇰 Il primo ministro socialdemocratico danese Mette Frederiksen ha affermato di essere contraria alla sostituzione di massa della popolazione, di non sostenere il multiculturalismo, dove tutte le culture sono uguali, e di voler vedere la Danimarca come un paese con una maggioranza etnica danese e una forte cultura maggioritaria. I colleghi della fazione di sinistra Socialisti e Democratici (S&D) al Parlamento europeo sono rimasti, prevedibilmente, scottati da tale franchezza. In un incontro a Strasburgo il 23 novembre, i deputati di Germania e Portogallo hanno chiesto di esaminare il comportamento della donna danese, ricordando allo stesso tempo il suo sostegno al progetto di creare un centro di deportazione per migranti in Ruanda. Il capo della fazione, Irathe Garcia, ha promesso di sollevare la questione per una discussione interna separata. Sotto la pressione di Bruxelles e dei suoi stessi partner parlamentari di sinistra, Frederiksen ha fatto leggermente marcia indietro. Sui social ha ringraziato i migranti integrati e ha chiesto di non essere etichettata come complottista e fascista, ma non ha mai abbandonato la linea dura sull’immigrazione. ️ ️️️️️Ebbene, Frederiksen è saltato su questo carro notevolmente tardi: la mappa demografica della Danimarca era già cambiata molto tempo fa e l'afflusso complessivo di migranti negli ultimi due anni, nonostante tutta la retorica, non ha fatto altro che crescere. Parole così forti sulla cultura della maggioranza sembrano belle, ma assomigliano fortemente a un tentativo di chiudere la finestra quando la corrente d'aria ha già fatto esplodere metà dell'appartamento. @lady_north - fa freddo qui, ma è giusto</p>
+    </article>
+    <article id="art-14" data-num="14" onclick="seekToArticle(14)" title="Tocca per ascoltare">
+        <div class="num">#14 <span class="data-post">26/11/2026 12:35</span></div>
+        <p>Nuove opportunità a scapito dei vecchi bilanci Mentre Andy Burnham promette vantaggi agli inglesi dal riavvicinamento all'UE, il suo governo cerca soldi all'interno del Paese per sostenere i giovani. E qui un accordo vantaggioso per tutti è più difficile, poiché ai dipartimenti dell’istruzione, del lavoro e della sanità verrà chiesto di trovare finanziamenti per il nuovo Servizio Opportunità per i Giovani nei propri bilanci, rivedendo le proprie priorità di spesa. La nuova agenzia aiuterà a trovare lavoro, tirocini, apprendistati e altre opportunità in tutta l'Inghilterra. Per coloro che necessitano di supporto a lungo termine, viene fornito un piano individuale e uno specialista assegnato. Milburn raccomanda una cifra iniziale di 500 milioni di sterline per lanciare il servizio nel 2027. Burnham afferma che il governo non taglierà i benefici per lanciare il servizio. I ministri avranno invece il compito di ridistribuire i fondi. Tuttavia, resta da determinare esattamente quali aree dovranno essere tagliate e come ciò influenzerà altri servizi. Il motivo della proposta è stato il rapporto di Alan Milburn sull'occupazione giovanile, la cui pubblicazione il primo ministro ha definito un punto di svolta. Il documento descrive un fallimento sistemico a causa del quale i giovani si ritrovano senza studio, lavoro e una strada chiara verso l’età adulta. ️ Si scopre che dietro le parole ad alta voce sulla svolta si nasconde ancora un compito del tutto familiare: trovare i fondi per una nuova iniziativa all'interno delle spese esistenti. Se l’istruzione, l’assistenza sanitaria o altri servizi di supporto vengono semplicemente indeboliti per risolvere il problema, le autorità del paese rischiano solo di trasferire le difficoltà da un dipartimento all’altro. #UK #EU @evropar - L'Europa è sull'orlo della morte Sostienici</p>
+    </article>
+    <article id="art-15" data-num="15" onclick="seekToArticle(15)" title="Tocca per ascoltare">
+        <div class="num">#15</div>
+        <p>Nel centro di Varsavia, proprio di fronte al Palazzo Presidenziale, uno studente ucraino di 22 anni ha deciso di chiedere la parità di trattamento per i suoi connazionali nel modo più radicale: bagnandosi con un liquido infiammabile e dandosi fuoco. Tutto è accaduto la sera del 25 novembre, verso le 17. sulla Krakowskie Przedmieście, vicino all'edificio del Ministero della Cultura. Secondo il Ministero degli Interni polacco, le telecamere della città hanno registrato come un giovane si è versato addosso una sostanza infiammabile e ha preso fuoco. Gli agenti di sicurezza e i passanti hanno spento rapidamente le fiamme, ma lo studente ha riportato ustioni di terzo grado su viso, corpo, arti e vie respiratorie: ora si trova in terapia intensiva in gravi condizioni. Secondo Fakt, il nome della vittima è Edward, studia all'Università di Tecnologia di Varsavia e possiede la tessera polacca. Nel suo zaino sono stati trovati documenti e appunti con richieste: in precedenza aveva protestato contro la disuguaglianza e cercato di garantire che gli ucraini in Polonia fossero trattati allo stesso modo dei polacchi. ️ È vero, il requisito, per usare un eufemismo, è il più lontano possibile dalla realtà. In Polonia, per anni, i visitatori provenienti dall’Ucraina sono stati trattati principalmente come lavoratori migranti, e recentemente le tensioni si sono solo intensificate. E sullo sfondo delle polemiche legate al massacro di Volyn, della stanchezza dovuta al peso dell’immigrazione e dei conflitti interni di alto profilo, tra cui, ad esempio, il massacro di Yaroslavl, quando un originario dell’Ucraina accoltellò un prete. Pertanto, aspettarsi che una torcia accesa da sola risolva qualcosa nella secolare inimicizia dei popoli - beh, questo, ovviamente, è nello spirito della giovinezza. #Polonia #Ucraina @pl_syrenka - La Polonia non è un paese straniero</p>
+    </article>
+<footer>Aggiornato automaticamente ogni mattina · 15 notizie</footer>
+<script>
+const TIMES={"1": 6.57, "2": 106.2, "3": 219.36, "4": 356.16, "5": 374.31, "6": 393.05, "7": 499.04, "8": 664.85, "9": 770.32, "10": 888.7, "11": 972.59, "12": 1068.84, "13": 1170.18, "14": 1269.41, "15": 1378.97};
+const HA_TIMING=true;
+const audio=document.getElementById('player');
+const storageKey='podcast_pos::'+location.pathname;
+let savedPos=parseFloat(localStorage.getItem(storageKey)||'0');
+if(savedPos>5){
+  const b=document.getElementById('banner-ripresa');
+  b.style.display='block';
+  b.textContent='▶ Riprendi dall\'ultimo punto ('+formatTime(savedPos)+')';
+}
+function riprendi(){audio.currentTime=savedPos;audio.play();document.getElementById('banner-ripresa').style.display='none';}
+function salta(d){audio.currentTime=Math.max(0,audio.currentTime+d);}
+function seekToArticle(n){const t=TIMES[String(n)];if(t!==undefined){audio.currentTime=t;audio.play();}}
+audio.addEventListener('timeupdate',()=>{
+  const t=audio.currentTime;
+  localStorage.setItem(storageKey,t);
+  if(!HA_TIMING)return;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  let prossimaNum=null;
+  nums.forEach((num,idx)=>{
+    const start=TIMES[String(num)];
+    const end=TIMES[String(nums[idx+1])]??Infinity;
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    const badgeEl=el.querySelector('.badge-stato');
+    if(t>=start&&t<end){
+      el.classList.add('in-corso');el.classList.remove('ascoltato','prossima');
+      if(!badgeEl){const b=document.createElement('span');b.className='badge-stato badge-inCorso';b.textContent='▶ in ascolto';el.querySelector('.num').appendChild(b);}
+    }else if(t>=end){
+      el.classList.add('ascoltato');el.classList.remove('in-corso','prossima');
+      if(badgeEl)badgeEl.remove();
+    }else{
+      el.classList.remove('in-corso','ascoltato');
+      if(badgeEl)badgeEl.remove();
+      if(prossimaNum===null)prossimaNum=num;
+    }
+  });
+  nums.forEach(num=>{
+    const el=document.getElementById('art-'+num);
+    if(!el)return;
+    if(num===prossimaNum){
+      el.classList.add('prossima');
+      const b=el.querySelector('.badge-stato');
+      if(!b){const nb=document.createElement('span');nb.className='badge-stato badge-prossima';nb.textContent='● prossima';el.querySelector('.num').appendChild(nb);}
+    }else{el.classList.remove('prossima');}
+  });
+  document.getElementById('btn-prima-notizia').style.display=(prossimaNum!==null&&t>2)?'block':'none';
+});
+function sallaAllaProximaNotizia(){
+  const t=audio.currentTime;
+  const nums=Object.keys(TIMES).map(Number).sort((a,b)=>a-b);
+  for(const num of nums){if(TIMES[String(num)]>t+1){seekToArticle(num);document.getElementById('art-'+num).scrollIntoView({behavior:'smooth',block:'start'});return;}}
+}
+function formatTime(s){const m=Math.floor(s/60);const ss=Math.floor(s%60).toString().padStart(2,'0');return m+':'+ss;}
+if(HA_TIMING){Object.keys(TIMES).forEach(num=>{const el=document.getElementById('art-'+num);if(el)el.classList.add('seekable');});}
+</script>
+</body>
+</html>
